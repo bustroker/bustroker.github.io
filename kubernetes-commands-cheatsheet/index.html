@@ -9,7 +9,7 @@ ga('create','UA-174998608-2','auto');ga('send','pageview');
 
 <h3 id="Deploy-and-watch-process"><a href="#Deploy-and-watch-process" class="headerlink" title="Deploy and watch process"></a>Deploy and watch process</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl apply -f deployment.yaml</span><br><span class="line">kubectl get service &lt;SERVICE-NAME&gt; [--watch]</span><br></pre></td></tr></table></figure>
 
-<h3 id="Bash-into-k8s-pod"><a href="#Bash-into-k8s-pod" class="headerlink" title="Bash into k8s pod"></a>Bash into k8s pod</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl get pods</span><br><span class="line">kubectl exec --stdin --tty &lt;POD-NAME&gt; -- &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+<h3 id="Bash-into-k8s-pod"><a href="#Bash-into-k8s-pod" class="headerlink" title="Bash into k8s pod"></a>Bash into k8s pod</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl exec -it &lt;POD-NAME&gt; -- &#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
 
 <h3 id="DNS-service-info"><a href="#DNS-service-info" class="headerlink" title="DNS service info"></a>DNS service info</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl get services kube-dns --namespace&#x3D;kube-system</span><br></pre></td></tr></table></figure>
 
