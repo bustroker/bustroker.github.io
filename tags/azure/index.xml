@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>azure on Coding notes</title>
+    <link>https://www.bustroker.com/tags/azure/</link>
+    <description>Recent content in azure on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Curl azure app service with AAD auth</title>
+      <link>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</guid>
+      <description>Basic GET curl localhost:8080Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;quot;param1=value1&amp;amp;param2=value2&amp;quot; POST json curl -X POST http://localhost:3000/data -H &amp;quot;Content-Type: application/json&amp;quot; -d &#39;{&amp;quot;key1&amp;quot;:&amp;quot;value1&amp;quot;, &amp;quot;key2&amp;quot;:&amp;quot;value2&amp;quot;}&#39; POST data from file. application/x-www-form-urlencoded is the default. curl -X POST http://localhost:3000/data -d &amp;quot;@data.txt&amp;quot; Disable certificate validation curl -k https://localhost:8080Add bearer token header curl -H &#39;Accept: application/json&#39; -H &amp;quot;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;quot; https://bustroker.com/api/resourceNew line after output curl localhost:8080 ;echoPretty format json output (Linux) curl localhost:8080 | json_ppalso, jq would do it</description>
+    </item>
+    
+    <item>
+      <title>Configure a rewrite url in web.config, for IIS hosted apps</title>
+      <link>https://www.bustroker.com/notes/configure-a-rewrite-url-in-web.config-for-iis-hosted-apps/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/configure-a-rewrite-url-in-web.config-for-iis-hosted-apps/</guid>
+      <description>Rewrite is not a redirect, it doesn&amp;rsquo;t respond with 3xx in an API call case, and doesn&amp;rsquo;t change the url in the browser in a web app case. It&amp;rsquo;s a mapping of urls from what is exposed by IIS to what is actually exposed by the app.
+Here the documentation.
+Simplest case If the API exponses an endpoint &amp;ldquo;/internalendpoint&amp;rdquo; and I want to actually have it publicly as &amp;ldquo;/publicendpoint&amp;rdquo;
+&amp;lt;?xml version=&amp;#34;1.</description>
+    </item>
+    
+    <item>
+      <title>Net Core 3.1 ILogger&lt;TCategory&gt; with azure app service Application Insights, plus Live Metrics</title>
+      <link>https://www.bustroker.com/notes/net-core-3.1-iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/net-core-3.1-iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</guid>
+      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCoreRegister the service // Startup.cs  public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.
+// appsettings.json { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, .... } Add the ApplicationInsights logging provider This is for the ILogger injected object to send to ApplicationInsights as well.</description>
+    </item>
+    
+    <item>
+      <title>Azure Managed Identity token with cURL</title>
+      <link>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</guid>
+      <description>To test Managed Identity is working fine, SSH inside the VM with Managed Identity enabled (or RDP, for that matter) and cURL an access token for some resource.
+curl &amp;quot;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;quot; -H Metadata:true -sresource query parameter is the resource for which the token is being requested.</description>
+    </item>
+    
+    <item>
+      <title>Enable app service healthcheck from az CLI.</title>
+      <link>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli./</link>
+      <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli./</guid>
+      <description>There&amp;rsquo;s a new healthcheck feature available, in preview as of 18-01-2020 (the link url includes &amp;lsquo;preview&amp;rsquo;, so it&amp;rsquo;ll probably break when the feature goes GA&amp;hellip;)
+When healthcheck is enabled:
+ the platform sends requests, apparently every minute aprox, to monitor the specified health endpoint. As per the logs, the request seem to be sent every minute in a round robin, alternating all the VM instances behind the app service balancer. if Easy Auth is set for the app service, then for the configured endpoint it is disabled so it can be hit without authentication.</description>
+    </item>
+    
+    <item>
+      <title>Azure Api App failing on startup with 500.30</title>
+      <link>https://www.bustroker.com/notes/azure-api-app-failing-on-startup-with-500.30/</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/azure-api-app-failing-on-startup-with-500.30/</guid>
+      <description>When the app startup fails, it does so silently. Or effectivly silently: complaining without providing relevant information. This is the IIS complain
+&amp;lt;body&amp;gt; &amp;lt;h1&amp;gt; HTTP Error 500.30 - ANCM In-Process Start Failure &amp;lt;/h1&amp;gt; &amp;lt;h2&amp;gt; Common solutions to this issue: &amp;lt;/h2&amp;gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;The application failed to start&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;The application started but then stopped&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;The application started but threw an exception during startup&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &amp;lt;h2&amp;gt; Troubleshooting steps: &amp;lt;/h2&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; Check the system event log for error messages &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; Enable logging the application process&amp;#39; stdout messages &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; Attach a debugger to the application process and inspect &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;h2&amp;gt; For more information visit: &amp;lt;a href=&amp;#34;https://go.</description>
+    </item>
+    
+    <item>
+      <title>Azure App Configuration refresh on demand.</title>
+      <link>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand./</link>
+      <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand./</guid>
+      <description>Here&amp;rsquo;s what Azure App Configuration Service is.
+Here&amp;rsquo;s how to use it.
+How the web api middleware uses the App Configuration Client As per oficial documentation, refering to
+// Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env)app.UseAzureAppConfiguration();&amp;ldquo;The middleware uses the refresh configuration specified in the AddAzureAppConfiguration method in Program.cs to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired.</description>
+    </item>
+    
+    <item>
+      <title>Azure App Configuration with Key Vault and Managed Identity in HA</title>
+      <link>https://www.bustroker.com/notes/azure-app-configuration-with-key-vault-and-managed-identity-in-ha/</link>
+      <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/azure-app-configuration-with-key-vault-and-managed-identity-in-ha/</guid>
+      <description>Here&amp;rsquo;s what Azure App Configuration Service is.
+And I want a production ready setup:
+ use it to serve secret params as well, keeping them in Key Vault access it with Managed Identity(MI). have it in High Availability  How Azure App Configuration client works Here&amp;rsquo;s how the client works, using the sentinel pattern, i.e., using one key to be the one that the client actually checks to know whether or not a full configuration refresh is needed.</description>
+    </item>
+    
+    <item>
+      <title>Kusto cheatsheet.</title>
+      <link>https://www.bustroker.com/notes/kusto-cheatsheet./</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/kusto-cheatsheet./</guid>
+      <description>requests durations distribution with steps (bins) of 100 ms app(&amp;quot;bustroker-sales-webapi&amp;quot;).requests| where name == &amp;quot;POST SalesController/Post&amp;quot;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id| summarize count() by bin(req_duration, 100)| sort by req_duration asc| render timechart requests duration percentiles and requests dependencies duration percentiles app(&amp;quot;bustroker-sales-webapi&amp;quot;).requests| where name == &amp;quot;POST SalesControler/Post&amp;quot;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id| summarize count(), avg(req_duration), stdev(req_duration) , percentiles(req_duration, 25, 50, 95, 99)| project type_tag = &amp;quot;Core Request&amp;quot;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99 | union(app(&amp;quot;bustroker-sales-webapi&amp;quot;).</description>
+    </item>
+    
+  </channel>
+</rss>

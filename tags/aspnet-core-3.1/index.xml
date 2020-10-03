@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aspnet core 3.1 on Coding notes</title>
+    <link>https://www.bustroker.com/tags/aspnet-core-3.1/</link>
+    <description>Recent content in aspnet core 3.1 on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/aspnet-core-3.1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Very basic logging to console from netcore webapi with Serilog</title>
+      <link>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</link>
+      <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
+      <description>Add serilog required packages
+dotnet add package Serilog.AspNetCoredotnet add package Serilog.Sinks.ElasticSearchUsing
+using Serilog; using Serilog.Sinks.Elasticsearch; Configure serilog on CreateHostBuilder. Only relevant code is included.
+public class Program { private const string ApplicationId = &amp;#34;Bustroker.Transactions.WebApi&amp;#34;; private const string ElasticEndpoint = &amp;#34;http://localhost:9200&amp;#34;; ///....  ///....  ///....  ///....  public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog((hostincContext, loggerConfiguration) =&amp;gt; // send to Elastic for real time monitoring  ConfigureSerilogLoggerWithElastic(loggerConfiguration) ) .</description>
+    </item>
+    
+    <item>
+      <title>Basics of .Net Core 3.1 ILogger&lt;TCategory&gt;.</title>
+      <link>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory./</link>
+      <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory./</guid>
+      <description>Applying it to logging to Log Streaming in Azure Web app net core 3.1, (and to Console)
+ netcore 3.1 basic console logging  Azure app services real time logs monitoring for troubleshooting.
+Log Stream Add package to write to Azure File dotnet add package Microsoft.Extensions.Logging.AzureAppServicesAdd the provider I like to add the Console provider as well so I can check what&amp;rsquo;s going on when running locally too, but it&amp;rsquo;s not required for the portal Log Streaming.</description>
+    </item>
+    
+  </channel>
+</rss>

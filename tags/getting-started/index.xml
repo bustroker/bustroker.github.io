@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>getting started on Coding notes</title>
+    <link>https://www.bustroker.com/tags/getting-started/</link>
+    <description>Recent content in getting started on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/getting-started/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setup aspnet core app with vagrant and docker.</title>
+      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker./</link>
+      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker./</guid>
+      <description>dotnet 3.1 Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
+dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rather a linux vm to work with docker. Check the post Setup dotnet core app with vagrant and docker for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host.</description>
+    </item>
+    
+    <item>
+      <title>Nuget.config file</title>
+      <link>https://www.bustroker.com/notes/nuget.config-file/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/nuget.config-file/</guid>
+      <description>In Azure DevOps&#39; Package Feed, the user bustroker.packages.restore@bustroker.onmicrosoft.com needs to be added explicitly as a Reader, in the Feed&amp;rsquo;s Security tab. Then generate a Read Package PAT for that user.
+//nuget.config &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;packageSources&amp;gt; &amp;lt;clear /&amp;gt; &amp;lt;add key=&amp;#34;BustrokerPackages&amp;#34; value=&amp;#34;https://pkgs.dev.azure.com/bustroker/_packaging/Bustroker.Packages./nuget/v3/index.json&amp;#34; /&amp;gt; &amp;lt;/packageSources&amp;gt; &amp;lt;packageSourceCredentials&amp;gt; &amp;lt;BustrokerPackages&amp;gt; &amp;lt;add key=&amp;#34;Username&amp;#34; value=&amp;#34;bustroker.packages.restore@bustroker.onmicrosoft.com&amp;#34; /&amp;gt; &amp;lt;!-- Azure DevOps PAT that can ONLY ReadPackages --&amp;gt; &amp;lt;add key=&amp;#34;ClearTextPassword&amp;#34; value=&amp;#34;CLEAR_PAT&amp;#34; /&amp;gt; &amp;lt;/BustrokerPackages&amp;gt; &amp;lt;/packageSourceCredentials&amp;gt; &amp;lt;/configuration&amp;gt; Environment Variables can be used as well //nuget.</description>
+    </item>
+    
+    <item>
+      <title>A cool terminal for windows with context menu</title>
+      <link>https://www.bustroker.com/notes/a-cool-terminal-for-windows-with-context-menu/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/a-cool-terminal-for-windows-with-context-menu/</guid>
+      <description>No installation, cool colors, with context menu to open directly in a folder.
+Install Donwload cmder terminal, unzip, copy to the folder you prefer (just not any Administrator-required-to-work-on folder).
+Context menu shortcut To add Shortcut in context menu for Open Cmder here, open a cmd as Administrator, and go:
+cd c:\cmder\folder.\cmder.exe /REGISTER ALL</description>
+    </item>
+    
+    <item>
+      <title>Vagrant VM provision &amp; vagrant commands cheathsheet.</title>
+      <link>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet./</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet./</guid>
+      <description>Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/bionic64&amp;#34; config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 8080, host: 8080 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;UbuntuBionic&amp;#34;  vb.memory = 2048 # vb.gui = true end end Vagrant provision script Create a file vagrant_provision.sh in the same folder of Vagrantfile, with the following content. Just remove the tools not required, here&amp;rsquo;s all I&amp;rsquo;ve ever needed.
+Make sure to check for latest versions of some of the installed tools.</description>
+    </item>
+    
+    <item>
+      <title>Simplest node express static files server.</title>
+      <link>https://www.bustroker.com/notes/simplest-node-express-static-files-server./</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/simplest-node-express-static-files-server./</guid>
+      <description>The simplest node static files server.
+Create the project and install express package npm initnpm install express --saveCreate server.js file in the root. // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); Create a static page Now all files in www folder are being served. Create a www folder in the root and add an html file.</description>
+    </item>
+    
+    <item>
+      <title>Simplest node express web API.</title>
+      <link>https://www.bustroker.com/notes/simplest-node-express-web-api./</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/simplest-node-express-web-api./</guid>
+      <description>For frontend dev, the simplest web API to joke around with.
+Create the project and install express package
+npm initnpm install expressCreate server.js file in the root.
+// server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.send({ message: &amp;#34;I&amp;#39;m here&amp;#34;}); }); app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000!&amp;#39;)); </description>
+    </item>
+    
+  </channel>
+</rss>

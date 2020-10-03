@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>appsettings on Coding notes</title>
+    <link>https://www.bustroker.com/tags/appsettings/</link>
+    <description>Recent content in appsettings on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/appsettings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dotnet Core 3.1 appsettings mapping with IOptions, IOptionsSnapshot and IOptionsMonitor</title>
+      <link>https://www.bustroker.com/notes/dotnet-core-3.1-appsettings-mapping-with-ioptions-ioptionssnapshot-and-ioptionsmonitor/</link>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/dotnet-core-3.1-appsettings-mapping-with-ioptions-ioptionssnapshot-and-ioptionsmonitor/</guid>
+      <description>Check official documentation here
+For a behaviour summary for each interface see here
+Usage I prefer to create a section called Settings to keep all the parameters, so I&amp;rsquo;ll follow this approach.
+Define AppSettings (or you name it) class class AppSettings { public string AadTenantName { get; set; } public string AadClientApplicationId { get; set; } } Create corresponding parameters in appsettings.json { &amp;#34;Logging&amp;#34;: { &amp;#34;LogLevel&amp;#34;: { ..... } }, &amp;#34;AllowedHosts&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;Settings&amp;#34;: { &amp;#34;AadTenantName&amp;#34;: &amp;#34;comercia.</description>
+    </item>
+    
+  </channel>
+</rss>

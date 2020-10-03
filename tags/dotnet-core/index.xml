@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dotnet core on Coding notes</title>
+    <link>https://www.bustroker.com/tags/dotnet-core/</link>
+    <description>Recent content in dotnet core on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/dotnet-core/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dotnet Core 3.1 appsettings mapping with IOptions, IOptionsSnapshot and IOptionsMonitor</title>
+      <link>https://www.bustroker.com/notes/dotnet-core-3.1-appsettings-mapping-with-ioptions-ioptionssnapshot-and-ioptionsmonitor/</link>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/dotnet-core-3.1-appsettings-mapping-with-ioptions-ioptionssnapshot-and-ioptionsmonitor/</guid>
+      <description>Check official documentation here
+For a behaviour summary for each interface see here
+Usage I prefer to create a section called Settings to keep all the parameters, so I&amp;rsquo;ll follow this approach.
+Define AppSettings (or you name it) class class AppSettings { public string AadTenantName { get; set; } public string AadClientApplicationId { get; set; } } Create corresponding parameters in appsettings.json { &amp;#34;Logging&amp;#34;: { &amp;#34;LogLevel&amp;#34;: { ..... } }, &amp;#34;AllowedHosts&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;Settings&amp;#34;: { &amp;#34;AadTenantName&amp;#34;: &amp;#34;comercia.</description>
+    </item>
+    
+    <item>
+      <title>Net Core 3.1 appsettings &amp; env variables</title>
+      <link>https://www.bustroker.com/notes/net-core-3.1-appsettings-env-variables/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/net-core-3.1-appsettings-env-variables/</guid>
+      <description>Reading apppsettings.json in dotnet 3.1 Add the packages
+dotnet add package Microsoft.Extensions.Configurationdotnet add package Microsoft.Extensions.Configuration.FileExtensionsdotnet add package Microsoft.Extensions.Configuration.JsonAdd appsettings.json file with required parameters
+{ &amp;#34;Settings&amp;#34;: { &amp;#34;Params&amp;#34;: { &amp;#34;Param1&amp;#34;: &amp;#34;value 1&amp;#34;, &amp;#34;Param2&amp;#34;: &amp;#34;value 2&amp;#34; } } } Load configuration section Console app // Program.cs var builder = new ConfigurationBuilder() .SetBasePath(Directory.GetCurrentDirectory()) .AddJsonFile(&amp;#34;appsettings.json&amp;#34;, optional: true, reloadOnChange: true); IConfiguration configuration = builder.Build(); Use configuration
+var param1 = configuration.GetSection(&amp;#34;Settings&amp;#34;).GetValue&amp;lt;string&amp;gt;(&amp;#34;Params:Param1&amp;#34;); Web Api // Program.</description>
+    </item>
+    
+    <item>
+      <title>Very basic logging to file from Console app with Serilog</title>
+      <link>https://www.bustroker.com/notes/very-basic-logging-to-file-from-console-app-with-serilog/</link>
+      <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/very-basic-logging-to-file-from-console-app-with-serilog/</guid>
+      <description>Add serilog
+dotnet add package Serilogstatic async Task Main(string[] args) { Log.Logger = new LoggerConfiguration() .Enrich.FromLogContext() .WriteTo.Console() .WriteTo.File(&amp;#34;logs/log.json&amp;#34;) .CreateLogger(); Log.Information(&amp;#34;Running..&amp;#34;); } </description>
+    </item>
+    
+    <item>
+      <title>Handling parallel exceptions.</title>
+      <link>https://www.bustroker.com/notes/handling-parallel-exceptions./</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/handling-parallel-exceptions./</guid>
+      <description>I&amp;rsquo;m executing several tasks in parallel, where more than one throw exceptions. I want to handle all the exceptions, which basically means catching them all and being able to, at least, rethrowing them with all the info they carry.
+So, here it is how
+var runnersTasks = new List&amp;lt;Task&amp;gt;();// list to keep the tasks created Task compositeTask = null; // task consisting in waiting for all the tasks to finish in parallel try { // run all the tasks and keep them in the list  Runners.</description>
+    </item>
+    
+    <item>
+      <title>Create dotnet core sln with class library plus xunit tests with cli for vscode</title>
+      <link>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</link>
+      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</guid>
+      <description>Create a folder for the solution and cd into it A solution (sln file) is required to be able to have projects referencing others.
+mkdir Bustroker.Notescd Bustroker.NotesCreate solution The sln file is created directly in the folder it&amp;rsquo;s run.
+dotnet new sln -n Bustroker.NotesCreate class library project and add it to the solution A folder is created, containing the project
+dotnet new classlib -n Bustroker.Notesdotnet sln add Bustroker.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>heroku on Coding notes</title>
+    <link>https://www.bustroker.com/tags/heroku/</link>
+    <description>Recent content in heroku on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/heroku/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploy dotnet core app to heroku.</title>
+      <link>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku./</link>
+      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku./</guid>
+      <description>An aspnet core web app/api app is assumed to have been implemented already. Following is how to deploy it.
+Heroku PORT Heroku saves in the environment variable PORT, the port where the application should listen. So the port needs to be changed to that one.
+//Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { var herokuPort = Environment.GetEnvironmentVariable(&amp;#34;PORT&amp;#34;); if (!string.IsNullOrWhiteSpace(herokuPort)) { webBuilder.UseUrls($&amp;#34;http://*:{herokuPort}&amp;#34;); } webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); Dockerfile FROMmcr.microsoft.com/dotnet/core/sdk:3.1 AS build-envWORKDIR/app# Copy csproj and restore as distinct layersCOPY *.</description>
+    </item>
+    
+  </channel>
+</rss>

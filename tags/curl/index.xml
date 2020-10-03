@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>curl on Coding notes</title>
+    <link>https://www.bustroker.com/tags/curl/</link>
+    <description>Recent content in curl on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/curl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Curl azure app service with AAD auth</title>
+      <link>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</guid>
+      <description>Basic GET curl localhost:8080Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;quot;param1=value1&amp;amp;param2=value2&amp;quot; POST json curl -X POST http://localhost:3000/data -H &amp;quot;Content-Type: application/json&amp;quot; -d &#39;{&amp;quot;key1&amp;quot;:&amp;quot;value1&amp;quot;, &amp;quot;key2&amp;quot;:&amp;quot;value2&amp;quot;}&#39; POST data from file. application/x-www-form-urlencoded is the default. curl -X POST http://localhost:3000/data -d &amp;quot;@data.txt&amp;quot; Disable certificate validation curl -k https://localhost:8080Add bearer token header curl -H &#39;Accept: application/json&#39; -H &amp;quot;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;quot; https://bustroker.com/api/resourceNew line after output curl localhost:8080 ;echoPretty format json output (Linux) curl localhost:8080 | json_ppalso, jq would do it</description>
+    </item>
+    
+    <item>
+      <title>Azure Managed Identity token with cURL</title>
+      <link>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</guid>
+      <description>To test Managed Identity is working fine, SSH inside the VM with Managed Identity enabled (or RDP, for that matter) and cURL an access token for some resource.
+curl &amp;quot;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;quot; -H Metadata:true -sresource query parameter is the resource for which the token is being requested.</description>
+    </item>
+    
+    <item>
+      <title>cURL usefull commands cheatsheet</title>
+      <link>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</guid>
+      <description>Basic GET curl localhost:8080Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;quot;param1=value1&amp;amp;param2=value2&amp;quot; POST json curl -X POST http://localhost:3000/data -H &amp;quot;Content-Type: application/json&amp;quot; -d &#39;{&amp;quot;key1&amp;quot;:&amp;quot;value1&amp;quot;, &amp;quot;key2&amp;quot;:&amp;quot;value2&amp;quot;}&#39; POST data from file. application/x-www-form-urlencoded is the default. curl -X POST http://localhost:3000/data -d &amp;quot;@data.txt&amp;quot; Disable certificate validation curl -k https://localhost:8080Add bearer token header curl -H &#39;Accept: application/json&#39; -H &amp;quot;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;quot; https://bustroker.com/api/resourceNew line after output curl localhost:8080 ;echoPretty format json output (Linux) curl localhost:8080 | json_ppalso, jq would do it</description>
+    </item>
+    
+  </channel>
+</rss>

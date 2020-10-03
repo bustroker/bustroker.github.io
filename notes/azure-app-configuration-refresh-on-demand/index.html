@@ -1,0 +1,305 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Azure App Configuration refresh on demand. | Coding notes</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Azure App Configuration refresh on demand.</h1>
+<p><a href="(https://docs.microsoft.com/en-us/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core?tabs=core3x)">Here&rsquo;s</a> what Azure App Configuration Service is.</p>
+<p><a href="http://www.bustroker.com/azure-app-configuration-with-key-vault-and-managed-identity-in-ha/">Here&rsquo;s</a> how to use it.</p>
+<h3 id="how-the-web-api-middleware-uses-the-app-configuration-client">How the web api middleware uses the App Configuration Client</h3>
+<p>As per oficial <a href="https://docs.microsoft.com/en-us/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core?tabs=core3x">documentation</a>, refering to</p>
+<pre><code>// Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env)
+app.UseAzureAppConfiguration();
+</code></pre><p><em>&ldquo;The middleware uses the refresh configuration specified in the AddAzureAppConfiguration method in Program.cs to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired. If it&rsquo;s expired, it&rsquo;s refreshed.&quot;</em></p>
+<p>It&rsquo;s worth to note that the refresh doesn&rsquo;t happen synchronously, but as fire &amp; forget (you can check so in the <a href="https://github.com/Azure/AppConfiguration-DotnetProvider/blob/master/src/Microsoft.Azure.AppConfiguration.AspNetCore/AzureAppConfigurationRefreshMiddleware.cs">code of the middleware</a>), so it actually does not impact the incomming request&rsquo;s response time. Rather the next request is the one that will see the change in the value.</p>
+<h3 id="on-demand-configuration-refresh">On demand configuration refresh</h3>
+<p>But it doesn&rsquo;t make sense to have one request every 30 seconds to ask for something that changes only once in a long while (not to talk about infinite cahe and having to restart the application when changing it).</p>
+<p>Plus it does impact in cost, because considering a cache of 30 sec (the default) and an with one request every 30 seconds, you get one request to the &lsquo;sentinel&rsquo; key every 30 seconds to the App Config Service, PER SERVICE with this configurations. So, 10 services make over 200k calls a day, and that is actually the limit above which the service starts charging extra. Not good.</p>
+<p>So, this is not the behaviour I want, because:</p>
+<ul>
+<li>either it makes A LOT of extra calls, if cache expiration is short (and it costs money)</li>
+<li>or there is a LONG time to apply config changes, if fache expiration is long</li>
+</ul>
+<p>What I want is:</p>
+<ul>
+<li>Minimum calls to Config API, because I&rsquo;m short in cash :P</li>
+<li>Short cache expiration because I need the changes are applied ASAP</li>
+</ul>
+<p>So, I implement an OnDemandAzureAppConfigurationRefresher and then expose an endpoint to trigger the refresh on demand.</p>
+<h3 id="implementing-ondemandazureappconfigurationrefresher">Implementing OnDemandAzureAppConfigurationRefresher</h3>
+<p>I don&rsquo;t want the refresh to be triggered by the middleware, instead I want to call it explicitly, so:</p>
+<ul>
+<li>I won&rsquo;t register the AppConfiguration middleware in Startup.Configure</li>
+<li>I&rsquo;ll implement the refresh as it is done in AzureAppConfigurationRefreshMiddleware class, in <a href="https://github.com/Azure/AppConfiguration-DotnetProvider">Microsoft&rsquo;s repo</a>, like this</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OnDemandAzureAppConfigurationRefresher</span> : IAzureAppConfigurationRefresher
+{
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> List&lt;IConfigurationRefresher&gt; _configurationRefreshers = <span style="color:#66d9ef">new</span> List&lt;IConfigurationRefresher&gt;();
+
+    <span style="color:#66d9ef">public</span> OnDemandAzureAppConfigurationRefresher(IConfiguration configuration)
+    {
+        <span style="color:#66d9ef">var</span> configurationRoot = configuration <span style="color:#66d9ef">as</span> IConfigurationRoot;
+
+        <span style="color:#66d9ef">if</span> (configurationRoot == <span style="color:#66d9ef">null</span>)
+        {
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> InvalidOperationException(<span style="color:#e6db74">&#34;The &#39;IConfiguration&#39; injected in OnDemantConfigurationRefresher is not an &#39;IConfigurationRoot&#39;, and needs to be as well.&#34;</span>);
+        }
+
+        <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> provider <span style="color:#66d9ef">in</span> configurationRoot.Providers)
+        {
+            <span style="color:#66d9ef">if</span> (provider <span style="color:#66d9ef">is</span> IConfigurationRefresher refresher)
+            {
+                _configurationRefreshers.Add(refresher);
+            }
+        }
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task RefreshAllRegisteredKeysAsync()
+    {
+        Task compositeTask = <span style="color:#66d9ef">null</span>;
+        <span style="color:#66d9ef">var</span> refreshersTasks = <span style="color:#66d9ef">new</span> List&lt;Task&gt;();
+        <span style="color:#66d9ef">try</span>
+        {
+            _configurationRefreshers.ForEach(r =&gt; refreshersTasks.Add(r.RefreshAsync()));
+            compositeTask = Task.WhenAll(refreshersTasks);
+            <span style="color:#66d9ef">await</span> compositeTask;
+        }
+        <span style="color:#66d9ef">catch</span> (Exception)
+        {
+            <span style="color:#66d9ef">throw</span> compositeTask.Exception;
+        }
+    }
+}
+</code></pre></div><h3 id="add-app-configuration-configuration">Add App Configuration configuration</h3>
+<p>First add the nuget package from the console</p>
+<pre><code>dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+</code></pre><p>Add the App Configuration as the configuration to use, with a refreshing config (this is a basic config, to focus on the refresh part).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Program.cs
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =&gt;
+        {
+            webBuilder
+                .ConfigureAppConfiguration((hostingContext, config) =&gt;
+                    {
+                        <span style="color:#66d9ef">var</span> settings = config.Build();
+
+                        config
+                            .AddAzureAppConfiguration(options =&gt; 
+                            {
+                                options.Connect(settings[<span style="color:#e6db74">&#34;ConnectionStrings:AzAppConfigurationConnectionString&#34;</span>])
+                                    .ConfigureRefresh(refreshOptions =&gt;
+                                    {
+                                        refreshOptions.Register(<span style="color:#e6db74">&#34;Bustroker.AppConfiguration.WebApi:sentinel&#34;</span>, refreshAll: <span style="color:#66d9ef">true</span>)
+                                                .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">30</span>));
+                                    });
+                            });
+                    })
+                .UseStartup&lt;Startup&gt;();
+        });
+
+</code></pre></div><p>Register the service</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Startup.ConfigureServices
+</span><span style="color:#75715e"></span>services.AddScoped&lt;IAzureAppConfigurationRefresher, OnDemandAzureAppConfigurationRefresher&gt;();
+</code></pre></div><h3 id="expose-an-endpoint-to-trigger-app-configuration-refresh-on-demand">Expose an endpoint to trigger App Configuration refresh on demand</h3>
+<p>Inject it in a Refresh controller to expose the refresh endpoint</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// RefreshAzAppConfigurationController
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">[ApiController]</span>
+<span style="color:#a6e22e">[Route(&#34;[controller]</span><span style="color:#e6db74">&#34;)]
+</span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RefreshAzAppConfigurationController</span> : ControllerBase
+{
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IAzureAppConfigurationRefresher _azureAppConfigurationRefresher;
+
+    <span style="color:#66d9ef">public</span> RefreshAzAppConfigurationController(IAzureAppConfigurationRefresher onDemandConfigurationRefresher)
+    {
+        _azureAppConfigurationRefresher = onDemandConfigurationRefresher;
+    }
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">    [HttpPost]</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;IActionResult&gt; Post()
+    {
+        <span style="color:#66d9ef">await</span> _azureAppConfigurationRefresher.RefreshAllRegisteredKeysAsync();
+        <span style="color:#66d9ef">return</span> Ok();
+    }
+}
+</code></pre></div><h3 id="talk-is-cheap">Talk is cheap</h3>
+<p><a href="https://github.com/bustroker/Bustroker.AzureAppConfiguration">Here&rsquo;s</a> the full code &amp; usage, and <a href="https://www.nuget.org/packages/Bustroker.AzureAppConfigurationRefresher/">here&rsquo;s</a> the nuget package with the refresher.</p>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

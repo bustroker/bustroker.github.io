@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>links on Coding notes</title>
+    <link>https://www.bustroker.com/tags/links/</link>
+    <description>Recent content in links on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/links/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JMeter command line. Link.</title>
+      <link>https://www.bustroker.com/notes/jmeter-command-line.-link./</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/jmeter-command-line.-link./</guid>
+      <description>JMeter command line https://www.softwarehour.com/jmeter/jmeter-command-line/ https://www.perfmatrix.com/how-to-generate-a-dashboard-report-in-jmeter/</description>
+    </item>
+    
+  </channel>
+</rss>

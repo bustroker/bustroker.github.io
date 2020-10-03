@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xunit on Coding notes</title>
+    <link>https://www.bustroker.com/tags/xunit/</link>
+    <description>Recent content in xunit on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/xunit/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create dotnet core sln with class library plus xunit tests with cli for vscode</title>
+      <link>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</link>
+      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</guid>
+      <description>Create a folder for the solution and cd into it A solution (sln file) is required to be able to have projects referencing others.
+mkdir Bustroker.Notescd Bustroker.NotesCreate solution The sln file is created directly in the folder it&amp;rsquo;s run.
+dotnet new sln -n Bustroker.NotesCreate class library project and add it to the solution A folder is created, containing the project
+dotnet new classlib -n Bustroker.Notesdotnet sln add Bustroker.</description>
+    </item>
+    
+  </channel>
+</rss>

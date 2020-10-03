@@ -1,0 +1,284 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.75.1" />
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Vagrant VM provision &amp; vagrant commands cheathsheet. | Coding notes</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Vagrant VM provision &amp; vagrant commands cheathsheet.</h1>
+<h3 id="vagrantfile">Vagrantfile</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">Vagrant.configure(&#34;2&#34;) do |config|</span>
+  <span style="color:#ae81ff">config.vm.box = &#34;ubuntu/bionic64&#34;</span>
+  <span style="color:#ae81ff">config.vm.synced_folder &#34;./&#34;, &#34;/vagrant&#34;</span>
+  <span style="color:#ae81ff">config.vm.network &#34;forwarded_port&#34;, guest: 8080, host: 8080</span>
+  <span style="color:#f92672">config.vm.provision :shell, path</span>: <span style="color:#e6db74">&#34;vagrant_provision.sh&#34;</span>
+  
+  <span style="color:#ae81ff">config.vm.provider &#34;virtualbox&#34; do |vb|</span>
+    <span style="color:#ae81ff">vb.name = &#34;UbuntuBionic&#34;     </span>
+    <span style="color:#ae81ff">vb.memory = 2048</span>
+    <span style="color:#75715e"># vb.gui = true</span>
+  <span style="color:#ae81ff">end</span>
+<span style="color:#ae81ff">end</span>
+
+</code></pre></div><h3 id="vagrant-provision-script">Vagrant provision script</h3>
+<p>Create a file <code>vagrant_provision.sh</code> in the same folder of <code>Vagrantfile</code>, with the following content. Just remove the tools not required, here&rsquo;s all I&rsquo;ve ever needed.</p>
+<p>Make sure to check for latest versions of some of the installed tools.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">// vagrant_provision.sh
+
+echo <span style="color:#e6db74">&#34;provisioning VM...&#34;</span>
+sudo apt update
+sudo apt-get update
+
+<span style="color:#75715e"># set environment variable</span>
+echo ENVIRONMENT_NAME<span style="color:#f92672">=</span>DEV &gt;&gt; /etc/environment
+
+<span style="color:#75715e"># install az cli</span>
+sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+sudo apt -y install gnupg2 pass
+az upgrade
+az --version
+echo <span style="color:#e6db74">&#34;azure cli installed...&#34;</span>
+
+<span style="color:#75715e"># install docker and run</span>
+sudo apt -y install docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version
+echo <span style="color:#e6db74">&#34;docker installed and running...&#34;</span>
+
+<span style="color:#75715e"># create group &#39;docker&#39; and add user &#39;vagrant&#39; (the one I connect with) to it</span>
+sudo groupadd docker
+sudo usermod -aG docker vagrant
+echo <span style="color:#e6db74">&#34;docker group created and &#39;vagrant&#39; user added to it...&#34;</span>
+
+<span style="color:#75715e"># install docker compose</span>
+sudo curl -L https://github.com/docker/compose/releases/download/1.26.2/docker-compose-<span style="color:#e6db74">`</span>uname -s<span style="color:#e6db74">`</span>-<span style="color:#e6db74">`</span>uname -m<span style="color:#e6db74">`</span> -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+echo <span style="color:#e6db74">&#34;docker compose installed...&#34;</span>
+
+<span style="color:#75715e"># install minikube &amp; run it with docker driver by default</span>
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+minikube config set driver docker
+minikube version
+echo <span style="color:#e6db74">&#34;minikube installed and configured to use docker driver...&#34;</span>
+
+<span style="color:#75715e"># install kubectl</span>
+curl -LO https://storage.googleapis.com/kubernetes-release/release/<span style="color:#e6db74">`</span>curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt<span style="color:#e6db74">`</span>/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+kubectl version --client
+echo <span style="color:#e6db74">&#34;kubectl installed and in PATH...&#34;</span>
+
+<span style="color:#75715e"># install istioctl</span>
+<span style="color:#75715e"># Specify the Istio version that will be leveraged throughout these instructions</span>
+ISTIO_VERSION<span style="color:#f92672">=</span>1.6.7
+curl -sL <span style="color:#e6db74">&#34;https://github.com/istio/istio/releases/download/</span>$ISTIO_VERSION<span style="color:#e6db74">/istio-</span>$ISTIO_VERSION<span style="color:#e6db74">-linux.tar.gz&#34;</span> | tar xz
+cd istio-$ISTIO_VERSION
+sudo cp ./bin/istioctl /usr/local/bin/istioctl
+sudo chmod +x /usr/local/bin/istioctl
+istioctl version --remote<span style="color:#f92672">=</span>false
+echo <span style="color:#e6db74">&#34;istioctl installed...&#34;</span>
+
+<span style="color:#75715e"># install helm</span>
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+<span style="color:#75715e"># install heroku cli</span>
+curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+echo <span style="color:#e6db74">&#34;heroku cli installed...&#34;</span>
+
+<span style="color:#75715e"># install mosquitto client</span>
+sudo apt install -y mosquitto-clients
+echo <span style="color:#e6db74">&#34;mosquitto-clients installed...&#34;</span>
+
+<span style="color:#75715e"># install dotnet sdk</span>
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get update
+sudo apt-get install -y apt-transport-https
+sudo apt-get update
+sudo apt-get install -y dotnet-sdk-3.1
+dotnet --version
+echo <span style="color:#e6db74">&#34;dotnet sdk 3.1 installed&#34;</span>
+
+<span style="color:#75715e"># install node and npm</span>
+sudo apt install -y nodejs npm
+
+echo <span style="color:#e6db74">&#34;done provisioning VM.&#34;</span>
+</code></pre></div>
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

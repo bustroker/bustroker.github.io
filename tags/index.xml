@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Coding notes</title>
+    <link>https://www.bustroker.com/tags/</link>
+    <description>Recent content in Tags on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>azure devops</title>
+      <link>https://www.bustroker.com/tags/azure-devops/</link>
+      <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/azure-devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cheatsheet</title>
+      <link>https://www.bustroker.com/tags/cheatsheet/</link>
+      <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/cheatsheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>https://www.bustroker.com/tags/bash/</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bat</title>
+      <link>https://www.bustroker.com/tags/bat/</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/bat/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>command line</title>
+      <link>https://www.bustroker.com/tags/command-line/</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/command-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>azure</title>
+      <link>https://www.bustroker.com/tags/azure/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>curl</title>
+      <link>https://www.bustroker.com/tags/curl/</link>
+      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/curl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>appsettings</title>
+      <link>https://www.bustroker.com/tags/appsettings/</link>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/appsettings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dotnet core</title>
+      <link>https://www.bustroker.com/tags/dotnet-core/</link>
+      <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/dotnet-core/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jmeter</title>
+      <link>https://www.bustroker.com/tags/jmeter/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/jmeter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>links</title>
+      <link>https://www.bustroker.com/tags/links/</link>
+      <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/links/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aspnet core</title>
+      <link>https://www.bustroker.com/tags/aspnet-core/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/aspnet-core/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bundling</title>
+      <link>https://www.bustroker.com/tags/bundling/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/bundling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>minification</title>
+      <link>https://www.bustroker.com/tags/minification/</link>
+      <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/minification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aspnet core 3.1</title>
+      <link>https://www.bustroker.com/tags/aspnet-core-3.1/</link>
+      <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/aspnet-core-3.1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>elasticsearch</title>
+      <link>https://www.bustroker.com/tags/elasticsearch/</link>
+      <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serilog</title>
+      <link>https://www.bustroker.com/tags/serilog/</link>
+      <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/serilog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phonegap</title>
+      <link>https://www.bustroker.com/tags/phonegap/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/phonegap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vagrant</title>
+      <link>https://www.bustroker.com/tags/vagrant/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://www.bustroker.com/tags/docker/</link>
+      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>getting started</title>
+      <link>https://www.bustroker.com/tags/getting-started/</link>
+      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/getting-started/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>heroku</title>
+      <link>https://www.bustroker.com/tags/heroku/</link>
+      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/heroku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>helm</title>
+      <link>https://www.bustroker.com/tags/helm/</link>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://www.bustroker.com/tags/kubernetes/</link>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iis</title>
+      <link>https://www.bustroker.com/tags/iis/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/iis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>application insights</title>
+      <link>https://www.bustroker.com/tags/application-insights/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/application-insights/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://www.bustroker.com/tags/python/</link>
+      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nuget.config</title>
+      <link>https://www.bustroker.com/tags/nuget.config/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/nuget.config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kusto</title>
+      <link>https://www.bustroker.com/tags/kusto/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/kusto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vscode</title>
+      <link>https://www.bustroker.com/tags/vscode/</link>
+      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xunit</title>
+      <link>https://www.bustroker.com/tags/xunit/</link>
+      <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/xunit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>raspberry pi</title>
+      <link>https://www.bustroker.com/tags/raspberry-pi/</link>
+      <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>node</title>
+      <link>https://www.bustroker.com/tags/node/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/node/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
