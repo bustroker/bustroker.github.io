@@ -36,7 +36,7 @@ Heroku PORT Heroku saves in the environment variable PORT, the port where the ap
       
       <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker./</guid>
       <description>dotnet 3.1 Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
-dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rather a linux vm to work with docker. Check the post Setup dotnet core app with vagrant and docker for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host.</description>
+dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Setup dotnet core app with vagrant and docker for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host.</description>
     </item>
     
     <item>
@@ -46,7 +46,7 @@ dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rathe
       
       <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
       <description>Add serilog
-dotnet add package Serilog.AspNetCorepublic class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog() .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); } Then add
+dotnet add package Serilog.AspNetCore public class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog() .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); } Then add
 // Startup.cs  public void Configure(IApplicationBuilder app, IWebHostEnvironment env) { if (env.</description>
     </item>
     

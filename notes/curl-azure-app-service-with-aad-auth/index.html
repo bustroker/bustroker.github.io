@@ -131,8 +131,8 @@ audio {
         
 
 <h1>Curl azure app service with AAD auth</h1>
-<h3 id="basic-get">Basic GET</h3>
-<pre><code class="language-console" data-lang="console">curl localhost:8080
+<h3 id="get-token">Get token</h3>
+<pre><code class="language-console" data-lang="console">curl -X POST -d 'grant_type=client_credentials&amp;client_id=&lt;APP_ID&gt;&amp;client_secret=&lt;PASSWORD&gt;&amp;resource=https%3A%2F%2Fmanagement.azure.com%2F' https://login.microsoftonline.com/&lt;TENANT_ID&gt;/oauth2/token
 </code></pre><h3 id="basic-post-applicationx-www-form-urlencoded-is-the-default">Basic POST. <code>application/x-www-form-urlencoded</code> is the default</h3>
 <pre><code class="language-console" data-lang="console">curl -X POST http://localhost:8080/data -d &quot;param1=value1&amp;param2=value2&quot; 
 </code></pre><h3 id="post-json">POST json</h3>

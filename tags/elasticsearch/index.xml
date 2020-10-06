@@ -14,7 +14,7 @@
       
       <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
       <description>Add serilog required packages
-dotnet add package Serilog.AspNetCoredotnet add package Serilog.Sinks.ElasticSearchUsing
+dotnet add package Serilog.AspNetCore dotnet add package Serilog.Sinks.ElasticSearch Using
 using Serilog; using Serilog.Sinks.Elasticsearch; Configure serilog on CreateHostBuilder. Only relevant code is included.
 public class Program { private const string ApplicationId = &amp;#34;Bustroker.Transactions.WebApi&amp;#34;; private const string ElasticEndpoint = &amp;#34;http://localhost:9200&amp;#34;; ///....  ///....  ///....  ///....  public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog((hostincContext, loggerConfiguration) =&amp;gt; // send to Elastic for real time monitoring  ConfigureSerilogLoggerWithElastic(loggerConfiguration) ) .</description>
     </item>
