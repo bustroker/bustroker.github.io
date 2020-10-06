@@ -61,20 +61,20 @@ Define AppSettings (or you name it) class class AppSettings { public string AadT
     </item>
     
     <item>
-      <title>JMeter command line. Link.</title>
-      <link>https://www.bustroker.com/notes/jmeter-command-line.-link./</link>
+      <title>JMeter command line - Links</title>
+      <link>https://www.bustroker.com/notes/jmeter-command-line-links/</link>
       <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/jmeter-command-line.-link./</guid>
+      <guid>https://www.bustroker.com/notes/jmeter-command-line-links/</guid>
       <description>JMeter command line https://www.softwarehour.com/jmeter/jmeter-command-line/ https://www.perfmatrix.com/how-to-generate-a-dashboard-report-in-jmeter/</description>
     </item>
     
     <item>
-      <title>Bundling and minification in Aspnet Core MVC.</title>
-      <link>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc./</link>
+      <title>Bundling and minification in Aspnet Core MVC</title>
+      <link>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc/</link>
       <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc./</guid>
+      <guid>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc/</guid>
       <description>Static files should be bundled and minified, and forced to be updated by the browser (not cached) when content changes.
 Bundle and minify them To bundle and minify js and css files, add bundleconfig.json file to the project root folder
 [ { &amp;#34;outputFileName&amp;#34;: &amp;#34;wwwroot/css/site.min.css&amp;#34;, &amp;#34;inputFiles&amp;#34;: [ &amp;#34;wwwroot/css/site.css&amp;#34; ] }, { &amp;#34;outputFileName&amp;#34;: &amp;#34;wwwroot/js/site.min.js&amp;#34;, &amp;#34;inputFiles&amp;#34;: [ &amp;#34;wwwroot/js/site.js&amp;#34; ], &amp;#34;minify&amp;#34;: { &amp;#34;enabled&amp;#34;: true, &amp;#34;renameLocals&amp;#34;: true }, &amp;#34;sourceMap&amp;#34;: false } ] Load them Add the reference to the page</description>
@@ -93,64 +93,64 @@ public class Program { private const string ApplicationId = &amp;#34;Bustroker.T
     </item>
     
     <item>
-      <title>Build native mobile packages from html/css/js app with PhoneGap Build cloud service.</title>
-      <link>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service./</link>
+      <title>Build native mobile packages from html/css/js app with PhoneGap Build cloud service</title>
+      <link>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service/</link>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service./</guid>
+      <guid>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service/</guid>
       <description>Note: PhoneGap and PhoneGap Build are going to be shut down
 General idea Startup with an html/js/css app. Build an APK from the front-end web app using PhoneGap Build cloud service. Unfortunatly Phonegap CLI fails for some weird reason, so the I had to manually zip it before posting it to the API (the API doesn&amp;rsquo;t fail but expects the zip up to where I got).
 Phonegap Build account Create an account in https://build.</description>
     </item>
     
     <item>
-      <title>Deploy dotnet core app to heroku.</title>
-      <link>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku./</link>
+      <title>Deploy dotnet core app to heroku</title>
+      <link>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku/</link>
       <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku./</guid>
+      <guid>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku/</guid>
       <description>An aspnet core web app/api app is assumed to have been implemented already. Following is how to deploy it.
 Heroku PORT Heroku saves in the environment variable PORT, the port where the application should listen. So the port needs to be changed to that one.
 //Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { var herokuPort = Environment.GetEnvironmentVariable(&amp;#34;PORT&amp;#34;); if (!string.IsNullOrWhiteSpace(herokuPort)) { webBuilder.UseUrls($&amp;#34;http://*:{herokuPort}&amp;#34;); } webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); Dockerfile FROMmcr.microsoft.com/dotnet/core/sdk:3.1 AS build-envWORKDIR/app# Copy csproj and restore as distinct layersCOPY *.</description>
     </item>
     
     <item>
-      <title>Setup aspnet core app with vagrant and docker.</title>
-      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker./</link>
+      <title>Setup aspnet core app with vagrant and docker</title>
+      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</link>
       <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker./</guid>
+      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
       <description>dotnet 3.1 Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
 dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Setup dotnet core app with vagrant and docker for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host.</description>
     </item>
     
     <item>
-      <title>Helm 3 commands cheatsheet.</title>
-      <link>https://www.bustroker.com/notes/helm-3-commands-cheatsheet./</link>
+      <title>Helm 3 commands cheatsheet</title>
+      <link>https://www.bustroker.com/notes/helm-3-commands-cheatsheet/</link>
       <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/helm-3-commands-cheatsheet./</guid>
+      <guid>https://www.bustroker.com/notes/helm-3-commands-cheatsheet/</guid>
       <description>Create .tgz package from chart folder content cd chart helm package . Deploy local tgz package to kubernetes The terminal must have been authenticated. In case of AKS, run az aks get-credentials --resource-group &amp;lt;RESOURCEGROUP_NAME&amp;gt; --name &amp;lt;AKS_CLUSTERNAME&amp;gt;
 helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;TGZ_PACKAGE&amp;gt; List releases in kubernetes helm list helm get all &amp;lt;RELEASE_NAME&amp;gt; Deploy chart from registry No direct way for the moment. Need to pull, export and then install
 helm chart pull &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt; helm chart export &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt; helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;EXPORTED_CHART_FOLDER&amp;gt; helm chart export will create a folder named after the chart (chart.</description>
     </item>
     
     <item>
-      <title>Kubernetes (1.7) commands cheatsheet.</title>
-      <link>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet./</link>
+      <title>Kubernetes (1.7) commands cheatsheet</title>
+      <link>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</link>
       <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet./</guid>
+      <guid>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</guid>
       <description>Version: 1.6
 Get info kubectl get pods -o wide kubectl describe svc &amp;lt;SERVICE-NAME&amp;gt; Delete all pods with a label kubectl delete pods -l label=value Set namespace for kubectl console session kubectl config set-context --current -n=&amp;lt;NAMESPACE&amp;gt; Validate deployment before actually applying it kubectl apply --dry-run=client -f deployment.yaml Deploy a service and watch process kubectl apply -f deployment.yaml kubectl get service &amp;lt;SERVICE-NAME&amp;gt; [--watch] Bash into k8s existing pod kubectl exec -it &amp;lt;POD-NAME&amp;gt; -- /bin/bash Deploy the most basic disposable pod and bash into it, to access the network.</description>
     </item>
     
     <item>
-      <title>Docker commands cheatsheet.</title>
-      <link>https://www.bustroker.com/notes/docker-commands-cheatsheet./</link>
+      <title>Docker commands cheatsheet</title>
+      <link>https://www.bustroker.com/notes/docker-commands-cheatsheet/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/docker-commands-cheatsheet./</guid>
+      <guid>https://www.bustroker.com/notes/docker-commands-cheatsheet/</guid>
       <description>Version: 19.03
 buid image and set tag -t docker build -t bustroker.notes.webui:v1 . multiple tags are allowed as well
 docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest . tag image docker tag [localImage] [registryServer]/[imageName]:[version] # ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1 add tag to existing tagged image docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latest list images docker images remove all images optionally add -f at the end to force
@@ -213,11 +213,11 @@ Simplest case If the API exponses an endpoint &amp;ldquo;/internalendpoint&amp;r
     </item>
     
     <item>
-      <title>Basics of .Net Core 3.1 ILogger&lt;TCategory&gt;.</title>
-      <link>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory./</link>
+      <title>Basics of .Net Core 3.1 ILogger&lt;TCategory&gt;</title>
+      <link>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory./</guid>
+      <guid>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</guid>
       <description>Applying it to logging to Log Streaming in Azure Web app net core 3.1, (and to Console)
  netcore 3.1 basic console logging  Azure app services real time logs monitoring for troubleshooting.
 Log Stream Add package to write to Azure File dotnet add package Microsoft.Extensions.Logging.AzureAppServices Add the provider I like to add the Console provider as well so I can check what&amp;rsquo;s going on when running locally too, but it&amp;rsquo;s not required for the portal Log Streaming.</description>
@@ -275,11 +275,11 @@ Importing pd.read_csv(filename) # From a CSV file pd.read_table(filename) # From
     </item>
     
     <item>
-      <title>Enable app service healthcheck from az CLI.</title>
-      <link>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli./</link>
+      <title>Enable app service healthcheck from az CLI</title>
+      <link>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli./</guid>
+      <guid>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli/</guid>
       <description>There&amp;rsquo;s a new healthcheck feature available, in preview as of 18-01-2020 (the link url includes &amp;lsquo;preview&amp;rsquo;, so it&amp;rsquo;ll probably break when the feature goes GA&amp;hellip;)
 When healthcheck is enabled:
  the platform sends requests, apparently every minute aprox, to monitor the specified health endpoint. As per the logs, the request seem to be sent every minute in a round robin, alternating all the VM instances behind the app service balancer. if Easy Auth is set for the app service, then for the configured endpoint it is disabled so it can be hit without authentication.</description>
@@ -296,11 +296,11 @@ When healthcheck is enabled:
     </item>
     
     <item>
-      <title>Azure App Configuration refresh on demand.</title>
-      <link>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand./</link>
+      <title>Azure App Configuration refresh on demand</title>
+      <link>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand./</guid>
+      <guid>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand/</guid>
       <description>Here&amp;rsquo;s what Azure App Configuration Service is.
 Here&amp;rsquo;s how to use it.
 How the web api middleware uses the App Configuration Client As per oficial documentation, refering to
@@ -308,11 +308,11 @@ How the web api middleware uses the App Configuration Client As per oficial docu
     </item>
     
     <item>
-      <title>Handling parallel exceptions.</title>
-      <link>https://www.bustroker.com/notes/handling-parallel-exceptions./</link>
+      <title>Handling parallel exceptions in dotnet</title>
+      <link>https://www.bustroker.com/notes/handling-parallel-exceptions-in-dotnet/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/handling-parallel-exceptions./</guid>
+      <guid>https://www.bustroker.com/notes/handling-parallel-exceptions-in-dotnet/</guid>
       <description>I&amp;rsquo;m executing several tasks in parallel, where more than one throw exceptions. I want to handle all the exceptions, which basically means catching them all and being able to, at least, rethrowing them with all the info they carry.
 So, here it is how
 var runnersTasks = new List&amp;lt;Task&amp;gt;();// list to keep the tasks created Task compositeTask = null; // task consisting in waiting for all the tasks to finish in parallel try { // run all the tasks and keep them in the list  Runners.</description>
@@ -330,11 +330,11 @@ And I want a production ready setup:
     </item>
     
     <item>
-      <title>Basic usage IHttpClientFactory.</title>
-      <link>https://www.bustroker.com/notes/basic-usage-ihttpclientfactory./</link>
+      <title>Basic usage IHttpClientFactory</title>
+      <link>https://www.bustroker.com/notes/basic-usage-ihttpclientfactory/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/basic-usage-ihttpclientfactory./</guid>
+      <guid>https://www.bustroker.com/notes/basic-usage-ihttpclientfactory/</guid>
       <description>register it
 //Startup.cs public void ConfigureServices(IServiceCollection services) { ... services.AddHttpClient(); } use it
 //HealthController.cs private readonly IHttpClientFactory _clientFactory; public HealthController(IHttpClientFactory clientFactory) { _clientFactory = clientFactory; } </description>
@@ -363,11 +363,11 @@ cd c:\cmder\folder .\cmder.exe /REGISTER ALL </description>
     </item>
     
     <item>
-      <title>Kusto cheatsheet.</title>
-      <link>https://www.bustroker.com/notes/kusto-cheatsheet./</link>
+      <title>Kusto cheatsheet</title>
+      <link>https://www.bustroker.com/notes/kusto-cheatsheet/</link>
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/kusto-cheatsheet./</guid>
+      <guid>https://www.bustroker.com/notes/kusto-cheatsheet/</guid>
       <description>requests durations distribution with steps (bins) of 100 ms app(&amp;quot;bustroker-sales-webapi&amp;quot;).requests | where name == &amp;quot;POST SalesController/Post&amp;quot; | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id | summarize count() by bin(req_duration, 100) | sort by req_duration asc | render timechart requests duration percentiles and requests dependencies duration percentiles app(&amp;quot;bustroker-sales-webapi&amp;quot;).requests | where name == &amp;quot;POST SalesControler/Post&amp;quot; | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id | summarize count(), avg(req_duration), stdev(req_duration) , percentiles(req_duration, 25, 50, 95, 99) | project type_tag = &amp;quot;Core Request&amp;quot;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99 | union( app(&amp;quot;bustroker-sales-webapi&amp;quot;).</description>
     </item>
     
@@ -394,43 +394,43 @@ dotnet new classlib -n Bustroker.Notes dotnet sln add Bustroker.</description>
     </item>
     
     <item>
-      <title>Voice commands assistant in node.</title>
-      <link>https://www.bustroker.com/notes/voice-commands-assistant-in-node./</link>
+      <title>Voice commands assistant in node</title>
+      <link>https://www.bustroker.com/notes/voice-commands-assistant-in-node/</link>
       <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/voice-commands-assistant-in-node./</guid>
+      <guid>https://www.bustroker.com/notes/voice-commands-assistant-in-node/</guid>
       <description>Shirka is a nodejs voice command assistant based in pocketsphinx, living in a RaspberryPi3. Nodered ties all up.
 The Ears Shirka_ears listens for voice commands through the microphone, and publishes them in a mosquitto queue. It&amp;rsquo;s based in pocketsphinx, a &amp;ldquo;a lightweight speech recognition engine, specifically tuned for handheld and mobile devices, though it works equally well on the desktop &amp;ldquo;, in their own saying.
 The Voice Shirka_voice is a listener to another mosquitto queue that receives the messages, creates a WAF file using pico2wave text-to-speech engine, and reproduces them with omxplayer.</description>
     </item>
     
     <item>
-      <title>Vagrant commands cheatsheet.</title>
-      <link>https://www.bustroker.com/notes/vagrant-commands-cheatsheet./</link>
+      <title>Vagrant commands cheatsheet</title>
+      <link>https://www.bustroker.com/notes/vagrant-commands-cheatsheet/</link>
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/vagrant-commands-cheatsheet./</guid>
+      <guid>https://www.bustroker.com/notes/vagrant-commands-cheatsheet/</guid>
       <description>Most used commands new vagrant file vagrant init check status vagrant status vagrant global-status to manage VMs (boxes) vagrant box to run VM local project folder is sync with /vagrant in VM
 vagrant up to ssh in vagrant ssh close ssh connection with Ctrl+d
 to shut down the VM (without loosing everything) vagrant halt to destroy the VM (losing everything) vagrant destroy ssh into VM vagrant ssh vagrant VM ssh server is in host&amp;rsquo;s 2222 port, so putty can be used targeting localhost:2222 Also, vagrant VM&amp;rsquo;s 22 port can be forwarded to any other host&amp;rsquo;s port.</description>
     </item>
     
     <item>
-      <title>Simplest node express static files server.</title>
-      <link>https://www.bustroker.com/notes/simplest-node-express-static-files-server./</link>
+      <title>Simplest node express static files server</title>
+      <link>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/simplest-node-express-static-files-server./</guid>
+      <guid>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</guid>
       <description>The simplest node static files server.
 Create the project and install express package npm init npm install express --save Create server.js file in the root. // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); Create a static page Now all files in www folder are being served. Create a www folder in the root and add an html file.</description>
     </item>
     
     <item>
-      <title>Simplest node express web API.</title>
-      <link>https://www.bustroker.com/notes/simplest-node-express-web-api./</link>
+      <title>Simplest node express web API</title>
+      <link>https://www.bustroker.com/notes/simplest-node-express-web-api/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/simplest-node-express-web-api./</guid>
+      <guid>https://www.bustroker.com/notes/simplest-node-express-web-api/</guid>
       <description>For frontend dev, the simplest web API to joke around with.
 Create the project and install express package
 npm init npm install express Create server.js file in the root.
@@ -438,11 +438,11 @@ npm init npm install express Create server.js file in the root.
     </item>
     
     <item>
-      <title>Mortgage simulator in python.</title>
-      <link>https://www.bustroker.com/notes/mortgage-simulator-in-python./</link>
+      <title>Mortgage simulator in python</title>
+      <link>https://www.bustroker.com/notes/mortgage-simulator-in-python/</link>
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/mortgage-simulator-in-python./</guid>
+      <guid>https://www.bustroker.com/notes/mortgage-simulator-in-python/</guid>
       <description>Implemented as per explanation by Universidad de Valencia&amp;rsquo;s Professor Carlos Ivorra, in the article Las matemáticas de una hipoteca about &amp;ldquo;underlying math in mortgage loans&amp;rdquo;. The full pdf article (in spanish) is here.
 The code is in spanish and by the way, it&amp;rsquo;s so cool to be able to name variables in python using spanish accents. It brough out a smile :).
 The important part class Calculadora: def __init__(self): return def interés_efectivo_mensual(self, euríbor, diferencial_interés): # (divido tb por 100 para tener el por-uno) return (euríbor + diferencial_interés) / 1200 def cuota(self, monto_préstamo, interés_efectivo_mensual, total_de_meses): c_0 = monto_préstamo i = interés_efectivo_mensual N = total_de_meses return (c_0 * i) / (1-(1 + i)**(-N)) def deuda_después_de_n_pagos(self, monto_cuota, interés_efectivo_mensual, total_de_meses, n): c = monto_cuota i = interés_efectivo_mensual N = total_de_meses return c/i * (1 - (1+i)**(n-N)) Talk is cheap Here&amp;rsquo;s the code.</description>

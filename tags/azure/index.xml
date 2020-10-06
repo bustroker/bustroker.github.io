@@ -49,11 +49,11 @@ curl &amp;quot;http://169.254.169.254/metadata/identity/oauth2/token?api-version
     </item>
     
     <item>
-      <title>Enable app service healthcheck from az CLI.</title>
-      <link>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli./</link>
+      <title>Enable app service healthcheck from az CLI</title>
+      <link>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli/</link>
       <pubDate>Mon, 18 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli./</guid>
+      <guid>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli/</guid>
       <description>There&amp;rsquo;s a new healthcheck feature available, in preview as of 18-01-2020 (the link url includes &amp;lsquo;preview&amp;rsquo;, so it&amp;rsquo;ll probably break when the feature goes GA&amp;hellip;)
 When healthcheck is enabled:
  the platform sends requests, apparently every minute aprox, to monitor the specified health endpoint. As per the logs, the request seem to be sent every minute in a round robin, alternating all the VM instances behind the app service balancer. if Easy Auth is set for the app service, then for the configured endpoint it is disabled so it can be hit without authentication.</description>
@@ -70,11 +70,11 @@ When healthcheck is enabled:
     </item>
     
     <item>
-      <title>Azure App Configuration refresh on demand.</title>
-      <link>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand./</link>
+      <title>Azure App Configuration refresh on demand</title>
+      <link>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand./</guid>
+      <guid>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand/</guid>
       <description>Here&amp;rsquo;s what Azure App Configuration Service is.
 Here&amp;rsquo;s how to use it.
 How the web api middleware uses the App Configuration Client As per oficial documentation, refering to
@@ -93,11 +93,11 @@ And I want a production ready setup:
     </item>
     
     <item>
-      <title>Kusto cheatsheet.</title>
-      <link>https://www.bustroker.com/notes/kusto-cheatsheet./</link>
+      <title>Kusto cheatsheet</title>
+      <link>https://www.bustroker.com/notes/kusto-cheatsheet/</link>
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/kusto-cheatsheet./</guid>
+      <guid>https://www.bustroker.com/notes/kusto-cheatsheet/</guid>
       <description>requests durations distribution with steps (bins) of 100 ms app(&amp;quot;bustroker-sales-webapi&amp;quot;).requests | where name == &amp;quot;POST SalesController/Post&amp;quot; | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id | summarize count() by bin(req_duration, 100) | sort by req_duration asc | render timechart requests duration percentiles and requests dependencies duration percentiles app(&amp;quot;bustroker-sales-webapi&amp;quot;).requests | where name == &amp;quot;POST SalesControler/Post&amp;quot; | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id | summarize count(), avg(req_duration), stdev(req_duration) , percentiles(req_duration, 25, 50, 95, 99) | project type_tag = &amp;quot;Core Request&amp;quot;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99 | union( app(&amp;quot;bustroker-sales-webapi&amp;quot;).</description>
     </item>
     

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>links | Coding notes</title>
+  <title>Handling parallel exceptions in dotnet | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,27 +130,30 @@ audio {
       <main id="main">
         
 
-<h1>links</h1>
+<h1>Handling parallel exceptions in dotnet</h1>
+<p>I&rsquo;m executing several tasks in parallel, where more than one throw exceptions. I want to handle <strong>all the exceptions</strong>, which basically means catching them <strong>all</strong> and being able to, at least, rethrowing them with all the info they carry.</p>
+<p>So, here it is how</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">var</span> runnersTasks = <span style="color:#66d9ef">new</span> List&lt;Task&gt;();<span style="color:#75715e">// list to keep the tasks created
+</span><span style="color:#75715e"></span>Task compositeTask = <span style="color:#66d9ef">null</span>; <span style="color:#75715e">// task consisting in waiting for all the tasks to finish in parallel
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">try</span>
+{
+    <span style="color:#75715e">// run all the tasks and keep them in the list
+</span><span style="color:#75715e"></span>    Runners.ForEach(r =&gt; runnersTasks.Add(r.RunAsync()));
 
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/jmeter-command-line-links/">JMeter command line - Links</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2020-09-09">Sep 9, 9000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/jmeter">jmeter</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/links">links</a>
-  
-
-</p>
+    <span style="color:#75715e">// just wait for them all to finish, and keep the reference
+</span><span style="color:#75715e"></span>    compositeTask = Task.WhenAll(runnersTasks);
+    <span style="color:#66d9ef">await</span> compositeTask;
+}
+<span style="color:#66d9ef">catch</span> (Exception) <span style="color:#75715e">// here if you actually catch the exception, you&#39;ll find it&#39;s only the first one thrown
+</span><span style="color:#75715e"></span>{
+    <span style="color:#75715e">//usually just throw back the full AggregateException, rather than just the first exception catched here
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">throw</span> compositeTask.Exception;
+}
+</code></pre></div><h3 id="the-cathed-exception-is-only-the-first-one-thrown">The cathed exception is only the first one thrown.</h3>
+<p>That&rsquo;s right. The list of all the exceptions is actually in the AggregateException kept in the property <em>Exception</em> of the <em>compositeTask</em>.</p>
+<p>So, yes, the handling is that ugly.</p>
+<h3 id="talk-is-cheap">Talk is cheap</h3>
+<p><a href="https://github.com/bustroker/Bustroker.ParallelExceptions">Here&rsquo;s</a> the code.</p>
 
 
 

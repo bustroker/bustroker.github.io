@@ -20,11 +20,11 @@ public class Program { private const string ApplicationId = &amp;#34;Bustroker.T
     </item>
     
     <item>
-      <title>Basics of .Net Core 3.1 ILogger&lt;TCategory&gt;.</title>
-      <link>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory./</link>
+      <title>Basics of .Net Core 3.1 ILogger&lt;TCategory&gt;</title>
+      <link>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory./</guid>
+      <guid>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</guid>
       <description>Applying it to logging to Log Streaming in Azure Web app net core 3.1, (and to Console)
  netcore 3.1 basic console logging  Azure app services real time logs monitoring for troubleshooting.
 Log Stream Add package to write to Azure File dotnet add package Microsoft.Extensions.Logging.AzureAppServices Add the provider I like to add the Console provider as well so I can check what&amp;rsquo;s going on when running locally too, but it&amp;rsquo;s not required for the portal Log Streaming.</description>

@@ -8,22 +8,22 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Build native mobile packages from html/css/js app with PhoneGap Build cloud service.</title>
-      <link>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service./</link>
+      <title>Build native mobile packages from html/css/js app with PhoneGap Build cloud service</title>
+      <link>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service/</link>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service./</guid>
+      <guid>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service/</guid>
       <description>Note: PhoneGap and PhoneGap Build are going to be shut down
 General idea Startup with an html/js/css app. Build an APK from the front-end web app using PhoneGap Build cloud service. Unfortunatly Phonegap CLI fails for some weird reason, so the I had to manually zip it before posting it to the API (the API doesn&amp;rsquo;t fail but expects the zip up to where I got).
 Phonegap Build account Create an account in https://build.</description>
     </item>
     
     <item>
-      <title>Setup aspnet core app with vagrant and docker.</title>
-      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker./</link>
+      <title>Setup aspnet core app with vagrant and docker</title>
+      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</link>
       <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker./</guid>
+      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
       <description>dotnet 3.1 Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
 dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Setup dotnet core app with vagrant and docker for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host.</description>
     </item>
@@ -39,11 +39,11 @@ Make sure to check for latest versions of some of the installed tools.</descript
     </item>
     
     <item>
-      <title>Vagrant commands cheatsheet.</title>
-      <link>https://www.bustroker.com/notes/vagrant-commands-cheatsheet./</link>
+      <title>Vagrant commands cheatsheet</title>
+      <link>https://www.bustroker.com/notes/vagrant-commands-cheatsheet/</link>
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/vagrant-commands-cheatsheet./</guid>
+      <guid>https://www.bustroker.com/notes/vagrant-commands-cheatsheet/</guid>
       <description>Most used commands new vagrant file vagrant init check status vagrant status vagrant global-status to manage VMs (boxes) vagrant box to run VM local project folder is sync with /vagrant in VM
 vagrant up to ssh in vagrant ssh close ssh connection with Ctrl+d
 to shut down the VM (without loosing everything) vagrant halt to destroy the VM (losing everything) vagrant destroy ssh into VM vagrant ssh vagrant VM ssh server is in host&amp;rsquo;s 2222 port, so putty can be used targeting localhost:2222 Also, vagrant VM&amp;rsquo;s 22 port can be forwarded to any other host&amp;rsquo;s port.</description>

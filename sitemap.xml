@@ -103,7 +103,7 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/jmeter-command-line.-link./</loc>
+    <loc>https://www.bustroker.com/notes/jmeter-command-line-links/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -123,7 +123,7 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc./</loc>
+    <loc>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc/</loc>
     <lastmod>2020-08-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -153,7 +153,7 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service./</loc>
+    <loc>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service/</loc>
     <lastmod>2020-08-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -168,7 +168,7 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku./</loc>
+    <loc>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku/</loc>
     <lastmod>2020-08-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -183,7 +183,7 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker./</loc>
+    <loc>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</loc>
     <lastmod>2020-08-08T00:00:00+00:00</lastmod>
   </url>
   
@@ -193,7 +193,7 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/helm-3-commands-cheatsheet./</loc>
+    <loc>https://www.bustroker.com/notes/helm-3-commands-cheatsheet/</loc>
     <lastmod>2020-08-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -203,12 +203,12 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet./</loc>
+    <loc>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</loc>
     <lastmod>2020-08-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/docker-commands-cheatsheet./</loc>
+    <loc>https://www.bustroker.com/notes/docker-commands-cheatsheet/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -248,7 +248,7 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory./</loc>
+    <loc>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</loc>
     <lastmod>2020-06-04T00:00:00+00:00</lastmod>
   </url>
   
@@ -288,8 +288,13 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli./</loc>
+    <loc>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli/</loc>
     <lastmod>2020-05-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.bustroker.com/tags/app-configuration/</loc>
+    <lastmod>2020-05-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -298,12 +303,17 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand./</loc>
+    <loc>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/handling-parallel-exceptions./</loc>
+    <loc>https://www.bustroker.com/tags/dotnet-core-3.1/</loc>
+    <lastmod>2020-05-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.bustroker.com/notes/handling-parallel-exceptions-in-dotnet/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -313,7 +323,7 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/basic-usage-ihttpclientfactory./</loc>
+    <loc>https://www.bustroker.com/notes/basic-usage-ihttpclientfactory/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -333,7 +343,7 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/kusto-cheatsheet./</loc>
+    <loc>https://www.bustroker.com/notes/kusto-cheatsheet/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url>
   
@@ -363,12 +373,12 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/voice-commands-assistant-in-node./</loc>
+    <loc>https://www.bustroker.com/notes/voice-commands-assistant-in-node/</loc>
     <lastmod>2019-06-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/vagrant-commands-cheatsheet./</loc>
+    <loc>https://www.bustroker.com/notes/vagrant-commands-cheatsheet/</loc>
     <lastmod>2019-05-07T00:00:00+00:00</lastmod>
   </url>
   
@@ -378,17 +388,17 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/simplest-node-express-static-files-server./</loc>
+    <loc>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/simplest-node-express-web-api./</loc>
+    <loc>https://www.bustroker.com/notes/simplest-node-express-web-api/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/mortgage-simulator-in-python./</loc>
+    <loc>https://www.bustroker.com/notes/mortgage-simulator-in-python/</loc>
     <lastmod>2018-09-11T00:00:00+00:00</lastmod>
   </url>
   

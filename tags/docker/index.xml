@@ -20,21 +20,21 @@ Create function cd Bustroker.Processor.Func func new --name ChangeFeedProcessor 
     </item>
     
     <item>
-      <title>Setup aspnet core app with vagrant and docker.</title>
-      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker./</link>
+      <title>Setup aspnet core app with vagrant and docker</title>
+      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</link>
       <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker./</guid>
+      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
       <description>dotnet 3.1 Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
 dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Setup dotnet core app with vagrant and docker for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host.</description>
     </item>
     
     <item>
-      <title>Docker commands cheatsheet.</title>
-      <link>https://www.bustroker.com/notes/docker-commands-cheatsheet./</link>
+      <title>Docker commands cheatsheet</title>
+      <link>https://www.bustroker.com/notes/docker-commands-cheatsheet/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/docker-commands-cheatsheet./</guid>
+      <guid>https://www.bustroker.com/notes/docker-commands-cheatsheet/</guid>
       <description>Version: 19.03
 buid image and set tag -t docker build -t bustroker.notes.webui:v1 . multiple tags are allowed as well
 docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest . tag image docker tag [localImage] [registryServer]/[imageName]:[version] # ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1 add tag to existing tagged image docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latest list images docker images remove all images optionally add -f at the end to force
