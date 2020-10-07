@@ -181,6 +181,27 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 echo <span style="color:#e6db74">&#34;docker compose installed...&#34;</span>
 
+<span style="color:#75715e"># install node and npm</span>
+sudo apt install -y nodejs npm
+
+<span style="color:#75715e"># install dotnet sdk</span>
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get update
+sudo apt-get install -y apt-transport-https
+sudo apt-get update
+sudo apt-get install -y dotnet-sdk-3.1
+dotnet --version
+echo <span style="color:#e6db74">&#34;dotnet sdk 3.1 installed&#34;</span>
+
+<span style="color:#75715e"># install azure functions</span>
+<span style="color:#75715e"># https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash#install-the-azure-functions-core-tools</span>
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c <span style="color:#e6db74">&#39;echo &#34;deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main&#34; &gt; /etc/apt/sources.list.d/dotnetdev.list&#39;</span>
+sudo apt-get update
+sudo apt-get install azure-functions-core-tools-3
+
 <span style="color:#75715e"># install minikube &amp; run it with docker driver by default</span>
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
@@ -216,18 +237,6 @@ echo <span style="color:#e6db74">&#34;heroku cli installed...&#34;</span>
 sudo apt install -y mosquitto-clients
 echo <span style="color:#e6db74">&#34;mosquitto-clients installed...&#34;</span>
 
-<span style="color:#75715e"># install dotnet sdk</span>
-wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-sudo apt-get update
-sudo apt-get install -y apt-transport-https
-sudo apt-get update
-sudo apt-get install -y dotnet-sdk-3.1
-dotnet --version
-echo <span style="color:#e6db74">&#34;dotnet sdk 3.1 installed&#34;</span>
-
-<span style="color:#75715e"># install node and npm</span>
-sudo apt install -y nodejs npm
 
 echo <span style="color:#e6db74">&#34;done provisioning VM.&#34;</span>
 </code></pre></div>
