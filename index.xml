@@ -14,9 +14,8 @@
       
       <guid>https://www.bustroker.com/notes/azure-function-with-docker/</guid>
       <description>Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools
-Create function project func init Bustroker.ChangeFeedProcessor.Func --dotnet --docker I renamed csproj file from Bustroker_Processor_Func.csproj to Bustroker.Processor.Func.csproj. The docker file is created.
-Create function cd Bustroker.Processor.Func func new --name ChangeFeedProcessor [--template {HttpTriger, CosmosDbTrigger, etc}] Run locally In my case, inside vagrant vm (my windows and docker don&amp;rsquo;t get along well). A couple remarks:
- The port mapping is for the http endpoint to be visible from the host (vagrant VM).</description>
+Create function project func init Bustroker.ChangeFeedProcessor.Func --dotnet --docker I renamed csproj file from Bustroker_Processor_Func.csproj to Bustroker.Processor.Func.csproj. The docker file is created. No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.
+Create function cd Bustroker.Processor.Func func new --name ChangeFeedProcessor [--template {HttpTrigger, CosmosDbTrigger, etc}] App settings  Add required packages  dotnet add package Microsoft.Azure.Functions.Extensions dotnet add package Microsoft.NET.Sdk.Functions  Make the function class and methods not static and inject IConfiguration in the constructor  namespace Bustroker.</description>
     </item>
     
     <item>
@@ -158,11 +157,11 @@ docker rmi $(docker images -q) run container from image docker run -d -p HOST-PO
     </item>
     
     <item>
-      <title>Net Core 3.1 appsettings &amp; env variables</title>
-      <link>https://www.bustroker.com/notes/net-core-3.1-appsettings-env-variables/</link>
+      <title>Dotnet 3.1 appsettings &amp; env variables</title>
+      <link>https://www.bustroker.com/notes/dotnet-3.1-appsettings-env-variables/</link>
       <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/net-core-3.1-appsettings-env-variables/</guid>
+      <guid>https://www.bustroker.com/notes/dotnet-3.1-appsettings-env-variables/</guid>
       <description>Reading apppsettings.json in dotnet 3.1 Add the packages
 dotnet add package Microsoft.Extensions.Configuration dotnet add package Microsoft.Extensions.Configuration.FileExtensions dotnet add package Microsoft.Extensions.Configuration.Json Add appsettings.json file with required parameters
 { &amp;#34;Settings&amp;#34;: { &amp;#34;Params&amp;#34;: { &amp;#34;Param1&amp;#34;: &amp;#34;value 1&amp;#34;, &amp;#34;Param2&amp;#34;: &amp;#34;value 2&amp;#34; } } } Load configuration section Console app // Program.cs var builder = new ConfigurationBuilder() .SetBasePath(Directory.GetCurrentDirectory()) .AddJsonFile(&amp;#34;appsettings.json&amp;#34;, optional: true, reloadOnChange: true); IConfiguration configuration = builder.Build(); Use configuration
@@ -455,6 +454,18 @@ The important part class Calculadora: def __init__(self): return def interés_ef
       
       <guid>https://www.bustroker.com/notes/</guid>
       <description>Why Warmup is important so the users don&amp;rsquo;t get a cold start on the app. When deploying to Azure app service, implementing the /warmup call every X minutes is not feasible as we don&amp;rsquo;t have access to actual instances directly to make the calls, so the requests will only get to the lucky instance the balancer in front of the app service decides to send the request to. Also, the point of PaaS is having the platform handle it, isn&amp;rsquo;t it?</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.bustroker.com/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/</guid>
+      <description>General idea: the exceptions messages need to be defined in terms of the contracts of the API.
+My code:
+using Microsoft.Azure.Functions.Extensions.DependencyInjection; using Microsoft.Extensions.DependencyInjection; using System.IO; using Microsoft.Extensions.Configuration; [assembly: FunctionsStartup(typeof(Arch.Pocs.Containers.AppService.HttpEndpoint.Func.Startup))] namespace Arch.Pocs.Containers.AppService.HttpEndpoint.Func { public class Startup : FunctionsStartup { public override void Configure(IFunctionsHostBuilder builder) { builder.Services.AddHttpClient(); } } } and
+using System; using System.IO; using System.Threading.Tasks; using Microsoft.AspNetCore.Mvc; using Microsoft.Azure.WebJobs; using Microsoft.Azure.WebJobs.Extensions.Http; using Microsoft.AspNetCore.Http; using Microsoft.Extensions.Logging; using Newtonsoft.Json; using Microsoft.Extensions.Configuration; namespace Arch.</description>
     </item>
     
   </channel>

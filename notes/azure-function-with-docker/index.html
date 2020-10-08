@@ -136,21 +136,81 @@ audio {
 <h3 id="create-function-project">Create function project</h3>
 <pre><code class="language-console" data-lang="console">func init Bustroker.ChangeFeedProcessor.Func --dotnet --docker
 </code></pre><p>I renamed <code>csproj</code> file from <code>Bustroker_Processor_Func.csproj</code> to <code>Bustroker.Processor.Func.csproj</code>.
-The docker file is created.</p>
+The docker file is created.
+No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.</p>
 <h3 id="create-function">Create function</h3>
 <pre><code class="language-console" data-lang="console">cd Bustroker.Processor.Func
-func new --name ChangeFeedProcessor [--template {HttpTriger, CosmosDbTrigger, etc}]
-</code></pre><h3 id="run-locally">Run locally</h3>
+func new --name ChangeFeedProcessor [--template {HttpTrigger, CosmosDbTrigger, etc}]
+</code></pre><h3 id="app-settings">App settings</h3>
+<ul>
+<li>Add required packages</li>
+</ul>
+<pre><code class="language-console" data-lang="console">dotnet add package Microsoft.Azure.Functions.Extensions
+dotnet add package Microsoft.NET.Sdk.Functions
+</code></pre><ul>
+<li>Make the function class and methods not static and inject <code>IConfiguration</code> in the constructor</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">namespace</span> Bustroker.HttpEndpoint.Func
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HttpEndpoint</span>
+    {
+        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IConfiguration _configuration;
+
+        <span style="color:#66d9ef">public</span> HttpEndpoint(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">        [FunctionName(&#34;HttpEndpoint&#34;)]</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;IActionResult&gt; Run(
+<span style="color:#a6e22e">            [HttpTrigger(AuthorizationLevel.Anonymous, &#34;get&#34;, &#34;post&#34;, Route = &#34;config&#34;)]</span> HttpRequest req,
+            ILogger log)
+        {
+            log.LogInformation(<span style="color:#e6db74">&#34;C# HTTP trigger function processed a request.&#34;</span>);
+            <span style="color:#66d9ef">var</span> setting = req.Query[<span style="color:#e6db74">&#34;setting&#34;</span>];
+            <span style="color:#66d9ef">var</span> <span style="color:#66d9ef">value</span> = _configuration.GetValue&lt;<span style="color:#66d9ef">string</span>&gt;(setting);
+            <span style="color:#66d9ef">var</span> response = <span style="color:#66d9ef">await</span> Task.FromResult(<span style="color:#e6db74">$&#34;setting: {setting}; value:{value}&#34;</span>);
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> OkObjectResult(response);
+        }
+    }
+}
+</code></pre></div><p>The configuration is read from environment variables. So, run the container as</p>
+<pre><code class="language-console" data-lang="console">docker run -p 80:80 -e setting1=value1 -e setting2=value2 &lt;IMAGE&gt;:&lt;TAG&gt;
+</code></pre><h3 id="services-dependency-injection">Services dependency injection</h3>
+<p>Create a <code>Startup</code> class</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Startup.cs
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> Microsoft.Azure.Functions.Extensions.DependencyInjection;
+<span style="color:#66d9ef">using</span> Microsoft.Extensions.DependencyInjection;
+<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">[assembly: FunctionsStartup(typeof(Arch.Pocs.Containers.AppService.HttpEndpoint.Func.Startup))]</span>
+<span style="color:#66d9ef">namespace</span> Arch.Pocs.Containers.AppService.HttpEndpoint.Func
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Startup</span> : FunctionsStartup
+    {
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Configure(IFunctionsHostBuilder builder)
+        {
+            <span style="color:#75715e">// e.g., for http client injection
+</span><span style="color:#75715e"></span>            builder.Services.AddHttpClient();
+        }
+    }
+}
+</code></pre></div><p>Then just add it to the constructor of the function class (already not static).</p>
+<h2 id="run-locally">Run locally</h2>
 <p>In my case, inside vagrant vm (my windows and docker don&rsquo;t get along well).
 A couple remarks:</p>
 <ul>
 <li>The port mapping is for the http endpoint to be visible from the host (vagrant VM).</li>
-<li>The application settings need to be set as environment variables, e.g. a connection string or any.
+<li>The application settings need to be set as environment variables for the, e.g. a connection string or any.
 (secrets would need to be in the keyvault in a production scenario, though)</li>
 </ul>
 <pre><code>docker build -t function .
 docker run -p 80:80 -e cosmosDbConnectionString=&quot;AccountEndpoint=https://bustroker-transactions-cosmosdb.documents.azure.com:443/;AccountKey=SUP3R4CC0UNTK3Y==;&quot; function:latest
-</code></pre><h3 id="deploy">Deploy</h3>
+</code></pre><h3 id="remarks">Remarks</h3>
+<ul>
+<li>Both locally and in Azure, the appsettings need to be set as environment variables.</li>
+<li>In the case of HttpEndpoint, by default (<code>Route=null</code>) the url is <code>api/&lt;FUNCTION_NAME&gt;</code>. If route set <code>Route=&quot;health&quot;</code>, the url is <code>api/health</code>.</li>
+</ul>
+<h3 id="deploy">Deploy</h3>
 
 
 

@@ -213,7 +213,12 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/notes/net-core-3.1-appsettings-env-variables/</loc>
+    <loc>https://www.bustroker.com/notes/dotnet-3.1-appsettings-env-variables/</loc>
+    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.bustroker.com/tags/dotnet-core-3.1/</loc>
     <lastmod>2020-07-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -308,11 +313,6 @@
   </url>
   
   <url>
-    <loc>https://www.bustroker.com/tags/dotnet-core-3.1/</loc>
-    <lastmod>2020-05-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://www.bustroker.com/notes/handling-parallel-exceptions-in-dotnet/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
   </url>
@@ -400,6 +400,10 @@
   <url>
     <loc>https://www.bustroker.com/notes/mortgage-simulator-in-python/</loc>
     <lastmod>2018-09-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.bustroker.com/notes/</loc>
   </url>
   
   <url>
