@@ -6,13 +6,31 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>azure function</title>
       <link>https://www.bustroker.com/tags/azure-function/</link>
-      <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/azure-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>changefeed</title>
+      <link>https://www.bustroker.com/tags/changefeed/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/changefeed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cosmosdb</title>
+      <link>https://www.bustroker.com/tags/cosmosdb/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/cosmosdb/</guid>
       <description></description>
     </item>
     

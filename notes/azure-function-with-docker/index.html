@@ -134,13 +134,13 @@ audio {
 <h3 id="install-func-cli">Install func cli</h3>
 <p><a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools">https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools</a></p>
 <h3 id="create-function-project">Create function project</h3>
-<pre><code class="language-console" data-lang="console">func init Bustroker.ChangeFeedProcessor.Func --dotnet --docker
-</code></pre><p>I renamed <code>csproj</code> file from <code>Bustroker_Processor_Func.csproj</code> to <code>Bustroker.Processor.Func.csproj</code>.
+<pre><code class="language-console" data-lang="console">func init Bustroker.HttpEndpoint.Func --dotnet --docker
+</code></pre><p>I renamed <code>csproj</code> file from <code>Bustroker_HttpEndpoint_Func.csproj</code> to <code>Bustroker.HttpEndpoint.Func.csproj</code>.
 The docker file is created.
 No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.</p>
 <h3 id="create-function">Create function</h3>
-<pre><code class="language-console" data-lang="console">cd Bustroker.Processor.Func
-func new --name ChangeFeedProcessor [--template {HttpTrigger, CosmosDbTrigger, etc}]
+<pre><code class="language-console" data-lang="console">cd Bustroker.HttpEndpoint.Func
+func new --name HttpEndpoint [--template {HttpTrigger, CosmosDbTrigger, etc}]
 </code></pre><h3 id="app-settings">App settings</h3>
 <ul>
 <li>Add required packages</li>
