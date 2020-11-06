@@ -158,7 +158,9 @@ Web Server logs Streaming&hellip; useless</p>
 <p>So, stdout can be redirected doing something in the web.config and then go into files throug kudu etc.. you can attach a debugger.. I prefer Application Insights.</p>
 <h3 id="send-to-application-insights-anyway">Send to Application insights anyway</h3>
 <p>Create an ApplicationInsights in Azure, get it&rsquo;s Instrumentation key, go to Program class, add a try-catch.</p>
-<p><strong>NOTE: This is not production code. This is just to trick azure into saying what&rsquo;s going on, and then remove it.</strong></p>
+<p>Add application insights</p>
+<pre><code class="language-console" data-lang="console">dotnet add package Microsoft.ApplicationInsights.AspNetCore
+</code></pre><p><strong>NOTE: This is not production code. This is just to trick azure into saying what&rsquo;s going on, and then remove it.</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Program.cs
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
 {
