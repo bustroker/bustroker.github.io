@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>net core 3.1 on Coding notes</title>
+    <link>https://www.bustroker.com/tags/net-core-3.1/</link>
+    <description>Recent content in net core 3.1 on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/net-core-3.1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simplest TCP client-server</title>
+      <link>https://www.bustroker.com/notes/simplest-tcp-client-server/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/simplest-tcp-client-server/</guid>
+      <description>Single-client TCP server public class Program { public static async Task Main(String[] args) { var address = IPAddress.Parse(&amp;#34;127.0.0.1&amp;#34;); var port = 8080; var server = new TcpListener(address, port); server.Start(); Console.WriteLine($&amp;#34;Server started. Listening to TCP clients at 127.0.0.1:{port}&amp;#34;); while (true) { var client = server.AcceptTcpClient(); var networkStream = client.GetStream(); var receivedMessage = await ReceiveMessageAsync(networkStream); Console.WriteLine($&amp;#34;Message received from client: {receivedMessage}&amp;#34;); var sentMessage = &amp;#34;..makes Jack a dull boy&amp;#34;; await SendMessageAsync(networkStream, sentMessage); Console.WriteLine($&amp;#34;Sent message: {sentMessage} &amp;#34;); } } static async Task SendMessageAsync(NetworkStream stream, string message) { byte[] helloMessage = new byte[100]; helloMessage = Encoding.</description>
+    </item>
+    
+  </channel>
+</rss>

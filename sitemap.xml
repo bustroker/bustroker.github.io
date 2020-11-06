@@ -373,6 +373,21 @@
   </url>
   
   <url>
+    <loc>https://www.bustroker.com/tags/net-core-3.1/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.bustroker.com/notes/simplest-tcp-client-server/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.bustroker.com/tags/tcp/</loc>
+    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url>

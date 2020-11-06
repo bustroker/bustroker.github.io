@@ -383,6 +383,15 @@ cd c:\cmder\folder .\cmder.exe /REGISTER ALL </description>
     </item>
     
     <item>
+      <title>Simplest TCP client-server</title>
+      <link>https://www.bustroker.com/notes/simplest-tcp-client-server/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/simplest-tcp-client-server/</guid>
+      <description>Single-client TCP server public class Program { public static async Task Main(String[] args) { var address = IPAddress.Parse(&amp;#34;127.0.0.1&amp;#34;); var port = 8080; var server = new TcpListener(address, port); server.Start(); Console.WriteLine($&amp;#34;Server started. Listening to TCP clients at 127.0.0.1:{port}&amp;#34;); while (true) { var client = server.AcceptTcpClient(); var networkStream = client.GetStream(); var receivedMessage = await ReceiveMessageAsync(networkStream); Console.WriteLine($&amp;#34;Message received from client: {receivedMessage}&amp;#34;); var sentMessage = &amp;#34;..makes Jack a dull boy&amp;#34;; await SendMessageAsync(networkStream, sentMessage); Console.WriteLine($&amp;#34;Sent message: {sentMessage} &amp;#34;); } } static async Task SendMessageAsync(NetworkStream stream, string message) { byte[] helloMessage = new byte[100]; helloMessage = Encoding.</description>
+    </item>
+    
+    <item>
       <title>Vagrant VM provision &amp; vagrant commands cheathsheet</title>
       <link>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
