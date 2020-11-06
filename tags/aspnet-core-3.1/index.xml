@@ -20,6 +20,16 @@ public class Program { private const string ApplicationId = &amp;#34;Bustroker.T
     </item>
     
     <item>
+      <title>ILogger&lt;TCategory&gt; with azure app service Application Insights, plus Live Metrics</title>
+      <link>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</guid>
+      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service // Startup.cs  public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.
+// appsettings.json { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, .... } Add the ApplicationInsights logging provider This is for the ILogger injected object to send to ApplicationInsights as well.</description>
+    </item>
+    
+    <item>
       <title>Basics of .Net Core 3.1 ILogger&lt;TCategory&gt;</title>
       <link>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
