@@ -13,7 +13,7 @@
       <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/simplest-single-client-tcp-client-and-server/</guid>
-      <description>Single-client TCP server //Program.cs public class Program { public static async Task Main(String[] args) { await new TcpServer().StartAsync(); } } // TcpServer.cs public class TcpServer { private const string Address = &amp;#34;127.0.0.1&amp;#34;; private const int Port = 8080; public async Task StartAsync() { var tcpListener = new TcpListener(IPAddress.Parse(Address), Port); tcpListener.Start(); Console.WriteLine($&amp;#34;Server started. Listening to TCP clients at {Address}, port {Port}&amp;#34;); while (true) { await WaitForClientConnectionAsync(tcpListener); } } static async Task WaitForClientConnectionAsync(TcpListener tcpListener) { Console.</description>
+      <description>Single-client TCP server //Program.cs public class Program { private const int Port = 8080; public static async Task Main(String[] args) { var address = GetLocalIPAddress(); var tcpListener = new TcpListener(GetLocalIPAddress(), Port); tcpListener.Start(); Console.WriteLine($&amp;#34;Server started. Listening to TCP clients at {address}, port {Port}&amp;#34;); while (true) { await WaitForClientConnectionAndHandleAsync(tcpListener); } } static IPAddress GetLocalIPAddress() { var host = Dns.GetHostEntry(Dns.GetHostName()); foreach (var ip in host.AddressList) { if (ip.AddressFamily == AddressFamily.InterNetwork) { return ip; } } throw new Exception(&amp;#34;No network adapters with an IPv4 address in the system!</description>
     </item>
     
     <item>
