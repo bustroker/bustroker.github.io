@@ -152,7 +152,7 @@ In the example port 8080 of VM is mapped to port 8080 in host. If another is req
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> dotnet publish -c Release -o publish<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Build runtime image</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/core/aspnet:3.1</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/aspnet:3.1</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> --from<span style="color:#f92672">=</span>build-env /app/publish .<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;dotnet&#34;</span>, <span style="color:#e6db74">&#34;Bustroker.Notes.WebApi.dll&#34;</span>]<span style="color:#960050;background-color:#1e0010">
@@ -168,6 +168,10 @@ So, docker-compose.yml file content</p>
     <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
     <span style="color:#f92672">ports</span>:
       - <span style="color:#e6db74">&#34;8080:80&#34;</span>
+    <span style="color:#ae81ff">networks</span>
+      - <span style="color:#ae81ff">webnet</span>
+<span style="color:#f92672">networks</span>:
+  - <span style="color:#ae81ff">webnet</span>
 
 </code></pre></div><p>Here the app is listening in port 8080 of the VM. Also, the VM 8080 port is mapped to the host&rsquo;s 8080 (configured in Vagrant VM step before). So the 8080 port of Vagrant VM is accessible from host&rsquo;s localhost:8080.</p>
 <h3 id="run-it">Run it</h3>
