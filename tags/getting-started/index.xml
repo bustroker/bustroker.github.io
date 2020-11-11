@@ -6,17 +6,7 @@
     <description>Recent content in getting started on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/getting-started/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Setup aspnet core app with vagrant and docker</title>
-      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</link>
-      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
-      <description>Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
-dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
-    </item>
-    
+    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/getting-started/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A cool terminal for windows with context menu</title>
       <link>https://www.bustroker.com/notes/a-cool-terminal-for-windows-with-context-menu/</link>
