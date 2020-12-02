@@ -150,6 +150,8 @@ kubectl get service &lt;SERVICE-NAME&gt; [--watch]
 <p>Then <code>wget</code> a url and print result in terminal (<code>curl</code> is not included in alpine)</p>
 <pre><code class="language-console" data-lang="console">kubectl run --rm -it --image=alpine disposable-pod
 # wget -qO- 10.0.1.34/health
+</code></pre><p>To install curl, just</p>
+<pre><code class="language-console" data-lang="console">apk --no-cache add curl
 </code></pre><h3 id="dns-service-info">DNS service info</h3>
 <pre><code class="language-console" data-lang="console">kubectl get services kube-dns --namespace=kube-system
 </code></pre><h3 id="troubleshoot-crash-on-startup">Troubleshoot crash on startup</h3>

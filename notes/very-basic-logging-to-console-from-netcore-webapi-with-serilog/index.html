@@ -131,41 +131,47 @@ audio {
         
 
 <h1>Very basic logging to console from netcore webapi with Serilog</h1>
-<p>Add serilog</p>
+<p>Add serilog required packages</p>
 <pre><code>dotnet add package Serilog.AspNetCore
-</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+dotnet add package Serilog.Sinks.ElasticSearch
+</code></pre><p>Using</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> Serilog;
+<span style="color:#66d9ef">using</span> Serilog.Sinks.Elasticsearch;
+</code></pre></div><p>Configure serilog on CreateHostBuilder. <em>Only relevant code is included.</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
 {
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
-    {
-        Log.Logger = <span style="color:#66d9ef">new</span> LoggerConfiguration()
-            .MinimumLevel.Debug()
-            .MinimumLevel.Override(<span style="color:#e6db74">&#34;Microsoft&#34;</span>, LogEventLevel.Information)
-            .Enrich.FromLogContext()
-            .WriteTo.Console()
-            .CreateLogger();
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> ApplicationId = <span style="color:#e6db74">&#34;Bustroker.Transactions.WebApi&#34;</span>;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> ElasticEndpoint = <span style="color:#e6db74">&#34;http://localhost:9200&#34;</span>;
 
-        <span style="color:#66d9ef">try</span>
-        {
-            Log.Information(<span style="color:#e6db74">&#34;Starting web host&#34;</span>);
-            CreateHostBuilder(args).Build().Run();
-        }
-        <span style="color:#66d9ef">catch</span> (Exception ex)
-        {
-            Log.Fatal(ex, <span style="color:#e6db74">&#34;Host terminated unexpectedly&#34;</span>);
-        }
-        <span style="color:#66d9ef">finally</span>
-        {
-            Log.CloseAndFlush();
-        }
-    }
-
+    <span style="color:#75715e">///....
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">///....
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">///....
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">///....
+</span><span style="color:#75715e"></span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
         Host.CreateDefaultBuilder(args)
-            .UseSerilog()
+            .UseSerilog((hostincContext, loggerConfiguration) =&gt; <span style="color:#75715e">// send to Elastic for real time monitoring
+</span><span style="color:#75715e"></span>                            ConfigureSerilogLoggerWithElastic(loggerConfiguration)
+            )
             .ConfigureWebHostDefaults(webBuilder =&gt;
             {
                 webBuilder.UseStartup&lt;Startup&gt;();
             });
+    
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> LoggerConfiguration ConfigureSerilogLoggerWithElastic(LoggerConfiguration loggerConfiguration)
+    {
+        <span style="color:#66d9ef">var</span> sinkOptions = <span style="color:#66d9ef">new</span> ElasticsearchSinkOptions(<span style="color:#66d9ef">new</span> Uri(ElasticEndpoint))
+        {
+            AutoRegisterTemplate = <span style="color:#66d9ef">true</span>,
+            AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv7,
+            IndexFormat = <span style="color:#e6db74">$&#34;{ApplicationId}-{0:yyyy.MM}&#34;</span>                                    
+        };
+
+        <span style="color:#66d9ef">return</span> loggerConfiguration
+                    .MinimumLevel.Error()
+                    .Enrich.FromLogContext()
+                    .WriteTo.Elasticsearch(sinkOptions);
+    }
 }
 </code></pre></div><p>Then add</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Startup.cs
@@ -183,11 +189,11 @@ audio {
 </code></pre></div><p>Now use it</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#a6e22e">[ApiController]</span>
 <span style="color:#a6e22e">[Route(&#34;[controller]</span><span style="color:#e6db74">&#34;)]
-</span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OpsController</span> : ControllerBase
+</span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OperationsController</span> : ControllerBase
 {
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger&lt;OpsController&gt; _logger;
 
-    <span style="color:#66d9ef">public</span> OpsController(ILogger&lt;OpsController&gt; logger)
+    <span style="color:#66d9ef">public</span> OperationsController(ILogger&lt;OpsController&gt; logger)
     {
         _logger = logger;
     }
@@ -195,11 +201,16 @@ audio {
 </span><span style="color:#a6e22e">    [HttpGet, Route(&#34;{currency}&#34;)]</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;IActionResult&gt; Get(<span style="color:#66d9ef">string</span> currency)
     {
-        _logger.LogInformation(<span style="color:#e6db74">&#34;Processed request /ops in {currency}&#34;</span>, currency);
+        _logger.LogInformation(<span style="color:#e6db74">&#34;Processed request /operations in &#39;{currency}&#39;&#34;</span>, currency);
         <span style="color:#66d9ef">return</span> Ok(result);
     }
 }
-</code></pre></div>
+</code></pre></div><p>Use kibana to query the elastic. Otherwise, the API can be used instead.</p>
+<p>Check the index has been created in elastic. Note that capital letters have been removed.</p>
+<pre><code>curl http://localhost:9200/bustroker.transactions.webapi-*
+</code></pre><p>Query all the entries for the index</p>
+<pre><code>curl http://localhost:9200/bustroker.transactions.webapi-*/_search?q=*
+</code></pre>
 
 
       </main>
