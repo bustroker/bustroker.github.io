@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Azure Managed Identity token with cURL | Coding notes</title>
+  <title>managed Id | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,11 +117,13 @@ audio {
       
       
       
+       
+        
         
       
     
     
-    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -130,11 +132,33 @@ audio {
       <main id="main">
         
 
-<h1>Azure Managed Identity token with cURL</h1>
-<p>To test Managed Identity is working fine, SSH inside the VM with Managed Identity enabled (or RDP, for that matter) and cURL an access token for some resource.</p>
-<pre><code>curl &quot;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&quot; -H Metadata:true -s
-</code></pre><p><code>resource</code> query parameter is the resource for which the token is being requested.</p>
-<p>Oficial documentation <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token">here</a></p>
+<h1>managed Id</h1>
+
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/">Azure Managed Identity token with cURL</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-05-31">May 5, 31000</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/curl">curl</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/managed-id">managed Id</a>
+  
+
+</p>
 
 
 
