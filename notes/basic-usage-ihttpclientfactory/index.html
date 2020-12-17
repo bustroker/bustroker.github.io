@@ -131,14 +131,14 @@ audio {
         
 
 <h1>Basic usage IHttpClientFactory</h1>
-<p>register it</p>
+<h3 id="register-it">Register it</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">//Startup.cs
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ConfigureServices(IServiceCollection services)
 {
     ...
     services.AddHttpClient();
 }
-</code></pre></div><p>use it</p>
+</code></pre></div><h3 id="use-it">Use it</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">//HealthController.cs
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IHttpClientFactory _clientFactory;
 

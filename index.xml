@@ -6,14 +6,26 @@
     <description>Recent content on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySql/MariaDb command line cheatsheet</title>
+      <link>https://www.bustroker.com/notes/mysql/mariadb-command-line-cheatsheet/</link>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/mysql/mariadb-command-line-cheatsheet/</guid>
+      <description>Commands  Connect  mysql [-h 192.168.1.100] -u USER_NAME -p [DATABASE_NAME] Will be prompted for password
+Once connected, the commanda need to end with ;.
+ Common commands ´´´ show tables;  ´´´
+ Exit Ctrl+C  </description>
+    </item>
+    
     <item>
       <title>Good reads on miscelanea subjects</title>
       <link>https://www.bustroker.com/notes/good-reads-on-miscelanea-subjects/</link>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/good-reads-on-miscelanea-subjects/</guid>
-      <description>About containers and Unix OS </description>
+      <description> About containers and Unix OS  </description>
     </item>
     
     <item>
@@ -365,9 +377,7 @@ And I want a production ready setup:
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/basic-usage-ihttpclientfactory/</guid>
-      <description>register it
-//Startup.cs public void ConfigureServices(IServiceCollection services) { ... services.AddHttpClient(); } use it
-//HealthController.cs private readonly IHttpClientFactory _clientFactory; public HealthController(IHttpClientFactory clientFactory) { _clientFactory = clientFactory; } </description>
+      <description>Register it //Startup.cs public void ConfigureServices(IServiceCollection services) { ... services.AddHttpClient(); } Use it //HealthController.cs private readonly IHttpClientFactory _clientFactory; public HealthController(IHttpClientFactory clientFactory) { _clientFactory = clientFactory; } </description>
     </item>
     
     <item>
