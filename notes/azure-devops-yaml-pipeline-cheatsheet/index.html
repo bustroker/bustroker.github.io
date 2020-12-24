@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.79.1" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -186,46 +186,46 @@ audio {
         <span style="color:#f92672">repository</span>: <span style="color:#ae81ff">$(imageRepository)</span>
         <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">$(dockerfilePath)</span>
         <span style="color:#f92672">containerRegistry</span>: <span style="color:#ae81ff">$(dockerRegistryServiceConnection)</span>
-        <span style="color:#f92672">tags</span>: <span style="color:#e6db74">|
-</span><span style="color:#e6db74">          $(tag)
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">- stage: DevDeployStage
-</span><span style="color:#e6db74">  dependsOn: BuildStage
-</span><span style="color:#e6db74">  displayName: Dev
-</span><span style="color:#e6db74">  jobs:
-</span><span style="color:#e6db74">  - deployment: DevDeploymentJob
-</span><span style="color:#e6db74">    displayName: Deploy to dev
-</span><span style="color:#e6db74">    environment: dev
-</span><span style="color:#e6db74">    strategy: 
-</span><span style="color:#e6db74">      runOnce:
-</span><span style="color:#e6db74">        deploy:
-</span><span style="color:#e6db74">          steps:
-</span><span style="color:#e6db74">          - task: AzureWebAppContainer@1
-</span><span style="color:#e6db74">            inputs:
-</span><span style="color:#e6db74">              azureSubscription: &#39;AzDevOps.ServiceConnection&#39;
-</span><span style="color:#e6db74">              appName: &#39;bustroker-yamlpipelines-webapi-dev&#39;
-</span><span style="color:#e6db74">              containers: &#39;$(containerRegistry)/$(imageRepository):$(tag)&#39;
-</span><span style="color:#e6db74">              appSettings: &#39;-ASPNETCORE_ENVIRONMENT dev&#39;
-</span><span style="color:#e6db74">              
-</span><span style="color:#e6db74">- stage: IntDeployStage
-</span><span style="color:#e6db74">  dependsOn: DevDeployStage
-</span><span style="color:#e6db74">  displayName: Int
-</span><span style="color:#e6db74">  jobs:
-</span><span style="color:#e6db74">  - deployment: IntDeploymentJob
-</span><span style="color:#e6db74">    displayName: Deploy to int
-</span><span style="color:#e6db74">    environment: int
-</span><span style="color:#e6db74">    pool:
-</span><span style="color:#e6db74">      vmImage: $(vmImageName)
-</span><span style="color:#e6db74">    strategy: 
-</span><span style="color:#e6db74">      runOnce:
-</span><span style="color:#e6db74">        deploy:
-</span><span style="color:#e6db74">            - task: AzureWebAppContainer@1
-</span><span style="color:#e6db74">              inputs:
-</span><span style="color:#e6db74">                azureSubscription: &#39;AzDevOps.ServiceConnection&#39;
-</span><span style="color:#e6db74">                appName: &#39;bustroker-yamlpipelines-webapi-int&#39;
-</span><span style="color:#e6db74">                containers: &#39;$(containerRegistry)/$(imageRepository):$(tag)&#39;
-</span><span style="color:#e6db74">                appSettings: &#39;-ASPNETCORE_ENVIRONMENT int&#39;
-</span></code></pre></div>
+        <span style="color:#f92672">tags</span>: |<span style="color:#e6db74">
+</span><span style="color:#e6db74">          </span>          <span style="color:#ae81ff">$(tag)</span>
+
+- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">DevDeployStage</span>
+  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">BuildStage</span>
+  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Dev</span>
+  <span style="color:#f92672">jobs</span>:
+  - <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">DevDeploymentJob</span>
+    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Deploy to dev</span>
+    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">dev</span>
+    <span style="color:#f92672">strategy</span>: 
+      <span style="color:#f92672">runOnce</span>:
+        <span style="color:#f92672">deploy</span>:
+          <span style="color:#f92672">steps</span>:
+          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">AzureWebAppContainer@1</span>
+            <span style="color:#f92672">inputs</span>:
+              <span style="color:#f92672">azureSubscription</span>: <span style="color:#e6db74">&#39;AzDevOps.ServiceConnection&#39;</span>
+              <span style="color:#f92672">appName</span>: <span style="color:#e6db74">&#39;bustroker-yamlpipelines-webapi-dev&#39;</span>
+              <span style="color:#f92672">containers</span>: <span style="color:#e6db74">&#39;$(containerRegistry)/$(imageRepository):$(tag)&#39;</span>
+              <span style="color:#f92672">appSettings</span>: <span style="color:#e6db74">&#39;-ASPNETCORE_ENVIRONMENT dev&#39;</span>
+              
+- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">IntDeployStage</span>
+  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">DevDeployStage</span>
+  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Int</span>
+  <span style="color:#f92672">jobs</span>:
+  - <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">IntDeploymentJob</span>
+    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Deploy to int</span>
+    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">int</span>
+    <span style="color:#f92672">pool</span>:
+      <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">$(vmImageName)</span>
+    <span style="color:#f92672">strategy</span>: 
+      <span style="color:#f92672">runOnce</span>:
+        <span style="color:#f92672">deploy</span>:
+            - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">AzureWebAppContainer@1</span>
+              <span style="color:#f92672">inputs</span>:
+                <span style="color:#f92672">azureSubscription</span>: <span style="color:#e6db74">&#39;AzDevOps.ServiceConnection&#39;</span>
+                <span style="color:#f92672">appName</span>: <span style="color:#e6db74">&#39;bustroker-yamlpipelines-webapi-int&#39;</span>
+                <span style="color:#f92672">containers</span>: <span style="color:#e6db74">&#39;$(containerRegistry)/$(imageRepository):$(tag)&#39;</span>
+                <span style="color:#f92672">appSettings</span>: <span style="color:#e6db74">&#39;-ASPNETCORE_ENVIRONMENT int&#39;</span>
+</code></pre></div>
 
 
       </main>

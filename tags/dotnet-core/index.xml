@@ -26,7 +26,7 @@ Define AppSettings (or you name it) class class AppSettings { public string AadT
       
       <guid>https://www.bustroker.com/notes/very-basic-logging-to-file-from-console-app-with-serilog/</guid>
       <description>Add serilog
-dotnet add package Serilog static async Task Main(string[] args) { Log.Logger = new LoggerConfiguration() .Enrich.FromLogContext() .WriteTo.Console() .WriteTo.File(&amp;#34;logs/log.json&amp;#34;) .CreateLogger(); Log.Information(&amp;#34;Running..&amp;#34;); } </description>
+dotnet add package Serilogstatic async Task Main(string[] args) { Log.Logger = new LoggerConfiguration() .Enrich.FromLogContext() .WriteTo.Console() .WriteTo.File(&amp;#34;logs/log.json&amp;#34;) .CreateLogger(); Log.Information(&amp;#34;Running..&amp;#34;); } </description>
     </item>
     
     <item>
@@ -36,9 +36,9 @@ dotnet add package Serilog static async Task Main(string[] args) { Log.Logger = 
       
       <guid>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</guid>
       <description>Create a folder for the solution and cd into it A solution (sln file) is required to be able to have projects referencing others.
-mkdir Bustroker.Notes cd Bustroker.Notes Create solution The sln file is created directly in the folder it&amp;rsquo;s run.
-dotnet new sln -n Bustroker.Notes Create class library project and add it to the solution A folder is created, containing the project
-dotnet new classlib -n Bustroker.Notes dotnet sln add Bustroker.</description>
+mkdir Bustroker.Notescd Bustroker.NotesCreate solution The sln file is created directly in the folder it&amp;rsquo;s run.
+dotnet new sln -n Bustroker.NotesCreate class library project and add it to the solution A folder is created, containing the project
+dotnet new classlib -n Bustroker.Notesdotnet sln add Bustroker.</description>
     </item>
     
   </channel>

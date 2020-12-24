@@ -14,9 +14,9 @@
       
       <guid>https://www.bustroker.com/notes/azure-function-for-cosmosdb-changefeed./</guid>
       <description>Cosmos  Create cosmos account, cosmos container Database: arch-pocs-misc-cosmosdb. Container being monitored: Transactions Lease container, required for the changefeed: TransactionsLease. The partition key for the lease container must be /id.  Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools
-Create function project func init Bustroker.CosmosDbChangeFeed.Func --dotnet [--docker] I renamed csproj file from Bustroker_CosmosDbChangeFeed_Func.csproj to Bustroker.CosmosDbChangeFeed.Func.csproj.
+Create function project func init Bustroker.CosmosDbChangeFeed.Func --dotnet [--docker]I renamed csproj file from Bustroker_CosmosDbChangeFeed_Func.csproj to Bustroker.CosmosDbChangeFeed.Func.csproj.
 Check details for development with docker here
-Create ChangeFeed function cd Bustroker.CosmosDbChangeFeed.Func func new --name TransactionsChangeFeed [--template {HttpTrigger, CosmosDbTrigger, etc}] And the code</description>
+Create ChangeFeed function cd Bustroker.CosmosDbChangeFeed.Funcfunc new --name TransactionsChangeFeed [--template {HttpTrigger, CosmosDbTrigger, etc}]And the code</description>
     </item>
     
     <item>
@@ -26,8 +26,8 @@ Create ChangeFeed function cd Bustroker.CosmosDbChangeFeed.Func func new --name 
       
       <guid>https://www.bustroker.com/notes/azure-function-with-docker/</guid>
       <description>Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools
-Create function project func init Bustroker.HttpEndpoint.Func --dotnet --docker I renamed csproj file from Bustroker_HttpEndpoint_Func.csproj to Bustroker.HttpEndpoint.Func.csproj. The docker file is created. No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.
-Create function cd Bustroker.HttpEndpoint.Func func new --name HttpEndpoint [--template {HttpTrigger, CosmosDbTrigger, etc}] App settings  Add required packages  dotnet add package Microsoft.Azure.Functions.Extensions dotnet add package Microsoft.NET.Sdk.Functions  Make the function class and methods not static and inject IConfiguration in the constructor  namespace Bustroker.</description>
+Create function project func init Bustroker.HttpEndpoint.Func --dotnet --dockerI renamed csproj file from Bustroker_HttpEndpoint_Func.csproj to Bustroker.HttpEndpoint.Func.csproj. The docker file is created. No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.
+Create function cd Bustroker.HttpEndpoint.Funcfunc new --name HttpEndpoint [--template {HttpTrigger, CosmosDbTrigger, etc}]App settings  Add required packages  dotnet add package Microsoft.Azure.Functions.Extensionsdotnet add package Microsoft.NET.Sdk.Functions Make the function class and methods not static and inject IConfiguration in the constructor  namespace Bustroker.</description>
     </item>
     
   </channel>

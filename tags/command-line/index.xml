@@ -13,9 +13,9 @@
       <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/passing-arguments-to-scripts-both-bat-and-bash/</guid>
-      <description>Windows script .bat //windows-script.bat set firstArgument=%1% set secondArgument=%2% echo You passed first %firstArgument% and second %secondArgument% Call it as
-.\windows-script.bat &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot; Unix script .bash //unix-script.bash #!/bin/sh firstArgument=$1 secondArgument=$2 echo You passed first $firstArgument and second $secondArgument Call it as
-bash unix-script.bash &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot; </description>
+      <description>Windows script .bat //windows-script.batset firstArgument=%1%set secondArgument=%2%echo You passed first %firstArgument% and second %secondArgument%Call it as
+.\windows-script.bat &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot;Unix script .bash //unix-script.bash#!/bin/shfirstArgument=$1secondArgument=$2echo You passed first $firstArgument and second $secondArgumentCall it as
+bash unix-script.bash &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot;</description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@ bash unix-script.bash &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp
       
       <guid>https://www.bustroker.com/notes/create-file-from-command-line-in-windows/</guid>
       <description>Create a file with some content from command line in windows from any console
-echo &amp;quot;whate ever content&amp;quot; &amp;gt; filename.txt </description>
+echo &amp;quot;whate ever content&amp;quot; &amp;gt; filename.txt</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ echo &amp;quot;whate ever content&amp;quot; &amp;gt; filename.txt </description>
       
       <guid>https://www.bustroker.com/notes/change-directory-to-different-drive-in-windows-cmd/</guid>
       <description>To change from C drive to D drive, going cd D: or any similar, doesn&amp;rsquo;t work. Instead go:
-C:\Users\bustroker&amp;gt; d: D:\&amp;gt; </description>
+C:\Users\bustroker&amp;gt; d:D:\&amp;gt;</description>
     </item>
     
     <item>
@@ -47,7 +47,7 @@ C:\Users\bustroker&amp;gt; d: D:\&amp;gt; </description>
       <description>No installation, cool colors, with context menu to open directly in a folder.
 Install Donwload cmder terminal, unzip, copy to the folder you prefer (just not any Administrator-required-to-work-on folder).
 Context menu shortcut To add Shortcut in context menu for Open Cmder here, open a cmd as Administrator, and go:
-cd c:\cmder\folder .\cmder.exe /REGISTER ALL </description>
+cd c:\cmder\folder.\cmder.exe /REGISTER ALL</description>
     </item>
     
   </channel>

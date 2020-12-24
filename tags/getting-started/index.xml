@@ -16,7 +16,7 @@
       <description>No installation, cool colors, with context menu to open directly in a folder.
 Install Donwload cmder terminal, unzip, copy to the folder you prefer (just not any Administrator-required-to-work-on folder).
 Context menu shortcut To add Shortcut in context menu for Open Cmder here, open a cmd as Administrator, and go:
-cd c:\cmder\folder .\cmder.exe /REGISTER ALL </description>
+cd c:\cmder\folder.\cmder.exe /REGISTER ALL</description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@ Make sure to check for latest versions of some of the installed tools.</descript
       <guid>https://www.bustroker.com/notes/simplest-node-express-web-api/</guid>
       <description>For frontend dev, the simplest web API to joke around with.
 Create the project and install express package
-npm init npm install express Create server.js file in the root.
+npm initnpm install expressCreate server.js file in the root.
 // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.send({ message: &amp;#34;I&amp;#39;m here&amp;#34;}); }); app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000!&amp;#39;)); </description>
     </item>
     
