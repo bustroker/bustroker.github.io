@@ -14,8 +14,8 @@
       
       <guid>https://www.bustroker.com/notes/azure-function-with-docker/</guid>
       <description>Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools
-Create function project func init Bustroker.HttpEndpoint.Func --dotnet --dockerI renamed csproj file from Bustroker_HttpEndpoint_Func.csproj to Bustroker.HttpEndpoint.Func.csproj. The docker file is created. No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.
-Create function cd Bustroker.HttpEndpoint.Funcfunc new --name HttpEndpoint [--template {HttpTrigger, CosmosDbTrigger, etc}]App settings  Add required packages  dotnet add package Microsoft.Azure.Functions.Extensionsdotnet add package Microsoft.NET.Sdk.Functions Make the function class and methods not static and inject IConfiguration in the constructor  namespace Bustroker.</description>
+Create function project func init Bustroker.HttpEndpoint.Func --dotnet --docker I renamed csproj file from Bustroker_HttpEndpoint_Func.csproj to Bustroker.HttpEndpoint.Func.csproj. The docker file is created. No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.
+Create function cd Bustroker.HttpEndpoint.Func func new --name HttpEndpoint [--template {HttpTrigger, CosmosDbTrigger, etc}] App settings  Add required packages  dotnet add package Microsoft.Azure.Functions.Extensions dotnet add package Microsoft.NET.Sdk.Functions  Make the function class and methods not static and inject IConfiguration in the constructor  namespace Bustroker.</description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@ Create function cd Bustroker.HttpEndpoint.Funcfunc new --name HttpEndpoint [--t
       
       <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
       <description>Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
-dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
+dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
     </item>
     
     <item>
@@ -35,9 +35,9 @@ dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rathe
       
       <guid>https://www.bustroker.com/notes/docker-commands-cheatsheet/</guid>
       <description>Version: 19.03
-buid image and set tag -t docker build -t bustroker.notes.webui:v1 .multiple tags are allowed as well
-docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest .tag image docker tag [localImage] [registryServer]/[imageName]:[version]# ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1add tag to existing tagged image docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latestlist images docker imagesremove all images optionally add -f at the end to force
-docker rmi $(docker images -q) run container from image docker run -d -p HOST-PORT:CONTAINER-PORT &amp;lt;IMAGE-NAME&amp;gt;-p: [port in host]:[port in the container] -d: run as deamon</description>
+buid image and set tag -t docker build -t bustroker.notes.webui:v1 . multiple tags are allowed as well
+docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest . tag image docker tag [localImage] [registryServer]/[imageName]:[version] # ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1 add tag to existing tagged image docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latest list images docker images remove all images optionally add -f at the end to force
+docker rmi $(docker images -q) run container from image docker run -d -p HOST-PORT:CONTAINER-PORT &amp;lt;IMAGE-NAME&amp;gt; -p: [port in host]:[port in the container] -d: run as deamon</description>
     </item>
     
     <item>
@@ -47,7 +47,7 @@ docker rmi $(docker images -q) run container from image docker run -d -p HOST-PO
       
       <guid>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</guid>
       <description>The simplest node static files server.
-Create the project and install express package npm initnpm install express --saveCreate server.js file in the root. // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); Create a static page Now all files in www folder are being served. Create a www folder in the root and add an html file.</description>
+Create the project and install express package npm init npm install express --save Create server.js file in the root. // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); Create a static page Now all files in www folder are being served. Create a www folder in the root and add an html file.</description>
     </item>
     
   </channel>

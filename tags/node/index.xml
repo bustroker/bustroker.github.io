@@ -14,7 +14,7 @@
       
       <guid>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</guid>
       <description>The simplest node static files server.
-Create the project and install express package npm initnpm install express --saveCreate server.js file in the root. // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); Create a static page Now all files in www folder are being served. Create a www folder in the root and add an html file.</description>
+Create the project and install express package npm init npm install express --save Create server.js file in the root. // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); Create a static page Now all files in www folder are being served. Create a www folder in the root and add an html file.</description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@ Create the project and install express package npm initnpm install express --sa
       <guid>https://www.bustroker.com/notes/simplest-node-express-web-api/</guid>
       <description>For frontend dev, the simplest web API to joke around with.
 Create the project and install express package
-npm initnpm install expressCreate server.js file in the root.
+npm init npm install express Create server.js file in the root.
 // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.send({ message: &amp;#34;I&amp;#39;m here&amp;#34;}); }); app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000!&amp;#39;)); </description>
     </item>
     

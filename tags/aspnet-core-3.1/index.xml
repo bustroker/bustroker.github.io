@@ -14,7 +14,7 @@
       
       <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
       <description>Add serilog required packages
-dotnet add package Serilog.AspNetCoredotnet add package Serilog.Sinks.ElasticSearchUsing
+dotnet add package Serilog.AspNetCore dotnet add package Serilog.Sinks.ElasticSearch Using
 using Serilog; using Serilog.Sinks.Elasticsearch; Configure serilog on CreateHostBuilder. Only relevant code is included.
 public class Program { private const string ApplicationId = &amp;#34;Bustroker.Transactions.WebApi&amp;#34;; private const string ElasticEndpoint = &amp;#34;http://localhost:9200&amp;#34;; ///....  ///....  ///....  ///....  public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog((hostincContext, loggerConfiguration) =&amp;gt; // send to Elastic for real time monitoring  ConfigureSerilogLoggerWithElastic(loggerConfiguration) ) .</description>
     </item>
@@ -26,7 +26,7 @@ public class Program { private const string ApplicationId = &amp;#34;Bustroker.T
       
       <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
       <description>Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
-dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
+dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rathe
       <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</guid>
-      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCoreRegister the service // Startup.cs  public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.
+      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service // Startup.cs  public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.
 // appsettings.json { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, .... } Add the ApplicationInsights logging provider This is for the ILogger injected object to send to ApplicationInsights as well.</description>
     </item>
     
@@ -47,7 +47,7 @@ dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rathe
       <guid>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</guid>
       <description>Applying it to logging to Log Streaming in Azure Web app net core 3.1, (and to Console)
  netcore 3.1 basic console logging  Azure app services real time logs monitoring for troubleshooting.
-Log Stream Add package to write to Azure File dotnet add package Microsoft.Extensions.Logging.AzureAppServicesAdd the provider I like to add the Console provider as well so I can check what&amp;rsquo;s going on when running locally too, but it&amp;rsquo;s not required for the portal Log Streaming.</description>
+Log Stream Add package to write to Azure File dotnet add package Microsoft.Extensions.Logging.AzureAppServices Add the provider I like to add the Console provider as well so I can check what&amp;rsquo;s going on when running locally too, but it&amp;rsquo;s not required for the portal Log Streaming.</description>
     </item>
     
   </channel>
