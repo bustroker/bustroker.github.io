@@ -166,6 +166,9 @@ kubectl logs &lt;POD-NAME&gt;
 <pre><code class="language-console" data-lang="console">kubectl explain &lt;RESOURCE&gt;.&lt;PATH&gt;.&lt;TO&gt;.&lt;ITEM&gt;
 // e.g:
 kubectl explain ingress.spec.rules.http
+</code></pre><h3 id="cleanup-k8s-resources">Cleanup k8s resources</h3>
+<p>Just delete the namespace(s) and everything under it will be deleted. Deletion is async, so namespaces appears as <em>Terminating</em> for some time.</p>
+<pre><code class="language-console" data-lang="console">kubectl delete namespace NAMESPACE_NAME
 </code></pre>
 
 
