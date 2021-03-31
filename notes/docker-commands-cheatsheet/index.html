@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.82.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -185,6 +185,10 @@ docker login --username=$DOCKER_USER --password=$DOCKER_PASS bustrokeracr.azurec
 
 //THEN
 docker push bustrokeracr.azurecr.io/bustroker-webui:v1
+</code></pre><h3 id="copy-file-from-docker-container-to-host">copy file from docker container to host</h3>
+<p>The container cannot be running</p>
+<pre><code class="language-console" data-lang="console">docker stop [CONTAINER_ID]
+docker cp [CONTAINER_ID]:/file/path/within/container /host/path/target
 </code></pre>
 
 

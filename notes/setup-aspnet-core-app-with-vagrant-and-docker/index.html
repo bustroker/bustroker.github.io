@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.82.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -168,11 +168,6 @@ So, docker-compose.yml file content</p>
     <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
     <span style="color:#f92672">ports</span>:
       - <span style="color:#e6db74">&#34;8080:80&#34;</span>
-    <span style="color:#ae81ff">networks</span>
-      - <span style="color:#ae81ff">webnet</span>
-<span style="color:#f92672">networks</span>:
-  - <span style="color:#ae81ff">webnet</span>
-
 </code></pre></div><p>Here the app is listening in port 8080 of the VM. Also, the VM 8080 port is mapped to the host&rsquo;s 8080 (configured in Vagrant VM step before). So the 8080 port of Vagrant VM is accessible from host&rsquo;s localhost:8080.</p>
 <h3 id="run-it">Run it</h3>
 <p>Inside Vagrant VM, cd into app folder and go</p>

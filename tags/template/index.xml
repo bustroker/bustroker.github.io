@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>template on Coding notes</title>
+    <link>https://www.bustroker.com/tags/template/</link>
+    <description>Recent content in template on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/template/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simplest html empty file</title>
+      <link>https://www.bustroker.com/notes/simplest-html-empty-file/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/simplest-html-empty-file/</guid>
+      <description>The simplest node static files server.
+Create the project and install express package &amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;The HTML5 Herald&amp;lt;/title&amp;gt; &amp;lt;meta name=&amp;#34;description&amp;#34; content=&amp;#34;The HTML5 Herald&amp;#34;&amp;gt; &amp;lt;meta name=&amp;#34;author&amp;#34; content=&amp;#34;SitePoint&amp;#34;&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;css/styles.css?v=1.0&amp;#34;&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;script src=&amp;#34;js/scripts.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; </description>
+    </item>
+    
+  </channel>
+</rss>

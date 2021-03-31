@@ -6,7 +6,70 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>environment variables</title>
+      <link>https://www.bustroker.com/tags/environment-variables/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/environment-variables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>powershell</title>
+      <link>https://www.bustroker.com/tags/powershell/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/powershell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>https://www.bustroker.com/tags/html/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/html/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>template</title>
+      <link>https://www.bustroker.com/tags/template/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/template/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://www.bustroker.com/tags/docker/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mssql</title>
+      <link>https://www.bustroker.com/tags/mssql/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/mssql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vagrant</title>
+      <link>https://www.bustroker.com/tags/vagrant/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/vagrant/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>cheatsheet</title>
       <link>https://www.bustroker.com/tags/cheatsheet/</link>
@@ -94,15 +157,6 @@
       <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/cosmosdb/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://www.bustroker.com/tags/docker/</link>
-      <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/docker/</guid>
       <description></description>
     </item>
     
@@ -247,15 +301,6 @@
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/phonegap/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vagrant</title>
-      <link>https://www.bustroker.com/tags/vagrant/</link>
-      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/vagrant/</guid>
       <description></description>
     </item>
     
@@ -427,6 +472,15 @@
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/node/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>windows</title>
+      <link>https://www.bustroker.com/tags/windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/windows/</guid>
       <description></description>
     </item>
     

@@ -6,7 +6,17 @@
     <description>Recent content in vagrant on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run MSSQL server in docker inside vagrant (ubuntu) VM</title>
+      <link>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</guid>
+      <description>Files Vagrant VM needs at least 2Gb.
+## Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 1433, host: 1433 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;SqlServer&amp;#34;  vb.memory = 2048 end end ## vagrant_provision.sh  echo &amp;#34;provisioning VM...&amp;#34; sudo apt update sudo apt-get update # install docker and run sudo apt -y install docker.io sudo systemctl start docker sudo systemctl enable docker docker --version echo &amp;#34;docker installed and running.</description>
+    </item>
+    
     <item>
       <title>Build native mobile packages from html/css/js app with PhoneGap Build cloud service</title>
       <link>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service/</link>
@@ -34,9 +44,9 @@ Make sure to check for latest versions of some of the installed tools.</descript
       <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/vagrant-commands-cheatsheet/</guid>
-      <description>Most used commands new vagrant file vagrant init check status vagrant status vagrant global-status to manage VMs (boxes) vagrant box to run VM local project folder is sync with /vagrant in VM
-vagrant up to ssh in vagrant ssh close ssh connection with Ctrl+d
-to shut down the VM (without loosing everything) vagrant halt to destroy the VM (losing everything) vagrant destroy ssh into VM vagrant ssh vagrant VM ssh server is in host&amp;rsquo;s 2222 port, so putty can be used targeting localhost:2222 Also, vagrant VM&amp;rsquo;s 22 port can be forwarded to any other host&amp;rsquo;s port.</description>
+      <description>Most used commands update vagrant box updatenew vagrant file vagrant initcheck status vagrant statusvagrant global-statusto manage VMs (boxes) vagrant boxto run VM local project folder is sync with /vagrant in VM
+vagrant upto ssh in vagrant sshclose ssh connection with Ctrl+d
+to shut down the VM (without loosing everything) vagrant haltto destroy the VM (losing everything) vagrant destroyssh into VM vagrant sshvagrant VM ssh server is in host&amp;rsquo;s 2222 port, so putty can be used targeting localhost:2222 Also, vagrant VM&amp;rsquo;s 22 port can be forwarded to any other host&amp;rsquo;s port.</description>
     </item>
     
   </channel>

@@ -16,7 +16,7 @@
       <description>Here&amp;rsquo;s what Azure App Configuration Service is.
 Here&amp;rsquo;s how to use it.
 How the web api middleware uses the App Configuration Client As per oficial documentation, refering to
-// Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env) app.UseAzureAppConfiguration(); &amp;ldquo;The middleware uses the refresh configuration specified in the AddAzureAppConfiguration method in Program.cs to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired.</description>
+// Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env)app.UseAzureAppConfiguration();&amp;ldquo;The middleware uses the refresh configuration specified in the AddAzureAppConfiguration method in Program.cs to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired.</description>
     </item>
     
     <item>

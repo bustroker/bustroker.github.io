@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.82.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,7 +132,9 @@ audio {
 
 <h1>Vagrant commands cheatsheet</h1>
 <h3 id="most-used-commands">Most used commands</h3>
-<h4 id="new-vagrant-file">new vagrant file</h4>
+<h4 id="update">update</h4>
+<pre><code>vagrant box update
+</code></pre><h4 id="new-vagrant-file">new vagrant file</h4>
 <pre><code>vagrant init
 </code></pre><h4 id="check-status">check status</h4>
 <pre><code>vagrant status
@@ -151,7 +153,7 @@ vagrant global-status
 <pre><code>vagrant destroy
 </code></pre><h4 id="ssh-into-vm">ssh into VM</h4>
 <pre><code>vagrant ssh
-</code></pre><p>vagrant VM ssh server is in host&rsquo;s 2222 port, so putty can be used targeting <code>localhost:2222</code>
+</code></pre><p>vagrant VM ssh server is in host&rsquo;s 2222 port, so putty can be used targeting <code>localhost:2222</code> 
 Also, vagrant VM&rsquo;s 22 port can be forwarded to any other host&rsquo;s port.</p>
 <h3 id="other-commands">Other commands</h3>
 <pre><code>vagrant init -- Initialize Vagrant with a Vagrantfile and ./.vagrant directory, using no specified base image. Before you can do vagrant up, you'll need to specify a base image in the Vagrantfile.

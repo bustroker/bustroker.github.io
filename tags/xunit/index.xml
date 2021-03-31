@@ -14,9 +14,9 @@
       
       <guid>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</guid>
       <description>Create a folder for the solution and cd into it A solution (sln file) is required to be able to have projects referencing others.
-mkdir Bustroker.Notes cd Bustroker.Notes Create solution The sln file is created directly in the folder it&amp;rsquo;s run.
-dotnet new sln -n Bustroker.Notes Create class library project and add it to the solution A folder is created, containing the project
-dotnet new classlib -n Bustroker.Notes dotnet sln add Bustroker.</description>
+mkdir Bustroker.Notescd Bustroker.NotesCreate solution The sln file is created directly in the folder it&amp;rsquo;s run.
+dotnet new sln -n Bustroker.NotesCreate class library project and add it to the solution A folder is created, containing the project
+dotnet new classlib -n Bustroker.Notesdotnet sln add Bustroker.</description>
     </item>
     
   </channel>

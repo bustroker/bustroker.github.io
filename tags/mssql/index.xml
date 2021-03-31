@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mssql on Coding notes</title>
+    <link>https://www.bustroker.com/tags/mssql/</link>
+    <description>Recent content in mssql on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/mssql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run MSSQL server in docker inside vagrant (ubuntu) VM</title>
+      <link>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</guid>
+      <description>Files Vagrant VM needs at least 2Gb.
+## Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 1433, host: 1433 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;SqlServer&amp;#34;  vb.memory = 2048 end end ## vagrant_provision.sh  echo &amp;#34;provisioning VM...&amp;#34; sudo apt update sudo apt-get update # install docker and run sudo apt -y install docker.io sudo systemctl start docker sudo systemctl enable docker docker --version echo &amp;#34;docker installed and running.</description>
+    </item>
+    
+    <item>
+      <title>Run MSSQL server in docker for windows</title>
+      <link>https://www.bustroker.com/notes/run-mssql-server-in-docker-for-windows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/run-mssql-server-in-docker-for-windows/</guid>
+      <description>Docker compose First check attach_dbs argument. The first time running it, remove it. Afterwards, if starting with an existing db, use it to attach existing mdf/ldf files. They can also be attached from T-Sql after starting the server.
+Note: Mapping localhost folder to default C:/Program Files&amp;hellip; fails, probably for permission reasons (not clear from the message, as usual).
+// docker-compose.yamlversion: &#39;3.8&#39;services:SQLServer:image: microsoft/mssql-server-windows-developerenvironment:- ACCEPT_EULA=Y- SA_PASSWORD=Password_01# - attach_dbs=[{&#39;dbName&#39;:&#39;Joker&#39;,&#39;dbFiles&#39;:[&#39;C:\\SQLData\\Joker1.</description>
+    </item>
+    
+  </channel>
+</rss>

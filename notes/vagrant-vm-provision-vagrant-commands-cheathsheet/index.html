@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.75.1" />
+  <meta name="generator" content="Hugo 0.82.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -133,7 +133,7 @@ audio {
 <h1>Vagrant VM provision &amp; vagrant commands cheathsheet</h1>
 <h3 id="vagrantfile">Vagrantfile</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">Vagrant.configure(&#34;2&#34;) do |config|</span>
-  <span style="color:#ae81ff">config.vm.box = &#34;ubuntu/focal64&#34; # v 20.04 LTS</span>
+  <span style="color:#ae81ff">config.vm.box = &#34;ubuntu/focal64&#34;</span> <span style="color:#75715e"># v 20.04 LTS</span>
   <span style="color:#ae81ff">config.vm.synced_folder &#34;./&#34;, &#34;/vagrant&#34;</span>
   <span style="color:#ae81ff">config.vm.network &#34;forwarded_port&#34;, guest: 8080, host: 8080</span>
   <span style="color:#f92672">config.vm.provision :shell, path</span>: <span style="color:#e6db74">&#34;vagrant_provision.sh&#34;</span>  
