@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>powershell | Coding notes</title>
+  <title>Install sql server unattended from Powershell | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,47 +130,21 @@ audio {
       <main id="main">
         
 
-<h1>powershell</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/powershell-cheatsheet/">Powershell cheatsheet</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-03-29">Mar 3, 29000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/install-sql-server-unattended-from-powershell/">Install sql server unattended from Powershell</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-03-29">Mar 3, 29000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssqlserver">mssqlserver</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
-  
-
-</p>
-
+<h1>Install sql server unattended from Powershell</h1>
+<p>Download installation from <a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">here</a>, run it and use the option <code>Download Media</code>.</p>
+<ul>
+<li>To install Express edition, run <code>powershell</code> as admin and go</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd C:\SQL2019\SQLEXPR_x64_ENU
+.\setup.exe /Q /HIDECONSOLE=0 /ACTION=INSTALL /SUPPRESSPRIVACYSTATEMENTNOTICE /IACCEPTSQLSERVERLICENSETERMS=1 /FEATURES=SQLENGINE /UPDATEENABLED=0 /INSTANCENAME=<span style="color:#e6db74">&#34;MSSQLSERVER&#34;</span> /ADDCURRENTUSERASSQLADMIN=1 /SECURITYMODE=SQL /SKIPRULES=RebootRequiredCheck /SAPWD=<span style="color:#e6db74">&#34;Pasword_01&#34;</span> /SQLSVCSTARTUPTYPE=AUTOMATIC /INDICATEPROGRESS
+</code></pre></div><ul>
+<li>For Developer edition, run <code>powershell</code> as admin and go</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd C:\SQL2019\Developer_ENU
+.\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=<span style="color:#e6db74">&#39;NT AUTHORITY\NETWORK SERVICE&#39;</span> /SQLSYSADMINACCOUNTS=<span style="color:#e6db74">&#39;BUILTIN\ADMINISTRATORS&#39;</span> /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS  /SECURITYMODE=SQL /SAPWD=<span style="color:#e6db74">&#34;Password_01&#34;</span>
+</code></pre></div><p>To uninstall</p>
+<pre><code>.\setup.exe /q /ACTION=Uninstall /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /INDICATEPROGRESS
+</code></pre>
 
 
       </main>

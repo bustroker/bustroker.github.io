@@ -6,7 +6,19 @@
     <description>Recent content in cheatsheet on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Powershell cheatsheet</title>
+      <link>https://www.bustroker.com/notes/powershell-cheatsheet/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/powershell-cheatsheet/</guid>
+      <description>List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user
+[System.Environment]::GetEnvironmentVariable(&amp;#39;PATH&amp;#39;,&amp;#39;machine&amp;#39;) For some reason, the previous doesn&amp;rsquo;t work for COMPUTERNAME. To get computer name:
+$env:computernameSet environment variable Run powershell as Admin.
+ new variable  [System.Environment]::SetEnvironmentVariable(&amp;#39;FOO&amp;#39;, &amp;#39;bar&amp;#39;,[System.EnvironmentVariableTarget]::Machine)  add to an existing variable (typically to PATH)  $current=[System.Environment]::GetEnvironmentVariable(&amp;#39;FOO&amp;#39;,&amp;#39;machine&amp;#39;);$newpath=&amp;#34;$current;new/stuff in the/path&amp;#34;;[System.Environment]::SetEnvironmentVariable(&amp;#39;FOO&amp;#39;, $newpath,[System.EnvironmentVariableTarget]::Machine) Enable windows feature (ServerManager)  First, run Powershell as admin, instal RSAT (includes ServerManager Module).</description>
+    </item>
+    
     <item>
       <title>MySql/MariaDb command line cheatsheet</title>
       <link>https://www.bustroker.com/notes/mysql/mariadb-command-line-cheatsheet/</link>
