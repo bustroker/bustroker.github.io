@@ -136,8 +136,8 @@ audio {
 </code></pre></div><p>Also, using <code>.net</code> from powershell, and specifying system-level variables, by specifying <code>machine</code> as second argument. This argument could also be <code>user</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>)
 </code></pre></div><p>For some reason, the previous doesn&rsquo;t work for <code>COMPUTERNAME</code>. To get computer name:</p>
-<pre><code>$env:computername
-</code></pre><h3 id="set-environment-variable">Set environment variable</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$env:computername
+</code></pre></div><h3 id="set-environment-variable">Set environment variable</h3>
 <p>Run powershell as Admin.</p>
 <ul>
 <li>new variable</li>
@@ -159,9 +159,7 @@ audio {
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Import-Module ServerManager
 Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature -ComputerName $env:computername -WhatIf
-</code></pre></div><p>to get computer name</p>
-<pre><code>$env:computername
-</code></pre><h3 id="grant-a-user-full-permission-over-a-folder">Grant a user full permission over a folder</h3>
+</code></pre></div><h3 id="grant-a-user-full-permission-over-a-folder">Grant a user full permission over a folder</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">icacls <span style="color:#e6db74">&#34;C:\folder\to\set\permissions\to&#34;</span> /inheritance<span style="color:#960050;background-color:#1e0010">:</span>d /grant<span style="color:#960050;background-color:#1e0010">:</span>r <span style="color:#e6db74">&#34;[USER_NAME]:(OI)(CI)F&#34;</span> /T
 </code></pre></div><h3 id="set-registry-value">Set registry value</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Set-ItemProperty -path <span style="color:#e6db74">&#39;HKLM:\path\to\key\&#39;</span> -name <span style="color:#66d9ef">[KEY_NAME]</span> -value <span style="color:#66d9ef">[KEY_VALUE]</span>
