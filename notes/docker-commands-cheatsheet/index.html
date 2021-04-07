@@ -189,7 +189,31 @@ docker push bustrokeracr.azurecr.io/bustroker-webui:v1
 <p>The container cannot be running</p>
 <pre><code class="language-console" data-lang="console">docker stop [CONTAINER_ID]
 docker cp [CONTAINER_ID]:/file/path/within/container /host/path/target
-</code></pre>
+</code></pre><h3 id="docker-compose-terminal-into-service-container">docker-compose terminal into service container</h3>
+<pre><code>docker-compose up exec [SERVICE_NAME] [TERMINAL]
+</code></pre><p>TERMINAL could be <code>sh</code>, <code>cmd</code>, <code>powershell</code>..</p>
+<h3 id="increase-container-hdd-space">increase container hdd space</h3>
+<ul>
+<li>Linux</li>
+</ul>
+<pre><code>docker run --storage-opt dm.basesize=40G  hello-world
+</code></pre><ul>
+<li>Windows</li>
+</ul>
+<pre><code>docker run --storage-opt &quot;size=40GB&quot; mcr.microsoft.com/windows/servercore:ltsc2019 cmd
+</code></pre><p>or change config file (see <code>config file in docker for windows</code> below)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;storage-opts&#34;</span>: [
+            <span style="color:#e6db74">&#34;size=40GB&#34;</span>
+        ]
+}
+</code></pre></div><p>Make sure to restart docker (restart didn&rsquo;t work for me. Had to stop and then start.)</p>
+<p>To test it, run the container, open a <code>powershell</code> session and go:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-WmiObject -Class Win32_logicaldisk -Filter <span style="color:#e6db74">&#34;DriveType = &#39;3&#39;&#34;</span>
+</code></pre></div><h3 id="config-file-in-docker-for-windows">config file in docker for windows</h3>
+<p>The configuration file is located in <code>C:\ProgramData\Docker\config\daemon.json</code>. It can also be edited using Docker for Desktop.</p>
+<p>The rest of available params are described <a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon#configure-docker-with-a-configuration-file">here</a>.</p>
+
 
 
       </main>

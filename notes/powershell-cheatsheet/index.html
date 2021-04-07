@@ -163,6 +163,17 @@ Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature -ComputerName $env
 <pre><code>$env:computername
 </code></pre><h3 id="grant-a-user-full-permission-over-a-folder">Grant a user full permission over a folder</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">icacls <span style="color:#e6db74">&#34;C:\folder\to\set\permissions\to&#34;</span> /inheritance<span style="color:#960050;background-color:#1e0010">:</span>d /grant<span style="color:#960050;background-color:#1e0010">:</span>r <span style="color:#e6db74">&#34;[USER_NAME]:(OI)(CI)F&#34;</span> /T
+</code></pre></div><h3 id="set-registry-value">Set registry value</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Set-ItemProperty -path <span style="color:#e6db74">&#39;HKLM:\path\to\key\&#39;</span> -name <span style="color:#66d9ef">[KEY_NAME]</span> -value <span style="color:#66d9ef">[KEY_VALUE]</span>
+<span style="color:#75715e"># e.g.</span>
+Set-ItemProperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\&#39;</span> -name LoginMode -value 2
+</code></pre></div><h3 id="get-local-harddrives-storage-info">Get local harddrives storage info</h3>
+<p>Further info in <code>https://mcpmag.com/articles/2018/01/26/view-drive-information-with-powershell.aspx</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># all</span>
+Get-WmiObject -Class Win32_logicaldisk
+
+<span style="color:#75715e"># local</span>
+Get-WmiObject -Class Win32_logicaldisk -Filter <span style="color:#e6db74">&#34;DriveType = &#39;3&#39;&#34;</span>
 </code></pre></div>
 
 

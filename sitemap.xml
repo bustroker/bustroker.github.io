@@ -2,28 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.bustroker.com/tags/cheatsheet/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/mssqlserver/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/powershell/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/query-sql-server-from-powershell/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/sqlcmd/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/cheatsheet/</loc>
     <lastmod>2021-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/install-sql-server-unattended-from-powershell/</loc>
     <lastmod>2021-03-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/mssqlserver/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/powershell/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/notes/powershell-cheatsheet/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/</loc>
     <lastmod>2021-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/html/</loc>

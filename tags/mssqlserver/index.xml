@@ -6,7 +6,18 @@
     <description>Recent content in mssqlserver on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/mssqlserver/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/mssqlserver/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Query sql server from powershell</title>
+      <link>https://www.bustroker.com/notes/query-sql-server-from-powershell/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/query-sql-server-from-powershell/</guid>
+      <description>sqlcmd utility (2019) Installed with Visual Studio 2019. (Apparently also with Sql Server 2019, but they dont&amp;rsquo;s explain WHERE it actually is :S)
+Add to path sqlcmd.exe is located in:
+ Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log sqlserver powershell module Install-Module sqlserver -Force A minimun nuget version is required.</description>
+    </item>
+    
     <item>
       <title>Install sql server unattended from Powershell</title>
       <link>https://www.bustroker.com/notes/install-sql-server-unattended-from-powershell/</link>
