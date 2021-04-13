@@ -185,11 +185,17 @@ docker login --username=$DOCKER_USER --password=$DOCKER_PASS bustrokeracr.azurec
 
 //THEN
 docker push bustrokeracr.azurecr.io/bustroker-webui:v1
-</code></pre><h3 id="copy-file-from-docker-container-to-host">copy file from docker container to host</h3>
-<p>The container cannot be running</p>
+</code></pre><h3 id="copy-file-from-docker-container-to-host-and-viceversa">copy file from docker container to host and viceversa</h3>
+<p>The container cannot be running, so stop it first</p>
 <pre><code class="language-console" data-lang="console">docker stop [CONTAINER_ID]
 docker cp [CONTAINER_ID]:/file/path/within/container /host/path/target
-</code></pre><h3 id="docker-compose-terminal-into-service-container">docker-compose terminal into service container</h3>
+</code></pre><p>To copy from host to container, the same</p>
+<pre><code class="language-console" data-lang="console">docker cp /host/path/to/folder/ [CONTAINER_ID]:/folder/path/within/container/
+</code></pre><p>They both copy the folder to target folder. Add <code>/</code> at the end to signify it&rsquo;s a folder.
+Target folder needs to exist already.
+Do not prepend <code>c:</code> to path in windows, as it fails. 
+Also, use double quotes rather than one, as it fails as well (in windows at least)</p>
+<h3 id="docker-compose-terminal-into-service-container">docker-compose terminal into service container</h3>
 <pre><code>docker-compose up exec [SERVICE_NAME] [TERMINAL]
 </code></pre><p>TERMINAL could be <code>sh</code>, <code>cmd</code>, <code>powershell</code>..</p>
 <h3 id="increase-container-hdd-space">increase container hdd space</h3>
@@ -213,7 +219,26 @@ docker cp [CONTAINER_ID]:/file/path/within/container /host/path/target
 </code></pre></div><h3 id="config-file-in-docker-for-windows">config file in docker for windows</h3>
 <p>The configuration file is located in <code>C:\ProgramData\Docker\config\daemon.json</code>. It can also be edited using Docker for Desktop.</p>
 <p>The rest of available params are described <a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon#configure-docker-with-a-configuration-file">here</a>.</p>
+<h3 id="docker-for-windows-fails-with-hns-error">docker for windows fails with hns error</h3>
+<p>Run powershell as admin</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Stop-Service docker
+Stop-service hns
+Start-service hns
+Start-Service docker
+docker network prune
+</code></pre></div><h3 id="docker-compose">docker-compose</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># launch the containers</span>
+docker-compose up [-d] [--build]
 
+<span style="color:#75715e"># launch the containers and opens interactive terminal inside</span>
+docker-compose run <span style="color:#66d9ef">[SERVICE]</span> 
+
+<span style="color:#75715e"># stop and remove containers</span>
+docker-compose down
+
+<span style="color:#75715e"># stop the containers, without removing</span>
+docker-compose stop
+</code></pre></div>
 
 
       </main>

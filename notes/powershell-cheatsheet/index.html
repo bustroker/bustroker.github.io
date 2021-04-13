@@ -131,7 +131,10 @@ audio {
         
 
 <h1>Powershell cheatsheet</h1>
-<h3 id="list-environment-variables">List environment variables</h3>
+<h3 id="bypass-digitally-sign-constrain-for-scripts-execution">Bypass digitally sign constrain for scripts execution</h3>
+<p>This is only for current session.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Set-ExecutionPolicy -Scope <span style="color:#66d9ef">Process</span> -ExecutionPolicy Bypass
+</code></pre></div><h3 id="list-environment-variables">List environment variables</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-ChildItem -Path Env<span style="color:#960050;background-color:#1e0010">:</span>\
 </code></pre></div><p>Also, using <code>.net</code> from powershell, and specifying system-level variables, by specifying <code>machine</code> as second argument. This argument could also be <code>user</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>)
@@ -146,7 +149,7 @@ audio {
 </code></pre></div><ul>
 <li>add to an existing variable (typically to <code>PATH</code>)</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$current=<span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;FOO&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>);$newpath=<span style="color:#e6db74">&#34;$current;new/stuff in the/path&#34;</span>;<span style="color:#66d9ef">[System.Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#39;FOO&#39;</span>, $newpath,<span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$current=<span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;FOO&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>);$newpath=<span style="color:#e6db74">&#34;$current;C:\new\stuff\in\the\path&#34;</span>;<span style="color:#66d9ef">[System.Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#39;FOO&#39;</span>, $newpath,<span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
 </code></pre></div><h3 id="enable-windows-feature-servermanager">Enable windows feature (ServerManager)</h3>
 <ul>
 <li>First, run <code>Powershell</code> as admin, instal <code>RSAT</code> (includes <code>ServerManager</code> Module).</li>
@@ -159,6 +162,8 @@ audio {
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Import-Module ServerManager
 Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature -ComputerName $env:computername -WhatIf
+</code></pre></div><h3 id="create-folder">Create folder</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">New-Item -Path <span style="color:#e6db74">&#34;c:\&#34;</span> -Name <span style="color:#e6db74">&#34;newfolder&#34;</span> -ItemType <span style="color:#e6db74">&#34;directory&#34;</span>
 </code></pre></div><h3 id="grant-a-user-full-permission-over-a-folder">Grant a user full permission over a folder</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">icacls <span style="color:#e6db74">&#34;C:\folder\to\set\permissions\to&#34;</span> /inheritance<span style="color:#960050;background-color:#1e0010">:</span>d /grant<span style="color:#960050;background-color:#1e0010">:</span>r <span style="color:#e6db74">&#34;[USER_NAME]:(OI)(CI)F&#34;</span> /T
 </code></pre></div><h3 id="set-registry-value">Set registry value</h3>

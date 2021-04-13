@@ -6,7 +6,16 @@
     <description>Recent content on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Host aspnet website in docker with IIS and self-signed certificate</title>
+      <link>https://www.bustroker.com/notes/host-aspnet-website-in-docker-with-iis-and-self-signed-certificate/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/host-aspnet-website-in-docker-with-iis-and-self-signed-certificate/</guid>
+      <description>Dockerfile FROMmcr.microsoft.com/dotnet/framework/aspnet:4.8SHELL [ &amp;#34;powershell&amp;#34; ]COPY src/Bustroker.LocalEnv.WebUI/bin/app.publish c:/webappADD enablessl.ps1 /windows/temp/configureIIS.ps1RUN powershell.exe -executionpolicy bypass c:\windows\temp\configureIIS.ps1Configure IIS powershell script Import-Module WebAdministration Set-Location IIS:\SslBindings New-WebBinding -Name &amp;#34;Default Web Site&amp;#34; -IP &amp;#34;*&amp;#34; -Port 443 -Protocol https $c = New-SelfSignedCertificate -DnsName &amp;#34;localhost&amp;#34; -CertStoreLocation cert:\LocalMachine\My $c | New-Item 0.0.0.0!443 New-WebApplication -Site &amp;#39;Default Web Site&amp;#39; -Name &amp;#39;webapp&amp;#39; -PhysicalPath &amp;#39;C:\webapp&amp;#39; Docker compose version: &amp;#39;3.8&amp;#39; services: webapp: build: . ports: - &amp;#34;80:80&amp;#34; - &amp;#34;443:443&amp;#34; Run Compile and publish the site file system, e.</description>
+    </item>
+    
     <item>
       <title>Query sql server from powershell</title>
       <link>https://www.bustroker.com/notes/query-sql-server-from-powershell/</link>
@@ -34,10 +43,11 @@ Add to path sqlcmd.exe is located in:
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/powershell-cheatsheet/</guid>
-      <description>List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user
+      <description>Bypass digitally sign constrain for scripts execution This is only for current session.
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user
 [System.Environment]::GetEnvironmentVariable(&amp;#39;PATH&amp;#39;,&amp;#39;machine&amp;#39;) For some reason, the previous doesn&amp;rsquo;t work for COMPUTERNAME. To get computer name:
 $env:computername Set environment variable Run powershell as Admin.
- new variable  [System.Environment]::SetEnvironmentVariable(&amp;#39;FOO&amp;#39;, &amp;#39;bar&amp;#39;,[System.EnvironmentVariableTarget]::Machine)  add to an existing variable (typically to PATH)  $current=[System.Environment]::GetEnvironmentVariable(&amp;#39;FOO&amp;#39;,&amp;#39;machine&amp;#39;);$newpath=&amp;#34;$current;new/stuff in the/path&amp;#34;;[System.Environment]::SetEnvironmentVariable(&amp;#39;FOO&amp;#39;, $newpath,[System.EnvironmentVariableTarget]::Machine) Enable windows feature (ServerManager)  First, run Powershell as admin, instal RSAT (includes ServerManager Module).</description>
+ new variable  [System.</description>
     </item>
     
     <item>

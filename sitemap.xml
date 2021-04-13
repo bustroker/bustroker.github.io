@@ -2,13 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.bustroker.com/</loc>
-    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+    <loc>https://www.bustroker.com/tags/aspnet-4.7/</loc>
+    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/mssqlserver/</loc>
-    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
+    <loc>https://www.bustroker.com/</loc>
+    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/docker/</loc>
+    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/host-aspnet-website-in-docker-with-iis-and-self-signed-certificate/</loc>
+    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/iis/</loc>
+    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/</loc>
+    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/selfsigned-certificate/</loc>
+    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/ssl/</loc>
+    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/mssqlserver/</loc>
     <lastmod>2021-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/powershell/</loc>
@@ -18,9 +39,6 @@
     <lastmod>2021-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/sqlcmd/</loc>
-    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/</loc>
     <lastmod>2021-04-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/cheatsheet/</loc>
@@ -40,9 +58,6 @@
   </url><url>
     <loc>https://www.bustroker.com/tags/template/</loc>
     <lastmod>2021-03-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/docker/</loc>
-    <lastmod>2021-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/mssql/</loc>
     <lastmod>2021-03-05T00:00:00+00:00</lastmod>
@@ -191,6 +206,9 @@
     <loc>https://www.bustroker.com/notes/docker-commands-cheatsheet/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.bustroker.com/tags/docker-compose/</loc>
+    <lastmod>2020-07-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/notes/dotnet-3.1-appsettings-env-variables/</loc>
     <lastmod>2020-07-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -204,9 +222,6 @@
     <lastmod>2020-06-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/configure-a-rewrite-url-in-web.config-for-iis-hosted-apps/</loc>
-    <lastmod>2020-06-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/iis/</loc>
     <lastmod>2020-06-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/application-insights/</loc>

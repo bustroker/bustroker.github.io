@@ -6,7 +6,52 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>aspnet 4.7</title>
+      <link>https://www.bustroker.com/tags/aspnet-4.7/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/aspnet-4.7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://www.bustroker.com/tags/docker/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iis</title>
+      <link>https://www.bustroker.com/tags/iis/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/iis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>selfsigned certificate</title>
+      <link>https://www.bustroker.com/tags/selfsigned-certificate/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/selfsigned-certificate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSL</title>
+      <link>https://www.bustroker.com/tags/ssl/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/ssl/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>mssqlserver</title>
       <link>https://www.bustroker.com/tags/mssqlserver/</link>
@@ -58,15 +103,6 @@
       <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/template/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://www.bustroker.com/tags/docker/</link>
-      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/docker/</guid>
       <description></description>
     </item>
     
@@ -341,20 +377,20 @@
     </item>
     
     <item>
+      <title>docker-compose</title>
+      <link>https://www.bustroker.com/tags/docker-compose/</link>
+      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>dotnet core 3.1</title>
       <link>https://www.bustroker.com/tags/dotnet-core-3.1/</link>
       <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/dotnet-core-3.1/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iis</title>
-      <link>https://www.bustroker.com/tags/iis/</link>
-      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/iis/</guid>
       <description></description>
     </item>
     
