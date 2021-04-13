@@ -131,24 +131,24 @@ audio {
         
 
 <h1>Run MSSQL server in docker for windows</h1>
-<h2 id="docker-compose">Docker compose</h2>
+<h3 id="docker-compose">Docker compose</h3>
 <p>First check <code>attach_dbs</code> argument. The first time running it, remove it. Afterwards, if starting with an existing db, use it to attach existing mdf/ldf files.
 They can also be attached from T-Sql after starting the server.</p>
 <p><em>Note: Mapping localhost folder to default C:/Program Files&hellip; fails, probably for permission reasons (not clear from the message, as usual).</em></p>
-<pre><code>// docker-compose.yaml
-version: '3.8'
-services:
-  SQLServer:
-   image: microsoft/mssql-server-windows-developer
-   environment:
-     - ACCEPT_EULA=Y
-     - SA_PASSWORD=Password_01
-     # - attach_dbs=[{'dbName':'Joker','dbFiles':['C:\\SQLData\\Joker1.mdf','C:\\SQLData\\Joker1.ldf']},{'dbName':'Joker2','dbFiles':['C:\\SQLData\\Joker2.mdf','C:\\SQLData\\Joker2.ldf']}]
-   ports:
-     - '1433:1433'
-   volumes:
-     - ./data:c:\SqlData
-</code></pre><h2 id="create-database-specifying-the-physical-location-of-files-that-is-already-mapped-to-hosts">Create database specifying the physical location of files that is already mapped to host&rsquo;s.</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">// docker-compose.yaml</span>
+<span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.8&#39;</span>
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">SQLServer</span>:
+   <span style="color:#f92672">image</span>: <span style="color:#ae81ff">microsoft/mssql-server-windows-developer</span>
+   <span style="color:#f92672">environment</span>:
+     - <span style="color:#ae81ff">ACCEPT_EULA=Y</span>
+     - <span style="color:#ae81ff">SA_PASSWORD=Password_01</span>
+     <span style="color:#75715e"># - attach_dbs=[{&#39;dbName&#39;:&#39;Joker&#39;,&#39;dbFiles&#39;:[&#39;C:\\SQLData\\Joker1.mdf&#39;,&#39;C:\\SQLData\\Joker1.ldf&#39;]},{&#39;dbName&#39;:&#39;Joker2&#39;,&#39;dbFiles&#39;:[&#39;C:\\SQLData\\Joker2.mdf&#39;,&#39;C:\\SQLData\\Joker2.ldf&#39;]}]</span>
+   <span style="color:#f92672">ports</span>:
+     - <span style="color:#e6db74">&#39;1433:1433&#39;</span>
+   <span style="color:#f92672">volumes</span>:
+     - <span style="color:#ae81ff">./data:c:\SqlData</span>
+</code></pre></div><h3 id="create-database-specifying-the-physical-location-of-files-that-is-already-mapped-to-hosts">Create database specifying the physical location of files that is already mapped to host&rsquo;s.</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> Joker
 <span style="color:#66d9ef">ON</span>
 ( NAME <span style="color:#f92672">=</span> Joker,
@@ -162,9 +162,9 @@ LOG <span style="color:#66d9ef">ON</span>
     <span style="color:#66d9ef">SIZE</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>MB,
     MAXSIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>MB,
     FILEGROWTH <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>MB )
-</code></pre></div><h2 id="test-it">Test it.</h2>
+</code></pre></div><h3 id="test-it">Test it.</h3>
 <ul>
-<li>Create table, insert</li>
+<li>Create table, insert a row.</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">USE Joker 
 
@@ -177,7 +177,8 @@ LOG <span style="color:#66d9ef">ON</span>
 <span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> FunnyJokes (Title) 
 <span style="color:#66d9ef">VALUES</span> (<span style="color:#e6db74">&#39;The one with the tiger&#39;</span>);
 </code></pre></div><ul>
-<li>Shut down the server and run it again, now attaching the new database, and make sure it&rsquo;s all there.</li>
+<li>Shut down the server and run it again, now attaching the new database using <code>attach_dbs</code> environment variable in <code>docker-compose</code>, and make sure it&rsquo;s all there.
+Make sure the database files are created in the folder being mapped, i.e., <code>c:/SqlData</code>.</li>
 </ul>
 
 
