@@ -163,8 +163,9 @@ audio {
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Import-Module ServerManager
 Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature -ComputerName $env:computername -WhatIf
 </code></pre></div><h3 id="create-folder">Create folder</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">New-Item -Path <span style="color:#e6db74">&#34;c:\&#34;</span> -Name <span style="color:#e6db74">&#34;newfolder&#34;</span> -ItemType <span style="color:#e6db74">&#34;directory&#34;</span>
-</code></pre></div><h3 id="grant-a-user-full-permission-over-a-folder">Grant a user full permission over a folder</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">New-Item -Path <span style="color:#e6db74">&#34;c:\newfolder\anothernew&#34;</span> -Name <span style="color:#e6db74">&#34;lastnewfolder&#34;</span> -ItemType <span style="color:#e6db74">&#34;directory&#34;</span>
+</code></pre></div><p>Creates the full path <code>c:\newfolder\anothernew\lastnewfolder</code>.</p>
+<h3 id="grant-a-user-full-permission-over-a-folder">Grant a user full permission over a folder</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">icacls <span style="color:#e6db74">&#34;C:\folder\to\set\permissions\to&#34;</span> /inheritance<span style="color:#960050;background-color:#1e0010">:</span>d /grant<span style="color:#960050;background-color:#1e0010">:</span>r <span style="color:#e6db74">&#34;[USER_NAME]:(OI)(CI)F&#34;</span> /T
 </code></pre></div><h3 id="set-registry-value">Set registry value</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Set-ItemProperty -path <span style="color:#e6db74">&#39;HKLM:\path\to\key\&#39;</span> -name <span style="color:#66d9ef">[KEY_NAME]</span> -value <span style="color:#66d9ef">[KEY_VALUE]</span>
