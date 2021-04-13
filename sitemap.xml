@@ -339,7 +339,13 @@
   </url><url>
     <loc>https://www.bustroker.com/notes/</loc>
   </url><url>
-    <loc>https://www.bustroker.com/notes/run-mssql-server-in-docker-for-windows/</loc>
+    <loc>https://www.bustroker.com/tags/mssql-2017/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/mssql-2019/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/run-mssql-2017-server-in-docker-for-windows/</loc>
   </url><url>
     <loc>https://www.bustroker.com/tags/windows/</loc>
   </url>

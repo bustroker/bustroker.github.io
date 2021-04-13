@@ -189,11 +189,11 @@ audio {
 <ul>
 <li>run vagrant VM, ssh in and launch mssql container</li>
 </ul>
-<pre><code>vagrant up
+<pre><code class="language-console" data-lang="console">vagrant up
 vagrant ssh
 docker-compose up -d
 </code></pre><p>The alternative command would be:</p>
-<pre><code>docker run --name mssql
+<pre><code class="language-console" data-lang="console">docker run --name mssql
  -e ACCEPT_EULA=Y \
         -e MSSQL_PID=&quot;Developer&quot; \
         -e MSSQL_SA_PASSWORD=&quot;StrongP@ssword!&quot; \
