@@ -16,7 +16,7 @@
       <description>Version: 19.03
 buid image and set tag -t docker build -t bustroker.notes.webui:v1 .multiple tags are allowed as well
 docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest .tag image docker tag [localImage] [registryServer]/[imageName]:[version]# ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1add tag to existing tagged image docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latestlist images docker imagesremove all images optionally add -f at the end to force
-docker rmi $(docker images -q) run container from image docker run -d -p HOST-PORT:CONTAINER-PORT &amp;lt;IMAGE-NAME&amp;gt;-p: [port in host]:[port in the container] -d: run as deamon</description>
+ in Linux  docker rmi $(docker images -q)  in Windows (powershell)  docker images -a -q | % { docker image rm $_ -f } run container from image docker run -d -p HOST-PORT:CONTAINER-PORT &amp;lt;IMAGE-NAME&amp;gt;-p: [port in host]:[port in the container] -d: run as deamon</description>
     </item>
     
   </channel>

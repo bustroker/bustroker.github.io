@@ -146,8 +146,15 @@ docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webu
 <pre><code class="language-console" data-lang="console">docker images
 </code></pre><h3 id="remove-all-images">remove all images</h3>
 <p>optionally add <code>-f</code> at the end to force</p>
+<ul>
+<li>in Linux</li>
+</ul>
 <pre><code class="language-console" data-lang="console">docker rmi $(docker images -q) 
-</code></pre><h3 id="run-container-from-image">run container from image</h3>
+</code></pre><ul>
+<li>in Windows (powershell)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">docker images -a -q | % { docker image rm $_ <span style="color:#f92672">-f</span> }
+</code></pre></div><h3 id="run-container-from-image">run container from image</h3>
 <pre><code class="language-console" data-lang="console">docker run -d -p HOST-PORT:CONTAINER-PORT &lt;IMAGE-NAME&gt;
 </code></pre><p>-p: [port in host]:[port in the container]
 -d: run as deamon</p>
@@ -169,6 +176,9 @@ docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webu
 </code></pre><h3 id="stop-all-containers">stop all containers</h3>
 <pre><code class="language-console" data-lang="console">docker stop $(docker ps -a -q)
 </code></pre><h3 id="remove-all-containers">remove all containers</h3>
+<ul>
+<li>in Linux</li>
+</ul>
 <pre><code class="language-console" data-lang="console">docker rm $(docker ps -a -q)
 </code></pre><h3 id="push-image-to-container-registry">push image to container registry</h3>
 <ul>
