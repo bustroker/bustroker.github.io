@@ -133,7 +133,7 @@ audio {
 <h1>MSSQL Server 2019 docker image for windows</h1>
 <p><em>MSSQL 2019 not available yet in official images, so&hellip;</em></p>
 <h3 id="dockerfile">Dockerfile</h3>
-<p>The windows server base images must to be the same version as host, as per Microsoft documentation (¡¿?!). To get the version open <code>cmd</code> and type <code>ver</code>, to get something like <code>10.0.19042.867</code>.</p>
+<p>The windows server base images must be the same windows version as the host, as per <a href="https://hub.docker.com/_/microsoft-windows-servercore">official documentation</a> (¡¿?!). To get the version open <code>cmd</code> and type <code>ver</code>, to get something like <code>10.0.19042.867</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/windows/servercore:10.0.19042.867</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">SHELL</span> [ <span style="color:#e6db74">&#34;powershell&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010">
@@ -152,7 +152,7 @@ audio {
 <p>The folder installers contains:</p>
 <ul>
 <li>
-<p>Sql Server 2019 installer, like <code>installers\sql2019install\Developer_ENU</code>. <code>Developer_ENU</code> folder contains the actuall installation files. The documentation is <a href="https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-ver15">here</a></p>
+<p>Sql Server 2019 installer, like <code>installers\sql2019install\Developer_ENU</code>.  Folder <code>Developer_ENU</code> contains the actuall installation files. The documentation is <a href="https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-ver15">here</a></p>
 </li>
 <li>
 <p>SqlPackage binaries (dacpac tool), to be added to <code>PATH</code>. It&rsquo;s in <code>installers\sqlpackage-win7-x64-en-US-15.0.5084.2</code>. Downloaded from <a href="https://docs.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver15#get-sqlpackage-for-windows">here</a></p>
