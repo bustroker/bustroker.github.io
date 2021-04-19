@@ -510,17 +510,6 @@ The Voice Shirka_voice is a listener to another mosquitto queue that receives th
     </item>
     
     <item>
-      <title>Vagrant commands cheatsheet</title>
-      <link>https://www.bustroker.com/notes/vagrant-commands-cheatsheet/</link>
-      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/notes/vagrant-commands-cheatsheet/</guid>
-      <description>Most used commands update vagrant box updatenew vagrant file vagrant initcheck status vagrant statusvagrant global-statusto manage VMs (boxes) vagrant boxto run VM local project folder is sync with /vagrant in VM
-vagrant upto ssh in vagrant sshclose ssh connection with Ctrl+d
-to shut down the VM (without loosing everything) vagrant haltto destroy the VM (losing everything) vagrant destroyssh into VM vagrant sshvagrant VM ssh server is in host&amp;rsquo;s 2222 port, so putty can be used targeting localhost:2222 Also, vagrant VM&amp;rsquo;s 22 port can be forwarded to any other host&amp;rsquo;s port.</description>
-    </item>
-    
-    <item>
       <title>Simplest node express static files server</title>
       <link>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>

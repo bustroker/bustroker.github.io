@@ -239,7 +239,68 @@ echo <span style="color:#e6db74">&#34;mosquitto-clients installed...&#34;</span>
 
 
 echo <span style="color:#e6db74">&#34;done provisioning VM.&#34;</span>
-</code></pre></div>
+</code></pre></div><h3 id="most-used-commands">Most used commands</h3>
+<h4 id="update">update</h4>
+<pre><code>vagrant box update
+</code></pre><h4 id="new-vagrant-file">new vagrant file</h4>
+<pre><code>vagrant init
+</code></pre><h4 id="check-status">check status</h4>
+<pre><code>vagrant status
+vagrant global-status
+</code></pre><h4 id="to-manage-vms-boxes">to manage VMs (boxes)</h4>
+<pre><code>vagrant box
+</code></pre><h4 id="to-run-vm">to run VM</h4>
+<p>local project folder is sync with /vagrant in VM</p>
+<pre><code>vagrant up
+</code></pre><h4 id="to-ssh-in">to ssh in</h4>
+<pre><code>vagrant ssh
+</code></pre><p><em>close ssh connection with Ctrl+d</em></p>
+<h4 id="to-shut-down-the-vm-without-loosing-everything">to shut down the VM (without loosing everything)</h4>
+<pre><code>vagrant halt
+</code></pre><h4 id="to-destroy-the-vm-losing-everything">to destroy the VM (losing everything)</h4>
+<pre><code>vagrant destroy
+</code></pre><h4 id="ssh-into-vm">ssh into VM</h4>
+<pre><code>vagrant ssh
+</code></pre><p>vagrant VM ssh server is in host&rsquo;s 2222 port, so putty can be used targeting <code>localhost:2222</code> 
+Also, vagrant VM&rsquo;s 22 port can be forwarded to any other host&rsquo;s port.</p>
+<h3 id="other-commands">Other commands</h3>
+<pre><code>vagrant init -- Initialize Vagrant with a Vagrantfile and ./.vagrant directory, using no specified base image. Before you can do vagrant up, you'll need to specify a base image in the Vagrantfile.
+
+vagrant init &lt;boxpath&gt; -- Initialize Vagrant with a specific box. To find a box, go to the public Vagrant box catalog. When you find one you like, just replace it's name with boxpath. For example, vagrant init ubuntu/trusty64.
+
+vagrant up -- starts vagrant environment (also provisions only on the FIRST vagrant up)
+vagrant resume -- resume a suspended machine (vagrant up works just fine for this as well)
+vagrant provision -- forces reprovisioning of the vagrant machine
+vagrant reload -- restarts vagrant machine, loads new Vagrantfile configuration
+vagrant reload --provision -- restart the virtual machine and force provisioning
+
+vagrant ssh -- connects to machine via SSH
+vagrant ssh &lt;boxname&gt; -- If you give your box a name in your Vagrantfile, you can ssh into it with boxname. Works from any directory.
+
+vagrant halt -- stops the vagrant machine
+vagrant suspend -- suspends a virtual machine (remembers state)
+vagrant destroy -- stops and deletes all traces of the vagrant machine
+vagrant destroy -f -- same as above, without confirmation
+vagrant destroy &lt;id&gt;
+
+
+vagrant box list -- see a list of all installed boxes on your computer
+vagrant box add &lt;name&gt; &lt;url&gt; -- download a box image to your computer
+vagrant box outdated -- check for updates vagrant box update
+vagrant boxes remove &lt;name&gt; -- deletes a box from the machine
+vagrant package -- packages a running virtualbox env in a reusable box
+
+vagrant snapshot save [options] [vm-name] &lt;name&gt; -- vm-name is often default. Allows us to save so that we can rollback at a later time
+
+vagrant -v -- get the vagrant version
+vagrant status -- outputs status of the vagrant machine
+vagrant global-status -- outputs status of all vagrant machines
+vagrant global-status --prune -- same as above, but prunes invalid entries
+vagrant provision --debug -- use the debug flag to increase the verbosity of the output
+vagrant push -- yes, vagrant can be configured to deploy code!
+vagrant up --provision | tee provision.log -- Runs vagrant up, forces provisioning and logs all output to a file
+
+</code></pre>
 
 
       </main>
