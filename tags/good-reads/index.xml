@@ -8,12 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/good-reads/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Good reads on miscelanea subjects</title>
-      <link>https://www.bustroker.com/notes/good-reads-on-miscelanea-subjects/</link>
+      <title>Well explained miscelanea subjects</title>
+      <link>https://www.bustroker.com/notes/well-explained-miscelanea-subjects/</link>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/good-reads-on-miscelanea-subjects/</guid>
-      <description> About containers and Unix OS About netcore 2.2 host in IIS InProcess/OutOfProcess About netcore compilation and packages About microservices  </description>
+      <guid>https://www.bustroker.com/notes/well-explained-miscelanea-subjects/</guid>
+      <description>About containers and Unix OS About netcore 2.2 host in IIS InProcess/OutOfProcess About netcore compilation and packages About microservices About Java, JRE, JDK and installation </description>
     </item>
     
   </channel>
