@@ -15,7 +15,7 @@
       <guid>https://www.bustroker.com/notes/powershell-cheatsheet/</guid>
       <description>Bypass digitally sign constrain for scripts execution This is only for current session.
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user
-[System.Environment]::GetEnvironmentVariable(&amp;#39;PATH&amp;#39;,&amp;#39;machine&amp;#39;) For some reason, the previous doesn&amp;rsquo;t work for COMPUTERNAME. To get computer name:
+[System.Environment]::GetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;,&amp;#39;machine&amp;#39;) For some reason, the previous doesn&amp;rsquo;t work for variable COMPUTERNAME. To get computer name:
 $env:computername Set environment variable Run powershell as Admin.
  new variable  [System.</description>
     </item>

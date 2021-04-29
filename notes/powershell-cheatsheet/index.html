@@ -137,19 +137,19 @@ audio {
 </code></pre></div><h3 id="list-environment-variables">List environment variables</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Get-ChildItem -Path Env<span style="color:#960050;background-color:#1e0010">:</span>\
 </code></pre></div><p>Also, using <code>.net</code> from powershell, and specifying system-level variables, by specifying <code>machine</code> as second argument. This argument could also be <code>user</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>)
-</code></pre></div><p>For some reason, the previous doesn&rsquo;t work for <code>COMPUTERNAME</code>. To get computer name:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;VARIABLE_NAME&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>)
+</code></pre></div><p>For some reason, the previous doesn&rsquo;t work for variable <code>COMPUTERNAME</code>. To get computer name:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$env:computername
 </code></pre></div><h3 id="set-environment-variable">Set environment variable</h3>
 <p>Run powershell as Admin.</p>
 <ul>
 <li>new variable</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">[System.Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#39;FOO&#39;</span>, <span style="color:#e6db74">&#39;bar&#39;</span>,<span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">[System.Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#39;VARIABLE_NAME&#39;</span>, <span style="color:#e6db74">&#39;VARIABLE_VALUE&#39;</span>,<span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
 </code></pre></div><ul>
 <li>add to an existing variable (typically to <code>PATH</code>)</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$current=<span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;FOO&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>);$newpath=<span style="color:#e6db74">&#34;$current;C:\new\stuff\in\the\path&#34;</span>;<span style="color:#66d9ef">[System.Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#39;FOO&#39;</span>, $newpath,<span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">$current=<span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;VARIABLE_NAME&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>);$newpath=<span style="color:#e6db74">&#34;$current;C:\new\stuff\in\the\path&#34;</span>;<span style="color:#66d9ef">[System.Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#39;VARIABLE_NAME&#39;</span>, $newpath,<span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
 </code></pre></div><h3 id="enable-windows-feature-servermanager">Enable windows feature (ServerManager)</h3>
 <ul>
 <li>First, run <code>Powershell</code> as admin, instal <code>RSAT</code> (includes <code>ServerManager</code> Module).</li>
