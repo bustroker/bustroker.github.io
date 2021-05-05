@@ -159,8 +159,9 @@ audio {
   <span style="color:#f92672">.</span>settings<span style="color:#f92672">(</span>
     name <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Weather.ConsoleUI&#34;</span><span style="color:#f92672">,</span>
     libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;com.typesafe.play&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;play-json&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;2.6.9&#34;</span><span style="color:#f92672">,</span>
-    libraryDependencies <span style="color:#f92672">+=</span> scalaTest <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span>
-  <span style="color:#f92672">)</span>
+    libraryDependencies <span style="color:#f92672">+=</span> scalaTest <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span><span style="color:#f92672">,</span>
+    assembly <span style="color:#f92672">/</span> assemblyJarName <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">s&#34;</span><span style="color:#e6db74">${</span>name<span style="color:#f92672">.</span>value<span style="color:#e6db74">}</span><span style="color:#e6db74">.jar&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// this is for sbt-assembly plugin
+</span><span style="color:#75715e"></span>  <span style="color:#f92672">)</span>
 
 <span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">val</span> weatherClient <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>project in file<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;core&#34;</span><span style="color:#f92672">))</span>
   <span style="color:#f92672">.</span>settings<span style="color:#f92672">(</span>
@@ -169,7 +170,9 @@ audio {
     libraryDependencies <span style="color:#f92672">++=</span> <span style="color:#a6e22e">Seq</span><span style="color:#f92672">(</span>gigahorse<span style="color:#f92672">,</span> playJson<span style="color:#f92672">),</span>
     libraryDependencies <span style="color:#f92672">+=</span> scalaTest <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span>
   <span style="color:#f92672">)</span>
-</code></pre></div><h3 id="sbt-commands-cheatsheet">Sbt commands cheatsheet</h3>
+</code></pre></div><h4 id="about-sbt-assembly-plugin">About sbt-assembly plugin</h4>
+<p>See <code>Package in a single JAR file</code> later on.</p>
+<h3 id="sbt-commands-cheatsheet">Sbt commands cheatsheet</h3>
 <p><a href="https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html">https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html</a>
 To go into sbt shell, go</p>
 <pre><code class="language-console" data-lang="console">sbt
