@@ -172,7 +172,53 @@ audio {
   <span style="color:#f92672">)</span>
 </code></pre></div><h4 id="about-sbt-assembly-plugin">About sbt-assembly plugin</h4>
 <p>See <code>Package in a single JAR file</code> later on.</p>
-<h3 id="sbt-commands-cheatsheet">Sbt commands cheatsheet</h3>
+<h4 id="about-project-structure">About project structure</h4>
+<p>Folders created by scala are marcked with <code>[auto]</code></p>
+<ul>
+<li>root/
+<ul>
+<li>build.sbt</li>
+<li>project[auto]/</li>
+<li>src/
+<ul>
+<li>main/
+<ul>
+<li>resources/
+<ul>
+<li>application.conf</li>
+</ul>
+</li>
+<li>scala/com/bustroker/etl
+<ul>
+<li>app.scala</li>
+<li>conf.scala</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test/
+<ul>
+<li>resources/
+<ul>
+<li>application.conf</li>
+</ul>
+</li>
+<li>scala/com/bustroker/etl
+<ul>
+<li>appTest.scala</li>
+<li>confTest.scala</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="gitignore">.gitignore</h4>
+<pre><code>target/
+</code></pre><h3 id="sbt-commands-cheatsheet">Sbt commands cheatsheet</h3>
 <p><a href="https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html">https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html</a>
 To go into sbt shell, go</p>
 <pre><code class="language-console" data-lang="console">sbt
