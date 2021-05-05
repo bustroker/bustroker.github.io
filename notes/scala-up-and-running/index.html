@@ -1,0 +1,269 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.82.0" />
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Scala up and running | Coding notes</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Scala up and running</h1>
+<h3 id="installation">Installation</h3>
+<h4 id="java">Java</h4>
+<p>Installed AdoptOpenJDK 8. Other failed in runtime for https issues (apparently, missing the local store that is installed with Java)</p>
+<h4 id="scala">Scala</h4>
+<p>Installed SBT from official site.</p>
+<h3 id="new-project">New project</h3>
+<ul>
+<li>Create project root folder.</li>
+<li>In the folder, create empty <code>build.sbt</code> file.</li>
+<li>CD into the root folder and type command <code>sbt</code> to enter sbt shell.</li>
+<li>Create <code>root/src/main/scala/arch/main.scala</code> file, for a package named <code>arch</code></li>
+</ul>
+<p>Content for <code>build.sbt</code> for a project with a subproject</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> version      <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.1.0&#34;</span>
+<span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> scalaVersion <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2.12.13&#34;</span>
+<span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> organization <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;com.arch&#34;</span>
+
+
+<span style="color:#66d9ef">val</span> scalaTest <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;org.scalatest&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;scalatest&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.7&#34;</span>
+<span style="color:#66d9ef">val</span> gigahorse <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;com.eed3si9n&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;gigahorse-okhttp&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;0.3.1&#34;</span>
+<span style="color:#66d9ef">val</span> playJson  <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;com.typesafe.play&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;play-json&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;2.6.9&#34;</span>
+
+<span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">val</span> consoleUI <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>project in file<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">))</span>
+  <span style="color:#f92672">.</span>aggregate<span style="color:#f92672">(</span>weatherClient<span style="color:#f92672">)</span> <span style="color:#75715e">// commands sent to consoleUI project are also sent to weatherClient
+</span><span style="color:#75715e"></span>  <span style="color:#f92672">.</span>dependsOn<span style="color:#f92672">(</span>weatherClient<span style="color:#f92672">)</span>
+  <span style="color:#f92672">.</span>settings<span style="color:#f92672">(</span>
+    name <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Weather.ConsoleUI&#34;</span><span style="color:#f92672">,</span>
+    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;com.typesafe.play&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;play-json&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;2.6.9&#34;</span><span style="color:#f92672">,</span>
+    libraryDependencies <span style="color:#f92672">+=</span> scalaTest <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span>
+  <span style="color:#f92672">)</span>
+
+<span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">val</span> weatherClient <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>project in file<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;core&#34;</span><span style="color:#f92672">))</span>
+  <span style="color:#f92672">.</span>settings<span style="color:#f92672">(</span>
+    name <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Weather API Client&#34;</span><span style="color:#f92672">,</span>
+    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;com.eed3si9n&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;gigahorse-okhttp&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;0.3.1&#34;</span><span style="color:#f92672">,</span>
+    libraryDependencies <span style="color:#f92672">++=</span> <span style="color:#a6e22e">Seq</span><span style="color:#f92672">(</span>gigahorse<span style="color:#f92672">,</span> playJson<span style="color:#f92672">),</span>
+    libraryDependencies <span style="color:#f92672">+=</span> scalaTest <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span>
+  <span style="color:#f92672">)</span>
+</code></pre></div><h3 id="sbt-commands-cheatsheet">Sbt commands cheatsheet</h3>
+<p><a href="https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html">https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html</a>
+To go into sbt shell, go</p>
+<pre><code class="language-console" data-lang="console">sbt
+</code></pre><p>Alternatively, all the commands can be run from the regular terminal pre-pending sbt, e.g., command <code>compile</code> would become</p>
+<pre><code class="language-console" data-lang="console">sbt compile
+</code></pre><h4 id="open-scala-console">Open scala console</h4>
+<pre><code class="language-sbt" data-lang="sbt">console
+</code></pre><p>To exit the console</p>
+<pre><code>:q
+</code></pre><h4 id="compile">Compile</h4>
+<pre><code class="language-sbt" data-lang="sbt">compile
+</code></pre><h4 id="apply-changes-made-to-buildsbt">Apply changes made to build.sbt</h4>
+<pre><code class="language-sbt" data-lang="sbt">reload
+</code></pre><h4 id="run-tests">Run tests</h4>
+<pre><code class="language-sbt" data-lang="sbt">test
+</code></pre><h4 id="list-all-projects-and-subprojects">List all projects and subprojects</h4>
+<pre><code class="language-sbt" data-lang="sbt">projects
+</code></pre><h4 id="compile-subproject">Compile subproject</h4>
+<p>Subproject name is not what appears as <code>name</code> in the settings, but instead the variable name declared in the build file. O just run <code>projects</code> to get the names.</p>
+<pre><code class="language-sbt" data-lang="sbt">[SUBPROJECT_NAME]/compile
+// e.g.
+helloCore/compile
+</code></pre><h4 id="run-the-app">Run the app</h4>
+<pre><code class="language-sbt" data-lang="sbt">run
+</code></pre><h4 id="create-a-zip-package-with-sbt-dist-and-run">Create a zip package with <code>sbt dist</code> and run</h4>
+<p><em>This produces a ZIP file containing all JAR files needed to run your application in the target/universal folder of your application.To run the application, unzip the file on the target server, and then run the script in the bin directory. The name of the script is your application name, and it comes in two versions, a bash shell script, and a windows .bat script.</em></p>
+<pre><code class="language-sbt" data-lang="sbt">dist
+</code></pre><p>Then unzip, e.g. in a <code>publish</code> folder, and in another terminal (cmd/powershell) run the <code>bat</code> script in <code>bin</code> folder</p>
+<pre><code class="language-console" data-lang="console">cd publish
+.\bin\hello
+</code></pre><p>A different configuration file can be specified for a production environment, from the command line:</p>
+<pre><code>/bin/hello -Dconfig.file=/full/path/to/conf/application.prod.conf
+</code></pre><h4 id="package-in-a-single-jar-file">Package in a single JAR file</h4>
+<p><a href="https://github.com/sbt/sbt-assembly">https://github.com/sbt/sbt-assembly</a>
+Added plugin <code>sbt-assembly</code> in <code>project/assembly.sbt</code> file, and configured in <code>build.sbt</code>.
+To create the fat JAR file, in sbt console go</p>
+<pre><code class="language-sbt" data-lang="sbt">assembly
+</code></pre><p>The <code>jar</code> is created in root/target/scala-2.12/Weather.ConsoleUI.jar
+To run it, go</p>
+<pre><code class="language-console" data-lang="console">java -jar Weather.ConsoleUI.jar
+</code></pre><h4 id="dockerize-the-app">Dockerize the app</h4>
+<p>To create an image from the application, go:</p>
+<pre><code class="language-sbt" data-lang="sbt">Docker/publishLocal
+</code></pre><p>And to run, just as usual</p>
+<pre><code class="language-console" data-lang="console">docker run hello:0.1.0-SNAPSHOT
+</code></pre><p><strong>This fails with <code>hcsshim::System::CreateProcess: failure in a Windows system call: The user name or password is incorrect. (0x52e)</code>.</strong> Smells to me that root windows image version used is not the same as my PC&rsquo;s?? Probably will need more control over this image build process.</p>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

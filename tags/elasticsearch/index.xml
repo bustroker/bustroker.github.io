@@ -6,7 +6,16 @@
     <description>Recent content in elasticsearch on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run MSSQL server in docker inside vagrant (ubuntu) VM</title>
+      <link>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</link>
+      <pubDate>Mon, 03 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</guid>
+      <description>Files // VagrantfileVagrant.configure(&amp;quot;2&amp;quot;) do |config|config.vm.box = &amp;quot;ubuntu/focal64&amp;quot; # v 20.04 LTSconfig.vm.synced_folder &amp;quot;./&amp;quot;, &amp;quot;/vagrant&amp;quot;config.vm.network &amp;quot;forwarded_port&amp;quot;, guest: 9200, host: 9200config.vm.network &amp;quot;forwarded_port&amp;quot;, guest: 9300, host: 9300config.vm.provision :shell, path: &amp;quot;vagrant_provision.sh&amp;quot; config.vm.provider &amp;quot;virtualbox&amp;quot; do |vb|vb.name = &amp;quot;Elasticsearch&amp;quot; vb.memory = 1024endend// vagrant_provision.sh echo &amp;quot;provisioning VM...&amp;quot;sudo apt updatesudo apt-get update# install docker and runsudo apt -y install docker.iosudo systemctl start dockersudo systemctl enable dockerdocker --versionecho &amp;quot;docker installed and running.</description>
+    </item>
+    
     <item>
       <title>Very basic logging to console from netcore webapi with Serilog</title>
       <link>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</link>

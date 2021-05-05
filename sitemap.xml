@@ -2,31 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.bustroker.com/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/scala/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/scala-up-and-running/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/docker/</loc>
+    <lastmod>2021-05-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/elasticsearch/</loc>
+    <lastmod>2021-05-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</loc>
+    <lastmod>2021-05-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/vagrant/</loc>
+    <lastmod>2021-05-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/tags/aspnet-4.7/</loc>
     <lastmod>2021-04-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/aspnet-website-in-docker-in-windows-iis-and-self-signed-certificate/</loc>
     <lastmod>2021-04-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/</loc>
-    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/docker/</loc>
-    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/tags/iis/</loc>
-    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/</loc>
     <lastmod>2021-04-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/selfsigned-certificate/</loc>
     <lastmod>2021-04-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/ssl/</loc>
-    <lastmod>2021-04-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/</loc>
     <lastmod>2021-04-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/mssqlserver/</loc>
@@ -63,9 +78,6 @@
     <lastmod>2021-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</loc>
-    <lastmod>2021-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/vagrant/</loc>
     <lastmod>2021-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/mariadb/</loc>
@@ -165,9 +177,6 @@
     <lastmod>2020-08-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/aspnet-core-3.1/</loc>
-    <lastmod>2020-08-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/elasticsearch/</loc>
     <lastmod>2020-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/serilog/</loc>

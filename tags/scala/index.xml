@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>scala on Coding notes</title>
+    <link>https://www.bustroker.com/tags/scala/</link>
+    <description>Recent content in scala on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/scala/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scala up and running</title>
+      <link>https://www.bustroker.com/notes/scala-up-and-running/</link>
+      <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/scala-up-and-running/</guid>
+      <description>Installation Java Installed AdoptOpenJDK 8. Other failed in runtime for https issues (apparently, missing the local store that is installed with Java)
+Scala Installed SBT from official site.
+New project  Create project root folder. In the folder, create empty build.sbt file. CD into the root folder and type command sbt to enter sbt shell. Create root/src/main/scala/arch/main.scala file, for a package named arch  Content for build.sbt for a project with a subproject</description>
+    </item>
+    
+  </channel>
+</rss>
