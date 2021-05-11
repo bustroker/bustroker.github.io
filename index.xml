@@ -21,6 +21,16 @@ Create &amp;lt; and &amp;gt; Create a script for alt+z to be &amp;lt; lessThan.a
     </item>
     
     <item>
+      <title>Install dotnet localhost ssl certificate for development</title>
+      <link>https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/</guid>
+      <description>Install trusted localhost certificate dotnet dev-certs https --trustConfirm when pop up shows up.
+Restart browser and browse to https://locahost:5001, or whatever localhost url, and ssl warning is gone.</description>
+    </item>
+    
+    <item>
       <title>Scala up and running</title>
       <link>https://www.bustroker.com/notes/scala-up-and-running/</link>
       <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
