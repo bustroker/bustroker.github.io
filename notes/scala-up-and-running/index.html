@@ -139,9 +139,8 @@ audio {
 <h3 id="new-project">New project</h3>
 <ul>
 <li>Create project root folder.</li>
-<li>In the folder, create empty <code>build.sbt</code> file.</li>
-<li>CD into the root folder and type command <code>sbt</code> to enter sbt shell.</li>
-<li>Create <code>root/src/main/scala/arch/main.scala</code> file, for a package named <code>arch</code></li>
+<li>In the root folder, create <code>build.sbt</code> file.</li>
+<li>Create <code>[root]/src/main/scala/arch/main.scala</code> file, for a package named <code>arch</code></li>
 </ul>
 <p>Content for <code>build.sbt</code> for a project with a subproject</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> version      <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.1.0&#34;</span>
@@ -171,7 +170,7 @@ audio {
     libraryDependencies <span style="color:#f92672">+=</span> scalaTest <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span>
   <span style="color:#f92672">)</span>
 </code></pre></div><p><code>AppConf.scala</code> file</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">package</span> bustroker.arch.pocs.bi.spark.kafka
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">package</span> bustroker.data.spark.etl
 
 <span style="color:#66d9ef">import</span> com.typesafe.config.ConfigFactory
 
@@ -186,12 +185,17 @@ audio {
 </span><span style="color:#75715e"></span>
     <span style="color:#66d9ef">def</span> apply<span style="color:#f92672">()</span> <span style="color:#66d9ef">=</span> appConf
 <span style="color:#f92672">}</span>
-</code></pre></div><p><code>ConsoleUI.scala</code> file</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">ConsoleUI</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">val</span> city <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;Madrid&#34;</span>
-    <span style="color:#66d9ef">val</span> weather <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Await</span><span style="color:#f92672">.</span>result<span style="color:#f92672">(</span><span style="color:#a6e22e">WeatherClient</span><span style="color:#f92672">.</span>getWheather<span style="color:#f92672">(</span>city<span style="color:#f92672">),</span> <span style="color:#ae81ff">10.</span>seconds<span style="color:#f92672">)</span>
-    println<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;The weather in </span><span style="color:#e6db74">$city</span><span style="color:#e6db74"> right now is: </span><span style="color:#e6db74">$weather</span><span style="color:#e6db74">.&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#a6e22e">WeatherClient</span><span style="color:#f92672">.</span>http<span style="color:#f92672">.</span>close<span style="color:#f92672">()</span>
+</code></pre></div><p><code>Application.scala</code> file</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">package</span> bustroker.data.spark.etl
+
+<span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Application</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
+    println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Up &amp; running..&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">val</span> spark <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SparkSessionBuilder</span><span style="color:#f92672">().</span>build<span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">val</span> dataframe<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">DataFrame</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">BlobReader</span><span style="color:#f92672">(</span>spark<span style="color:#f92672">).</span>read<span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">val</span> countLines <span style="color:#66d9ef">=</span> dataframe<span style="color:#f92672">.</span>count<span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">val</span> sinkService <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SinkService</span><span style="color:#f92672">()</span>
+    sinkService<span style="color:#f92672">.</span>write<span style="color:#f92672">(</span>dataframe<span style="color:#f92672">)</span>
+    println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Bye&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><h4 id="about-sbt-assembly-plugin">About sbt-assembly plugin</h4>
 <p>See <code>Package in a single JAR file</code> later on.</p>
@@ -211,10 +215,10 @@ audio {
 <li>application.conf</li>
 </ul>
 </li>
-<li>scala/com/bustroker/etl
+<li>scala/bustroker/data/spark
 <ul>
-<li>app.scala</li>
-<li>conf.scala</li>
+<li>Application.scala</li>
+<li>AppConf.scala</li>
 </ul>
 </li>
 </ul>
