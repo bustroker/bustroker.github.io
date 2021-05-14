@@ -197,6 +197,14 @@ audio {
     sinkService<span style="color:#f92672">.</span>write<span style="color:#f92672">(</span>dataframe<span style="color:#f92672">)</span>
     println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Bye&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#f92672">}</span>
+</code></pre></div><p><code>HelloSpec.scala</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">import</span> org.scalatest.funsuite._
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloSpec</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">AnyFunSuite</span> <span style="color:#f92672">{</span>
+  test<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello should start with H&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    assert<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello&#34;</span><span style="color:#f92672">.</span>startsWith<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;H&#34;</span><span style="color:#f92672">))</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
 </code></pre></div><h4 id="about-sbt-assembly-plugin">About sbt-assembly plugin</h4>
 <p>See <code>Package in a single JAR file</code> later on.</p>
 <h4 id="about-project-structure">About project structure</h4>
@@ -230,7 +238,7 @@ audio {
 <li>application.conf</li>
 </ul>
 </li>
-<li>scala/com/bustroker/etl
+<li>scala/bustroker/data/spark
 <ul>
 <li>appTest.scala</li>
 <li>confTest.scala</li>
