@@ -264,39 +264,40 @@ To go into sbt shell, go</p>
 </code></pre><p>To exit the console</p>
 <pre><code>:q
 </code></pre><h4 id="compile">Compile</h4>
-<pre><code class="language-sbt" data-lang="sbt">compile
+<pre><code class="language-console" data-lang="console">sbt compile
 </code></pre><h4 id="apply-changes-made-to-buildsbt">Apply changes made to build.sbt</h4>
-<pre><code class="language-sbt" data-lang="sbt">reload
-</code></pre><h4 id="run-tests">Run tests</h4>
-<pre><code class="language-sbt" data-lang="sbt">test
+<pre><code class="language-console" data-lang="console">sbt reload
+</code></pre><h4 id="runcompile-tests">Run/Compile tests</h4>
+<pre><code class="language-console" data-lang="console">sbt test
+sbt test:compile
 </code></pre><h4 id="list-all-projects-and-subprojects">List all projects and subprojects</h4>
-<pre><code class="language-sbt" data-lang="sbt">projects
+<pre><code class="language-console" data-lang="console">sbt projects
 </code></pre><h4 id="compile-subproject">Compile subproject</h4>
 <p>Subproject name is not what appears as <code>name</code> in the settings, but instead the variable name declared in the build file. O just run <code>projects</code> to get the names.</p>
-<pre><code class="language-sbt" data-lang="sbt">[SUBPROJECT_NAME]/compile
+<pre><code class="language-console" data-lang="console">sbt [SUBPROJECT_NAME]/compile
 // e.g.
 helloCore/compile
 </code></pre><h4 id="run-the-app">Run the app</h4>
-<pre><code class="language-sbt" data-lang="sbt">run
+<pre><code class="language-console" data-lang="console">sbt run
 </code></pre><h4 id="create-a-zip-package-with-sbt-dist-and-run">Create a zip package with <code>sbt dist</code> and run</h4>
 <p><em>This produces a ZIP file containing all JAR files needed to run your application in the target/universal folder of your application.To run the application, unzip the file on the target server, and then run the script in the bin directory. The name of the script is your application name, and it comes in two versions, a bash shell script, and a windows .bat script.</em></p>
-<pre><code class="language-sbt" data-lang="sbt">dist
+<pre><code class="language-console" data-lang="console">sbt dist
 </code></pre><p>Then unzip, e.g. in a <code>publish</code> folder, and in another terminal (cmd/powershell) run the <code>bat</code> script in <code>bin</code> folder</p>
 <pre><code class="language-console" data-lang="console">cd publish
 .\bin\hello
 </code></pre><p>A different configuration file can be specified for a production environment, from the command line:</p>
-<pre><code>/bin/hello -Dconfig.file=/full/path/to/conf/application.prod.conf
+<pre><code class="language-console" data-lang="console">/bin/hello -Dconfig.file=/full/path/to/conf/application.prod.conf
 </code></pre><h4 id="package-in-a-single-jar-file">Package in a single JAR file</h4>
 <p><a href="https://github.com/sbt/sbt-assembly">https://github.com/sbt/sbt-assembly</a>
 Added plugin <code>sbt-assembly</code> in <code>project/assembly.sbt</code> file, and configured in <code>build.sbt</code>.
 To create the fat JAR file, in sbt console go</p>
-<pre><code class="language-sbt" data-lang="sbt">assembly
+<pre><code class="language-console" data-lang="console">sbt assembly
 </code></pre><p>The <code>jar</code> is created in root/target/scala-2.12/Weather.ConsoleUI.jar
 To run it, go</p>
 <pre><code class="language-console" data-lang="console">java -jar Weather.ConsoleUI.jar
 </code></pre><h4 id="dockerize-the-app">Dockerize the app</h4>
 <p>To create an image from the application, go:</p>
-<pre><code class="language-sbt" data-lang="sbt">Docker/publishLocal
+<pre><code class="language-console" data-lang="console">sbt Docker/publishLocal
 </code></pre><p>And to run, just as usual</p>
 <pre><code class="language-console" data-lang="console">docker run hello:0.1.0-SNAPSHOT
 </code></pre><p><strong>This fails with <code>hcsshim::System::CreateProcess: failure in a Windows system call: The user name or password is incorrect. (0x52e)</code>.</strong> Smells to me that root windows image version used is not the same as my PC&rsquo;s?? Probably will need more control over this image build process.</p>
