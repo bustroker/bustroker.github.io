@@ -237,13 +237,22 @@ echo <span style="color:#e6db74">&#34;heroku cli installed...&#34;</span>
 sudo apt install -y mosquitto-clients
 echo <span style="color:#e6db74">&#34;mosquitto-clients installed...&#34;</span>
 
-<span style="color:#75715e"># install sbt, scala</span>
-echo <span style="color:#e6db74">&#34;deb https://repo.scala-sbt.org/scalasbt/debian all main&#34;</span> | sudo tee /etc/apt/sources.list.d/sbt.list
-echo <span style="color:#e6db74">&#34;deb https://repo.scala-sbt.org/scalasbt/debian /&#34;</span> | sudo tee /etc/apt/sources.list.d/sbt_old.list
-curl -sL <span style="color:#e6db74">&#34;https://keyserver.ubuntu.com/pks/lookup?op=get&amp;search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823&#34;</span> | sudo apt-key add
-sudo apt-get update
-sudo apt-get install sbt
-sbt --version
+
+<span style="color:#75715e"># install sbt, scala with sdkman</span>
+<span style="color:#75715e">## install zip and unzip</span>
+sudo apt-get install -y unzip
+sudo apt install -y zip
+
+<span style="color:#75715e">## install sdkman</span>
+curl -s <span style="color:#e6db74">&#34;https://get.sdkman.io?rcupdate=false&#34;</span> | bash
+source <span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.sdkman/bin/sdkman-init.sh&#34;</span>
+sdk version
+
+<span style="color:#75715e">## install java and scala</span>
+sdk install java <span style="color:#66d9ef">$(</span>sdk list java | grep -o <span style="color:#e6db74">&#34;8\.[0-9]*\.[0-9]*\.hs-adpt&#34;</span> | head -1<span style="color:#66d9ef">)</span>
+sdk install sbt
+sbt version
+echo <span style="color:#e6db74">&#34;java and scala installed&#34;</span>
 
 echo <span style="color:#e6db74">&#34;done provisioning VM.&#34;</span>
 </code></pre></div><h3 id="most-used-commands">Most used commands</h3>
