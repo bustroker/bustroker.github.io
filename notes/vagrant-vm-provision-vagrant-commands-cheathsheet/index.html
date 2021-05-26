@@ -237,20 +237,18 @@ echo <span style="color:#e6db74">&#34;heroku cli installed...&#34;</span>
 sudo apt install -y mosquitto-clients
 echo <span style="color:#e6db74">&#34;mosquitto-clients installed...&#34;</span>
 
-
-
 <span style="color:#75715e">## install java jdk8</span>
 apt-get install openjdk-8-jdk -y
 export JAVA_HOME<span style="color:#f92672">=</span>/usr/lib/jvm/openjdk-8-jdk
 export PATH<span style="color:#f92672">=</span>$PATH:$JAVA_HOME/bin
 java -version
-echo <span style="color:#e6db74">&#34;installed java..&#34;</span>
+echo <span style="color:#e6db74">&#34;java installed..&#34;</span>
 
 <span style="color:#75715e">## install scala</span>
 wget www.scala-lang.org/files/archive/scala-2.13.6.deb
 dpkg -i scala-2.13.6.deb
 scala --version
-echo <span style="color:#e6db74">&#34;installed scala..&#34;</span>
+echo <span style="color:#e6db74">&#34;scala installed..&#34;</span>
 
 <span style="color:#75715e">## install sbt</span>
 echo <span style="color:#e6db74">&#34;deb https://dl.bintray.com/sbt/debian /&#34;</span> | sudo tee -a /etc/apt/sources.list.d/sbt.list
@@ -258,7 +256,7 @@ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2
 apt-get update
 apt-get install sbt
 sbt --version
-echo <span style="color:#e6db74">&#34;installed sbt..&#34;</span>
+echo <span style="color:#e6db74">&#34;sbt installed..&#34;</span>
 
 <span style="color:#75715e">## install spark</span>
 cd /opt
