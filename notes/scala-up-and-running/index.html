@@ -169,6 +169,9 @@ audio {
     libraryDependencies <span style="color:#f92672">++=</span> <span style="color:#a6e22e">Seq</span><span style="color:#f92672">(</span>gigahorse<span style="color:#f92672">,</span> playJson<span style="color:#f92672">),</span>
     libraryDependencies <span style="color:#f92672">+=</span> scalaTest <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span>
   <span style="color:#f92672">)</span>
+</code></pre></div><p><code>assembly.sbt</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#75715e">// sbt-assembly plugin to package in a single JAR
+</span><span style="color:#75715e"></span>addSbtPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.eed3si9n&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;sbt-assembly&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;0.15.0&#34;</span><span style="color:#f92672">)</span>
 </code></pre></div><p><code>AppConf.scala</code> file</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">package</span> bustroker.data.spark.etl
 
@@ -207,13 +210,16 @@ audio {
 <span style="color:#f92672">}</span>
 </code></pre></div><h4 id="about-sbt-assembly-plugin">About sbt-assembly plugin</h4>
 <p>See <code>Package in a single JAR file</code> later on.</p>
-<h4 id="about-project-structure">About project structure</h4>
-<p>Folders created by scala are marcked with <code>[auto]</code></p>
+<h4 id="project-folders-structure">Project folders structure</h4>
 <ul>
 <li>root/
 <ul>
 <li>build.sbt</li>
-<li>project[auto]/</li>
+<li>project/
+<ul>
+<li>assembly.sbt</li>
+</ul>
+</li>
 <li>src/
 <ul>
 <li>main/
