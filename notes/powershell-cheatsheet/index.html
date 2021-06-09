@@ -164,9 +164,14 @@ audio {
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Import-Module ServerManager
 Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature -ComputerName $env:computername -WhatIf
+</code></pre></div><h3 id="create-file">Create file</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">New-Item C:\path\to\file.txt
 </code></pre></div><h3 id="create-folder">Create folder</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">New-Item -Path <span style="color:#e6db74">&#34;c:\newfolder\anothernew&#34;</span> -Name <span style="color:#e6db74">&#34;lastnewfolder&#34;</span> -ItemType <span style="color:#e6db74">&#34;directory&#34;</span>
 </code></pre></div><p>Creates the full path <code>c:\newfolder\anothernew\lastnewfolder</code>.</p>
+<h3 id="rename-file-or-folder">Rename file or folder</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Rename-Item .\folderName -NewName NEW_FOLDER_NAME
+</code></pre></div><p>Same for files</p>
 <h3 id="grant-a-user-full-permission-over-a-folder">Grant a user full permission over a folder</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">icacls <span style="color:#e6db74">&#34;C:\folder\to\set\permissions\to&#34;</span> /inheritance<span style="color:#960050;background-color:#1e0010">:</span>d /grant<span style="color:#960050;background-color:#1e0010">:</span>r <span style="color:#e6db74">&#34;[USER_NAME]:(OI)(CI)F&#34;</span> /T
 </code></pre></div><h3 id="set-registry-value">Set registry value</h3>
