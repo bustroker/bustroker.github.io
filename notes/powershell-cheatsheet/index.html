@@ -172,6 +172,10 @@ Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature -ComputerName $env
 <h3 id="rename-file-or-folder">Rename file or folder</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Rename-Item .\folderName -NewName NEW_FOLDER_NAME
 </code></pre></div><p>Same for files.</p>
+<h3 id="delete-folder">Delete folder</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">rm -r -fo .\folderName
+</code></pre></div><p><code>-r</code>: -recurse
+<code>-fo</code>: -force</p>
 <h3 id="set-content-to-a-file">Set content to a file</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">set-content .\file.txt -value <span style="color:#e6db74">&#34;new content to file&#34;</span>
 </code></pre></div><h3 id="grant-a-user-full-permission-over-a-folder">Grant a user full permission over a folder</h3>
