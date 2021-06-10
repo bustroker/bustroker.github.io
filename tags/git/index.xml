@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on Coding notes</title>
+    <link>https://www.bustroker.com/tags/git/</link>
+    <description>Recent content in git on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git sparse-checkout</title>
+      <link>https://www.bustroker.com/notes/git-sparse-checkout/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/git-sparse-checkout/</guid>
+      <description>Sparse checkout To checkout and work only with a subset/subtree of folders from a repo (yes, some people insist in economizing repos)
+git clone URL --no-checkout # add `--depth 1` to only include latest commit from all commit history cd REPO_ROOT git sparse-checkout init --cone # `--cone` to include root files git sparse-checkout set Apps/OneApp # to set the folders OneApp to be checked-out. All previously set is removed. git sparse-checkout add Apps/OtherApp # to add new folders to the current checkout list.</description>
+    </item>
+    
+  </channel>
+</rss>
