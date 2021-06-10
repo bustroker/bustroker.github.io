@@ -145,7 +145,8 @@ git sparse-checkout list <span style="color:#75715e"># to get the set folders. c
 mkdir OneMoreApp
 git sparse-checkout add Apps/OneMoreApp
 git sparse-checkout list <span style="color:#75715e"># to confirm all the paths included</span>
-</code></pre></div><p>To operate on git, just <code>cd</code> into the desired App and git commands go as expected.</p>
+</code></pre></div><p>To operate the repo, just <code>cd</code> into the desired App and <code>git</code> commands go as expected.
+<strong>I haven&rsquo;t tested branching though</strong>, so watch out for this.</p>
 <h4 id="get-rid-of-sparse-checkout">Get rid of sparse-checkout</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd ROOT <span style="color:#75715e"># not sure whether it&#39;s required, though..</span>
 git sparse-checkout disable
