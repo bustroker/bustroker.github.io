@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>powershell | Coding notes</title>
+  <title>Docker compose | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,72 +130,50 @@ audio {
       <main id="main">
         
 
-<h1>powershell</h1>
+<h1>Docker compose</h1>
+<h3 id="docker-compose">Docker compose</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">services</span>:
+  <span style="color:#f92672">zookeeper</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">debezium/zookeeper</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#e6db74">&#34;2181:2181&#34;</span>
+      - <span style="color:#e6db74">&#34;2888:2888&#34;</span>
+      - <span style="color:#e6db74">&#34;3888:3888&#34;</span>
+  <span style="color:#f92672">kafka</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">debezium/kafka</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#e6db74">&#34;9092:9092&#34;</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#e6db74">&#34;zookeeper&#34;</span>
+  <span style="color:#f92672">connect</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">debezium/connect</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#e6db74">&#34;8083:8083&#34;</span>
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">GROUP_ID=1 </span>
+      - <span style="color:#ae81ff">CONFIG_STORAGE_TOPIC=my_connect_configs </span>
+      - <span style="color:#ae81ff">OFFSET_STORAGE_TOPIC=my_connect_offsets </span>
+      - <span style="color:#ae81ff">STATUS_STORAGE_TOPIC=my_connect_statuses</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#e6db74">&#34;kafka&#34;</span>
+</code></pre></div><h3 id="docker-compose-terminal-into-service-container">docker-compose terminal into service container</h3>
+<pre><code>docker-compose up exec [SERVICE_NAME] [TERMINAL]
+</code></pre><p>TERMINAL could be <code>sh</code>, <code>cmd</code>, <code>powershell</code>..</p>
+<h3 id="docker-compose-1">docker-compose</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># launch the containers</span>
+docker-compose up [-d] [--build]
 
+<span style="color:#75715e"># launch the containers and opens interactive terminal inside</span>
+docker-compose run <span style="color:#66d9ef">[SERVICE]</span> 
 
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/query-sql-server-from-powershell/">Query sql server from powershell</a>
-  <br>
-  
+<span style="color:#75715e"># stop and remove containers</span>
+docker-compose down
 
-<i data-feather="calendar"></i> <time datetime="2021-04-03">Apr 4, 3000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssqlserver">mssqlserver</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/sqlcmd">sqlcmd</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cli">cli</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/powershell-cheatsheet/">Powershell cheatsheet</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-03-29">Mar 3, 29000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/install-sql-server-unattended-from-powershell/">Install sql server unattended from Powershell</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-03-29">Mar 3, 29000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssqlserver">mssqlserver</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
-  
-
-</p>
-
+<span style="color:#75715e"># stop the containers, without removing</span>
+docker-compose stop
+</code></pre></div>
 
 
       </main>

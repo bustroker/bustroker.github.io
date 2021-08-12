@@ -140,12 +140,12 @@ audio {
 <ul>
 <li>Create project root folder.</li>
 <li>In the root folder, create <code>build.sbt</code> file.</li>
-<li>Create <code>[root]/src/main/scala/arch/Application.scala</code> file, for a package named <code>arch</code></li>
+<li>Create <code>[root]/src/main/scala/bkr/data/spark/App.scala</code> file, for a package named <code>bkr.data.spark</code></li>
 </ul>
 <p>Content for <code>build.sbt</code> for a project with a subproject</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> version      <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.1.0&#34;</span>
 <span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> scalaVersion <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2.12.13&#34;</span>
-<span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> organization <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;com.arch&#34;</span>
+<span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> organization <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bkr&#34;</span>
 
 
 <span style="color:#66d9ef">val</span> scalaTest <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;org.scalatest&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;scalatest&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.7&#34;</span>
@@ -156,7 +156,7 @@ audio {
   <span style="color:#f92672">.</span>aggregate<span style="color:#f92672">(</span>weatherClient<span style="color:#f92672">)</span> <span style="color:#75715e">// commands sent to consoleUI project are also sent to weatherClient
 </span><span style="color:#75715e"></span>  <span style="color:#f92672">.</span>dependsOn<span style="color:#f92672">(</span>weatherClient<span style="color:#f92672">)</span>
   <span style="color:#f92672">.</span>settings<span style="color:#f92672">(</span>
-    name <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Weather.ConsoleUI&#34;</span><span style="color:#f92672">,</span>
+    name <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Spark.Console&#34;</span><span style="color:#f92672">,</span>
     libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;com.typesafe.play&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;play-json&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;2.6.9&#34;</span><span style="color:#f92672">,</span>
     libraryDependencies <span style="color:#f92672">+=</span> scalaTest <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span><span style="color:#f92672">,</span>
     assembly <span style="color:#f92672">/</span> assemblyJarName <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">s&#34;</span><span style="color:#e6db74">${</span>name<span style="color:#f92672">.</span>value<span style="color:#e6db74">}</span><span style="color:#e6db74">.jar&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// this is for sbt-assembly plugin
@@ -172,24 +172,24 @@ audio {
 </code></pre></div><p><code>assembly.sbt</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#75715e">// sbt-assembly plugin to package in a single JAR
 </span><span style="color:#75715e"></span>addSbtPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.eed3si9n&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;sbt-assembly&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;0.15.0&#34;</span><span style="color:#f92672">)</span>
-</code></pre></div><p><code>AppConf.scala</code> file</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">package</span> bustroker.data.spark.etl
+</code></pre></div><p><code>AppConfig.scala</code> file</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">package</span> bkr.data.spark
 
 <span style="color:#66d9ef">import</span> com.typesafe.config.ConfigFactory
 
-<span style="color:#66d9ef">object</span> <span style="color:#a6e22e">AppConf</span> <span style="color:#f92672">{</span>
+<span style="color:#66d9ef">object</span> <span style="color:#a6e22e">AppConfig</span> <span style="color:#f92672">{</span>
     
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> environment<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
         <span style="color:#66d9ef">val</span> env <span style="color:#66d9ef">=</span> sys<span style="color:#f92672">.</span>env<span style="color:#f92672">.</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;env&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// this returns Option[String]
 </span><span style="color:#75715e"></span>        env<span style="color:#f92672">.</span>getOrElse<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;local&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// to get the actual value from the Option[String], and return &#34;ENV&#34; if no value found
 </span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
 
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> appConf <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">ConfigFactory</span><span style="color:#f92672">.</span>load<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;application.</span><span style="color:#e6db74">$environment</span><span style="color:#e6db74">.conf&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// loads from `resources/application.conf`
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> appConfig <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">ConfigFactory</span><span style="color:#f92672">.</span>load<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;app.</span><span style="color:#e6db74">$environment</span><span style="color:#e6db74">.conf&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// loads from `resources/app.conf`
 </span><span style="color:#75715e"></span>
-    <span style="color:#66d9ef">def</span> apply<span style="color:#f92672">()</span> <span style="color:#66d9ef">=</span> appConf
+    <span style="color:#66d9ef">def</span> apply<span style="color:#f92672">()</span> <span style="color:#66d9ef">=</span> appConfig
 <span style="color:#f92672">}</span>
-</code></pre></div><p><code>Application.scala</code> file</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">package</span> bustroker.data.spark.etl
+</code></pre></div><p><code>App.scala</code> file</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">package</span> bkr.data.spark
 
 <span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Application</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
     println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Up &amp; running..&#34;</span><span style="color:#f92672">)</span>
@@ -200,10 +200,10 @@ audio {
     sinkService<span style="color:#f92672">.</span>write<span style="color:#f92672">(</span>dataframe<span style="color:#f92672">)</span>
     println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Bye&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><p><code>HelloSpec.scala</code></p>
+</code></pre></div><p><code>AppConfigTests.scala</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">import</span> org.scalatest.funsuite._
 
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloSpec</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">AnyFunSuite</span> <span style="color:#f92672">{</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfigTests</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">AnyFunSuite</span> <span style="color:#f92672">{</span>
   test<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello should start with H&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
     assert<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello&#34;</span><span style="color:#f92672">.</span>startsWith<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;H&#34;</span><span style="color:#f92672">))</span>
   <span style="color:#f92672">}</span>
@@ -226,13 +226,13 @@ audio {
 <ul>
 <li>resources/
 <ul>
-<li>application.conf</li>
+<li>app.conf</li>
 </ul>
 </li>
-<li>scala/bustroker/data/spark
+<li>scala/bkr/data/spark
 <ul>
-<li>Application.scala</li>
-<li>AppConf.scala</li>
+<li>App.scala</li>
+<li>AppConfig.scala</li>
 </ul>
 </li>
 </ul>
@@ -241,13 +241,12 @@ audio {
 <ul>
 <li>resources/
 <ul>
-<li>application.conf</li>
+<li>App.conf</li>
 </ul>
 </li>
-<li>scala/bustroker/data/spark
+<li>scala/bkr/data/spark
 <ul>
-<li>appTest.scala</li>
-<li>confTest.scala</li>
+<li>AppConfigTests.scala</li>
 </ul>
 </li>
 </ul>

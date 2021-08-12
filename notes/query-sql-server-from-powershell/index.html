@@ -131,18 +131,7 @@ audio {
         
 
 <h1>Query sql server from powershell</h1>
-<h2 id="sqlcmd-utility-2019"><code>sqlcmd</code> utility (2019)</h2>
-<p>Installed with Visual Studio 2019. (Apparently also with Sql Server 2019, but they dont&rsquo;s explain WHERE it actually is :S)</p>
-<h3 id="add-to-path">Add to path</h3>
-<p><code>sqlcmd.exe</code> is located in:</p>
-<ul>
-<li>Visual Studio 2019: <code>C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150</code></li>
-</ul>
-<h3 id="run-a-script">Run a script</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">sqlcmd -S <span style="color:#66d9ef">[SERVER]</span> -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log
-<span style="color:#75715e"># e.g.</span>
-sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log
-</code></pre></div><h2 id="sqlserver-powershell-module"><code>sqlserver</code> powershell module</h2>
+<h2 id="query-sqlserver-powershell-module">Query <code>sqlserver</code> powershell module</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Install-Module sqlserver -Force
 </code></pre></div><p>A minimun nuget version is required. A messages provides the command to install it if was required.</p>
 <h3 id="run-query">Run query</h3>

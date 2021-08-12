@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>powershell | Coding notes</title>
+  <title>Install spark and hadoop in Windows 10 | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,71 +130,44 @@ audio {
       <main id="main">
         
 
-<h1>powershell</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/query-sql-server-from-powershell/">Query sql server from powershell</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-04-03">Apr 4, 3000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssqlserver">mssqlserver</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/sqlcmd">sqlcmd</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cli">cli</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/powershell-cheatsheet/">Powershell cheatsheet</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-03-29">Mar 3, 29000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/install-sql-server-unattended-from-powershell/">Install sql server unattended from Powershell</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-03-29">Mar 3, 29000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssqlserver">mssqlserver</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
-  
-
-</p>
+<h1>Install spark and hadoop in Windows 10</h1>
+<h3 id="install-spark-to-run-locally">Install spark to run locally</h3>
+<h4 id="versions">Versions</h4>
+<ul>
+<li>Java</li>
+</ul>
+<pre><code class="language-console" data-lang="console">java -version
+openjdk version &quot;1.8.0_292&quot;
+OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10)
+OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode)
+</code></pre><ul>
+<li>Scala</li>
+</ul>
+<pre><code class="language-console" data-lang="console">sbt
+console
+Welcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292).
+</code></pre><ul>
+<li>
+<p>Spark 
+Download from <a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a>
+Spark release <code>3.1.2</code> with <code>hadoop2.7</code> folder downloaded and copied to <code>C:\Spark\spark-3.1.2-bin-hadoop2.7</code>.
+Add <code>C:\Spark\spark-3.1.2-bin-hadoop2.7</code> to <strong>user&rsquo;s</strong> PATH</p>
+</li>
+<li>
+<p>Hadoop
+Downloaded from <a href="https://hadoop.apache.org/release/2.7.7.html">https://hadoop.apache.org/release/2.7.7.html</a>
+There&rsquo;s <code>hadoop-2.7.7</code> folder downloaded and placed in <code>C:\Hadoop\hadoop-2.7.7</code>.
+There&rsquo;s system variable <code>HADOOP_HOME=C:\Hadoop\hadoop-2.7.7</code>
+There&rsquo;s <code>%HADOOP_HOME%\bin</code> added to <strong>system&rsquo;s</strong> <code>PATH</code>.</p>
+</li>
+</ul>
+<h3 id="spark-structured-streaming-with-kafka">Spark structured streaming with kafka</h3>
+<p><a href="https://spark.apache.org/docs/3.1.1/structured-streaming-kafka-integration.html">https://spark.apache.org/docs/3.1.1/structured-streaming-kafka-integration.html</a>
+<a href="https://medium.com/expedia-group-tech/apache-spark-structured-streaming-checkpoints-and-triggers-4-of-6-b6f15d5cfd8d">https://medium.com/expedia-group-tech/apache-spark-structured-streaming-checkpoints-and-triggers-4-of-6-b6f15d5cfd8d</a></p>
+<h4 id="parquet-viewer">Parquet viewer</h4>
+<p><a href="https://github.com/mukunku/ParquetViewer">https://github.com/mukunku/ParquetViewer</a></p>
+<h4 id="access-azure-data-lake-gen-2">Access Azure Data Lake Gen 2</h4>
+<p><a href="https://docs.databricks.com/data/data-sources/azure/adls-gen2/azure-datalake-gen2-get-started.html">https://docs.databricks.com/data/data-sources/azure/adls-gen2/azure-datalake-gen2-get-started.html</a></p>
 
 
 

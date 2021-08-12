@@ -6,18 +6,28 @@
     <description>Recent content in cheatsheet on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recover lost `PATH` variable</title>
+      <link>https://www.bustroker.com/notes/recover-lost-path-variable/</link>
+      <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/recover-lost-path-variable/</guid>
+      <description>The idea is to open a cmd in the context of an application that was running before the PATH variable was broken, e.g., Chrome. Go to Chrome, hit ctrl+o, and it opens an explorer window. Go to the window&amp;rsquo;s path bar and type cmd and enter. A cmd opens &amp;ldquo;in the context&amp;rdquo; of Chrome. Now just display the PATH variable that was in place when Chrome was executed
+echo %PATH% </description>
+    </item>
+    
     <item>
       <title>Powershell cheatsheet</title>
       <link>https://www.bustroker.com/notes/powershell-cheatsheet/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/powershell-cheatsheet/</guid>
-      <description>Bypass digitally sign constrain for scripts execution This is only for current session.
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user
+      <description>Bypass digitally sign constrain for scripts execution Run powershell as Administrator.
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user
 [System.Environment]::GetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;,&amp;#39;machine&amp;#39;) For some reason, the previous doesn&amp;rsquo;t work for variable COMPUTERNAME. To get computer name:
 $env:computername Set environment variable Run powershell as Admin.
- new variable  [System.</description>
+ new variable  [System.Environment]::SetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;, &amp;#39;VARIABLE_VALUE&amp;#39;,[System.EnvironmentVariableTarget]::Machine)  add to an existing variable (typically to PATH)  $current=[System.</description>
     </item>
     
     <item>
@@ -63,15 +73,25 @@ Get info kubectl get pods -o widekubectl describe svc &amp;lt;SERVICE-NAME&amp;
     </item>
     
     <item>
-      <title>Docker commands cheatsheet</title>
-      <link>https://www.bustroker.com/notes/docker-commands-cheatsheet/</link>
+      <title>Docker cheatsheet</title>
+      <link>https://www.bustroker.com/notes/docker-cheatsheet/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/notes/docker-commands-cheatsheet/</guid>
+      <guid>https://www.bustroker.com/notes/docker-cheatsheet/</guid>
       <description>Version: 19.03
 buid image and set tag -t docker build -t bustroker.notes.webui:v1 .multiple tags are allowed as well
 docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest .tag image docker tag [localImage] [registryServer]/[imageName]:[version]# ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1add tag to existing tagged image docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latestlist images docker imagesremove all images optionally add -f at the end to force
- in Linux  docker rmi $(docker images -q)  in Windows (powershell)  docker images -a -q | % { docker image rm $_ -f } run container from image docker run -d -p HOST-PORT:CONTAINER-PORT &amp;lt;IMAGE-NAME&amp;gt;-p: [port in host]:[port in the container] -d: run as deamon</description>
+ in Linux  docker rmi $(docker images -q)  in Windows (powershell)  docker images -a -q | % { docker image rm $_ -f } run container docker run --rm -d ` -p [HOST_PORT]:[CONTAINER_PORT] ` --network host ` -e [ENV_VAR_NAME]=[ENV_VAR_VALUE] ` -v /host/directory:/container/directory ` [IMAGE_NAME] &amp;ndash;rm =&amp;gt; remove the container on exit -d =&amp;gt; run and detach the console (run as daemon) -p =&amp;gt; port map, i.</description>
+    </item>
+    
+    <item>
+      <title>Docker compose</title>
+      <link>https://www.bustroker.com/notes/docker-compose/</link>
+      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/docker-compose/</guid>
+      <description>Docker compose services: zookeeper: image: debezium/zookeeper ports: - &amp;#34;2181:2181&amp;#34; - &amp;#34;2888:2888&amp;#34; - &amp;#34;3888:3888&amp;#34; kafka: image: debezium/kafka ports: - &amp;#34;9092:9092&amp;#34; volumes: - /var/run/docker.sock:/var/run/docker.sock depends_on: - &amp;#34;zookeeper&amp;#34; connect: image: debezium/connect ports: - &amp;#34;8083:8083&amp;#34; environment: - GROUP_ID=1  - CONFIG_STORAGE_TOPIC=my_connect_configs  - OFFSET_STORAGE_TOPIC=my_connect_offsets  - STATUS_STORAGE_TOPIC=my_connect_statuses depends_on: - &amp;#34;kafka&amp;#34; docker-compose terminal into service container docker-compose up exec [SERVICE_NAME] [TERMINAL]TERMINAL could be sh, cmd, powershell..
+docker-compose # launch the containers docker-compose up [-d] [--build] # launch the containers and opens interactive terminal inside docker-compose run [SERVICE] # stop and remove containers docker-compose down # stop the containers, without removing docker-compose stop </description>
     </item>
     
     <item>
@@ -91,7 +111,8 @@ curl &amp;quot;http://169.254.169.254/metadata/identity/oauth2/token?api-version
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</guid>
-      <description>Basic GET curl localhost:8080Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;quot;param1=value1&amp;amp;param2=value2&amp;quot; POST json curl -X POST http://localhost:3000/data -H &amp;quot;Content-Type: application/json&amp;quot; -d &#39;{&amp;quot;key1&amp;quot;:&amp;quot;value1&amp;quot;, &amp;quot;key2&amp;quot;:&amp;quot;value2&amp;quot;}&#39; POST data from file. application/x-www-form-urlencoded is the default. curl -X POST http://localhost:3000/data -d &amp;quot;@data.txt&amp;quot; Disable certificate validation curl -k https://localhost:8080Add bearer token header curl -H &#39;Accept: application/json&#39; -H &amp;quot;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;quot; https://bustroker.com/api/resourceNew line after output curl localhost:8080 ;echoPretty format json output (Linux) curl localhost:8080 | json_ppalso, jq would do it</description>
+      <description>Basic GET curl localhost:8080 Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; POST json curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{\&amp;#34;key1\&amp;#34;:\&amp;#34;value1\&amp;#34;, \&amp;#34;key2\&amp;#34;:\&amp;#34;value2\&amp;#34;}&amp;#39; curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#34;@data.json&amp;#34; Double quotes are escaped with \, required for powershell.
+Disable certificate validation curl -k https://localhost:8080 Add bearer token header curl https://bustroker.com/api/resource -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; New line after output curl localhost:8080 ;echo [Linux] Pretty format json output curl localhost:8080 | json_ppalso, jq would do it</description>
     </item>
     
     <item>

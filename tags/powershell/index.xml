@@ -13,9 +13,8 @@
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/query-sql-server-from-powershell/</guid>
-      <description>sqlcmd utility (2019) Installed with Visual Studio 2019. (Apparently also with Sql Server 2019, but they dont&amp;rsquo;s explain WHERE it actually is :S)
-Add to path sqlcmd.exe is located in:
- Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log sqlserver powershell module Install-Module sqlserver -Force A minimun nuget version is required.</description>
+      <description>Query sqlserver powershell module Install-Module sqlserver -Force A minimun nuget version is required. A messages provides the command to install it if was required.
+Run query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34; -ServerInstance &amp;#34;localhost&amp;#34; Run script Invoke-Sqlcmd -InputFile &amp;#34;C:\setupscripts\createUser.sql&amp;#34; | Out-File -FilePath &amp;#34;C:\setupscripts\createUser.log&amp;#34; </description>
     </item>
     
     <item>
@@ -34,11 +33,11 @@ Add to path sqlcmd.exe is located in:
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/powershell-cheatsheet/</guid>
-      <description>Bypass digitally sign constrain for scripts execution This is only for current session.
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user
+      <description>Bypass digitally sign constrain for scripts execution Run powershell as Administrator.
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user
 [System.Environment]::GetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;,&amp;#39;machine&amp;#39;) For some reason, the previous doesn&amp;rsquo;t work for variable COMPUTERNAME. To get computer name:
 $env:computername Set environment variable Run powershell as Admin.
- new variable  [System.</description>
+ new variable  [System.Environment]::SetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;, &amp;#39;VARIABLE_VALUE&amp;#39;,[System.EnvironmentVariableTarget]::Machine)  add to an existing variable (typically to PATH)  $current=[System.</description>
     </item>
     
   </channel>
