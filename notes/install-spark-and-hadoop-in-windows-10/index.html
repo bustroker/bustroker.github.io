@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.82.0" />
+  <meta name="generator" content="Hugo 0.79.1" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -146,21 +146,15 @@ OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode)
 <pre><code class="language-console" data-lang="console">sbt
 console
 Welcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292).
-</code></pre><ul>
-<li>
-<p>Spark 
-Download from <a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a>
-Spark release <code>3.1.2</code> with <code>hadoop2.7</code> folder downloaded and copied to <code>C:\Spark\spark-3.1.2-bin-hadoop2.7</code>.
-Add <code>C:\Spark\spark-3.1.2-bin-hadoop2.7</code> to <strong>user&rsquo;s</strong> PATH</p>
-</li>
-<li>
-<p>Hadoop
-Downloaded from <a href="https://hadoop.apache.org/release/2.7.7.html">https://hadoop.apache.org/release/2.7.7.html</a>
-There&rsquo;s <code>hadoop-2.7.7</code> folder downloaded and placed in <code>C:\Hadoop\hadoop-2.7.7</code>.
-There&rsquo;s system variable <code>HADOOP_HOME=C:\Hadoop\hadoop-2.7.7</code>
-There&rsquo;s <code>%HADOOP_HOME%\bin</code> added to <strong>system&rsquo;s</strong> <code>PATH</code>.</p>
-</li>
-</ul>
+</code></pre><h4 id="install-spark">Install Spark</h4>
+<p>Download from <code>https://spark.apache.org/downloads.html</code>.</p>
+<p>Spark release <code>3.1.2</code> with <code>hadoop2.7</code> folder downloaded and copied to <code>C:\Spark\spark-3.1.2-bin-hadoop2.7</code>.</p>
+<p>Add <code>C:\Spark\spark-3.1.2-bin-hadoop2.7</code> to <strong>user&rsquo;s</strong> PATH</p>
+<h4 id="install-hadoop">Install Hadoop</h4>
+<p>Downloaded from <code>https://github.com/cdarlint/winutils</code>
+<code>hadoop-2.7.7</code> folder downloaded and placed in <code>C:\Hadoop\hadoop-2.7.7</code>.
+Add system variable <code>HADOOP_HOME=C:\Hadoop\hadoop-2.7.7</code>
+Add <code>%HADOOP_HOME%\bin</code> to <strong>system&rsquo;s</strong> <code>PATH</code>.</p>
 <h3 id="spark-structured-streaming-with-kafka">Spark structured streaming with kafka</h3>
 <p><a href="https://spark.apache.org/docs/3.1.1/structured-streaming-kafka-integration.html">https://spark.apache.org/docs/3.1.1/structured-streaming-kafka-integration.html</a>
 <a href="https://medium.com/expedia-group-tech/apache-spark-structured-streaming-checkpoints-and-triggers-4-of-6-b6f15d5cfd8d">https://medium.com/expedia-group-tech/apache-spark-structured-streaming-checkpoints-and-triggers-4-of-6-b6f15d5cfd8d</a></p>

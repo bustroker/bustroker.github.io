@@ -13,8 +13,10 @@
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/install-spark-and-hadoop-in-windows-10/</guid>
-      <description>Install spark to run locally Versions  Java  java -versionopenjdk version &amp;quot;1.8.0_292&amp;quot;OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10)OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode) Scala  sbtconsoleWelcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292).  Spark Download from https://spark.apache.org/downloads.html Spark release 3.1.2 with hadoop2.7 folder downloaded and copied to C:\Spark\spark-3.1.2-bin-hadoop2.7. Add C:\Spark\spark-3.1.2-bin-hadoop2.7 to user&amp;rsquo;s PATH
-  Hadoop Downloaded from https://hadoop.apache.org/release/2.7.7.html There&amp;rsquo;s hadoop-2.</description>
+      <description>Install spark to run locally Versions  Java  java -versionopenjdk version &amp;quot;1.8.0_292&amp;quot;OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10)OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode) Scala  sbtconsoleWelcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292).Install Spark Download from https://spark.apache.org/downloads.html.
+Spark release 3.1.2 with hadoop2.7 folder downloaded and copied to C:\Spark\spark-3.1.2-bin-hadoop2.7.
+Add C:\Spark\spark-3.1.2-bin-hadoop2.7 to user&amp;rsquo;s PATH
+Install Hadoop Downloaded from https://github.com/cdarlint/winutils hadoop-2.7.7 folder downloaded and placed in C:\Hadoop\hadoop-2.</description>
     </item>
     
   </channel>
