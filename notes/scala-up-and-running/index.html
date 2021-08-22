@@ -308,10 +308,7 @@ To run it, go</p>
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> sbt compile<span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">## Ideally, build the JAR and deploy it to a different runtime image... but just using this one for the moment</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;sbt&#34;</span>, <span style="color:#e6db74">&#34;run&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>And to run, just as usual</p>
-<pre><code class="language-console" data-lang="console">docker run hello:0.1.0-SNAPSHOT
-</code></pre><p><strong>This fails with <code>hcsshim::System::CreateProcess: failure in a Windows system call: The user name or password is incorrect. (0x52e)</code>.</strong> Smells to me that root windows image version used is not the same as my PC&rsquo;s?? Probably will need more control over this image build process.</p>
-
+</span></code></pre></div>
 
 
       </main>
