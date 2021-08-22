@@ -301,9 +301,14 @@ To create the fat JAR file, in sbt console go</p>
 To run it, go</p>
 <pre><code class="language-console" data-lang="console">java -jar Weather.ConsoleUI.jar
 </code></pre><h4 id="dockerize-the-app">Dockerize the app</h4>
-<p>To create an image from the application, go:</p>
-<pre><code class="language-console" data-lang="console">sbt Docker/publishLocal
-</code></pre><p>And to run, just as usual</p>
+<p>Dockerfile</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> hseeberger/scala-sbt:8u302_1.5.5_2.13.6</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . ./<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> sbt compile<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">## Ideally, build the JAR and deploy it to a different runtime image... but just using this one for the moment</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;sbt&#34;</span>, <span style="color:#e6db74">&#34;run&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>And to run, just as usual</p>
 <pre><code class="language-console" data-lang="console">docker run hello:0.1.0-SNAPSHOT
 </code></pre><p><strong>This fails with <code>hcsshim::System::CreateProcess: failure in a Windows system call: The user name or password is incorrect. (0x52e)</code>.</strong> Smells to me that root windows image version used is not the same as my PC&rsquo;s?? Probably will need more control over this image build process.</p>
 

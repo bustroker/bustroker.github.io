@@ -203,6 +203,9 @@ Get-WmiObject -Class Win32_logicaldisk -Filter <span style="color:#e6db74">&#34;
 </code></pre></div><h3 id="download-and-run-msi-installer">Download and run msi installer</h3>
 <p>Example with az cli installer</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Invoke-WebRequest -Uri https<span style="color:#960050;background-color:#1e0010">:</span>//aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList <span style="color:#e6db74">&#39;/I AzureCLI.msi /quiet&#39;</span>; rm .\AzureCLI.msi
+</code></pre></div><h3 id="disable-annoying-sound-in-powershell">Disable annoying sound in powershell</h3>
+<p>Run as admin</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Set-Service beep -StartupType disabled
 </code></pre></div>
 
 

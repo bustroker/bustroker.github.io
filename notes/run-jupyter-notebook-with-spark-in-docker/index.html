@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>spark | Coding notes</title>
+  <title>Run Jupyter notebook with spark in docker | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,52 +130,13 @@ audio {
       <main id="main">
         
 
-<h1>spark</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/">Run Jupyter notebook with spark in docker</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-08-15">Aug 8, 15000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/spark">spark</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/jupyter">jupyter</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/install-spark-and-hadoop-in-windows-10/">Install spark and hadoop in Windows 10</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-08-12">Aug 8, 12000</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/spark">spark</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/hadoop">hadoop</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/windows">windows</a>
-  
-
-</p>
+<h1>Run Jupyter notebook with spark in docker</h1>
+<h3 id="install-spark-to-run-locally">Install spark to run locally</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">docker run -p 8888<span style="color:#960050;background-color:#1e0010">:</span>8888 -p 4041<span style="color:#960050;background-color:#1e0010">:</span>4041 jupyter/all-spark-notebook
+</code></pre></div><p>The auth token is logged in the terminal. Copy it.
+In host browse to <code>localhost:8888</code>. Use the token to authenticate in the interface.</p>
+<p>Create new <code>spylon-kernel</code> notebook and write scala code.</p>
+<p>Spark WebUI is running on port <code>4041</code></p>
 
 
 
