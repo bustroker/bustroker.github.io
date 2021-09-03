@@ -601,8 +601,7 @@ cd c:\cmder\folder.\cmder.exe /REGISTER ALL</description>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</guid>
-      <description>Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 8080, host: 8080 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;UbuntuBionic&amp;#34;  vb.memory = 2048 # vb.gui = true end end Vagrant provision script Create a file vagrant_provision.sh in the same folder of Vagrantfile, with the following content. Just remove the tools not required, here&amp;rsquo;s all I&amp;rsquo;ve ever needed.
-Make sure to check for latest versions of some of the installed tools.</description>
+      <description>Vagrantfile Vagrant.configure(&amp;quot;2&amp;quot;) do |config|# config.vm.box = &amp;quot;debian/bullseye64&amp;quot;config.vm.box = &amp;quot;ubuntu/focal64&amp;quot; # v 20.04 LTSconfig.vm.synced_folder &amp;quot;./&amp;quot;, &amp;quot;/vagrant&amp;quot;config.vm.network &amp;quot;forwarded_port&amp;quot;, guest: 8080, host: 8080config.vm.provision :shell, path: &amp;quot;vagrant_provision.sh&amp;quot; config.vm.provider &amp;quot;virtualbox&amp;quot; do |vb|vb.name = &amp;quot;UbuntuBionic&amp;quot; vb.memory = 2048# vb.gui = trueendendVagrant provision script Create a file vagrant_provision.sh in the same folder of Vagrantfile, with the following content. Just remove the tools not required, here&amp;rsquo;s all I&amp;rsquo;ve ever needed.</description>
     </item>
     
     <item>

@@ -132,19 +132,20 @@ audio {
 
 <h1>Vagrant VM provision &amp; vagrant commands cheathsheet</h1>
 <h3 id="vagrantfile">Vagrantfile</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ae81ff">Vagrant.configure(&#34;2&#34;) do |config|</span>
-  <span style="color:#ae81ff">config.vm.box = &#34;ubuntu/focal64&#34;</span> <span style="color:#75715e"># v 20.04 LTS</span>
-  <span style="color:#ae81ff">config.vm.synced_folder &#34;./&#34;, &#34;/vagrant&#34;</span>
-  <span style="color:#ae81ff">config.vm.network &#34;forwarded_port&#34;, guest: 8080, host: 8080</span>
-  <span style="color:#f92672">config.vm.provision :shell, path</span>: <span style="color:#e6db74">&#34;vagrant_provision.sh&#34;</span>  
-  <span style="color:#ae81ff">config.vm.provider &#34;virtualbox&#34; do |vb|</span>
-    <span style="color:#ae81ff">vb.name = &#34;UbuntuBionic&#34;     </span>
-    <span style="color:#ae81ff">vb.memory = 2048</span>
-    <span style="color:#75715e"># vb.gui = true</span>
-  <span style="color:#ae81ff">end</span>
-<span style="color:#ae81ff">end</span>
+<pre><code class="language-Vagrantfile" data-lang="Vagrantfile">Vagrant.configure(&quot;2&quot;) do |config|
+  # config.vm.box = &quot;debian/bullseye64&quot;
+  config.vm.box = &quot;ubuntu/focal64&quot; # v 20.04 LTS
+  config.vm.synced_folder &quot;./&quot;, &quot;/vagrant&quot;
+  config.vm.network &quot;forwarded_port&quot;, guest: 8080, host: 8080
+  config.vm.provision :shell, path: &quot;vagrant_provision.sh&quot;  
+  config.vm.provider &quot;virtualbox&quot; do |vb|
+    vb.name = &quot;UbuntuBionic&quot;     
+    vb.memory = 2048
+    # vb.gui = true
+  end
+end
 
-</code></pre></div><h3 id="vagrant-provision-script">Vagrant provision script</h3>
+</code></pre><h3 id="vagrant-provision-script">Vagrant provision script</h3>
 <p>Create a file <code>vagrant_provision.sh</code> in the same folder of <code>Vagrantfile</code>, with the following content. Just remove the tools not required, here&rsquo;s all I&rsquo;ve ever needed.</p>
 <p>Make sure to check for latest versions of some of the installed tools.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">// vagrant_provision.sh
