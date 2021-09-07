@@ -137,8 +137,10 @@ audio {
   config.vm.box = &quot;ubuntu/focal64&quot; # v 20.04 LTS
   config.vm.synced_folder &quot;./&quot;, &quot;/vagrant&quot;
   config.vm.network &quot;forwarded_port&quot;, guest: 8080, host: 8080
-  config.vm.provision :shell, path: &quot;vagrant_provision.sh&quot;  
+  config.vm.provision :shell, path: &quot;vagrant_provision.sh&quot;
+  
   config.vm.provider &quot;virtualbox&quot; do |vb|
+  # config.vm.provider &quot;hyperv&quot; do |vb|
     vb.name = &quot;UbuntuBionic&quot;     
     vb.memory = 2048
     # vb.gui = true
