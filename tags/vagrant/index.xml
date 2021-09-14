@@ -38,12 +38,22 @@ Phonegap Build account Create an account in https://build.</description>
     </item>
     
     <item>
+      <title>Setup aspnet core app with vagrant and docker</title>
+      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</link>
+      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
+      <description>Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
+dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
+    </item>
+    
+    <item>
       <title>Vagrant VM provision &amp; vagrant commands cheathsheet</title>
       <link>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</guid>
-      <description>Vagrantfile Vagrant.configure(&amp;quot;2&amp;quot;) do |config|# config.vm.box = &amp;quot;debian/bullseye64&amp;quot;config.vm.box = &amp;quot;ubuntu/focal64&amp;quot; # v 20.04 LTSconfig.vm.synced_folder &amp;quot;./&amp;quot;, &amp;quot;/vagrant&amp;quot;config.vm.network &amp;quot;forwarded_port&amp;quot;, guest: 8080, host: 8080config.vm.provision :shell, path: &amp;quot;vagrant_provision.sh&amp;quot;config.vm.provider &amp;quot;virtualbox&amp;quot; do |vb|# config.vm.provider &amp;quot;hyperv&amp;quot; do |vb|vb.name = &amp;quot;UbuntuBionic&amp;quot; vb.memory = 2048# vb.gui = trueendendVagrant provision script Create a file vagrant_provision.sh in the same folder of Vagrantfile, with the following content. Just remove the tools not required, here&amp;rsquo;s all I&amp;rsquo;ve ever needed.</description>
+      <description>Vagrantfile Vagrant.configure(&amp;quot;2&amp;quot;) do |config|# config.vm.box = &amp;quot;debian/bullseye64&amp;quot;config.vm.box = &amp;quot;ubuntu/focal64&amp;quot; # v 20.04 LTSconfig.vm.synced_folder &amp;quot;./&amp;quot;, &amp;quot;/vagrant&amp;quot;config.vm.network &amp;quot;forwarded_port&amp;quot;, guest: 8080, host: 8080config.vm.provision :shell, path: &amp;quot;vagrant_provision.sh&amp;quot;config.vm.provider &amp;quot;virtualbox&amp;quot; do |vb|vb.name = &amp;quot;UbuntuBionic&amp;quot; vb.memory = 2048# vb.gui = trueendendVagrant provision script Create a file vagrant_provision.sh in the same folder of Vagrantfile, with the following content. Just remove the tools not required, here&amp;rsquo;s all I&amp;rsquo;ve ever needed.</description>
     </item>
     
   </channel>

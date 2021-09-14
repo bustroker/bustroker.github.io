@@ -140,7 +140,6 @@ audio {
   config.vm.provision :shell, path: &quot;vagrant_provision.sh&quot;
   
   config.vm.provider &quot;virtualbox&quot; do |vb|
-  # config.vm.provider &quot;hyperv&quot; do |vb|
     vb.name = &quot;UbuntuBionic&quot;     
     vb.memory = 2048
     # vb.gui = true
@@ -149,12 +148,13 @@ end
 
 </code></pre><h3 id="vagrant-provision-script">Vagrant provision script</h3>
 <p>Create a file <code>vagrant_provision.sh</code> in the same folder of <code>Vagrantfile</code>, with the following content. Just remove the tools not required, here&rsquo;s all I&rsquo;ve ever needed.</p>
-<p>Make sure to check for latest versions of some of the installed tools.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">// vagrant_provision.sh
-
-echo <span style="color:#e6db74">&#34;provisioning VM...&#34;</span>
+<p>Make sure to check for latest versions of some of the installed tools.
+Here&rsquo;s <code>vagrant_provision.sh</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#34;provisioning VM...&#34;</span>
 sudo apt update
 sudo apt-get update
+
+sudo apt-get install curl -y
 
 <span style="color:#75715e"># set environment variable</span>
 echo ENVIRONMENT_NAME<span style="color:#f92672">=</span>DEV &gt;&gt; /etc/environment
@@ -167,14 +167,20 @@ az --version
 echo <span style="color:#e6db74">&#34;azure cli installed...&#34;</span>
 
 <span style="color:#75715e"># install docker and run</span>
-sudo apt -y install docker.io
+<span style="color:#75715e"># install docker and run</span>
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  <span style="color:#e6db74">&#34;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+</span><span style="color:#e6db74">  </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> stable&#34;</span> | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+
 sudo systemctl start docker
 sudo systemctl enable docker
 docker --version
 echo <span style="color:#e6db74">&#34;docker installed and running...&#34;</span>
 
 <span style="color:#75715e"># create group &#39;docker&#39; and add user &#39;vagrant&#39; (the one I connect with) to it</span>
-sudo groupadd docker
 sudo usermod -aG docker vagrant
 echo <span style="color:#e6db74">&#34;docker group created and &#39;vagrant&#39; user added to it...&#34;</span>
 
@@ -231,6 +237,8 @@ echo <span style="color:#e6db74">&#34;istioctl installed...&#34;</span>
 
 <span style="color:#75715e"># install helm</span>
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+helm version
+echo <span style="color:#e6db74">&#34;helm installed...&#34;</span>
 
 <span style="color:#75715e"># install heroku cli</span>
 curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
