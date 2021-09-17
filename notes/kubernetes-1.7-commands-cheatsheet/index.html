@@ -162,12 +162,13 @@ kubectl run disposable-curl-pod --image=radial/busyboxplus:curl -i --tty --rm
 </code></pre><h3 id="dns-service-info">DNS service info</h3>
 <pre><code class="language-console" data-lang="console">kubectl get services kube-dns --namespace=kube-system
 </code></pre><h3 id="troubleshoot-crash-on-startup">Troubleshoot crash on startup</h3>
-<pre><code class="language-console" data-lang="console">kubectl get pod &lt;POD-NAME&gt; --output=[yaml/json]
-kubectl logs &lt;POD-NAME&gt;
+<pre><code class="language-console" data-lang="console">kubectl get pod [POD_NAME] --output=[yaml/json]
+kubectl logs [POD_NAME]
+kubectl describe [POD_NAME]
 </code></pre><p>If it already exited, add <code>-p</code></p>
-<pre><code class="language-console" data-lang="console">kubectl logs &lt;POD-NAME&gt; -p
+<pre><code class="language-console" data-lang="console">kubectl logs [POD_NAME] -p
 </code></pre><p>Logs of container in a pod</p>
-<pre><code class="language-console" data-lang="console">kubectl logs &lt;POD-NAME&gt; -c &lt;CONTAINER-NAME&gt;
+<pre><code class="language-console" data-lang="console">kubectl logs [POD_NAME] -c [CONTAINER_NAME]
 </code></pre><h3 id="get-info-about-resources-to-deploy">Get info about resources to deploy</h3>
 <p>This is quite relevant, as with new versions there are important changes</p>
 <pre><code class="language-console" data-lang="console">kubectl explain &lt;RESOURCE&gt;.&lt;PATH&gt;.&lt;TO&gt;.&lt;ITEM&gt;
