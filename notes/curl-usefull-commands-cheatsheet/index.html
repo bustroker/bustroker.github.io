@@ -153,8 +153,6 @@ curl -X POST http<span style="color:#960050;background-color:#1e0010">:</span>//
 </code></pre><h3 id="linux-use-jq-to-extract-properties-from-json-response">[Linux] Use <code>jq</code> to extract properties from json response</h3>
 <p>-r: raw output (i.e., output with no surrounding quotes)</p>
 <pre><code class="language-console" data-lang="console">curl localhost:8080 | jq -r &quot;.some.property.in_Json.tree&quot;
-</code></pre><h3 id="run-curl-from-pod-in-k8s">Run curl from pod in k8s</h3>
-<pre><code class="language-console" data-lang="console">kubectl run temp-curl --image=radial/busyboxplus:curl -i --tty --rm
 </code></pre>
 
 

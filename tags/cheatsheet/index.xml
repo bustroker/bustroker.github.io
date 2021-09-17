@@ -69,7 +69,8 @@ helm chart pull &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt;helm chart export &amp
       
       <guid>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</guid>
       <description>Version: 1.6
-Get info kubectl get pods -o widekubectl describe svc &amp;lt;SERVICE-NAME&amp;gt;Delete all pods with a label kubectl delete pods -l label=valueSet namespace for kubectl console session kubectl config set-context --current -n=&amp;lt;NAMESPACE&amp;gt;Validate deployment before actually applying it kubectl apply --dry-run=client -f deployment.yamlDeploy a service and watch process kubectl apply -f deployment.yamlkubectl get service &amp;lt;SERVICE-NAME&amp;gt; [--watch]Bash into k8s existing pod kubectl exec -it &amp;lt;POD-NAME&amp;gt; -- /bin/bashDeploy the most basic disposable pod and bash into it, to access the network.</description>
+Run pod from image kubectl run NAME --image=image [--env=&amp;quot;key=value&amp;quot;]Get info kubectl get pods -o widekubectl describe svc &amp;lt;SERVICE-NAME&amp;gt;Delete all pods with a label kubectl delete pods -l label=valueDelete all pods in a specific state pods E.g., STATE=Evicted
+kubectl get pod | grep Evicted | awk &#39;{print $1}&#39; | xargs kubectl delete podSet namespace for kubectl console session kubectl config set-context --current -n=&amp;lt;NAMESPACE&amp;gt;Validate deployment before actually applying it kubectl apply --dry-run=client -f deployment.</description>
     </item>
     
     <item>
