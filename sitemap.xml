@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.bustroker.com/</loc>
-    <lastmod>2021-08-15T00:00:00+00:00</lastmod>
+    <lastmod>2021-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/http4s/</loc>
+    <lastmod>2021-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+    <lastmod>2021-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/scala/</loc>
+    <lastmod>2021-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/scala-hello-world-web-api-with-http4s/</loc>
+    <lastmod>2021-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2021-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/webapi/</loc>
+    <lastmod>2021-09-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/docker/</loc>
     <lastmod>2021-08-15T00:00:00+00:00</lastmod>
@@ -11,16 +29,10 @@
     <loc>https://www.bustroker.com/tags/jupyter/</loc>
     <lastmod>2021-08-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/</loc>
-    <lastmod>2021-08-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/</loc>
     <lastmod>2021-08-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/spark/</loc>
-    <lastmod>2021-08-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/</loc>
     <lastmod>2021-08-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/hadoop/</loc>
@@ -73,9 +85,6 @@
   </url><url>
     <loc>https://www.bustroker.com/tags/ssl-certificate/</loc>
     <lastmod>2021-05-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/scala/</loc>
-    <lastmod>2021-05-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/scala-up-and-running/</loc>
     <lastmod>2021-05-05T00:00:00+00:00</lastmod>
