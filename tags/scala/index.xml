@@ -6,16 +6,7 @@
     <description>Recent content in scala on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/scala/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Scala hello world web api with http4s</title>
-      <link>https://www.bustroker.com/notes/scala-hello-world-web-api-with-http4s/</link>
-      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/notes/scala-hello-world-web-api-with-http4s/</guid>
-      <description>Build.sbt scalaVersion := &amp;#34;2.13.6&amp;#34; // Also supports 2.12.x  val http4sVersion = &amp;#34;0.23.1&amp;#34; // Only necessary for SNAPSHOT releases resolvers += Resolver.sonatypeRepo(&amp;#34;snapshots&amp;#34;) libraryDependencies ++= Seq( &amp;#34;org.http4s&amp;#34; %% &amp;#34;http4s-dsl&amp;#34; % http4sVersion, &amp;#34;org.http4s&amp;#34; %% &amp;#34;http4s-blaze-server&amp;#34; % http4sVersion, &amp;#34;org.http4s&amp;#34; %% &amp;#34;http4s-blaze-client&amp;#34; % http4sVersion ) Server.scala package bkr.joker.webapi import cats.effect._ import org.http4s.blaze.server._ import scala.concurrent.ExecutionContext.global // import cats.effect._ import org.http4s.HttpRoutes import org.http4s.dsl.io._ import org.http4s.implicits._ object Server extends IOApp { def plot(name: String, lastname: String): String = { s&amp;#34;All work and no play makes $name$lastnamea dull boy.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 05 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/scala/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Scala up and running</title>
       <link>https://www.bustroker.com/notes/scala-up-and-running/</link>
