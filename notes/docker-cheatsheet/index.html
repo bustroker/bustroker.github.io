@@ -188,18 +188,18 @@ docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webu
 <ul>
 <li>First, build image with tag according to registry</li>
 </ul>
-<pre><code class="language-console" data-lang="console">docker build -t bustrokeracr.azurecr.io/bustroker-webui:v1 .
+<pre><code class="language-console" data-lang="console">docker build . -t bustrokeracr.azurecr.io/bustroker-webui:v1 -t bustrokeracr.azurecr.io/bustroker-webui:latest
 </code></pre><ul>
 <li>push image to registry
 Make sure Admin user is enabled for the ACR (in the portal, go to <code>Access keys</code> and enable Admin user. The credentials are generated there.)</li>
 </ul>
-<pre><code class="language-console" data-lang="console">docker login bustrokeracr.azurecr.io  
-// OR
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">docker login bustrokeracr.azurecr.io  
+<span style="color:#75715e"># OR</span>
 docker login --username=$DOCKER_USER --password=$DOCKER_PASS bustrokeracr.azurecr.io
 
-//THEN
-docker push bustrokeracr.azurecr.io/bustroker-webui:v1
-</code></pre><h3 id="copy-file-from-docker-container-to-host-and-viceversa">copy file from docker container to host and viceversa</h3>
+<span style="color:#75715e"># THEN</span>
+docker push --all-tags bustrokeracr.azurecr.io/bustroker-webui
+</code></pre></div><h3 id="copy-file-from-docker-container-to-host-and-viceversa">copy file from docker container to host and viceversa</h3>
 <p>The container cannot be running, so stop it first</p>
 <pre><code class="language-console" data-lang="console">docker stop [CONTAINER_ID]
 docker cp [CONTAINER_ID]:/file/path/within/container /host/path/target

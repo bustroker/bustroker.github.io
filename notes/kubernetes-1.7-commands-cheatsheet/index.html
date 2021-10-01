@@ -158,10 +158,10 @@ kubectl get service &lt;SERVICE-NAME&gt; [--watch]
 </code></pre><p>To install curl, just</p>
 <pre><code class="language-console" data-lang="console">apk --no-cache add curl
 </code></pre><p>Or just</p>
-<pre><code class="language-console" data-lang="console">kubectl run disposable-curl-pod --image=radial/busyboxplus:curl -it --rm
-</code></pre><h3 id="forward-clusterip-service-port-in-k8s-cluster-to-local-port">Forward ClusterIP service port in k8s cluster to local port</h3>
-<pre><code> kubectl port-forward svc/[SERVICE_NAME] 3000:3000
-</code></pre><h3 id="dns-service-info">DNS service info</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl run disposable-curl-pod --image=radial/busyboxplus<span style="color:#960050;background-color:#1e0010">:</span>curl -it --rm
+</code></pre></div><h3 id="forward-clusterip-service-port-in-k8s-cluster-to-local-port">Forward ClusterIP service port in k8s cluster to local port</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl port-forward svc/<span style="color:#66d9ef">[SERVICE_NAME]</span> 3000<span style="color:#960050;background-color:#1e0010">:</span>3000
+</code></pre></div><h3 id="dns-service-info">DNS service info</h3>
 <pre><code class="language-console" data-lang="console">kubectl get services kube-dns --namespace=kube-system
 </code></pre><h3 id="troubleshoot-crash-on-startup">Troubleshoot crash on startup</h3>
 <pre><code class="language-console" data-lang="console">kubectl get pod [POD_NAME] --output=[yaml/json]

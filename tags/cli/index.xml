@@ -18,7 +18,7 @@ Run query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34;
     </item>
     
     <item>
-      <title>Use `sqlcmd` cli tool.</title>
+      <title>Use sqlcmd cli tool.</title>
       <link>https://www.bustroker.com/notes/use-sqlcmd-cli-tool./</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       
