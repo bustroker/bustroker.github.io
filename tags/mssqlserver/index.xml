@@ -6,17 +6,7 @@
     <description>Recent content in mssqlserver on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/mssqlserver/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Query sql server from powershell</title>
-      <link>https://www.bustroker.com/notes/query-sql-server-from-powershell/</link>
-      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/notes/query-sql-server-from-powershell/</guid>
-      <description>Query sqlserver powershell module Install-Module sqlserver -Force A minimun nuget version is required. A messages provides the command to install it if was required.
-Run query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34; -ServerInstance &amp;#34;localhost&amp;#34; Run script Invoke-Sqlcmd -InputFile &amp;#34;C:\setupscripts\createUser.sql&amp;#34; | Out-File -FilePath &amp;#34;C:\setupscripts\createUser.log&amp;#34; </description>
-    </item>
-    
+    <lastBuildDate>Mon, 29 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/mssqlserver/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install sql server unattended from Powershell</title>
       <link>https://www.bustroker.com/notes/install-sql-server-unattended-from-powershell/</link>

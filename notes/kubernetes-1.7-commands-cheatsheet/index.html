@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.79.1" />
+  <meta name="generator" content="Hugo 0.82.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -133,53 +133,53 @@ audio {
 <h1>Kubernetes (1.7) commands cheatsheet</h1>
 <p>Version: 1.6</p>
 <h3 id="run-pod-from-image">Run pod from image</h3>
-<pre><code class="language-console" data-lang="console">kubectl run NAME --image=image [--env=&quot;key=value&quot;]
-</code></pre><h3 id="get-info">Get info</h3>
-<pre><code class="language-console" data-lang="console">kubectl get pods -o wide
-kubectl describe svc &lt;SERVICE-NAME&gt;
-</code></pre><h3 id="delete-all-pods-with-a-label">Delete all pods with a label</h3>
-<pre><code class="language-console" data-lang="console">kubectl delete pods -l label=value
-</code></pre><h3 id="delete-all-pods-in-a-specific-state-pods">Delete all pods in a specific state pods</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl run NAME --image=image [--env=<span style="color:#e6db74">&#34;key=value&#34;</span>]
+</code></pre></div><h3 id="get-info">Get info</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl get pods [-o wide]
+kubectl describe service SERVICE_NAME
+</code></pre></div><h3 id="delete-all-pods-with-a-label">Delete all pods with a label</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl delete pods -l label=value
+</code></pre></div><h3 id="delete-all-pods-in-a-specific-state-pods-in-linux">Delete all pods in a specific state pods, in Linux</h3>
 <p>E.g., STATE=Evicted</p>
 <pre><code class="language-console" data-lang="console">kubectl get pod | grep Evicted | awk '{print $1}' | xargs kubectl delete pod
 </code></pre><h3 id="set-namespace-for-kubectl-console-session">Set namespace for kubectl console session</h3>
-<pre><code class="language-console" data-lang="console">kubectl config set-context --current -n=&lt;NAMESPACE&gt;
-</code></pre><h3 id="validate-deployment-before-actually-applying-it">Validate deployment before actually applying it</h3>
-<pre><code class="language-console" data-lang="console">kubectl apply --dry-run=client -f deployment.yaml
-</code></pre><h3 id="deploy-a-service-and-watch-process">Deploy a service and watch process</h3>
-<pre><code class="language-console" data-lang="console">kubectl apply -f deployment.yaml
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl config set-context --current -n=&lt;NAMESPACE&gt;
+</code></pre></div><h3 id="validate-deployment-before-actually-applying-it">Validate deployment before actually applying it</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl apply --dry-run=client <span style="color:#f92672">-f</span> deployment.yaml
+</code></pre></div><h3 id="deploy-a-service-and-watch-process">Deploy a service and watch process</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl apply <span style="color:#f92672">-f</span> deployment.yaml
 kubectl get service &lt;SERVICE-NAME&gt; [--watch]
-</code></pre><h3 id="bash-into-k8s-existing-pod">Bash into k8s existing pod</h3>
-<pre><code class="language-console" data-lang="console">kubectl exec -it &lt;POD-NAME&gt; -- /bin/bash
-</code></pre><h3 id="run-pod-with-curl-to-access-the-network">Run pod with curl, to access the network.</h3>
+</code></pre></div><h3 id="bash-into-k8s-existing-pod">Bash into k8s existing pod</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl exec -it &lt;POD-NAME&gt; -- /bin/bash
+</code></pre></div><h3 id="run-pod-with-curl-to-access-the-network">Run pod with curl, to access the network.</h3>
 <p>Then <code>wget</code> a url and print result in terminal (<code>curl</code> is not included in alpine)</p>
-<pre><code class="language-console" data-lang="console">kubectl run --rm -it --image=alpine disposable-curl-pod
-# wget -qO- 10.0.1.34/health
-</code></pre><p>To install curl, just</p>
-<pre><code class="language-console" data-lang="console">apk --no-cache add curl
-</code></pre><p>Or just</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl run --rm -it --image=alpine disposable-curl-pod
+<span style="color:#75715e"># wget -qO- 10.0.1.34/health</span>
+</code></pre></div><p>To install curl, just</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">apk --no-cache add curl
+</code></pre></div><p>Or just</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl run disposable-curl-pod --image=radial/busyboxplus<span style="color:#960050;background-color:#1e0010">:</span>curl -it --rm
 </code></pre></div><h3 id="forward-clusterip-service-port-in-k8s-cluster-to-local-port">Forward ClusterIP service port in k8s cluster to local port</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl port-forward svc/<span style="color:#66d9ef">[SERVICE_NAME]</span> 3000<span style="color:#960050;background-color:#1e0010">:</span>3000
 </code></pre></div><h3 id="dns-service-info">DNS service info</h3>
-<pre><code class="language-console" data-lang="console">kubectl get services kube-dns --namespace=kube-system
-</code></pre><h3 id="troubleshoot-crash-on-startup">Troubleshoot crash on startup</h3>
-<pre><code class="language-console" data-lang="console">kubectl get pod [POD_NAME] --output=[yaml/json]
-kubectl logs [POD_NAME]
-kubectl describe [POD_NAME]
-</code></pre><p>If it already exited, add <code>-p</code></p>
-<pre><code class="language-console" data-lang="console">kubectl logs [POD_NAME] -p
-</code></pre><p>Logs of container in a pod</p>
-<pre><code class="language-console" data-lang="console">kubectl logs [POD_NAME] -c [CONTAINER_NAME]
-</code></pre><h3 id="get-info-about-resources-to-deploy">Get info about resources to deploy</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl get services kube-dns --namespace=kube-system
+</code></pre></div><h3 id="troubleshoot-crash-on-startup">Troubleshoot crash on startup</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl get pod <span style="color:#66d9ef">[POD_NAME]</span> --output=[yaml/json]
+kubectl logs <span style="color:#66d9ef">[POD_NAME]</span>
+kubectl describe <span style="color:#66d9ef">[POD_NAME]</span>
+</code></pre></div><p>If it already exited, add <code>-p</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl logs <span style="color:#66d9ef">[POD_NAME]</span> -p
+</code></pre></div><p>Logs of container in a pod</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl logs <span style="color:#66d9ef">[POD_NAME]</span> -c <span style="color:#66d9ef">[CONTAINER_NAME]</span>
+</code></pre></div><h3 id="get-info-about-resources-to-deploy">Get info about resources to deploy</h3>
 <p>This is quite relevant, as with new versions there are important changes</p>
-<pre><code class="language-console" data-lang="console">kubectl explain &lt;RESOURCE&gt;.&lt;PATH&gt;.&lt;TO&gt;.&lt;ITEM&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl explain &lt;RESOURCE&gt;.&lt;PATH&gt;.&lt;TO&gt;.&lt;ITEM&gt;
 // e.g:
 kubectl explain ingress.spec.rules.http
-</code></pre><h3 id="cleanup-k8s-resources">Cleanup k8s resources</h3>
+</code></pre></div><h3 id="cleanup-k8s-resources">Cleanup k8s resources</h3>
 <p>Just delete the namespace(s) and everything under it will be deleted. Deletion is async, so namespaces appears as <em>Terminating</em> for some time.</p>
-<pre><code class="language-console" data-lang="console">kubectl delete namespace NAMESPACE_NAME
-</code></pre><h3 id="a-service-url">A service url</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl delete namespace NAMESPACE_NAME
+</code></pre></div><h3 id="a-service-url">A service url</h3>
 <p>Given <code>cluster.local</code> is the cluster domain (the default), a service can be resolved at:
 <code>service-name.namespace.svc.cluster.local</code>.
 If the client is in the same namespace, only <code>service-name</code> is enough.
