@@ -25,7 +25,7 @@ Run query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34;
       <guid>https://www.bustroker.com/notes/use-sqlcmd-cli-tool/</guid>
       <description>sqlcmd utility (2019) Installed with Visual Studio 2019. (Apparently also with Sql Server 2019, but they dont&amp;rsquo;s explain WHERE it actually is :S)
 Add to path sqlcmd.exe is located in:
- Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Open CLI for queries sqlcmd -S localhost -U sa -P password -d database&amp;gt; select * from transactions&amp;gt; goRun sqlcmd from docker and connecto to host&amp;rsquo;s localhost sql server docker run --rm -it mcr.</description>
+ Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Open CLI for queries sqlcmd -S localhost -U sa -P password -d database&amp;gt; select * from transactions&amp;gt; goRun sqlcmd from docker/kubernetes and connecto to host&amp;rsquo;s localhost sql server docker run --rm -it mcr.</description>
     </item>
     
     <item>
