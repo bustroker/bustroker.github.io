@@ -154,7 +154,7 @@ sqlcmd -S host.docker.internal -U <span style="color:#66d9ef">[USER]</span> -P <
 </code></pre></div><p>-S host.docker.internal =&gt; sets the server to <code>host.docker.internal</code>, where host&rsquo;s localhost can be accessed from inside the container.</p>
 <p>Or in kubernetes</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl run disposable-sql --image=mcr.microsoft.com/mssql-tools -it --rm -- bash
-sqlcmd -S <span style="color:#66d9ef">[IP]</span> -U <span style="color:#66d9ef">[USER]</span> -P <span style="color:#66d9ef">[PASSWORD]</span> -d <span style="color:#66d9ef">[DATABASE]</span>
+sqlcmd -S <span style="color:#66d9ef">[IP],[PORT]</span> -U <span style="color:#66d9ef">[USER]</span> -P <span style="color:#66d9ef">[PASSWORD]</span> -d <span style="color:#66d9ef">[DATABASE]</span>
 &gt;select * from transactions
 &gt; go
 
