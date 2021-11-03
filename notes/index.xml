@@ -6,7 +6,16 @@
     <description>Recent content in Notes on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run Kafka locally with docker compose</title>
+      <link>https://www.bustroker.com/notes/run-kafka-locally-with-docker-compose/</link>
+      <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/run-kafka-locally-with-docker-compose/</guid>
+      <description>Basic services: zookeeper: image: wurstmeister/zookeeper ports: - &amp;#34;2181:2181&amp;#34; kafka: image: wurstmeister/kafka ports: - &amp;#34;9092:9092&amp;#34; environment: KAFKA_ADVERTISED_HOST_NAME: localhost KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181 volumes: - /var/run/docker.sock:/var/run/docker.sock Full stack services: zookeeper: image: confluentinc/cp-zookeeper:6.2.1 hostname: zookeeper container_name: zookeeper ports: - &amp;#34;2181:2181&amp;#34; environment: ZOOKEEPER_CLIENT_PORT: 2181 ZOOKEEPER_SERVER_ID: 1 ZOOKEEPER_SERVERS: zookeeper:2888:3888 kafka: image: confluentinc/cp-kafka:6.2.1 hostname: kafka ports: - &amp;#34;9092:9092&amp;#34; - &amp;#34;9999:9999&amp;#34; environment: KAFKA_ADVERTISED_LISTENERS: LISTENER_DOCKER_INTERNAL://kafka:19092,LISTENER_DOCKER_EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092 KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_DOCKER_INTERNAL:PLAINTEXT,LISTENER_DOCKER_EXTERNAL:PLAINTEXT KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_DOCKER_INTERNAL KAFKA_ZOOKEEPER_CONNECT: &amp;#34;zookeeper:2181&amp;#34; KAFKA_BROKER_ID: 1 KAFKA_LOG4J_LOGGERS: &amp;#34;kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO&amp;#34; KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1 KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1 KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1 KAFKA_JMX_PORT: 9999 KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.</description>
+    </item>
+    
     <item>
       <title>Scala hello world web api with http4s</title>
       <link>https://www.bustroker.com/notes/scala-hello-world-web-api-with-http4s/</link>
@@ -365,7 +374,7 @@ helm chart pull &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt;helm chart export &amp
       
       <guid>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</guid>
       <description>Version: 1.6
-Run pod from image kubectl run NAME --image=image [--env=&amp;#34;key=value&amp;#34;] Get info kubectl get pods [-o wide] kubectl describe service SERVICE_NAME Delete all pods with a label kubectl delete pods -l label=value Delete all pods in a specific state pods, in Linux E.g., STATE=Evicted
+Run pod from image kubectl run NAME --image=image [--env=&amp;#34;key=value&amp;#34;] Get info kubectl get pods [-o wide] kubectl describe service SERVICE_NAME kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName=NODE_NAME Delete all pods with a label kubectl delete pods -l label=value Delete all pods in a specific state pods, in Linux E.g., STATE=Evicted
 kubectl get pod | grep Evicted | awk &#39;{print $1}&#39; | xargs kubectl delete podSet namespace for kubectl console session kubectl config set-context --current -n=&amp;lt;NAMESPACE&amp;gt; Validate deployment before actually applying it kubectl apply --dry-run=client -f deployment.</description>
     </item>
     

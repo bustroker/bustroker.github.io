@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kafka</title>
+      <link>https://www.bustroker.com/tags/kafka/</link>
+      <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/kafka/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>http4s</title>
       <link>https://www.bustroker.com/tags/http4s/</link>
