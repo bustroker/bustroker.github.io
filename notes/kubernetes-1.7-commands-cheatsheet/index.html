@@ -161,7 +161,8 @@ kubectl get service &lt;SERVICE-NAME&gt; [--watch]
 </code></pre></div><p>Or just</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl run disposable-curl-pod --image=radial/busyboxplus<span style="color:#960050;background-color:#1e0010">:</span>curl -it --rm
 </code></pre></div><h3 id="forward-clusterip-service-port-in-k8s-cluster-to-local-port">Forward ClusterIP service port in k8s cluster to local port</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl port-forward svc/<span style="color:#66d9ef">[SERVICE_NAME]</span> 3000<span style="color:#960050;background-color:#1e0010">:</span>3000
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl port-forward service/<span style="color:#66d9ef">[SERVICE_NAME] [HOST_PORT]</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#66d9ef">[POD_PORT]</span>
+kubectl port-forward pod/<span style="color:#66d9ef">[POD_NAME] [HOST_PORT]</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#66d9ef">[POD_PORT]</span>
 </code></pre></div><h3 id="dns-service-info">DNS service info</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl get services kube-dns --namespace=kube-system
 </code></pre></div><h3 id="troubleshoot-crash-on-startup">Troubleshoot crash on startup</h3>
@@ -172,6 +173,8 @@ kubectl describe <span style="color:#66d9ef">[POD_NAME]</span>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl logs <span style="color:#66d9ef">[POD_NAME]</span> -p
 </code></pre></div><p>Logs of container in a pod</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl logs <span style="color:#66d9ef">[POD_NAME]</span> -c <span style="color:#66d9ef">[CONTAINER_NAME]</span>
+</code></pre></div><h3 id="list-all-resources">List all resources</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl api-resources --verbs=list --namespaced -o wide
 </code></pre></div><h3 id="get-info-about-resources-to-deploy">Get info about resources to deploy</h3>
 <p>This is quite relevant, as with new versions there are important changes</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl explain &lt;RESOURCE&gt;.&lt;PATH&gt;.&lt;TO&gt;.&lt;ITEM&gt;
