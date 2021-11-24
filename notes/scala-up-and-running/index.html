@@ -145,31 +145,34 @@ audio {
 <p>Content for <code>build.sbt</code> for a project with a subproject</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> version      <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.1.0&#34;</span>
 <span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> scalaVersion <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2.12.13&#34;</span>
-<span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> organization <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bkr&#34;</span>
+<span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> organization <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gs&#34;</span>
+
+<span style="color:#75715e">// add `% &#34;provided&#34;` to not include the dependency in the compiled JAR, as it is assumed that Databricks will already have this library on the classpath available when running in the cluster.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">val</span> <span style="color:#a6e22e">KafkaStreamProcessing</span> <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>project in file<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">))</span>
+  <span style="color:#f92672">.</span>settings<span style="color:#f92672">(</span>
+    name <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;KafkaStreamProcessing&#34;</span><span style="color:#f92672">,</span>
+
+    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-core&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.1.1&#34;</span><span style="color:#f92672">,</span>
+    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-sql&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.1.1&#34;</span><span style="color:#f92672">,</span>
+    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-sql-kafka-0-10&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.1.1&#34;</span><span style="color:#f92672">,</span>
+    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-avro&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.1.1&#34;</span><span style="color:#f92672">,</span> 
+    
+    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;org.apache.hadoop&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;hadoop-azure&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.3.0&#34;</span><span style="color:#f92672">,</span>
+
+    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;io.confluent&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;kafka-schema-registry-client&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;7.0.0&#34;</span> from <span style="color:#e6db74">&#34;https://packages.confluent.io/maven/io/confluent/kafka-schema-registry-client/7.0.0/kafka-schema-registry-client-7.0.0.jar&#34;</span><span style="color:#f92672">,</span>
 
 
-<span style="color:#66d9ef">val</span> scalaTest <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;org.scalatest&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;scalatest&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.7&#34;</span>
-<span style="color:#66d9ef">val</span> gigahorse <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;com.eed3si9n&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;gigahorse-okhttp&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;0.3.1&#34;</span>
-<span style="color:#66d9ef">val</span> playJson  <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;com.typesafe.play&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;play-json&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;2.6.9&#34;</span> <span style="color:#75715e">// a configuration manager
+    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;org.scalatest&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;scalatest&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.0.8&#34;</span> <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span><span style="color:#f92672">,</span>
+    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;com.typesafe&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;config&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;1.4.1&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// for typed config
 </span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">val</span> consoleUI <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>project in file<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">))</span>
-  <span style="color:#f92672">.</span>aggregate<span style="color:#f92672">(</span>weatherClient<span style="color:#f92672">)</span> <span style="color:#75715e">// commands sent to consoleUI project are also sent to weatherClient
-</span><span style="color:#75715e"></span>  <span style="color:#f92672">.</span>dependsOn<span style="color:#f92672">(</span>weatherClient<span style="color:#f92672">)</span>
-  <span style="color:#f92672">.</span>settings<span style="color:#f92672">(</span>
-    name <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Spark.Console&#34;</span><span style="color:#f92672">,</span>
-    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;com.typesafe.play&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;play-json&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;2.6.9&#34;</span><span style="color:#f92672">,</span>
-    libraryDependencies <span style="color:#f92672">+=</span> scalaTest <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span><span style="color:#f92672">,</span>
     assembly <span style="color:#f92672">/</span> assemblyJarName <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">s&#34;</span><span style="color:#e6db74">${</span>name<span style="color:#f92672">.</span>value<span style="color:#e6db74">}</span><span style="color:#e6db74">.jar&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// this is for sbt-assembly plugin
-</span><span style="color:#75715e"></span>  <span style="color:#f92672">)</span>
-
-<span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">val</span> weatherClient <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>project in file<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;core&#34;</span><span style="color:#f92672">))</span>
-  <span style="color:#f92672">.</span>settings<span style="color:#f92672">(</span>
-    name <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Weather API Client&#34;</span><span style="color:#f92672">,</span>
-    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;com.eed3si9n&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;gigahorse-okhttp&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;0.3.1&#34;</span><span style="color:#f92672">,</span>
-    libraryDependencies <span style="color:#f92672">++=</span> <span style="color:#a6e22e">Seq</span><span style="color:#f92672">(</span>gigahorse<span style="color:#f92672">,</span> playJson<span style="color:#f92672">),</span>
-    libraryDependencies <span style="color:#f92672">+=</span> scalaTest <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span>
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// https://github.com/sbt/sbt-assembly#merge-strategy
+</span><span style="color:#75715e"></span>    assembly <span style="color:#f92672">/</span> assemblyMergeStrategy <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#f92672">{</span> 
+      <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">PathList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;META-INF&#34;</span><span style="color:#f92672">,</span> xs <span style="color:#66d9ef">@</span> <span style="color:#66d9ef">_</span><span style="color:#f92672">*)</span> <span style="color:#66d9ef">=&gt;</span> <span style="color:#a6e22e">MergeStrategy</span><span style="color:#f92672">.</span>discard
+      <span style="color:#66d9ef">case</span> x <span style="color:#66d9ef">=&gt;</span> <span style="color:#a6e22e">MergeStrategy</span><span style="color:#f92672">.</span>first
+    <span style="color:#f92672">}</span>
   <span style="color:#f92672">)</span>
-</code></pre></div><p><code>assembly.sbt</code></p>
+</code></pre></div><p><code>plugins.sbt</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#75715e">// sbt-assembly plugin to package in a single JAR
 </span><span style="color:#75715e"></span>addSbtPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.eed3si9n&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;sbt-assembly&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;0.15.0&#34;</span><span style="color:#f92672">)</span>
 </code></pre></div><p><code>AppConfig.scala</code> file</p>
@@ -217,7 +220,7 @@ audio {
 <li>build.sbt</li>
 <li>project/
 <ul>
-<li>assembly.sbt</li>
+<li>plugins.sbt</li>
 </ul>
 </li>
 <li>src/
