@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>scala</title>
+      <link>https://www.bustroker.com/tags/scala/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/scala/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spark</title>
+      <link>https://www.bustroker.com/tags/spark/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/spark/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>kafka</title>
       <link>https://www.bustroker.com/tags/kafka/</link>
@@ -22,15 +40,6 @@
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/http4s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>scala</title>
-      <link>https://www.bustroker.com/tags/scala/</link>
-      <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/scala/</guid>
       <description></description>
     </item>
     
@@ -58,15 +67,6 @@
       <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/jupyter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>spark</title>
-      <link>https://www.bustroker.com/tags/spark/</link>
-      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/spark/</guid>
       <description></description>
     </item>
     

@@ -6,7 +6,16 @@
     <description>Recent content in Notes on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spark with scala</title>
+      <link>https://www.bustroker.com/notes/spark-with-scala/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/spark-with-scala/</guid>
+      <description>build.sbt ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.12.13&amp;#34; ThisBuild / organization := &amp;#34;bkr&amp;#34; lazy val KafkaStreamProcessing = (project in file(&amp;#34;.&amp;#34;)) .settings( name := &amp;#34;Bkr.Spark&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-core&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql-kafka-0-10&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-avro&amp;#34; % &amp;#34;3.1.1&amp;#34;, // version is critical, or ADLS will fail  libraryDependencies += &amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-common&amp;#34; % &amp;#34;3.</description>
+    </item>
+    
     <item>
       <title>Run Kafka locally with docker compose</title>
       <link>https://www.bustroker.com/notes/run-kafka-locally-with-docker-compose/</link>
