@@ -6,7 +6,16 @@
     <description>Recent content in Notes on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Synapse sql pools credentials</title>
+      <link>https://www.bustroker.com/notes/synapse-sql-pools-credentials/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/synapse-sql-pools-credentials/</guid>
+      <description>Create credentials to query datalake container through SQL Pools create credential [https://DATALAKE_ACCOUNT_NAME.dfs.core.windows.net/CONTAINER] with identity=&amp;#39;SHARED ACCESS SIGNATURE&amp;#39;, secret = &amp;#39;?sv=2020-08-04&amp;amp;ss=bfqt&amp;amp;srt=sco&amp;amp;sp=rwdlacupx&amp;amp;se=2022-12-21T21:35:50Z&amp;amp;st=2021-12-21T13:35:50Z&amp;amp;spr=https&amp;amp;sig=************************************&amp;#39; </description>
+    </item>
+    
     <item>
       <title>Spark with scala</title>
       <link>https://www.bustroker.com/notes/spark-with-scala/</link>
