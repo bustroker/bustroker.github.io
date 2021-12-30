@@ -169,7 +169,7 @@ audio {
 </span><span style="color:#75715e"></span>    <span style="color:#75715e">// https://github.com/sbt/sbt-assembly#merge-strategy
 </span><span style="color:#75715e"></span>    assembly <span style="color:#f92672">/</span> assemblyMergeStrategy <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#f92672">{</span> 
       <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">PathList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;META-INF&#34;</span><span style="color:#f92672">,</span> xs <span style="color:#66d9ef">@</span> <span style="color:#66d9ef">_</span><span style="color:#f92672">*)</span> <span style="color:#66d9ef">=&gt;</span> <span style="color:#a6e22e">MergeStrategy</span><span style="color:#f92672">.</span>discard
-      <span style="color:#66d9ef">case</span> x <span style="color:#66d9ef">=&gt;</span> <span style="color:#a6e22e">MergeStrategy</span><span style="color:#f92672">.</span>first
+      <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">=&gt;</span> <span style="color:#a6e22e">MergeStrategy</span><span style="color:#f92672">.</span>first
     <span style="color:#f92672">}</span>
   <span style="color:#f92672">)</span>
 </code></pre></div><p><code>plugins.sbt</code></p>
