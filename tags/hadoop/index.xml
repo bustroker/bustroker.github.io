@@ -14,9 +14,7 @@
       
       <guid>https://www.bustroker.com/notes/install-spark-and-hadoop-in-windows-10/</guid>
       <description>Install spark to run locally Versions  Java  java -versionopenjdk version &amp;quot;1.8.0_292&amp;quot;OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10)OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode) Scala  sbtconsoleWelcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292).Install Spark Download from https://spark.apache.org/downloads.html.
-Spark release 3.1.2 with hadoop2.7 folder downloaded and copied to C:\Spark\spark-3.1.2-bin-hadoop2.7.
-Add C:\Spark\spark-3.1.2-bin-hadoop2.7 to user&amp;rsquo;s PATH
-Install Hadoop Downloaded from https://github.com/cdarlint/winutils hadoop-2.7.7 folder downloaded and placed in C:\Hadoop\hadoop-2.</description>
+ Spark release 3.2.0 For Hadoop 2.7 (previous versions failed me) Folder downloaded and copied as C:\Spark\spark-3.2.0-bin-hadoop2.7.  Add system environment variable SPARK_HOME with value C:\Spark\spark-3.</description>
     </item>
     
   </channel>

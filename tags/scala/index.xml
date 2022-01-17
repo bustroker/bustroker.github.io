@@ -31,10 +31,10 @@
       <pubDate>Wed, 05 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/scala-up-and-running/</guid>
-      <description>Installation Java Installed AdoptOpenJDK 8. Other failed in runtime for https issues (apparently, missing the local store that is installed with Java)
-Scala Installed SBT from official site.
-New project  Create project root folder. In the root folder, create build.sbt file. Create [root]/src/main/scala/bkr/data/spark/App.scala file, for a package named bkr.data.spark  Content for build.sbt for a project with a subproject
-ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.12.13&amp;#34; ThisBuild / organization := &amp;#34;gs&amp;#34; // add `% &amp;#34;provided&amp;#34;` to not include the dependency in the compiled JAR, as it is assumed that Databricks will already have this library on the classpath available when running in the cluster.</description>
+      <description>Installation Java Installed AdoptOpenJDK 11. Other failed in runtime for https issues (apparently, missing the local store that is installed with Java)
+Scala Installed SBT from official site. Get version:
+sbt scalaVersion New project  Create project root folder. In the root folder, create build.sbt file. Create [root]/src/main/scala/bkr/data/spark/App.scala file, for a package named bkr.data.spark  Content for build.sbt for a project with a subproject
+ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.</description>
     </item>
     
   </channel>

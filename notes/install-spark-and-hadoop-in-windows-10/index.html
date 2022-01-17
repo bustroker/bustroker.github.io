@@ -148,13 +148,18 @@ console
 Welcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292).
 </code></pre><h4 id="install-spark">Install Spark</h4>
 <p>Download from <code>https://spark.apache.org/downloads.html</code>.</p>
-<p>Spark release <code>3.1.2</code> with <code>hadoop2.7</code> folder downloaded and copied to <code>C:\Spark\spark-3.1.2-bin-hadoop2.7</code>.</p>
-<p>Add <code>C:\Spark\spark-3.1.2-bin-hadoop2.7</code> to <strong>user&rsquo;s</strong> PATH</p>
+<ul>
+<li>Spark release <code>3.2.0</code></li>
+<li>For <code>Hadoop 2.7</code> (previous versions failed me) 
+Folder downloaded and copied as <code>C:\Spark\spark-3.2.0-bin-hadoop2.7</code>.</li>
+</ul>
+<p>Add system environment variable <code>SPARK_HOME</code> with value <code>C:\Spark\spark-3.2.0-bin-hadoop2.7</code>.
+Add <code>%SPARK_HOME%\bin</code> to system <code>PATH</code>.</p>
 <h4 id="install-hadoop">Install Hadoop</h4>
-<p>Downloaded from <code>https://github.com/cdarlint/winutils</code>
-<code>hadoop-2.7.7</code> folder downloaded and placed in <code>C:\Hadoop\hadoop-2.7.7</code>.
-Add system variable <code>HADOOP_HOME=C:\Hadoop\hadoop-2.7.7</code>
-Add <code>%HADOOP_HOME%\bin</code> to <strong>system&rsquo;s</strong> <code>PATH</code>.</p>
+<p>Downloaded from <code>https://github.com/cdarlint/winutils</code>.
+Folder <code>hadoop-2.7.7</code> downloaded as <code>C:\Hadoop\hadoop-2.7.7</code>.
+Add system environment variable <code>HADOOP_HOME</code> with value <code>C:\Hadoop\hadoop-2.7.7</code>
+Add <code>%HADOOP_HOME%\bin</code> system <code>PATH</code>.</p>
 <h3 id="spark-structured-streaming-with-kafka">Spark structured streaming with kafka</h3>
 <p><a href="https://spark.apache.org/docs/3.1.1/structured-streaming-kafka-integration.html">https://spark.apache.org/docs/3.1.1/structured-streaming-kafka-integration.html</a>
 <a href="https://medium.com/expedia-group-tech/apache-spark-structured-streaming-checkpoints-and-triggers-4-of-6-b6f15d5cfd8d">https://medium.com/expedia-group-tech/apache-spark-structured-streaming-checkpoints-and-triggers-4-of-6-b6f15d5cfd8d</a></p>
