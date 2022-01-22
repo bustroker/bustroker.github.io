@@ -17,12 +17,32 @@
     </item>
     
     <item>
+      <title>Spark with delta lake</title>
+      <link>https://www.bustroker.com/notes/spark-with-delta-lake/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/spark-with-delta-lake/</guid>
+      <description>build.sbt ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.13.8&amp;#34; ThisBuild / organization := &amp;#34;bkr&amp;#34; libraryDependencies ++= List(&amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-core&amp;#34; % &amp;#34;3.2.0&amp;#34;, &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql&amp;#34; % &amp;#34;3.2.0&amp;#34;, // % &amp;#34;provided&amp;#34;  &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql-kafka-0-10&amp;#34; % &amp;#34;3.2.0&amp;#34;, // % Test  &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-avro&amp;#34; % &amp;#34;3.2.0&amp;#34;) libraryDependencies ++= List(&amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-common&amp;#34; % &amp;#34;3.3.1&amp;#34;, &amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-azure&amp;#34; % &amp;#34;3.3.1&amp;#34;) libraryDependencies += &amp;#34;org.json4s&amp;#34; %% &amp;#34;json4s-native&amp;#34; % &amp;#34;3.6.12&amp;#34; libraryDependencies += &amp;#34;io.delta&amp;#34; %% &amp;#34;delta-core&amp;#34; % &amp;#34;1.</description>
+    </item>
+    
+    <item>
       <title>Spark with scala</title>
       <link>https://www.bustroker.com/notes/spark-with-scala/</link>
       <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/spark-with-scala/</guid>
       <description>build.sbt ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.12.13&amp;#34; ThisBuild / organization := &amp;#34;bkr&amp;#34; lazy val KafkaStreamProcessing = (project in file(&amp;#34;.&amp;#34;)) .settings( name := &amp;#34;Bkr.Spark&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-core&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql-kafka-0-10&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-avro&amp;#34; % &amp;#34;3.1.1&amp;#34;, // version is critical, or ADLS will fail  libraryDependencies += &amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-common&amp;#34; % &amp;#34;3.</description>
+    </item>
+    
+    <item>
+      <title>Kafka Avro Consumer issue workaround</title>
+      <link>https://www.bustroker.com/notes/kafka-avro-consumer-issue-workaround/</link>
+      <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/kafka-avro-consumer-issue-workaround/</guid>
+      <description>I reported the issue here
+Description AvroDeserializer throws NullReferenceException without any further info.
+Unhandled exception. Confluent.Kafka.ConsumeException: Local: Value deserialization error---&amp;gt; System.NullReferenceException: Object reference not set to an instance of an object.at Confluent.SchemaRegistry.Serdes.GenericDeserializerImpl.Deserialize(String topic, Byte[] array)at Confluent.SchemaRegistry.Serdes.AvroDeserializer`1.DeserializeAsync(ReadOnlyMemory`1 data, Boolean isNull, SerializationContext context)at Confluent.Kafka.SyncOverAsync.SyncOverAsyncDeserializer`1.Deserialize(ReadOnlySpan`1 data, Boolean isNull, SerializationContext context)at Confluent.Kafka.Consumer`2.Consume(Int32 millisecondsTimeout)--- End of inner exception stack trace ---at Confluent.Kafka.Consumer`2.Consume(Int32 millisecondsTimeout)at Confluent.Kafka.Consumer`2.Consume(TimeSpan timeout)at Arch.Pocs.KafkaClient.Consumer.ConsoleUI.KafkaAvroConsumer.Poll(String topic)+MoveNext() in /app/KafkaAvroConsumer.</description>
     </item>
     
     <item>
