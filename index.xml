@@ -6,7 +6,16 @@
     <description>Recent content on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scala hello Futures</title>
+      <link>https://www.bustroker.com/notes/scala-hello-futures/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/scala-hello-futures/</guid>
+      <description>Build.sbt scalaVersion := &amp;#34;2.13.6&amp;#34; // Also supports 2.12.x App.scala import scala.concurrent._ import scala.concurrent.duration._ import scala.concurrent.ExecutionContext.Implicits.global object Application extends App { def writeStuff(step: Int, max: Int, name: String) = { for(i &amp;lt;- 1 to max){ Thread.sleep(step*1000) println(s&amp;#34;task $name=&amp;gt; $is&amp;#34;) } } val futureTask1 = Future { writeStuff(1, 10, &amp;#34;la primera&amp;#34;) } val futureTask2 = Future { writeStuff(2, 8, &amp;#34;la segunda&amp;#34;) } val futures: List[Future[Unit]] = List(futureTask1, futureTask2) futures.map(f =&amp;gt; { println(&amp;#34;===== Sending await for task&amp;#34;) Await.</description>
+    </item>
+    
     <item>
       <title>Synapse sql pools credentials</title>
       <link>https://www.bustroker.com/notes/synapse-sql-pools-credentials/</link>
