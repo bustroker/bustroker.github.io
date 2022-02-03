@@ -6,7 +6,16 @@
     <description>Recent content in kubernetes on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run MSSQL 2019 on Kubernetes</title>
+      <link>https://www.bustroker.com/notes/run-mssql-2019-on-kubernetes/</link>
+      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/run-mssql-2019-on-kubernetes/</guid>
+      <description>Secret for sa password kubectl create secret generic mssql --from-literal=SA_PASSWORD=&amp;#34;P@55word&amp;#34; Storage kind: PersistentVolumeClaim apiVersion: v1 metadata: name: mssql-data annotations: volume.beta.kubernetes.io/storage-class: default spec: accessModes: - ReadWriteOnce resources: requests: storage: 10Gi Mount optional azure storage account apiVersion: v1 kind: Secret metadata: name: mssql-optionalAddedStorage-secret namespace: sqlserver type: Opaque data: azurestorageaccountname: Z3NhcmNocG9jc3NoYXJlZHN0b3JhZ2U= azurestorageaccountkey: SndPbTRlTFhLSVdWc1IzYkhONFV2WGlUM3NVSjBseHYvbUpQUU5DY1pYNEsyUmhTUjBZY3c5bzdmM3huU2h6bE9KVXhhSFcxT09KSmF4VktxRityVWc9PQ== Values of azurestorageaccountname and azurestorageaccountkey are 64-based account name and key as extracted from Azure. A File Share needs to be created in the storage account and named optionalAddedStorage, as referenced below.</description>
+    </item>
+    
     <item>
       <title>Kubernetes (1.7) commands cheatsheet</title>
       <link>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</link>
