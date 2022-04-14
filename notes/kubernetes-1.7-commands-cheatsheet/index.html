@@ -135,7 +135,8 @@ audio {
 <h3 id="contexts">Contexts</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl config get-contexts
 kubectl config delete-context CONTEXT_NAME
-kubectl config set-context CONTEXT_NAME
+kubectl config set-context --current --namespace=NAMESPACE 
+kubectl config use-context CONTEXT_NAME
 </code></pre></div><h3 id="run-pod-from-image">Run pod from image</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl run NAME --image=image [--env=<span style="color:#e6db74">&#34;key=value&#34;</span>]
 </code></pre></div><h3 id="get-info">Get info</h3>
