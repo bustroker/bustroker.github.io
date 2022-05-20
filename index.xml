@@ -6,7 +6,17 @@
     <description>Recent content on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Architecture interview questions</title>
+      <link>https://www.bustroker.com/notes/architecture-interview-questions/</link>
+      <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/architecture-interview-questions/</guid>
+      <description>Questions   Difference between the role of the Architect and the Tech Lead
+ Main concerns What&amp;rsquo;s the most difficult aspect of the switch from TL to Sln Arch Do you follow any particular mentoring strategy? Do you establish guidelines, best practices? How? How to make sure they are followed? How do you relate with Tech Leads in terms of the design/development process?    Mention a couple of Architecture Styles and describe them</description>
+    </item>
+    
     <item>
       <title>Run MSSQL 2019 on Kubernetes</title>
       <link>https://www.bustroker.com/notes/run-mssql-2019-on-kubernetes/</link>

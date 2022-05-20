@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>architecture on Coding notes</title>
+    <link>https://www.bustroker.com/tags/architecture/</link>
+    <description>Recent content in architecture on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Architecture interview questions</title>
+      <link>https://www.bustroker.com/notes/architecture-interview-questions/</link>
+      <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/architecture-interview-questions/</guid>
+      <description>Questions   Difference between the role of the Architect and the Tech Lead
+ Main concerns What&amp;rsquo;s the most difficult aspect of the switch from TL to Sln Arch Do you follow any particular mentoring strategy? Do you establish guidelines, best practices? How? How to make sure they are followed? How do you relate with Tech Leads in terms of the design/development process?    Mention a couple of Architecture Styles and describe them</description>
+    </item>
+    
+  </channel>
+</rss>
