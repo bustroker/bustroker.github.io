@@ -6,7 +6,20 @@
     <description>Recent content on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Databricks submit jar</title>
+      <link>https://www.bustroker.com/notes/databricks-submit-jar/</link>
+      <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/databricks-submit-jar/</guid>
+      <description>Deploy jar file to azure databricks cluster from local. The idea is to push the fat jar to databrick&amp;rsquo;s dbfs using databricks CLI.
+Configure databricks CLI connection Generate and copy PAT token in databricks workspace/User Settings. Then go:
+databricks configure --token Workspace url: https://adb-3772194496043630.10.azuredatabricks.net/
+Push jar file to databricks workspace First, pack to create the JAR
+cd [ProjectRoot]sbt assemblyThen push the jar to Databricks. (Before, run rm to delete jar from databricks if it exists already).</description>
+    </item>
+    
     <item>
       <title>Architecture interview questions</title>
       <link>https://www.bustroker.com/notes/architecture-interview-questions/</link>
