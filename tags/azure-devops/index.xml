@@ -13,7 +13,7 @@
       <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-cheatsheet/</guid>
-      <description>A couple remarks  Use a single pipeline for CI-CD, as there seems to be no way to connect BuildId (i.e., container version/tag to deploy) from CI pipeline to CD pipeline. The environment referenced in the deployment jobs are created if doesn&amp;rsquo;t exist The environment is where the approvals are configured, directly in Azure DevOps The pipeline is linked to a git repo in Azure DevOps as well. The pipeline is triggered when the master branch is pushed.</description>
+      <description>A couple remarks Use a single pipeline for CI-CD, as there seems to be no way to connect BuildId (i.e., container version/tag to deploy) from CI pipeline to CD pipeline. The environment referenced in the deployment jobs are created if doesn&amp;rsquo;t exist The environment is where the approvals are configured, directly in Azure DevOps The pipeline is linked to a git repo in Azure DevOps as well. The pipeline is triggered when the master branch is pushed.</description>
     </item>
     
   </channel>

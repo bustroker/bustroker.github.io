@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.79.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -131,41 +131,40 @@ audio {
         
 
 <h1>Nuget.config file</h1>
-<p>In Azure DevOps' Package Feed, the user <em>bustroker.packages.restore@bustroker.onmicrosoft.com</em> needs to be added explicitly as a Reader, in the Feed&rsquo;s Security tab.
+<p>In Azure DevOps&rsquo; Package Feed, the user <em>bustroker.packages.restore@bustroker.onmicrosoft.com</em> needs to be added explicitly as a Reader, in the Feed&rsquo;s Security tab.
 Then generate a Read Package PAT for that user.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">//nuget.config
-<span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
-<span style="color:#f92672">&lt;configuration&gt;</span>
-  <span style="color:#f92672">&lt;packageSources&gt;</span>
-    <span style="color:#f92672">&lt;clear</span> <span style="color:#f92672">/&gt;</span>
-    <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;BustrokerPackages&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;https://pkgs.dev.azure.com/bustroker/_packaging/Bustroker.Packages./nuget/v3/index.json&#34;</span> <span style="color:#f92672">/&gt;</span>
-  <span style="color:#f92672">&lt;/packageSources&gt;</span>
-  <span style="color:#f92672">&lt;packageSourceCredentials&gt;</span>
-    <span style="color:#f92672">&lt;BustrokerPackages&gt;</span>
-        <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;bustroker.packages.restore@bustroker.onmicrosoft.com&#34;</span> <span style="color:#f92672">/&gt;</span>
-        <span style="color:#75715e">&lt;!-- Azure DevOps PAT that can ONLY ReadPackages --&gt;</span>
-        <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;ClearTextPassword&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;CLEAR_PAT&#34;</span> <span style="color:#f92672">/&gt;</span>
-    <span style="color:#f92672">&lt;/BustrokerPackages&gt;</span>
-<span style="color:#f92672">&lt;/packageSourceCredentials&gt;</span>
-<span style="color:#f92672">&lt;/configuration&gt;</span>
-</code></pre></div><h3 id="environment-variables-can-be-used-as-well">Environment Variables can be used as well</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">//nuget.config
-  <span style="color:#f92672">&lt;packageSourceCredentials&gt;</span>
-    <span style="color:#f92672">&lt;BustrokerPackages&gt;</span>
-      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;%USER_VARIABLE%&#34;</span> <span style="color:#f92672">/&gt;</span>      
-      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;ClearTextPassword&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;%PAT%&#34;</span> <span style="color:#f92672">/&gt;</span>
-    <span style="color:#f92672">&lt;/BustrokerPackages&gt;</span>
-  <span style="color:#f92672">&lt;/packageSourceCredentials&gt;</span>
-
-</code></pre></div><h3 id="and-encrypted-password">And encrypted password</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">//nuget.config
-  <span style="color:#f92672">&lt;packageSourceCredentials&gt;</span>
-    <span style="color:#f92672">&lt;BustrokerPackages&gt;</span>
-      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;bustroker.packages.restore@bustroker.onmicrosoft.com&#34;</span> <span style="color:#f92672">/&gt;</span>      
-      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;ENCRYPTED_PAT&#34;</span> <span style="color:#f92672">/&gt;</span>
-    <span style="color:#f92672">&lt;/BustrokerPackages&gt;</span>
-  <span style="color:#f92672">&lt;/packageSourceCredentials&gt;</span>
-</code></pre></div><p>To encrypt the password, check <a href="https://docs.microsoft.com/en-us/nuget/reference/cli-reference/cli-ref-sources">here</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>//nuget.config
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;packageSources&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;clear</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;BustrokerPackages&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;https://pkgs.dev.azure.com/bustroker/_packaging/Bustroker.Packages./nuget/v3/index.json&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/packageSources&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;packageSourceCredentials&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;BustrokerPackages&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;bustroker.packages.restore@bustroker.onmicrosoft.com&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">&lt;!-- Azure DevOps PAT that can ONLY ReadPackages --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;ClearTextPassword&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;CLEAR_PAT&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/BustrokerPackages&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/packageSourceCredentials&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/configuration&gt;</span>
+</span></span></code></pre></div><h3 id="environment-variables-can-be-used-as-well">Environment Variables can be used as well</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>//nuget.config
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;packageSourceCredentials&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;BustrokerPackages&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;%USER_VARIABLE%&#34;</span> <span style="color:#f92672">/&gt;</span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;ClearTextPassword&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;%PAT%&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/BustrokerPackages&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/packageSourceCredentials&gt;</span>
+</span></span></code></pre></div><h3 id="and-encrypted-password">And encrypted password</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>//nuget.config
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;packageSourceCredentials&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;BustrokerPackages&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;bustroker.packages.restore@bustroker.onmicrosoft.com&#34;</span> <span style="color:#f92672">/&gt;</span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;ENCRYPTED_PAT&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/BustrokerPackages&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/packageSourceCredentials&gt;</span>
+</span></span></code></pre></div><p>To encrypt the password, check <a href="https://docs.microsoft.com/en-us/nuget/reference/cli-reference/cli-ref-sources">here</a>.</p>
 
 
 

@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.79.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,12 +132,11 @@ audio {
 
 <h1>Synapse sql pools credentials</h1>
 <h3 id="create-credentials-to-query-datalake-container-through-sql-pools">Create credentials to query datalake container through SQL Pools</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> credential [https:<span style="color:#f92672">//</span>DATALAKE_ACCOUNT_NAME.dfs.core.windows.net<span style="color:#f92672">/</span>CONTAINER]
-<span style="color:#66d9ef">with</span>
-<span style="color:#66d9ef">identity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SHARED ACCESS SIGNATURE&#39;</span>, 
-secret <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;?sv=2020-08-04&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacupx&amp;se=2022-12-21T21:35:50Z&amp;st=2021-12-21T13:35:50Z&amp;spr=https&amp;sig=************************************&#39;</span>
-
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">create</span> credential [https:<span style="color:#f92672">//</span>DATALAKE_ACCOUNT_NAME.dfs.core.windows.net<span style="color:#f92672">/</span>CONTAINER]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">identity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SHARED ACCESS SIGNATURE&#39;</span>, 
+</span></span><span style="display:flex;"><span>secret <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;?sv=2020-08-04&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacupx&amp;se=2022-12-21T21:35:50Z&amp;st=2021-12-21T13:35:50Z&amp;spr=https&amp;sig=************************************&#39;</span>
+</span></span></code></pre></div>
 
 
       </main>

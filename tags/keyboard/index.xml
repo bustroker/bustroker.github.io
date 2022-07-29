@@ -16,8 +16,8 @@
       <description>Documentation https://www.autohotkey.com/docs/Hotkeys.htm#Intro
 Highlights Maximum two keys combinations.
 Create &amp;lt; and &amp;gt; Create a script for alt+z to be &amp;lt; lessThan.ahk
-!z::Send, &amp;lt;returnCreate a script for alt+x to be &amp;gt; greaterThan.ahk
-!x::Send, &amp;gt;returnDouble click the files (once AHK is installed) and that&amp;rsquo;s it.
+!z::Send, &amp;lt;return Create a script for alt+x to be &amp;gt; greaterThan.ahk
+!x::Send, &amp;gt;return Double click the files (once AHK is installed) and that&amp;rsquo;s it.
 For running them on startup, create shortcut and copy them into windows startup folder.</description>
     </item>
     

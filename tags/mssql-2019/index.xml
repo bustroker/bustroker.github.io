@@ -24,7 +24,7 @@
       <guid>https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/</guid>
       <description>MSSQL 2019 not available yet in official images, so&amp;hellip;
 Dockerfile The windows server base images must be the same windows version as the host, as per official documentation (¡¿?!). To get the version open cmd and type ver, to get something like 10.0.19042.867.
-FROMmcr.microsoft.com/windows/servercore:10.0.19042.867SHELL [ &amp;#34;powershell&amp;#34; ]# CopyCOPY ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1COPY ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1# Copy installersCOPY ./installers /installers# install Sql Server Developer edition (see readme.md for details)RUN c:/setupScripts/installSqlServerTools.ps1CMD /setupScripts/startAndConfigSqlServer.ps1 -sa_password $env:sa_password -attach_dbs \&amp;#34;$env:attach_dbs\&amp;#34; -ACCEPT_EULA Y -VerboseInstallers The folder installers contains:</description>
+FROM mcr.microsoft.com/windows/servercore:10.0.19042.867 SHELL [ &amp;#34;powershell&amp;#34; ] # Copy COPY ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1 COPY ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1 # Copy installers COPY ./installers /installers # install Sql Server Developer edition (see readme.</description>
     </item>
     
   </channel>

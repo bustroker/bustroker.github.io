@@ -13,9 +13,9 @@
       <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/passing-arguments-to-scripts-both-bat-and-bash/</guid>
-      <description>Windows script .bat //windows-script.batset firstArgument=%1%set secondArgument=%2%echo You passed first %firstArgument% and second %secondArgument%Call it as
-.\windows-script.bat &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot;Unix script .bash //unix-script.bash#!/bin/shfirstArgument=$1secondArgument=$2echo You passed first $firstArgument and second $secondArgumentCall it as
-bash unix-script.bash &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot;</description>
+      <description>Windows script .bat //windows-script.bat set firstArgument=%1% set secondArgument=%2% echo You passed first %firstArgument% and second %secondArgument% Call it as
+.\windows-script.bat &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Unix script .bash //unix-script.bash #!/bin/sh firstArgument=$1 secondArgument=$2 echo You passed first $firstArgument and second $secondArgument Call it as
+bash unix-script.bash &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; </description>
     </item>
     
   </channel>

@@ -23,7 +23,7 @@ Principles I find useful Create principles as a living artefact (inspired by Tho
       <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/solution-architecture-assessment/</guid>
-      <description>Checklist of topics to cover Functional level assessment: which applications are there and how users make use of them? (both end users/clients and corporate users/employees)  Identify business domains  Different functional areas in the frontend website   How each of them is related to the revenue-generating processes Multiple regions/countries with different features? Backoffice  Reporting/BI   User’s requests that the system can&amp;rsquo;t meet atm. User’s main complaints and pain points  Examples of manual/human tasks that can/should be automated    Non Functional level assessment: SLAs required and main pain points  Availability (current/required/critical) Reliability (current/required/critical) Performance (current/required/critical) Security (current/required/critical) Some metrics of the system  Concurrent users Number of requests to be processed Bottlenecks detected   Tech team’s main complains and pain points  Modules and Components diagrams  Modules: How is code organized in the repos  applications and packages, and how they are related/referenced to each other   Components: How are components organized in runtime and how are they related/referenced to each other  Services, databases, queues, 3P services… Hosting model: On-prem, PaaS azure service, docker containers   Identity management  B2C Corporative   Multiregion/I18n Data  Reporting/BI    How is the system’s architecture produced?</description>
+      <description>Checklist of topics to cover Functional level assessment: which applications are there and how users make use of them? (both end users/clients and corporate users/employees) Identify business domains Different functional areas in the frontend website How each of them is related to the revenue-generating processes Multiple regions/countries with different features? Backoffice Reporting/BI User’s requests that the system can&amp;rsquo;t meet atm. User’s main complaints and pain points Examples of manual/human tasks that can/should be automated Non Functional level assessment: SLAs required and main pain points Availability (current/required/critical) Reliability (current/required/critical) Performance (current/required/critical) Security (current/required/critical) Some metrics of the system Concurrent users Number of requests to be processed Bottlenecks detected Tech team’s main complains and pain points Modules and Components diagrams Modules: How is code organized in the repos applications and packages, and how they are related/referenced to each other Components: How are components organized in runtime and how are they related/referenced to each other Services, databases, queues, 3P services… Hosting model: On-prem, PaaS azure service, docker containers Identity management B2C Corporative Multiregion/I18n Data Reporting/BI How is the system’s architecture produced?</description>
     </item>
     
     <item>
@@ -36,7 +36,7 @@ Principles I find useful Create principles as a living artefact (inspired by Tho
 Configure databricks CLI connection Generate and copy PAT token in databricks workspace/User Settings. Then go:
 databricks configure --token Workspace url: https://adb-3772194496043630.10.azuredatabricks.net/
 Push jar file to databricks workspace First, pack to create the JAR
-cd [ProjectRoot]sbt assemblyThen push the jar to Databricks. (Before, run rm to delete jar from databricks if it exists already).</description>
+cd [ProjectRoot]sbt assembly Then push the jar to Databricks. (Before, run rm to delete jar from databricks if it exists already).</description>
     </item>
     
     <item>
@@ -45,8 +45,8 @@ cd [ProjectRoot]sbt assemblyThen push the jar to Databricks. (Before, run rm t
       <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/architecture-interview-questions/</guid>
-      <description>Questions   Difference between the role of the Architect and the Tech Lead
- Main concerns What&amp;rsquo;s the most difficult aspect of the switch from TL to Sln Arch Do you follow any particular mentoring strategy? Do you establish guidelines, best practices? How? How to make sure they are followed? How do you relate with Tech Leads in terms of the design/development process?    Mention a couple of web Architecture Styles and describe them =&amp;gt; check this (https://docs.</description>
+      <description>Questions Difference between the role of the Architect and the Tech Lead
+Main concerns What&amp;rsquo;s the most difficult aspect of the switch from TL to Sln Arch Do you follow any particular mentoring strategy? Do you establish guidelines, best practices? How? How to make sure they are followed? How do you relate with Tech Leads in terms of the design/development process? Mention a couple of web Architecture Styles and describe them =&amp;gt; check this (https://docs.</description>
     </item>
     
     <item>
@@ -55,9 +55,8 @@ cd [ProjectRoot]sbt assemblyThen push the jar to Databricks. (Before, run rm t
       <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/dotnet-software-engineer-interview-questions/</guid>
-      <description>Questions   http/3 and QUIC
-  record type in C#9 https://www.infoworld.com/article/3607372/how-to-work-with-record-types-in-csharp-9.html
-  </description>
+      <description>Questions http/3 and QUIC
+record type in C#9 https://www.infoworld.com/article/3607372/how-to-work-with-record-types-in-csharp-9.html</description>
     </item>
     
     <item>
@@ -75,7 +74,7 @@ cd [ProjectRoot]sbt assemblyThen push the jar to Databricks. (Before, run rm t
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/scala-hello-futures/</guid>
-      <description>Build.sbt scalaVersion := &amp;#34;2.13.6&amp;#34; // Also supports 2.12.x App.scala import scala.concurrent._ import scala.concurrent.duration._ import scala.concurrent.ExecutionContext.Implicits.global object Application extends App { def writeStuff(step: Int, max: Int, name: String) = { for(i &amp;lt;- 1 to max){ Thread.sleep(step*1000) println(s&amp;#34;task $name=&amp;gt; $is&amp;#34;) } } val futureTask1 = Future { writeStuff(1, 10, &amp;#34;la primera&amp;#34;) } val futureTask2 = Future { writeStuff(2, 8, &amp;#34;la segunda&amp;#34;) } val futures: List[Future[Unit]] = List(futureTask1, futureTask2) futures.map(f =&amp;gt; { println(&amp;#34;===== Sending await for task&amp;#34;) Await.</description>
+      <description>Build.sbt scalaVersion := &amp;#34;2.13.6&amp;#34; // Also supports 2.12.x App.scala import scala.concurrent._ import scala.concurrent.duration._ import scala.concurrent.ExecutionContext.Implicits.global object Application extends App { def writeStuff(step: Int, max: Int, name: String) = { for(i &amp;lt;- 1 to max){ Thread.sleep(step*1000) println(s&amp;#34;task $name =&amp;gt; $i s&amp;#34;) } } val futureTask1 = Future { writeStuff(1, 10, &amp;#34;la primera&amp;#34;) } val futureTask2 = Future { writeStuff(2, 8, &amp;#34;la segunda&amp;#34;) } val futures: List[Future[Unit]] = List(futureTask1, futureTask2) futures.map(f =&amp;gt; { println(&amp;#34;===== Sending await for task&amp;#34;) Await.</description>
     </item>
     
     <item>
@@ -93,7 +92,7 @@ cd [ProjectRoot]sbt assemblyThen push the jar to Databricks. (Before, run rm t
       <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/spark-with-delta-lake/</guid>
-      <description>build.sbt ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.13.8&amp;#34; ThisBuild / organization := &amp;#34;bkr&amp;#34; libraryDependencies ++= List(&amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-core&amp;#34; % &amp;#34;3.2.0&amp;#34;, &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql&amp;#34; % &amp;#34;3.2.0&amp;#34;, // % &amp;#34;provided&amp;#34;  &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql-kafka-0-10&amp;#34; % &amp;#34;3.2.0&amp;#34;, // % Test  &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-avro&amp;#34; % &amp;#34;3.2.0&amp;#34;) libraryDependencies ++= List(&amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-common&amp;#34; % &amp;#34;3.3.1&amp;#34;, &amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-azure&amp;#34; % &amp;#34;3.3.1&amp;#34;) libraryDependencies += &amp;#34;org.json4s&amp;#34; %% &amp;#34;json4s-native&amp;#34; % &amp;#34;3.6.12&amp;#34; libraryDependencies += &amp;#34;io.delta&amp;#34; %% &amp;#34;delta-core&amp;#34; % &amp;#34;1.</description>
+      <description>build.sbt ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.13.8&amp;#34; ThisBuild / organization := &amp;#34;bkr&amp;#34; libraryDependencies ++= List(&amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-core&amp;#34; % &amp;#34;3.2.0&amp;#34;, &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql&amp;#34; % &amp;#34;3.2.0&amp;#34;, // % &amp;#34;provided&amp;#34; &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql-kafka-0-10&amp;#34; % &amp;#34;3.2.0&amp;#34;, // % Test &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-avro&amp;#34; % &amp;#34;3.2.0&amp;#34;) libraryDependencies ++= List(&amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-common&amp;#34; % &amp;#34;3.3.1&amp;#34;, &amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-azure&amp;#34; % &amp;#34;3.3.1&amp;#34;) libraryDependencies += &amp;#34;org.json4s&amp;#34; %% &amp;#34;json4s-native&amp;#34; % &amp;#34;3.6.12&amp;#34; libraryDependencies += &amp;#34;io.delta&amp;#34; %% &amp;#34;delta-core&amp;#34; % &amp;#34;1.1.0&amp;#34; App.</description>
     </item>
     
     <item>
@@ -102,7 +101,7 @@ cd [ProjectRoot]sbt assemblyThen push the jar to Databricks. (Before, run rm t
       <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/spark-with-scala/</guid>
-      <description>build.sbt ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.12.13&amp;#34; ThisBuild / organization := &amp;#34;bkr&amp;#34; lazy val KafkaStreamProcessing = (project in file(&amp;#34;.&amp;#34;)) .settings( name := &amp;#34;Bkr.Spark&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-core&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql-kafka-0-10&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-avro&amp;#34; % &amp;#34;3.1.1&amp;#34;, // version is critical, or ADLS will fail  libraryDependencies += &amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-common&amp;#34; % &amp;#34;3.</description>
+      <description>build.sbt ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.12.13&amp;#34; ThisBuild / organization := &amp;#34;bkr&amp;#34; lazy val KafkaStreamProcessing = (project in file(&amp;#34;.&amp;#34;)) .settings( name := &amp;#34;Bkr.Spark&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-core&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql-kafka-0-10&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-avro&amp;#34; % &amp;#34;3.1.1&amp;#34;, // version is critical, or ADLS will fail libraryDependencies += &amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-common&amp;#34; % &amp;#34;3.3.1&amp;#34;, libraryDependencies += &amp;#34;org.</description>
     </item>
     
     <item>
@@ -131,7 +130,7 @@ Unhandled exception. Confluent.Kafka.ConsumeException: Local: Value deserializat
       <pubDate>Sat, 18 Sep 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/scala-hello-world-web-api-with-http4s/</guid>
-      <description>Build.sbt scalaVersion := &amp;#34;2.13.6&amp;#34; // Also supports 2.12.x  val http4sVersion = &amp;#34;0.23.1&amp;#34; // Only necessary for SNAPSHOT releases resolvers += Resolver.sonatypeRepo(&amp;#34;snapshots&amp;#34;) libraryDependencies ++= Seq( &amp;#34;org.http4s&amp;#34; %% &amp;#34;http4s-dsl&amp;#34; % http4sVersion, &amp;#34;org.http4s&amp;#34; %% &amp;#34;http4s-blaze-server&amp;#34; % http4sVersion, &amp;#34;org.http4s&amp;#34; %% &amp;#34;http4s-blaze-client&amp;#34; % http4sVersion ) Server.scala package bkr.joker.webapi import cats.effect._ import org.http4s.blaze.server._ import scala.concurrent.ExecutionContext.global // import cats.effect._ import org.http4s.HttpRoutes import org.http4s.dsl.io._ import org.http4s.implicits._ object Server extends IOApp { def plot(name: String, lastname: String): String = { s&amp;#34;All work and no play makes $name$lastnamea dull boy.</description>
+      <description>Build.sbt scalaVersion := &amp;#34;2.13.6&amp;#34; // Also supports 2.12.x val http4sVersion = &amp;#34;0.23.1&amp;#34; // Only necessary for SNAPSHOT releases resolvers += Resolver.sonatypeRepo(&amp;#34;snapshots&amp;#34;) libraryDependencies ++= Seq( &amp;#34;org.http4s&amp;#34; %% &amp;#34;http4s-dsl&amp;#34; % http4sVersion, &amp;#34;org.http4s&amp;#34; %% &amp;#34;http4s-blaze-server&amp;#34; % http4sVersion, &amp;#34;org.http4s&amp;#34; %% &amp;#34;http4s-blaze-client&amp;#34; % http4sVersion ) Server.scala package bkr.joker.webapi import cats.effect._ import org.http4s.blaze.server._ import scala.concurrent.ExecutionContext.global // import cats.effect._ import org.http4s.HttpRoutes import org.http4s.dsl.io._ import org.http4s.implicits._ object Server extends IOApp { def plot(name: String, lastname: String): String = { s&amp;#34;All work and no play makes $name $lastname a dull boy.</description>
     </item>
     
     <item>
@@ -151,8 +150,8 @@ Spark WebUI is running on port 4041</description>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/install-spark-and-hadoop-in-windows-10/</guid>
-      <description>Install spark to run locally Versions  Java  java -versionopenjdk version &amp;quot;1.8.0_292&amp;quot;OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10)OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode) Scala  sbtconsoleWelcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292).Install Spark Download from https://spark.apache.org/downloads.html.
- Spark release 3.2.0 For Hadoop 2.7 (previous versions failed me) Folder downloaded and copied as C:\Spark\spark-3.2.0-bin-hadoop2.7.  Add system environment variable SPARK_HOME with value C:\Spark\spark-3.</description>
+      <description>Install spark to run locally Versions Java java -version openjdk version &amp;#34;1.8.0_292&amp;#34; OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10) OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode) Scala sbt console Welcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292). Install Spark Download from https://spark.apache.org/downloads.html.
+Spark release 3.2.0 For Hadoop 2.7 (previous versions failed me) Folder downloaded and copied as C:\Spark\spark-3.2.0-bin-hadoop2.7. Add system environment variable SPARK_HOME with value C:\Spark\spark-3.2.0-bin-hadoop2.7. Add %SPARK_HOME%\bin to system PATH.</description>
     </item>
     
     <item>
@@ -194,8 +193,8 @@ Initialize sparse-checkout config git clone URL --no-checkout # add `--depth 1` 
       <description>Documentation https://www.autohotkey.com/docs/Hotkeys.htm#Intro
 Highlights Maximum two keys combinations.
 Create &amp;lt; and &amp;gt; Create a script for alt+z to be &amp;lt; lessThan.ahk
-!z::Send, &amp;lt;returnCreate a script for alt+x to be &amp;gt; greaterThan.ahk
-!x::Send, &amp;gt;returnDouble click the files (once AHK is installed) and that&amp;rsquo;s it.
+!z::Send, &amp;lt;return Create a script for alt+x to be &amp;gt; greaterThan.ahk
+!x::Send, &amp;gt;return Double click the files (once AHK is installed) and that&amp;rsquo;s it.
 For running them on startup, create shortcut and copy them into windows startup folder.</description>
     </item>
     
@@ -205,7 +204,7 @@ For running them on startup, create shortcut and copy them into windows startup 
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/</guid>
-      <description>Install trusted localhost certificate dotnet dev-certs https --trustConfirm when pop up shows up.
+      <description>Install trusted localhost certificate dotnet dev-certs https --trust Confirm when pop up shows up.
 Restart browser and browse to https://locahost:5001, or whatever localhost url, and ssl warning is gone.</description>
     </item>
     
@@ -217,7 +216,7 @@ Restart browser and browse to https://locahost:5001, or whatever localhost url, 
       <guid>https://www.bustroker.com/notes/scala-up-and-running/</guid>
       <description>Installation Java Installed AdoptOpenJDK 11. Other failed in runtime for https issues (apparently, missing the local store that is installed with Java)
 Scala Installed SBT from official site. Get version:
-sbt scalaVersion New project  Create project root folder. In the root folder, create build.sbt file. Create [root]/src/main/scala/bkr/data/spark/App.scala file, for a package named bkr.data.spark  Content for build.sbt for a project with a subproject
+sbt scalaVersion New project Create project root folder. In the root folder, create build.sbt file. Create [root]/src/main/scala/bkr/data/spark/App.scala file, for a package named bkr.data.spark Content for build.sbt for a project with a subproject
 ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.</description>
     </item>
     
@@ -227,7 +226,7 @@ ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;
       <pubDate>Mon, 03 May 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</guid>
-      <description>Files // VagrantfileVagrant.configure(&amp;quot;2&amp;quot;) do |config|config.vm.box = &amp;quot;ubuntu/focal64&amp;quot; # v 20.04 LTSconfig.vm.synced_folder &amp;quot;./&amp;quot;, &amp;quot;/vagrant&amp;quot;config.vm.network &amp;quot;forwarded_port&amp;quot;, guest: 9200, host: 9200config.vm.network &amp;quot;forwarded_port&amp;quot;, guest: 9300, host: 9300config.vm.provision :shell, path: &amp;quot;vagrant_provision.sh&amp;quot; config.vm.provider &amp;quot;virtualbox&amp;quot; do |vb|vb.name = &amp;quot;Elasticsearch&amp;quot; vb.memory = 1024endend// vagrant_provision.sh echo &amp;quot;provisioning VM...&amp;quot;sudo apt updatesudo apt-get update# install docker and runsudo apt -y install docker.iosudo systemctl start dockersudo systemctl enable dockerdocker --versionecho &amp;quot;docker installed and running.</description>
+      <description>Files // VagrantfileVagrant.configure(&amp;#34;2&amp;#34;) do |config|config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTSconfig.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34;config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 9200, host: 9200config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 9300, host: 9300config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb|vb.name = &amp;#34;Elasticsearch&amp;#34; vb.memory = 1024endend // vagrant_provision.sh echo &amp;#34;provisioning VM...&amp;#34;sudo apt updatesudo apt-get update# install docker and runsudo apt -y install docker.iosudo systemctl start dockersudo systemctl enable dockerdocker --versionecho &amp;#34;docker installed and running.</description>
     </item>
     
     <item>
@@ -237,7 +236,7 @@ ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;
       
       <guid>https://www.bustroker.com/notes/aspnet-website-in-docker-in-windows-iis-and-self-signed-certificate/</guid>
       <description>The application is hosted in a docker container. The actual folder with the app publish, is mapped into the container, so when the code changes it&amp;rsquo;s inmediatly reflected in the running container.
-Dockerfile FROMmcr.microsoft.com/dotnet/framework/aspnet:4.8SHELL [ &amp;#34;powershell&amp;#34; ]COPY src/Bustroker.LocalEnv.WebUI/bin/app.publish c:/webappADD configureIIS.ps1 /windows/temp/configureIIS.ps1RUN powershell.exe -executionpolicy bypass c:\windows\temp\configureIIS.ps1Configure IIS script configureIIS.ps1 script, copied into the image on build.
+Dockerfile FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 SHELL [ &amp;#34;powershell&amp;#34; ] COPY src/Bustroker.LocalEnv.WebUI/bin/app.publish c:/webapp ADD configureIIS.ps1 /windows/temp/configureIIS.ps1 RUN powershell.exe -executionpolicy bypass c:\windows\temp\configureIIS.ps1 Configure IIS script configureIIS.ps1 script, copied into the image on build.
 # Configure SSL certificate for default website Import-Module WebAdministration Set-Location IIS:\SslBindings New-WebBinding -Name &amp;#34;Default Web Site&amp;#34; -IP &amp;#34;*&amp;#34; -Port 443 -Protocol https $c = New-SelfSignedCertificate -DnsName &amp;#34;localhost&amp;#34; -CertStoreLocation cert:\LocalMachine\My $c | New-Item 0.</description>
     </item>
     
@@ -259,7 +258,7 @@ Run query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34;
       <guid>https://www.bustroker.com/notes/use-sqlcmd-cli-tool/</guid>
       <description>sqlcmd utility (2019) Installed with Visual Studio 2019. (Apparently also with Sql Server 2019, but they dont&amp;rsquo;s explain WHERE it actually is :S)
 Add to path sqlcmd.exe is located in:
- Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Open CLI for queries sqlcmd -S localhost -U sa -P password -d database&amp;gt; select * from transactions&amp;gt; goRun sqlcmd from docker/kubernetes and connecto to host&amp;rsquo;s localhost sql server docker run --rm -it mcr.</description>
+Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Open CLI for queries sqlcmd -S localhost -U sa -P password -d database&amp;gt; select * from transactions&amp;gt; go Run sqlcmd from docker/kubernetes and connecto to host&amp;rsquo;s localhost sql server docker run --rm -it mcr.</description>
     </item>
     
     <item>
@@ -269,7 +268,8 @@ Add to path sqlcmd.exe is located in:
       
       <guid>https://www.bustroker.com/notes/install-sql-server-unattended-from-powershell/</guid>
       <description>Download installation from here, run it and use the option Download Media.
- To install Express edition, run powershell as admin and go  cd C:\SQL2019\SQLEXPR_x64_ENU .\setup.exe /Q /HIDECONSOLE=0 /ACTION=INSTALL /SUPPRESSPRIVACYSTATEMENTNOTICE /IACCEPTSQLSERVERLICENSETERMS=1 /FEATURES=SQLENGINE /UPDATEENABLED=0 /INSTANCENAME=&amp;#34;MSSQLSERVER&amp;#34; /ADDCURRENTUSERASSQLADMIN=1 /SECURITYMODE=SQL /SKIPRULES=RebootRequiredCheck /SAPWD=&amp;#34;Pasword_01&amp;#34; /SQLSVCSTARTUPTYPE=AUTOMATIC /INDICATEPROGRESS  For Developer edition, run powershell as admin and go  cd C:\SQL2019\Developer_ENU .\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=&amp;#39;NT AUTHORITY\NETWORK SERVICE&amp;#39; /SQLSYSADMINACCOUNTS=&amp;#39;BUILTIN\ADMINISTRATORS&amp;#39; /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS /SECURITYMODE=SQL /SAPWD=&amp;#34;Password_01&amp;#34; To uninstall</description>
+To install Express edition, run powershell as admin and go cd C:\SQL2019\SQLEXPR_x64_ENU .\setup.exe /Q /HIDECONSOLE=0 /ACTION=INSTALL /SUPPRESSPRIVACYSTATEMENTNOTICE /IACCEPTSQLSERVERLICENSETERMS=1 /FEATURES=SQLENGINE /UPDATEENABLED=0 /INSTANCENAME=&amp;#34;MSSQLSERVER&amp;#34; /ADDCURRENTUSERASSQLADMIN=1 /SECURITYMODE=SQL /SKIPRULES=RebootRequiredCheck /SAPWD=&amp;#34;Pasword_01&amp;#34; /SQLSVCSTARTUPTYPE=AUTOMATIC /INDICATEPROGRESS For Developer edition, run powershell as admin and go cd C:\SQL2019\Developer_ENU .\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=&amp;#39;NT AUTHORITY\NETWORK SERVICE&amp;#39; /SQLSYSADMINACCOUNTS=&amp;#39;BUILTIN\ADMINISTRATORS&amp;#39; /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS /SECURITYMODE=SQL /SAPWD=&amp;#34;Password_01&amp;#34; To uninstall
+.\setup.exe /q /ACTION=Uninstall /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /INDICATEPROGRESS </description>
     </item>
     
     <item>
@@ -282,7 +282,7 @@ Add to path sqlcmd.exe is located in:
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user
 [System.Environment]::GetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;,&amp;#39;machine&amp;#39;) For some reason, the previous doesn&amp;rsquo;t work for variable COMPUTERNAME. To get computer name:
 $env:computername Set environment variable Run powershell as Admin.
- new variable  [System.Environment]::SetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;, &amp;#39;VARIABLE_VALUE&amp;#39;,[System.EnvironmentVariableTarget]::Machine)  add to an existing variable (typically to PATH)  $current=[System.</description>
+new variable [System.Environment]::SetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;, &amp;#39;VARIABLE_VALUE&amp;#39;,[System.EnvironmentVariableTarget]::Machine) add to an existing variable (typically to PATH) $current=[System.</description>
     </item>
     
     <item>
@@ -302,7 +302,7 @@ Create the project and install express package &amp;lt;!doctype html&amp;gt; &am
       
       <guid>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</guid>
       <description>Files Vagrant VM needs at least 2Gb.
-## Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 1433, host: 1433 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;SqlServer&amp;#34;  vb.memory = 2048 end end ## vagrant_provision.sh  echo &amp;#34;provisioning VM...&amp;#34; sudo apt update sudo apt-get update # install docker and run sudo apt -y install docker.io sudo systemctl start docker sudo systemctl enable docker docker --version echo &amp;#34;docker installed and running.</description>
+## Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 1433, host: 1433 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;SqlServer&amp;#34; vb.memory = 2048 end end ## vagrant_provision.sh echo &amp;#34;provisioning VM...&amp;#34; sudo apt update sudo apt-get update # install docker and run sudo apt -y install docker.io sudo systemctl start docker sudo systemctl enable docker docker --version echo &amp;#34;docker installed and running.</description>
     </item>
     
     <item>
@@ -311,10 +311,10 @@ Create the project and install express package &amp;lt;!doctype html&amp;gt; &am
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/mysql/mariadb-command-line-cheatsheet/</guid>
-      <description>Commands  Connect  mysql [-h 192.168.1.100] -u USER_NAME -p [DATABASE_NAME]Will be prompted for password
+      <description>Commands Connect mysql [-h 192.168.1.100] -u USER_NAME -p [DATABASE_NAME] Will be prompted for password
 Once connected, the commanda need to end with ;.
- Common commands ´´´ show tables;  ´´´
- Exit Ctrl+C  </description>
+Common commands ´´´ show tables; ´´´
+Exit Ctrl+C </description>
     </item>
     
     <item>
@@ -341,10 +341,10 @@ Once connected, the commanda need to end with ;.
       <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/azure-function-for-cosmosdb-changefeed./</guid>
-      <description>Cosmos  Create cosmos account, cosmos container Database: arch-pocs-misc-cosmosdb. Container being monitored: Transactions Lease container, required for the changefeed: TransactionsLease. The partition key for the lease container must be /id.  Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools
-Create function project func init Bustroker.CosmosDbChangeFeed.Func --dotnet [--docker]I renamed csproj file from Bustroker_CosmosDbChangeFeed_Func.csproj to Bustroker.CosmosDbChangeFeed.Func.csproj.
+      <description>Cosmos Create cosmos account, cosmos container Database: arch-pocs-misc-cosmosdb. Container being monitored: Transactions Lease container, required for the changefeed: TransactionsLease. The partition key for the lease container must be /id. Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools
+Create function project func init Bustroker.CosmosDbChangeFeed.Func --dotnet [--docker] I renamed csproj file from Bustroker_CosmosDbChangeFeed_Func.csproj to Bustroker.CosmosDbChangeFeed.Func.csproj.
 Check details for development with docker here
-Create ChangeFeed function cd Bustroker.CosmosDbChangeFeed.Funcfunc new --name TransactionsChangeFeed [--template {HttpTrigger, CosmosDbTrigger, etc}]And the code</description>
+Create ChangeFeed function cd Bustroker.CosmosDbChangeFeed.Func func new --name TransactionsChangeFeed [--template {HttpTrigger, CosmosDbTrigger, etc}] And the code</description>
     </item>
     
     <item>
@@ -354,8 +354,8 @@ Create ChangeFeed function cd Bustroker.CosmosDbChangeFeed.Funcfunc new --name 
       
       <guid>https://www.bustroker.com/notes/azure-function-with-docker/</guid>
       <description>Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools
-Create function project func init Bustroker.HttpEndpoint.Func --dotnet --dockerI renamed csproj file from Bustroker_HttpEndpoint_Func.csproj to Bustroker.HttpEndpoint.Func.csproj. The docker file is created. No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.
-Create function cd Bustroker.HttpEndpoint.Funcfunc new --name HttpEndpoint [--template {HttpTrigger, CosmosDbTrigger, etc}]App settings  Add required packages  dotnet add package Microsoft.Azure.Functions.Extensionsdotnet add package Microsoft.NET.Sdk.Functions Make the function class and methods not static and inject IConfiguration in the constructor  namespace Bustroker.</description>
+Create function project func init Bustroker.HttpEndpoint.Func --dotnet --docker I renamed csproj file from Bustroker_HttpEndpoint_Func.csproj to Bustroker.HttpEndpoint.Func.csproj. The docker file is created. No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.
+Create function cd Bustroker.HttpEndpoint.Func func new --name HttpEndpoint [--template {HttpTrigger, CosmosDbTrigger, etc}] App settings Add required packages dotnet add package Microsoft.Azure.Functions.Extensions dotnet add package Microsoft.NET.Sdk.Functions Make the function class and methods not static and inject IConfiguration in the constructor namespace Bustroker.</description>
     </item>
     
     <item>
@@ -364,7 +364,7 @@ Create function cd Bustroker.HttpEndpoint.Funcfunc new --name HttpEndpoint [--t
       <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-cheatsheet/</guid>
-      <description>A couple remarks  Use a single pipeline for CI-CD, as there seems to be no way to connect BuildId (i.e., container version/tag to deploy) from CI pipeline to CD pipeline. The environment referenced in the deployment jobs are created if doesn&amp;rsquo;t exist The environment is where the approvals are configured, directly in Azure DevOps The pipeline is linked to a git repo in Azure DevOps as well. The pipeline is triggered when the master branch is pushed.</description>
+      <description>A couple remarks Use a single pipeline for CI-CD, as there seems to be no way to connect BuildId (i.e., container version/tag to deploy) from CI pipeline to CD pipeline. The environment referenced in the deployment jobs are created if doesn&amp;rsquo;t exist The environment is where the approvals are configured, directly in Azure DevOps The pipeline is linked to a git repo in Azure DevOps as well. The pipeline is triggered when the master branch is pushed.</description>
     </item>
     
     <item>
@@ -373,9 +373,9 @@ Create function cd Bustroker.HttpEndpoint.Funcfunc new --name HttpEndpoint [--t
       <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/passing-arguments-to-scripts-both-bat-and-bash/</guid>
-      <description>Windows script .bat //windows-script.batset firstArgument=%1%set secondArgument=%2%echo You passed first %firstArgument% and second %secondArgument%Call it as
-.\windows-script.bat &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot;Unix script .bash //unix-script.bash#!/bin/shfirstArgument=$1secondArgument=$2echo You passed first $firstArgument and second $secondArgumentCall it as
-bash unix-script.bash &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot;</description>
+      <description>Windows script .bat //windows-script.bat set firstArgument=%1% set secondArgument=%2% echo You passed first %firstArgument% and second %secondArgument% Call it as
+.\windows-script.bat &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Unix script .bash //unix-script.bash #!/bin/sh firstArgument=$1 secondArgument=$2 echo You passed first $firstArgument and second $secondArgument Call it as
+bash unix-script.bash &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; </description>
     </item>
     
     <item>
@@ -384,7 +384,7 @@ bash unix-script.bash &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp
       <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</guid>
-      <description>Get token curl -X POST -d &#39;grant_type=client_credentials&amp;amp;client_id=&amp;lt;APP_ID&amp;gt;&amp;amp;client_secret=&amp;lt;PASSWORD&amp;gt;&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&#39; https://login.microsoftonline.com/&amp;lt;TENANT_ID&amp;gt;/oauth2/tokenBasic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;quot;param1=value1&amp;amp;param2=value2&amp;quot; POST json curl -X POST http://localhost:3000/data -H &amp;quot;Content-Type: application/json&amp;quot; -d &#39;{&amp;quot;key1&amp;quot;:&amp;quot;value1&amp;quot;, &amp;quot;key2&amp;quot;:&amp;quot;value2&amp;quot;}&#39; POST data from file. application/x-www-form-urlencoded is the default. curl -X POST http://localhost:3000/data -d &amp;quot;@data.txt&amp;quot; Disable certificate validation curl -k https://localhost:8080Add bearer token header curl -H &#39;Accept: application/json&#39; -H &amp;quot;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;quot; https://bustroker.com/api/resourceNew line after output curl localhost:8080 ;echoPretty format json output (Linux) curl localhost:8080 | json_ppalso, jq would do it</description>
+      <description>Get token curl -X POST -d &amp;#39;grant_type=client_credentials&amp;amp;client_id=&amp;lt;APP_ID&amp;gt;&amp;amp;client_secret=&amp;lt;PASSWORD&amp;gt;&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#39; https://login.microsoftonline.com/&amp;lt;TENANT_ID&amp;gt;/oauth2/token Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; POST json curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{&amp;#34;key1&amp;#34;:&amp;#34;value1&amp;#34;, &amp;#34;key2&amp;#34;:&amp;#34;value2&amp;#34;}&amp;#39; POST data from file. application/x-www-form-urlencoded is the default. curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; Disable certificate validation curl -k https://localhost:8080 Add bearer token header curl -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; https://bustroker.com/api/resource New line after output curl localhost:8080 ;echo Pretty format json output (Linux) curl localhost:8080 | json_pp also, jq would do it</description>
     </item>
     
     <item>
@@ -426,9 +426,9 @@ Bundle and minify them To bundle and minify js and css files, add bundleconfig.j
       
       <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
       <description>Add serilog required packages
-dotnet add package Serilog.AspNetCoredotnet add package Serilog.Sinks.ElasticSearchUsing
+dotnet add package Serilog.AspNetCoredotnet add package Serilog.Sinks.ElasticSearch Using
 using Serilog; using Serilog.Sinks.Elasticsearch; Configure serilog on CreateHostBuilder. Only relevant code is included.
-public class Program { private const string ApplicationId = &amp;#34;Bustroker.Transactions.WebApi&amp;#34;; private const string ElasticEndpoint = &amp;#34;http://localhost:9200&amp;#34;; ///....  ///....  ///....  ///....  public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog((hostincContext, loggerConfiguration) =&amp;gt; // send to Elastic for real time monitoring  ConfigureSerilogLoggerWithElastic(loggerConfiguration) ) .</description>
+public class Program { private const string ApplicationId = &amp;#34;Bustroker.Transactions.WebApi&amp;#34;; private const string ElasticEndpoint = &amp;#34;http://localhost:9200&amp;#34;; ///.... ///.... ///.... ///.... public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog((hostincContext, loggerConfiguration) =&amp;gt; // send to Elastic for real time monitoring ConfigureSerilogLoggerWithElastic(loggerConfiguration) ) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); private static LoggerConfiguration ConfigureSerilogLoggerWithElastic(LoggerConfiguration loggerConfiguration) { var sinkOptions = new ElasticsearchSinkOptions(new Uri(ElasticEndpoint)) { AutoRegisterTemplate = true, AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.</description>
     </item>
     
     <item>
@@ -450,7 +450,7 @@ Phonegap Build account Create an account in https://build.</description>
       <guid>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku/</guid>
       <description>An aspnet core web app/api app is assumed to have been implemented already. Following is how to deploy it.
 Heroku PORT Heroku saves in the environment variable PORT, the port where the application should listen. So the port needs to be changed to that one.
-//Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { var herokuPort = Environment.GetEnvironmentVariable(&amp;#34;PORT&amp;#34;); if (!string.IsNullOrWhiteSpace(herokuPort)) { webBuilder.UseUrls($&amp;#34;http://*:{herokuPort}&amp;#34;); } webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); Dockerfile FROMmcr.microsoft.com/dotnet/core/sdk:3.1 AS build-envWORKDIR/app# Copy csproj and restore as distinct layersCOPY *.</description>
+//Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { var herokuPort = Environment.GetEnvironmentVariable(&amp;#34;PORT&amp;#34;); if (!string.IsNullOrWhiteSpace(herokuPort)) { webBuilder.UseUrls($&amp;#34;http://*:{herokuPort}&amp;#34;); } webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); Dockerfile FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env WORKDIR /app # Copy csproj and restore as distinct layers COPY *.</description>
     </item>
     
     <item>
@@ -460,7 +460,7 @@ Heroku PORT Heroku saves in the environment variable PORT, the port where the ap
       
       <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
       <description>Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
-dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
+dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
     </item>
     
     <item>
@@ -469,8 +469,8 @@ dotnet new webapi -n Bustroker.Notes.WebApiCreate linux VM with Vagrant I rathe
       <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/helm-3-commands-cheatsheet/</guid>
-      <description>Create .tgz package from chart folder content cd charthelm package .Deploy local tgz package to kubernetes The terminal must have been authenticated. In case of AKS, run az aks get-credentials --resource-group &amp;lt;RESOURCEGROUP_NAME&amp;gt; --name &amp;lt;AKS_CLUSTERNAME&amp;gt;
-helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;TGZ_PACKAGE&amp;gt;List releases in kubernetes helm listhelm get all &amp;lt;RELEASE_NAME&amp;gt;Deploy chart from registry No direct way for the moment. Need to pull, export and then install
+      <description>Create .tgz package from chart folder content cd chart helm package . Deploy local tgz package to kubernetes The terminal must have been authenticated. In case of AKS, run az aks get-credentials --resource-group &amp;lt;RESOURCEGROUP_NAME&amp;gt; --name &amp;lt;AKS_CLUSTERNAME&amp;gt;
+helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;TGZ_PACKAGE&amp;gt; List releases in kubernetes helm listhelm get all &amp;lt;RELEASE_NAME&amp;gt; Deploy chart from registry No direct way for the moment. Need to pull, export and then install
 helm chart pull &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt;helm chart export &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt;helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;EXPORTED_CHART_FOLDER&amp;gt; helm chart export will create a folder named after the chart (chart.</description>
     </item>
     
@@ -491,9 +491,9 @@ Contexts kubectl config get-contexts kubectl config delete-context CONTEXT_NAME 
       
       <guid>https://www.bustroker.com/notes/docker-cheatsheet/</guid>
       <description>Version: 19.03
-buid image and set tag -t docker build -t bustroker.notes.webui:v1 .multiple tags are allowed as well
-docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest .tag image docker tag [localImage] [registryServer]/[imageName]:[version]# ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1add tag to existing tagged image docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latestlist images docker imagesremove all images optionally add -f at the end to force
- in Linux  docker rmi $(docker images -q)  in Windows (powershell)  docker images -a -q | % { docker image rm $_ -f } run container docker run --rm -d ` -p [HOST_PORT]:[CONTAINER_PORT] ` --network host ` -e [ENV_VAR_NAME]=[ENV_VAR_VALUE] ` -v /host/directory:/container/directory ` [IMAGE_NAME] &amp;ndash;rm =&amp;gt; remove the container on exit -d =&amp;gt; run and detach the console (run as daemon) -p =&amp;gt; port map, i.</description>
+buid image and set tag -t docker build -t bustroker.notes.webui:v1 . multiple tags are allowed as well
+docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest . tag image docker tag [localImage] [registryServer]/[imageName]:[version] # ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1 add tag to existing tagged image docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latest list images docker images remove all images optionally add -f at the end to force
+in Linux docker rmi $(docker images -q) in Windows (powershell) docker images -a -q | % { docker image rm $_ -f } run container docker run --rm -d ` -p [HOST_PORT]:[CONTAINER_PORT] ` --network host ` -e [ENV_VAR_NAME]=[ENV_VAR_VALUE] ` -v /host/directory:/container/directory ` [IMAGE_NAME] &amp;ndash;rm =&amp;gt; remove the container on exit -d =&amp;gt; run and detach the console (run as daemon) -p =&amp;gt; port map, i.</description>
     </item>
     
     <item>
@@ -502,7 +502,7 @@ docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest .tag i
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/docker-compose/</guid>
-      <description>Docker compose services: zookeeper: image: debezium/zookeeper ports: - &amp;#34;2181:2181&amp;#34; - &amp;#34;2888:2888&amp;#34; - &amp;#34;3888:3888&amp;#34; kafka: image: debezium/kafka ports: - &amp;#34;9092:9092&amp;#34; volumes: - /var/run/docker.sock:/var/run/docker.sock depends_on: - &amp;#34;zookeeper&amp;#34; connect: image: debezium/connect ports: - &amp;#34;8083:8083&amp;#34; environment: - GROUP_ID=1  - CONFIG_STORAGE_TOPIC=my_connect_configs  - OFFSET_STORAGE_TOPIC=my_connect_offsets  - STATUS_STORAGE_TOPIC=my_connect_statuses depends_on: - &amp;#34;kafka&amp;#34; docker-compose terminal into service container docker-compose up exec [SERVICE_NAME] [TERMINAL]TERMINAL could be sh, cmd, powershell..
+      <description>Docker compose services: zookeeper: image: debezium/zookeeper ports: - &amp;#34;2181:2181&amp;#34; - &amp;#34;2888:2888&amp;#34; - &amp;#34;3888:3888&amp;#34; kafka: image: debezium/kafka ports: - &amp;#34;9092:9092&amp;#34; volumes: - /var/run/docker.sock:/var/run/docker.sock depends_on: - &amp;#34;zookeeper&amp;#34; connect: image: debezium/connect ports: - &amp;#34;8083:8083&amp;#34; environment: - GROUP_ID=1 - CONFIG_STORAGE_TOPIC=my_connect_configs - OFFSET_STORAGE_TOPIC=my_connect_offsets - STATUS_STORAGE_TOPIC=my_connect_statuses depends_on: - &amp;#34;kafka&amp;#34; docker-compose terminal into service container docker-compose up exec [SERVICE_NAME] [TERMINAL] TERMINAL could be sh, cmd, powershell..
 docker-compose # launch the containers docker-compose up [-d] [--build] # launch the containers and opens interactive terminal inside docker-compose run [SERVICE] # stop and remove containers docker-compose down # stop the containers, without removing docker-compose stop </description>
     </item>
     
@@ -513,7 +513,7 @@ docker-compose # launch the containers docker-compose up [-d] [--build] # launch
       
       <guid>https://www.bustroker.com/notes/dotnet-3.1-appsettings-env-variables/</guid>
       <description>Reading apppsettings.json in dotnet 3.1 Add the packages
-dotnet add package Microsoft.Extensions.Configurationdotnet add package Microsoft.Extensions.Configuration.FileExtensionsdotnet add package Microsoft.Extensions.Configuration.JsonAdd appsettings.json file with required parameters
+dotnet add package Microsoft.Extensions.Configurationdotnet add package Microsoft.Extensions.Configuration.FileExtensionsdotnet add package Microsoft.Extensions.Configuration.Json Add appsettings.json file with required parameters
 { &amp;#34;Settings&amp;#34;: { &amp;#34;Params&amp;#34;: { &amp;#34;Param1&amp;#34;: &amp;#34;value 1&amp;#34;, &amp;#34;Param2&amp;#34;: &amp;#34;value 2&amp;#34; } } } Load configuration section Console app // Program.cs var builder = new ConfigurationBuilder() .SetBasePath(Directory.GetCurrentDirectory()) .AddJsonFile(&amp;#34;appsettings.json&amp;#34;, optional: true, reloadOnChange: true); IConfiguration configuration = builder.Build(); Use configuration
 var param1 = configuration.GetSection(&amp;#34;Settings&amp;#34;).GetValue&amp;lt;string&amp;gt;(&amp;#34;Params:Param1&amp;#34;); Web Api // Program.</description>
     </item>
@@ -525,8 +525,8 @@ var param1 = configuration.GetSection(&amp;#34;Settings&amp;#34;).GetValue&amp;l
       
       <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
       <description>Add serilog
-dotnet add package Serilog.AspNetCorepublic class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog() .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); } Then add
-// Startup.cs  public void Configure(IApplicationBuilder app, IWebHostEnvironment env) { if (env.</description>
+dotnet add package Serilog.AspNetCore public class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog() .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); } Then add
+// Startup.cs public void Configure(IApplicationBuilder app, IWebHostEnvironment env) { if (env.</description>
     </item>
     
     <item>
@@ -536,7 +536,7 @@ dotnet add package Serilog.AspNetCorepublic class Program { public static void 
       
       <guid>https://www.bustroker.com/notes/very-basic-logging-to-file-from-console-app-with-serilog/</guid>
       <description>Add serilog
-dotnet add package Serilogstatic async Task Main(string[] args) { Log.Logger = new LoggerConfiguration() .Enrich.FromLogContext() .WriteTo.Console() .WriteTo.File(&amp;#34;logs/log.json&amp;#34;) .CreateLogger(); Log.Information(&amp;#34;Running..&amp;#34;); } </description>
+dotnet add package Serilog static async Task Main(string[] args) { Log.Logger = new LoggerConfiguration() .Enrich.FromLogContext() .WriteTo.Console() .WriteTo.File(&amp;#34;logs/log.json&amp;#34;) .CreateLogger(); Log.Information(&amp;#34;Running..&amp;#34;); } </description>
     </item>
     
     <item>
@@ -557,7 +557,7 @@ Simplest case If the API exponses an endpoint &amp;ldquo;/internalendpoint&amp;r
       <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</guid>
-      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCoreRegister the service // Startup.cs  public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.
+      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service // Startup.cs public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.
 // appsettings.json { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, .... } Add the ApplicationInsights logging provider This is for the ILogger injected object to send to ApplicationInsights as well.</description>
     </item>
     
@@ -568,8 +568,8 @@ Simplest case If the API exponses an endpoint &amp;ldquo;/internalendpoint&amp;r
       
       <guid>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</guid>
       <description>Applying it to logging to Log Streaming in Azure Web app net core 3.1, (and to Console)
- netcore 3.1 basic console logging  Azure app services real time logs monitoring for troubleshooting.
-Log Stream Add package to write to Azure File dotnet add package Microsoft.Extensions.Logging.AzureAppServicesAdd the provider I like to add the Console provider as well so I can check what&amp;rsquo;s going on when running locally too, but it&amp;rsquo;s not required for the portal Log Streaming.</description>
+netcore 3.1 basic console logging Azure app services real time logs monitoring for troubleshooting.
+Log Stream Add package to write to Azure File dotnet add package Microsoft.Extensions.Logging.AzureAppServices Add the provider I like to add the Console provider as well so I can check what&amp;rsquo;s going on when running locally too, but it&amp;rsquo;s not required for the portal Log Streaming.</description>
     </item>
     
     <item>
@@ -579,8 +579,8 @@ Log Stream Add package to write to Azure File dotnet add package Microsoft.Exten
       
       <guid>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</guid>
       <description>To test Managed Identity is working fine, SSH inside the VM with Managed Identity enabled (or RDP, for that matter) and cURL an access token for some resource.
-curl &amp;quot;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;quot; -H Metadata:true -sresource query parameter, as per documentation:
- &amp;ldquo;A query string parameter, indicating the App ID URI of the target resource. It also appears in the aud (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.</description>
+curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s resource query parameter, as per documentation:
+&amp;ldquo;A query string parameter, indicating the App ID URI of the target resource. It also appears in the aud (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.</description>
     </item>
     
     <item>
@@ -590,7 +590,7 @@ curl &amp;quot;http://169.254.169.254/metadata/identity/oauth2/token?api-version
       
       <guid>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</guid>
       <description>Basic GET curl localhost:8080 Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; POST json curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{\&amp;#34;key1\&amp;#34;:\&amp;#34;value1\&amp;#34;, \&amp;#34;key2\&amp;#34;:\&amp;#34;value2\&amp;#34;}&amp;#39; curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#34;@data.json&amp;#34; Double quotes are escaped with \, required for powershell.
-Disable certificate validation curl -k https://localhost:8080 Add bearer token header curl https://bustroker.com/api/resource -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; New line after output curl localhost:8080 ;echo [Linux] Pretty format json output curl localhost:8080 | json_ppalso, jq would do it</description>
+Disable certificate validation curl -k https://localhost:8080 Add bearer token header curl https://bustroker.com/api/resource -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; New line after output curl localhost:8080 ;echo [Linux] Pretty format json output curl localhost:8080 | json_pp also, jq would do it</description>
     </item>
     
     <item>
@@ -600,7 +600,7 @@ Disable certificate validation curl -k https://localhost:8080 Add bearer token h
       
       <guid>https://www.bustroker.com/notes/create-file-from-command-line-in-windows/</guid>
       <description>Create a file with some content from command line in windows from any console
-echo &amp;quot;whate ever content&amp;quot; &amp;gt; filename.txt</description>
+echo &amp;#34;whate ever content&amp;#34; &amp;gt; filename.txt </description>
     </item>
     
     <item>
@@ -621,7 +621,7 @@ Importing pd.read_csv(filename) # From a CSV file pd.read_table(filename) # From
       <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/nuget.config-file/</guid>
-      <description>In Azure DevOps&#39; Package Feed, the user bustroker.packages.restore@bustroker.onmicrosoft.com needs to be added explicitly as a Reader, in the Feed&amp;rsquo;s Security tab. Then generate a Read Package PAT for that user.
+      <description>In Azure DevOps&amp;rsquo; Package Feed, the user bustroker.packages.restore@bustroker.onmicrosoft.com needs to be added explicitly as a Reader, in the Feed&amp;rsquo;s Security tab. Then generate a Read Package PAT for that user.
 //nuget.config &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;packageSources&amp;gt; &amp;lt;clear /&amp;gt; &amp;lt;add key=&amp;#34;BustrokerPackages&amp;#34; value=&amp;#34;https://pkgs.dev.azure.com/bustroker/_packaging/Bustroker.Packages./nuget/v3/index.json&amp;#34; /&amp;gt; &amp;lt;/packageSources&amp;gt; &amp;lt;packageSourceCredentials&amp;gt; &amp;lt;BustrokerPackages&amp;gt; &amp;lt;add key=&amp;#34;Username&amp;#34; value=&amp;#34;bustroker.packages.restore@bustroker.onmicrosoft.com&amp;#34; /&amp;gt; &amp;lt;!-- Azure DevOps PAT that can ONLY ReadPackages --&amp;gt; &amp;lt;add key=&amp;#34;ClearTextPassword&amp;#34; value=&amp;#34;CLEAR_PAT&amp;#34; /&amp;gt; &amp;lt;/BustrokerPackages&amp;gt; &amp;lt;/packageSourceCredentials&amp;gt; &amp;lt;/configuration&amp;gt; Environment Variables can be used as well //nuget.</description>
     </item>
     
@@ -633,7 +633,7 @@ Importing pd.read_csv(filename) # From a CSV file pd.read_table(filename) # From
       <guid>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli/</guid>
       <description>There&amp;rsquo;s a new healthcheck feature available, in preview as of 18-01-2020 (the link url includes &amp;lsquo;preview&amp;rsquo;, so it&amp;rsquo;ll probably break when the feature goes GA&amp;hellip;)
 When healthcheck is enabled:
- the platform sends requests, apparently every minute aprox, to monitor the specified health endpoint. As per the logs, the request seem to be sent every minute in a round robin, alternating all the VM instances behind the app service balancer. if Easy Auth is set for the app service, then for the configured endpoint it is disabled so it can be hit without authentication.</description>
+the platform sends requests, apparently every minute aprox, to monitor the specified health endpoint. As per the logs, the request seem to be sent every minute in a round robin, alternating all the VM instances behind the app service balancer. if Easy Auth is set for the app service, then for the configured endpoint it is disabled so it can be hit without authentication.</description>
     </item>
     
     <item>
@@ -655,7 +655,7 @@ When healthcheck is enabled:
       <description>Here&amp;rsquo;s what Azure App Configuration Service is.
 Here&amp;rsquo;s how to use it.
 How the web api middleware uses the App Configuration Client As per oficial documentation, refering to
-// Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env)app.UseAzureAppConfiguration();&amp;ldquo;The middleware uses the refresh configuration specified in the AddAzureAppConfiguration method in Program.cs to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired.</description>
+// Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env)app.UseAzureAppConfiguration(); &amp;ldquo;The middleware uses the refresh configuration specified in the AddAzureAppConfiguration method in Program.cs to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired.</description>
     </item>
     
     <item>
@@ -666,7 +666,7 @@ How the web api middleware uses the App Configuration Client As per oficial docu
       <guid>https://www.bustroker.com/notes/handling-parallel-exceptions-in-dotnet/</guid>
       <description>I&amp;rsquo;m executing several tasks in parallel, where more than one throw exceptions. I want to handle all the exceptions, which basically means catching them all and being able to, at least, rethrowing them with all the info they carry.
 So, here it is how
-var runnersTasks = new List&amp;lt;Task&amp;gt;();// list to keep the tasks created Task compositeTask = null; // task consisting in waiting for all the tasks to finish in parallel try { // run all the tasks and keep them in the list  Runners.</description>
+var runnersTasks = new List&amp;lt;Task&amp;gt;();// list to keep the tasks created Task compositeTask = null; // task consisting in waiting for all the tasks to finish in parallel try { // run all the tasks and keep them in the list Runners.</description>
     </item>
     
     <item>
@@ -677,7 +677,7 @@ var runnersTasks = new List&amp;lt;Task&amp;gt;();// list to keep the tasks crea
       <guid>https://www.bustroker.com/notes/azure-app-configuration-with-key-vault-and-managed-identity-in-ha/</guid>
       <description>Here&amp;rsquo;s what Azure App Configuration Service is.
 And I want a production ready setup:
- use it to serve secret params as well, keeping them in Key Vault access it with Managed Identity(MI). have it in High Availability  How Azure App Configuration client works Here&amp;rsquo;s how the client works, using the sentinel pattern, i.e., using one key to be the one that the client actually checks to know whether or not a full configuration refresh is needed.</description>
+use it to serve secret params as well, keeping them in Key Vault access it with Managed Identity(MI). have it in High Availability How Azure App Configuration client works Here&amp;rsquo;s how the client works, using the sentinel pattern, i.e., using one key to be the one that the client actually checks to know whether or not a full configuration refresh is needed.</description>
     </item>
     
     <item>
@@ -696,7 +696,7 @@ And I want a production ready setup:
       
       <guid>https://www.bustroker.com/notes/change-directory-to-different-drive-in-windows-cmd/</guid>
       <description>To change from C drive to D drive, going cd D: or any similar, doesn&amp;rsquo;t work. Instead go:
-C:\Users\bustroker&amp;gt; d:D:\&amp;gt;</description>
+C:\Users\bustroker&amp;gt; d:D:\&amp;gt; </description>
     </item>
     
     <item>
@@ -708,7 +708,7 @@ C:\Users\bustroker&amp;gt; d:D:\&amp;gt;</description>
       <description>No installation, cool colors, with context menu to open directly in a folder.
 Install Donwload cmder terminal, unzip, copy to the folder you prefer (just not any Administrator-required-to-work-on folder).
 Context menu shortcut To add Shortcut in context menu for Open Cmder here, open a cmd as Administrator, and go:
-cd c:\cmder\folder.\cmder.exe /REGISTER ALL</description>
+cd c:\cmder\folder.\cmder.exe /REGISTER ALL </description>
     </item>
     
     <item>
@@ -717,7 +717,7 @@ cd c:\cmder\folder.\cmder.exe /REGISTER ALL</description>
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/kusto-cheatsheet/</guid>
-      <description>requests durations distribution with steps (bins) of 100 ms app(&amp;quot;bustroker-sales-webapi&amp;quot;).requests| where name == &amp;quot;POST SalesController/Post&amp;quot;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id| summarize count() by bin(req_duration, 100)| sort by req_duration asc| render timechart requests duration percentiles and requests dependencies duration percentiles app(&amp;quot;bustroker-sales-webapi&amp;quot;).requests| where name == &amp;quot;POST SalesControler/Post&amp;quot;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id| summarize count(), avg(req_duration), stdev(req_duration) , percentiles(req_duration, 25, 50, 95, 99)| project type_tag = &amp;quot;Core Request&amp;quot;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99 | union(app(&amp;quot;bustroker-sales-webapi&amp;quot;).</description>
+      <description>requests durations distribution with steps (bins) of 100 ms app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests| where name == &amp;#34;POST SalesController/Post&amp;#34;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id| summarize count() by bin(req_duration, 100)| sort by req_duration asc| render timechart requests duration percentiles and requests dependencies duration percentiles app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests| where name == &amp;#34;POST SalesControler/Post&amp;#34;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id| summarize count(), avg(req_duration), stdev(req_duration) , percentiles(req_duration, 25, 50, 95, 99)| project type_tag = &amp;#34;Core Request&amp;#34;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99 | union(app(&amp;#34;bustroker-sales-webapi&amp;#34;).</description>
     </item>
     
     <item>
@@ -726,7 +726,7 @@ cd c:\cmder\folder.\cmder.exe /REGISTER ALL</description>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</guid>
-      <description>Vagrantfile Vagrant.configure(&amp;quot;2&amp;quot;) do |config|# config.vm.box = &amp;quot;debian/bullseye64&amp;quot;config.vm.box = &amp;quot;ubuntu/focal64&amp;quot; # v 20.04 LTSconfig.vm.synced_folder &amp;quot;./&amp;quot;, &amp;quot;/vagrant&amp;quot;config.vm.network &amp;quot;forwarded_port&amp;quot;, guest: 8080, host: 8080config.vm.provision :shell, path: &amp;quot;vagrant_provision.sh&amp;quot;config.vm.provider &amp;quot;virtualbox&amp;quot; do |vb|vb.name = &amp;quot;UbuntuBionic&amp;quot; vb.memory = 2048# vb.gui = trueendendVagrant provision script Create a file vagrant_provision.sh in the same folder of Vagrantfile, with the following content. Just remove the tools not required, here&amp;rsquo;s all I&amp;rsquo;ve ever needed.</description>
+      <description>Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config|# config.vm.box = &amp;#34;debian/bullseye64&amp;#34;config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTSconfig.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34;config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 8080, host: 8080config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34;config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb|vb.name = &amp;#34;UbuntuBionic&amp;#34; vb.memory = 2048# vb.gui = trueendend Vagrant provision script Create a file vagrant_provision.sh in the same folder of Vagrantfile, with the following content. Just remove the tools not required, here&amp;rsquo;s all I&amp;rsquo;ve ever needed.</description>
     </item>
     
     <item>
@@ -736,8 +736,8 @@ cd c:\cmder\folder.\cmder.exe /REGISTER ALL</description>
       
       <guid>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</guid>
       <description>Create a folder for the solution and cd into it A solution (sln file) is required to be able to have projects referencing others.
-mkdir Bustroker.Notescd Bustroker.NotesCreate solution The sln file is created directly in the folder it&amp;rsquo;s run.
-dotnet new sln -n Bustroker.NotesCreate class library project and add it to the solution A folder is created, containing the project
+mkdir Bustroker.Notescd Bustroker.Notes Create solution The sln file is created directly in the folder it&amp;rsquo;s run.
+dotnet new sln -n Bustroker.Notes Create class library project and add it to the solution A folder is created, containing the project
 dotnet new classlib -n Bustroker.Notesdotnet sln add Bustroker.</description>
     </item>
     
@@ -759,7 +759,7 @@ The Voice Shirka_voice is a listener to another mosquitto queue that receives th
       
       <guid>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</guid>
       <description>The simplest node static files server.
-Create the project and install express package npm initnpm install express --saveCreate server.js file in the root. // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); Create a static page Now all files in www folder are being served. Create a www folder in the root and add an html file.</description>
+Create the project and install express package npm init npm install express --save Create server.js file in the root. // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); Create a static page Now all files in www folder are being served. Create a www folder in the root and add an html file.</description>
     </item>
     
     <item>
@@ -770,7 +770,7 @@ Create the project and install express package npm initnpm install express --sa
       <guid>https://www.bustroker.com/notes/simplest-node-express-web-api/</guid>
       <description>For frontend dev, the simplest web API to joke around with.
 Create the project and install express package
-npm initnpm install expressCreate server.js file in the root.
+npm initnpm install express Create server.js file in the root.
 // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.send({ message: &amp;#34;I&amp;#39;m here&amp;#34;}); }); app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000!&amp;#39;)); </description>
     </item>
     
@@ -814,7 +814,7 @@ using System; using System.IO; using System.Threading.Tasks; using Microsoft.Asp
       <guid>https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/</guid>
       <description>MSSQL 2019 not available yet in official images, so&amp;hellip;
 Dockerfile The windows server base images must be the same windows version as the host, as per official documentation (¡¿?!). To get the version open cmd and type ver, to get something like 10.0.19042.867.
-FROMmcr.microsoft.com/windows/servercore:10.0.19042.867SHELL [ &amp;#34;powershell&amp;#34; ]# CopyCOPY ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1COPY ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1# Copy installersCOPY ./installers /installers# install Sql Server Developer edition (see readme.md for details)RUN c:/setupScripts/installSqlServerTools.ps1CMD /setupScripts/startAndConfigSqlServer.ps1 -sa_password $env:sa_password -attach_dbs \&amp;#34;$env:attach_dbs\&amp;#34; -ACCEPT_EULA Y -VerboseInstallers The folder installers contains:</description>
+FROM mcr.microsoft.com/windows/servercore:10.0.19042.867 SHELL [ &amp;#34;powershell&amp;#34; ] # Copy COPY ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1 COPY ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1 # Copy installers COPY ./installers /installers # install Sql Server Developer edition (see readme.</description>
     </item>
     
     <item>

@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.79.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -133,48 +133,48 @@ audio {
 <h1>Aspnet website in docker in windows, IIS and self-signed certificate</h1>
 <p>The application is hosted in a docker container. The actual folder with the app <code>publish</code>, is mapped into the container, so when the code changes it&rsquo;s inmediatly reflected in the running container.</p>
 <h3 id="dockerfile">Dockerfile</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/framework/aspnet:4.8</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">SHELL</span> [ <span style="color:#e6db74">&#34;powershell&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> src/Bustroker.LocalEnv.WebUI/bin/app.publish c:/webapp<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ADD</span> configureIIS.ps1 /windows/temp/configureIIS.ps1<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> powershell.exe -executionpolicy bypass c:<span style="color:#ae81ff">\w</span>indows<span style="color:#ae81ff">\t</span>emp<span style="color:#ae81ff">\c</span>onfigureIIS.ps1<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><h3 id="configure-iis-script">Configure IIS script</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/framework/aspnet:4.8</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">SHELL</span> [ <span style="color:#e6db74">&#34;powershell&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> src/Bustroker.LocalEnv.WebUI/bin/app.publish c:/webapp<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ADD</span> configureIIS.ps1 /windows/temp/configureIIS.ps1<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> powershell.exe -executionpolicy bypass c:<span style="color:#ae81ff">\w</span>indows<span style="color:#ae81ff">\t</span>emp<span style="color:#ae81ff">\c</span>onfigureIIS.ps1<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h3 id="configure-iis-script">Configure IIS script</h3>
 <p><code>configureIIS.ps1</code> script, copied into the image on build.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># Configure SSL certificate for default website</span>
-Import-Module WebAdministration
-Set-Location IIS<span style="color:#960050;background-color:#1e0010">:</span>\SslBindings
-New-WebBinding -Name <span style="color:#e6db74">&#34;Default Web Site&#34;</span> -IP <span style="color:#e6db74">&#34;*&#34;</span> -Port 443 -Protocol https
-$c = New-SelfSignedCertificate -DnsName <span style="color:#e6db74">&#34;localhost&#34;</span> -CertStoreLocation cert<span style="color:#960050;background-color:#1e0010">:</span>\LocalMachine\My
-$c | New-Item 0.0.0.0!443
-
-New-WebApplication -Site <span style="color:#e6db74">&#39;Default Web Site&#39;</span> -Name <span style="color:#e6db74">&#39;webapp&#39;</span> -PhysicalPath <span style="color:#e6db74">&#39;C:\webapp&#39;</span>
-
-<span style="color:#75715e"># Set full access to app folder for default app pool. This is required if the app folder is being mapped to the host rather than copying the content to the container.</span>
-$path = <span style="color:#e6db74">&#34;C:\webapp&#34;</span>  
-$user = <span style="color:#e6db74">&#34;IIS AppPool\DefaultAppPool&#34;</span>  
-$acl = Get-Acl $path  
-$accessRule = New-Object system.security.accesscontrol.filesystemaccessrule($User,<span style="color:#e6db74">&#34;FullControl&#34;</span>, <span style="color:#e6db74">&#34;ContainerInherit,ObjectInherit&#34;</span>, <span style="color:#e6db74">&#34;None&#34;</span>, <span style="color:#e6db74">&#34;Allow&#34;</span>)  
-$acl.SetAccessRule($accessRule)
-Set-Acl $path $acl 
-</code></pre></div><h3 id="docker-compose">Docker compose</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># Configure SSL certificate for default website</span>
+</span></span><span style="display:flex;"><span>Import-Module WebAdministration
+</span></span><span style="display:flex;"><span>Set-Location IIS<span style="color:#960050;background-color:#1e0010">:</span>\SslBindings
+</span></span><span style="display:flex;"><span>New-WebBinding -Name <span style="color:#e6db74">&#34;Default Web Site&#34;</span> -IP <span style="color:#e6db74">&#34;*&#34;</span> -Port 443 -Protocol https
+</span></span><span style="display:flex;"><span>$c = New-SelfSignedCertificate -DnsName <span style="color:#e6db74">&#34;localhost&#34;</span> -CertStoreLocation cert<span style="color:#960050;background-color:#1e0010">:</span>\LocalMachine\My
+</span></span><span style="display:flex;"><span>$c | New-Item 0.0.0.0!443
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>New-WebApplication -Site <span style="color:#e6db74">&#39;Default Web Site&#39;</span> -Name <span style="color:#e6db74">&#39;webapp&#39;</span> -PhysicalPath <span style="color:#e6db74">&#39;C:\webapp&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set full access to app folder for default app pool. This is required if the app folder is being mapped to the host rather than copying the content to the container.</span>
+</span></span><span style="display:flex;"><span>$path = <span style="color:#e6db74">&#34;C:\webapp&#34;</span>  
+</span></span><span style="display:flex;"><span>$user = <span style="color:#e6db74">&#34;IIS AppPool\DefaultAppPool&#34;</span>  
+</span></span><span style="display:flex;"><span>$acl = Get-Acl $path  
+</span></span><span style="display:flex;"><span>$accessRule = New-Object system.security.accesscontrol.filesystemaccessrule($User,<span style="color:#e6db74">&#34;FullControl&#34;</span>, <span style="color:#e6db74">&#34;ContainerInherit,ObjectInherit&#34;</span>, <span style="color:#e6db74">&#34;None&#34;</span>, <span style="color:#e6db74">&#34;Allow&#34;</span>)  
+</span></span><span style="display:flex;"><span>$acl.SetAccessRule($accessRule)
+</span></span><span style="display:flex;"><span>Set-Acl $path $acl 
+</span></span></code></pre></div><h3 id="docker-compose">Docker compose</h3>
 <p>Instead of copying the app, the folder is being mapped to host&rsquo;s folder. Better approach for development.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.8&#39;</span>
-<span style="color:#f92672">services</span>:
-  <span style="color:#f92672">webapp</span>:
-    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
-    <span style="color:#f92672">ports</span>:
-      - <span style="color:#e6db74">&#34;80:80&#34;</span>
-      - <span style="color:#e6db74">&#34;443:443&#34;</span>
-    <span style="color:#f92672">volumes</span>:
-      - <span style="color:#ae81ff">./src/Bustroker.WebUI/bin/app.publish:C:/webapp</span>
-</code></pre></div><h3 id="run">Run</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.8&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">webapp</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;80:80&#34;</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;443:443&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./src/Bustroker.WebUI/bin/app.publish:C:/webapp</span>
+</span></span></code></pre></div><h3 id="run">Run</h3>
 <p>Compile and publish the site file system, e.g., to default folder <code>bin/app.publish</code>.
 Then run</p>
-<pre><code class="language-console" data-lang="console">docker-compose up -d --build
-</code></pre><p>Browse to <code>http://localhost/webapp</code>, or to <code>https://localhost/webapp</code>. There is of course the warning <code>This CA Root certificate is not trusted because it is not in the Trusted Root Certification Authorities store.</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker-compose up -d --build
+</span></span></code></pre></div><p>Browse to <code>http://localhost/webapp</code>, or to <code>https://localhost/webapp</code>. There is of course the warning <code>This CA Root certificate is not trusted because it is not in the Trusted Root Certification Authorities store.</code></p>
 
 
 

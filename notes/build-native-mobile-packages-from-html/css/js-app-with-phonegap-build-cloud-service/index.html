@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.79.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -139,30 +139,29 @@ Unfortunatly Phonegap CLI fails for some weird reason, so the I had to manually 
 <p>Create an account in <a href="https://build.phonegap.com/">https://build.phonegap.com/</a>.</p>
 <h3 id="build-android-through-dev-api">Build android through dev API</h3>
 <p>Create PhoneGap Build config file in the app root folder containing all the html, css, js..</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">//config.xml
-<span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
-<span style="color:#f92672">&lt;widget</span> <span style="color:#a6e22e">xmlns   =</span> <span style="color:#e6db74">&#34;http://www.w3.org/ns/widgets&#34;</span>
-    <span style="color:#a6e22e">xmlns:gap   =</span> <span style="color:#e6db74">&#34;http://phonegap.com/ns/1.0&#34;</span>
-    <span style="color:#a6e22e">id          =</span> <span style="color:#e6db74">&#34;com.bustroker.notes&#34;</span>
-    <span style="color:#a6e22e">versionCode =</span> <span style="color:#e6db74">&#34;10&#34;</span>
-    <span style="color:#a6e22e">version     =</span> <span style="color:#e6db74">&#34;1.0.0&#34;</span> <span style="color:#f92672">&gt;</span>
-
-<span style="color:#75715e">&lt;!-- versionCode is optional and Android only --&gt;</span>
-
-  <span style="color:#f92672">&lt;name&gt;</span>Bustroker Notes<span style="color:#f92672">&lt;/name&gt;</span>
-
-  <span style="color:#f92672">&lt;description&gt;</span>
-      Personal memorandum.
-  <span style="color:#f92672">&lt;/description&gt;</span>
-
-  <span style="color:#f92672">&lt;author</span> <span style="color:#a6e22e">href=</span><span style="color:#e6db74">&#34;https://www.bustroker.com&#34;</span> <span style="color:#a6e22e">email=</span><span style="color:#e6db74">&#34;support@bustroker.com&#34;</span><span style="color:#f92672">&gt;</span>
-      Bustroker
-  <span style="color:#f92672">&lt;/author&gt;</span>
-
-<span style="color:#f92672">&lt;/widget&gt;</span>
-
-</code></pre></div><p>Next zip up the folder containing the app <strong>plus</strong> <code>config.xml</code>, say as <code>app.zip</code>, and PUT the PhoneGap Build cloud.</p>
-<pre><code>curl -u PHONEGAP-BUILD-ACCOUNT-USER-ID -X PUT -F file=@app.zip https://build.phonegap.com/api/v1/apps/APP-ID
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>//config.xml
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;widget</span> <span style="color:#a6e22e">xmlns   =</span> <span style="color:#e6db74">&#34;http://www.w3.org/ns/widgets&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xmlns:gap   =</span> <span style="color:#e6db74">&#34;http://phonegap.com/ns/1.0&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">id          =</span> <span style="color:#e6db74">&#34;com.bustroker.notes&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">versionCode =</span> <span style="color:#e6db74">&#34;10&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">version     =</span> <span style="color:#e6db74">&#34;1.0.0&#34;</span> <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- versionCode is optional and Android only --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;name&gt;</span>Bustroker Notes<span style="color:#f92672">&lt;/name&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;description&gt;</span>
+</span></span><span style="display:flex;"><span>      Personal memorandum.
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/description&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;author</span> <span style="color:#a6e22e">href=</span><span style="color:#e6db74">&#34;https://www.bustroker.com&#34;</span> <span style="color:#a6e22e">email=</span><span style="color:#e6db74">&#34;support@bustroker.com&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      Bustroker
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/author&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/widget&gt;</span>
+</span></span></code></pre></div><p>Next zip up the folder containing the app <strong>plus</strong> <code>config.xml</code>, say as <code>app.zip</code>, and PUT the PhoneGap Build cloud.</p>
+<pre tabindex="0"><code>curl -u PHONEGAP-BUILD-ACCOUNT-USER-ID -X PUT -F file=@app.zip https://build.phonegap.com/api/v1/apps/APP-ID
 </code></pre><p>PHONEGAP-BUILD-ACCOUNT-USER-ID: the email used as user id for the account created in PhoneGap Build.
 APP-ID: the application id. Should be something like <em>4016017</em>, and is found in <a href="https://build.phonegap.com/apps">https://build.phonegap.com/apps</a></p>
 <p>Provide the password for the account when promped.</p>

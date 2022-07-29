@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.79.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -168,52 +168,51 @@ It&rsquo;s also usefull when more than one application consume the App Configura
 </ul>
 <h3 id="now-the-code">Now the code</h3>
 <h4 id="first-add-the-nuget-package">First, add the nuget package</h4>
-<pre><code>dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+<pre tabindex="0"><code>dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
 </code></pre><h4 id="then-it-goes-like-this">Then it goes like this.</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Program.cs
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(webBuilder =&gt;
-        {
-            webBuilder
-                .ConfigureAppConfiguration((hostingContext, config) =&gt;
-                    {
-                        <span style="color:#66d9ef">var</span> settings = config.Build();
-                        <span style="color:#66d9ef">var</span> azAppConfigurationMainRegionUrl = settings.GetValue&lt;<span style="color:#66d9ef">string</span>&gt;(<span style="color:#e6db74">&#34;AzAppConfigurationMainRegionUrl&#34;</span>);
-                        <span style="color:#66d9ef">var</span> azAppConfigurationFailOverRegionUrl = settings.GetValue&lt;<span style="color:#66d9ef">string</span>&gt;(<span style="color:#e6db74">&#34;AzAppConfigurationMainRegionUrl&#34;</span>);
-
-                        config
-                            .AddAzureAppConfiguration(options =&gt; 
-                            {
-                                options.Connect(<span style="color:#66d9ef">new</span> Uri(azAppConfigurationFailOverRegionUrl), <span style="color:#66d9ef">new</span> DefaultAzureCredential())
-                                    .ConfigureKeyVault(kv =&gt; 
-                                    {
-                                        kv.SetCredential(<span style="color:#66d9ef">new</span> DefaultAzureCredential());
-                                    })
-                                    .ConfigureRefresh(refreshOptions =&gt;
-                                    {
-                                        refreshOptions.Register(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi:sentinel&#34;</span>, refreshAll: <span style="color:#66d9ef">true</span>)
-                                                .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">30</span>));
-                                    });
-                            }, optional: <span style="color:#66d9ef">true</span>)
-                            .AddAzureAppConfiguration(options =&gt; 
-                            {
-                                options.Connect(<span style="color:#66d9ef">new</span> Uri(azAppConfigurationMainRegionUrl), <span style="color:#66d9ef">new</span> DefaultAzureCredential())
-                                    .ConfigureKeyVault(kv =&gt; 
-                                    {
-                                        kv.SetCredential(<span style="color:#66d9ef">new</span> DefaultAzureCredential());
-                                    })
-                                    .ConfigureRefresh(refreshOptions =&gt;
-                                    {
-                                        refreshOptions.Register(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi:sentinel&#34;</span>, refreshAll: <span style="color:#66d9ef">true</span>)
-                                                .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">1</span>));
-                                    });
-                            }, optional: <span style="color:#66d9ef">true</span>);
-                    })
-                .UseStartup&lt;Startup&gt;();
-        });
-
-</code></pre></div><p>Note the <em>ConfigureKeyVault(kv =&gt; ..)</em> method.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// Program.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
+</span></span><span style="display:flex;"><span>    Host.CreateDefaultBuilder(args)
+</span></span><span style="display:flex;"><span>        .ConfigureWebHostDefaults(webBuilder =&gt;
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            webBuilder
+</span></span><span style="display:flex;"><span>                .ConfigureAppConfiguration((hostingContext, config) =&gt;
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">var</span> settings = config.Build();
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">var</span> azAppConfigurationMainRegionUrl = settings.GetValue&lt;<span style="color:#66d9ef">string</span>&gt;(<span style="color:#e6db74">&#34;AzAppConfigurationMainRegionUrl&#34;</span>);
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">var</span> azAppConfigurationFailOverRegionUrl = settings.GetValue&lt;<span style="color:#66d9ef">string</span>&gt;(<span style="color:#e6db74">&#34;AzAppConfigurationMainRegionUrl&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        config
+</span></span><span style="display:flex;"><span>                            .AddAzureAppConfiguration(options =&gt; 
+</span></span><span style="display:flex;"><span>                            {
+</span></span><span style="display:flex;"><span>                                options.Connect(<span style="color:#66d9ef">new</span> Uri(azAppConfigurationFailOverRegionUrl), <span style="color:#66d9ef">new</span> DefaultAzureCredential())
+</span></span><span style="display:flex;"><span>                                    .ConfigureKeyVault(kv =&gt; 
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        kv.SetCredential(<span style="color:#66d9ef">new</span> DefaultAzureCredential());
+</span></span><span style="display:flex;"><span>                                    })
+</span></span><span style="display:flex;"><span>                                    .ConfigureRefresh(refreshOptions =&gt;
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        refreshOptions.Register(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi:sentinel&#34;</span>, refreshAll: <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>                                                .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">30</span>));
+</span></span><span style="display:flex;"><span>                                    });
+</span></span><span style="display:flex;"><span>                            }, optional: <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>                            .AddAzureAppConfiguration(options =&gt; 
+</span></span><span style="display:flex;"><span>                            {
+</span></span><span style="display:flex;"><span>                                options.Connect(<span style="color:#66d9ef">new</span> Uri(azAppConfigurationMainRegionUrl), <span style="color:#66d9ef">new</span> DefaultAzureCredential())
+</span></span><span style="display:flex;"><span>                                    .ConfigureKeyVault(kv =&gt; 
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        kv.SetCredential(<span style="color:#66d9ef">new</span> DefaultAzureCredential());
+</span></span><span style="display:flex;"><span>                                    })
+</span></span><span style="display:flex;"><span>                                    .ConfigureRefresh(refreshOptions =&gt;
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        refreshOptions.Register(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi:sentinel&#34;</span>, refreshAll: <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>                                                .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">1</span>));
+</span></span><span style="display:flex;"><span>                                    });
+</span></span><span style="display:flex;"><span>                            }, optional: <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>                    })
+</span></span><span style="display:flex;"><span>                .UseStartup&lt;Startup&gt;();
+</span></span><span style="display:flex;"><span>        });
+</span></span></code></pre></div><p>Note the <em>ConfigureKeyVault(kv =&gt; ..)</em> method.</p>
 <ul>
 <li>AddAzureAppConfiguration(..): adds a configuration provider for <em>Az App Configuration</em> service to the API, i.e., a source to populate IConfiguration from <em>Az App Configuration</em>. Two are configured, one for failover (yes, the first one is the failover one ¿?&hellip; see <a href="https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-disaster-recovery?tabs=core3x">here</a>), both optional. In case of no HA desired, only configure one, preferably with <em>optional: false</em>.</li>
 <li>Connect(..): configure actual connection to az AppConfiguration, in this case with Managed Id</li>
@@ -223,32 +222,31 @@ It&rsquo;s also usefull when more than one application consume the App Configura
 <p>DefaultAzureCredential class is the one responsible for getting the credentials available through MI.
 <em>Note: for DefaultAzureCredential class to work locally, the credentials need to be provided in the local environment. See <a href="https://docs.microsoft.com/sv-se/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet">here</a></em></p>
 <h3 id="register-a-configuration-section-so-its-bound-against-toptions-and-iazureappconfigurationrefresher-service">Register a configuration section so it&rsquo;s bound against TOptions, and IAzureAppConfigurationRefresher service</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Startup.ConfigureServices(...)
-</span><span style="color:#75715e"></span>services.Configure&lt;AppSettings&gt;(Configuration.GetSection(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi&#34;</span>));
-services.AddScoped&lt;IAzureAppConfigurationRefresher, OnDemandAzureAppConfigurationRefresher&gt;();
-
-</code></pre></div><h3 id="using-configuration-values">Using Configuration values</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// Startup.ConfigureServices(...)</span>
+</span></span><span style="display:flex;"><span>services.Configure&lt;AppSettings&gt;(Configuration.GetSection(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi&#34;</span>));
+</span></span><span style="display:flex;"><span>services.AddScoped&lt;IAzureAppConfigurationRefresher, OnDemandAzureAppConfigurationRefresher&gt;();
+</span></span></code></pre></div><h3 id="using-configuration-values">Using Configuration values</h3>
 <p>To use the configuration values, inject <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">IOptionsSnapshot</a> into the Controller.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// AzAppConfigurationController.cs
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">[ApiController]</span>
-<span style="color:#a6e22e">[Route(&#34;[controller]</span><span style="color:#e6db74">&#34;)]
-</span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AzAppConfigurationController</span> : ControllerBase
-{
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> AppSettings _appSettings;
-
-    <span style="color:#66d9ef">public</span> AzAppConfigurationController(IOptionsSnapshot&lt;AppSettings&gt; appSettings)
-    {
-        _appSettings = appSettings.Value;
-    }
-<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">    [HttpGet]</span>
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;IActionResult&gt; Get()
-    {
-        <span style="color:#66d9ef">await</span> Task.CompletedTask;
-        <span style="color:#66d9ef">return</span> Ok(_appSettings);
-    }
-}
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// AzAppConfigurationController.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[ApiController]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[Route(&#34;[controller]</span><span style="color:#e6db74">&#34;)]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AzAppConfigurationController</span> : ControllerBase
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> AppSettings _appSettings;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> AzAppConfigurationController(IOptionsSnapshot&lt;AppSettings&gt; appSettings)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _appSettings = appSettings.Value;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [HttpGet]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;IActionResult&gt; Get()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Ok(_appSettings);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
 <li><strong>NOTE: it&rsquo;s important to use IOptionsSnapshot, and not IOptions (wouldn&rsquo;t refresh anyway unless restarted the application), nor IOptionsMonitor (could change the values in the middle of a request potentially leading to weird results).</strong> Check <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">here</a>.</li>
 </ul>
 

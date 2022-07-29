@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.79.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -134,7 +134,7 @@ audio {
 <p>I reported the issue <a href="https://github.com/confluentinc/confluent-kafka-dotnet/issues/1722">here</a></p>
 <h2 id="description">Description</h2>
 <p>AvroDeserializer throws NullReferenceException without any further info.</p>
-<pre><code class="language-log" data-lang="log">Unhandled exception. Confluent.Kafka.ConsumeException: Local: Value deserialization error
+<pre tabindex="0"><code class="language-log" data-lang="log">Unhandled exception. Confluent.Kafka.ConsumeException: Local: Value deserialization error
  ---&gt; System.NullReferenceException: Object reference not set to an instance of an object.
    at Confluent.SchemaRegistry.Serdes.GenericDeserializerImpl.Deserialize(String topic, Byte[] array)
    at Confluent.SchemaRegistry.Serdes.AvroDeserializer`1.DeserializeAsync(ReadOnlyMemory`1 data, Boolean isNull, SerializationContext context)
@@ -157,53 +157,53 @@ The implementation of the method <code>GenericDeserializerImpl.Deserialize(strin
 <li>It&rsquo;s likely that there&rsquo;s another issue up the line, and the empty array should not get to this point in the first place, but I haven&rsquo;t looked it up. At this point, these implementations should at least be improved as to being more descriptive with the thrown exception.</li>
 </ul>
 <h3 id="a-wrapper-for-avrodeserializergenericrecord">A wrapper for <code>AvroDeserializer&lt;GenericRecord&gt;</code></h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
-<span style="color:#66d9ef">using</span> System.Collections.Generic;
-<span style="color:#66d9ef">using</span> System.Threading.Tasks;
-<span style="color:#66d9ef">using</span> Avro.Generic;
-<span style="color:#66d9ef">using</span> Confluent.Kafka;
-<span style="color:#66d9ef">using</span> Confluent.SchemaRegistry;
-<span style="color:#66d9ef">using</span> Confluent.SchemaRegistry.Serdes;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AvroGenericRecordDeserializerWrapper</span> : IAsyncDeserializer&lt;GenericRecord&gt;
-{
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ISchemaRegistryClient _schemaRegistryClient;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> AvroDeserializer&lt;GenericRecord&gt; _avroDeserializer;
-    <span style="color:#66d9ef">public</span> AvroGenericRecordDeserializerWrapper(ISchemaRegistryClient schemaRegistryClient, IEnumerable&lt;KeyValuePair&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">string</span>&gt;&gt; config = <span style="color:#66d9ef">null</span>)
-    { 
-        _avroDeserializer = <span style="color:#66d9ef">new</span> AvroDeserializer&lt;GenericRecord&gt;(schemaRegistryClient, config);
-        _schemaRegistryClient = schemaRegistryClient;
-    }
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;GenericRecord&gt; DeserializeAsync(ReadOnlyMemory&lt;<span style="color:#66d9ef">byte</span>&gt; data, <span style="color:#66d9ef">bool</span> isNull, SerializationContext context)
-    {
-        <span style="color:#66d9ef">try</span>
-        {
-            <span style="color:#66d9ef">if</span> (isNull)
-            {
-                Console.WriteLine(<span style="color:#e6db74">$&#34;isNull=true. This would throw NullReferenceException down the line with the provided implementation. Skipping downstream call and just returning null GenericRecord. (data.Lenght={data.Length.ToString()})&#34;</span>);
-                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> Task.FromResult&lt;GenericRecord&gt;(<span style="color:#66d9ef">null</span>);
-            }
-            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> _avroDeserializer.DeserializeAsync(data, isNull, context);
-        }
-        <span style="color:#66d9ef">catch</span> (Exception ex)
-        {
-            Console.WriteLine(<span style="color:#e6db74">$&#34;Failed executing DeserializeAsync(data, isNull, context). Returning null GenericRecord ex =&gt; {ex.ToString()}&#34;</span>);
-            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> Task.FromResult&lt;GenericRecord&gt;(<span style="color:#66d9ef">null</span>);
-        }            
-    }
-}
-</code></pre></div><h3 id="using-the-avrogenericrecorddeserializerwrapper-rather-than-avrodeserializergenericrecord">Using the <code>AvroGenericRecordDeserializerWrapper</code> rather than <code>AvroDeserializer&lt;GenericRecord&gt;</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Avro.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Confluent.Kafka;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Confluent.SchemaRegistry;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Confluent.SchemaRegistry.Serdes;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AvroGenericRecordDeserializerWrapper</span> : IAsyncDeserializer&lt;GenericRecord&gt;
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ISchemaRegistryClient _schemaRegistryClient;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> AvroDeserializer&lt;GenericRecord&gt; _avroDeserializer;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> AvroGenericRecordDeserializerWrapper(ISchemaRegistryClient schemaRegistryClient, IEnumerable&lt;KeyValuePair&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">string</span>&gt;&gt; config = <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>    { 
+</span></span><span style="display:flex;"><span>        _avroDeserializer = <span style="color:#66d9ef">new</span> AvroDeserializer&lt;GenericRecord&gt;(schemaRegistryClient, config);
+</span></span><span style="display:flex;"><span>        _schemaRegistryClient = schemaRegistryClient;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;GenericRecord&gt; DeserializeAsync(ReadOnlyMemory&lt;<span style="color:#66d9ef">byte</span>&gt; data, <span style="color:#66d9ef">bool</span> isNull, SerializationContext context)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (isNull)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                Console.WriteLine(<span style="color:#e6db74">$&#34;isNull=true. This would throw NullReferenceException down the line with the provided implementation. Skipping downstream call and just returning null GenericRecord. (data.Lenght={data.Length.ToString()})&#34;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> Task.FromResult&lt;GenericRecord&gt;(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> _avroDeserializer.DeserializeAsync(data, isNull, context);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> (Exception ex)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">$&#34;Failed executing DeserializeAsync(data, isNull, context). Returning null GenericRecord ex =&gt; {ex.ToString()}&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> Task.FromResult&lt;GenericRecord&gt;(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>        }            
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="using-the-avrogenericrecorddeserializerwrapper-rather-than-avrodeserializergenericrecord">Using the <code>AvroGenericRecordDeserializerWrapper</code> rather than <code>AvroDeserializer&lt;GenericRecord&gt;</code></h3>
 <p>Just set <code>AvroGenericRecordDeserializerWrapper</code> as deserializers instead of <code>AvroDeserializer&lt;GenericRecord&gt;</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">var</span> builder = <span style="color:#66d9ef">new</span> ConsumerBuilder&lt;GenericRecord, GenericRecord&gt;(_consumerConfig)
-                        <span style="color:#75715e">// .SetKeyDeserializer(new AvroDeserializer&lt;GenericRecord&gt;(schemaRegistry).AsSyncOverAsync())
-</span><span style="color:#75715e"></span>                        <span style="color:#75715e">// .SetValueDeserializer(new AvroDeserializer&lt;GenericRecord&gt;(schemaRegistry).AsSyncOverAsync())
-</span><span style="color:#75715e"></span>                        .SetKeyDeserializer(<span style="color:#66d9ef">new</span> AvroGenericRecordDeserializerWrapper(schemaRegistry).AsSyncOverAsync())
-                        .SetValueDeserializer(<span style="color:#66d9ef">new</span> AvroGenericRecordDeserializerWrapper(schemaRegistry).AsSyncOverAsync())
-                        .SetErrorHandler((c, e) =&gt; {
-                            Console.WriteLine(<span style="color:#e6db74">$&#34;Consumer error handler: {e.Reason}&#34;</span>);
-                        });
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> builder = <span style="color:#66d9ef">new</span> ConsumerBuilder&lt;GenericRecord, GenericRecord&gt;(_consumerConfig)
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e">// .SetKeyDeserializer(new AvroDeserializer&lt;GenericRecord&gt;(schemaRegistry).AsSyncOverAsync())</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#75715e">// .SetValueDeserializer(new AvroDeserializer&lt;GenericRecord&gt;(schemaRegistry).AsSyncOverAsync())</span>
+</span></span><span style="display:flex;"><span>                        .SetKeyDeserializer(<span style="color:#66d9ef">new</span> AvroGenericRecordDeserializerWrapper(schemaRegistry).AsSyncOverAsync())
+</span></span><span style="display:flex;"><span>                        .SetValueDeserializer(<span style="color:#66d9ef">new</span> AvroGenericRecordDeserializerWrapper(schemaRegistry).AsSyncOverAsync())
+</span></span><span style="display:flex;"><span>                        .SetErrorHandler((c, e) =&gt; {
+</span></span><span style="display:flex;"><span>                            Console.WriteLine(<span style="color:#e6db74">$&#34;Consumer error handler: {e.Reason}&#34;</span>);
+</span></span><span style="display:flex;"><span>                        });
+</span></span></code></pre></div>
 
 
       </main>

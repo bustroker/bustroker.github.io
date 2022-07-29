@@ -13,10 +13,10 @@
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/mysql/mariadb-command-line-cheatsheet/</guid>
-      <description>Commands  Connect  mysql [-h 192.168.1.100] -u USER_NAME -p [DATABASE_NAME]Will be prompted for password
+      <description>Commands Connect mysql [-h 192.168.1.100] -u USER_NAME -p [DATABASE_NAME] Will be prompted for password
 Once connected, the commanda need to end with ;.
- Common commands ´´´ show tables;  ´´´
- Exit Ctrl+C  </description>
+Common commands ´´´ show tables; ´´´
+Exit Ctrl+C </description>
     </item>
     
   </channel>

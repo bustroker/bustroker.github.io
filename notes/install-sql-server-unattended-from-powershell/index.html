@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.79.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -135,15 +135,15 @@ audio {
 <ul>
 <li>To install Express edition, run <code>powershell</code> as admin and go</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd C:\SQL2019\SQLEXPR_x64_ENU
-.\setup.exe /Q /HIDECONSOLE=0 /ACTION=INSTALL /SUPPRESSPRIVACYSTATEMENTNOTICE /IACCEPTSQLSERVERLICENSETERMS=1 /FEATURES=SQLENGINE /UPDATEENABLED=0 /INSTANCENAME=<span style="color:#e6db74">&#34;MSSQLSERVER&#34;</span> /ADDCURRENTUSERASSQLADMIN=1 /SECURITYMODE=SQL /SKIPRULES=RebootRequiredCheck /SAPWD=<span style="color:#e6db74">&#34;Pasword_01&#34;</span> /SQLSVCSTARTUPTYPE=AUTOMATIC /INDICATEPROGRESS
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd C:\SQL2019\SQLEXPR_x64_ENU
+</span></span><span style="display:flex;"><span>.\setup.exe /Q /HIDECONSOLE=0 /ACTION=INSTALL /SUPPRESSPRIVACYSTATEMENTNOTICE /IACCEPTSQLSERVERLICENSETERMS=1 /FEATURES=SQLENGINE /UPDATEENABLED=0 /INSTANCENAME=<span style="color:#e6db74">&#34;MSSQLSERVER&#34;</span> /ADDCURRENTUSERASSQLADMIN=1 /SECURITYMODE=SQL /SKIPRULES=RebootRequiredCheck /SAPWD=<span style="color:#e6db74">&#34;Pasword_01&#34;</span> /SQLSVCSTARTUPTYPE=AUTOMATIC /INDICATEPROGRESS
+</span></span></code></pre></div><ul>
 <li>For Developer edition, run <code>powershell</code> as admin and go</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd C:\SQL2019\Developer_ENU
-.\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=<span style="color:#e6db74">&#39;NT AUTHORITY\NETWORK SERVICE&#39;</span> /SQLSYSADMINACCOUNTS=<span style="color:#e6db74">&#39;BUILTIN\ADMINISTRATORS&#39;</span> /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS  /SECURITYMODE=SQL /SAPWD=<span style="color:#e6db74">&#34;Password_01&#34;</span>
-</code></pre></div><p>To uninstall</p>
-<pre><code>.\setup.exe /q /ACTION=Uninstall /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /INDICATEPROGRESS
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd C:\SQL2019\Developer_ENU
+</span></span><span style="display:flex;"><span>.\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=<span style="color:#e6db74">&#39;NT AUTHORITY\NETWORK SERVICE&#39;</span> /SQLSYSADMINACCOUNTS=<span style="color:#e6db74">&#39;BUILTIN\ADMINISTRATORS&#39;</span> /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS  /SECURITYMODE=SQL /SAPWD=<span style="color:#e6db74">&#34;Password_01&#34;</span>
+</span></span></code></pre></div><p>To uninstall</p>
+<pre tabindex="0"><code>.\setup.exe /q /ACTION=Uninstall /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /INDICATEPROGRESS
 </code></pre>
 
 

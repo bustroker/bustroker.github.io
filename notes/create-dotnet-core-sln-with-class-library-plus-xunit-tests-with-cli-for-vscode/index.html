@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.79.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -133,22 +133,22 @@ audio {
 <h1>Create dotnet core sln with class library plus xunit tests with cli for vscode</h1>
 <h3 id="create-a-folder-for-the-solution-and-cd-into-it">Create a folder for the solution and <code>cd</code> into it</h3>
 <p>A solution (sln file) is required to be able to have projects referencing others.</p>
-<pre><code>mkdir Bustroker.Notes
+<pre tabindex="0"><code>mkdir Bustroker.Notes
 cd Bustroker.Notes
 </code></pre><h3 id="create-solution">Create solution</h3>
 <p>The <code>sln</code> file is created directly in the folder it&rsquo;s run.</p>
-<pre><code>dotnet new sln -n Bustroker.Notes
+<pre tabindex="0"><code>dotnet new sln -n Bustroker.Notes
 </code></pre><h3 id="create-class-library-project-and-add-it-to-the-solution">Create class library project and add it to the solution</h3>
 <p>A folder is created, containing the project</p>
-<pre><code>dotnet new classlib -n Bustroker.Notes
+<pre tabindex="0"><code>dotnet new classlib -n Bustroker.Notes
 dotnet sln add Bustroker.Notes/Bustroker.Notes.csproj
 </code></pre><h3 id="create-xunit-tests-project-and-addit-to-the-solution">Create xUnit tests project and addit to the solution</h3>
-<pre><code>dotnet new xunit -n Bustroker.Notes.Tests
+<pre tabindex="0"><code>dotnet new xunit -n Bustroker.Notes.Tests
 dotnet sln add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj
 </code></pre><h3 id="add-the-class-library-reference-to-the-tests-project">Add the class library reference to the tests project</h3>
-<pre><code>dotnet add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj reference ./Bustroker.Notes/Bustroker.Notes.csproj
+<pre tabindex="0"><code>dotnet add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj reference ./Bustroker.Notes/Bustroker.Notes.csproj
 </code></pre><h3 id="open-the-solution-in-vscode">Open the solution in vscode</h3>
-<pre><code>code .
+<pre tabindex="0"><code>code .
 </code></pre>
 
 

@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.79.1" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -141,123 +141,121 @@ Lease container, required for the changefeed: <code>TransactionsLease</code>. <s
 <h3 id="install-func-cli">Install func cli</h3>
 <p><a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools">https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools</a></p>
 <h3 id="create-function-project">Create function project</h3>
-<pre><code class="language-console" data-lang="console">func init Bustroker.CosmosDbChangeFeed.Func --dotnet [--docker]
-</code></pre><p>I renamed <code>csproj</code> file from <code>Bustroker_CosmosDbChangeFeed_Func.csproj</code> to <code>Bustroker.CosmosDbChangeFeed.Func.csproj</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>func init Bustroker.CosmosDbChangeFeed.Func --dotnet [--docker]
+</span></span></code></pre></div><p>I renamed <code>csproj</code> file from <code>Bustroker_CosmosDbChangeFeed_Func.csproj</code> to <code>Bustroker.CosmosDbChangeFeed.Func.csproj</code>.</p>
 <p>Check details for development with docker <a href="https://www.bustroker.com/notes/azure-function-with-docker/">here</a></p>
 <h3 id="create-changefeed-function">Create ChangeFeed function</h3>
-<pre><code class="language-console" data-lang="console">cd Bustroker.CosmosDbChangeFeed.Func
-func new --name TransactionsChangeFeed [--template {HttpTrigger, CosmosDbTrigger, etc}]
-</code></pre><p>And the code</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// TransactionsChangeFeed.cs
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">using</span> System.Collections.Generic;
-<span style="color:#66d9ef">using</span> Microsoft.Azure.Documents;
-<span style="color:#66d9ef">using</span> Microsoft.Azure.WebJobs;
-<span style="color:#66d9ef">using</span> Microsoft.Extensions.Logging;
-
-<span style="color:#66d9ef">namespace</span> Arch.Pocs.CosmosDbChangeFeed.Func
-{
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TransactionsChangeFeed</span>
-    {
-<span style="color:#a6e22e">        [FunctionName(&#34;TransactionsChangeFeed&#34;)]</span>
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Run([CosmosDBTrigger(
-            databaseName: <span style="color:#e6db74">&#34;arch.pocs.misc.cosmosdb&#34;</span>,
-            collectionName: <span style="color:#e6db74">&#34;Transactions&#34;</span>,
-            ConnectionStringSetting = <span style="color:#e6db74">&#34;cosmosDbConnectionString&#34;</span>,
-            LeaseCollectionName = <span style="color:#e6db74">&#34;TransactionsLease&#34;</span>,
-            CreateLeaseCollectionIfNotExists = <span style="color:#66d9ef">true</span>))]IReadOnlyList&lt;Document&gt; input, ILogger log)
-        {
-            <span style="color:#66d9ef">if</span> (input != <span style="color:#66d9ef">null</span> &amp;&amp; input.Count &gt; <span style="color:#ae81ff">0</span>)
-            {   
-                log.LogInformation(<span style="color:#e6db74">&#34;Documents modified &#34;</span> + input.Count);
-                log.LogInformation(<span style="color:#e6db74">&#34;First document Id &#34;</span> + input[<span style="color:#ae81ff">0</span>].Id);
-            }
-        }
-    }
-}
-
-</code></pre></div><p>The connectionstring needs to be set in appsetting <code>cosmosDbConnectionString</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>cd Bustroker.CosmosDbChangeFeed.Func
+</span></span><span style="display:flex;"><span>func new --name TransactionsChangeFeed [--template {HttpTrigger, CosmosDbTrigger, etc}]
+</span></span></code></pre></div><p>And the code</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// TransactionsChangeFeed.cs</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Azure.Documents;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Azure.WebJobs;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Extensions.Logging;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> Arch.Pocs.CosmosDbChangeFeed.Func
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TransactionsChangeFeed</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [FunctionName(&#34;TransactionsChangeFeed&#34;)]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Run([CosmosDBTrigger(
+</span></span><span style="display:flex;"><span>            databaseName: <span style="color:#e6db74">&#34;arch.pocs.misc.cosmosdb&#34;</span>,
+</span></span><span style="display:flex;"><span>            collectionName: <span style="color:#e6db74">&#34;Transactions&#34;</span>,
+</span></span><span style="display:flex;"><span>            ConnectionStringSetting = <span style="color:#e6db74">&#34;cosmosDbConnectionString&#34;</span>,
+</span></span><span style="display:flex;"><span>            LeaseCollectionName = <span style="color:#e6db74">&#34;TransactionsLease&#34;</span>,
+</span></span><span style="display:flex;"><span>            CreateLeaseCollectionIfNotExists = <span style="color:#66d9ef">true</span>))]IReadOnlyList&lt;Document&gt; input, ILogger log)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (input != <span style="color:#66d9ef">null</span> &amp;&amp; input.Count &gt; <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>            {   
+</span></span><span style="display:flex;"><span>                log.LogInformation(<span style="color:#e6db74">&#34;Documents modified &#34;</span> + input.Count);
+</span></span><span style="display:flex;"><span>                log.LogInformation(<span style="color:#e6db74">&#34;First document Id &#34;</span> + input[<span style="color:#ae81ff">0</span>].Id);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The connectionstring needs to be set in appsetting <code>cosmosDbConnectionString</code>.
 If the lease collection (<code>TransactionsLease</code> in this case) is created manually, bear in mind that the partition key must be <code>/id</code>.</p>
 <h3 id="create-httptrigger-just-for-test">Create HttpTrigger just for test</h3>
 <p><strong>Note: Make sure the connection strings are properly handled in Production environment!</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">using</span> System;
-<span style="color:#66d9ef">using</span> System.Threading.Tasks;
-<span style="color:#66d9ef">using</span> Microsoft.AspNetCore.Mvc;
-<span style="color:#66d9ef">using</span> Microsoft.Azure.WebJobs;
-<span style="color:#66d9ef">using</span> Microsoft.Azure.WebJobs.Extensions.Http;
-<span style="color:#66d9ef">using</span> Microsoft.AspNetCore.Http;
-<span style="color:#66d9ef">using</span> Microsoft.Extensions.Logging;
-<span style="color:#66d9ef">using</span> Newtonsoft.Json;
-<span style="color:#66d9ef">using</span> Microsoft.Azure.Documents.Client;
-<span style="color:#66d9ef">using</span> System.Linq;
-
-<span style="color:#66d9ef">namespace</span> Arch.Pocs.CosmosDbChangeFeed.Func
-{
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HttpEndpoint</span>
-    {
-        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> endpointUri = <span style="color:#e6db74">&#34;https://bustroker-cosmosdbchangefeed-cosmosacc.documents.azure.com:443/&#34;</span>;
-        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> key = <span style="color:#e6db74">&#34;SUP3RK3Y==&#34;</span>;
-        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> database = <span style="color:#e6db74">&#34;bustroker-cosmosdbchangefeed-cosmosdb&#34;</span>;
-        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> container = <span style="color:#e6db74">&#34;Transactions&#34;</span>;
-<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">        [FunctionName(&#34;HttpEndpoint&#34;)]</span>
-        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task&lt;IActionResult&gt; Run(
-<span style="color:#a6e22e">            [HttpTrigger(AuthorizationLevel.Anonymous, &#34;get&#34;, &#34;post&#34;, Route = null)]</span> HttpRequest req,
-            ILogger log)
-        {
-            log.LogInformation(<span style="color:#e6db74">&#34;C# HTTP trigger function processed a request.&#34;</span>);
-
-            <span style="color:#66d9ef">var</span> action = req.Query[<span style="color:#e6db74">&#34;action&#34;</span>];
-
-            <span style="color:#66d9ef">switch</span> (action)
-            {
-                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;insert&#34;</span>:
-                    <span style="color:#66d9ef">var</span> transactionId = <span style="color:#66d9ef">await</span> InsertTransactionAsync();
-                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> OkObjectResult(<span style="color:#e6db74">$&#34;id:{transactionId}&#34;</span>);
-                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;read&#34;</span>:
-                    <span style="color:#66d9ef">var</span> transactions = <span style="color:#66d9ef">await</span> ReadTransactionsAsync();
-                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> OkObjectResult(<span style="color:#e6db74">$&#34;transactions:{transactions}&#34;</span>);
-                <span style="color:#66d9ef">default</span>: 
-                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> OkObjectResult(<span style="color:#e6db74">$&#34;Unrecognized action:{action}&#34;</span>);
-            }            
-        }
-
-        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task&lt;<span style="color:#66d9ef">string</span>&gt; ReadTransactionsAsync()
-        {
-            <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> client = <span style="color:#66d9ef">new</span> DocumentClient(<span style="color:#66d9ef">new</span> Uri(endpointUri), key))
-            {
-                <span style="color:#66d9ef">var</span> options = <span style="color:#66d9ef">new</span> FeedOptions
-                {
-                    EnableCrossPartitionQuery = <span style="color:#66d9ef">true</span>
-                };
-                <span style="color:#66d9ef">var</span> uri = UriFactory.CreateDocumentCollectionUri(database, container);
-                <span style="color:#66d9ef">var</span> response = client.CreateDocumentQuery(uri, <span style="color:#e6db74">&#34;select * from c&#34;</span>, options).ToList();
-                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> Task.FromResult(JsonConvert.SerializeObject(response));
-            }
-        }
-
-        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task&lt;<span style="color:#66d9ef">string</span>&gt; InsertTransactionAsync()
-        {
-            <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> client = <span style="color:#66d9ef">new</span> DocumentClient(<span style="color:#66d9ef">new</span> Uri(endpointUri), key))
-            {
-                <span style="color:#66d9ef">var</span> transaction = <span style="color:#66d9ef">new</span> Transaction
-                {  
-                    Id = Guid.NewGuid().ToString(),
-                    Amount = <span style="color:#ae81ff">100</span>,
-                    Currency = <span style="color:#e6db74">&#34;EUR&#34;</span>
-                };  
-
-                <span style="color:#66d9ef">var</span> documentCollectionUri = UriFactory.CreateDocumentCollectionUri(database, container);
-
-                <span style="color:#66d9ef">var</span> document = <span style="color:#66d9ef">await</span> client.CreateDocumentAsync(documentCollectionUri, transaction); 
-
-                <span style="color:#66d9ef">return</span> transaction.Id;
-            }
-        }
-    }
-}
-
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.AspNetCore.Mvc;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Azure.WebJobs;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Azure.WebJobs.Extensions.Http;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.AspNetCore.Http;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Extensions.Logging;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Newtonsoft.Json;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Azure.Documents.Client;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Linq;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> Arch.Pocs.CosmosDbChangeFeed.Func
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HttpEndpoint</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> endpointUri = <span style="color:#e6db74">&#34;https://bustroker-cosmosdbchangefeed-cosmosacc.documents.azure.com:443/&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> key = <span style="color:#e6db74">&#34;SUP3RK3Y==&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> database = <span style="color:#e6db74">&#34;bustroker-cosmosdbchangefeed-cosmosdb&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> container = <span style="color:#e6db74">&#34;Transactions&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">        [FunctionName(&#34;HttpEndpoint&#34;)]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task&lt;IActionResult&gt; Run(
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">            [HttpTrigger(AuthorizationLevel.Anonymous, &#34;get&#34;, &#34;post&#34;, Route = null)]</span> HttpRequest req,
+</span></span><span style="display:flex;"><span>            ILogger log)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            log.LogInformation(<span style="color:#e6db74">&#34;C# HTTP trigger function processed a request.&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> action = req.Query[<span style="color:#e6db74">&#34;action&#34;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span> (action)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;insert&#34;</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">var</span> transactionId = <span style="color:#66d9ef">await</span> InsertTransactionAsync();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> OkObjectResult(<span style="color:#e6db74">$&#34;id:{transactionId}&#34;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;read&#34;</span>:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">var</span> transactions = <span style="color:#66d9ef">await</span> ReadTransactionsAsync();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> OkObjectResult(<span style="color:#e6db74">$&#34;transactions:{transactions}&#34;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">default</span>: 
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> OkObjectResult(<span style="color:#e6db74">$&#34;Unrecognized action:{action}&#34;</span>);
+</span></span><span style="display:flex;"><span>            }            
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task&lt;<span style="color:#66d9ef">string</span>&gt; ReadTransactionsAsync()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> client = <span style="color:#66d9ef">new</span> DocumentClient(<span style="color:#66d9ef">new</span> Uri(endpointUri), key))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> options = <span style="color:#66d9ef">new</span> FeedOptions
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    EnableCrossPartitionQuery = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>                };
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> uri = UriFactory.CreateDocumentCollectionUri(database, container);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> response = client.CreateDocumentQuery(uri, <span style="color:#e6db74">&#34;select * from c&#34;</span>, options).ToList();
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> Task.FromResult(JsonConvert.SerializeObject(response));
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task&lt;<span style="color:#66d9ef">string</span>&gt; InsertTransactionAsync()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> client = <span style="color:#66d9ef">new</span> DocumentClient(<span style="color:#66d9ef">new</span> Uri(endpointUri), key))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> transaction = <span style="color:#66d9ef">new</span> Transaction
+</span></span><span style="display:flex;"><span>                {  
+</span></span><span style="display:flex;"><span>                    Id = Guid.NewGuid().ToString(),
+</span></span><span style="display:flex;"><span>                    Amount = <span style="color:#ae81ff">100</span>,
+</span></span><span style="display:flex;"><span>                    Currency = <span style="color:#e6db74">&#34;EUR&#34;</span>
+</span></span><span style="display:flex;"><span>                };  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> documentCollectionUri = UriFactory.CreateDocumentCollectionUri(database, container);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">var</span> document = <span style="color:#66d9ef">await</span> client.CreateDocumentAsync(documentCollectionUri, transaction); 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> transaction.Id;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 
       </main>
