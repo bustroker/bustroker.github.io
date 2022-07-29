@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Solution Architecture assessment | Coding notes</title>
+  <title>Architecture principles | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,92 +130,20 @@ audio {
       <main id="main">
         
 
-<h1>Solution Architecture assessment</h1>
-<h3 id="checklist-of-topics-to-cover">Checklist of topics to cover</h3>
-<h4 id="functional-level-assessment-which-applications-are-there-and-how-users-make-use-of-them-both-end-usersclients-and-corporate-usersemployees">Functional level assessment: which applications are there and how users make use of them? (both end users/clients and corporate users/employees)</h4>
+<h1>Architecture principles</h1>
+<p>Architecture Principles are key to relieve the gatekeeping burden from the Architect, and be able delegate specific decisions to the teams, offering more autonomy. 
+BUT there&rsquo;s a second layer below the principles, which is the SPECIFIC/CONCRETE process that ALSO needs to be put in place to garantie that governance artefacts are produced, e.g., System scoped documentation with both context and components maps/diagrams.</p>
+<h3 id="principles-i-find-useful">Principles I find useful</h3>
+<h4 id="create-principles-as-a-living-artefact-inspired-by-thoughtworks-p1">Create principles as a living artefact (inspired by Thoughtworks P1)</h4>
+<p>The principles should be a go-to document for dev teams, so ideally in mark-down and shared in a repo with version control and all.</p>
+<h4 id="enlist-gatekeepers-as-collaborators-from-thoughtworks-p3httpswwwthoughtworkscominsightsarticleslightweight-technology-governance">Enlist gatekeepers as collaborators (<a href="https://www.thoughtworks.com/insights/articles/lightweight-technology-governance">from Thoughtworks P3</a>)</h4>
+<p><em>&ldquo;Instead of structuring an architecture team as a group of gatekeepers who issue opaque mandates, a better approach is to use that group as consultants, coaches and advisors for teams that get engaged early on in the process. They can be articulating the organisational principles and constraints, but should also be helping teams figure out how to meet them. This leads to better two-way learning, and also can be a good connection point for spotting good ideas or tools to reuse elsewhere. The architecture group can help with evangelising these harvested items.&quot;</em></p>
+<h3 id="good-reads-on-architecture-principles">Good reads on Architecture principles</h3>
+<p><a href="https://www.thoughtworks.com/insights/articles/lightweight-technology-governance">https://www.thoughtworks.com/insights/articles/lightweight-technology-governance</a></p>
+<h4 id="good-examples-of-architectureengineering-principles">Good examples of Architecture/Engineering Principles</h4>
 <ul>
-<li>Identify business domains
-<ul>
-<li>Different functional areas in the frontend website</li>
-</ul>
-</li>
-<li>How each of them is related to the revenue-generating processes</li>
-<li>Multiple regions/countries with different features?</li>
-<li>Backoffice
-<ul>
-<li>Reporting/BI</li>
-</ul>
-</li>
-<li>User’s requests that the system can&rsquo;t meet atm.</li>
-<li>User’s main complaints and pain points
-<ul>
-<li>Examples of manual/human tasks that can/should be automated</li>
-</ul>
-</li>
-</ul>
-<h4 id="non-functional-level-assessment-slas-required-and-main-pain-points">Non Functional level assessment: SLAs required and main pain points</h4>
-<ul>
-<li>Availability (current/required/critical)</li>
-<li>Reliability (current/required/critical)</li>
-<li>Performance (current/required/critical)</li>
-<li>Security (current/required/critical)</li>
-<li>Some metrics of the system
-<ul>
-<li>Concurrent users</li>
-<li>Number of requests to be processed</li>
-<li>Bottlenecks detected</li>
-</ul>
-</li>
-<li>Tech team’s main complains and pain points</li>
-</ul>
-<h4 id="modules-and-components-diagrams">Modules and Components diagrams</h4>
-<ul>
-<li>Modules: How is code organized in the repos
-<ul>
-<li>applications and packages, and how they are related/referenced to each other</li>
-</ul>
-</li>
-<li>Components: How are components organized in runtime and how are they related/referenced to each other
-<ul>
-<li>Services, databases, queues, 3P services…</li>
-<li>Hosting model: On-prem, PaaS azure service, docker containers</li>
-</ul>
-</li>
-<li>Identity management
-<ul>
-<li>B2C</li>
-<li>Corporative</li>
-</ul>
-</li>
-<li>Multiregion/I18n</li>
-<li>Data
-<ul>
-<li>Reporting/BI</li>
-</ul>
-</li>
-</ul>
-<h4 id="how-is-the-systems-architecture-produced">How is the system’s architecture produced?</h4>
-<ul>
-<li>Is there a technical governance process in place?
-<ul>
-<li>Integrated in the SDLC?</li>
-<li>Tech debt management?</li>
-<li>Support issues overview</li>
-</ul>
-</li>
-<li>How are platform level decisions made?</li>
-</ul>
-<h4 id="sdlc">SDLC</h4>
-<ul>
-<li>Version control management model/branching strategies</li>
-<li>CI/CD.
-<ul>
-<li>Tooling</li>
-<li>For components</li>
-<li>For packages</li>
-<li>3party packages</li>
-</ul>
-</li>
+<li>John Lewis: <a href="http://engineering-principles.onejl.uk/operational/Cloud_Native.html">http://engineering-principles.onejl.uk/operational/Cloud_Native.html</a></li>
+<li>Monzo: <a href="https://monzo.com/blog/2018/06/29/engineering-principles">https://monzo.com/blog/2018/06/29/engineering-principles</a></li>
 </ul>
 
 
