@@ -6,7 +6,169 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bash</title>
+      <link>https://www.bustroker.com/tags/bash/</link>
+      <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>email</title>
+      <link>https://www.bustroker.com/tags/email/</link>
+      <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/email/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>https://www.bustroker.com/tags/aws/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws cli</title>
+      <link>https://www.bustroker.com/tags/aws-cli/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/aws-cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cheatsheet</title>
+      <link>https://www.bustroker.com/tags/cheatsheet/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/cheatsheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>catalog</title>
+      <link>https://www.bustroker.com/tags/catalog/</link>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/catalog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://www.bustroker.com/tags/tools/</link>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://www.bustroker.com/tags/kubernetes/</link>
+      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mssql 2019</title>
+      <link>https://www.bustroker.com/tags/mssql-2019/</link>
+      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/mssql-2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>authentication</title>
+      <link>https://www.bustroker.com/tags/authentication/</link>
+      <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/authentication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cli</title>
+      <link>https://www.bustroker.com/tags/cli/</link>
+      <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/cli/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://www.bustroker.com/tags/docker/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>https://www.bustroker.com/tags/mac/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trivy</title>
+      <link>https://www.bustroker.com/tags/trivy/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/trivy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scan</title>
+      <link>https://www.bustroker.com/tags/scan/</link>
+      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/scan/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vulnerability</title>
+      <link>https://www.bustroker.com/tags/vulnerability/</link>
+      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/vulnerability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>environment</title>
+      <link>https://www.bustroker.com/tags/environment/</link>
+      <pubDate>Tue, 03 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/environment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>https://www.bustroker.com/tags/java/</link>
+      <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/java/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>architecture</title>
       <link>https://www.bustroker.com/tags/architecture/</link>
@@ -26,20 +188,11 @@
     </item>
     
     <item>
-      <title>kubernetes</title>
-      <link>https://www.bustroker.com/tags/kubernetes/</link>
-      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
+      <title>interview</title>
+      <link>https://www.bustroker.com/tags/interview/</link>
+      <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bustroker.com/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mssql 2019</title>
-      <link>https://www.bustroker.com/tags/mssql-2019/</link>
-      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/mssql-2019/</guid>
+      <guid>https://www.bustroker.com/tags/interview/</guid>
       <description></description>
     </item>
     
@@ -143,15 +296,6 @@
     </item>
     
     <item>
-      <title>docker</title>
-      <link>https://www.bustroker.com/tags/docker/</link>
-      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>jupyter</title>
       <link>https://www.bustroker.com/tags/jupyter/</link>
       <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
@@ -175,15 +319,6 @@
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/windows/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cheatsheet</title>
-      <link>https://www.bustroker.com/tags/cheatsheet/</link>
-      <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/cheatsheet/</guid>
       <description></description>
     </item>
     
@@ -305,15 +440,6 @@
     </item>
     
     <item>
-      <title>cli</title>
-      <link>https://www.bustroker.com/tags/cli/</link>
-      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/cli/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>mssql</title>
       <link>https://www.bustroker.com/tags/mssql/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
@@ -413,6 +539,15 @@
     </item>
     
     <item>
+      <title>resources</title>
+      <link>https://www.bustroker.com/tags/resources/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/resources/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>net core 3.1</title>
       <link>https://www.bustroker.com/tags/net-core-3.1/</link>
       <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
@@ -463,15 +598,6 @@
       <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/azure-devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bash</title>
-      <link>https://www.bustroker.com/tags/bash/</link>
-      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/bash/</guid>
       <description></description>
     </item>
     

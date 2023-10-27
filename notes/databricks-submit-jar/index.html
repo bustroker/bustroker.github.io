@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -136,16 +136,16 @@ audio {
 <h4 id="configure-databricks-cli-connection">Configure databricks CLI connection</h4>
 <p>Generate and copy PAT token in databricks workspace/User Settings.
 Then go:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>databricks configure --token
-</span></span></code></pre></div><p>Workspace url: <a href="https://adb-3772194496043630.10.azuredatabricks.net/">https://adb-3772194496043630.10.azuredatabricks.net/</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">databricks configure --token
+</code></pre></div><p>Workspace url: <a href="https://adb-3772194496043630.10.azuredatabricks.net/">https://adb-3772194496043630.10.azuredatabricks.net/</a></p>
 <h4 id="push-jar-file-to-databricks-workspace">Push <code>jar</code> file to databricks workspace</h4>
 <p>First, pack to create the JAR</p>
 <pre tabindex="0"><code>cd [ProjectRoot]
 sbt assembly
 </code></pre><p>Then push the jar to Databricks. (Before, run <code>rm</code> to delete jar from databricks if it exists already).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>dbfs rm dbfs<span style="color:#960050;background-color:#1e0010">:</span>/lib/jars/Arch.Pocs.Databricks.Application.jar
-</span></span><span style="display:flex;"><span>dbfs cp ./target/scala-2.12/Arch.Pocs.Databricks.Application.jar dbfs<span style="color:#960050;background-color:#1e0010">:</span>/lib/jars/Arch.Pocs.Databricks.Application.jar
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">dbfs rm dbfs<span style="color:#960050;background-color:#1e0010">:</span>/lib/jars/Arch.Pocs.Databricks.Application.jar
+dbfs cp ./target/scala-2.12/Arch.Pocs.Databricks.Application.jar dbfs<span style="color:#960050;background-color:#1e0010">:</span>/lib/jars/Arch.Pocs.Databricks.Application.jar
+</code></pre></div>
 
 
       </main>

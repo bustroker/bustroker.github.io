@@ -24,8 +24,7 @@ Run query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34;
       
       <guid>https://www.bustroker.com/notes/install-sql-server-unattended-from-powershell/</guid>
       <description>Download installation from here, run it and use the option Download Media.
-To install Express edition, run powershell as admin and go cd C:\SQL2019\SQLEXPR_x64_ENU .\setup.exe /Q /HIDECONSOLE=0 /ACTION=INSTALL /SUPPRESSPRIVACYSTATEMENTNOTICE /IACCEPTSQLSERVERLICENSETERMS=1 /FEATURES=SQLENGINE /UPDATEENABLED=0 /INSTANCENAME=&amp;#34;MSSQLSERVER&amp;#34; /ADDCURRENTUSERASSQLADMIN=1 /SECURITYMODE=SQL /SKIPRULES=RebootRequiredCheck /SAPWD=&amp;#34;Pasword_01&amp;#34; /SQLSVCSTARTUPTYPE=AUTOMATIC /INDICATEPROGRESS For Developer edition, run powershell as admin and go cd C:\SQL2019\Developer_ENU .\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=&amp;#39;NT AUTHORITY\NETWORK SERVICE&amp;#39; /SQLSYSADMINACCOUNTS=&amp;#39;BUILTIN\ADMINISTRATORS&amp;#39; /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS /SECURITYMODE=SQL /SAPWD=&amp;#34;Password_01&amp;#34; To uninstall
-.\setup.exe /q /ACTION=Uninstall /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /INDICATEPROGRESS </description>
+ To install Express edition, run powershell as admin and go  cd C:\SQL2019\SQLEXPR_x64_ENU .\setup.exe /Q /HIDECONSOLE=0 /ACTION=INSTALL /SUPPRESSPRIVACYSTATEMENTNOTICE /IACCEPTSQLSERVERLICENSETERMS=1 /FEATURES=SQLENGINE /UPDATEENABLED=0 /INSTANCENAME=&amp;#34;MSSQLSERVER&amp;#34; /ADDCURRENTUSERASSQLADMIN=1 /SECURITYMODE=SQL /SKIPRULES=RebootRequiredCheck /SAPWD=&amp;#34;Pasword_01&amp;#34; /SQLSVCSTARTUPTYPE=AUTOMATIC /INDICATEPROGRESS  For Developer edition, run powershell as admin and go  cd C:\SQL2019\Developer_ENU .\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=&amp;#39;NT AUTHORITY\NETWORK SERVICE&amp;#39; /SQLSYSADMINACCOUNTS=&amp;#39;BUILTIN\ADMINISTRATORS&amp;#39; /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS /SECURITYMODE=SQL /SAPWD=&amp;#34;Password_01&amp;#34; To uninstall</description>
     </item>
     
     <item>
@@ -38,7 +37,7 @@ To install Express edition, run powershell as admin and go cd C:\SQL2019\SQLEXPR
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user
 [System.Environment]::GetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;,&amp;#39;machine&amp;#39;) For some reason, the previous doesn&amp;rsquo;t work for variable COMPUTERNAME. To get computer name:
 $env:computername Set environment variable Run powershell as Admin.
-new variable [System.Environment]::SetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;, &amp;#39;VARIABLE_VALUE&amp;#39;,[System.EnvironmentVariableTarget]::Machine) add to an existing variable (typically to PATH) $current=[System.</description>
+ new variable  [System.Environment]::SetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;, &amp;#39;VARIABLE_VALUE&amp;#39;,[System.EnvironmentVariableTarget]::Machine)  add to an existing variable (typically to PATH)  $current=[System.</description>
     </item>
     
   </channel>

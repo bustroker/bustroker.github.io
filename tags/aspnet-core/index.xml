@@ -26,7 +26,7 @@ Bundle and minify them To bundle and minify js and css files, add bundleconfig.j
       <guid>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku/</guid>
       <description>An aspnet core web app/api app is assumed to have been implemented already. Following is how to deploy it.
 Heroku PORT Heroku saves in the environment variable PORT, the port where the application should listen. So the port needs to be changed to that one.
-//Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { var herokuPort = Environment.GetEnvironmentVariable(&amp;#34;PORT&amp;#34;); if (!string.IsNullOrWhiteSpace(herokuPort)) { webBuilder.UseUrls($&amp;#34;http://*:{herokuPort}&amp;#34;); } webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); Dockerfile FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env WORKDIR /app # Copy csproj and restore as distinct layers COPY *.</description>
+//Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { var herokuPort = Environment.GetEnvironmentVariable(&amp;#34;PORT&amp;#34;); if (!string.IsNullOrWhiteSpace(herokuPort)) { webBuilder.UseUrls($&amp;#34;http://*:{herokuPort}&amp;#34;); } webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); Dockerfile FROMmcr.microsoft.com/dotnet/core/sdk:3.1 AS build-envWORKDIR/app# Copy csproj and restore as distinct layersCOPY *.</description>
     </item>
     
     <item>
@@ -47,7 +47,7 @@ dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rathe
       <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
       <description>Add serilog
 dotnet add package Serilog.AspNetCore public class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog() .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); } Then add
-// Startup.cs public void Configure(IApplicationBuilder app, IWebHostEnvironment env) { if (env.</description>
+// Startup.cs  public void Configure(IApplicationBuilder app, IWebHostEnvironment env) { if (env.</description>
     </item>
     
   </channel>

@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,8 +132,8 @@ audio {
 
 <h1>Run Jupyter notebook with spark in docker</h1>
 <h3 id="install-spark-to-run-locally">Install spark to run locally</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>docker run -p 8888<span style="color:#960050;background-color:#1e0010">:</span>8888 -p 4041<span style="color:#960050;background-color:#1e0010">:</span>4041 jupyter/all-spark-notebook
-</span></span></code></pre></div><p>The auth token is logged in the terminal. Copy it.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">docker run -p 8888<span style="color:#960050;background-color:#1e0010">:</span>8888 -p 4041<span style="color:#960050;background-color:#1e0010">:</span>4041 jupyter/all-spark-notebook
+</code></pre></div><p>The auth token is logged in the terminal. Copy it.
 In host browse to <code>localhost:8888</code>. Use the token to authenticate in the interface.</p>
 <p>Create new <code>spylon-kernel</code> notebook and write scala code.</p>
 <p>Spark WebUI is running on port <code>4041</code></p>

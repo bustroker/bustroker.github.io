@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,12 +132,12 @@ audio {
 
 <h1>Helm 3 commands cheatsheet</h1>
 <h3 id="create-tgz-package-from-chart-folder-content">Create .tgz package from chart folder content</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>cd chart
-</span></span><span style="display:flex;"><span>helm package .
-</span></span></code></pre></div><h3 id="deploy-local-tgz-package-to-kubernetes">Deploy local tgz package to kubernetes</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">cd chart
+helm package .
+</code></pre></div><h3 id="deploy-local-tgz-package-to-kubernetes">Deploy local tgz package to kubernetes</h3>
 <p>The terminal must have been authenticated. In case of AKS, run <code>az aks get-credentials --resource-group &lt;RESOURCEGROUP_NAME&gt; --name &lt;AKS_CLUSTERNAME&gt;</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>helm install &lt;RELEASE_NAME&gt; &lt;TGZ_PACKAGE&gt;
-</span></span></code></pre></div><h3 id="list-releases-in-kubernetes">List releases in kubernetes</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">helm install &lt;RELEASE_NAME&gt; &lt;TGZ_PACKAGE&gt;
+</code></pre></div><h3 id="list-releases-in-kubernetes">List releases in kubernetes</h3>
 <pre tabindex="0"><code>helm list
 helm get all &lt;RELEASE_NAME&gt;
 </code></pre><h3 id="deploy-chart-from-registry">Deploy chart from registry</h3>

@@ -13,8 +13,8 @@
       <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</guid>
-      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service // Startup.cs public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.
-// appsettings.json { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, .... } Add the ApplicationInsights logging provider This is for the ILogger injected object to send to ApplicationInsights as well.</description>
+      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service // Startup.cs  public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.
+// appsettings.json  { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, .... } Add the ApplicationInsights logging provider This is for the ILogger injected object to send to ApplicationInsights as well.</description>
     </item>
     
   </channel>

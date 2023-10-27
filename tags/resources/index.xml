@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>resources on Coding notes</title>
+    <link>https://www.bustroker.com/tags/resources/</link>
+    <description>Recent content in resources on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/resources/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Good reads. Well explained miscelanea subjects</title>
+      <link>https://www.bustroker.com/notes/good-reads.-well-explained-miscelanea-subjects/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/good-reads.-well-explained-miscelanea-subjects/</guid>
+      <description>About containers and Unix OS About netcore 2.2 host in IIS InProcess/OutOfProcess About netcore compilation and packages About microservices About Java, JRE, JDK and installation Scala module pattern Spark Data processing architectures Streaming analytics SaaS bussines model [Monolith to microservices] notes. (https://danlebrero.com/2022/02/09/monolith-to-microservices-summary/) </description>
+    </item>
+    
+  </channel>
+</rss>

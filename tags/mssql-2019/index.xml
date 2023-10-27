@@ -6,7 +6,19 @@
     <description>Recent content in mssql 2019 on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/mssql-2019/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/mssql-2019/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multiple SSH Keys settings for different github account</title>
+      <link>https://www.bustroker.com/notes/multiple-ssh-keys-settings-for-different-github-account/</link>
+      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/multiple-ssh-keys-settings-for-different-github-account/</guid>
+      <description>Check existing keys $ ssh-add -l Create different public key  create different ssh key according the article Mac Set-Up Git
+cd ~/.ssh ssh-keygen -t rsa -C &amp;#34;bustroker@email.com&amp;#34; -f &amp;#34;github_bustroker&amp;#34; ssh-keygen -t rsa -C &amp;#34;bkr@email.com&amp;#34; -f &amp;#34;github_bkr&amp;#34; The -C option is a comment to help identify the key. The -f option specifies the file name for the key pair.
+for example, 2 keys created at:
+~/.ssh/github-bustroker ~/.ssh/github-bkr then, add these two keys as following</description>
+    </item>
+    
     <item>
       <title>Run MSSQL 2019 on Kubernetes</title>
       <link>https://www.bustroker.com/notes/run-mssql-2019-on-kubernetes/</link>
@@ -24,7 +36,7 @@
       <guid>https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/</guid>
       <description>MSSQL 2019 not available yet in official images, so&amp;hellip;
 Dockerfile The windows server base images must be the same windows version as the host, as per official documentation (¡¿?!). To get the version open cmd and type ver, to get something like 10.0.19042.867.
-FROM mcr.microsoft.com/windows/servercore:10.0.19042.867 SHELL [ &amp;#34;powershell&amp;#34; ] # Copy COPY ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1 COPY ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1 # Copy installers COPY ./installers /installers # install Sql Server Developer edition (see readme.</description>
+FROMmcr.microsoft.com/windows/servercore:10.0.19042.867SHELL [ &amp;#34;powershell&amp;#34; ]# CopyCOPY ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1COPY ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1# Copy installersCOPY ./installers /installers# install Sql Server Developer edition (see readme.md for details)RUN c:/setupScripts/installSqlServerTools.ps1CMD /setupScripts/startAndConfigSqlServer.ps1 -sa_password $env:sa_password -attach_dbs \&amp;#34;$env:attach_dbs\&amp;#34; -ACCEPT_EULA Y -VerboseInstallers The folder installers contains:</description>
     </item>
     
   </channel>

@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -133,32 +133,32 @@ audio {
 <h1>Git sparse-checkout</h1>
 <p>To checkout and work only with a subset/subtree of folders from a repo (yes, some people insist in economizing repos)</p>
 <h4 id="initialize-sparse-checkout-config">Initialize sparse-checkout config</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>git clone URL --no-checkout <span style="color:#75715e"># add `--depth 1` to only include latest commit from all commit history</span>
-</span></span><span style="display:flex;"><span>cd REPO_ROOT
-</span></span><span style="display:flex;"><span>git sparse-checkout init --cone <span style="color:#75715e"># `--cone` to include root files</span>
-</span></span><span style="display:flex;"><span>git checkout
-</span></span></code></pre></div><h4 id="set-existing-folders-to-be-actually-checked-out">Set existing folders to be actually checked out</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>git sparse-checkout add Apps/OtherApp <span style="color:#75715e"># to add new folders to the current checkout list. </span>
-</span></span><span style="display:flex;"><span>git sparse-checkout list <span style="color:#75715e"># to get the set folders. can be run from any folder in the tree with same results</span>
-</span></span></code></pre></div><h5 id="to-create-a-new-app-folder-in-the-repo-and-work-with-it-typical-flow-would-be">To create a new app (folder) in the repo and work with it, typical flow would be:</h5>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd ROOT/Apps
-</span></span><span style="display:flex;"><span>mkdir OneMoreApp
-</span></span><span style="display:flex;"><span>git sparse-checkout add Apps/OneMoreApp
-</span></span><span style="display:flex;"><span>git sparse-checkout list <span style="color:#75715e"># to confirm all the paths included</span>
-</span></span></code></pre></div><p>To operate the repo, just <code>cd</code> into the desired App folder and <code>git</code> commands go as expected.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd App/OneMoreApp
-</span></span><span style="display:flex;"><span>git add .
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;-cool descriptive message&#34;</span>
-</span></span><span style="display:flex;"><span>git push origin master
-</span></span></code></pre></div><p>When the repo goes outdated, just <code>cd</code> into one of the folders and <code>pull</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd App/AnyApp
-</span></span><span style="display:flex;"><span>git pull
-</span></span></code></pre></div><p>The repo will update without downloading any unwanted file.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git clone URL --no-checkout <span style="color:#75715e"># add `--depth 1` to only include latest commit from all commit history</span>
+cd REPO_ROOT
+git sparse-checkout init --cone <span style="color:#75715e"># `--cone` to include root files</span>
+git checkout
+</code></pre></div><h4 id="set-existing-folders-to-be-actually-checked-out">Set existing folders to be actually checked out</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">git sparse-checkout add Apps/OtherApp <span style="color:#75715e"># to add new folders to the current checkout list. </span>
+git sparse-checkout list <span style="color:#75715e"># to get the set folders. can be run from any folder in the tree with same results</span>
+</code></pre></div><h5 id="to-create-a-new-app-folder-in-the-repo-and-work-with-it-typical-flow-would-be">To create a new app (folder) in the repo and work with it, typical flow would be:</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd ROOT/Apps
+mkdir OneMoreApp
+git sparse-checkout add Apps/OneMoreApp
+git sparse-checkout list <span style="color:#75715e"># to confirm all the paths included</span>
+</code></pre></div><p>To operate the repo, just <code>cd</code> into the desired App folder and <code>git</code> commands go as expected.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd App/OneMoreApp
+git add .
+git commit -m <span style="color:#e6db74">&#34;-cool descriptive message&#34;</span>
+git push origin master
+</code></pre></div><p>When the repo goes outdated, just <code>cd</code> into one of the folders and <code>pull</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd App/AnyApp
+git pull
+</code></pre></div><p>The repo will update without downloading any unwanted file.
 <strong>I haven&rsquo;t tested how branching <code>git branch</code> works with sparse-checkout, though!</strong>. So watch out for this.</p>
 <h4 id="get-rid-of-sparse-checkout">Get rid of sparse-checkout</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>cd ROOT <span style="color:#75715e"># not sure whether it&#39;s required, though..</span>
-</span></span><span style="display:flex;"><span>git sparse-checkout disable
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">cd ROOT <span style="color:#75715e"># not sure whether it&#39;s required, though..</span>
+git sparse-checkout disable
+</code></pre></div>
 
 
       </main>

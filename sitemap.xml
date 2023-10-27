@@ -2,19 +2,100 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.bustroker.com/tags/bash/</loc>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/</loc>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/email/</loc>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/send-email-from-bash-in-linux/</loc>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/aws/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/aws-cli/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/aws-cli-cheatsheet/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/cheatsheet/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/catalog/</loc>
+    <lastmod>2023-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/tools/</loc>
+    <lastmod>2023-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/tools-catalog/</loc>
+    <lastmod>2023-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/kubernetes/</loc>
+    <lastmod>2023-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/mssql-2019/</loc>
+    <lastmod>2023-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/multiple-ssh-keys-settings-for-different-github-account/</loc>
+    <lastmod>2023-06-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/authentication/</loc>
+    <lastmod>2023-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/cli/</loc>
+    <lastmod>2023-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/configure-aws-cli/</loc>
+    <lastmod>2023-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/docker/</loc>
+    <lastmod>2023-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/mac/</loc>
+    <lastmod>2023-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/run-trivy-from-docker-on-mac/</loc>
+    <lastmod>2023-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/trivy/</loc>
+    <lastmod>2023-03-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/scan/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/vulnerability/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/vulnerability-scan-with-trivy/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/environment/</loc>
+    <lastmod>2023-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/mac-environment-variable/</loc>
+    <lastmod>2023-01-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/java/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/java-overview/</loc>
+    <lastmod>2022-10-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/tags/architecture/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/architecture-principles/</loc>
-    <lastmod>2022-06-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/</loc>
-    <lastmod>2022-06-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/</loc>
-    <lastmod>2022-06-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/solution-architecture-assessment/</loc>
@@ -32,11 +113,8 @@
     <loc>https://www.bustroker.com/notes/dotnet-software-engineer-interview-questions/</loc>
     <lastmod>2022-05-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/kubernetes/</loc>
-    <lastmod>2022-02-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/mssql-2019/</loc>
-    <lastmod>2022-02-03T00:00:00+00:00</lastmod>
+    <loc>https://www.bustroker.com/tags/interview/</loc>
+    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/run-mssql-2019-on-kubernetes/</loc>
     <lastmod>2022-02-03T00:00:00+00:00</lastmod>
@@ -95,9 +173,6 @@
     <loc>https://www.bustroker.com/tags/webapi/</loc>
     <lastmod>2021-09-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/docker/</loc>
-    <lastmod>2021-08-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/tags/jupyter/</loc>
     <lastmod>2021-08-15T00:00:00+00:00</lastmod>
   </url><url>
@@ -112,9 +187,6 @@
   </url><url>
     <loc>https://www.bustroker.com/tags/windows/</loc>
     <lastmod>2021-08-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/cheatsheet/</loc>
-    <lastmod>2021-08-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/path/</loc>
     <lastmod>2021-08-10T00:00:00+00:00</lastmod>
@@ -179,9 +251,6 @@
     <loc>https://www.bustroker.com/tags/ssl/</loc>
     <lastmod>2021-04-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/cli/</loc>
-    <lastmod>2021-04-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/tags/mssql/</loc>
     <lastmod>2021-04-03T00:00:00+00:00</lastmod>
   </url><url>
@@ -233,10 +302,13 @@
     <loc>https://www.bustroker.com/tags/good-reads/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.bustroker.com/notes/good-reads.-well-explained-miscelanea-subjects/</loc>
+    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/tags/links/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/well-explained-miscelanea-subjects/</loc>
+    <loc>https://www.bustroker.com/tags/resources/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/net-core-3.1/</loc>
@@ -268,9 +340,6 @@
   </url><url>
     <loc>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-cheatsheet/</loc>
     <lastmod>2020-09-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/bash/</loc>
-    <lastmod>2020-09-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/bat/</loc>
     <lastmod>2020-09-29T00:00:00+00:00</lastmod>

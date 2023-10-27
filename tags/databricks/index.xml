@@ -17,7 +17,7 @@
 Configure databricks CLI connection Generate and copy PAT token in databricks workspace/User Settings. Then go:
 databricks configure --token Workspace url: https://adb-3772194496043630.10.azuredatabricks.net/
 Push jar file to databricks workspace First, pack to create the JAR
-cd [ProjectRoot]sbt assembly Then push the jar to Databricks. (Before, run rm to delete jar from databricks if it exists already).</description>
+cd [ProjectRoot] sbt assembly Then push the jar to Databricks. (Before, run rm to delete jar from databricks if it exists already).</description>
     </item>
     
   </channel>

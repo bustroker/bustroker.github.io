@@ -13,7 +13,7 @@
       <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/azure-function-for-cosmosdb-changefeed./</guid>
-      <description>Cosmos Create cosmos account, cosmos container Database: arch-pocs-misc-cosmosdb. Container being monitored: Transactions Lease container, required for the changefeed: TransactionsLease. The partition key for the lease container must be /id. Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools
+      <description>Cosmos  Create cosmos account, cosmos container Database: arch-pocs-misc-cosmosdb. Container being monitored: Transactions Lease container, required for the changefeed: TransactionsLease. The partition key for the lease container must be /id.  Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools
 Create function project func init Bustroker.CosmosDbChangeFeed.Func --dotnet [--docker] I renamed csproj file from Bustroker_CosmosDbChangeFeed_Func.csproj to Bustroker.CosmosDbChangeFeed.Func.csproj.
 Check details for development with docker here
 Create ChangeFeed function cd Bustroker.CosmosDbChangeFeed.Func func new --name TransactionsChangeFeed [--template {HttpTrigger, CosmosDbTrigger, etc}] And the code</description>

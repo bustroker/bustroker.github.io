@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,76 +132,76 @@ audio {
 
 <h1>Spark with delta lake</h1>
 <h3 id="buildsbt">build.sbt</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> version      <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.1.0&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> scalaVersion <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2.13.8&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> organization <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bkr&#34;</span> 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>libraryDependencies <span style="color:#f92672">++=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-core&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-sql&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// % &#34;provided&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                            <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-sql-kafka-0-10&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// % Test
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                            <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-avro&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>libraryDependencies <span style="color:#f92672">++=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;org.apache.hadoop&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;hadoop-common&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.3.1&#34;</span><span style="color:#f92672">,</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#e6db74">&#34;org.apache.hadoop&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;hadoop-azure&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.3.1&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;org.json4s&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;json4s-native&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.6.12&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;io.delta&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;delta-core&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;1.1.0&#34;</span>
-</span></span></code></pre></div><h3 id="appscala">App.scala</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> org.apache.spark._
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> org.apache.spark.sql._
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> org.apache.spark.sql.streaming._
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> org.apache.hadoop._
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> org.apache.spark.sql.types._
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Application</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running app..&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> adlsAccountName <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;ADLS_ACCOUNT_NAME&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> adlsAccountKey <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;ADLS_ACCOUNT_KEY&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> sparkConfig <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SparkConf</span><span style="color:#f92672">().</span>setMaster<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;local&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> spark <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">SparkSession</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">.</span>builder
-</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">.</span>config<span style="color:#f92672">(</span>sparkConfig<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">.</span>getOrCreate<span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">import</span> spark.implicits._
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    spark<span style="color:#f92672">.</span>sparkContext<span style="color:#f92672">.</span>setLogLevel<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ERROR&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>    spark<span style="color:#f92672">.</span>sparkContext
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span>hadoopConfiguration
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">.</span>set<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;fs.azure.account.key.</span><span style="color:#e6db74">$adlsAccountName</span><span style="color:#e6db74">.dfs.core.windows.net&#34;</span><span style="color:#f92672">,</span> adlsAccountKey<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> schema <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">StructType</span><span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">.</span>add<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;action&#34;</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">StringType</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#f92672">.</span>add<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;entity&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">StructType</span><span style="color:#f92672">()</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">.</span>add<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">IntegerType</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">.</span>add<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">StringType</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">.</span>add<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;lastname&#34;</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">StringType</span><span style="color:#f92672">))</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> ops<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Dataset</span><span style="color:#f92672">[</span><span style="color:#66d9ef">ClientOperation</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span> spark<span style="color:#f92672">.</span>read
-</span></span><span style="display:flex;"><span>                                            <span style="color:#f92672">.</span>json<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;./data/input&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>                                            <span style="color:#f92672">.</span>as<span style="color:#f92672">[</span><span style="color:#66d9ef">ClientOperation</span><span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> created<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Dataset</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Client</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span> ops<span style="color:#f92672">.</span>filter<span style="color:#f92672">(</span>o <span style="color:#66d9ef">=&gt;</span> o<span style="color:#f92672">.</span>action <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;create&#34;</span><span style="color:#f92672">).</span>map<span style="color:#f92672">(</span><span style="color:#66d9ef">_</span><span style="color:#f92672">.</span>entity<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> updated<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Dataset</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Client</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span> ops<span style="color:#f92672">.</span>filter<span style="color:#f92672">(</span>o <span style="color:#66d9ef">=&gt;</span> o<span style="color:#f92672">.</span>action <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;update&#34;</span><span style="color:#f92672">).</span>map<span style="color:#f92672">(</span><span style="color:#66d9ef">_</span><span style="color:#f92672">.</span>entity<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> createdNotUpdated <span style="color:#66d9ef">=</span> created<span style="color:#f92672">.</span>join<span style="color:#f92672">(</span>updated<span style="color:#f92672">,</span> created<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">===</span> updated<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">),</span> <span style="color:#e6db74">&#34;leftanti&#34;</span><span style="color:#f92672">).</span>as<span style="color:#f92672">[</span><span style="color:#66d9ef">Client</span><span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> snapshot <span style="color:#66d9ef">=</span> createdNotUpdated<span style="color:#f92672">.</span>union<span style="color:#f92672">(</span>updated<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    snapshot<span style="color:#f92672">.</span>foreach<span style="color:#f92672">(</span>e <span style="color:#66d9ef">=&gt;</span> println<span style="color:#f92672">(</span>e<span style="color:#f92672">))</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// snapshot.write.format(&#34;delta&#34;).save(&#34;./data/output&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    snapshot<span style="color:#f92672">.</span>write<span style="color:#f92672">.</span>format<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;delta&#34;</span><span style="color:#f92672">).</span>save<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;abfss://joker@</span><span style="color:#e6db74">$adlsAccountName</span><span style="color:#e6db74">.dfs.core.windows.net/delta-lake/clients-table&#34;</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Client</span><span style="color:#f92672">(</span>id<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Long</span><span style="color:#f92672">,</span> name<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span><span style="color:#f92672">,</span> lastname<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span><span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClientOperation</span><span style="color:#f92672">(</span>action<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span><span style="color:#f92672">,</span> entity<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Client</span><span style="color:#f92672">)</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> version      <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.1.0&#34;</span>
+<span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> scalaVersion <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2.13.8&#34;</span>
+<span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> organization <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bkr&#34;</span> 
+
+libraryDependencies <span style="color:#f92672">++=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-core&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">,</span>
+                            <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-sql&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// % &#34;provided&#34;
+</span><span style="color:#75715e"></span>                            <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-sql-kafka-0-10&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// % Test
+</span><span style="color:#75715e"></span>                            <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-avro&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">)</span>
+
+libraryDependencies <span style="color:#f92672">++=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;org.apache.hadoop&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;hadoop-common&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.3.1&#34;</span><span style="color:#f92672">,</span>
+                            <span style="color:#e6db74">&#34;org.apache.hadoop&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;hadoop-azure&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.3.1&#34;</span><span style="color:#f92672">)</span>
+
+libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;org.json4s&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;json4s-native&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.6.12&#34;</span>
+
+libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;io.delta&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;delta-core&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;1.1.0&#34;</span>
+</code></pre></div><h3 id="appscala">App.scala</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">
+<span style="color:#66d9ef">import</span> org.apache.spark._
+<span style="color:#66d9ef">import</span> org.apache.spark.sql._
+<span style="color:#66d9ef">import</span> org.apache.spark.sql.streaming._
+<span style="color:#66d9ef">import</span> org.apache.hadoop._
+<span style="color:#66d9ef">import</span> org.apache.spark.sql.types._
+
+<span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Application</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
+
+    println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Running app..&#34;</span><span style="color:#f92672">)</span>
+
+    <span style="color:#66d9ef">val</span> adlsAccountName <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;ADLS_ACCOUNT_NAME&#34;</span>
+    <span style="color:#66d9ef">val</span> adlsAccountKey <span style="color:#66d9ef">=</span> <span style="color:#e6db74">&#34;ADLS_ACCOUNT_KEY&#34;</span>
+
+    <span style="color:#66d9ef">val</span> sparkConfig <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SparkConf</span><span style="color:#f92672">().</span>setMaster<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;local&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">val</span> spark <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">SparkSession</span>
+                            <span style="color:#f92672">.</span>builder
+                            <span style="color:#f92672">.</span>config<span style="color:#f92672">(</span>sparkConfig<span style="color:#f92672">)</span>
+                            <span style="color:#f92672">.</span>getOrCreate<span style="color:#f92672">()</span>
+    <span style="color:#66d9ef">import</span> spark.implicits._
+    
+    spark<span style="color:#f92672">.</span>sparkContext<span style="color:#f92672">.</span>setLogLevel<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ERROR&#34;</span><span style="color:#f92672">)</span>
+    spark<span style="color:#f92672">.</span>sparkContext
+            <span style="color:#f92672">.</span>hadoopConfiguration
+            <span style="color:#f92672">.</span>set<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;fs.azure.account.key.</span><span style="color:#e6db74">$adlsAccountName</span><span style="color:#e6db74">.dfs.core.windows.net&#34;</span><span style="color:#f92672">,</span> adlsAccountKey<span style="color:#f92672">)</span>
+
+    <span style="color:#66d9ef">val</span> schema <span style="color:#66d9ef">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">StructType</span><span style="color:#f92672">()</span>
+                    <span style="color:#f92672">.</span>add<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;action&#34;</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">StringType</span><span style="color:#f92672">)</span>
+                    <span style="color:#f92672">.</span>add<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;entity&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">StructType</span><span style="color:#f92672">()</span>
+                        <span style="color:#f92672">.</span>add<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">IntegerType</span><span style="color:#f92672">)</span>
+                        <span style="color:#f92672">.</span>add<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">StringType</span><span style="color:#f92672">)</span>
+                        <span style="color:#f92672">.</span>add<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;lastname&#34;</span><span style="color:#f92672">,</span> <span style="color:#a6e22e">StringType</span><span style="color:#f92672">))</span>
+
+    <span style="color:#66d9ef">val</span> ops<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Dataset</span><span style="color:#f92672">[</span><span style="color:#66d9ef">ClientOperation</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span> spark<span style="color:#f92672">.</span>read
+                                            <span style="color:#f92672">.</span>json<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;./data/input&#34;</span><span style="color:#f92672">)</span>
+                                            <span style="color:#f92672">.</span>as<span style="color:#f92672">[</span><span style="color:#66d9ef">ClientOperation</span><span style="color:#f92672">]</span>
+
+    <span style="color:#66d9ef">val</span> created<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Dataset</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Client</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span> ops<span style="color:#f92672">.</span>filter<span style="color:#f92672">(</span>o <span style="color:#66d9ef">=&gt;</span> o<span style="color:#f92672">.</span>action <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;create&#34;</span><span style="color:#f92672">).</span>map<span style="color:#f92672">(</span><span style="color:#66d9ef">_</span><span style="color:#f92672">.</span>entity<span style="color:#f92672">)</span>
+
+    <span style="color:#66d9ef">val</span> updated<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Dataset</span><span style="color:#f92672">[</span><span style="color:#66d9ef">Client</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">=</span> ops<span style="color:#f92672">.</span>filter<span style="color:#f92672">(</span>o <span style="color:#66d9ef">=&gt;</span> o<span style="color:#f92672">.</span>action <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;update&#34;</span><span style="color:#f92672">).</span>map<span style="color:#f92672">(</span><span style="color:#66d9ef">_</span><span style="color:#f92672">.</span>entity<span style="color:#f92672">)</span>
+
+    <span style="color:#66d9ef">val</span> createdNotUpdated <span style="color:#66d9ef">=</span> created<span style="color:#f92672">.</span>join<span style="color:#f92672">(</span>updated<span style="color:#f92672">,</span> created<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">===</span> updated<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">),</span> <span style="color:#e6db74">&#34;leftanti&#34;</span><span style="color:#f92672">).</span>as<span style="color:#f92672">[</span><span style="color:#66d9ef">Client</span><span style="color:#f92672">]</span>
+
+    <span style="color:#66d9ef">val</span> snapshot <span style="color:#66d9ef">=</span> createdNotUpdated<span style="color:#f92672">.</span>union<span style="color:#f92672">(</span>updated<span style="color:#f92672">)</span>
+
+    snapshot<span style="color:#f92672">.</span>foreach<span style="color:#f92672">(</span>e <span style="color:#66d9ef">=&gt;</span> println<span style="color:#f92672">(</span>e<span style="color:#f92672">))</span>
+
+    <span style="color:#75715e">// snapshot.write.format(&#34;delta&#34;).save(&#34;./data/output&#34;)
+</span><span style="color:#75715e"></span>    snapshot<span style="color:#f92672">.</span>write<span style="color:#f92672">.</span>format<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;delta&#34;</span><span style="color:#f92672">).</span>save<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;abfss://joker@</span><span style="color:#e6db74">$adlsAccountName</span><span style="color:#e6db74">.dfs.core.windows.net/delta-lake/clients-table&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Client</span><span style="color:#f92672">(</span>id<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Long</span><span style="color:#f92672">,</span> name<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span><span style="color:#f92672">,</span> lastname<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClientOperation</span><span style="color:#f92672">(</span>action<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span><span style="color:#f92672">,</span> entity<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Client</span><span style="color:#f92672">)</span>
+</code></pre></div>
 
 
       </main>

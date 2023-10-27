@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -139,25 +139,26 @@ audio {
 <li>Visual Studio 2019: <code>C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150</code></li>
 </ul>
 <h3 id="run-a-script">Run a script</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>sqlcmd -S <span style="color:#66d9ef">[SERVER]</span> -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># e.g.</span>
-</span></span><span style="display:flex;"><span>sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log
-</span></span></code></pre></div><h3 id="open-cli-for-queries">Open CLI for queries</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">sqlcmd -S <span style="color:#66d9ef">[SERVER]</span> -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log
+<span style="color:#75715e"># e.g.</span>
+sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log
+</code></pre></div><h3 id="open-cli-for-queries">Open CLI for queries</h3>
 <pre tabindex="0"><code>sqlcmd -S localhost -U sa -P password -d database
 &gt; select * from transactions
 &gt; go
 </code></pre><h3 id="run-sqlcmd-from-dockerkubernetes-and-connecto-to-hosts-localhost-sql-server">Run <code>sqlcmd</code> from docker/kubernetes and connecto to host&rsquo;s localhost sql server</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>docker run --rm -it mcr.microsoft.com/mssql-tools
-</span></span><span style="display:flex;"><span>sqlcmd -S host.docker.internal -U <span style="color:#66d9ef">[USER]</span> -P <span style="color:#66d9ef">[PASSWORD]</span> -d <span style="color:#66d9ef">[DATABASE]</span>
-</span></span><span style="display:flex;"><span>&gt;select * from transactions
-</span></span><span style="display:flex;"><span>&gt; go
-</span></span></code></pre></div><p>-S host.docker.internal =&gt; sets the server to <code>host.docker.internal</code>, where host&rsquo;s localhost can be accessed from inside the container.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">docker run --rm -it mcr.microsoft.com/mssql-tools
+sqlcmd -S host.docker.internal -U <span style="color:#66d9ef">[USER]</span> -P <span style="color:#66d9ef">[PASSWORD]</span> -d <span style="color:#66d9ef">[DATABASE]</span>
+&gt;select * from transactions
+&gt; go
+</code></pre></div><p>-S host.docker.internal =&gt; sets the server to <code>host.docker.internal</code>, where host&rsquo;s localhost can be accessed from inside the container.</p>
 <p>Or in kubernetes</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl run disposable-sql --image=mcr.microsoft.com/mssql-tools -it --rm -- bash
-</span></span><span style="display:flex;"><span>sqlcmd -S <span style="color:#66d9ef">[IP],[PORT]</span> -U <span style="color:#66d9ef">[USER]</span> -P <span style="color:#66d9ef">[PASSWORD]</span> -d <span style="color:#66d9ef">[DATABASE]</span>
-</span></span><span style="display:flex;"><span>&gt;select * from transactions
-</span></span><span style="display:flex;"><span>&gt; go
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">kubectl run disposable-sql --image=mcr.microsoft.com/mssql-tools -it --rm -- bash
+sqlcmd -S <span style="color:#66d9ef">[IP],[PORT]</span> -U <span style="color:#66d9ef">[USER]</span> -P <span style="color:#66d9ef">[PASSWORD]</span> -d <span style="color:#66d9ef">[DATABASE]</span>
+&gt;select * from transactions
+&gt; go
+
+</code></pre></div>
 
 
       </main>

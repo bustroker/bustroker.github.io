@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.92.2" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,22 +132,22 @@ audio {
 
 <h1>Passing arguments to scripts (both `bat` and `bash`)</h1>
 <h3 id="windows-script-bat">Windows script <code>.bat</code></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>//windows-script.bat
-</span></span><span style="display:flex;"><span>set firstArgument=%1%
-</span></span><span style="display:flex;"><span>set secondArgument=%2%
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>echo You passed first %firstArgument% and second %secondArgument%
-</span></span></code></pre></div><p>Call it as</p>
-<pre tabindex="0"><code>.\windows-script.bat &#34;little donald&#34; &#34;had a farm&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">//windows-script.bat
+set firstArgument=%1%
+set secondArgument=%2%
+<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>echo You passed first %firstArgument% and second %secondArgument%
+</code></pre></div><p>Call it as</p>
+<pre tabindex="0"><code>.\windows-script.bat &quot;little donald&quot; &quot;had a farm&quot;
 </code></pre><h3 id="unix-script-bash">Unix script <code>.bash</code></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>//unix-script.bash
-</span></span><span style="display:flex;"><span>#!/bin/sh
-</span></span><span style="display:flex;"><span>firstArgument=$1
-</span></span><span style="display:flex;"><span>secondArgument=$2
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>echo You passed first $firstArgument and second $secondArgument
-</span></span></code></pre></div><p>Call it as</p>
-<pre tabindex="0"><code>bash unix-script.bash &#34;little donald&#34; &#34;had a farm&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">//unix-script.bash
+#!/bin/sh
+firstArgument=$1
+secondArgument=$2
+<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>echo You passed first $firstArgument and second $secondArgument
+</code></pre></div><p>Call it as</p>
+<pre tabindex="0"><code>bash unix-script.bash &quot;little donald&quot; &quot;had a farm&quot;
 </code></pre>
 
 
