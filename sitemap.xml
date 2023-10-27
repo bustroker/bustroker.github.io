@@ -281,6 +281,15 @@
     <loc>https://www.bustroker.com/tags/html/</loc>
     <lastmod>2021-03-26T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.bustroker.com/tags/mssql-2017/</loc>
+    <lastmod>2021-03-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/</loc>
+    <lastmod>2021-03-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/run-mssql-2017-server-in-docker-for-windows/</loc>
+    <lastmod>2021-03-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/notes/simplest-html-empty-file/</loc>
     <lastmod>2021-03-26T00:00:00+00:00</lastmod>
   </url><url>
@@ -554,11 +563,5 @@
     <loc>https://www.bustroker.com/notes/</loc>
   </url><url>
     <loc>https://www.bustroker.com/notes/</loc>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/mssql-2017/</loc>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/</loc>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/run-mssql-2017-server-in-docker-for-windows/</loc>
   </url>
 </urlset>
