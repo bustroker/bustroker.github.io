@@ -23,7 +23,7 @@
       
       <guid>https://www.bustroker.com/notes/passing-arguments-to-scripts-both-bat-and-bash/</guid>
       <description>Windows script .bat //windows-script.bat set firstArgument=%1% set secondArgument=%2% echo You passed first %firstArgument% and second %secondArgument% Call it as
-.\windows-script.bat &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot; Unix script .bash //unix-script.bash #!/bin/sh firstArgument=$1 secondArgument=$2 echo You passed first $firstArgument and second $secondArgument Call it as
+.\windows-script.bat &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot; Unix script .bash //unix-script.bash #!/bin/sh firstArgument=$1 secondArgument=$2 echo You passed first $firstArgument and second $secondArgument # to give a default value to the argument arg=&amp;#34;${1:-DEFAULT_VALUE}&amp;#34; Call it as
 bash unix-script.bash &amp;quot;little donald&amp;quot; &amp;quot;had a farm&amp;quot; </description>
     </item>
     

@@ -146,6 +146,9 @@ firstArgument=$1
 secondArgument=$2
 <span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span>echo You passed first $firstArgument and second $secondArgument
+<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span># to give a default value to the argument
+arg=&#34;${1:-DEFAULT_VALUE}&#34;
 </code></pre></div><p>Call it as</p>
 <pre tabindex="0"><code>bash unix-script.bash &quot;little donald&quot; &quot;had a farm&quot;
 </code></pre>
