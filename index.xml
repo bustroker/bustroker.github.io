@@ -8,6 +8,19 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Docker in Mac with Colima</title>
+      <link>https://www.bustroker.com/notes/docker-in-mac-with-colima/</link>
+      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/docker-in-mac-with-colima/</guid>
+      <description>Find colima here https://github.com/abiosoft/colima
+Colima replaces Docker Desktop, is used for linux and mac.
+Install colima brew install docker-credential-helper docker brew install colima Run colima colima start Now docker can be run docker ps Also Apparently some applications have an issue finding docker:
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running? Just set env variable:
+export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock </description>
+    </item>
+    
+    <item>
       <title>Git push from script</title>
       <link>https://www.bustroker.com/notes/git-push-from-script/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>mac | Coding notes</title>
+  <title>Docker in Mac with Colima | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,72 +130,22 @@ audio {
       <main id="main">
         
 
-<h1>mac</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/docker-in-mac-with-colima/">Docker in Mac with Colima</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2024-02-06">Feb 6, 2024</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mac">mac</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/colima">colima</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/run-trivy-from-docker-on-mac/">Run Trivy from docker on Mac</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2023-03-14">Mar 14, 2023</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mac">mac</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/trivy">trivy</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/mac-environment-variable/">Mac environment variable</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2023-01-03">Jan 3, 2023</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mac">mac</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/environment">environment</a>
-  
-
-</p>
-
+<h1>Docker in Mac with Colima</h1>
+<p>Find <code>colima</code> here <code>https://github.com/abiosoft/colima</code></p>
+<p>Colima replaces <code>Docker Desktop</code>, is used for linux and mac.</p>
+<h3 id="install-colima">Install colima</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install docker-credential-helper docker
+brew install colima
+</code></pre></div><h3 id="run-colima">Run colima</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">colima start
+</code></pre></div><h3 id="now-docker-can-be-run">Now docker can be run</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker ps
+</code></pre></div><h3 id="also">Also</h3>
+<p>Apparently some applications have an issue finding docker:</p>
+<pre tabindex="0"><code>Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+</code></pre><p>Just set env variable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export DOCKER_HOST<span style="color:#f92672">=</span>unix://<span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/.colima/default/docker.sock
+</code></pre></div>
 
 
       </main>

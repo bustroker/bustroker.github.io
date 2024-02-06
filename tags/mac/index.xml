@@ -6,7 +6,20 @@
     <description>Recent content in mac on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Mar 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker in Mac with Colima</title>
+      <link>https://www.bustroker.com/notes/docker-in-mac-with-colima/</link>
+      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/docker-in-mac-with-colima/</guid>
+      <description>Find colima here https://github.com/abiosoft/colima
+Colima replaces Docker Desktop, is used for linux and mac.
+Install colima brew install docker-credential-helper docker brew install colima Run colima colima start Now docker can be run docker ps Also Apparently some applications have an issue finding docker:
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running? Just set env variable:
+export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock </description>
+    </item>
+    
     <item>
       <title>Run Trivy from docker on Mac</title>
       <link>https://www.bustroker.com/notes/run-trivy-from-docker-on-mac/</link>
