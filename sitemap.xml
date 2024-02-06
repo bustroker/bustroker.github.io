@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.bustroker.com/tags/bash/</loc>
-    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/git/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/git-push/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/git-push-from-script/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/script/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/bash/</loc>
     <lastmod>2023-10-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/email/</loc>
     <lastmod>2023-10-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/</loc>
-    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/notes/send-email-from-bash-in-linux/</loc>
-    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/</loc>
     <lastmod>2023-10-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/aws/</loc>
@@ -199,9 +211,6 @@
   </url><url>
     <loc>https://www.bustroker.com/notes/7zip-command-line/</loc>
     <lastmod>2021-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/git/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/git-sparse-checkout/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>

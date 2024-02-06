@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>git | Coding notes</title>
+  <title>Git push from script | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,50 +130,13 @@ audio {
       <main id="main">
         
 
-<h1>git</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/git-push-from-script/">Git push from script</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2024-02-06">Feb 6, 2024</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git-push">git push</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/script">script</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/git-sparse-checkout/">Git sparse-checkout</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-06-10">Jun 10, 2021</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/sparse-checkout">sparse-checkout</a>
-  
-
-</p>
-
+<h1>Git push from script</h1>
+<h3 id="push-to-github-from-script">Push to github from script</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir -p ~/.ssh
+echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>{ secrets.GITHUB_SSH_PRIVATE_KEY<span style="color:#e6db74">}</span><span style="color:#e6db74">}&#34;</span> &gt; ~/.ssh/id_rsa
+chmod <span style="color:#ae81ff">600</span> ~/.ssh/id_rsa
+git push git@github.com:bustroker/bkr.hobies.web.git
+</code></pre></div>
 
 
       </main>

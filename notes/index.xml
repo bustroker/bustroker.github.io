@@ -6,7 +6,16 @@
     <description>Recent content in Notes on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git push from script</title>
+      <link>https://www.bustroker.com/notes/git-push-from-script/</link>
+      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/git-push-from-script/</guid>
+      <description>Push to github from script mkdir -p ~/.ssh echo &amp;#34;${{ secrets.GITHUB_SSH_PRIVATE_KEY}}&amp;#34; &amp;gt; ~/.ssh/id_rsa chmod 600 ~/.ssh/id_rsa git push git@github.com:bustroker/bkr.hobies.web.git </description>
+    </item>
+    
     <item>
       <title>Send email from bash in Linux</title>
       <link>https://www.bustroker.com/notes/send-email-from-bash-in-linux/</link>
