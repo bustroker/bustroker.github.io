@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>git | Coding notes</title>
+  <title>Git - forget a file and ignore | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,68 +130,15 @@ audio {
       <main id="main">
         
 
-<h1>git</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/git-forget-a-file-and-ignore/">Git - forget a file and ignore</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2024-02-08">Feb 8, 2024</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/forget">forget</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/git-push-from-script/">Git push from script</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2024-02-06">Feb 6, 2024</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git-push">git push</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/script">script</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/git-sparse-checkout/">Git sparse-checkout</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2021-06-10">Jun 10, 2021</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/sparse-checkout">sparse-checkout</a>
-  
-
-</p>
+<h1>Git - forget a file and ignore</h1>
+<h3 id="ignore">Ignore</h3>
+<p>.gitignore will prevent untracked files from being added (without an add -f) to the set of files tracked by Git. However, Git will continue to track any files that are already being tracked.</p>
+<p>To stop tracking a file, we must remove it from the index:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git rm --cached &lt;file&gt;
+</code></pre></div><p>To remove a folder and all files in the folder recursively:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git rm -r --cached &lt;folder&gt;
+</code></pre></div><p>The removal of the file from the head revision will happen on the next commit.</p>
+<p>WARNING: While this will not remove the physical file from your local machine, it will remove the files from other developers' machines on their next git pull.</p>
 
 
 

@@ -6,7 +6,19 @@
     <description>Recent content in git on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git - forget a file and ignore</title>
+      <link>https://www.bustroker.com/notes/git-forget-a-file-and-ignore/</link>
+      <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/git-forget-a-file-and-ignore/</guid>
+      <description>Ignore .gitignore will prevent untracked files from being added (without an add -f) to the set of files tracked by Git. However, Git will continue to track any files that are already being tracked.
+To stop tracking a file, we must remove it from the index:
+git rm --cached &amp;lt;file&amp;gt; To remove a folder and all files in the folder recursively:
+git rm -r --cached &amp;lt;folder&amp;gt; The removal of the file from the head revision will happen on the next commit.</description>
+    </item>
+    
     <item>
       <title>Git push from script</title>
       <link>https://www.bustroker.com/notes/git-push-from-script/</link>
