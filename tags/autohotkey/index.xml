@@ -6,7 +6,17 @@
     <description>Recent content in autohotkey on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/autohotkey/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/autohotkey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run LLM locally</title>
+      <link>https://www.bustroker.com/notes/run-llm-locally/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/run-llm-locally/</guid>
+      <description>Use ollama to run LLMs https://klu.ai/glossary/ollama Install ollama https://ollama.com/download
+Run model llama2 ollama run llama2 </description>
+    </item>
+    
     <item>
       <title>Auto hot key to customize keyboard strokes</title>
       <link>https://www.bustroker.com/notes/auto-hot-key-to-customize-keyboard-strokes/</link>

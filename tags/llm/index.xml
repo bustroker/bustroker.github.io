@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLM on Coding notes</title>
+    <link>https://www.bustroker.com/tags/llm/</link>
+    <description>Recent content in LLM on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run LLM locally</title>
+      <link>https://www.bustroker.com/notes/run-llm-locally/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/run-llm-locally/</guid>
+      <description>Use ollama to run LLMs https://klu.ai/glossary/ollama Install ollama https://ollama.com/download
+Run model llama2 ollama run llama2 </description>
+    </item>
+    
+  </channel>
+</rss>
