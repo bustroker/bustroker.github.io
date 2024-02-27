@@ -935,8 +935,10 @@ Create the project and install express package npm init npm install express --sa
       <guid>https://www.bustroker.com/notes/simplest-node-express-web-api/</guid>
       <description>For frontend dev, the simplest web API to joke around with.
 Create the project and install express package
-npm init npm install express Create server.js file in the root.
-// server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.send({ message: &amp;#34;I&amp;#39;m here&amp;#34;}); }); app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000!&amp;#39;)); </description>
+npm init npm install express Node server Create server.js file in the root.
+// ./server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.send({ message: &amp;#34;I&amp;#39;m here&amp;#34;}); }); app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000!&amp;#39;)); Run it
+node server.js Test it
+curl localhost:3000 Package it in a docker container # .</description>
     </item>
     
     <item>
