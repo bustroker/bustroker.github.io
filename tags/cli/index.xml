@@ -6,7 +6,16 @@
     <description>Recent content in cli on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/cli/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/cli/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redis-cli cheatsheet</title>
+      <link>https://www.bustroker.com/notes/redis-cli-cheatsheet/</link>
+      <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/redis-cli-cheatsheet/</guid>
+      <description>Install redis with cli brew install redis Commands redis-cli -h your-cluster-endpoint -p your-cluster-port # all keys keys * # pattern keys prefix-* # key type type &amp;lt;key&amp;gt; # get string key GET &amp;lt;key&amp;gt; # get all hash key HGETALL &amp;lt;key&amp;gt; </description>
+    </item>
+    
     <item>
       <title>Configure AWS CLI</title>
       <link>https://www.bustroker.com/notes/configure-aws-cli/</link>
