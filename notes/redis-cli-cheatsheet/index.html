@@ -146,10 +146,16 @@ keys prefix-*
 type &lt;key&gt;
 
 <span style="color:#75715e"># get string key</span>
-GET &lt;key&gt;
+get &lt;key&gt;
 
 <span style="color:#75715e"># get all hash key</span>
-HGETALL &lt;key&gt;
+hgetall &lt;key&gt;
+
+<span style="color:#75715e"># expiration time in seconds</span>
+<span style="color:#75715e"># -2 if key doesn&#39;t exist</span>
+<span style="color:#75715e"># -1 if key doesn&#39;t expire</span>
+ttl &lt;key&gt;
+
 </code></pre></div>
 
 

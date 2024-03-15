@@ -13,7 +13,7 @@
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/redis-cli-cheatsheet/</guid>
-      <description>Install redis with cli brew install redis Commands redis-cli -h your-cluster-endpoint -p your-cluster-port # all keys keys * # pattern keys prefix-* # key type type &amp;lt;key&amp;gt; # get string key GET &amp;lt;key&amp;gt; # get all hash key HGETALL &amp;lt;key&amp;gt; </description>
+      <description>Install redis with cli brew install redis Commands redis-cli -h your-cluster-endpoint -p your-cluster-port # all keys keys * # pattern keys prefix-* # key type type &amp;lt;key&amp;gt; # get string key get &amp;lt;key&amp;gt; # get all hash key hgetall &amp;lt;key&amp;gt; # expiration time in seconds # -2 if key doesn&amp;#39;t exist # -1 if key doesn&amp;#39;t expire ttl &amp;lt;key&amp;gt; </description>
     </item>
     
   </channel>
