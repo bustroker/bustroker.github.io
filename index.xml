@@ -6,7 +6,16 @@
     <description>Recent content on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python OOP console app</title>
+      <link>https://www.bustroker.com/notes/python-oop-console-app/</link>
+      <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/python-oop-console-app/</guid>
+      <description>Python simple app with OOP model # animal.py class Animal: def __init__(self, name, species): self.name = name self.species = species def make_sound(self): pass # Abstract method # dog.py from animal import Animal class Dog(Animal): def __init__(self, name, breed): super().__init__(name, species=&amp;#34;Dog&amp;#34;) self.breed = breed def make_sound(self): return &amp;#34;Woof!&amp;#34; # cat.py from animal import Animal class Cat(Animal): def __init__(self, name, color): super().__init__(name, species=&amp;#34;Cat&amp;#34;) self.color = color def make_sound(self): return &amp;#34;Meow!&amp;#34; # app.py from dog import Dog from cat import Cat def main(): dog1 = Dog(&amp;#34;Buddy&amp;#34;, &amp;#34;Labrador&amp;#34;) cat1 = Cat(&amp;#34;Whiskers&amp;#34;, &amp;#34;Orange&amp;#34;) print(f&amp;#34;{dog1.</description>
+    </item>
+    
     <item>
       <title>redis-cli cheatsheet</title>
       <link>https://www.bustroker.com/notes/redis-cli-cheatsheet/</link>

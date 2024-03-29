@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python</title>
+      <link>https://www.bustroker.com/tags/python/</link>
+      <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>cli</title>
       <link>https://www.bustroker.com/tags/cli/</link>
@@ -850,15 +859,6 @@
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/managed-id/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://www.bustroker.com/tags/python/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/python/</guid>
       <description></description>
     </item>
     
