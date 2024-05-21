@@ -3,18 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.bustroker.com/</loc>
-    <lastmod>2024-04-10T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/file-output/</loc>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/vs-code-include-file-output/</loc>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/vscode/</loc>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/getting-started/</loc>
     <lastmod>2024-04-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/new-typescript-project/</loc>
-    <lastmod>2024-04-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/</loc>
-    <lastmod>2024-04-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/</loc>
     <lastmod>2024-04-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/typescript/</loc>
@@ -585,9 +594,6 @@
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</loc>
-    <lastmod>2019-09-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/vscode/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/xunit/</loc>

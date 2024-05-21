@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>vscode | Coding notes</title>
+  <title>VS Code - include file output | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,50 +130,14 @@ audio {
       <main id="main">
         
 
-<h1>vscode</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/vs-code-include-file-output/">VS Code - include file output</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2024-05-14">May 14, 2024</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vscode">vscode</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/file-output">file output</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/">Create dotnet core sln with class library plus xunit tests with cli for vscode</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2019-09-05">Sep 5, 2019</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet-core">dotnet core</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/xunit">xunit</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vscode">vscode</a>
-  
-
-</p>
-
+<h1>VS Code - include file output</h1>
+<h3 id="in-csproj-add">In <code>csproj</code> add</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;ItemGroup&gt;</span>
+    <span style="color:#f92672">&lt;None</span> <span style="color:#a6e22e">Update=</span><span style="color:#e6db74">&#34;file.exe&#34;</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;CopyToOutputDirectory&gt;</span>PreserveNewest<span style="color:#f92672">&lt;/CopyToOutputDirectory&gt;</span>
+    <span style="color:#f92672">&lt;/None&gt;</span>
+  <span style="color:#f92672">&lt;/ItemGroup&gt;</span>
+</code></pre></div>
 
 
       </main>

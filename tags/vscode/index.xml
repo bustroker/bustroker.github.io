@@ -6,7 +6,16 @@
     <description>Recent content in vscode on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VS Code - include file output</title>
+      <link>https://www.bustroker.com/notes/vs-code-include-file-output/</link>
+      <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/vs-code-include-file-output/</guid>
+      <description>In csproj add &amp;lt;ItemGroup&amp;gt; &amp;lt;None Update=&amp;#34;file.exe&amp;#34;&amp;gt; &amp;lt;CopyToOutputDirectory&amp;gt;PreserveNewest&amp;lt;/CopyToOutputDirectory&amp;gt; &amp;lt;/None&amp;gt; &amp;lt;/ItemGroup&amp;gt; </description>
+    </item>
+    
     <item>
       <title>Create dotnet core sln with class library plus xunit tests with cli for vscode</title>
       <link>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</link>
