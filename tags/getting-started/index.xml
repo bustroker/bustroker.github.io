@@ -6,7 +6,18 @@
     <description>Recent content in getting started on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/getting-started/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/getting-started/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New typescript project</title>
+      <link>https://www.bustroker.com/notes/new-typescript-project/</link>
+      <pubDate>Wed, 10 Apr 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/new-typescript-project/</guid>
+      <description>For frontend dev, the simplest web API to joke around with.
+Create the project npm init -y npm install --save-dev typescript nano tsconfig.json // tsconfig.json { &amp;#34;compilerOptions&amp;#34;: { &amp;#34;module&amp;#34;: &amp;#34;commonjs&amp;#34;, &amp;#34;esModuleInterop&amp;#34;: true, &amp;#34;target&amp;#34;: &amp;#34;es6&amp;#34;, &amp;#34;moduleResolution&amp;#34;: &amp;#34;node&amp;#34;, &amp;#34;sourceMap&amp;#34;: true, &amp;#34;outDir&amp;#34;: &amp;#34;dist&amp;#34; }, &amp;#34;lib&amp;#34;: [&amp;#34;es2015&amp;#34;] } Code nano src/app.ts Write the code.
+Compile and run npx tsc node dist/app.js </description>
+    </item>
+    
     <item>
       <title>A cool terminal for windows with context menu</title>
       <link>https://www.bustroker.com/notes/a-cool-terminal-for-windows-with-context-menu/</link>

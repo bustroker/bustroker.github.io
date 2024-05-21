@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>kubernetes | Coding notes</title>
+  <title>New typescript project | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,47 +130,31 @@ audio {
       <main id="main">
         
 
-<h1>kubernetes</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/run-mssql-2019-on-kubernetes/">Run MSSQL 2019 on Kubernetes</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2022-02-03">Feb 3, 2022</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssql-2019">mssql 2019</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/kubernetes">kubernetes</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/">Kubernetes (1.7) commands cheatsheet</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2020-08-04">Aug 4, 2020</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/kubernetes">kubernetes</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
-  
-
-</p>
-
+<h1>New typescript project</h1>
+<p>For frontend dev, the simplest web API to joke around with.</p>
+<h4 id="create-the-project">Create the project</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm init -y
+npm install --save-dev typescript
+nano tsconfig.json
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#75715e">// tsconfig.json
+</span><span style="color:#75715e"></span>{
+  <span style="color:#f92672">&#34;compilerOptions&#34;</span>: {
+    <span style="color:#f92672">&#34;module&#34;</span>: <span style="color:#e6db74">&#34;commonjs&#34;</span>,
+    <span style="color:#f92672">&#34;esModuleInterop&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;es6&#34;</span>,
+    <span style="color:#f92672">&#34;moduleResolution&#34;</span>: <span style="color:#e6db74">&#34;node&#34;</span>,
+    <span style="color:#f92672">&#34;sourceMap&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;outDir&#34;</span>: <span style="color:#e6db74">&#34;dist&#34;</span>
+  },
+  <span style="color:#f92672">&#34;lib&#34;</span>: [<span style="color:#e6db74">&#34;es2015&#34;</span>]
+}
+</code></pre></div><h4 id="code">Code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nano src/app.ts
+</code></pre></div><p>Write the code.</p>
+<h4 id="compile-and-run">Compile and run</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npx tsc
+node dist/app.js
+</code></pre></div>
 
 
       </main>
