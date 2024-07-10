@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -134,21 +134,21 @@ audio {
 <p><em>MSSQL 2019 not available yet in official images, so&hellip;</em></p>
 <h3 id="dockerfile">Dockerfile</h3>
 <p>The windows server base images must be the same windows version as the host, as per <a href="https://hub.docker.com/_/microsoft-windows-servercore">official documentation</a> (¡¿?!). To get the version open <code>cmd</code> and type <code>ver</code>, to get something like <code>10.0.19042.867</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/windows/servercore:10.0.19042.867</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">SHELL</span> [ <span style="color:#e6db74">&#34;powershell&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy installers</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./installers /installers<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># install Sql Server Developer edition (see readme.md for details)</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> c:/setupScripts/installSqlServerTools.ps1<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> /setupScripts/startAndConfigSqlServer.ps1 -sa_password $env:sa_password -attach_dbs <span style="color:#ae81ff">\&#34;</span>$env:attach_dbs<span style="color:#ae81ff">\&#34;</span> -ACCEPT_EULA Y -Verbose<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><h3 id="installers">Installers</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/windows/servercore:10.0.19042.867</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">SHELL</span> [ <span style="color:#e6db74">&#34;powershell&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy installers</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./installers /installers<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># install Sql Server Developer edition (see readme.md for details)</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> c:/setupScripts/installSqlServerTools.ps1<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> /setupScripts/startAndConfigSqlServer.ps1 -sa_password $env:sa_password -attach_dbs <span style="color:#ae81ff">\&#34;</span>$env:attach_dbs<span style="color:#ae81ff">\&#34;</span> -ACCEPT_EULA Y -Verbose<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h3 id="installers">Installers</h3>
 <p>The folder installers contains:</p>
 <ul>
 <li>
@@ -162,75 +162,75 @@ audio {
 <ul>
 <li><code>installSqlServerTools.ps1</code> installs sql server 2019 and adds <code>SqlPackage</code> tool (dacpac tool) to path.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#75715e"># install sql server</span>
-cd c:/installers/sql2019install/Developer_ENU; 
-.\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=<span style="color:#e6db74">&#39;NT AUTHORITY\NETWORK SERVICE&#39;</span> /SQLSYSADMINACCOUNTS=<span style="color:#e6db74">&#39;BUILTIN\ADMINISTRATORS&#39;</span> /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS /SECURITYMODE=SQL /SAPWD=<span style="color:#e6db74">&#34;Password_01&#34;</span>
-
-stop-service MSSQLSERVER
-set-itemproperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall&#39;</span> -name tcpdynamicports -value <span style="color:#e6db74">&#39;&#39;</span>
-set-itemproperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall&#39;</span> -name tcpport -value 1433
-set-itemproperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\&#39;</span> -name LoginMode -value 2
-
-
-<span style="color:#75715e"># add sqlpackage tools to PATH</span>
-$current=<span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>)
-$newpath=<span style="color:#e6db74">&#34;$current;C:\installers\sqlpackage-win7-x64-en-US-15.0.5084.2&#34;</span>
-<span style="color:#66d9ef">[System.Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>, $newpath,<span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># install sql server</span>
+</span></span><span style="display:flex;"><span>cd c:/installers/sql2019install/Developer_ENU; 
+</span></span><span style="display:flex;"><span>.\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=<span style="color:#e6db74">&#39;NT AUTHORITY\NETWORK SERVICE&#39;</span> /SQLSYSADMINACCOUNTS=<span style="color:#e6db74">&#39;BUILTIN\ADMINISTRATORS&#39;</span> /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS /SECURITYMODE=SQL /SAPWD=<span style="color:#e6db74">&#34;Password_01&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>stop-service MSSQLSERVER
+</span></span><span style="display:flex;"><span>set-itemproperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall&#39;</span> -name tcpdynamicports -value <span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>set-itemproperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall&#39;</span> -name tcpport -value 1433
+</span></span><span style="display:flex;"><span>set-itemproperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\&#39;</span> -name LoginMode -value 2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># add sqlpackage tools to PATH</span>
+</span></span><span style="display:flex;"><span>$current=<span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>)
+</span></span><span style="display:flex;"><span>$newpath=<span style="color:#e6db74">&#34;$current;C:\installers\sqlpackage-win7-x64-en-US-15.0.5084.2&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[System.Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>, $newpath,<span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
+</span></span></code></pre></div><ul>
 <li><code>startAndConfigSqlServer.ps1</code> starts SqlServer and attaches the <code>mdf/ldf</code> files as per environment variable.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">param</span>(
-[<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span>=$false)]
-<span style="color:#66d9ef">[string]</span>$sa_password,
-
-[<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span>=$false)]
-<span style="color:#66d9ef">[string]</span>$ACCEPT_EULA,
-
-[<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span>=$false)]
-<span style="color:#66d9ef">[string]</span>$attach_dbs
-)
-
-Write-Verbose <span style="color:#e6db74">&#34;Starting SQL Server...&#34;</span>
-start-service MSSQLSERVER
-
-Write-Verbose <span style="color:#e6db74">&#34;Changing SA login credentials...&#34;</span>
-$sqlcmd = <span style="color:#e6db74">&#34;ALTER LOGIN sa with password=&#34;</span> +<span style="color:#e6db74">&#34;&#39;&#34;</span> + $sa_password + <span style="color:#e6db74">&#34;&#39;&#34;</span> + <span style="color:#e6db74">&#34;;ALTER LOGIN sa ENABLE;&#34;</span>
-&amp; Invoke-Sqlcmd -Query $sqlcmd
-
-$attach_dbs_cleaned = $attach_dbs.TrimStart(<span style="color:#e6db74">&#39;\\&#39;</span>).TrimEnd(<span style="color:#e6db74">&#39;\\&#39;</span>)
-
-$dbs = $attach_dbs_cleaned | ConvertFrom-Json
-
-<span style="color:#66d9ef">if</span> ($null <span style="color:#f92672">-ne</span> $dbs <span style="color:#f92672">-And</span> $dbs.Length <span style="color:#f92672">-gt</span> 0)
-{
-    Write-Verbose <span style="color:#e6db74">&#34;Attaching </span>$($dbs.Length)<span style="color:#e6db74"> database(s)...&#34;</span>
-	    
-    <span style="color:#66d9ef">Foreach</span>($db <span style="color:#66d9ef">in</span> $dbs) 
-    {            
-        $files = @();
-        <span style="color:#66d9ef">Foreach</span>($file <span style="color:#66d9ef">in</span> $db.dbFiles)
-        {
-            $files += <span style="color:#e6db74">&#34;(FILENAME = N&#39;</span>$($file)<span style="color:#e6db74">&#39;)&#34;</span>;           
-        }
-
-        $files = $files -join <span style="color:#e6db74">&#34;,&#34;</span>
-        $sqlcmd = <span style="color:#e6db74">&#34;IF EXISTS (SELECT 1 FROM SYS.DATABASES WHERE NAME = &#39;&#34;</span> + $($db.dbName) + <span style="color:#e6db74">&#34;&#39;) BEGIN EXEC sp_detach_db [</span>$($db.dbName)<span style="color:#e6db74">] END;CREATE DATABASE [</span>$($db.dbName)<span style="color:#e6db74">] ON </span>$($files)<span style="color:#e6db74"> FOR ATTACH;&#34;</span>
-
-        Write-Verbose <span style="color:#e6db74">&#34;Invoke-Sqlcmd -Query </span>$($sqlcmd)<span style="color:#e6db74">&#34;</span>
-        &amp; Invoke-Sqlcmd -Query $sqlcmd
-	}
-}
-
-Write-Verbose <span style="color:#e6db74">&#34;Started SQL Server.&#34;</span>
-
-$lastCheck = (Get-Date).AddSeconds(-2) 
-<span style="color:#66d9ef">while</span> ($true) 
-{ 
-    Get-EventLog -LogName Application -Source <span style="color:#e6db74">&#34;MSSQL*&#34;</span> -After $lastCheck | Select-Object TimeGenerated, EntryType, Message	 
-    $lastCheck = Get-Date 
-    Start-Sleep -Seconds 2 
-}
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#66d9ef">param</span>(
+</span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span>=$false)]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[string]</span>$sa_password,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span>=$false)]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[string]</span>$ACCEPT_EULA,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">Parameter</span>(<span style="color:#66d9ef">Mandatory</span>=$false)]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[string]</span>$attach_dbs
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Write-Verbose <span style="color:#e6db74">&#34;Starting SQL Server...&#34;</span>
+</span></span><span style="display:flex;"><span>start-service MSSQLSERVER
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Write-Verbose <span style="color:#e6db74">&#34;Changing SA login credentials...&#34;</span>
+</span></span><span style="display:flex;"><span>$sqlcmd = <span style="color:#e6db74">&#34;ALTER LOGIN sa with password=&#34;</span> +<span style="color:#e6db74">&#34;&#39;&#34;</span> + $sa_password + <span style="color:#e6db74">&#34;&#39;&#34;</span> + <span style="color:#e6db74">&#34;;ALTER LOGIN sa ENABLE;&#34;</span>
+</span></span><span style="display:flex;"><span>&amp; Invoke-Sqlcmd -Query $sqlcmd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$attach_dbs_cleaned = $attach_dbs.TrimStart(<span style="color:#e6db74">&#39;\\&#39;</span>).TrimEnd(<span style="color:#e6db74">&#39;\\&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$dbs = $attach_dbs_cleaned | ConvertFrom-Json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ($null <span style="color:#f92672">-ne</span> $dbs <span style="color:#f92672">-And</span> $dbs.Length <span style="color:#f92672">-gt</span> 0)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Write-Verbose <span style="color:#e6db74">&#34;Attaching </span>$($dbs.Length)<span style="color:#e6db74"> database(s)...&#34;</span>
+</span></span><span style="display:flex;"><span>	    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Foreach</span>($db <span style="color:#66d9ef">in</span> $dbs) 
+</span></span><span style="display:flex;"><span>    {            
+</span></span><span style="display:flex;"><span>        $files = @();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">Foreach</span>($file <span style="color:#66d9ef">in</span> $db.dbFiles)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            $files += <span style="color:#e6db74">&#34;(FILENAME = N&#39;</span>$($file)<span style="color:#e6db74">&#39;)&#34;</span>;           
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        $files = $files -join <span style="color:#e6db74">&#34;,&#34;</span>
+</span></span><span style="display:flex;"><span>        $sqlcmd = <span style="color:#e6db74">&#34;IF EXISTS (SELECT 1 FROM SYS.DATABASES WHERE NAME = &#39;&#34;</span> + $($db.dbName) + <span style="color:#e6db74">&#34;&#39;) BEGIN EXEC sp_detach_db [</span>$($db.dbName)<span style="color:#e6db74">] END;CREATE DATABASE [</span>$($db.dbName)<span style="color:#e6db74">] ON </span>$($files)<span style="color:#e6db74"> FOR ATTACH;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Write-Verbose <span style="color:#e6db74">&#34;Invoke-Sqlcmd -Query </span>$($sqlcmd)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        &amp; Invoke-Sqlcmd -Query $sqlcmd
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Write-Verbose <span style="color:#e6db74">&#34;Started SQL Server.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$lastCheck = (Get-Date).AddSeconds(-2) 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> ($true) 
+</span></span><span style="display:flex;"><span>{ 
+</span></span><span style="display:flex;"><span>    Get-EventLog -LogName Application -Source <span style="color:#e6db74">&#34;MSSQL*&#34;</span> -After $lastCheck | Select-Object TimeGenerated, EntryType, Message	 
+</span></span><span style="display:flex;"><span>    $lastCheck = Get-Date 
+</span></span><span style="display:flex;"><span>    Start-Sleep -Seconds 2 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
 
 
       </main>

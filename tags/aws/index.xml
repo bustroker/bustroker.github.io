@@ -25,8 +25,8 @@ aws sso login --profile aws-profile # test by listing s3 buckets aws s3 ls --pro
       
       <guid>https://www.bustroker.com/notes/configure-aws-cli/</guid>
       <description>From ChatGPT ;P To configure AWS CLI authentication for deploying applications, you can follow these steps:
-  Install AWS CLI: If you haven&amp;rsquo;t already, install the AWS CLI on your machine. You can download the AWS CLI installer appropriate for your operating system from the official AWS Command Line Interface documentation.
-  Create AWS IAM User: In the AWS Management Console, navigate to the IAM (Identity and Access Management) service.</description>
+Install AWS CLI: If you haven&amp;rsquo;t already, install the AWS CLI on your machine. You can download the AWS CLI installer appropriate for your operating system from the official AWS Command Line Interface documentation.
+Create AWS IAM User: In the AWS Management Console, navigate to the IAM (Identity and Access Management) service. Create a new IAM user or use an existing one that will be used for authentication.</description>
     </item>
     
   </channel>

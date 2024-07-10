@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,11 +132,11 @@ audio {
 
 <h1>Git push from script</h1>
 <h3 id="push-to-github-from-script">Push to github from script</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">mkdir -p ~/.ssh
-echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>{ secrets.GITHUB_SSH_PRIVATE_KEY<span style="color:#e6db74">}</span><span style="color:#e6db74">}&#34;</span> &gt; ~/.ssh/id_rsa
-chmod <span style="color:#ae81ff">600</span> ~/.ssh/id_rsa
-git push git@github.com:bustroker/bkr.hobies.web.git
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>mkdir -p ~/.ssh
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>{ secrets.GITHUB_SSH_PRIVATE_KEY<span style="color:#e6db74">}</span><span style="color:#e6db74">}&#34;</span> &gt; ~/.ssh/id_rsa
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> ~/.ssh/id_rsa
+</span></span><span style="display:flex;"><span>git push git@github.com:bustroker/bkr.hobies.web.git
+</span></span></code></pre></div>
 
 
       </main>

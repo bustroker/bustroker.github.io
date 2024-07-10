@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -134,39 +134,38 @@ audio {
 <p>Implemented as per explanation by Universidad de Valencia&rsquo;s Professor <a href="https://www.uv.es/ivorra/">Carlos Ivorra</a>, in the article <strong><em>Las matemáticas de una hipoteca</em></strong> about <em>&ldquo;underlying math in mortgage loans&rdquo;</em>. The full pdf article (in spanish) is <a href="/docs/LasMatematicasDeLasHipotecas.pdf">here</a>.</p>
 <p>The code is in spanish and by the way, it&rsquo;s so cool to be able to name variables in python using spanish accents. It brough out a smile :).</p>
 <h3 id="the-important-part">The important part</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculadora</span>:
-    <span style="color:#66d9ef">def</span> __init__(self):
-        <span style="color:#66d9ef">return</span>
-    
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">interés_efectivo_mensual</span>(self,
-            euríbor,
-            diferencial_interés):
-            
-        <span style="color:#75715e"># (divido tb por 100 para tener el por-uno)</span>
-        <span style="color:#66d9ef">return</span> (euríbor <span style="color:#f92672">+</span> diferencial_interés) <span style="color:#f92672">/</span> <span style="color:#ae81ff">1200</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cuota</span>(self,
-            monto_préstamo, 
-            interés_efectivo_mensual, 
-            total_de_meses):
-        c_0 <span style="color:#f92672">=</span> monto_préstamo
-        i <span style="color:#f92672">=</span> interés_efectivo_mensual
-        N <span style="color:#f92672">=</span> total_de_meses
-        
-        <span style="color:#66d9ef">return</span> (c_0 <span style="color:#f92672">*</span> i) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> i)<span style="color:#f92672">**</span>(<span style="color:#f92672">-</span>N))
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">deuda_después_de_n_pagos</span>(self,
-            monto_cuota, 
-            interés_efectivo_mensual, 
-            total_de_meses, 
-            n):
-        c <span style="color:#f92672">=</span> monto_cuota
-        i <span style="color:#f92672">=</span> interés_efectivo_mensual
-        N <span style="color:#f92672">=</span> total_de_meses
-
-        <span style="color:#66d9ef">return</span> c<span style="color:#f92672">/</span>i <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>i)<span style="color:#f92672">**</span>(n<span style="color:#f92672">-</span>N))
-
-</code></pre></div><h3 id="talk-is-cheap">Talk is cheap</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Calculadora</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">interés_efectivo_mensual</span>(self,
+</span></span><span style="display:flex;"><span>            euríbor,
+</span></span><span style="display:flex;"><span>            diferencial_interés):
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># (divido tb por 100 para tener el por-uno)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (euríbor <span style="color:#f92672">+</span> diferencial_interés) <span style="color:#f92672">/</span> <span style="color:#ae81ff">1200</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cuota</span>(self,
+</span></span><span style="display:flex;"><span>            monto_préstamo, 
+</span></span><span style="display:flex;"><span>            interés_efectivo_mensual, 
+</span></span><span style="display:flex;"><span>            total_de_meses):
+</span></span><span style="display:flex;"><span>        c_0 <span style="color:#f92672">=</span> monto_préstamo
+</span></span><span style="display:flex;"><span>        i <span style="color:#f92672">=</span> interés_efectivo_mensual
+</span></span><span style="display:flex;"><span>        N <span style="color:#f92672">=</span> total_de_meses
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (c_0 <span style="color:#f92672">*</span> i) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> i)<span style="color:#f92672">**</span>(<span style="color:#f92672">-</span>N))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">deuda_después_de_n_pagos</span>(self,
+</span></span><span style="display:flex;"><span>            monto_cuota, 
+</span></span><span style="display:flex;"><span>            interés_efectivo_mensual, 
+</span></span><span style="display:flex;"><span>            total_de_meses, 
+</span></span><span style="display:flex;"><span>            n):
+</span></span><span style="display:flex;"><span>        c <span style="color:#f92672">=</span> monto_cuota
+</span></span><span style="display:flex;"><span>        i <span style="color:#f92672">=</span> interés_efectivo_mensual
+</span></span><span style="display:flex;"><span>        N <span style="color:#f92672">=</span> total_de_meses
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> c<span style="color:#f92672">/</span>i <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>i)<span style="color:#f92672">**</span>(n<span style="color:#f92672">-</span>N))
+</span></span></code></pre></div><h3 id="talk-is-cheap">Talk is cheap</h3>
 <p><a href="https://github.com/bustroker/bustroker_hipoteca">Here&rsquo;s</a> the code.</p>
 
 

@@ -15,7 +15,7 @@
       <guid>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</guid>
       <description>To test Managed Identity is working fine, SSH inside the VM with Managed Identity enabled (or RDP, for that matter) and cURL an access token for some resource.
 curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s resource query parameter, as per documentation:
- &amp;ldquo;A query string parameter, indicating the App ID URI of the target resource. It also appears in the aud (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.</description>
+&amp;ldquo;A query string parameter, indicating the App ID URI of the target resource. It also appears in the aud (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.</description>
     </item>
     
   </channel>

@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -141,84 +141,83 @@ audio {
 <pre tabindex="0"><code>dotnet add package Microsoft.Extensions.Logging.AzureAppServices
 </code></pre><h3 id="add-the-provider">Add the provider</h3>
 <p>I like to add the Console provider as well so I can check what&rsquo;s going on when running locally too, but it&rsquo;s not required for the portal <em>Log Streaming</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
-{
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
-    {
-        CreateHostBuilder(args).Build().Run();
-    }
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
-        Host.CreateDefaultBuilder(args)
-            .ConfigureLogging(logging =&gt;
-            {
-                logging.ClearProviders()
-                        .AddConsole()
-                        .AddAzureWebAppDiagnostics();
-            })
-            .ConfigureWebHostDefaults(webBuilder =&gt;
-            {
-                webBuilder.UseStartup&lt;Startup&gt;();
-            });
-}
-</code></pre></div><h3 id="configure-level-with-filters">Configure level with filters</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        CreateHostBuilder(args).Build().Run();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
+</span></span><span style="display:flex;"><span>        Host.CreateDefaultBuilder(args)
+</span></span><span style="display:flex;"><span>            .ConfigureLogging(logging =&gt;
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                logging.ClearProviders()
+</span></span><span style="display:flex;"><span>                        .AddConsole()
+</span></span><span style="display:flex;"><span>                        .AddAzureWebAppDiagnostics();
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>            .ConfigureWebHostDefaults(webBuilder =&gt;
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                webBuilder.UseStartup&lt;Startup&gt;();
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="configure-level-with-filters">Configure level with filters</h3>
 <p><strong><em>When accessing the portal</em> Log Streaming <em>, the Level is apparently taken from the configuration of</em> Application Logging (File System/Blob) <em>and not from appsettings.json&hellip;</em></strong></p>
 <p>The default configuration is good enough. It means:
 <em>Logging:LogLevel:Default</em>: the level applied by default to all log, i.e., the log messages with specified level and higher will be actually logged.
 <em>Logging:LogLevel:Microsoft</em>: the level applied to logs of Microsoft* categories.
 <em>Logging:LogLevel:Microsoft.Hosting.Lifetime</em>: the level applied to logs of Microsoft.Hosting.Lifetime* categories.</p>
 <p>The <em>category</em> is specified on logger creation, typically passing the class type, ILogger<TCategoryName>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#75715e">// appsettings.json
-</span><span style="color:#75715e"></span>{
-  <span style="color:#f92672">&#34;Logging&#34;</span>: {
-    <span style="color:#f92672">&#34;LogLevel&#34;</span>: {
-      <span style="color:#f92672">&#34;Default&#34;</span>: <span style="color:#e6db74">&#34;Information&#34;</span>,
-      <span style="color:#f92672">&#34;Microsoft&#34;</span>: <span style="color:#e6db74">&#34;Warning&#34;</span>,
-      <span style="color:#f92672">&#34;Microsoft.Hosting.Lifetime&#34;</span>: <span style="color:#e6db74">&#34;Information&#34;</span>
-    }
-  },
-  <span style="color:#f92672">&#34;AllowedHosts&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
-}
-
-</code></pre></div><h4 id="configure-level-with-filters-from-code">Configure level with filters from code</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">// appsettings.json
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Logging&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;LogLevel&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Default&#34;</span>: <span style="color:#e6db74">&#34;Information&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Microsoft&#34;</span>: <span style="color:#e6db74">&#34;Warning&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Microsoft.Hosting.Lifetime&#34;</span>: <span style="color:#e6db74">&#34;Information&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;AllowedHosts&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="configure-level-with-filters-from-code">Configure level with filters from code</h4>
 <p>As the appsettings.json config doesn&rsquo;t work for me in Azure app services, I tried to configure from code, <strong>still doesn&rsquo;t apply to Log Streaming</strong>, it only seems to take into consideration the portal <em>Application Logging (File System/Blob)</em> configuration :S.
 Anyways, the code. <em>AddFilter(&hellip;)</em> methods are the relevant guys here.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Program.cs
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
-    Host.CreateDefaultBuilder(args)
-        .ConfigureLogging(logging =&gt;
-        {
-            logging.ClearProviders()
-                    .AddAzureWebAppDiagnostics()
-                    .AddFilter(<span style="color:#e6db74">&#34;Default&#34;</span>, LogLevel.Information)
-                    .AddFilter(<span style="color:#e6db74">&#34;Microsoft&#34;</span>, LogLevel.Warning)
-                    .AddFilter(<span style="color:#e6db74">&#34;Microsoft.Hosting.Lifetime&#34;</span>: LogLevel.Information);
-        })
-        .ConfigureWebHostDefaults(webBuilder =&gt;
-        {
-            webBuilder.UseStartup&lt;Startup&gt;();
-        });
-</code></pre></div><h3 id="use-it">Use it</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// Program.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
+</span></span><span style="display:flex;"><span>    Host.CreateDefaultBuilder(args)
+</span></span><span style="display:flex;"><span>        .ConfigureLogging(logging =&gt;
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            logging.ClearProviders()
+</span></span><span style="display:flex;"><span>                    .AddAzureWebAppDiagnostics()
+</span></span><span style="display:flex;"><span>                    .AddFilter(<span style="color:#e6db74">&#34;Default&#34;</span>, LogLevel.Information)
+</span></span><span style="display:flex;"><span>                    .AddFilter(<span style="color:#e6db74">&#34;Microsoft&#34;</span>, LogLevel.Warning)
+</span></span><span style="display:flex;"><span>                    .AddFilter(<span style="color:#e6db74">&#34;Microsoft.Hosting.Lifetime&#34;</span>: LogLevel.Information);
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        .ConfigureWebHostDefaults(webBuilder =&gt;
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            webBuilder.UseStartup&lt;Startup&gt;();
+</span></span><span style="display:flex;"><span>        });
+</span></span></code></pre></div><h3 id="use-it">Use it</h3>
 <p>Inject the log, specifying the <em>category</em>. Ideally the name of the class (the full name).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#a6e22e">[ApiController]</span>
-<span style="color:#a6e22e">[Route(&#34;[controller]</span><span style="color:#e6db74">&#34;)]
-</span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WarmupController</span> : ControllerBase
-{
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger&lt;WarmupController&gt; <span style="color:#ae81ff">_l</span>ogger;
-
-    <span style="color:#66d9ef">public</span> HealthController(ILogger&lt;WarmupController&gt; logger)
-    {
-        <span style="color:#ae81ff">_l</span>ogger = logger;
-    }
-<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">    [HttpGet]</span>
-    <span style="color:#66d9ef">public</span> IActionResult Get()
-    {
-        <span style="color:#ae81ff">_l</span>ogger.LogInformation(<span style="color:#e6db74">&#34;warming up.&#34;</span>);
-        <span style="color:#66d9ef">return</span> Ok(<span style="color:#66d9ef">new</span> { status = <span style="color:#e6db74">&#34;I&#39;m hot&#34;</span>});
-    }
-}
-</code></pre></div><h3 id="see-the-logs">See the logs</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#a6e22e">[ApiController]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[Route(&#34;[controller]</span><span style="color:#e6db74">&#34;)]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WarmupController</span> : ControllerBase
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger&lt;WarmupController&gt; _logger;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> HealthController(ILogger&lt;WarmupController&gt; logger)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _logger = logger;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [HttpGet]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IActionResult Get()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _logger.LogInformation(<span style="color:#e6db74">&#34;warming up.&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Ok(<span style="color:#66d9ef">new</span> { status = <span style="color:#e6db74">&#34;I&#39;m hot&#34;</span>});
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="see-the-logs">See the logs</h3>
 <p>Go to the App Service (web or API) in Azure. Make sure it&rsquo;s configured for .NET Core in left menu, <em>Settings</em> area, <em>Configuration</em>, <em>General Settings</em>.
 Then enable Application Logging in <em>App Service Logs</em>, <em>Application Logging (File System)</em>, set Level to desired one. This configuration also applies to <em>Application Logging (Blob)</em>.</p>
 <p>Go to <em>Log Stream</em> on the left menu and hit an endpoint. Logs should appear. Sometimes it&rsquo;s just not in the mood and they don&rsquo;t show up, but it&rsquo;s Microsoft <em>modus</em>, we are all used to it anyways :S.</p>

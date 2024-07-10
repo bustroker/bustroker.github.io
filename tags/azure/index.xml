@@ -34,8 +34,8 @@ Simplest case If the API exponses an endpoint &amp;ldquo;/internalendpoint&amp;r
       <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</guid>
-      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service // Startup.cs  public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.
-// appsettings.json  { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, .... } Add the ApplicationInsights logging provider This is for the ILogger injected object to send to ApplicationInsights as well.</description>
+      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service // Startup.cs public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.
+// appsettings.json { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, .... } Add the ApplicationInsights logging provider This is for the ILogger injected object to send to ApplicationInsights as well.</description>
     </item>
     
     <item>
@@ -46,7 +46,7 @@ Simplest case If the API exponses an endpoint &amp;ldquo;/internalendpoint&amp;r
       <guid>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</guid>
       <description>To test Managed Identity is working fine, SSH inside the VM with Managed Identity enabled (or RDP, for that matter) and cURL an access token for some resource.
 curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s resource query parameter, as per documentation:
- &amp;ldquo;A query string parameter, indicating the App ID URI of the target resource. It also appears in the aud (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.</description>
+&amp;ldquo;A query string parameter, indicating the App ID URI of the target resource. It also appears in the aud (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.</description>
     </item>
     
     <item>
@@ -57,7 +57,7 @@ curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=
       <guid>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli/</guid>
       <description>There&amp;rsquo;s a new healthcheck feature available, in preview as of 18-01-2020 (the link url includes &amp;lsquo;preview&amp;rsquo;, so it&amp;rsquo;ll probably break when the feature goes GA&amp;hellip;)
 When healthcheck is enabled:
- the platform sends requests, apparently every minute aprox, to monitor the specified health endpoint. As per the logs, the request seem to be sent every minute in a round robin, alternating all the VM instances behind the app service balancer. if Easy Auth is set for the app service, then for the configured endpoint it is disabled so it can be hit without authentication.</description>
+the platform sends requests, apparently every minute aprox, to monitor the specified health endpoint. As per the logs, the request seem to be sent every minute in a round robin, alternating all the VM instances behind the app service balancer. if Easy Auth is set for the app service, then for the configured endpoint it is disabled so it can be hit without authentication.</description>
     </item>
     
     <item>
@@ -79,7 +79,7 @@ When healthcheck is enabled:
       <description>Here&amp;rsquo;s what Azure App Configuration Service is.
 Here&amp;rsquo;s how to use it.
 How the web api middleware uses the App Configuration Client As per oficial documentation, refering to
-// Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env) app.UseAzureAppConfiguration(); &amp;ldquo;The middleware uses the refresh configuration specified in the AddAzureAppConfiguration method in Program.cs to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired.</description>
+// Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env)app.UseAzureAppConfiguration(); &amp;ldquo;The middleware uses the refresh configuration specified in the AddAzureAppConfiguration method in Program.cs to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired.</description>
     </item>
     
     <item>
@@ -90,7 +90,7 @@ How the web api middleware uses the App Configuration Client As per oficial docu
       <guid>https://www.bustroker.com/notes/azure-app-configuration-with-key-vault-and-managed-identity-in-ha/</guid>
       <description>Here&amp;rsquo;s what Azure App Configuration Service is.
 And I want a production ready setup:
- use it to serve secret params as well, keeping them in Key Vault access it with Managed Identity(MI). have it in High Availability  How Azure App Configuration client works Here&amp;rsquo;s how the client works, using the sentinel pattern, i.e., using one key to be the one that the client actually checks to know whether or not a full configuration refresh is needed.</description>
+use it to serve secret params as well, keeping them in Key Vault access it with Managed Identity(MI). have it in High Availability How Azure App Configuration client works Here&amp;rsquo;s how the client works, using the sentinel pattern, i.e., using one key to be the one that the client actually checks to know whether or not a full configuration refresh is needed.</description>
     </item>
     
     <item>
@@ -99,7 +99,7 @@ And I want a production ready setup:
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/kusto-cheatsheet/</guid>
-      <description>requests durations distribution with steps (bins) of 100 ms app(&amp;quot;bustroker-sales-webapi&amp;quot;).requests | where name == &amp;quot;POST SalesController/Post&amp;quot; | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id | summarize count() by bin(req_duration, 100) | sort by req_duration asc | render timechart requests duration percentiles and requests dependencies duration percentiles app(&amp;quot;bustroker-sales-webapi&amp;quot;).requests | where name == &amp;quot;POST SalesControler/Post&amp;quot; | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id | summarize count(), avg(req_duration), stdev(req_duration) , percentiles(req_duration, 25, 50, 95, 99) | project type_tag = &amp;quot;Core Request&amp;quot;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99 | union( app(&amp;quot;bustroker-sales-webapi&amp;quot;).</description>
+      <description>requests durations distribution with steps (bins) of 100 ms app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests| where name == &amp;#34;POST SalesController/Post&amp;#34;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id| summarize count() by bin(req_duration, 100)| sort by req_duration asc| render timechart requests duration percentiles and requests dependencies duration percentiles app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests| where name == &amp;#34;POST SalesControler/Post&amp;#34;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id| summarize count(), avg(req_duration), stdev(req_duration) , percentiles(req_duration, 25, 50, 95, 99)| project type_tag = &amp;#34;Core Request&amp;#34;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99 | union(app(&amp;#34;bustroker-sales-webapi&amp;#34;).</description>
     </item>
     
   </channel>

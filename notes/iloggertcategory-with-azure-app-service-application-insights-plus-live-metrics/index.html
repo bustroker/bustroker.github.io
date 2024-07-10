@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -135,39 +135,39 @@ audio {
 <h4 id="add-the-package">Add the package</h4>
 <pre tabindex="0"><code>dotnet add package Microsoft.ApplicationInsights.AspnetCore
 </code></pre><h4 id="register-the-service">Register the service</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Startup.cs
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ConfigureServices(IServiceCollection services)
-    {
-        services.AddApplicationInsightsTelemetry();
-        ...
-    }
-</code></pre></div><h4 id="set-the-instrumentation-key-in-the-appsettingsjson">Set the instrumentation key in the appsettings.json.</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// Startup.cs</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ConfigureServices(IServiceCollection services)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        services.AddApplicationInsightsTelemetry();
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h4 id="set-the-instrumentation-key-in-the-appsettingsjson">Set the instrumentation key in the appsettings.json.</h4>
 <p>It can also be provided to <em>AddApplicationInsightsTelemetry</em> method when registering the service.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#75715e">// appsettings.json
-</span><span style="color:#75715e"></span> {
-    <span style="color:#f92672">&#34;ApplicationInsights&#34;</span>: {
-    <span style="color:#f92672">&#34;InstrumentationKey&#34;</span>: <span style="color:#e6db74">&#34;putinstrumentationkeyhere&#34;</span>
-    },
-    <span style="color:#960050;background-color:#1e0010">....</span>
-}
-</code></pre></div><h4 id="add-the-applicationinsights-logging-provider">Add the ApplicationInsights logging provider</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">// appsettings.json
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ApplicationInsights&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;InstrumentationKey&#34;</span>: <span style="color:#e6db74">&#34;putinstrumentationkeyhere&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">....</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="add-the-applicationinsights-logging-provider">Add the ApplicationInsights logging provider</h4>
 <p>This is for the ILogger<TCategory> injected object to send to ApplicationInsights as well. I also like to add Console provider, so I can see what&rsquo;s going on in the Console when running locally.
 The ApplicationInsights procider log level is set explicitely here in code.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">// Program.cs
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
-    Host.CreateDefaultBuilder(args)
-        .ConfigureLogging(logging =&gt;
-        {
-            logging.ClearProviders();
-            logging.AddConsole();
-            logging.AddApplicationInsights()
-                            .AddFilter&lt;ApplicationInsightsLoggerProvider&gt;(<span style="color:#e6db74">&#34;&#34;</span>, LogLevel.Information); 
-        })
-        .ConfigureWebHostDefaults(webBuilder =&gt;
-        {
-            webBuilder.UseStartup&lt;Startup&gt;();
-        });
-</code></pre></div><p><strong><em>Also TelemetryClient can be explicitely used for ApplicationInsights.</em></strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// Program.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
+</span></span><span style="display:flex;"><span>    Host.CreateDefaultBuilder(args)
+</span></span><span style="display:flex;"><span>        .ConfigureLogging(logging =&gt;
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            logging.ClearProviders();
+</span></span><span style="display:flex;"><span>            logging.AddConsole();
+</span></span><span style="display:flex;"><span>            logging.AddApplicationInsights()
+</span></span><span style="display:flex;"><span>                            .AddFilter&lt;ApplicationInsightsLoggerProvider&gt;(<span style="color:#e6db74">&#34;&#34;</span>, LogLevel.Information); 
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        .ConfigureWebHostDefaults(webBuilder =&gt;
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            webBuilder.UseStartup&lt;Startup&gt;();
+</span></span><span style="display:flex;"><span>        });
+</span></span></code></pre></div><p><strong><em>Also TelemetryClient can be explicitely used for ApplicationInsights.</em></strong></p>
 <h4 id="checking-log-messages">Checking log messages</h4>
 <p>The messages are sent to the <em>traces</em> collection in Application Insights. Not the <em>requests</em>, but the <em>traces</em> collection.</p>
 <h3 id="adding-application-insights-live-metrics">Adding Application Insights Live Metrics</h3>

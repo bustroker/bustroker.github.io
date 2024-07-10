@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -142,7 +142,7 @@ audio {
 <p>To set the endpoint <em>/health</em> to &lt;APP_SERVICE_NAME&gt; azure app service.
 If not sure about the resource Id of the <em>web</em> config file, just go to Azure Resource Explorer (as they explain <a href="https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)">here (soon to be broken)</a>), inside your app service, config, web.</p>
 <pre tabindex="0"><code>az login // if not logged already
-az resource update --ids /subscriptions/&lt;SUBSCRIPTION_ID&gt;/resourceGroups/&lt;RESOURCE_GROUP_NAME&gt;/providers/Microsoft.Web/sites/&lt;APP_SERVICE_NAME&gt;/config/web --set properties.healthCheckPath=&quot;/health&quot;
+az resource update --ids /subscriptions/&lt;SUBSCRIPTION_ID&gt;/resourceGroups/&lt;RESOURCE_GROUP_NAME&gt;/providers/Microsoft.Web/sites/&lt;APP_SERVICE_NAME&gt;/config/web --set properties.healthCheckPath=&#34;/health&#34;
 </code></pre>
 
 

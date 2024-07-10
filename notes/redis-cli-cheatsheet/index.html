@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,31 +132,30 @@ audio {
 
 <h1>redis-cli cheatsheet</h1>
 <h3 id="install-redis-with-cli">Install redis with cli</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install redis
-</code></pre></div><h3 id="commands">Commands</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">redis-cli -h your-cluster-endpoint -p your-cluster-port
-
-<span style="color:#75715e"># all keys</span>
-keys *
-
-<span style="color:#75715e"># pattern</span>
-keys prefix-*
-
-<span style="color:#75715e"># key type</span>
-type &lt;key&gt;
-
-<span style="color:#75715e"># get string key</span>
-get &lt;key&gt;
-
-<span style="color:#75715e"># get all hash key</span>
-hgetall &lt;key&gt;
-
-<span style="color:#75715e"># expiration time in seconds</span>
-<span style="color:#75715e"># -2 if key doesn&#39;t exist</span>
-<span style="color:#75715e"># -1 if key doesn&#39;t expire</span>
-ttl &lt;key&gt;
-
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install redis
+</span></span></code></pre></div><h3 id="commands">Commands</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>redis-cli -h your-cluster-endpoint -p your-cluster-port
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># all keys</span>
+</span></span><span style="display:flex;"><span>keys *
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># pattern</span>
+</span></span><span style="display:flex;"><span>keys prefix-*
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># key type</span>
+</span></span><span style="display:flex;"><span>type &lt;key&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># get string key</span>
+</span></span><span style="display:flex;"><span>get &lt;key&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># get all hash key</span>
+</span></span><span style="display:flex;"><span>hgetall &lt;key&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># expiration time in seconds</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -2 if key doesn&#39;t exist</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -1 if key doesn&#39;t expire</span>
+</span></span><span style="display:flex;"><span>ttl &lt;key&gt;
+</span></span></code></pre></div>
 
 
       </main>

@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,55 +132,54 @@ audio {
 
 <h1>Python OOP console app</h1>
 <h3 id="python-simple-app-with-oop-model">Python simple app with OOP model</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># animal.py</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
-    <span style="color:#66d9ef">def</span> __init__(self, name, species):
-        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
-        self<span style="color:#f92672">.</span>species <span style="color:#f92672">=</span> species
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_sound</span>(self):
-        <span style="color:#66d9ef">pass</span>  <span style="color:#75715e"># Abstract method</span>
-
-
-<span style="color:#75715e"># dog.py</span>
-<span style="color:#f92672">from</span> animal <span style="color:#f92672">import</span> Animal
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>(Animal):
-    <span style="color:#66d9ef">def</span> __init__(self, name, breed):
-        super()<span style="color:#f92672">.</span>__init__(name, species<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Dog&#34;</span>)
-        self<span style="color:#f92672">.</span>breed <span style="color:#f92672">=</span> breed
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_sound</span>(self):
-        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Woof!&#34;</span>
-
-
-<span style="color:#75715e"># cat.py</span>
-<span style="color:#f92672">from</span> animal <span style="color:#f92672">import</span> Animal
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Animal):
-    <span style="color:#66d9ef">def</span> __init__(self, name, color):
-        super()<span style="color:#f92672">.</span>__init__(name, species<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cat&#34;</span>)
-        self<span style="color:#f92672">.</span>color <span style="color:#f92672">=</span> color
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_sound</span>(self):
-        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Meow!&#34;</span>
-
-
-<span style="color:#75715e"># app.py</span>
-<span style="color:#f92672">from</span> dog <span style="color:#f92672">import</span> Dog
-<span style="color:#f92672">from</span> cat <span style="color:#f92672">import</span> Cat
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
-    dog1 <span style="color:#f92672">=</span> Dog(<span style="color:#e6db74">&#34;Buddy&#34;</span>, <span style="color:#e6db74">&#34;Labrador&#34;</span>)
-    cat1 <span style="color:#f92672">=</span> Cat(<span style="color:#e6db74">&#34;Whiskers&#34;</span>, <span style="color:#e6db74">&#34;Orange&#34;</span>)
-
-    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>dog1<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74"> the </span><span style="color:#e6db74">{</span>dog1<span style="color:#f92672">.</span>species<span style="color:#e6db74">}</span><span style="color:#e6db74"> says: </span><span style="color:#e6db74">{</span>dog1<span style="color:#f92672">.</span>make_sound()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
-    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>cat1<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74"> the </span><span style="color:#e6db74">{</span>cat1<span style="color:#f92672">.</span>species<span style="color:#e6db74">}</span><span style="color:#e6db74"> says: </span><span style="color:#e6db74">{</span>cat1<span style="color:#f92672">.</span>make_sound()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
-
-<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
-    main()
-
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># animal.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name, species):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>species <span style="color:#f92672">=</span> species
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_sound</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">pass</span>  <span style="color:#75715e"># Abstract method</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># dog.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> animal <span style="color:#f92672">import</span> Animal
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>(Animal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name, breed):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(name, species<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Dog&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>breed <span style="color:#f92672">=</span> breed
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_sound</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Woof!&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cat.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> animal <span style="color:#f92672">import</span> Animal
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Animal):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, name, color):
+</span></span><span style="display:flex;"><span>        super()<span style="color:#f92672">.</span>__init__(name, species<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cat&#34;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>color <span style="color:#f92672">=</span> color
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_sound</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Meow!&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># app.py</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> dog <span style="color:#f92672">import</span> Dog
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> cat <span style="color:#f92672">import</span> Cat
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+</span></span><span style="display:flex;"><span>    dog1 <span style="color:#f92672">=</span> Dog(<span style="color:#e6db74">&#34;Buddy&#34;</span>, <span style="color:#e6db74">&#34;Labrador&#34;</span>)
+</span></span><span style="display:flex;"><span>    cat1 <span style="color:#f92672">=</span> Cat(<span style="color:#e6db74">&#34;Whiskers&#34;</span>, <span style="color:#e6db74">&#34;Orange&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>dog1<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74"> the </span><span style="color:#e6db74">{</span>dog1<span style="color:#f92672">.</span>species<span style="color:#e6db74">}</span><span style="color:#e6db74"> says: </span><span style="color:#e6db74">{</span>dog1<span style="color:#f92672">.</span>make_sound()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>cat1<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74"> the </span><span style="color:#e6db74">{</span>cat1<span style="color:#f92672">.</span>species<span style="color:#e6db74">}</span><span style="color:#e6db74"> says: </span><span style="color:#e6db74">{</span>cat1<span style="color:#f92672">.</span>make_sound()<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+</span></span><span style="display:flex;"><span>    main()
+</span></span></code></pre></div>
 
 
       </main>

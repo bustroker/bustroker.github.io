@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -135,22 +135,22 @@ audio {
 <a href="https://aquasecurity.github.io/trivy/v0.38/">https://aquasecurity.github.io/trivy/v0.38/</a></p>
 <h3 id="on-zsh-terminal-on-a-mac">On <code>zsh</code> terminal on a mac</h3>
 <p>Just run the image and pass the trivy commands as documented. To get version:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run aquasec/trivy version
-</code></pre></div><h3 id="scan-code-from-local-file-system">Scan code from local file system</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -v /host/src/to/scan:/target aquasec/trivy --debug fs /target &gt; trivy-output-report.txt
-</code></pre></div><p>File <code>trivy-output-report.txt</code> is created in the host folder where running.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run aquasec/trivy version
+</span></span></code></pre></div><h3 id="scan-code-from-local-file-system">Scan code from local file system</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -v /host/src/to/scan:/target aquasec/trivy --debug fs /target &gt; trivy-output-report.txt
+</span></span></code></pre></div><p>File <code>trivy-output-report.txt</code> is created in the host folder where running.</p>
 <p>Documentation for local file system scan
 <a href="https://aquasecurity.github.io/trivy/v0.20.2/getting-started/cli/fs/">https://aquasecurity.github.io/trivy/v0.20.2/getting-started/cli/fs/</a></p>
 <h3 id="scan-code-from-repo">Scan code from repo</h3>
 <p>As per documentation, only public repositories are supported (<a href="https://aquasecurity.github.io/trivy/v0.20.2/vulnerability/scanning/git-repository/)">https://aquasecurity.github.io/trivy/v0.20.2/vulnerability/scanning/git-repository/)</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run aquasec/trivy repo REPO_URL
-</code></pre></div><h3 id="scan-local-net-repo">Scan local .NET repo</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run aquasec/trivy repo REPO_URL
+</span></span></code></pre></div><h3 id="scan-local-net-repo">Scan local .NET repo</h3>
 <p>In .NET, Trivy uses <code>packages.config</code> and <code>*.deps.json</code>. Since we don&rsquo;t use <code>packages.config</code> (we use <PackageReference/>), we need to build the solution to generate the <code>PROJECT.deps.json</code> in the <code>bin</code> folder.
 (Also, for this reason the remote scan probably would not work for our .NET solutions?)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://luismesaaily@bitbucket.org/AilyLabs/aily-api.git
-dotnet build SRC/SOLUTION.sln
-docker run -v /HOST/SRC:/target aquasec/trivy --debug fs /target &gt; trivy-output-report.txt
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://luismesaaily@bitbucket.org/AilyLabs/aily-api.git
+</span></span><span style="display:flex;"><span>dotnet build SRC/SOLUTION.sln
+</span></span><span style="display:flex;"><span>docker run -v /HOST/SRC:/target aquasec/trivy --debug fs /target &gt; trivy-output-report.txt
+</span></span></code></pre></div>
 
 
       </main>

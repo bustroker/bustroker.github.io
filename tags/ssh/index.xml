@@ -13,10 +13,10 @@
       <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/notes/multiple-ssh-keys-settings-for-different-github-account/</guid>
-      <description>Check existing keys $ ssh-add -l Create different public key  create different ssh key according the article Mac Set-Up Git
+      <description>Check existing keys $ ssh-add -l Create different public key create different ssh key according the article Mac Set-Up Git
 cd ~/.ssh ssh-keygen -t rsa -C &amp;#34;bustroker@email.com&amp;#34; -f &amp;#34;github_bustroker&amp;#34; ssh-keygen -t rsa -C &amp;#34;bkr@email.com&amp;#34; -f &amp;#34;github_bkr&amp;#34; The -C option is a comment to help identify the key. The -f option specifies the file name for the key pair.
 for example, 2 keys created at:
-~/.ssh/github-bustroker ~/.ssh/github-bkr then, add these two keys as following</description>
+~/.ssh/github-bustroker~/.ssh/github-bkr then, add these two keys as following</description>
     </item>
     
   </channel>

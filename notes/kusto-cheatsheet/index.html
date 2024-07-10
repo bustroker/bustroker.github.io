@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,80 +132,80 @@ audio {
 
 <h1>Kusto cheatsheet</h1>
 <h2 id="requests-durations-distribution-with-steps-bins-of-100-ms">requests durations distribution with steps (bins) of 100 ms</h2>
-<pre tabindex="0"><code>app(&quot;bustroker-sales-webapi&quot;).requests
-| where name == &quot;POST SalesController/Post&quot;
+<pre tabindex="0"><code>app(&#34;bustroker-sales-webapi&#34;).requests
+| where name == &#34;POST SalesController/Post&#34;
 | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id
 | summarize count() by bin(req_duration, 100)
 | sort by req_duration asc
 | render timechart 
 </code></pre><h2 id="requests-duration-percentiles-and--requests-dependencies-duration-percentiles">requests duration percentiles and  requests dependencies duration percentiles</h2>
-<pre tabindex="0"><code>app(&quot;bustroker-sales-webapi&quot;).requests
-| where name == &quot;POST SalesControler/Post&quot;
+<pre tabindex="0"><code>app(&#34;bustroker-sales-webapi&#34;).requests
+| where name == &#34;POST SalesControler/Post&#34;
 | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id
 | summarize count(), avg(req_duration), stdev(req_duration) , percentiles(req_duration, 25, 50, 95, 99)
-| project type_tag = &quot;Core Request&quot;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99  
+| project type_tag = &#34;Core Request&#34;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99  
 | union(
-app(&quot;bustroker-sales-webapi&quot;).requests
+app(&#34;bustroker-sales-webapi&#34;).requests
 | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id
-| join (app(&quot;bustroker-sales-webapi&quot;).dependencies
+| join (app(&#34;bustroker-sales-webapi&#34;).dependencies
         | project dep_timestamp = timestamp, dep_id = id, dep_target = target, dep_type = type, dep_name = name, dep_data = data, dep_success = success, 
                 dep_duration = duration, dep_operation_Id = operation_Id, dep_operation_parentId = operation_ParentId,
-                dep_data_clean = iif(name == &quot;Replace document&quot;, strcat_array(array_slice(split(data, &quot;/&quot;),0, array_length(split(data, &quot;/&quot;))-2), &quot;/&quot;), data))
+                dep_data_clean = iif(name == &#34;Replace document&#34;, strcat_array(array_slice(split(data, &#34;/&#34;),0, array_length(split(data, &#34;/&#34;))-2), &#34;/&#34;), data))
         on $left.req_id == $right.dep_operation_parentId
 | order by req_id, req_timestamp desc, dep_timestamp asc
 | project req_timestamp, req_id, req_name, req_url, req_success, req_resultCode, req_duration, req_operation_name, req_operation_Id,
         dep_timestamp, dep_id, dep_target, dep_type, dep_name, dep_data, dep_data_clean, dep_success, 
         dep_duration, dep_operation_Id, dep_operation_parentId,
-        dep_type_unique_key = strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean),
-        dep_type_tag = case(strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;POST /api/translate =&gt; https://bustroker-crypto-webapi.azurewebsites.net/api/translate&quot;, &quot;Crypto Translate PIN&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;POST / =&gt; http://bustroker.exit:6050/&quot;, &quot;Exit&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&quot;, &quot;Cosmos Create Session&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&quot;, &quot;Cosmos Query Sessions&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&quot;, &quot;Cosmos Replace Session&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&quot;, &quot;Cosmos Create Transaction&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&quot;, &quot;Cosmos Replace Transaction&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;List documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&quot;, &quot;Cosmos List Applications&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&quot;, &quot;Cosmos Query Applications&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) startswith &quot;HEAD templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates?&quot;, &quot;Blob Head Template&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) startswith &quot;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Denied.html?&quot;, &quot;Blob GET DeniedTemplate&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) startswith &quot;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Accepted.html?&quot;, &quot;Blob GET AcceptedTemplate&quot;,
-                        &quot;Unclassified!&quot;)
+        dep_type_unique_key = strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean),
+        dep_type_tag = case(strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;POST /api/translate =&gt; https://bustroker-crypto-webapi.azurewebsites.net/api/translate&#34;, &#34;Crypto Translate PIN&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;POST / =&gt; http://bustroker.exit:6050/&#34;, &#34;Exit&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&#34;, &#34;Cosmos Create Session&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&#34;, &#34;Cosmos Query Sessions&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&#34;, &#34;Cosmos Replace Session&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&#34;, &#34;Cosmos Create Transaction&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&#34;, &#34;Cosmos Replace Transaction&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;List documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&#34;, &#34;Cosmos List Applications&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&#34;, &#34;Cosmos Query Applications&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) startswith &#34;HEAD templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates?&#34;, &#34;Blob Head Template&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) startswith &#34;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Denied.html?&#34;, &#34;Blob GET DeniedTemplate&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) startswith &#34;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Accepted.html?&#34;, &#34;Blob GET AcceptedTemplate&#34;,
+                        &#34;Unclassified!&#34;)
 | summarize count(), avg(dep_duration), stdev(dep_duration) , percentiles(dep_duration, 25, 50, 95, 99) by dep_type_tag
 | project type_tag = dep_type_tag, total = count_, avg_duration = avg_dep_duration, stdev = stdev_dep_duration, percentile_duration_25 = percentile_dep_duration_25, percentile_duration_50 = percentile_dep_duration_50, percentile_duration_95 = percentile_dep_duration_95, percentile_duration_99 = percentile_dep_duration_99  
 | union (
-app(&quot;bustroker-sales-webapi&quot;).dependencies 
-| where type == &quot;RedisConnector&quot;
+app(&#34;bustroker-sales-webapi&#34;).dependencies 
+| where type == &#34;RedisConnector&#34;
 | summarize total = count(), avg_duration = avg(duration), stdev = stdev(duration) , percentiles(duration, 25 , 50, 95, 99) by name
-| project type_tag = strcat(&quot;RedisConnector&quot;, name), total, avg_duration, stdev, percentile_duration_25, percentile_duration_50 , percentile_duration_95, percentile_duration_99 
+| project type_tag = strcat(&#34;RedisConnector&#34;, name), total, avg_duration, stdev, percentile_duration_25, percentile_duration_50 , percentile_duration_95, percentile_duration_99 
 )| order by type_tag asc)
 
 ## Duration distributions per dependency 
 
-app(&quot;bustroker-sales-webapi&quot;).requests
+app(&#34;bustroker-sales-webapi&#34;).requests
 | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id
-| join (app(&quot;bustroker-sales-webapi&quot;).dependencies
+| join (app(&#34;bustroker-sales-webapi&#34;).dependencies
         | project dep_timestamp = timestamp, dep_id = id, dep_target = target, dep_type = type, dep_name = name, dep_data = data, dep_success = success, 
                 dep_duration = duration, dep_operation_Id = operation_Id, dep_operation_parentId = operation_ParentId,
-                dep_data_clean = iif(name == &quot;Replace document&quot;, strcat_array(array_slice(split(data, &quot;/&quot;),0, array_length(split(data, &quot;/&quot;))-2), &quot;/&quot;), data))
+                dep_data_clean = iif(name == &#34;Replace document&#34;, strcat_array(array_slice(split(data, &#34;/&#34;),0, array_length(split(data, &#34;/&#34;))-2), &#34;/&#34;), data))
         on $left.req_id == $right.dep_operation_parentId
 | order by req_id, req_timestamp desc, dep_timestamp asc
 | project req_timestamp, req_id, req_name, req_url, req_success, req_resultCode, req_duration, req_operation_name, req_operation_Id,
         dep_timestamp, dep_id, dep_target, dep_type, dep_name, dep_data, dep_data_clean, dep_success, 
         dep_duration, dep_operation_Id, dep_operation_parentId,
-        dep_type_unique_key = strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean),
-        dep_type_tag = case(strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;POST /api/translate =&gt; https://bustroker.crypto.azurewebsites.net/api/translate&quot;, &quot;Crypto&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;POST / =&gt; http://bustroker.exit:6050/&quot;, &quot;Exit&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&quot;, &quot;Cosmos Create Session&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&quot;, &quot;Cosmos Query Sessions&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&quot;, &quot;Cosmos Replace Session&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&quot;, &quot;Cosmos Create Transaction&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&quot;, &quot;Cosmos Replace Transaction&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;List documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&quot;, &quot;Cosmos List Applications&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&quot;, &quot;Cosmos Query Applications&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) startswith &quot;HEAD templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates?&quot;, &quot;Blob Head Template&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) startswith &quot;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Denied.html?&quot;, &quot;Blob GET DeniedTemplate&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) startswith &quot;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Accepted.html?&quot;, &quot;Blob GET AcceptedTemplate&quot;,
-                        &quot;Unclassified!&quot;) 
+        dep_type_unique_key = strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean),
+        dep_type_tag = case(strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;POST /api/translate =&gt; https://bustroker.crypto.azurewebsites.net/api/translate&#34;, &#34;Crypto&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;POST / =&gt; http://bustroker.exit:6050/&#34;, &#34;Exit&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&#34;, &#34;Cosmos Create Session&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&#34;, &#34;Cosmos Query Sessions&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&#34;, &#34;Cosmos Replace Session&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&#34;, &#34;Cosmos Create Transaction&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&#34;, &#34;Cosmos Replace Transaction&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;List documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&#34;, &#34;Cosmos List Applications&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&#34;, &#34;Cosmos Query Applications&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) startswith &#34;HEAD templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates?&#34;, &#34;Blob Head Template&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) startswith &#34;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Denied.html?&#34;, &#34;Blob GET DeniedTemplate&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) startswith &#34;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Accepted.html?&#34;, &#34;Blob GET AcceptedTemplate&#34;,
+                        &#34;Unclassified!&#34;) 
 | summarize count() by bin(dep_duration, 100), dep_type_tag
 | order by dep_duration asc
 | render timechart
@@ -215,46 +215,47 @@ app(&quot;bustroker-sales-webapi&quot;).requests
 
 ## relation between requests duration and total number of requests 
 
-app(&quot;bustroker-sales-webapi&quot;).requests
-| where url == &quot;https://bustroker-sales-webapi.core.azurewebsites.net/Transactions/Financial/Sale&quot;
+app(&#34;bustroker-sales-webapi&#34;).requests
+| where url == &#34;https://bustroker-sales-webapi.core.azurewebsites.net/Transactions/Financial/Sale&#34;
 | summarize number_of_requests_rescaled = count()/10 by bin(timestamp, 10m)
 | union(
-app(&quot;bustroker-sales-webapi&quot;).requests
-| where url == &quot;https://bustroker-sales-webapi.core.azurewebsites.net/Transactions/Financial/Sale&quot;
+app(&#34;bustroker-sales-webapi&#34;).requests
+| where url == &#34;https://bustroker-sales-webapi.core.azurewebsites.net/Transactions/Financial/Sale&#34;
 | summarize avg_duration_rescaled = avg(duration)/2000  by bin(timestamp, 10m))
 | render timechart 
 
 
 # Exploration
 
-app(&quot;bustroker-sales-webapi&quot;).requests
+app(&#34;bustroker-sales-webapi&#34;).requests
 | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id
-| join (app(&quot;bustroker-sales-webapi&quot;).dependencies
+| join (app(&#34;bustroker-sales-webapi&#34;).dependencies
         | project dep_timestamp = timestamp, dep_id = id, dep_target = target, dep_type = type, dep_name = name, dep_data = data, dep_success = success, 
                 dep_duration = duration, dep_operation_Id = operation_Id, dep_operation_parentId = operation_ParentId,
-                dep_data_clean = iif(name == &quot;Replace document&quot;, strcat_array(array_slice(split(data, &quot;/&quot;),0, array_length(split(data, &quot;/&quot;))-2), &quot;/&quot;), data))
+                dep_data_clean = iif(name == &#34;Replace document&#34;, strcat_array(array_slice(split(data, &#34;/&#34;),0, array_length(split(data, &#34;/&#34;))-2), &#34;/&#34;), data))
         on $left.req_id == $right.dep_operation_parentId
 | order by req_id, req_timestamp desc, dep_timestamp asc
 | project req_timestamp, req_id, req_name, req_url, req_success, req_resultCode, req_duration, req_operation_name, req_operation_Id,
         dep_timestamp, dep_id, dep_target, dep_type, dep_name, dep_data, dep_data_clean, dep_success, 
         dep_duration, dep_operation_Id, dep_operation_parentId,
-        dep_type_unique_key = strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean),
-        dep_type_tag = case(strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;POST /api/translate =&gt; https://bustroker.crypto.azurewebsites.net/api/translate&quot;, &quot;Crypto&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;POST / =&gt; http://bustroker.exit:6050/&quot;, &quot;Exit&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&quot;, &quot;Cosmos Create Session&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&quot;, &quot;Cosmos Query Sessions&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&quot;, &quot;Cosmos Replace Session&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&quot;, &quot;Cosmos Create Transaction&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&quot;, &quot;Cosmos Replace Transaction&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;List documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&quot;, &quot;Cosmos List Applications&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) == &quot;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&quot;, &quot;Cosmos Query Applications&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) startswith &quot;HEAD templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates?&quot;, &quot;Blob Head Template&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) startswith &quot;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Denied.html?&quot;, &quot;Blob GET DeniedTemplate&quot;,
-                       strcat(dep_name, &quot; =&gt; &quot;, dep_data_clean) startswith &quot;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Accepted.html?&quot;, &quot;Blob GET AcceptedTemplate&quot;,
-                        &quot;Unclassified!&quot;) 
+        dep_type_unique_key = strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean),
+        dep_type_tag = case(strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;POST /api/translate =&gt; https://bustroker.crypto.azurewebsites.net/api/translate&#34;, &#34;Crypto&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;POST / =&gt; http://bustroker.exit:6050/&#34;, &#34;Exit&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&#34;, &#34;Cosmos Create Session&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&#34;, &#34;Cosmos Query Sessions&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Sessions/docs&#34;, &#34;Cosmos Replace Session&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Create document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&#34;, &#34;Cosmos Create Transaction&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Replace document =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/transactions/colls/Transactions/docs&#34;, &#34;Cosmos Replace Transaction&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;List documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&#34;, &#34;Cosmos List Applications&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) == &#34;Query documents =&gt; https://bustroker-cosmosdb-westeurope.documents.azure.com/dbs/masterdata/colls/Application/docs&#34;, &#34;Cosmos Query Applications&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) startswith &#34;HEAD templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates?&#34;, &#34;Blob Head Template&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) startswith &#34;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Denied.html?&#34;, &#34;Blob GET DeniedTemplate&#34;,
+                       strcat(dep_name, &#34; =&gt; &#34;, dep_data_clean) startswith &#34;GET templatesstorage =&gt; https://templatesstorage.blob.core.windows.net:443/templates/Sale/DisplayTemplate.Accepted.html?&#34;, &#34;Blob GET AcceptedTemplate&#34;,
+                        &#34;Unclassified!&#34;) 
 | summarize count() by bin(dep_duration, 100), dep_type_tag
 | order by dep_duration asc
-| render timechart</code></pre>
+| render timechart
+</code></pre>
 
 
       </main>

@@ -25,7 +25,7 @@ Run query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34;
       <guid>https://www.bustroker.com/notes/use-sqlcmd-cli-tool/</guid>
       <description>sqlcmd utility (2019) Installed with Visual Studio 2019. (Apparently also with Sql Server 2019, but they dont&amp;rsquo;s explain WHERE it actually is :S)
 Add to path sqlcmd.exe is located in:
- Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Open CLI for queries sqlcmd -S localhost -U sa -P password -d database &amp;gt; select * from transactions &amp;gt; go Run sqlcmd from docker/kubernetes and connecto to host&amp;rsquo;s localhost sql server docker run --rm -it mcr.</description>
+Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Open CLI for queries sqlcmd -S localhost -U sa -P password -d database&amp;gt; select * from transactions&amp;gt; go Run sqlcmd from docker/kubernetes and connecto to host&amp;rsquo;s localhost sql server docker run --rm -it mcr.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ Add to path sqlcmd.exe is located in:
       
       <guid>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</guid>
       <description>Files Vagrant VM needs at least 2Gb.
-## Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 1433, host: 1433 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;SqlServer&amp;#34;  vb.memory = 2048 end end ## vagrant_provision.sh  echo &amp;#34;provisioning VM...&amp;#34; sudo apt update sudo apt-get update # install docker and run sudo apt -y install docker.io sudo systemctl start docker sudo systemctl enable docker docker --version echo &amp;#34;docker installed and running.</description>
+## Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 1433, host: 1433 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;SqlServer&amp;#34; vb.memory = 2048 end end ## vagrant_provision.sh echo &amp;#34;provisioning VM...&amp;#34; sudo apt update sudo apt-get update # install docker and run sudo apt -y install docker.io sudo systemctl start docker sudo systemctl enable docker docker --version echo &amp;#34;docker installed and running.</description>
     </item>
     
   </channel>

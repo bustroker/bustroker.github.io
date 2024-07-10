@@ -14,8 +14,8 @@
       
       <guid>https://www.bustroker.com/notes/helm-3-commands-cheatsheet/</guid>
       <description>Create .tgz package from chart folder content cd chart helm package . Deploy local tgz package to kubernetes The terminal must have been authenticated. In case of AKS, run az aks get-credentials --resource-group &amp;lt;RESOURCEGROUP_NAME&amp;gt; --name &amp;lt;AKS_CLUSTERNAME&amp;gt;
-helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;TGZ_PACKAGE&amp;gt; List releases in kubernetes helm list helm get all &amp;lt;RELEASE_NAME&amp;gt; Deploy chart from registry No direct way for the moment. Need to pull, export and then install
-helm chart pull &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt; helm chart export &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt; helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;EXPORTED_CHART_FOLDER&amp;gt; helm chart export will create a folder named after the chart (chart.</description>
+helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;TGZ_PACKAGE&amp;gt; List releases in kubernetes helm listhelm get all &amp;lt;RELEASE_NAME&amp;gt; Deploy chart from registry No direct way for the moment. Need to pull, export and then install
+helm chart pull &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt;helm chart export &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt;helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;EXPORTED_CHART_FOLDER&amp;gt; helm chart export will create a folder named after the chart (chart.</description>
     </item>
     
   </channel>

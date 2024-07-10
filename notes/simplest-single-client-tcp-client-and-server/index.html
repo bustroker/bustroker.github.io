@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,152 +132,152 @@ audio {
 
 <h1>Simplest single-client TCP client and server</h1>
 <h3 id="single-client-tcp-server">Single-client TCP server</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#75715e">//Program.cs
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
-{
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> Port = <span style="color:#ae81ff">8080</span>;
-
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task Main(String[] args)  
-    {
-        <span style="color:#66d9ef">var</span> address = GetLocalIPAddress();
-        <span style="color:#66d9ef">var</span> tcpListener = <span style="color:#66d9ef">new</span> TcpListener(GetLocalIPAddress(), Port);
-        tcpListener.Start();  
-        Console.WriteLine(<span style="color:#e6db74">$&#34;Server started. Listening to TCP clients at {address}, port {Port}&#34;</span>); 
-
-        <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>)
-        {
-            <span style="color:#66d9ef">await</span> WaitForClientConnectionAndHandleAsync(tcpListener);
-        }
-    }
-
-    <span style="color:#66d9ef">static</span> IPAddress GetLocalIPAddress()
-    {
-        <span style="color:#66d9ef">var</span> host = Dns.GetHostEntry(Dns.GetHostName());
-        <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> ip <span style="color:#66d9ef">in</span> host.AddressList)
-        {
-            <span style="color:#66d9ef">if</span> (ip.AddressFamily == AddressFamily.InterNetwork)
-            {
-                <span style="color:#66d9ef">return</span> ip;
-            }
-        }
-        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception(<span style="color:#e6db74">&#34;No network adapters with an IPv4 address in the system!&#34;</span>);
-    }
-
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task WaitForClientConnectionAndHandleAsync(TcpListener tcpListener)
-    {
-        Console.WriteLine(<span style="color:#e6db74">$&#34;Waiting for a client connection at {DateTime.Now.ToString()}..&#34;</span>);
-        using(<span style="color:#66d9ef">var</span> client = tcpListener.AcceptTcpClient())
-        using(<span style="color:#66d9ef">var</span> networkStream = client.GetStream())
-        {
-            Console.WriteLine(<span style="color:#e6db74">$&#34;Client connected at {DateTime.Now.ToString()}...&#34;</span>);
-
-            Console.WriteLine(<span style="color:#e6db74">$&#34;Receiving message...&#34;</span>);
-            <span style="color:#66d9ef">var</span> receivedMessage = <span style="color:#66d9ef">await</span> ReceiveMessageAsync(networkStream);
-            Console.WriteLine(<span style="color:#e6db74">$&#34;Message received from client at {DateTime.Now.ToString()}: {receivedMessage}&#34;</span>);
-
-            <span style="color:#66d9ef">var</span> messageToSend = GenerateAnswerMessageText(receivedMessage);
-            <span style="color:#66d9ef">await</span> SendMessageAsync(networkStream, messageToSend);
-            Console.WriteLine(<span style="color:#e6db74">$&#34;Sent message at {DateTime.Now.ToString()}: {messageToSend} &#34;</span>);
-        }
-    }
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">string</span> GenerateAnswerMessageText(<span style="color:#66d9ef">string</span> receivedMessage)
-    {
-        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;makes Jack a dull boy&#34;</span>;
-    }
-
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task SendMessageAsync(NetworkStream stream, <span style="color:#66d9ef">string</span> message)
-    {
-        <span style="color:#66d9ef">byte</span>[] helloMessage = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span>[<span style="color:#ae81ff">100</span>];
-        helloMessage = Encoding.Default.GetBytes(message);
-        <span style="color:#66d9ef">await</span> stream.WriteAsync(helloMessage, <span style="color:#ae81ff">0</span>, helloMessage.Length);
-    }
-
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task&lt;<span style="color:#66d9ef">string</span>&gt; ReceiveMessageAsync(NetworkStream networkStream)
-    {
-        <span style="color:#66d9ef">byte</span>[] receivedMessage = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span>[<span style="color:#ae81ff">1024</span>];
-        <span style="color:#66d9ef">await</span> networkStream.ReadAsync(receivedMessage, <span style="color:#ae81ff">0</span>, receivedMessage.Length);
-        <span style="color:#66d9ef">var</span> receivedMessageText = Encoding.Default.GetString(receivedMessage).Trim(<span style="color:#e6db74">&#39; &#39;</span>, <span style="color:#e6db74">&#39;\r&#39;</span>, <span style="color:#e6db74">&#39;\n&#39;</span>);
-        <span style="color:#66d9ef">return</span> receivedMessageText;
-    }
-}
-</code></pre></div><h4 id="test-the-server">Test the server</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">//Program.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> Port = <span style="color:#ae81ff">8080</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task Main(String[] args)  
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> address = GetLocalIPAddress();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> tcpListener = <span style="color:#66d9ef">new</span> TcpListener(GetLocalIPAddress(), Port);
+</span></span><span style="display:flex;"><span>        tcpListener.Start();  
+</span></span><span style="display:flex;"><span>        Console.WriteLine(<span style="color:#e6db74">$&#34;Server started. Listening to TCP clients at {address}, port {Port}&#34;</span>); 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">await</span> WaitForClientConnectionAndHandleAsync(tcpListener);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> IPAddress GetLocalIPAddress()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> host = Dns.GetHostEntry(Dns.GetHostName());
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> ip <span style="color:#66d9ef">in</span> host.AddressList)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (ip.AddressFamily == AddressFamily.InterNetwork)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> ip;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception(<span style="color:#e6db74">&#34;No network adapters with an IPv4 address in the system!&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task WaitForClientConnectionAndHandleAsync(TcpListener tcpListener)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Console.WriteLine(<span style="color:#e6db74">$&#34;Waiting for a client connection at {DateTime.Now.ToString()}..&#34;</span>);
+</span></span><span style="display:flex;"><span>        using(<span style="color:#66d9ef">var</span> client = tcpListener.AcceptTcpClient())
+</span></span><span style="display:flex;"><span>        using(<span style="color:#66d9ef">var</span> networkStream = client.GetStream())
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">$&#34;Client connected at {DateTime.Now.ToString()}...&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">$&#34;Receiving message...&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> receivedMessage = <span style="color:#66d9ef">await</span> ReceiveMessageAsync(networkStream);
+</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">$&#34;Message received from client at {DateTime.Now.ToString()}: {receivedMessage}&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> messageToSend = GenerateAnswerMessageText(receivedMessage);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">await</span> SendMessageAsync(networkStream, messageToSend);
+</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">$&#34;Sent message at {DateTime.Now.ToString()}: {messageToSend} &#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">string</span> GenerateAnswerMessageText(<span style="color:#66d9ef">string</span> receivedMessage)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;makes Jack a dull boy&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task SendMessageAsync(NetworkStream stream, <span style="color:#66d9ef">string</span> message)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">byte</span>[] helloMessage = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span>[<span style="color:#ae81ff">100</span>];
+</span></span><span style="display:flex;"><span>        helloMessage = Encoding.Default.GetBytes(message);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> stream.WriteAsync(helloMessage, <span style="color:#ae81ff">0</span>, helloMessage.Length);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task&lt;<span style="color:#66d9ef">string</span>&gt; ReceiveMessageAsync(NetworkStream networkStream)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">byte</span>[] receivedMessage = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span>[<span style="color:#ae81ff">1024</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> networkStream.ReadAsync(receivedMessage, <span style="color:#ae81ff">0</span>, receivedMessage.Length);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> receivedMessageText = Encoding.Default.GetString(receivedMessage).Trim(<span style="color:#e6db74">&#39; &#39;</span>, <span style="color:#e6db74">&#39;\r&#39;</span>, <span style="color:#e6db74">&#39;\n&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> receivedMessageText;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="test-the-server">Test the server</h4>
 <p>Using <code>netcat</code> in linux</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">netcat [SERVER_IP] [PORT]
-hello server!
-</code></pre></div><h4 id="note-on-server-ip">Note on server IP</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>netcat [SERVER_IP] [PORT]
+</span></span><span style="display:flex;"><span>hello server!
+</span></span></code></pre></div><h4 id="note-on-server-ip">Note on server IP</h4>
 <p><strong>The IP to bind the server shouldn&rsquo;t be hardcoded to <code>localhost</code> or similar, because the server would <em>bound</em> to it, and when it&rsquo;s deployed in a network (or in a docker container), it would not respond to its real IP.</strong></p>
 <h3 id="simplest-tcp-client">Simplest TCP client</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
-{
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task Main(<span style="color:#66d9ef">string</span>[] args)
-    {
-        <span style="color:#66d9ef">try</span>
-        {
-            Console.WriteLine(<span style="color:#e6db74">&#34;Enter server IP:&#34;</span>);
-            <span style="color:#66d9ef">var</span> serverIp = Console.ReadLine();
-            Console.WriteLine(<span style="color:#e6db74">&#34;Enter server port:&#34;</span>);
-            <span style="color:#66d9ef">var</span> serverPort = <span style="color:#66d9ef">int</span>.Parse(Console.ReadLine());
-            
-            using(<span style="color:#66d9ef">var</span> client = <span style="color:#66d9ef">new</span> TcpClient(serverIp, serverPort))
-            {
-                <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> networkStream = client.GetStream())
-                {
-                    Console.WriteLine(<span style="color:#e6db74">&#34;Connected to server...&#34;</span>);
-
-                    <span style="color:#66d9ef">var</span> messageToSendText = <span style="color:#e6db74">&#34;All work and no play..&#34;</span>;
-                    <span style="color:#66d9ef">await</span> SendMessageAsync(networkStream, messageToSendText);
-                    Console.WriteLine(<span style="color:#e6db74">$&#34;Sent message at {DateTime.Now.ToString()}: {messageToSendText}&#34;</span>);
-
-                    <span style="color:#66d9ef">var</span> messageReceivedText = <span style="color:#66d9ef">await</span> ReceiveMessageAsync(networkStream);
-                    Console.WriteLine(<span style="color:#e6db74">$&#34;Received message at {DateTime.Now.ToString()}: {messageReceivedText}&#34;</span>);
-                }
-            }
-        }
-        <span style="color:#66d9ef">catch</span> (Exception ex)
-        {
-            Console.WriteLine(<span style="color:#e6db74">$&#34;Failed with exception: {ex.ToString()}&#34;</span>);
-        }
-    }
-
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task SendMessageAsync(NetworkStream stream, <span style="color:#66d9ef">string</span> message)
-    {
-        <span style="color:#66d9ef">var</span> messageToSend = System.Text.Encoding.ASCII.GetBytes(message);
-        <span style="color:#66d9ef">await</span> stream.WriteAsync(messageToSend, <span style="color:#ae81ff">0</span>, messageToSend.Length);
-    }
-
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task&lt;<span style="color:#66d9ef">string</span>&gt; ReceiveMessageAsync(NetworkStream stream)
-    {
-        <span style="color:#66d9ef">var</span> messageReceived = <span style="color:#66d9ef">new</span> Byte[<span style="color:#ae81ff">1024</span>];
-        <span style="color:#66d9ef">var</span> numberOfBytes = <span style="color:#66d9ef">await</span> stream.ReadAsync(messageReceived, <span style="color:#ae81ff">0</span>, messageReceived.Length);
-        <span style="color:#66d9ef">var</span> messageReceivedText = System.Text.Encoding.ASCII.GetString(messageReceived, <span style="color:#ae81ff">0</span>, numberOfBytes);
-        <span style="color:#66d9ef">return</span> messageReceivedText;
-    }
-}
-</code></pre></div><h3 id="docker">Docker</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#75715e"># Dockerfile</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/sdk:3.1 AS build-env</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy csproj and restore as distinct layers</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> *.csproj ./<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> dotnet restore<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy everything else and build</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . ./<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> dotnet publish -c Release -o publish<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Build runtime image</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/runtime:3.1</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> --from<span style="color:#f92672">=</span>build-env /app/publish .<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 8080</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;dotnet&#34;</span>, <span style="color:#e6db74">&#34;Bustroker.TcpServer.ConsoleUI.dll&#34;</span>]<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><h4 id="build-run-and-test-with-netcat">Build, run and test with netcat</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">docker build -t tcp-server .
-docker run -p 8080:8080 tcp-server
-</code></pre></div><p>From another terminal, use netcat</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task Main(<span style="color:#66d9ef">string</span>[] args)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">&#34;Enter server IP:&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> serverIp = Console.ReadLine();
+</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">&#34;Enter server port:&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> serverPort = <span style="color:#66d9ef">int</span>.Parse(Console.ReadLine());
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            using(<span style="color:#66d9ef">var</span> client = <span style="color:#66d9ef">new</span> TcpClient(serverIp, serverPort))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> networkStream = client.GetStream())
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    Console.WriteLine(<span style="color:#e6db74">&#34;Connected to server...&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">var</span> messageToSendText = <span style="color:#e6db74">&#34;All work and no play..&#34;</span>;
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">await</span> SendMessageAsync(networkStream, messageToSendText);
+</span></span><span style="display:flex;"><span>                    Console.WriteLine(<span style="color:#e6db74">$&#34;Sent message at {DateTime.Now.ToString()}: {messageToSendText}&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">var</span> messageReceivedText = <span style="color:#66d9ef">await</span> ReceiveMessageAsync(networkStream);
+</span></span><span style="display:flex;"><span>                    Console.WriteLine(<span style="color:#e6db74">$&#34;Received message at {DateTime.Now.ToString()}: {messageReceivedText}&#34;</span>);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> (Exception ex)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">$&#34;Failed with exception: {ex.ToString()}&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task SendMessageAsync(NetworkStream stream, <span style="color:#66d9ef">string</span> message)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> messageToSend = System.Text.Encoding.ASCII.GetBytes(message);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> stream.WriteAsync(messageToSend, <span style="color:#ae81ff">0</span>, messageToSend.Length);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task&lt;<span style="color:#66d9ef">string</span>&gt; ReceiveMessageAsync(NetworkStream stream)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> messageReceived = <span style="color:#66d9ef">new</span> Byte[<span style="color:#ae81ff">1024</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> numberOfBytes = <span style="color:#66d9ef">await</span> stream.ReadAsync(messageReceived, <span style="color:#ae81ff">0</span>, messageReceived.Length);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> messageReceivedText = System.Text.Encoding.ASCII.GetString(messageReceived, <span style="color:#ae81ff">0</span>, numberOfBytes);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> messageReceivedText;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="docker">Docker</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#75715e"># Dockerfile</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/sdk:3.1 AS build-env</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy csproj and restore as distinct layers</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> *.csproj ./<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> dotnet restore<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy everything else and build</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . ./<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> dotnet publish -c Release -o publish<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Build runtime image</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/runtime:3.1</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> --from<span style="color:#f92672">=</span>build-env /app/publish .<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">EXPOSE</span><span style="color:#e6db74"> 8080</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;dotnet&#34;</span>, <span style="color:#e6db74">&#34;Bustroker.TcpServer.ConsoleUI.dll&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h4 id="build-run-and-test-with-netcat">Build, run and test with netcat</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker build -t tcp-server .
+</span></span><span style="display:flex;"><span>docker run -p 8080:8080 tcp-server
+</span></span></code></pre></div><p>From another terminal, use netcat</p>
 <pre tabindex="0"><code>netcat [SERVER_IP] [PORT]
 hello tcp!
 </code></pre>

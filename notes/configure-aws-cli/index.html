@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.101.0" />
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -147,14 +147,14 @@ audio {
 <p>Configure AWS CLI: Open a terminal or command prompt and run the following command:</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws configure
-</code></pre></div><p>This command will prompt you to enter the access key ID, secret access key, default region, and default output format. Enter the access key ID and secret access key obtained in the previous step, and choose the desired region and output format (e.g., JSON).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws configure
+</span></span></code></pre></div><p>This command will prompt you to enter the access key ID, secret access key, default region, and default output format. Enter the access key ID and secret access key obtained in the previous step, and choose the desired region and output format (e.g., JSON).</p>
 <p>Alternatively, you can manually edit the AWS CLI configuration file located at ~/.aws/config (Linux/Mac) or %USERPROFILE%.aws\config (Windows) and add the access key ID, secret access key, region, and output format in the appropriate sections.</p>
 <ol start="5">
 <li>Test the Configuration: To verify that the AWS CLI authentication is set up correctly, run a simple command, such as listing your S3 buckets:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws s3 ls
-</code></pre></div><pre><code>If the authentication is successful, you should see a list of your S3 buckets.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws s3 ls
+</span></span></code></pre></div><pre><code>If the authentication is successful, you should see a list of your S3 buckets.
 </code></pre>
 <p>By following these steps, you will have configured AWS CLI authentication, allowing you to deploy applications using the AWS CLI and access the necessary AWS resources based on the permissions granted to the IAM user.</p>
 
