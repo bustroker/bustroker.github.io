@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>interview on Coding notes</title>
+    <title>Interview on Coding notes</title>
     <link>https://www.bustroker.com/tags/interview/</link>
-    <description>Recent content in interview on Coding notes</description>
+    <description>Recent content in Interview on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/interview/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 May 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/interview/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Architecture interview questions</title>
       <link>https://www.bustroker.com/notes/architecture-interview-questions/</link>
       <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/architecture-interview-questions/</guid>
-      <description>Questions Difference between the role of the Architect and the Tech Lead
-Main concerns What&amp;rsquo;s the most difficult aspect of the switch from TL to Sln Arch Do you follow any particular mentoring strategy? Do you establish guidelines, best practices? How? How to make sure they are followed? How do you relate with Tech Leads in terms of the design/development process? Mention a couple of web Architecture Styles and describe them =&amp;gt; check this (https://docs.</description>
+      <description>Questions Difference between the role of the Architect and the Tech Lead&#xA;Main concerns What&amp;rsquo;s the most difficult aspect of the switch from TL to Sln Arch Do you follow any particular mentoring strategy? Do you establish guidelines, best practices? How? How to make sure they are followed? How do you relate with Tech Leads in terms of the design/development process? Mention a couple of web Architecture Styles and describe them =&amp;gt; check this (https://docs.</description>
     </item>
-    
     <item>
       <title>dotnet Software engineer interview questions</title>
       <link>https://www.bustroker.com/notes/dotnet-software-engineer-interview-questions/</link>
       <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/dotnet-software-engineer-interview-questions/</guid>
-      <description>Questions https://www.fullstack.cafe/interview-questions/ https://www.fullstack.cafe/interview-questions/design-patterns https://www.fullstack.cafe/interview-questions/ddd
-Ice breaker :P What&amp;rsquo;s new in .net 6/C#10
-HTTP/3 with QUIC (quick UDP internet connection) your favorite new feature? record type in C#9 https://www.infoworld.com/article/3607372/how-to-work-with-record-types-in-csharp-9.html
-Language Interface vs Abstract class value/reference types. null values. how to create a value type? (struct) async/await. why async/await in web api controllers? difference between const and readonly what is yield. Exception handling and logging. Difference between throw and throw ex. IQueriable, IEnumerable ORM usage: EF, ado.</description>
+      <description>Questions https://www.fullstack.cafe/interview-questions/ https://www.fullstack.cafe/interview-questions/design-patterns https://www.fullstack.cafe/interview-questions/ddd&#xA;Ice breaker :P What&amp;rsquo;s new in .net 6/C#10&#xA;HTTP/3 with QUIC (quick UDP internet connection) your favorite new feature? record type in C#9 https://www.infoworld.com/article/3607372/how-to-work-with-record-types-in-csharp-9.html&#xA;Language Interface vs Abstract class value/reference types. null values. how to create a value type? (struct) async/await. why async/await in web api controllers? difference between const and readonly what is yield. Exception handling and logging. Difference between throw and throw ex. IQueriable, IEnumerable ORM usage: EF, ado.</description>
     </item>
-    
   </channel>
 </rss>

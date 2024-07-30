@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jupyter on Coding notes</title>
+    <title>Jupyter on Coding notes</title>
     <link>https://www.bustroker.com/tags/jupyter/</link>
-    <description>Recent content in jupyter on Coding notes</description>
+    <description>Recent content in Jupyter on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Run Jupyter notebook with spark in docker</title>
       <link>https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/</link>
       <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/</guid>
-      <description>Install spark to run locally docker run -p 8888:8888 -p 4041:4041 jupyter/all-spark-notebook The auth token is logged in the terminal. Copy it. In host browse to localhost:8888. Use the token to authenticate in the interface.
-Create new spylon-kernel notebook and write scala code.
-Spark WebUI is running on port 4041</description>
+      <description>Install spark to run locally docker run -p 8888:8888 -p 4041:4041 jupyter/all-spark-notebook The auth token is logged in the terminal. Copy it. In host browse to localhost:8888. Use the token to authenticate in the interface.&#xA;Create new spylon-kernel notebook and write scala code.&#xA;Spark WebUI is running on port 4041</description>
     </item>
-    
   </channel>
 </rss>

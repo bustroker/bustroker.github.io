@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kafka on Coding notes</title>
+    <title>Kafka on Coding notes</title>
     <link>https://www.bustroker.com/tags/kafka/</link>
-    <description>Recent content in kafka on Coding notes</description>
+    <description>Recent content in Kafka on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kafka Avro Consumer issue workaround</title>
       <link>https://www.bustroker.com/notes/kafka-avro-consumer-issue-workaround/</link>
       <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/kafka-avro-consumer-issue-workaround/</guid>
-      <description>I reported the issue here
-Description AvroDeserializer throws NullReferenceException without any further info.
-Unhandled exception. Confluent.Kafka.ConsumeException: Local: Value deserialization error---&amp;gt; System.NullReferenceException: Object reference not set to an instance of an object.at Confluent.SchemaRegistry.Serdes.GenericDeserializerImpl.Deserialize(String topic, Byte[] array)at Confluent.SchemaRegistry.Serdes.AvroDeserializer`1.DeserializeAsync(ReadOnlyMemory`1 data, Boolean isNull, SerializationContext context)at Confluent.Kafka.SyncOverAsync.SyncOverAsyncDeserializer`1.Deserialize(ReadOnlySpan`1 data, Boolean isNull, SerializationContext context)at Confluent.Kafka.Consumer`2.Consume(Int32 millisecondsTimeout)--- End of inner exception stack trace ---at Confluent.Kafka.Consumer`2.Consume(Int32 millisecondsTimeout)at Confluent.Kafka.Consumer`2.Consume(TimeSpan timeout)at Arch.Pocs.KafkaClient.Consumer.ConsoleUI.KafkaAvroConsumer.Poll(String topic)+MoveNext() in /app/KafkaAvroConsumer.</description>
+      <description>I reported the issue here&#xA;Description AvroDeserializer throws NullReferenceException without any further info.&#xA;Unhandled exception. Confluent.Kafka.ConsumeException: Local: Value deserialization error ---&amp;gt; System.NullReferenceException: Object reference not set to an instance of an object. at Confluent.SchemaRegistry.Serdes.GenericDeserializerImpl.Deserialize(String topic, Byte[] array) at Confluent.SchemaRegistry.Serdes.AvroDeserializer`1.DeserializeAsync(ReadOnlyMemory`1 data, Boolean isNull, SerializationContext context) at Confluent.Kafka.SyncOverAsync.SyncOverAsyncDeserializer`1.Deserialize(ReadOnlySpan`1 data, Boolean isNull, SerializationContext context) at Confluent.Kafka.Consumer`2.Consume(Int32 millisecondsTimeout) --- End of inner exception stack trace --- at Confluent.Kafka.Consumer`2.Consume(Int32 millisecondsTimeout) at Confluent.Kafka.Consumer`2.Consume(TimeSpan timeout) at Arch.Pocs.KafkaClient.Consumer.ConsoleUI.KafkaAvroConsumer.Poll(String topic)+MoveNext() in /app/KafkaAvroConsumer.</description>
     </item>
-    
     <item>
       <title>Run Kafka locally with docker compose</title>
       <link>https://www.bustroker.com/notes/run-kafka-locally-with-docker-compose/</link>
       <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/run-kafka-locally-with-docker-compose/</guid>
       <description>Basic services: zookeeper: image: wurstmeister/zookeeper ports: - &amp;#34;2181:2181&amp;#34; kafka: image: wurstmeister/kafka ports: - &amp;#34;9092:9092&amp;#34; environment: KAFKA_ADVERTISED_HOST_NAME: localhost KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181 volumes: - /var/run/docker.sock:/var/run/docker.sock Full stack services: zookeeper: image: confluentinc/cp-zookeeper:6.2.1 hostname: zookeeper container_name: zookeeper ports: - &amp;#34;2181:2181&amp;#34; environment: ZOOKEEPER_CLIENT_PORT: 2181 ZOOKEEPER_SERVER_ID: 1 ZOOKEEPER_SERVERS: zookeeper:2888:3888 kafka: image: confluentinc/cp-kafka:6.2.1 hostname: kafka ports: - &amp;#34;9092:9092&amp;#34; - &amp;#34;9999:9999&amp;#34; environment: KAFKA_ADVERTISED_LISTENERS: LISTENER_DOCKER_INTERNAL://kafka:19092,LISTENER_DOCKER_EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092 KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_DOCKER_INTERNAL:PLAINTEXT,LISTENER_DOCKER_EXTERNAL:PLAINTEXT KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_DOCKER_INTERNAL KAFKA_ZOOKEEPER_CONNECT: &amp;#34;zookeeper:2181&amp;#34; KAFKA_BROKER_ID: 1 KAFKA_LOG4J_LOGGERS: &amp;#34;kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO&amp;#34; KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1 KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1 KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1 KAFKA_JMX_PORT: 9999 KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.</description>
     </item>
-    
   </channel>
 </rss>

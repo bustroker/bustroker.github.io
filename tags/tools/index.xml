@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tools on Coding notes</title>
+    <title>Tools on Coding notes</title>
     <link>https://www.bustroker.com/tags/tools/</link>
-    <description>Recent content in tools on Coding notes</description>
+    <description>Recent content in Tools on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tools catalog</title>
       <link>https://www.bustroker.com/notes/tools-catalog/</link>
       <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/tools-catalog/</guid>
-      <description>Performance tests https://github.com/ddosify/ddosify
-Docker for mack Colima https://github.com/abiosoft/colima</description>
+      <description>Performance tests https://github.com/ddosify/ddosify&#xA;Docker for mack Colima https://github.com/abiosoft/colima</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>authentication on Coding notes</title>
+    <title>Authentication on Coding notes</title>
     <link>https://www.bustroker.com/tags/authentication/</link>
-    <description>Recent content in authentication on Coding notes</description>
+    <description>Recent content in Authentication on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/authentication/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configure AWS CLI</title>
       <link>https://www.bustroker.com/notes/configure-aws-cli/</link>
       <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/configure-aws-cli/</guid>
-      <description>From ChatGPT ;P To configure AWS CLI authentication for deploying applications, you can follow these steps:
-Install AWS CLI: If you haven&amp;rsquo;t already, install the AWS CLI on your machine. You can download the AWS CLI installer appropriate for your operating system from the official AWS Command Line Interface documentation.
-Create AWS IAM User: In the AWS Management Console, navigate to the IAM (Identity and Access Management) service. Create a new IAM user or use an existing one that will be used for authentication.</description>
+      <description>From ChatGPT ;P To configure AWS CLI authentication for deploying applications, you can follow these steps:&#xA;Install AWS CLI: If you haven&amp;rsquo;t already, install the AWS CLI on your machine. You can download the AWS CLI installer appropriate for your operating system from the official AWS Command Line Interface documentation.&#xA;Create AWS IAM User: In the AWS Management Console, navigate to the IAM (Identity and Access Management) service. Create a new IAM user or use an existing one that will be used for authentication.</description>
     </item>
-    
   </channel>
 </rss>

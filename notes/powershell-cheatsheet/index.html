@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.123.7">
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -137,7 +137,7 @@ audio {
 </span></span></code></pre></div><h3 id="list-environment-variables">List environment variables</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Get-ChildItem -Path Env<span style="color:#960050;background-color:#1e0010">:</span>\
 </span></span></code></pre></div><p>Also, using <code>.net</code> from powershell, and specifying system-level variables, by specifying <code>machine</code> as second argument. This argument could also be <code>user</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;VARIABLE_NAME&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[<span style="color:#66d9ef">System.Environment</span>]::GetEnvironmentVariable(<span style="color:#e6db74">&#39;VARIABLE_NAME&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>)
 </span></span></code></pre></div><p>For some reason, the previous doesn&rsquo;t work for variable <code>COMPUTERNAME</code>. To get computer name:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$env:computername
 </span></span></code></pre></div><h3 id="set-environment-variable">Set environment variable</h3>
@@ -145,11 +145,11 @@ audio {
 <ul>
 <li>new variable</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#66d9ef">[System.Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#39;VARIABLE_NAME&#39;</span>, <span style="color:#e6db74">&#39;VARIABLE_VALUE&#39;</span>,<span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[<span style="color:#66d9ef">System.Environment</span>]::SetEnvironmentVariable(<span style="color:#e6db74">&#39;VARIABLE_NAME&#39;</span>, <span style="color:#e6db74">&#39;VARIABLE_VALUE&#39;</span>,[<span style="color:#66d9ef">System.EnvironmentVariableTarget</span>]::Machine)
 </span></span></code></pre></div><ul>
 <li>add to an existing variable (typically to <code>PATH</code>)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$current=<span style="color:#66d9ef">[System.Environment]</span>::GetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>);$newpath=<span style="color:#e6db74">&#34;$current;C:\new\stuff\in\the\path&#34;</span>;<span style="color:#66d9ef">[System.Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>, $newpath,<span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$current=[<span style="color:#66d9ef">System.Environment</span>]::GetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>);$newpath=<span style="color:#e6db74">&#34;</span>$current<span style="color:#e6db74">;C:\new\stuff\in\the\path&#34;</span>;[<span style="color:#66d9ef">System.Environment</span>]::SetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>, $newpath,[<span style="color:#66d9ef">System.EnvironmentVariableTarget</span>]::Machine)
 </span></span></code></pre></div><h3 id="remove-environment-variable">Remove environment variable</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Remove-Item env<span style="color:#960050;background-color:#1e0010">:</span>\VARIABLE_NAME
 </span></span></code></pre></div><h3 id="enable-windows-feature-servermanager">Enable windows feature (ServerManager)</h3>
@@ -186,9 +186,9 @@ audio {
 </span></span></code></pre></div><h3 id="grant-a-user-full-permission-over-a-folder">Grant a user full permission over a folder</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>icacls <span style="color:#e6db74">&#34;C:\folder\to\set\permissions\to&#34;</span> /inheritance<span style="color:#960050;background-color:#1e0010">:</span>d /grant<span style="color:#960050;background-color:#1e0010">:</span>r <span style="color:#e6db74">&#34;[USER_NAME]:(OI)(CI)F&#34;</span> /T
 </span></span></code></pre></div><h3 id="set-registry-value">Set registry value</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Set-ItemProperty -path <span style="color:#e6db74">&#39;HKLM:\path\to\key\&#39;</span> -name <span style="color:#66d9ef">[KEY_NAME]</span> -value <span style="color:#66d9ef">[KEY_VALUE]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Set-ItemProperty -path <span style="color:#e6db74">&#39;HKLM:\path\to\key\&#39;</span> -name [<span style="color:#66d9ef">KEY_NAME</span>] -value [<span style="color:#66d9ef">KEY_VALUE</span>]
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># e.g.</span>
-</span></span><span style="display:flex;"><span>Set-ItemProperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\&#39;</span> -name LoginMode -value 2
+</span></span><span style="display:flex;"><span>Set-ItemProperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\&#39;</span> -name LoginMode -value <span style="color:#ae81ff">2</span>
 </span></span></code></pre></div><h3 id="get-local-harddrives-storage-info">Get local harddrives storage info</h3>
 <p>Further info in <code>https://mcpmag.com/articles/2018/01/26/view-drive-information-with-powershell.aspx</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># all</span>
@@ -197,7 +197,7 @@ audio {
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># local</span>
 </span></span><span style="display:flex;"><span>Get-WmiObject -Class Win32_logicaldisk -Filter <span style="color:#e6db74">&#34;DriveType = &#39;3&#39;&#34;</span>
 </span></span></code></pre></div><h3 id="remove-alias-eg-curl">Remove alias (e.g. cURL)</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>rm <span style="color:#66d9ef">alias</span><span style="color:#960050;background-color:#1e0010">:</span>curl
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>rm alias<span style="color:#960050;background-color:#1e0010">:</span>curl
 </span></span></code></pre></div><h3 id="extract-zip-file">Extract zip file</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Expand-Archive -Path file.Zip -DestinationPath C:\Reference
 </span></span></code></pre></div><h3 id="download-and-run-msi-installer">Download and run msi installer</h3>

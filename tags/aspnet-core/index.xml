@@ -1,54 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>aspnet core on Coding notes</title>
+    <title>Aspnet Core on Coding notes</title>
     <link>https://www.bustroker.com/tags/aspnet-core/</link>
-    <description>Recent content in aspnet core on Coding notes</description>
+    <description>Recent content in Aspnet Core on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/aspnet-core/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/aspnet-core/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bundling and minification in Aspnet Core MVC</title>
       <link>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc/</link>
       <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc/</guid>
-      <description>Static files should be bundled and minified, and forced to be updated by the browser (not cached) when content changes.
-Bundle and minify them To bundle and minify js and css files, add bundleconfig.json file to the project root folder
-[ { &amp;#34;outputFileName&amp;#34;: &amp;#34;wwwroot/css/site.min.css&amp;#34;, &amp;#34;inputFiles&amp;#34;: [ &amp;#34;wwwroot/css/site.css&amp;#34; ] }, { &amp;#34;outputFileName&amp;#34;: &amp;#34;wwwroot/js/site.min.js&amp;#34;, &amp;#34;inputFiles&amp;#34;: [ &amp;#34;wwwroot/js/site.js&amp;#34; ], &amp;#34;minify&amp;#34;: { &amp;#34;enabled&amp;#34;: true, &amp;#34;renameLocals&amp;#34;: true }, &amp;#34;sourceMap&amp;#34;: false } ] Load them Add the reference to the page</description>
+      <description>Static files should be bundled and minified, and forced to be updated by the browser (not cached) when content changes.&#xA;Bundle and minify them To bundle and minify js and css files, add bundleconfig.json file to the project root folder&#xA;[ { &amp;#34;outputFileName&amp;#34;: &amp;#34;wwwroot/css/site.min.css&amp;#34;, &amp;#34;inputFiles&amp;#34;: [ &amp;#34;wwwroot/css/site.css&amp;#34; ] }, { &amp;#34;outputFileName&amp;#34;: &amp;#34;wwwroot/js/site.min.js&amp;#34;, &amp;#34;inputFiles&amp;#34;: [ &amp;#34;wwwroot/js/site.js&amp;#34; ], &amp;#34;minify&amp;#34;: { &amp;#34;enabled&amp;#34;: true, &amp;#34;renameLocals&amp;#34;: true }, &amp;#34;sourceMap&amp;#34;: false } ] Load them Add the reference to the page</description>
     </item>
-    
     <item>
       <title>Deploy dotnet core app to heroku</title>
       <link>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku/</link>
       <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku/</guid>
-      <description>An aspnet core web app/api app is assumed to have been implemented already. Following is how to deploy it.
-Heroku PORT Heroku saves in the environment variable PORT, the port where the application should listen. So the port needs to be changed to that one.
-//Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { var herokuPort = Environment.GetEnvironmentVariable(&amp;#34;PORT&amp;#34;); if (!string.IsNullOrWhiteSpace(herokuPort)) { webBuilder.UseUrls($&amp;#34;http://*:{herokuPort}&amp;#34;); } webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); Dockerfile FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env WORKDIR /app # Copy csproj and restore as distinct layers COPY *.</description>
+      <description>An aspnet core web app/api app is assumed to have been implemented already. Following is how to deploy it.&#xA;Heroku PORT Heroku saves in the environment variable PORT, the port where the application should listen. So the port needs to be changed to that one.&#xA;//Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { var herokuPort = Environment.GetEnvironmentVariable(&amp;#34;PORT&amp;#34;); if (!string.IsNullOrWhiteSpace(herokuPort)) { webBuilder.UseUrls($&amp;#34;http://*:{herokuPort}&amp;#34;); } webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); Dockerfile FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env WORKDIR /app # Copy csproj and restore as distinct layers COPY *.</description>
     </item>
-    
     <item>
       <title>Setup aspnet core app with vagrant and docker</title>
       <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</link>
       <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
-      <description>Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.
-dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
+      <description>Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.&#xA;dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
     </item>
-    
     <item>
       <title>Very basic logging to console from netcore webapi with Serilog</title>
       <link>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</link>
       <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
-      <description>Add serilog
-dotnet add package Serilog.AspNetCore public class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog() .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); } Then add
-// Startup.cs public void Configure(IApplicationBuilder app, IWebHostEnvironment env) { if (env.</description>
+      <description>Add serilog&#xA;dotnet add package Serilog.AspNetCore public class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog() .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); } Then add&#xA;// Startup.cs public void Configure(IApplicationBuilder app, IWebHostEnvironment env) { if (env.</description>
     </item>
-    
   </channel>
 </rss>

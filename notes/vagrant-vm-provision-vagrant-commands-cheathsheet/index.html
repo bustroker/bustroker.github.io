@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.123.7">
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -132,20 +132,20 @@ audio {
 
 <h1>Vagrant VM provision &amp; vagrant commands cheathsheet</h1>
 <h3 id="vagrantfile">Vagrantfile</h3>
-<pre tabindex="0"><code class="language-Vagrantfile" data-lang="Vagrantfile">Vagrant.configure(&#34;2&#34;) do |config|
-  # config.vm.box = &#34;debian/bullseye64&#34;
-  config.vm.box = &#34;ubuntu/focal64&#34; # v 20.04 LTS
-  config.vm.synced_folder &#34;./&#34;, &#34;/vagrant&#34;
-  config.vm.network &#34;forwarded_port&#34;, guest: 8080, host: 8080
-  config.vm.provision :shell, path: &#34;vagrant_provision.sh&#34;
-  
-  config.vm.provider &#34;virtualbox&#34; do |vb|
-    vb.name = &#34;UbuntuBionic&#34;     
-    vb.memory = 2048
-    # vb.gui = true
-  end
-end
-</code></pre><h3 id="vagrant-provision-script">Vagrant provision script</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Vagrantfile" data-lang="Vagrantfile"><span style="display:flex;"><span><span style="color:#66d9ef">Vagrant</span><span style="color:#f92672">.</span>configure(<span style="color:#e6db74">&#34;2&#34;</span>) <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>config<span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># config.vm.box = &#34;debian/bullseye64&#34;</span>
+</span></span><span style="display:flex;"><span>  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>box <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ubuntu/focal64&#34;</span> <span style="color:#75715e"># v 20.04 LTS</span>
+</span></span><span style="display:flex;"><span>  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>synced_folder <span style="color:#e6db74">&#34;./&#34;</span>, <span style="color:#e6db74">&#34;/vagrant&#34;</span>
+</span></span><span style="display:flex;"><span>  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;forwarded_port&#34;</span>, <span style="color:#e6db74">guest</span>: <span style="color:#ae81ff">8080</span>, <span style="color:#e6db74">host</span>: <span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">:shell</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;vagrant_provision.sh&#34;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>    vb<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;UbuntuBionic&#34;</span>     
+</span></span><span style="display:flex;"><span>    vb<span style="color:#f92672">.</span>memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">2048</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># vb.gui = true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h3 id="vagrant-provision-script">Vagrant provision script</h3>
 <p>Create a file <code>vagrant_provision.sh</code> in the same folder of <code>Vagrantfile</code>, with the following content. Just remove the tools not required, here&rsquo;s all I&rsquo;ve ever needed.</p>
 <p>Make sure to check for latest versions of some of the installed tools.
 Here&rsquo;s <code>vagrant_provision.sh</code></p>
@@ -307,7 +307,7 @@ vagrant global-status
 <pre tabindex="0"><code>vagrant destroy
 </code></pre><h4 id="ssh-into-vm">ssh into VM</h4>
 <pre tabindex="0"><code>vagrant ssh
-</code></pre><p>vagrant VM ssh server is in host&rsquo;s 2222 port, so putty can be used targeting <code>localhost:2222</code> 
+</code></pre><p>vagrant VM ssh server is in host&rsquo;s 2222 port, so putty can be used targeting <code>localhost:2222</code>
 Also, vagrant VM&rsquo;s 22 port can be forwarded to any other host&rsquo;s port.</p>
 <h3 id="other-commands">Other commands</h3>
 <pre tabindex="0"><code>vagrant init -- Initialize Vagrant with a Vagrantfile and ./.vagrant directory, using no specified base image. Before you can do vagrant up, you&#39;ll need to specify a base image in the Vagrantfile.

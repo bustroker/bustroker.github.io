@@ -1,50 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>spark on Coding notes</title>
+    <title>Spark on Coding notes</title>
     <link>https://www.bustroker.com/tags/spark/</link>
-    <description>Recent content in spark on Coding notes</description>
+    <description>Recent content in Spark on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/spark/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/spark/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Spark with delta lake</title>
       <link>https://www.bustroker.com/notes/spark-with-delta-lake/</link>
       <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/spark-with-delta-lake/</guid>
       <description>build.sbt ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.13.8&amp;#34; ThisBuild / organization := &amp;#34;bkr&amp;#34; libraryDependencies ++= List(&amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-core&amp;#34; % &amp;#34;3.2.0&amp;#34;, &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql&amp;#34; % &amp;#34;3.2.0&amp;#34;, // % &amp;#34;provided&amp;#34; &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql-kafka-0-10&amp;#34; % &amp;#34;3.2.0&amp;#34;, // % Test &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-avro&amp;#34; % &amp;#34;3.2.0&amp;#34;) libraryDependencies ++= List(&amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-common&amp;#34; % &amp;#34;3.3.1&amp;#34;, &amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-azure&amp;#34; % &amp;#34;3.3.1&amp;#34;) libraryDependencies += &amp;#34;org.json4s&amp;#34; %% &amp;#34;json4s-native&amp;#34; % &amp;#34;3.6.12&amp;#34; libraryDependencies += &amp;#34;io.delta&amp;#34; %% &amp;#34;delta-core&amp;#34; % &amp;#34;1.1.0&amp;#34; App.</description>
     </item>
-    
     <item>
       <title>Spark with scala</title>
       <link>https://www.bustroker.com/notes/spark-with-scala/</link>
       <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/spark-with-scala/</guid>
       <description>build.sbt ThisBuild / version := &amp;#34;0.1.0&amp;#34; ThisBuild / scalaVersion := &amp;#34;2.12.13&amp;#34; ThisBuild / organization := &amp;#34;bkr&amp;#34; lazy val KafkaStreamProcessing = (project in file(&amp;#34;.&amp;#34;)) .settings( name := &amp;#34;Bkr.Spark&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-core&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-sql-kafka-0-10&amp;#34; % &amp;#34;3.1.1&amp;#34;, libraryDependencies += &amp;#34;org.apache.spark&amp;#34; %% &amp;#34;spark-avro&amp;#34; % &amp;#34;3.1.1&amp;#34;, // version is critical, or ADLS will fail libraryDependencies += &amp;#34;org.apache.hadoop&amp;#34; % &amp;#34;hadoop-common&amp;#34; % &amp;#34;3.3.1&amp;#34;, libraryDependencies += &amp;#34;org.</description>
     </item>
-    
     <item>
       <title>Run Jupyter notebook with spark in docker</title>
       <link>https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/</link>
       <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/</guid>
-      <description>Install spark to run locally docker run -p 8888:8888 -p 4041:4041 jupyter/all-spark-notebook The auth token is logged in the terminal. Copy it. In host browse to localhost:8888. Use the token to authenticate in the interface.
-Create new spylon-kernel notebook and write scala code.
-Spark WebUI is running on port 4041</description>
+      <description>Install spark to run locally docker run -p 8888:8888 -p 4041:4041 jupyter/all-spark-notebook The auth token is logged in the terminal. Copy it. In host browse to localhost:8888. Use the token to authenticate in the interface.&#xA;Create new spylon-kernel notebook and write scala code.&#xA;Spark WebUI is running on port 4041</description>
     </item>
-    
     <item>
       <title>Install spark and hadoop in Windows 10</title>
       <link>https://www.bustroker.com/notes/install-spark-and-hadoop-in-windows-10/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/install-spark-and-hadoop-in-windows-10/</guid>
-      <description>Install spark to run locally Versions Java java -version openjdk version &amp;#34;1.8.0_292&amp;#34; OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10) OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode) Scala sbt console Welcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292). Install Spark Download from https://spark.apache.org/downloads.html.
-Spark release 3.2.0 For Hadoop 2.7 (previous versions failed me) Folder downloaded and copied as C:\Spark\spark-3.2.0-bin-hadoop2.7. Add system environment variable SPARK_HOME with value C:\Spark\spark-3.2.0-bin-hadoop2.7. Add %SPARK_HOME%\bin to system PATH.</description>
+      <description>Install spark to run locally Versions Java java -version openjdk version &amp;#34;1.8.0_292&amp;#34; OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10) OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode) Scala sbt console Welcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292). Install Spark Download from https://spark.apache.org/downloads.html.&#xA;Spark release 3.2.0 For Hadoop 2.7 (previous versions failed me) Folder downloaded and copied as C:\Spark\spark-3.2.0-bin-hadoop2.7. Add system environment variable SPARK_HOME with value C:\Spark\spark-3.2.0-bin-hadoop2.7. Add %SPARK_HOME%\bin to system PATH.</description>
     </item>
-    
   </channel>
 </rss>
