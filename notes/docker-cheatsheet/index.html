@@ -244,6 +244,13 @@ Also, use double quotes rather than one, as it fails as well (in windows at leas
 <p>From inside docker, host&rsquo;s network can be accessed through <code>host.docker.internal</code> host name. Accesing an API on port 3000 running in the host, from a docker container would be:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>docker exec -it <span style="color:#66d9ef">[CONTAINER_NAME]</span> /bin/bash
 </span></span><span style="display:flex;"><span>curl host.docker.internal<span style="color:#960050;background-color:#1e0010">:</span>3000
+</span></span></code></pre></div><h3 id="login-docker-to-private-aws-registry-ecr">login docker to private aws registry ECR</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sso login --profile PROFILE
+</span></span><span style="display:flex;"><span>aws ecr get-login-password --region REGION --profile PROFILE | docker login --username AWS --password-stdin ECR
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># e.g:</span>
+</span></span><span style="display:flex;"><span>aws sso login --profile
+</span></span><span style="display:flex;"><span>aws ecr get-login-password --region eu-central-1 --profile aws-infrastructure | docker login --username AWS --password-stdin 258781458051.dkr.ecr.eu-central-1.amazonaws.com
 </span></span></code></pre></div>
 
 

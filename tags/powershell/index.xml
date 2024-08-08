@@ -6,7 +6,16 @@
     <description>Recent content in powershell on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install azcopy in windows from powershell</title>
+      <link>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</link>
+      <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</guid>
+      <description>Install func cli $InstallPath = &amp;#39;C:\AzCopy&amp;#39; # Cleanup Destination if (Test-Path $InstallPath) { Get-ChildItem $InstallPath | Remove-Item -Confirm:$false -Force } # Zip Destination $zip = &amp;#34;$InstallPath\AzCopy.Zip&amp;#34; # Create the installation folder (eg. C:\AzCopy) $null = New-Item -Type Directory -Path $InstallPath -Force # Download AzCopy zip for Windows Start-BitsTransfer -Source &amp;#34;https://aka.ms/downloadazcopy-v10-windows&amp;#34; -Destination $zip # Expand the Zip file Expand-Archive $zip $InstallPath -Force # Move to $InstallPath Get-ChildItem &amp;#34;$($InstallPath)\*\*&amp;#34; | Move-Item -Destination &amp;#34;$($InstallPath)\&amp;#34; -Force #Cleanup - delete ZIP and old folder Remove-Item $zip -Force -Confirm:$false Get-ChildItem &amp;#34;$($InstallPath)\*&amp;#34; -Directory | ForEach-Object { Remove-Item $_.</description>
+    </item>
+    
     <item>
       <title>Query sql server from powershell</title>
       <link>https://www.bustroker.com/notes/query-sql-server-from-powershell/</link>
