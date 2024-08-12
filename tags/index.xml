@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git</title>
+      <link>https://www.bustroker.com/tags/git/</link>
+      <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Stash</title>
+      <link>https://www.bustroker.com/tags/stash/</link>
+      <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/stash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Azcopy</title>
+      <link>https://www.bustroker.com/tags/azcopy/</link>
+      <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/azcopy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Powershell</title>
+      <link>https://www.bustroker.com/tags/powershell/</link>
+      <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/powershell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>https://www.bustroker.com/tags/windows/</link>
+      <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/windows/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Progressive Web App</title>
       <link>https://www.bustroker.com/tags/progressive-web-app/</link>
@@ -111,13 +146,6 @@
       <link>https://www.bustroker.com/tags/forget/</link>
       <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/forget/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Git</title>
-      <link>https://www.bustroker.com/tags/git/</link>
-      <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/git/</guid>
       <description></description>
     </item>
     <item>
@@ -394,13 +422,6 @@
       <description></description>
     </item>
     <item>
-      <title>Windows</title>
-      <link>https://www.bustroker.com/tags/windows/</link>
-      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/windows/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>PATH</title>
       <link>https://www.bustroker.com/tags/path/</link>
       <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
@@ -489,13 +510,6 @@
       <link>https://www.bustroker.com/tags/mssql-tools/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/mssql-tools/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Powershell</title>
-      <link>https://www.bustroker.com/tags/powershell/</link>
-      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/powershell/</guid>
       <description></description>
     </item>
     <item>
