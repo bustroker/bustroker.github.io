@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.bustroker.com/</loc>
-    <lastmod>2024-08-12T00:00:00+00:00</lastmod>
+    <lastmod>2024-08-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/csx/</loc>
+    <lastmod>2024-08-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/dotnet/</loc>
+    <lastmod>2024-08-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/dotnet-scrips/</loc>
+    <lastmod>2024-08-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+    <lastmod>2024-08-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/script/</loc>
+    <lastmod>2024-08-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2024-08-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/git/</loc>
     <lastmod>2024-08-12T00:00:00+00:00</lastmod>
@@ -11,13 +29,7 @@
     <loc>https://www.bustroker.com/notes/git-stash/</loc>
     <lastmod>2024-08-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/</loc>
-    <lastmod>2024-08-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/tags/stash/</loc>
-    <lastmod>2024-08-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/</loc>
     <lastmod>2024-08-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/azcopy/</loc>
@@ -114,9 +126,6 @@
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/mac/</loc>
-    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/script/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/bash/</loc>
@@ -258,9 +267,6 @@
     <lastmod>2021-12-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/avro/</loc>
-    <lastmod>2021-11-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/dotnet/</loc>
     <lastmod>2021-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/kafka/</loc>

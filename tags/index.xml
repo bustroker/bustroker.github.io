@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Csx</title>
+      <link>https://www.bustroker.com/tags/csx/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/csx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dotnet</title>
+      <link>https://www.bustroker.com/tags/dotnet/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/dotnet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Script</title>
+      <link>https://www.bustroker.com/tags/script/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/script/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Git</title>
       <link>https://www.bustroker.com/tags/git/</link>
@@ -174,13 +195,6 @@
       <link>https://www.bustroker.com/tags/mac/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/mac/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Script</title>
-      <link>https://www.bustroker.com/tags/script/</link>
-      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/script/</guid>
       <description></description>
     </item>
     <item>
@@ -377,13 +391,6 @@
       <link>https://www.bustroker.com/tags/avro/</link>
       <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/avro/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Dotnet</title>
-      <link>https://www.bustroker.com/tags/dotnet/</link>
-      <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/dotnet/</guid>
       <description></description>
     </item>
     <item>
