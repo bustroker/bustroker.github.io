@@ -687,12 +687,5 @@
       <guid>https://www.bustroker.com/notes/mortgage-simulator-in-python/</guid>
       <description>Implemented as per explanation by Universidad de Valencia&amp;rsquo;s Professor Carlos Ivorra, in the article Las matemáticas de una hipoteca about &amp;ldquo;underlying math in mortgage loans&amp;rdquo;. The full pdf article (in spanish) is here.&#xA;The code is in spanish and by the way, it&amp;rsquo;s so cool to be able to name variables in python using spanish accents. It brough out a smile :).&#xA;The important part class Calculadora: def __init__(self): return def interés_efectivo_mensual(self, euríbor, diferencial_interés): # (divido tb por 100 para tener el por-uno) return (euríbor + diferencial_interés) / 1200 def cuota(self, monto_préstamo, interés_efectivo_mensual, total_de_meses): c_0 = monto_préstamo i = interés_efectivo_mensual N = total_de_meses return (c_0 * i) / (1-(1 + i)**(-N)) def deuda_después_de_n_pagos(self, monto_cuota, interés_efectivo_mensual, total_de_meses, n): c = monto_cuota i = interés_efectivo_mensual N = total_de_meses return c/i * (1 - (1+i)**(n-N)) Talk is cheap Here&amp;rsquo;s the code.</description>
     </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>Why Warmup is important so the users don&amp;rsquo;t get a cold start on the app. When deploying to Azure app service, implementing the /warmup call every X minutes is not feasible as we don&amp;rsquo;t have access to actual instances directly to make the calls, so the requests will only get to the lucky instance the balancer in front of the app service decides to send the request to. Also, the point of PaaS is having the platform handle it, isn&amp;rsquo;t it?</description>
-    </item>
   </channel>
 </rss>
