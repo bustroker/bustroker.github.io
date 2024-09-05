@@ -131,113 +131,12 @@ audio {
         
 
 <h1></h1>
-<!-- General idea: the exceptions messages need to be defined in terms of the **contracts** of the API.
+<h2 id="why">Why</h2>
+<p>Warmup is important so the users don&rsquo;t get a cold start on the app.
+When deploying to Azure app service, implementing the /warmup call every X minutes is not feasible as we don&rsquo;t have access to actual instances directly to make the calls, so the requests will only get to the lucky instance the balancer in front of the app service decides to send the request to. Also, the point of PaaS is having the platform handle it, isn&rsquo;t it?</p>
+<h2 id="heading"></h2>
+<p>If the app service is using <a href="https://github.com/cgillum/easyauth">Easy Auth</a></p>
 
-My code:
-
-```c#
-using Microsoft.Azure.Functions.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection;
-using System.IO;
-using Microsoft.Extensions.Configuration;
-
-[assembly: FunctionsStartup(typeof(Arch.Pocs.Containers.AppService.HttpEndpoint.Func.Startup))]
-namespace Arch.Pocs.Containers.AppService.HttpEndpoint.Func
-{
-    public class Startup : FunctionsStartup
-    {
-        public override void Configure(IFunctionsHostBuilder builder)
-        {
-            builder.Services.AddHttpClient();
-        }
-    }
-}
-```
-
-and 
-```c#
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Microsoft.Extensions.Configuration;
-
-namespace Arch.Pocs.Containers.AppService.HttpEndpoint.Func
-{
-    public class HttpEndpoint
-    {
-        private readonly IConfiguration _configuration;
-
-        public HttpEndpoint(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-
-        [FunctionName("HttpEndpoint")]
-        public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "config")] HttpRequest req,
-            ILogger log)
-        {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            var setting = req.Query["setting"];
-            var value = _configuration.GetValue<string>(setting);
-            var response = await Task.FromResult($"setting: {setting}; value:{value}");
-            return new OkObjectResult(response);
-        }
-    }
-}
-```
-
-The exception:
-```
-fail: Function.HttpEndpoint[3]
-      Executed 'HttpEndpoint' (Failed, Id=18cb4d63-ae96-43b0-95c4-55c34324093b, Duration=99ms)
-Microsoft.Azure.WebJobs.Host.FunctionInvocationException: Exception while executing function: HttpEndpoint
- ===> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
-   at Microsoft.Extensions.Configuration.ConfigurationSection..ctor(IConfigurationRoot root, String path)
-   at Microsoft.Extensions.Configuration.ConfigurationRoot.GetSection(String key)
-   at Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue[T](IConfiguration configuration, String key, T defaultValue)
-   at Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue[T](IConfiguration configuration, String key)
-   at Arch.Pocs.Containers.AppService.HttpEndpoint.Func.HttpEndpoint.Run(HttpRequest req, ILogger log) in /src/dotnet-function-app/HttpEndpoint.cs:line 30
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionInvoker`2.InvokeAsync(Object instance, Object[] arguments) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionInvoker.cs:line 52
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.InvokeAsync(IFunctionInvoker invoker, ParameterHelper parameterHelper, CancellationTokenSource timeoutTokenSource, CancellationTokenSource functionCancellationTokenSource, Boolean throwOnTimeout, TimeSpan timerInterval, IFunctionInstance instance) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 591
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.ExecuteWithWatchersAsync(IFunctionInstanceEx instance, ParameterHelper parameterHelper, ILogger logger, CancellationTokenSource functionCancellationTokenSource) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 537
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.ExecuteWithLoggingAsync(IFunctionInstanceEx instance, ParameterHelper parameterHelper, IFunctionOutputDefinition outputDefinition, ILogger logger, CancellationTokenSource functionCancellationTokenSource) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 483
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.ExecuteWithLoggingAsync(IFunctionInstanceEx instance, FunctionStartedMessage message, FunctionInstanceLogEntry instanceLogEntry, ParameterHelper parameterHelper, ILogger logger, CancellationToken cancellationToken) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 290
-   --- End of inner exception stack trace ---
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.ExecuteWithLoggingAsync(IFunctionInstanceEx instance, FunctionStartedMessage message, FunctionInstanceLogEntry instanceLogEntry, ParameterHelper parameterHelper, ILogger logger, CancellationToken cancellationToken) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 340
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.TryExecuteAsyncCore(IFunctionInstanceEx functionInstance, CancellationToken cancellationToken) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 123
-fail: Host.Results[0]
-Microsoft.Azure.WebJobs.Host.FunctionInvocationException: Exception while executing function: HttpEndpoint
- ===> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
-   at Microsoft.Extensions.Configuration.ConfigurationSection..ctor(IConfigurationRoot root, String path)
-   at Microsoft.Extensions.Configuration.ConfigurationRoot.GetSection(String key)
-   at Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue[T](IConfiguration configuration, String key, T defaultValue)
-   at Microsoft.Extensions.Configuration.ConfigurationBinder.GetValue[T](IConfiguration configuration, String key)
-   at Arch.Pocs.Containers.AppService.HttpEndpoint.Func.HttpEndpoint.Run(HttpRequest req, ILogger log) in /src/dotnet-function-app/HttpEndpoint.cs:line 30
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionInvoker`2.InvokeAsync(Object instance, Object[] arguments) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionInvoker.cs:line 52
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.InvokeAsync(IFunctionInvoker invoker, ParameterHelper parameterHelper, CancellationTokenSource timeoutTokenSource, CancellationTokenSource functionCancellationTokenSource, Boolean throwOnTimeout, TimeSpan timerInterval, IFunctionInstance instance) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 591
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.ExecuteWithWatchersAsync(IFunctionInstanceEx instance, ParameterHelper parameterHelper, ILogger logger, CancellationTokenSource functionCancellationTokenSource) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 537
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.ExecuteWithLoggingAsync(IFunctionInstanceEx instance, ParameterHelper parameterHelper, IFunctionOutputDefinition outputDefinition, ILogger logger, CancellationTokenSource functionCancellationTokenSource) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 483
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.ExecuteWithLoggingAsync(IFunctionInstanceEx instance, FunctionStartedMessage message, FunctionInstanceLogEntry instanceLogEntry, ParameterHelper parameterHelper, ILogger logger, CancellationToken cancellationToken) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 290
-   --- End of inner exception stack trace ---
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.ExecuteWithLoggingAsync(IFunctionInstanceEx instance, FunctionStartedMessage message, FunctionInstanceLogEntry instanceLogEntry, ParameterHelper parameterHelper, ILogger logger, CancellationToken cancellationToken) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 340
-   at Microsoft.Azure.WebJobs.Host.Executors.FunctionExecutor.TryExecuteAsyncCore(IFunctionInstanceEx functionInstance, CancellationToken cancellationToken) in C:\projects\azure-webjobs-sdk-rqm4t\src\Microsoft.Azure.WebJobs.Host\Executors\FunctionExecutor.cs:line 123
-   Application is shutting down...
-```
-
-What is this `path` parameter?? How does this "Parameter 'path' cannot be null" translates into what **I** have done in the code??.
-Turns out I'm passing 'null' in this invocation
-```
-var value = _configuration.GetValue<string>(setting);
-```
-
-But the parameter of signature of `IConfiguration.GetValue<string>()` is called `key`, not `path`. -->
 
 
       </main>

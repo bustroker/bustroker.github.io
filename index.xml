@@ -694,12 +694,5 @@
       <guid>https://www.bustroker.com/notes/</guid>
       <description>Why Warmup is important so the users don&amp;rsquo;t get a cold start on the app. When deploying to Azure app service, implementing the /warmup call every X minutes is not feasible as we don&amp;rsquo;t have access to actual instances directly to make the calls, so the requests will only get to the lucky instance the balancer in front of the app service decides to send the request to. Also, the point of PaaS is having the platform handle it, isn&amp;rsquo;t it?</description>
     </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>
