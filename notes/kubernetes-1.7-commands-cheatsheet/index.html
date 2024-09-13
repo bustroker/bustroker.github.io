@@ -176,7 +176,7 @@ audio {
 </span></span><span style="display:flex;"><span>kubectl describe [<span style="color:#66d9ef">POD_NAME</span>]
 </span></span></code></pre></div><p>If it already exited, add <code>-p</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl logs [<span style="color:#66d9ef">POD_NAME</span>] -p
-</span></span></code></pre></div><p>Logs of container in a pod</p>
+</span></span></code></pre></div><p>Logs of specific container in a pod, i.e, from the initContainer</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl logs [<span style="color:#66d9ef">POD_NAME</span>] -c [<span style="color:#66d9ef">CONTAINER_NAME</span>]
 </span></span></code></pre></div><h3 id="list-all-resources">List all resources</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl api-resources --verbs=list --namespaced -o wide
