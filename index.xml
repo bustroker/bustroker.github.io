@@ -6,8 +6,15 @@
     <description>Recent content on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go hello world with regex</title>
+      <link>https://www.bustroker.com/notes/go-hello-world-with-regex/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/go-hello-world-with-regex/</guid>
+      <description>FluxCD Image policy applies regex to select latest tag. FluxCD uses go regex, so this go app tests a regex.&#xA;Create project # create go module go mod init atoss-regex # create main file touch main.go Code&#xA;// main.go package main import ( &amp;#34;fmt&amp;#34; &amp;#34;regexp&amp;#34; ) func main() { // pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\.[0-9]+\.[0-9]+)$` pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\\.[0-9]+\\.[0-9]+)$` // pattern := `^([0-9]+\\.[0-9]+\\.[0-9]+)$` tags := []string{ &amp;#34;v1.0.0&amp;#34;, &amp;#34;0.0.51&amp;#34;, &amp;#34;0.0.16&amp;#34;, &amp;#34;2.1.0&amp;#34;, &amp;#34;1.2.3&amp;#34;, &amp;#34;v0.9.8&amp;#34;, &amp;#34;1.0&amp;#34;, &amp;#34;invalid&amp;#34;, &amp;#34;1.</description>
+    </item>
     <item>
       <title>dotnet scrips</title>
       <link>https://www.bustroker.com/notes/dotnet-scrips/</link>
