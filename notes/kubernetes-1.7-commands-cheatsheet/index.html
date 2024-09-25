@@ -157,6 +157,9 @@ audio {
 </span></span><span style="display:flex;"><span>kubectl get service &lt;SERVICE-NAME&gt; [--watch]
 </span></span></code></pre></div><h3 id="bash-into-k8s-existing-pod">Bash into k8s existing pod</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl exec -it &lt;POD-NAME&gt; -- /bin/bash
+</span></span></code></pre></div><h3 id="bash-into-k8s-existing-pod-to-troubleshoot">Bash into k8s existing pod to troubleshoot</h3>
+<p>Create an ephemeral container in the existing pod</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl debug &lt;POD_NAME&gt; --image<span style="color:#f92672">=</span>&lt;IMAGE_NAME&gt; -- /bin/sh
 </span></span></code></pre></div><h3 id="run-pod-with-curl-to-access-the-network">Run pod with curl, to access the network.</h3>
 <p>Then <code>wget</code> a url and print result in terminal (<code>curl</code> is not included in alpine)</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl run --rm -it --image=alpine disposable-curl-pod
