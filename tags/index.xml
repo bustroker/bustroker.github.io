@@ -6,7 +6,115 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>actions</title>
+      <link>https://www.bustroker.com/tags/actions/</link>
+      <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/actions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://www.bustroker.com/tags/github/</link>
+      <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fluxcd</title>
+      <link>https://www.bustroker.com/tags/fluxcd/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/fluxcd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://www.bustroker.com/tags/go/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ImagePolicy</title>
+      <link>https://www.bustroker.com/tags/imagepolicy/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/imagepolicy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regex</title>
+      <link>https://www.bustroker.com/tags/regex/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/regex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>csx</title>
+      <link>https://www.bustroker.com/tags/csx/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/csx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dotnet</title>
+      <link>https://www.bustroker.com/tags/dotnet/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/dotnet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>script</title>
+      <link>https://www.bustroker.com/tags/script/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/script/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://www.bustroker.com/tags/git/</link>
+      <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>save diff</title>
+      <link>https://www.bustroker.com/tags/save-diff/</link>
+      <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/save-diff/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stash</title>
+      <link>https://www.bustroker.com/tags/stash/</link>
+      <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/stash/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>azcopy</title>
       <link>https://www.bustroker.com/tags/azcopy/</link>
@@ -170,15 +278,6 @@
     </item>
     
     <item>
-      <title>git</title>
-      <link>https://www.bustroker.com/tags/git/</link>
-      <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>colima</title>
       <link>https://www.bustroker.com/tags/colima/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
@@ -211,15 +310,6 @@
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/mac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>script</title>
-      <link>https://www.bustroker.com/tags/script/</link>
-      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/script/</guid>
       <description></description>
     </item>
     
@@ -283,15 +373,6 @@
       <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>github</title>
-      <link>https://www.bustroker.com/tags/github/</link>
-      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/github/</guid>
       <description></description>
     </item>
     
@@ -476,15 +557,6 @@
     </item>
     
     <item>
-      <title>dotnet</title>
-      <link>https://www.bustroker.com/tags/dotnet/</link>
-      <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/tags/dotnet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>kafka</title>
       <link>https://www.bustroker.com/tags/kafka/</link>
       <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
@@ -602,7 +674,7 @@
     </item>
     
     <item>
-      <title>iis</title>
+      <title>IIS</title>
       <link>https://www.bustroker.com/tags/iis/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       
@@ -922,6 +994,15 @@
       <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.bustroker.com/tags/helm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubectl</title>
+      <link>https://www.bustroker.com/tags/kubectl/</link>
+      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/tags/kubectl/</guid>
       <description></description>
     </item>
     

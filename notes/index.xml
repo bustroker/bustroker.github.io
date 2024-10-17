@@ -6,7 +6,45 @@
     <description>Recent content in Notes on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github actions</title>
+      <link>https://www.bustroker.com/notes/github-actions/</link>
+      <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/github-actions/</guid>
+      <description>Workflow to promote latest -rc image to release # It&amp;#39;s expected that when the new release candidate tag x.y.z is added by this workflow # to the latest x.y.z-rc image, a deployment is triggered to PRO environment name: Promote Latest RC Images to Release. Deploy to prod. on: workflow_dispatch: permissions: contents: read id-token: write jobs: promote-images: runs-on: ubuntu-latest strategy: matrix: repository: - atoss-identity-secrets-setup - atoss-identity-svc steps: - name: Checkout repository uses: actions/checkout@v4 - name: Configure AWS credentials uses: aws-actions/configure-aws-credentials@v4 with: role-to-assume: arn:aws:iam::XXXXXXXXXX:role/github/atoss-identity-deploy-role aws-region: eu-central-1 - name: Promote rc image to release uses: .</description>
+    </item>
+    
+    <item>
+      <title>Go hello world with regex</title>
+      <link>https://www.bustroker.com/notes/go-hello-world-with-regex/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/go-hello-world-with-regex/</guid>
+      <description>FluxCD Image policy applies regex to select latest tag. FluxCD uses go regex, so this go app tests a regex.
+Create project # create go module go mod init atoss-regex # create main file touch main.go Code
+// main.go package main import ( &amp;#34;fmt&amp;#34; &amp;#34;regexp&amp;#34; ) func main() { // pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\.[0-9]+\.[0-9]+)$` pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\\.[0-9]+\\.[0-9]+)$` // pattern := `^([0-9]+\\.[0-9]+\\.[0-9]+)$` tags := []string{ &amp;#34;v1.0.0&amp;#34;, &amp;#34;0.0.51&amp;#34;, &amp;#34;0.0.16&amp;#34;, &amp;#34;2.1.0&amp;#34;, &amp;#34;1.2.3&amp;#34;, &amp;#34;v0.9.8&amp;#34;, &amp;#34;1.0&amp;#34;, &amp;#34;invalid&amp;#34;, &amp;#34;1.</description>
+    </item>
+    
+    <item>
+      <title>dotnet scrips</title>
+      <link>https://www.bustroker.com/notes/dotnet-scrips/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/dotnet-scrips/</guid>
+      <description>Install dotnet script dotnet tool install -g dotnet-script Write csx script file with nuget package reference // script.csx #r &amp;#34;nuget:Newtonsoft.Json, 13.0.1&amp;#34; using Newtonsoft.Json; using Newtonsoft.Json.Linq; var args = Environment.GetCommandLineArgs(); if(args.Any(a =&amp;gt; a == &amp;#34;--dry-run&amp;#34;)) { return; } Console.WriteLine(&amp;#34;Using Newtonsoft.Json to parse JSON.&amp;#34;); var json = JObject.Parse(@&amp;#34;{ &amp;#39;name&amp;#39;: &amp;#39;John&amp;#39;, &amp;#39;age&amp;#39;: 30 }&amp;#34;); Console.WriteLine(json[&amp;#34;name&amp;#34;]); Run script dotnet-script script.csx </description>
+    </item>
+    
+    <item>
+      <title>Git stash - and patch</title>
+      <link>https://www.bustroker.com/notes/git-stash-and-patch/</link>
+      <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bustroker.com/notes/git-stash-and-patch/</guid>
+      <description>Stash git stash list # create or save stash git stash # or git stash push -m &amp;#34;description&amp;#34; # Apply latest Stash stash@{0} git stash apply # or git stash apply [INDEX] # Pop - Apply and Remove the latest stash: git stash pop # Drop Stash: git stash drop [INDEX] Stashes can&amp;rsquo;t be managed by name. A way to do so (like light solution for saving specific changes for specific build config), save pending changes to a file</description>
+    </item>
+    
     <item>
       <title>Install azcopy in windows from powershell</title>
       <link>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</link>
@@ -1007,27 +1045,6 @@ curl localhost:3000 Package it in a docker container # .</description>
       <description>Implemented as per explanation by Universidad de Valencia&amp;rsquo;s Professor Carlos Ivorra, in the article Las matemáticas de una hipoteca about &amp;ldquo;underlying math in mortgage loans&amp;rdquo;. The full pdf article (in spanish) is here.
 The code is in spanish and by the way, it&amp;rsquo;s so cool to be able to name variables in python using spanish accents. It brough out a smile :).
 The important part class Calculadora: def __init__(self): return def interés_efectivo_mensual(self, euríbor, diferencial_interés): # (divido tb por 100 para tener el por-uno) return (euríbor + diferencial_interés) / 1200 def cuota(self, monto_préstamo, interés_efectivo_mensual, total_de_meses): c_0 = monto_préstamo i = interés_efectivo_mensual N = total_de_meses return (c_0 * i) / (1-(1 + i)**(-N)) def deuda_después_de_n_pagos(self, monto_cuota, interés_efectivo_mensual, total_de_meses, n): c = monto_cuota i = interés_efectivo_mensual N = total_de_meses return c/i * (1 - (1+i)**(n-N)) Talk is cheap Here&amp;rsquo;s the code.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>Why Warmup is important so the users don&amp;rsquo;t get a cold start on the app. When deploying to Azure app service, implementing the /warmup call every X minutes is not feasible as we don&amp;rsquo;t have access to actual instances directly to make the calls, so the requests will only get to the lucky instance the balancer in front of the app service decides to send the request to. Also, the point of PaaS is having the platform handle it, isn&amp;rsquo;t it?</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>General idea: the exceptions messages need to be defined in terms of the contracts of the API.
-My code:
-using Microsoft.Azure.Functions.Extensions.DependencyInjection; using Microsoft.Extensions.DependencyInjection; using System.IO; using Microsoft.Extensions.Configuration; [assembly: FunctionsStartup(typeof(Arch.Pocs.Containers.AppService.HttpEndpoint.Func.Startup))] namespace Arch.Pocs.Containers.AppService.HttpEndpoint.Func { public class Startup : FunctionsStartup { public override void Configure(IFunctionsHostBuilder builder) { builder.Services.AddHttpClient(); } } } and
-using System; using System.IO; using System.Threading.Tasks; using Microsoft.AspNetCore.Mvc; using Microsoft.Azure.WebJobs; using Microsoft.Azure.WebJobs.Extensions.Http; using Microsoft.AspNetCore.Http; using Microsoft.Extensions.Logging; using Newtonsoft.Json; using Microsoft.Extensions.Configuration; namespace Arch.</description>
     </item>
     
   </channel>

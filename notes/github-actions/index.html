@@ -1,0 +1,297 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.101.0" />
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Github actions | Coding notes</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Github actions</h1>
+<h3 id="workflow-to-promote-latest--rc-image-to-release">Workflow to promote latest -rc image to release</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># It&#39;s expected that when the new release candidate tag x.y.z is added by this workflow </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to the latest x.y.z-rc image, a deployment is triggered to PRO environment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Promote Latest RC Images to Release. Deploy to prod.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workflow_dispatch</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">permissions</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">contents</span>: <span style="color:#ae81ff">read</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">id-token</span>: <span style="color:#ae81ff">write</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">promote-images</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">matrix</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">repository</span>: 
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">atoss-identity-secrets-setup</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">atoss-identity-svc</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Checkout repository</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Configure AWS credentials</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">aws-actions/configure-aws-credentials@v4</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">role-to-assume</span>: <span style="color:#ae81ff">arn:aws:iam::XXXXXXXXXX:role/github/atoss-identity-deploy-role</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">aws-region</span>: <span style="color:#ae81ff">eu-central-1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Promote rc image to release</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">./.github/workflows/actions/promote-latest-rc-img-to-release</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">repository</span>: <span style="color:#ae81ff">${{ matrix.repository }}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">region</span>: <span style="color:#ae81ff">eu-central-1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Output the promoted tags</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;Promoted rc tag: ${{ steps.promote-image.outputs.rc_tag }}&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;Release tag: ${{ steps.promote-image.outputs.release_tag }}&#34;</span>          
+</span></span></code></pre></div><p>And the reusable action in folder <code>/.github/workflows/actions/promote-latest-rc-img-to-release</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#75715e"># /Dockerfile</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> amazonlinux:2</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> yum install -y jq aws-cli docker<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> action.sh /action.sh<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> chmod +x /action.sh<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;/action.sh&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># action.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Promote ECR RC Image to Release</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">Adds x.y.z tag to the latest x.y.z-rc image in an AWS ECR repository.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">repository</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#39;ECR repository name&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">region</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#39;AWS region&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">required</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">outputs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">rc_tag</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#39;The RC tag that was promoted&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">release_tag</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">description</span>: <span style="color:#e6db74">&#39;The release tag&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">runs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">using</span>: <span style="color:#e6db74">&#39;docker&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">image</span>: <span style="color:#e6db74">&#39;Dockerfile&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">args</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${{ inputs.repository }}</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">${{ inputs.region }}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># action.sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set -e
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ECR_REPOSITORY<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span>REGION<span style="color:#f92672">=</span>$2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>aws ecr get-login-password --region <span style="color:#e6db74">&#34;</span>$REGION<span style="color:#e6db74">&#34;</span> | docker login --username AWS --password-stdin <span style="color:#e6db74">&#34;</span>$AWS_ACCOUNT_ID<span style="color:#e6db74">.dkr.ecr.</span>$REGION<span style="color:#e6db74">.amazonaws.com&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># List all images in the repository into images.json file</span>
+</span></span><span style="display:flex;"><span>aws ecr describe-images --repository-name <span style="color:#e6db74">&#34;</span>$ECR_REPOSITORY<span style="color:#e6db74">&#34;</span> --region <span style="color:#e6db74">&#34;</span>$REGION<span style="color:#e6db74">&#34;</span> --query <span style="color:#e6db74">&#39;imageDetails[*].imageTags&#39;</span> --output json &gt; images.json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>LATEST_RC_TAG<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>jq -r <span style="color:#e6db74">&#39;.[] | select(.[0] | test(&#34;^[0-9]+\\.[0-9]+\\.[0-9]+-rc$&#34;)) | .[0]&#39;</span> images.json | sort -Vr | head -n 1<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Latest RC image found &#34;</span>$LATEST_RC_TAG
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove `-rc` to get release version</span>
+</span></span><span style="display:flex;"><span>RELEASE_VERSION<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$LATEST_RC_TAG<span style="color:#e6db74">&#34;</span> | sed <span style="color:#e6db74">&#39;s/-rc//&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>RELEASE_VERSION_EXISTS<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>jq -e <span style="color:#e6db74">&#39;.[] | any(.[] == &#34;&#39;</span><span style="color:#e6db74">&#34;</span>$RELEASE_VERSION<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#39;&#34;)&#39;</span> images.json &gt; /dev/null <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;false&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$RELEASE_VERSION_EXISTS<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;Release tag </span>$RELEASE_VERSION<span style="color:#e6db74"> already exists. Skipping retagging.&#34;</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;::set-output name=rc_tag::</span>$LATEST_RC_TAG<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;::set-output name=release_tag::</span>$RELEASE_VERSION<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Pull the latest rc image</span>
+</span></span><span style="display:flex;"><span>docker pull <span style="color:#e6db74">&#34;</span>$AWS_ACCOUNT_ID<span style="color:#e6db74">.dkr.ecr.</span>$REGION<span style="color:#e6db74">.amazonaws.com/</span>$ECR_REPOSITORY<span style="color:#e6db74">:</span>$LATEST_RC_TAG<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Tag the rc image with the release version</span>
+</span></span><span style="display:flex;"><span>docker tag <span style="color:#e6db74">&#34;</span>$AWS_ACCOUNT_ID<span style="color:#e6db74">.dkr.ecr.</span>$REGION<span style="color:#e6db74">.amazonaws.com/</span>$ECR_REPOSITORY<span style="color:#e6db74">:</span>$LATEST_RC_TAG<span style="color:#e6db74">&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  <span style="color:#e6db74">&#34;</span>$AWS_ACCOUNT_ID<span style="color:#e6db74">.dkr.ecr.</span>$REGION<span style="color:#e6db74">.amazonaws.com/</span>$ECR_REPOSITORY<span style="color:#e6db74">:</span>$RELEASE_VERSION<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Push the new release image</span>
+</span></span><span style="display:flex;"><span>docker push <span style="color:#e6db74">&#34;</span>$AWS_ACCOUNT_ID<span style="color:#e6db74">.dkr.ecr.</span>$REGION<span style="color:#e6db74">.amazonaws.com/</span>$ECR_REPOSITORY<span style="color:#e6db74">:</span>$RELEASE_VERSION<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set outputs</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;::set-output name=rc_tag::</span>$LATEST_RC_TAG<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;::set-output name=release_tag::</span>$RELEASE_VERSION<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div>
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>
