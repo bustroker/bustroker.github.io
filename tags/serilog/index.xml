@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Serilog on Coding notes</title>
+    <link>https://www.bustroker.com/tags/serilog/</link>
+    <description>Recent content in Serilog on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/serilog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Very basic logging to console from netcore webapi with Serilog</title>
+      <link>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</link>
+      <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
+      <description>Add serilog required packages&#xA;dotnet add package Serilog.AspNetCore&#xD;dotnet add package Serilog.Sinks.ElasticSearch Using&#xA;using Serilog; using Serilog.Sinks.Elasticsearch; Configure serilog on CreateHostBuilder. Only relevant code is included.&#xA;public class Program { private const string ApplicationId = &amp;#34;Bustroker.Transactions.WebApi&amp;#34;; private const string ElasticEndpoint = &amp;#34;http://localhost:9200&amp;#34;; ///.... ///.... ///.... ///.... public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog((hostincContext, loggerConfiguration) =&amp;gt; // send to Elastic for real time monitoring ConfigureSerilogLoggerWithElastic(loggerConfiguration) ) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); private static LoggerConfiguration ConfigureSerilogLoggerWithElastic(LoggerConfiguration loggerConfiguration) { var sinkOptions = new ElasticsearchSinkOptions(new Uri(ElasticEndpoint)) { AutoRegisterTemplate = true, AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.</description>
+    </item>
+    <item>
+      <title>Very basic logging to console from netcore webapi with Serilog</title>
+      <link>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
+      <description>Add serilog&#xA;dotnet add package Serilog.AspNetCore public class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog() .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); } Then add&#xA;// Startup.cs public void Configure(IApplicationBuilder app, IWebHostEnvironment env) { if (env.</description>
+    </item>
+    <item>
+      <title>Very basic logging to file from Console app with Serilog</title>
+      <link>https://www.bustroker.com/notes/very-basic-logging-to-file-from-console-app-with-serilog/</link>
+      <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/very-basic-logging-to-file-from-console-app-with-serilog/</guid>
+      <description>Add serilog&#xA;dotnet add package Serilog static async Task Main(string[] args) { Log.Logger = new LoggerConfiguration() .Enrich.FromLogContext() .WriteTo.Console() .WriteTo.File(&amp;#34;logs/log.json&amp;#34;) .CreateLogger(); Log.Information(&amp;#34;Running..&amp;#34;); } </description>
+    </item>
+  </channel>
+</rss>

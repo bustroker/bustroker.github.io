@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kusto on Coding notes</title>
+    <link>https://www.bustroker.com/tags/kusto/</link>
+    <description>Recent content in Kusto on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/kusto/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kusto cheatsheet</title>
+      <link>https://www.bustroker.com/notes/kusto-cheatsheet/</link>
+      <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/kusto-cheatsheet/</guid>
+      <description>requests durations distribution with steps (bins) of 100 ms app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests&#xD;| where name == &amp;#34;POST SalesController/Post&amp;#34;&#xD;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id&#xD;| summarize count() by bin(req_duration, 100)&#xD;| sort by req_duration asc&#xD;| render timechart requests duration percentiles and requests dependencies duration percentiles app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests&#xD;| where name == &amp;#34;POST SalesControler/Post&amp;#34;&#xD;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id&#xD;| summarize count(), avg(req_duration), stdev(req_duration) , percentiles(req_duration, 25, 50, 95, 99)&#xD;| project type_tag = &amp;#34;Core Request&amp;#34;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99 | union(&#xD;app(&amp;#34;bustroker-sales-webapi&amp;#34;).</description>
+    </item>
+  </channel>
+</rss>

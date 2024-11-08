@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Architecture on Coding notes</title>
+    <link>https://www.bustroker.com/tags/architecture/</link>
+    <description>Recent content in Architecture on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Architecture principles</title>
+      <link>https://www.bustroker.com/notes/architecture-principles/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/architecture-principles/</guid>
+      <description>Architecture Principles are key to relieve the gatekeeping burden from the Architect, and be able delegate specific decisions to the teams, offering more autonomy. BUT there&amp;rsquo;s a second layer below the principles, which is the SPECIFIC/CONCRETE process that ALSO needs to be put in place to garantie that governance artefacts are produced, e.g., System scoped documentation with both context and components maps/diagrams.&#xA;Principles I find useful Create principles as a living artefact (inspired by Thoughtworks P1) The principles should be a go-to document for dev teams, so ideally in mark-down and shared in a repo with version control and all.</description>
+    </item>
+    <item>
+      <title>Solution Architecture assessment</title>
+      <link>https://www.bustroker.com/notes/solution-architecture-assessment/</link>
+      <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/solution-architecture-assessment/</guid>
+      <description>Checklist of topics to cover Functional level assessment: which applications are there and how users make use of them? (both end users/clients and corporate users/employees) Identify business domains Different functional areas in the frontend website How each of them is related to the revenue-generating processes Multiple regions/countries with different features? Backoffice Reporting/BI User’s requests that the system can&amp;rsquo;t meet atm. User’s main complaints and pain points Examples of manual/human tasks that can/should be automated Non Functional level assessment: SLAs required and main pain points Availability (current/required/critical) Reliability (current/required/critical) Performance (current/required/critical) Security (current/required/critical) Some metrics of the system Concurrent users Number of requests to be processed Bottlenecks detected Tech team’s main complains and pain points Modules and Components diagrams Modules: How is code organized in the repos applications and packages, and how they are related/referenced to each other Components: How are components organized in runtime and how are they related/referenced to each other Services, databases, queues, 3P services… Hosting model: On-prem, PaaS azure service, docker containers Identity management B2C Corporative Multiregion/I18n Data Reporting/BI How is the system’s architecture produced?</description>
+    </item>
+    <item>
+      <title>Architecture interview questions</title>
+      <link>https://www.bustroker.com/notes/architecture-interview-questions/</link>
+      <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/architecture-interview-questions/</guid>
+      <description>Questions Difference between the role of the Architect and the Tech Lead&#xA;Main concerns What&amp;rsquo;s the most difficult aspect of the switch from TL to Sln Arch Do you follow any particular mentoring strategy? Do you establish guidelines, best practices? How? How to make sure they are followed? How do you relate with Tech Leads in terms of the design/development process? Mention a couple of web Architecture Styles and describe them =&amp;gt; check this (https://docs.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Csx on Coding notes</title>
+    <link>https://www.bustroker.com/tags/csx/</link>
+    <description>Recent content in Csx on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/csx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>dotnet scrips</title>
+      <link>https://www.bustroker.com/notes/dotnet-scrips/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/dotnet-scrips/</guid>
+      <description>Install dotnet script dotnet tool install -g dotnet-script Write csx script file with nuget package reference // script.csx #r &amp;#34;nuget:Newtonsoft.Json, 13.0.1&amp;#34; using Newtonsoft.Json; using Newtonsoft.Json.Linq; var args = Environment.GetCommandLineArgs(); if(args.Any(a =&amp;gt; a == &amp;#34;--dry-run&amp;#34;)) { return; } Console.WriteLine(&amp;#34;Using Newtonsoft.Json to parse JSON.&amp;#34;); var json = JObject.Parse(@&amp;#34;{ &amp;#39;name&amp;#39;: &amp;#39;John&amp;#39;, &amp;#39;age&amp;#39;: 30 }&amp;#34;); Console.WriteLine(json[&amp;#34;name&amp;#34;]); Run script dotnet-script script.csx </description>
+    </item>
+  </channel>
+</rss>

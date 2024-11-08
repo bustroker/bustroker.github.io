@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Coding notes</title>
+    <link>https://www.bustroker.com/tags/docker/</link>
+    <description>Recent content in Docker on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker in Mac with Colima</title>
+      <link>https://www.bustroker.com/notes/docker-in-mac-with-colima/</link>
+      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/docker-in-mac-with-colima/</guid>
+      <description>Find colima here https://github.com/abiosoft/colima&#xA;Colima replaces Docker Desktop, is used for linux and mac.&#xA;Install colima brew install docker-credential-helper docker brew install colima Run colima colima start Now docker can be run docker ps Also Apparently some applications have an issue finding docker:&#xA;Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running? Just set env variable:&#xA;export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock </description>
+    </item>
+    <item>
+      <title>Run Trivy from docker on Mac</title>
+      <link>https://www.bustroker.com/notes/run-trivy-from-docker-on-mac/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/run-trivy-from-docker-on-mac/</guid>
+      <description>Official documentation: https://aquasecurity.github.io/trivy/v0.38/&#xA;On zsh terminal on a mac Just run the image and pass the trivy commands as documented. To get version:&#xA;docker run aquasec/trivy version Scan code from local file system docker run -v /host/src/to/scan:/target aquasec/trivy --debug fs /target &amp;gt; trivy-output-report.txt File trivy-output-report.txt is created in the host folder where running.&#xA;Documentation for local file system scan https://aquasecurity.github.io/trivy/v0.20.2/getting-started/cli/fs/&#xA;Scan code from repo As per documentation, only public repositories are supported (https://aquasecurity.</description>
+    </item>
+    <item>
+      <title>Run Jupyter notebook with spark in docker</title>
+      <link>https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/</link>
+      <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/</guid>
+      <description>Install spark to run locally docker run -p 8888:8888 -p 4041:4041 jupyter/all-spark-notebook The auth token is logged in the terminal. Copy it. In host browse to localhost:8888. Use the token to authenticate in the interface.&#xA;Create new spylon-kernel notebook and write scala code.&#xA;Spark WebUI is running on port 4041</description>
+    </item>
+    <item>
+      <title>Run MSSQL server in docker inside vagrant (ubuntu) VM</title>
+      <link>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</link>
+      <pubDate>Mon, 03 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</guid>
+      <description>Files // Vagrantfile&#xD;Vagrant.configure(&amp;#34;2&amp;#34;) do |config|&#xD;config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS&#xD;config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34;&#xD;config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 9200, host: 9200&#xD;config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 9300, host: 9300&#xD;config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb|&#xD;vb.name = &amp;#34;Elasticsearch&amp;#34; vb.memory = 1024&#xD;end&#xD;end // vagrant_provision.sh echo &amp;#34;provisioning VM...&amp;#34;&#xD;sudo apt update&#xD;sudo apt-get update&#xD;# install docker and run&#xD;sudo apt -y install docker.io&#xD;sudo systemctl start docker&#xD;sudo systemctl enable docker&#xD;docker --version&#xD;echo &amp;#34;docker installed and running.</description>
+    </item>
+    <item>
+      <title>Aspnet website in docker in windows, IIS and self-signed certificate</title>
+      <link>https://www.bustroker.com/notes/aspnet-website-in-docker-in-windows-iis-and-self-signed-certificate/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/aspnet-website-in-docker-in-windows-iis-and-self-signed-certificate/</guid>
+      <description>The application is hosted in a docker container. The actual folder with the app publish, is mapped into the container, so when the code changes it&amp;rsquo;s inmediatly reflected in the running container.&#xA;Dockerfile FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 SHELL [ &amp;#34;powershell&amp;#34; ] COPY src/Bustroker.LocalEnv.WebUI/bin/app.publish c:/webapp ADD configureIIS.ps1 /windows/temp/configureIIS.ps1 RUN powershell.exe -executionpolicy bypass c:\windows\temp\configureIIS.ps1 Configure IIS script configureIIS.ps1 script, copied into the image on build.&#xA;# Configure SSL certificate for default website Import-Module WebAdministration Set-Location IIS:\SslBindings New-WebBinding -Name &amp;#34;Default Web Site&amp;#34; -IP &amp;#34;*&amp;#34; -Port 443 -Protocol https $c = New-SelfSignedCertificate -DnsName &amp;#34;localhost&amp;#34; -CertStoreLocation cert:\LocalMachine\My $c | New-Item 0.</description>
+    </item>
+    <item>
+      <title>MSSQL Server 2019 docker image for windows</title>
+      <link>https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/</guid>
+      <description>MSSQL 2019 not available yet in official images, so&amp;hellip;&#xA;Dockerfile The windows server base images must be the same windows version as the host, as per official documentation (¡¿?!). To get the version open cmd and type ver, to get something like 10.0.19042.867.&#xA;FROM mcr.microsoft.com/windows/servercore:10.0.19042.867 SHELL [ &amp;#34;powershell&amp;#34; ] # Copy COPY ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1 COPY ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1 # Copy installers COPY ./installers /installers # install Sql Server Developer edition (see readme.</description>
+    </item>
+    <item>
+      <title>Run MSSQL 2017 server in docker for windows</title>
+      <link>https://www.bustroker.com/notes/run-mssql-2017-server-in-docker-for-windows/</link>
+      <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/run-mssql-2017-server-in-docker-for-windows/</guid>
+      <description>MSSQL 2019 not available yet in official images.&#xA;Docker compose First check attach_dbs argument. The first time running it, remove it. Afterwards, if starting with an existing db, use it to attach existing mdf/ldf files. They can also be attached from T-Sql after starting the server.&#xA;Note: Mapping localhost folder to default C:/Program Files&amp;hellip; fails, probably for permission reasons (not clear from the message, as usual).&#xA;// docker-compose.yaml version: &amp;#39;3.8&amp;#39; services: SQLServer: image: microsoft/mssql-server-windows-developer:2017 environment: - ACCEPT_EULA=Y - SA_PASSWORD=Password_01 # - attach_dbs=[{&amp;#39;dbName&amp;#39;:&amp;#39;Joker&amp;#39;,&amp;#39;dbFiles&amp;#39;:[&amp;#39;C:\\SQLData\\Joker1.</description>
+    </item>
+    <item>
+      <title>Run MSSQL server in docker inside vagrant (ubuntu) VM</title>
+      <link>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</guid>
+      <description>Files Vagrant VM needs at least 2Gb.&#xA;## Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 1433, host: 1433 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;SqlServer&amp;#34; vb.memory = 2048 end end ## vagrant_provision.sh echo &amp;#34;provisioning VM...&amp;#34; sudo apt update sudo apt-get update # install docker and run sudo apt -y install docker.io sudo systemctl start docker sudo systemctl enable docker docker --version echo &amp;#34;docker installed and running.</description>
+    </item>
+    <item>
+      <title>Azure function with docker</title>
+      <link>https://www.bustroker.com/notes/azure-function-with-docker/</link>
+      <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/azure-function-with-docker/</guid>
+      <description>Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools&#xA;Create function project func init Bustroker.HttpEndpoint.Func --dotnet --docker I renamed csproj file from Bustroker_HttpEndpoint_Func.csproj to Bustroker.HttpEndpoint.Func.csproj. The docker file is created. No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.&#xA;Create function cd Bustroker.HttpEndpoint.Func func new --name HttpEndpoint [--template {HttpTrigger, CosmosDbTrigger, etc}] App settings Add required packages dotnet add package Microsoft.Azure.Functions.Extensions dotnet add package Microsoft.NET.Sdk.Functions Make the function class and methods not static and inject IConfiguration in the constructor namespace Bustroker.</description>
+    </item>
+    <item>
+      <title>Setup aspnet core app with vagrant and docker</title>
+      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</link>
+      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
+      <description>Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.&#xA;dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
+    </item>
+    <item>
+      <title>Docker cheatsheet</title>
+      <link>https://www.bustroker.com/notes/docker-cheatsheet/</link>
+      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/docker-cheatsheet/</guid>
+      <description>Version: 19.03&#xA;build image and set tag -t docker build -t bustroker.notes.webui:v1 . multiple tags are allowed as well&#xA;docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest . build image and see commands output For debugging issues. E.g., run RUN ls and see out put&#xA;docker build -t bustroker.notes.webui --progress=plain --no-cache . tag image docker tag [localImage] [registryServer]/[imageName]:[version] # ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1 add tag to existing tagged image docker tag bustroker.</description>
+    </item>
+    <item>
+      <title>Simplest node express static files server</title>
+      <link>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</guid>
+      <description>The simplest node static files server.&#xA;Create the project and install express package npm init npm install express --save Create server.js file in the root. // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); Create a static page Now all files in www folder are being served. Create a www folder in the root and add an html file.</description>
+    </item>
+    <item>
+      <title>Simplest node express web API</title>
+      <link>https://www.bustroker.com/notes/simplest-node-express-web-api/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/simplest-node-express-web-api/</guid>
+      <description>For frontend dev, the simplest web API to joke around with.&#xA;Create the project and install express package&#xA;npm init npm install express Node server Create server.js file in the root.&#xA;// ./server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.send({ message: &amp;#34;I&amp;#39;m here&amp;#34;}); }); app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000!&amp;#39;)); Run it&#xA;node server.js Test it&#xA;curl localhost:3000 Package it in a docker container # .</description>
+    </item>
+  </channel>
+</rss>

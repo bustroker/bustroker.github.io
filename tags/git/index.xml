@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Coding notes</title>
+    <link>https://www.bustroker.com/tags/git/</link>
+    <description>Recent content in Git on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git stash - and patch</title>
+      <link>https://www.bustroker.com/notes/git-stash-and-patch/</link>
+      <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/git-stash-and-patch/</guid>
+      <description>Stash git stash list # create or save stash git stash # or git stash push -m &amp;#34;description&amp;#34; # Apply latest Stash stash@{0} git stash apply # or git stash apply [INDEX] # Pop - Apply and Remove the latest stash: git stash pop # Drop Stash: git stash drop [INDEX] Stashes can&amp;rsquo;t be managed by name. A way to do so (like light solution for saving specific changes for specific build config), save pending changes to a file</description>
+    </item>
+    <item>
+      <title>Git - forget a file and ignore</title>
+      <link>https://www.bustroker.com/notes/git-forget-a-file-and-ignore/</link>
+      <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/git-forget-a-file-and-ignore/</guid>
+      <description>Ignore .gitignore will prevent untracked files from being added (without an add -f) to the set of files tracked by Git. However, Git will continue to track any files that are already being tracked.&#xA;To stop tracking a file, we must remove it from the index:&#xA;git rm --cached &amp;lt;file&amp;gt; To remove a folder and all files in the folder recursively:&#xA;git rm -r --cached &amp;lt;folder&amp;gt; The removal of the file from the head revision will happen on the next commit.</description>
+    </item>
+    <item>
+      <title>Git push from script</title>
+      <link>https://www.bustroker.com/notes/git-push-from-script/</link>
+      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/git-push-from-script/</guid>
+      <description>Push to github from script mkdir -p ~/.ssh echo &amp;#34;${{ secrets.GITHUB_SSH_PRIVATE_KEY}}&amp;#34; &amp;gt; ~/.ssh/id_rsa chmod 600 ~/.ssh/id_rsa git push git@github.com:bustroker/bkr.hobies.web.git </description>
+    </item>
+    <item>
+      <title>Git sparse-checkout</title>
+      <link>https://www.bustroker.com/notes/git-sparse-checkout/</link>
+      <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/git-sparse-checkout/</guid>
+      <description>To checkout and work only with a subset/subtree of folders from a repo (yes, some people insist in economizing repos)&#xA;Initialize sparse-checkout config git clone URL --no-checkout # add `--depth 1` to only include latest commit from all commit history cd REPO_ROOT git sparse-checkout init --cone # `--cone` to include root files git checkout Set existing folders to be actually checked out git sparse-checkout add Apps/OtherApp # to add new folders to the current checkout list.</description>
+    </item>
+  </channel>
+</rss>

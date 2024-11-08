@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cli on Coding notes</title>
+    <link>https://www.bustroker.com/tags/cli/</link>
+    <description>Recent content in Cli on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/cli/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redis-cli cheatsheet</title>
+      <link>https://www.bustroker.com/notes/redis-cli-cheatsheet/</link>
+      <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/redis-cli-cheatsheet/</guid>
+      <description>Install redis with cli brew install redis Commands redis-cli -h your-cluster-endpoint -p your-cluster-port # all keys keys * # pattern keys prefix-* # key type type &amp;lt;key&amp;gt; # get string key get &amp;lt;key&amp;gt; # get all hash key hgetall &amp;lt;key&amp;gt; # expiration time in seconds # -2 if key doesn&amp;#39;t exist # -1 if key doesn&amp;#39;t expire ttl &amp;lt;key&amp;gt; </description>
+    </item>
+    <item>
+      <title>Configure AWS CLI</title>
+      <link>https://www.bustroker.com/notes/configure-aws-cli/</link>
+      <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/configure-aws-cli/</guid>
+      <description>From ChatGPT ;P To configure AWS CLI authentication for deploying applications, you can follow these steps:&#xA;Install AWS CLI: If you haven&amp;rsquo;t already, install the AWS CLI on your machine. You can download the AWS CLI installer appropriate for your operating system from the official AWS Command Line Interface documentation.&#xA;Create AWS IAM User: In the AWS Management Console, navigate to the IAM (Identity and Access Management) service. Create a new IAM user or use an existing one that will be used for authentication.</description>
+    </item>
+    <item>
+      <title>Query sql server from powershell</title>
+      <link>https://www.bustroker.com/notes/query-sql-server-from-powershell/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/query-sql-server-from-powershell/</guid>
+      <description>Query sqlserver powershell module Install-Module sqlserver -Force A minimun nuget version is required. A messages provides the command to install it if was required.&#xA;Run query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34; -ServerInstance &amp;#34;localhost&amp;#34; Run script Invoke-Sqlcmd -InputFile &amp;#34;C:\setupscripts\createUser.sql&amp;#34; | Out-File -FilePath &amp;#34;C:\setupscripts\createUser.log&amp;#34; </description>
+    </item>
+    <item>
+      <title>Use sqlcmd cli tool</title>
+      <link>https://www.bustroker.com/notes/use-sqlcmd-cli-tool/</link>
+      <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/use-sqlcmd-cli-tool/</guid>
+      <description>sqlcmd utility (2019) Installed with Visual Studio 2019. (Apparently also with Sql Server 2019, but they dont&amp;rsquo;s explain WHERE it actually is :S)&#xA;Add to path sqlcmd.exe is located in:&#xA;Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Open CLI for queries sqlcmd -S localhost -U sa -P password -d database&#xD;&amp;gt; select * from transactions&#xD;&amp;gt; go Run sqlcmd from docker/kubernetes and connecto to host&amp;rsquo;s localhost sql server docker run --rm -it mcr.</description>
+    </item>
+  </channel>
+</rss>

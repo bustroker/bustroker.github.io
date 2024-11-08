@@ -1,0 +1,379 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Scala up and running | Coding notes</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Scala up and running</h1>
+<h3 id="installation">Installation</h3>
+<h4 id="java">Java</h4>
+<p>Installed AdoptOpenJDK 11. Other failed in runtime for https issues (apparently, missing the local store that is installed with Java)</p>
+<h4 id="scala">Scala</h4>
+<p>Installed SBT from official site.
+Get version:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>sbt scalaVersion
+</span></span></code></pre></div><h3 id="new-project">New project</h3>
+<ul>
+<li>Create project root folder.</li>
+<li>In the root folder, create <code>build.sbt</code> file.</li>
+<li>Create <code>[root]/src/main/scala/bkr/data/spark/App.scala</code> file, for a package named <code>bkr.data.spark</code></li>
+</ul>
+<p>Content for <code>build.sbt</code> for a project with a subproject</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> version      <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.1.0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> scalaVersion <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;2.13.8&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> organization <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gs&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ThisBuild</span> <span style="color:#f92672">/</span> scalacOptions <span style="color:#f92672">++=</span> <span style="color:#a6e22e">Seq</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;-unchecked&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;-deprecation&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// so sbt compile shows deprecation warnings details
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// add `% &#34;provided&#34;` to not include the dependency in the compiled JAR, as it is assumed that Databricks will already have this library on the classpath available when running in the cluster.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">val</span> <span style="color:#a6e22e">KafkaStreamProcessing</span> <span style="color:#66d9ef">=</span> <span style="color:#f92672">(</span>project in file<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">.</span>settings<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>    name <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SparkProcessing&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// spark 3.2 with hadoop 2.7 installed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    libraryDependencies <span style="color:#f92672">++=</span> <span style="color:#a6e22e">List</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-core&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-sql&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-sql-kafka-0-10&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;org.apache.spark&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;spark-avro&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.2.0&#34;</span><span style="color:#f92672">,</span> 
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;org.apache.hadoop&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;hadoop-common&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.3.1&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                                <span style="color:#e6db74">&#34;org.apache.hadoop&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;hadoop-azure&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.3.1&#34;</span><span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;io.confluent&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;kafka-schema-registry-client&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;7.0.0&#34;</span> from <span style="color:#e6db74">&#34;https://packages.confluent.io/maven/io/confluent/kafka-schema-registry-client/7.0.0/kafka-schema-registry-client-7.0.0.jar&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;org.scalatest&#34;</span> <span style="color:#f92672">%%</span> <span style="color:#e6db74">&#34;scalatest&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;3.0.8&#34;</span> <span style="color:#f92672">%</span> <span style="color:#a6e22e">Test</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>    libraryDependencies <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;com.typesafe&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;config&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;1.4.1&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// for typed config
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    assembly <span style="color:#f92672">/</span> assemblyJarName <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#e6db74">s&#34;</span><span style="color:#e6db74">${</span>name<span style="color:#f92672">.</span>value<span style="color:#e6db74">}</span><span style="color:#e6db74">.jar&#34;</span><span style="color:#f92672">,</span> <span style="color:#75715e">// this is for sbt-assembly plugin
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// https://github.com/sbt/sbt-assembly#merge-strategy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    assembly <span style="color:#f92672">/</span> assemblyMergeStrategy <span style="color:#66d9ef">:</span><span style="color:#f92672">=</span> <span style="color:#f92672">{</span> 
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">PathList</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;META-INF&#34;</span><span style="color:#f92672">,</span> xs <span style="color:#66d9ef">@</span> <span style="color:#66d9ef">_</span><span style="color:#f92672">*)</span> <span style="color:#66d9ef">=&gt;</span> <span style="color:#a6e22e">MergeStrategy</span><span style="color:#f92672">.</span>discard
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">=&gt;</span> <span style="color:#a6e22e">MergeStrategy</span><span style="color:#f92672">.</span>first
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><code>plugins.sbt</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#75715e">// sbt-assembly plugin to package in a single JAR
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>addSbtPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.eed3si9n&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;sbt-assembly&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;0.15.0&#34;</span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><p><code>AppConfig.scala</code> file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">package</span> bkr.data.spark
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> com.typesafe.config.ConfigFactory
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">AppConfig</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> environment<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">String</span> <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> env <span style="color:#66d9ef">=</span> sys<span style="color:#f92672">.</span>env<span style="color:#f92672">.</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;env&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// this returns Option[String]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        env<span style="color:#f92672">.</span>getOrElse<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;local&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// to get the actual value from the Option[String], and return &#34;ENV&#34; if no value found
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">val</span> appConfig <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">ConfigFactory</span><span style="color:#f92672">.</span>load<span style="color:#f92672">(</span><span style="color:#e6db74">s&#34;app.</span><span style="color:#e6db74">$environment</span><span style="color:#e6db74">.conf&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">// loads from `resources/app.conf`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> apply<span style="color:#f92672">()</span> <span style="color:#66d9ef">=</span> appConfig
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>App.scala</code> file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">package</span> bkr.scala.upAndRunning
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">object</span> <span style="color:#a6e22e">Application</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>args<span style="color:#f92672">.</span>lenght <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Exception</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;No arguments specified&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> url <span style="color:#66d9ef">=</span> args<span style="color:#f92672">(</span><span style="color:#ae81ff">0</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> response <span style="color:#66d9ef">=</span> scala<span style="color:#f92672">.</span>io<span style="color:#f92672">.</span><span style="color:#a6e22e">Source</span><span style="color:#f92672">.</span>fromURL<span style="color:#f92672">(</span>url<span style="color:#f92672">).</span>mkString
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println<span style="color:#f92672">(</span>response<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p><code>AppConfigTests.scala</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> org.scalatest.funsuite._
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppConfigTests</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">AnyFunSuite</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  test<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello should start with H&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    assert<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello&#34;</span><span style="color:#f92672">.</span>startsWith<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;H&#34;</span><span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ul>
+<li>To pass arguments</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>sbt <span style="color:#e6db74">&#34;run arg0Value arg1Value&#34;</span>
+</span></span><span style="display:flex;"><span>java -jar .\app.jar arg0Value
+</span></span></code></pre></div><h4 id="about-sbt-assembly-plugin">About sbt-assembly plugin</h4>
+<p>See <code>Package in a single JAR file</code> later on.</p>
+<h4 id="project-folders-structure">Project folders structure</h4>
+<ul>
+<li>root/
+<ul>
+<li>build.sbt</li>
+<li>project/
+<ul>
+<li>plugins.sbt</li>
+</ul>
+</li>
+<li>src/
+<ul>
+<li>main/
+<ul>
+<li>resources/
+<ul>
+<li>app.conf</li>
+</ul>
+</li>
+<li>scala/bkr/data/spark
+<ul>
+<li>App.scala</li>
+<li>AppConfig.scala</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>test/
+<ul>
+<li>resources/
+<ul>
+<li>App.conf</li>
+</ul>
+</li>
+<li>scala/bkr/data/spark
+<ul>
+<li>AppConfigTests.scala</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="gitignore">.gitignore</h4>
+<pre tabindex="0"><code>target/
+</code></pre><h3 id="sbt-project-dependency-graph">Sbt project dependency graph</h3>
+<p>Add plugin</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-scala" data-lang="scala"><span style="display:flex;"><span><span style="color:#75715e">// project/plugins.sbt
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>addSbtPlugin<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;net.virtual-void&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;sbt-dependency-graph&#34;</span> <span style="color:#f92672">%</span> <span style="color:#e6db74">&#34;0.9.2&#34;</span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Then</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>sbt dependencyTree
+</span></span></code></pre></div><h3 id="sbt-commands-cheatsheet">Sbt commands cheatsheet</h3>
+<p><a href="https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html">https://www.scala-sbt.org/1.x/docs/Command-Line-Reference.html</a>
+To go into sbt shell, go</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sbt
+</span></span></code></pre></div><p>Alternatively, all the commands can be run from the regular terminal pre-pending sbt, e.g., command <code>compile</code> would become</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sbt compile
+</span></span></code></pre></div><h4 id="open-scala-console">Open scala console</h4>
+<pre tabindex="0"><code class="language-sbt" data-lang="sbt">console
+</code></pre><p>To exit the console</p>
+<pre tabindex="0"><code>:q
+</code></pre><h4 id="compile">Compile</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sbt compile
+</span></span></code></pre></div><h4 id="apply-changes-made-to-buildsbt">Apply changes made to build.sbt</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sbt reload
+</span></span></code></pre></div><h4 id="runcompile-tests">Run/Compile tests</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sbt test
+</span></span><span style="display:flex;"><span>sbt test:compile
+</span></span></code></pre></div><h4 id="list-all-projects-and-subprojects">List all projects and subprojects</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sbt projects
+</span></span></code></pre></div><h4 id="compile-subproject">Compile subproject</h4>
+<p>Subproject name is not what appears as <code>name</code> in the settings, but instead the variable name declared in the build file. O just run <code>projects</code> to get the names.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sbt [SUBPROJECT_NAME]/compile
+</span></span><span style="display:flex;"><span>// e.g.
+</span></span><span style="display:flex;"><span>helloCore/compile
+</span></span></code></pre></div><h4 id="run-the-app">Run the app</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sbt run
+</span></span></code></pre></div><h4 id="create-a-zip-package-with-sbt-dist-and-run">Create a zip package with <code>sbt dist</code> and run</h4>
+<p><em>This produces a ZIP file containing all JAR files needed to run your application in the target/universal folder of your application.To run the application, unzip the file on the target server, and then run the script in the bin directory. The name of the script is your application name, and it comes in two versions, a bash shell script, and a windows .bat script.</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sbt dist
+</span></span></code></pre></div><p>Then unzip, e.g. in a <code>publish</code> folder, and in another terminal (cmd/powershell) run the <code>bat</code> script in <code>bin</code> folder</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>cd publish
+</span></span><span style="display:flex;"><span>.\bin\hello
+</span></span></code></pre></div><p>A different configuration file can be specified for a production environment, from the command line:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>/bin/hello -Dconfig.file=/full/path/to/conf/application.prod.conf
+</span></span></code></pre></div><h4 id="package-in-a-single-jar-file">Package in a single JAR file</h4>
+<p><a href="https://github.com/sbt/sbt-assembly">https://github.com/sbt/sbt-assembly</a>
+Added plugin <code>sbt-assembly</code> in <code>project/assembly.sbt</code> file, and configured in <code>build.sbt</code>.
+To create the fat JAR file, in sbt console go</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>sbt assembly
+</span></span></code></pre></div><p>The <code>jar</code> is created in root/target/scala-2.12/Weather.ConsoleUI.jar
+To run it, go</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>java -jar Weather.ConsoleUI.jar
+</span></span></code></pre></div><h4 id="dockerize-the-app">Dockerize the app</h4>
+<p>Dockerfile</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> hseeberger/scala-sbt:8u302_1.5.5_2.13.6</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . ./<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> sbt compile<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">## Ideally, build the JAR and deploy it to a different runtime image... but just using this one for the moment</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;sbt&#34;</span>, <span style="color:#e6db74">&#34;run&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div>
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

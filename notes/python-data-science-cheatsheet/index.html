@@ -1,0 +1,231 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Python data science cheatsheet | Coding notes</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Python data science cheatsheet</h1>
+<h2 id="pandas">Pandas</h2>
+<p>import pandas as pd</p>
+<h3 id="load-csv-with--separator">Load CSV with &lsquo;;&rsquo; separator</h3>
+<p>df = pd.read_csv(&ldquo;data/entryRequests.csv&rdquo;, sep = &ldquo;;&rdquo;, parse_dates=[[&ldquo;Date&rdquo;, &ldquo;Time&rdquo;]])</p>
+<h3 id="print-column-names">Print column names</h3>
+<p>print(df.columns)</p>
+<h3 id="importing">Importing</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_csv(filename) <span style="color:#75715e"># From a CSV file</span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_table(filename) <span style="color:#75715e"># From a delimited text file (like TSV)</span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_excel(filename) <span style="color:#75715e"># From an Excel file</span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_sql(query, connection_object) <span style="color:#75715e"># Read from a SQL table/database</span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_json(json_string) <span style="color:#75715e"># Read from a JSON formatted string, URL or file.</span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_html(url) <span style="color:#75715e"># Parses an html URL, string or file and extracts tables to a list of dataframes</span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>read_clipboard() <span style="color:#75715e"># Takes the contents of your clipboard and passes it to read_table()</span>
+</span></span><span style="display:flex;"><span>pd<span style="color:#f92672">.</span>DataFrame(dict) <span style="color:#75715e"># From a dict, keys for columns names, values for data as lists</span>
+</span></span></code></pre></div><h4 id="from-csv">From CSV</h4>
+<p>Parsing date and time columns. A new column <em>Date_Time</em> is created.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/entryRequests.csv&#34;</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;;&#34;</span>, parse_dates<span style="color:#f92672">=</span>[[<span style="color:#e6db74">&#34;Date&#34;</span>, <span style="color:#e6db74">&#34;Time&#34;</span>]]) 
+</span></span></code></pre></div><h3 id="inspecting-data">Inspecting data</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>head(n) <span style="color:#75715e"># First n rows of the DataFrame</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>tail(n) <span style="color:#75715e"># Last n rows of the DataFrame</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>shape <span style="color:#75715e"># Number of rows and columns</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>info() <span style="color:#75715e"># Index, Datatype and Memory information</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>describe() <span style="color:#75715e"># Summary statistics for numerical columns</span>
+</span></span><span style="display:flex;"><span>s<span style="color:#f92672">.</span>value_counts(dropna<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>) <span style="color:#75715e"># View unique values and counts</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>apply(pd<span style="color:#f92672">.</span>Series<span style="color:#f92672">.</span>value_counts) <span style="color:#75715e"># Unique values and counts for all columns</span>
+</span></span></code></pre></div><h3 id="other-operations">Other operations</h3>
+<h4 id="keep-a-subset-of-the-columns">Keep a subset of the columns</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_short <span style="color:#f92672">=</span> df[[<span style="color:#e6db74">&#39;color&#39;</span>, <span style="color:#e6db74">&#39;food&#39;</span>, <span style="color:#e6db74">&#39;score&#39;</span>]]
+</span></span></code></pre></div><h4 id="keep-a-subset-of-rows-from-i-th-to-n-th">Keep a subset of rows from i-th to n-th</h4>
+<p>df.iloc[ i:n, : ]</p>
+<h4 id="get-the-i-th-row">get the i-th row</h4>
+<p>df.iloc[ i, : ]</p>
+<h4 id="delete-i-th-row">Delete i-th row</h4>
+<p>modDfObj = dfObj.drop(i)</p>
+<h4 id="create-time-bins">Create time bins.</h4>
+<p>m/d/aaaa format (for more <em>freq</em> options check <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#timeseries-offset-aliases">here</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>minute_bins <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>date_range(start<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1/1/2020&#39;</span>, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1/08/2020&#39;</span>, freq<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;min&#39;</span>)
+</span></span></code></pre></div><h4 id="group-by">Group by</h4>
+<p>If <em>as_index=True</em> (by default) then the column <em>classroom</em> would be converted into an index by the groupby, and wouldn&rsquo;t be a column anymore (can&rsquo;t imagine why this bahaviour, but&hellip;).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#34;classroom&#34;</span>, as_index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)<span style="color:#f92672">.</span>count()
+</span></span></code></pre></div><h4 id="export-as-csv">Export as CSV</h4>
+<p>Withoud a column for indexes</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;file_name.csv&#39;</span>, index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span></code></pre></div><h4 id="apply-an-operation-to-all-rows-and-save-to-a-new-column">Apply an operation to all rows and save to a new column</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df[<span style="color:#e6db74">&#34;new_column&#34;</span>] <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> row: some_function(row[<span style="color:#e6db74">&#34;existing_column&#34;</span>]), axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p><em>Note: axis=0 would apply it to all columns</em></p>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

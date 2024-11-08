@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trivy on Coding notes</title>
+    <link>https://www.bustroker.com/tags/trivy/</link>
+    <description>Recent content in Trivy on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/trivy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Run Trivy from docker on Mac</title>
+      <link>https://www.bustroker.com/notes/run-trivy-from-docker-on-mac/</link>
+      <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/run-trivy-from-docker-on-mac/</guid>
+      <description>Official documentation: https://aquasecurity.github.io/trivy/v0.38/&#xA;On zsh terminal on a mac Just run the image and pass the trivy commands as documented. To get version:&#xA;docker run aquasec/trivy version Scan code from local file system docker run -v /host/src/to/scan:/target aquasec/trivy --debug fs /target &amp;gt; trivy-output-report.txt File trivy-output-report.txt is created in the host folder where running.&#xA;Documentation for local file system scan https://aquasecurity.github.io/trivy/v0.20.2/getting-started/cli/fs/&#xA;Scan code from repo As per documentation, only public repositories are supported (https://aquasecurity.</description>
+    </item>
+    <item>
+      <title>Vulnerability scan with Trivy</title>
+      <link>https://www.bustroker.com/notes/vulnerability-scan-with-trivy/</link>
+      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/vulnerability-scan-with-trivy/</guid>
+      <description>Install Trivy brew install Trivy For zsh terminal trivy fs --severity [CRITICAL,MEDIUM] /path/to/folder </description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Getting Started on Coding notes</title>
+    <link>https://www.bustroker.com/tags/getting-started/</link>
+    <description>Recent content in Getting Started on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Apr 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/getting-started/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New typescript project</title>
+      <link>https://www.bustroker.com/notes/new-typescript-project/</link>
+      <pubDate>Wed, 10 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/new-typescript-project/</guid>
+      <description>For frontend dev, the simplest web API to joke around with.&#xA;Create the project npm init -y npm install --save-dev typescript nano tsconfig.json // tsconfig.json { &amp;#34;compilerOptions&amp;#34;: { &amp;#34;module&amp;#34;: &amp;#34;commonjs&amp;#34;, &amp;#34;esModuleInterop&amp;#34;: true, &amp;#34;target&amp;#34;: &amp;#34;es6&amp;#34;, &amp;#34;moduleResolution&amp;#34;: &amp;#34;node&amp;#34;, &amp;#34;sourceMap&amp;#34;: true, &amp;#34;outDir&amp;#34;: &amp;#34;dist&amp;#34; }, &amp;#34;lib&amp;#34;: [&amp;#34;es2015&amp;#34;] } Code nano src/app.ts Write the code.&#xA;Compile and run npx tsc node dist/app.js </description>
+    </item>
+    <item>
+      <title>A cool terminal for windows with context menu</title>
+      <link>https://www.bustroker.com/notes/a-cool-terminal-for-windows-with-context-menu/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/a-cool-terminal-for-windows-with-context-menu/</guid>
+      <description>No installation, cool colors, with context menu to open directly in a folder.&#xA;Install Donwload cmder terminal, unzip, copy to the folder you prefer (just not any Administrator-required-to-work-on folder).&#xA;Context menu shortcut To add Shortcut in context menu for Open Cmder here, open a cmd as Administrator, and go:&#xA;cd c:\cmder\folder&#xD;.\cmder.exe /REGISTER ALL </description>
+    </item>
+    <item>
+      <title>Vagrant VM provision &amp; vagrant commands cheathsheet</title>
+      <link>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</guid>
+      <description>Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| # config.vm.box = &amp;#34;debian/bullseye64&amp;#34; config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 8080, host: 8080 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;UbuntuBionic&amp;#34; vb.memory = 2048 # vb.gui = true end end Vagrant provision script Create a file vagrant_provision.sh in the same folder of Vagrantfile, with the following content. Just remove the tools not required, here&amp;rsquo;s all I&amp;rsquo;ve ever needed.</description>
+    </item>
+    <item>
+      <title>Simplest node express web API</title>
+      <link>https://www.bustroker.com/notes/simplest-node-express-web-api/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/simplest-node-express-web-api/</guid>
+      <description>For frontend dev, the simplest web API to joke around with.&#xA;Create the project and install express package&#xA;npm init npm install express Node server Create server.js file in the root.&#xA;// ./server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.send({ message: &amp;#34;I&amp;#39;m here&amp;#34;}); }); app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000!&amp;#39;)); Run it&#xA;node server.js Test it&#xA;curl localhost:3000 Package it in a docker container # .</description>
+    </item>
+  </channel>
+</rss>

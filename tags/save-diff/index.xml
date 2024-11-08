@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Save Diff on Coding notes</title>
+    <link>https://www.bustroker.com/tags/save-diff/</link>
+    <description>Recent content in Save Diff on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/save-diff/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git stash - and patch</title>
+      <link>https://www.bustroker.com/notes/git-stash-and-patch/</link>
+      <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/git-stash-and-patch/</guid>
+      <description>Stash git stash list # create or save stash git stash # or git stash push -m &amp;#34;description&amp;#34; # Apply latest Stash stash@{0} git stash apply # or git stash apply [INDEX] # Pop - Apply and Remove the latest stash: git stash pop # Drop Stash: git stash drop [INDEX] Stashes can&amp;rsquo;t be managed by name. A way to do so (like light solution for saving specific changes for specific build config), save pending changes to a file</description>
+    </item>
+  </channel>
+</rss>

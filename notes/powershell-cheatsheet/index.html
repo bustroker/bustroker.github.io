@@ -1,0 +1,259 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Powershell cheatsheet | Coding notes</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Powershell cheatsheet</h1>
+<h3 id="bypass-digitally-sign-constrain-for-scripts-execution">Bypass digitally sign constrain for scripts execution</h3>
+<p>Run powershell as Administrator.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+</span></span></code></pre></div><h3 id="list-environment-variables">List environment variables</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Get-ChildItem -Path Env<span style="color:#960050;background-color:#1e0010">:</span>\
+</span></span></code></pre></div><p>Also, using <code>.net</code> from powershell, and specifying system-level variables, by specifying <code>machine</code> as second argument. This argument could also be <code>user</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[<span style="color:#66d9ef">System.Environment</span>]::GetEnvironmentVariable(<span style="color:#e6db74">&#39;VARIABLE_NAME&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>)
+</span></span></code></pre></div><p>For some reason, the previous doesn&rsquo;t work for variable <code>COMPUTERNAME</code>. To get computer name:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$env:computername
+</span></span></code></pre></div><h3 id="set-environment-variable">Set environment variable</h3>
+<p>Run powershell as Admin.</p>
+<ul>
+<li>new variable</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>[<span style="color:#66d9ef">System.Environment</span>]::SetEnvironmentVariable(<span style="color:#e6db74">&#39;VARIABLE_NAME&#39;</span>, <span style="color:#e6db74">&#39;VARIABLE_VALUE&#39;</span>,[<span style="color:#66d9ef">System.EnvironmentVariableTarget</span>]::Machine)
+</span></span></code></pre></div><ul>
+<li>add to an existing variable (typically to <code>PATH</code>)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$current=[<span style="color:#66d9ef">System.Environment</span>]::GetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>);$newpath=<span style="color:#e6db74">&#34;</span>$current<span style="color:#e6db74">;C:\new\stuff\in\the\path&#34;</span>;[<span style="color:#66d9ef">System.Environment</span>]::SetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>, $newpath,[<span style="color:#66d9ef">System.EnvironmentVariableTarget</span>]::Machine)
+</span></span></code></pre></div><h3 id="remove-environment-variable">Remove environment variable</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Remove-Item env<span style="color:#960050;background-color:#1e0010">:</span>\VARIABLE_NAME
+</span></span></code></pre></div><h3 id="enable-windows-feature-servermanager">Enable windows feature (ServerManager)</h3>
+<ul>
+<li>First, run <code>Powershell</code> as admin, instal <code>RSAT</code> (includes <code>ServerManager</code> Module).</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Get-WindowsCapability -Name RSAT* -Online | Add-WindowsCapability -Online
+</span></span></code></pre></div><p>Takes several minutes.</p>
+<ul>
+<li>Enable IIS windows feature. <code>-WhatIf</code> flag simulates the command without running it, remove it actually execute the install
+<em>This will ony work in Windows Server. Running in Windows 10 will throw: &lsquo;The target of the specified cmdlet cannot be a Windows client-based operating system.&rsquo;</em></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Import-Module ServerManager
+</span></span><span style="display:flex;"><span>Install-WindowsFeature -Name Web-Server -IncludeAllSubFeature -ComputerName $env:computername -WhatIf
+</span></span></code></pre></div><h3 id="create-file">Create file</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>New-Item C:\path\to\file.txt
+</span></span></code></pre></div><h3 id="create-folder">Create folder</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>New-Item -Path <span style="color:#e6db74">&#34;c:\newfolder\anothernew&#34;</span> -Name <span style="color:#e6db74">&#34;lastnewfolder&#34;</span> -ItemType <span style="color:#e6db74">&#34;directory&#34;</span>
+</span></span></code></pre></div><p>Creates the full path <code>c:\newfolder\anothernew\lastnewfolder</code>.</p>
+<h3 id="rename-file-or-folder">Rename file or folder</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Rename-Item .\folderName -NewName NEW_FOLDER_NAME
+</span></span></code></pre></div><p>Same for files.</p>
+<h3 id="move-folder">Move folder</h3>
+<p>Move folder FOLDER_PATH and all its content into folder DESTINATION_FOLDER_PATH.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Move-Item FOLDER_PATH -destination DESTINATION_FOLDER_PATH
+</span></span></code></pre></div><h3 id="delete-folder">Delete folder</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>rm -r -fo .\folderName
+</span></span></code></pre></div><p><code>-r</code>: -recurse
+<code>-fo</code>: -force</p>
+<h3 id="set-content-to-a-file">Set content to a file</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>set-content .\file.txt -value <span style="color:#e6db74">&#34;new content to file&#34;</span>
+</span></span></code></pre></div><h3 id="get-content-of-a-file-equivalent-to-linux-cat">Get content of a file (equivalent to linux <code>cat</code>)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>type .\file.txt
+</span></span></code></pre></div><h3 id="grant-a-user-full-permission-over-a-folder">Grant a user full permission over a folder</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>icacls <span style="color:#e6db74">&#34;C:\folder\to\set\permissions\to&#34;</span> /inheritance<span style="color:#960050;background-color:#1e0010">:</span>d /grant<span style="color:#960050;background-color:#1e0010">:</span>r <span style="color:#e6db74">&#34;[USER_NAME]:(OI)(CI)F&#34;</span> /T
+</span></span></code></pre></div><h3 id="set-registry-value">Set registry value</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Set-ItemProperty -path <span style="color:#e6db74">&#39;HKLM:\path\to\key\&#39;</span> -name [<span style="color:#66d9ef">KEY_NAME</span>] -value [<span style="color:#66d9ef">KEY_VALUE</span>]
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># e.g.</span>
+</span></span><span style="display:flex;"><span>Set-ItemProperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\&#39;</span> -name LoginMode -value <span style="color:#ae81ff">2</span>
+</span></span></code></pre></div><h3 id="get-local-harddrives-storage-info">Get local harddrives storage info</h3>
+<p>Further info in <code>https://mcpmag.com/articles/2018/01/26/view-drive-information-with-powershell.aspx</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># all</span>
+</span></span><span style="display:flex;"><span>Get-WmiObject -Class Win32_logicaldisk
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># local</span>
+</span></span><span style="display:flex;"><span>Get-WmiObject -Class Win32_logicaldisk -Filter <span style="color:#e6db74">&#34;DriveType = &#39;3&#39;&#34;</span>
+</span></span></code></pre></div><h3 id="remove-alias-eg-curl">Remove alias (e.g. cURL)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>rm alias<span style="color:#960050;background-color:#1e0010">:</span>curl
+</span></span></code></pre></div><h3 id="extract-zip-file">Extract zip file</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Expand-Archive -Path file.Zip -DestinationPath C:\Reference
+</span></span></code></pre></div><h3 id="download-and-run-msi-installer">Download and run msi installer</h3>
+<p>Example with az cli installer</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-WebRequest -Uri https<span style="color:#960050;background-color:#1e0010">:</span>//aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList <span style="color:#e6db74">&#39;/I AzureCLI.msi /quiet&#39;</span>; rm .\AzureCLI.msi
+</span></span></code></pre></div><h3 id="disable-annoying-sound-in-powershell">Disable annoying sound in powershell</h3>
+<p>Run as admin</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Set-Service beep -StartupType disabled
+</span></span></code></pre></div>
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

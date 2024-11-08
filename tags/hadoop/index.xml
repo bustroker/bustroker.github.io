@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hadoop on Coding notes</title>
+    <link>https://www.bustroker.com/tags/hadoop/</link>
+    <description>Recent content in Hadoop on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install spark and hadoop in Windows 10</title>
+      <link>https://www.bustroker.com/notes/install-spark-and-hadoop-in-windows-10/</link>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/install-spark-and-hadoop-in-windows-10/</guid>
+      <description>Install spark to run locally Versions Java java -version openjdk version &amp;#34;1.8.0_292&amp;#34; OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_292-b10) OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.292-b10, mixed mode) Scala sbt console Welcome to Scala 2.12.13 (OpenJDK 64-Bit Server VM, Java 1.8.0_292). Install Spark Download from https://spark.apache.org/downloads.html.&#xA;Spark release 3.2.0 For Hadoop 2.7 (previous versions failed me) Folder downloaded and copied as C:\Spark\spark-3.2.0-bin-hadoop2.7. Add system environment variable SPARK_HOME with value C:\Spark\spark-3.2.0-bin-hadoop2.7. Add %SPARK_HOME%\bin to system PATH.</description>
+    </item>
+  </channel>
+</rss>
