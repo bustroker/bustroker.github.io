@@ -4,11 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<<<<<<< HEAD
-  <meta name="generator" content="Hugo 0.101.0" />
-=======
   <meta name="generator" content="Hugo 0.123.7">
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -140,19 +136,11 @@ audio {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Cleanup Destination</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (Test-Path $InstallPath) {
-<<<<<<< HEAD
-</span></span><span style="display:flex;"><span>    Get-ChildItem $InstallPath | Remove-Item -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false -Force
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Zip Destination</span>
-</span></span><span style="display:flex;"><span>$zip = <span style="color:#e6db74">&#34;$InstallPath\AzCopy.Zip&#34;</span>
-=======
 </span></span><span style="display:flex;"><span>    Get-ChildItem $InstallPath | Remove-Item -Confirm:$false -Force
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Zip Destination</span>
 </span></span><span style="display:flex;"><span>$zip = <span style="color:#e6db74">&#34;</span>$InstallPath<span style="color:#e6db74">\AzCopy.Zip&#34;</span>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Create the installation folder (eg. C:\AzCopy)</span>
 </span></span><span style="display:flex;"><span>$null = New-Item -Type Directory -Path $InstallPath -Force
@@ -167,13 +155,8 @@ audio {
 </span></span><span style="display:flex;"><span>Get-ChildItem <span style="color:#e6db74">&#34;</span>$($InstallPath)<span style="color:#e6db74">\*\*&#34;</span> | Move-Item -Destination <span style="color:#e6db74">&#34;</span>$($InstallPath)<span style="color:#e6db74">\&#34;</span> -Force
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#Cleanup - delete ZIP and old folder</span>
-<<<<<<< HEAD
-</span></span><span style="display:flex;"><span>Remove-Item $zip -Force -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false
-</span></span><span style="display:flex;"><span>Get-ChildItem <span style="color:#e6db74">&#34;</span>$($InstallPath)<span style="color:#e6db74">\*&#34;</span> -Directory | ForEach-Object { Remove-Item $_.FullName -Recurse -Force -Confirm<span style="color:#960050;background-color:#1e0010">:</span>$false }
-=======
 </span></span><span style="display:flex;"><span>Remove-Item $zip -Force -Confirm:$false
 </span></span><span style="display:flex;"><span>Get-ChildItem <span style="color:#e6db74">&#34;</span>$($InstallPath)<span style="color:#e6db74">\*&#34;</span> -Directory | ForEach-Object { Remove-Item $_.FullName -Recurse -Force -Confirm:$false }
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Add InstallPath to the System Path if it does not exist</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ($env:PATH <span style="color:#f92672">-notcontains</span> $InstallPath) {
@@ -183,11 +166,7 @@ audio {
 </span></span><span style="display:flex;"><span>        $env:PATH = ($path -join <span style="color:#e6db74">&#34;;&#34;</span>)
 </span></span><span style="display:flex;"><span>        $env:PATH = $env:PATH <span style="color:#f92672">-replace</span> <span style="color:#e6db74">&#39;;;&#39;</span>, <span style="color:#e6db74">&#39;;&#39;</span>
 </span></span><span style="display:flex;"><span>    }
-<<<<<<< HEAD
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">[Environment]</span>::SetEnvironmentVariable(<span style="color:#e6db74">&#34;Path&#34;</span>, ($env:path), <span style="color:#66d9ef">[System.EnvironmentVariableTarget]</span>::Machine)
-=======
 </span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Environment</span>]::SetEnvironmentVariable(<span style="color:#e6db74">&#34;Path&#34;</span>, ($env:path), [<span style="color:#66d9ef">System.EnvironmentVariableTarget</span>]::Machine)
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#Test if install worked. Should see azcopy.exe utility and a license text file</span>
 </span></span><span style="display:flex;"><span>Get-ChildItem -Path $InstallPath

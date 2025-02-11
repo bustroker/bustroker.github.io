@@ -2,37 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.bustroker.com/tags/actions/</loc>
-    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/</loc>
-<<<<<<< HEAD
-    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/github/</loc>
-    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/github-actions/</loc>
-    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/</loc>
-=======
     <lastmod>2025-10-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/</loc>
     <lastmod>2025-10-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/actions/</loc>
-    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
+    <loc>https://www.bustroker.com/notes/add-image-to-hugo-site/</loc>
+    <lastmod>2025-02-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/github/</loc>
-    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/github-actions/</loc>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
-    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
+    <loc>https://www.bustroker.com/tags/hugo/</loc>
+    <lastmod>2025-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2025-02-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/actions/</loc>
+    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/github/</loc>
+    <lastmod>2024-09-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/github-actions/</loc>
     <lastmod>2024-09-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/fluxcd/</loc>

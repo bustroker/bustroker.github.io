@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-<<<<<<< HEAD:tags/IIS/index.xml
-    <title>IIS on Coding notes</title>
-    <link>https://www.bustroker.com/tags/iis/</link>
-    <description>Recent content in IIS on Coding notes</description>
-=======
     <title>Iis on Coding notes</title>
     <link>https://www.bustroker.com/tags/iis/</link>
     <description>Recent content in Iis on Coding notes</description>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af:tags/iis/index.xml
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate>

@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-<<<<<<< HEAD
-    <title>regex on Coding notes</title>
-    <link>https://www.bustroker.com/tags/regex/</link>
-    <description>Recent content in regex on Coding notes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/regex/index.xml" rel="self" type="application/rss+xml" />
-=======
     <title>Regex on Coding notes</title>
     <link>https://www.bustroker.com/tags/regex/</link>
     <description>Recent content in Regex on Coding notes</description>
@@ -16,23 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/regex/index.xml" rel="self" type="application/rss+xml" />
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Go hello world with regex</title>
       <link>https://www.bustroker.com/notes/go-hello-world-with-regex/</link>
       <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
-<<<<<<< HEAD
-      
-      <guid>https://www.bustroker.com/notes/go-hello-world-with-regex/</guid>
-      <description>FluxCD Image policy applies regex to select latest tag. FluxCD uses go regex, so this go app tests a regex.
-Create project # create go module go mod init atoss-regex # create main file touch main.go Code
-// main.go package main import ( &amp;#34;fmt&amp;#34; &amp;#34;regexp&amp;#34; ) func main() { // pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\.[0-9]+\.[0-9]+)$` pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\\.[0-9]+\\.[0-9]+)$` // pattern := `^([0-9]+\\.[0-9]+\\.[0-9]+)$` tags := []string{ &amp;#34;v1.0.0&amp;#34;, &amp;#34;0.0.51&amp;#34;, &amp;#34;0.0.16&amp;#34;, &amp;#34;2.1.0&amp;#34;, &amp;#34;1.2.3&amp;#34;, &amp;#34;v0.9.8&amp;#34;, &amp;#34;1.0&amp;#34;, &amp;#34;invalid&amp;#34;, &amp;#34;1.</description>
-    </item>
-    
-=======
       <guid>https://www.bustroker.com/notes/go-hello-world-with-regex/</guid>
       <description>FluxCD Image policy applies regex to select latest tag. FluxCD uses go regex, so this go app tests a regex.&#xA;Create project # create go module go mod init atoss-regex # create main file touch main.go Code&#xA;// main.go package main import ( &amp;#34;fmt&amp;#34; &amp;#34;regexp&amp;#34; ) func main() { // pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\.[0-9]+\.[0-9]+)$` pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\\.[0-9]+\\.[0-9]+)$` // pattern := `^([0-9]+\\.[0-9]+\\.[0-9]+)$` tags := []string{ &amp;#34;v1.0.0&amp;#34;, &amp;#34;0.0.51&amp;#34;, &amp;#34;0.0.16&amp;#34;, &amp;#34;2.1.0&amp;#34;, &amp;#34;1.2.3&amp;#34;, &amp;#34;v0.9.8&amp;#34;, &amp;#34;1.0&amp;#34;, &amp;#34;invalid&amp;#34;, &amp;#34;1.</description>
     </item>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
   </channel>
 </rss>

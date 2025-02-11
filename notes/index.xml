@@ -6,89 +6,50 @@
     <description>Recent content in Notes on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-<<<<<<< HEAD
-    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
-=======
-    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
+    <item>
+      <title>Add image to hugo site</title>
+      <link>https://www.bustroker.com/notes/add-image-to-hugo-site/</link>
+      <pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/add-image-to-hugo-site/</guid>
+      <description>In Hugo, you can add images to your page in several ways depending on where your images are stored. Here are the main methods:&#xA;1. Using Page Bundles (Recommended) If you&amp;rsquo;re using page bundles, place the image inside the same folder as your markdown file.&#xA;Steps: Place the image inside the same directory as the markdown file: content/posts/my-post/&#xD;├── index.md&#xD;├── my-image.jpg In index.md, reference the image using: ![Alt text](my-image.jpg) or !</description>
+    </item>
     <item>
       <title>Github actions</title>
       <link>https://www.bustroker.com/notes/github-actions/</link>
       <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
-<<<<<<< HEAD
-      
       <guid>https://www.bustroker.com/notes/github-actions/</guid>
       <description>Workflow to promote latest -rc image to release # It&amp;#39;s expected that when the new release candidate tag x.y.z is added by this workflow # to the latest x.y.z-rc image, a deployment is triggered to PRO environment name: Promote Latest RC Images to Release. Deploy to prod. on: workflow_dispatch: permissions: contents: read id-token: write jobs: promote-images: runs-on: ubuntu-latest strategy: matrix: repository: - atoss-identity-secrets-setup - atoss-identity-svc steps: - name: Checkout repository uses: actions/checkout@v4 - name: Configure AWS credentials uses: aws-actions/configure-aws-credentials@v4 with: role-to-assume: arn:aws:iam::XXXXXXXXXX:role/github/atoss-identity-deploy-role aws-region: eu-central-1 - name: Promote rc image to release uses: .</description>
     </item>
-    
-=======
-      <guid>https://www.bustroker.com/notes/github-actions/</guid>
-      <description>Workflow to promote latest -rc image to release # It&amp;#39;s expected that when the new release candidate tag x.y.z is added by this workflow # to the latest x.y.z-rc image, a deployment is triggered to PRO environment name: Promote Latest RC Images to Release. Deploy to prod. on: workflow_dispatch: permissions: contents: read id-token: write jobs: promote-images: runs-on: ubuntu-latest strategy: matrix: repository: - atoss-identity-secrets-setup - atoss-identity-svc steps: - name: Checkout repository uses: actions/checkout@v4 - name: Configure AWS credentials uses: aws-actions/configure-aws-credentials@v4 with: role-to-assume: arn:aws:iam::XXXXXXXXXX:role/github/atoss-identity-deploy-role aws-region: eu-central-1 - name: Promote rc image to release uses: .</description>
-    </item>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Go hello world with regex</title>
       <link>https://www.bustroker.com/notes/go-hello-world-with-regex/</link>
       <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
-<<<<<<< HEAD
-      
-      <guid>https://www.bustroker.com/notes/go-hello-world-with-regex/</guid>
-      <description>FluxCD Image policy applies regex to select latest tag. FluxCD uses go regex, so this go app tests a regex.
-Create project # create go module go mod init atoss-regex # create main file touch main.go Code
-// main.go package main import ( &amp;#34;fmt&amp;#34; &amp;#34;regexp&amp;#34; ) func main() { // pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\.[0-9]+\.[0-9]+)$` pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\\.[0-9]+\\.[0-9]+)$` // pattern := `^([0-9]+\\.[0-9]+\\.[0-9]+)$` tags := []string{ &amp;#34;v1.0.0&amp;#34;, &amp;#34;0.0.51&amp;#34;, &amp;#34;0.0.16&amp;#34;, &amp;#34;2.1.0&amp;#34;, &amp;#34;1.2.3&amp;#34;, &amp;#34;v0.9.8&amp;#34;, &amp;#34;1.0&amp;#34;, &amp;#34;invalid&amp;#34;, &amp;#34;1.</description>
-    </item>
-    
-=======
       <guid>https://www.bustroker.com/notes/go-hello-world-with-regex/</guid>
       <description>FluxCD Image policy applies regex to select latest tag. FluxCD uses go regex, so this go app tests a regex.&#xA;Create project # create go module go mod init atoss-regex # create main file touch main.go Code&#xA;// main.go package main import ( &amp;#34;fmt&amp;#34; &amp;#34;regexp&amp;#34; ) func main() { // pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\.[0-9]+\.[0-9]+)$` pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\\.[0-9]+\\.[0-9]+)$` // pattern := `^([0-9]+\\.[0-9]+\\.[0-9]+)$` tags := []string{ &amp;#34;v1.0.0&amp;#34;, &amp;#34;0.0.51&amp;#34;, &amp;#34;0.0.16&amp;#34;, &amp;#34;2.1.0&amp;#34;, &amp;#34;1.2.3&amp;#34;, &amp;#34;v0.9.8&amp;#34;, &amp;#34;1.0&amp;#34;, &amp;#34;invalid&amp;#34;, &amp;#34;1.</description>
     </item>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>dotnet scrips</title>
       <link>https://www.bustroker.com/notes/dotnet-scrips/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
-<<<<<<< HEAD
-      
       <guid>https://www.bustroker.com/notes/dotnet-scrips/</guid>
       <description>Install dotnet script dotnet tool install -g dotnet-script Write csx script file with nuget package reference // script.csx #r &amp;#34;nuget:Newtonsoft.Json, 13.0.1&amp;#34; using Newtonsoft.Json; using Newtonsoft.Json.Linq; var args = Environment.GetCommandLineArgs(); if(args.Any(a =&amp;gt; a == &amp;#34;--dry-run&amp;#34;)) { return; } Console.WriteLine(&amp;#34;Using Newtonsoft.Json to parse JSON.&amp;#34;); var json = JObject.Parse(@&amp;#34;{ &amp;#39;name&amp;#39;: &amp;#39;John&amp;#39;, &amp;#39;age&amp;#39;: 30 }&amp;#34;); Console.WriteLine(json[&amp;#34;name&amp;#34;]); Run script dotnet-script script.csx </description>
     </item>
-    
-=======
-      <guid>https://www.bustroker.com/notes/dotnet-scrips/</guid>
-      <description>Install dotnet script dotnet tool install -g dotnet-script Write csx script file with nuget package reference // script.csx #r &amp;#34;nuget:Newtonsoft.Json, 13.0.1&amp;#34; using Newtonsoft.Json; using Newtonsoft.Json.Linq; var args = Environment.GetCommandLineArgs(); if(args.Any(a =&amp;gt; a == &amp;#34;--dry-run&amp;#34;)) { return; } Console.WriteLine(&amp;#34;Using Newtonsoft.Json to parse JSON.&amp;#34;); var json = JObject.Parse(@&amp;#34;{ &amp;#39;name&amp;#39;: &amp;#39;John&amp;#39;, &amp;#39;age&amp;#39;: 30 }&amp;#34;); Console.WriteLine(json[&amp;#34;name&amp;#34;]); Run script dotnet-script script.csx </description>
-    </item>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Git stash - and patch</title>
       <link>https://www.bustroker.com/notes/git-stash-and-patch/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
-<<<<<<< HEAD
-      
       <guid>https://www.bustroker.com/notes/git-stash-and-patch/</guid>
       <description>Stash git stash list # create or save stash git stash # or git stash push -m &amp;#34;description&amp;#34; # Apply latest Stash stash@{0} git stash apply # or git stash apply [INDEX] # Pop - Apply and Remove the latest stash: git stash pop # Drop Stash: git stash drop [INDEX] Stashes can&amp;rsquo;t be managed by name. A way to do so (like light solution for saving specific changes for specific build config), save pending changes to a file</description>
     </item>
-    
-=======
-      <guid>https://www.bustroker.com/notes/git-stash-and-patch/</guid>
-      <description>Stash git stash list # create or save stash git stash # or git stash push -m &amp;#34;description&amp;#34; # Apply latest Stash stash@{0} git stash apply # or git stash apply [INDEX] # Pop - Apply and Remove the latest stash: git stash pop # Drop Stash: git stash drop [INDEX] Stashes can&amp;rsquo;t be managed by name. A way to do so (like light solution for saving specific changes for specific build config), save pending changes to a file</description>
-    </item>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Install azcopy in windows from powershell</title>
       <link>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</link>
       <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
-<<<<<<< HEAD
-      
       <guid>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</guid>
       <description>Install func cli $InstallPath = &amp;#39;C:\AzCopy&amp;#39; # Cleanup Destination if (Test-Path $InstallPath) { Get-ChildItem $InstallPath | Remove-Item -Confirm:$false -Force } # Zip Destination $zip = &amp;#34;$InstallPath\AzCopy.Zip&amp;#34; # Create the installation folder (eg. C:\AzCopy) $null = New-Item -Type Directory -Path $InstallPath -Force # Download AzCopy zip for Windows Start-BitsTransfer -Source &amp;#34;https://aka.ms/downloadazcopy-v10-windows&amp;#34; -Destination $zip # Expand the Zip file Expand-Archive $zip $InstallPath -Force # Move to $InstallPath Get-ChildItem &amp;#34;$($InstallPath)\*\*&amp;#34; | Move-Item -Destination &amp;#34;$($InstallPath)\&amp;#34; -Force #Cleanup - delete ZIP and old folder Remove-Item $zip -Force -Confirm:$false Get-ChildItem &amp;#34;$($InstallPath)\*&amp;#34; -Directory | ForEach-Object { Remove-Item $_.</description>
     </item>
-    
-=======
-      <guid>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</guid>
-      <description>Install func cli $InstallPath = &amp;#39;C:\AzCopy&amp;#39; # Cleanup Destination if (Test-Path $InstallPath) { Get-ChildItem $InstallPath | Remove-Item -Confirm:$false -Force } # Zip Destination $zip = &amp;#34;$InstallPath\AzCopy.Zip&amp;#34; # Create the installation folder (eg. C:\AzCopy) $null = New-Item -Type Directory -Path $InstallPath -Force # Download AzCopy zip for Windows Start-BitsTransfer -Source &amp;#34;https://aka.ms/downloadazcopy-v10-windows&amp;#34; -Destination $zip # Expand the Zip file Expand-Archive $zip $InstallPath -Force # Move to $InstallPath Get-ChildItem &amp;#34;$($InstallPath)\*\*&amp;#34; | Move-Item -Destination &amp;#34;$($InstallPath)\&amp;#34; -Force #Cleanup - delete ZIP and old folder Remove-Item $zip -Force -Confirm:$false Get-ChildItem &amp;#34;$($InstallPath)\*&amp;#34; -Directory | ForEach-Object { Remove-Item $_.</description>
-    </item>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Getting started - React web app - PWA</title>
       <link>https://www.bustroker.com/notes/getting-started-react-web-app-pwa/</link>
@@ -745,15 +706,7 @@ Create project # create go module go mod init atoss-regex # create main file tou
       <link>https://www.bustroker.com/notes/mortgage-simulator-in-python/</link>
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/mortgage-simulator-in-python/</guid>
-<<<<<<< HEAD
-      <description>Implemented as per explanation by Universidad de Valencia&amp;rsquo;s Professor Carlos Ivorra, in the article Las matemáticas de una hipoteca about &amp;ldquo;underlying math in mortgage loans&amp;rdquo;. The full pdf article (in spanish) is here.
-The code is in spanish and by the way, it&amp;rsquo;s so cool to be able to name variables in python using spanish accents. It brough out a smile :).
-The important part class Calculadora: def __init__(self): return def interés_efectivo_mensual(self, euríbor, diferencial_interés): # (divido tb por 100 para tener el por-uno) return (euríbor + diferencial_interés) / 1200 def cuota(self, monto_préstamo, interés_efectivo_mensual, total_de_meses): c_0 = monto_préstamo i = interés_efectivo_mensual N = total_de_meses return (c_0 * i) / (1-(1 + i)**(-N)) def deuda_después_de_n_pagos(self, monto_cuota, interés_efectivo_mensual, total_de_meses, n): c = monto_cuota i = interés_efectivo_mensual N = total_de_meses return c/i * (1 - (1+i)**(n-N)) Talk is cheap Here&amp;rsquo;s the code.</description>
-    </item>
-    
-=======
       <description>Implemented as per explanation by Universidad de Valencia&amp;rsquo;s Professor Carlos Ivorra, in the article Las matemáticas de una hipoteca about &amp;ldquo;underlying math in mortgage loans&amp;rdquo;. The full pdf article (in spanish) is here.&#xA;The code is in spanish and by the way, it&amp;rsquo;s so cool to be able to name variables in python using spanish accents. It brough out a smile :).&#xA;The important part class Calculadora: def __init__(self): return def interés_efectivo_mensual(self, euríbor, diferencial_interés): # (divido tb por 100 para tener el por-uno) return (euríbor + diferencial_interés) / 1200 def cuota(self, monto_préstamo, interés_efectivo_mensual, total_de_meses): c_0 = monto_préstamo i = interés_efectivo_mensual N = total_de_meses return (c_0 * i) / (1-(1 + i)**(-N)) def deuda_después_de_n_pagos(self, monto_cuota, interés_efectivo_mensual, total_de_meses, n): c = monto_cuota i = interés_efectivo_mensual N = total_de_meses return c/i * (1 - (1+i)**(n-N)) Talk is cheap Here&amp;rsquo;s the code.</description>
     </item>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
   </channel>
 </rss>

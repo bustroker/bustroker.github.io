@@ -6,27 +6,15 @@
     <description>Recent content in Git on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-<<<<<<< HEAD
-    <lastBuildDate>Mon, 12 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
-=======
     <lastBuildDate>Mon, 12 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Git stash - and patch</title>
       <link>https://www.bustroker.com/notes/git-stash-and-patch/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
-<<<<<<< HEAD
-      
       <guid>https://www.bustroker.com/notes/git-stash-and-patch/</guid>
       <description>Stash git stash list # create or save stash git stash # or git stash push -m &amp;#34;description&amp;#34; # Apply latest Stash stash@{0} git stash apply # or git stash apply [INDEX] # Pop - Apply and Remove the latest stash: git stash pop # Drop Stash: git stash drop [INDEX] Stashes can&amp;rsquo;t be managed by name. A way to do so (like light solution for saving specific changes for specific build config), save pending changes to a file</description>
     </item>
-    
-=======
-      <guid>https://www.bustroker.com/notes/git-stash-and-patch/</guid>
-      <description>Stash git stash list # create or save stash git stash # or git stash push -m &amp;#34;description&amp;#34; # Apply latest Stash stash@{0} git stash apply # or git stash apply [INDEX] # Pop - Apply and Remove the latest stash: git stash pop # Drop Stash: git stash drop [INDEX] Stashes can&amp;rsquo;t be managed by name. A way to do so (like light solution for saving specific changes for specific build config), save pending changes to a file</description>
-    </item>
->>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Git - forget a file and ignore</title>
       <link>https://www.bustroker.com/notes/git-forget-a-file-and-ignore/</link>
