@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.123.7">
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -187,7 +187,7 @@ audio {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">$(dockerfilePath)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">containerRegistry</span>: <span style="color:#ae81ff">$(dockerRegistryServiceConnection)</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">tags</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          </span>          <span style="color:#ae81ff">$(tag)</span>
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          $(tag)</span>          
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">DevDeployStage</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">BuildStage</span>

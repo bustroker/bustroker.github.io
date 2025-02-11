@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.123.7">
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -172,18 +172,24 @@ audio {
 </span></span></code></pre></div><p>Or just</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl run disposable-curl-pod --image=radial/busyboxplus<span style="color:#960050;background-color:#1e0010">:</span>curl -it --rm
 </span></span></code></pre></div><h3 id="forward-clusterip-service-port-in-k8s-cluster-to-local-port">Forward ClusterIP service port in k8s cluster to local port</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl port-forward service/<span style="color:#66d9ef">[SERVICE_NAME] [HOST_PORT]</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#66d9ef">[POD_PORT]</span>
-</span></span><span style="display:flex;"><span>kubectl port-forward pod/<span style="color:#66d9ef">[POD_NAME] [HOST_PORT]</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#66d9ef">[POD_PORT]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl port-forward service/[<span style="color:#66d9ef">SERVICE_NAME] [HOST_PORT</span>]<span style="color:#960050;background-color:#1e0010">:</span>[<span style="color:#66d9ef">POD_PORT</span>]
+</span></span><span style="display:flex;"><span>kubectl port-forward pod/[<span style="color:#66d9ef">POD_NAME] [HOST_PORT</span>]<span style="color:#960050;background-color:#1e0010">:</span>[<span style="color:#66d9ef">POD_PORT</span>]
 </span></span></code></pre></div><h3 id="dns-service-info">DNS service info</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl get services kube-dns --namespace=kube-system
 </span></span></code></pre></div><h3 id="troubleshoot-crash-on-startup">Troubleshoot crash on startup</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl get pod <span style="color:#66d9ef">[POD_NAME]</span> --output=[yaml/json]
-</span></span><span style="display:flex;"><span>kubectl logs <span style="color:#66d9ef">[POD_NAME]</span>
-</span></span><span style="display:flex;"><span>kubectl describe <span style="color:#66d9ef">[POD_NAME]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl get pod [<span style="color:#66d9ef">POD_NAME</span>] --output=[yaml/json]
+</span></span><span style="display:flex;"><span>kubectl logs [<span style="color:#66d9ef">POD_NAME</span>]
+</span></span><span style="display:flex;"><span>kubectl describe [<span style="color:#66d9ef">POD_NAME</span>]
 </span></span></code></pre></div><p>If it already exited, add <code>-p</code></p>
+<<<<<<< HEAD
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl logs <span style="color:#66d9ef">[POD_NAME]</span> -p
 </span></span></code></pre></div><p>Logs of specific container inside the pod, e.g., from the initContainer</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl logs <span style="color:#66d9ef">[POD_NAME]</span> -c <span style="color:#66d9ef">[CONTAINER_NAME]</span>
+=======
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl logs [<span style="color:#66d9ef">POD_NAME</span>] -p
+</span></span></code></pre></div><p>Logs of specific container inside the pod, e.g., from the initContainer</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl logs [<span style="color:#66d9ef">POD_NAME</span>] -c [<span style="color:#66d9ef">CONTAINER_NAME</span>]
+>>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
 </span></span></code></pre></div><h3 id="list-all-resources">List all resources</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl api-resources --verbs=list --namespaced -o wide
 </span></span></code></pre></div><h3 id="get-info-about-resources-to-deploy">Get info about resources to deploy</h3>

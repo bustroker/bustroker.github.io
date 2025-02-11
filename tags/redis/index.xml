@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>redis on Coding notes</title>
+    <title>Redis on Coding notes</title>
     <link>https://www.bustroker.com/tags/redis/</link>
-    <description>Recent content in redis on Coding notes</description>
+    <description>Recent content in Redis on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>redis-cli cheatsheet</title>
       <link>https://www.bustroker.com/notes/redis-cli-cheatsheet/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/redis-cli-cheatsheet/</guid>
       <description>Install redis with cli brew install redis Commands redis-cli -h your-cluster-endpoint -p your-cluster-port # all keys keys * # pattern keys prefix-* # key type type &amp;lt;key&amp;gt; # get string key get &amp;lt;key&amp;gt; # get all hash key hgetall &amp;lt;key&amp;gt; # expiration time in seconds # -2 if key doesn&amp;#39;t exist # -1 if key doesn&amp;#39;t expire ttl &amp;lt;key&amp;gt; </description>
     </item>
-    
   </channel>
 </rss>

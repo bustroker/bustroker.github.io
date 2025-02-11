@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+<<<<<<< HEAD
     <title>kubectl on Coding notes</title>
     <link>https://www.bustroker.com/tags/kubectl/</link>
     <description>Recent content in kubectl on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 04 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/kubectl/index.xml" rel="self" type="application/rss+xml" />
+=======
+    <title>Kubectl on Coding notes</title>
+    <link>https://www.bustroker.com/tags/kubectl/</link>
+    <description>Recent content in Kubectl on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/kubectl/index.xml" rel="self" type="application/rss+xml" />
+>>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Kubernetes (1.7) commands cheatsheet</title>
       <link>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</link>
       <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+<<<<<<< HEAD
       
       <guid>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</guid>
       <description>Version: 1.6
 Contexts kubectl config get-contexts kubectl config delete-context CONTEXT_NAME kubectl config set-context --current --namespace=NAMESPACE kubectl config use-context CONTEXT_NAME Run pod from image kubectl run NAME --image=image [--env=&amp;#34;key=value&amp;#34;] Get info kubectl get pods [-o wide] kubectl describe service SERVICE_NAME kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName=NODE_NAME Delete all pods with a label kubectl delete pods -l label=value Delete all pods in a specific state pods, in Linux E.g., STATE=Evicted</description>
     </item>
     
+=======
+      <guid>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</guid>
+      <description>Version: 1.6&#xA;Contexts kubectl config get-contexts kubectl config delete-context CONTEXT_NAME kubectl config set-context --current --namespace=NAMESPACE kubectl config use-context CONTEXT_NAME Run pod from image kubectl run NAME --image=image [--env=&amp;#34;key=value&amp;#34;] Get info kubectl get pods [-o wide] kubectl describe service SERVICE_NAME kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName=NODE_NAME Delete all pods with a label kubectl delete pods -l label=value Delete all pods in a specific state pods, in Linux E.g., STATE=Evicted</description>
+    </item>
+>>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
   </channel>
 </rss>

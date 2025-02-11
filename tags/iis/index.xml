@@ -1,19 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Selfsigned Certificate on Coding notes</title>
-    <link>https://www.bustroker.com/tags/selfsigned-certificate/</link>
-    <description>Recent content in Selfsigned Certificate on Coding notes</description>
+<<<<<<< HEAD:tags/IIS/index.xml
+    <title>IIS on Coding notes</title>
+    <link>https://www.bustroker.com/tags/iis/</link>
+    <description>Recent content in IIS on Coding notes</description>
+=======
+    <title>Iis on Coding notes</title>
+    <link>https://www.bustroker.com/tags/iis/</link>
+    <description>Recent content in Iis on Coding notes</description>
+>>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af:tags/iis/index.xml
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://www.bustroker.com/tags/selfsigned-certificate/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.bustroker.com/tags/iis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aspnet website in docker in windows, IIS and self-signed certificate</title>
       <link>https://www.bustroker.com/notes/aspnet-website-in-docker-in-windows-iis-and-self-signed-certificate/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/aspnet-website-in-docker-in-windows-iis-and-self-signed-certificate/</guid>
       <description>The application is hosted in a docker container. The actual folder with the app publish, is mapped into the container, so when the code changes it&amp;rsquo;s inmediatly reflected in the running container.&#xA;Dockerfile FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 SHELL [ &amp;#34;powershell&amp;#34; ] COPY src/Bustroker.LocalEnv.WebUI/bin/app.publish c:/webapp ADD configureIIS.ps1 /windows/temp/configureIIS.ps1 RUN powershell.exe -executionpolicy bypass c:\windows\temp\configureIIS.ps1 Configure IIS script configureIIS.ps1 script, copied into the image on build.&#xA;# Configure SSL certificate for default website Import-Module WebAdministration Set-Location IIS:\SslBindings New-WebBinding -Name &amp;#34;Default Web Site&amp;#34; -IP &amp;#34;*&amp;#34; -Port 443 -Protocol https $c = New-SelfSignedCertificate -DnsName &amp;#34;localhost&amp;#34; -CertStoreLocation cert:\LocalMachine\My $c | New-Item 0.</description>
+    </item>
+    <item>
+      <title>Configure a rewrite url in web.config, for IIS hosted apps</title>
+      <link>https://www.bustroker.com/notes/configure-a-rewrite-url-in-web.config-for-iis-hosted-apps/</link>
+      <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/configure-a-rewrite-url-in-web.config-for-iis-hosted-apps/</guid>
+      <description>Rewrite is not a redirect, it doesn&amp;rsquo;t respond with 3xx in an API call case, and doesn&amp;rsquo;t change the url in the browser in a web app case. It&amp;rsquo;s a mapping of urls from what is exposed by IIS to what is actually exposed by the app.&#xA;Here the documentation.&#xA;Simplest case If the API exponses an endpoint &amp;ldquo;/internalendpoint&amp;rdquo; and I want to actually have it publicly as &amp;ldquo;/publicendpoint&amp;rdquo;&#xA;&amp;lt;?xml version=&amp;#34;1.</description>
     </item>
   </channel>
 </rss>

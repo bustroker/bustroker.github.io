@@ -1,43 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>python on Coding notes</title>
+    <title>Python on Coding notes</title>
     <link>https://www.bustroker.com/tags/python/</link>
-    <description>Recent content in python on Coding notes</description>
+    <description>Recent content in Python on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python OOP console app</title>
       <link>https://www.bustroker.com/notes/python-oop-console-app/</link>
       <pubDate>Wed, 27 Mar 2024 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/python-oop-console-app/</guid>
       <description>Python simple app with OOP model # animal.py class Animal: def __init__(self, name, species): self.name = name self.species = species def make_sound(self): pass # Abstract method # dog.py from animal import Animal class Dog(Animal): def __init__(self, name, breed): super().__init__(name, species=&amp;#34;Dog&amp;#34;) self.breed = breed def make_sound(self): return &amp;#34;Woof!&amp;#34; # cat.py from animal import Animal class Cat(Animal): def __init__(self, name, color): super().__init__(name, species=&amp;#34;Cat&amp;#34;) self.color = color def make_sound(self): return &amp;#34;Meow!&amp;#34; # app.py from dog import Dog from cat import Cat def main(): dog1 = Dog(&amp;#34;Buddy&amp;#34;, &amp;#34;Labrador&amp;#34;) cat1 = Cat(&amp;#34;Whiskers&amp;#34;, &amp;#34;Orange&amp;#34;) print(f&amp;#34;{dog1.</description>
     </item>
-    
     <item>
       <title>Python data science cheatsheet</title>
       <link>https://www.bustroker.com/notes/python-data-science-cheatsheet/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/python-data-science-cheatsheet/</guid>
-      <description>Pandas import pandas as pd
-Load CSV with &amp;lsquo;;&amp;rsquo; separator df = pd.read_csv(&amp;ldquo;data/entryRequests.csv&amp;rdquo;, sep = &amp;ldquo;;&amp;rdquo;, parse_dates=[[&amp;ldquo;Date&amp;rdquo;, &amp;ldquo;Time&amp;rdquo;]])
-Print column names print(df.columns)
-Importing pd.read_csv(filename) # From a CSV file pd.read_table(filename) # From a delimited text file (like TSV) pd.read_excel(filename) # From an Excel file pd.read_sql(query, connection_object) # Read from a SQL table/database pd.read_json(json_string) # Read from a JSON formatted string, URL or file. pd.read_html(url) # Parses an html URL, string or file and extracts tables to a list of dataframes pd.</description>
+      <description>Pandas import pandas as pd&#xA;Load CSV with &amp;lsquo;;&amp;rsquo; separator df = pd.read_csv(&amp;ldquo;data/entryRequests.csv&amp;rdquo;, sep = &amp;ldquo;;&amp;rdquo;, parse_dates=[[&amp;ldquo;Date&amp;rdquo;, &amp;ldquo;Time&amp;rdquo;]])&#xA;Print column names print(df.columns)&#xA;Importing pd.read_csv(filename) # From a CSV file pd.read_table(filename) # From a delimited text file (like TSV) pd.read_excel(filename) # From an Excel file pd.read_sql(query, connection_object) # Read from a SQL table/database pd.read_json(json_string) # Read from a JSON formatted string, URL or file. pd.read_html(url) # Parses an html URL, string or file and extracts tables to a list of dataframes pd.</description>
     </item>
-    
     <item>
       <title>Mortgage simulator in python</title>
       <link>https://www.bustroker.com/notes/mortgage-simulator-in-python/</link>
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/mortgage-simulator-in-python/</guid>
-      <description>Implemented as per explanation by Universidad de Valencia&amp;rsquo;s Professor Carlos Ivorra, in the article Las matemáticas de una hipoteca about &amp;ldquo;underlying math in mortgage loans&amp;rdquo;. The full pdf article (in spanish) is here.
-The code is in spanish and by the way, it&amp;rsquo;s so cool to be able to name variables in python using spanish accents. It brough out a smile :).
-The important part class Calculadora: def __init__(self): return def interés_efectivo_mensual(self, euríbor, diferencial_interés): # (divido tb por 100 para tener el por-uno) return (euríbor + diferencial_interés) / 1200 def cuota(self, monto_préstamo, interés_efectivo_mensual, total_de_meses): c_0 = monto_préstamo i = interés_efectivo_mensual N = total_de_meses return (c_0 * i) / (1-(1 + i)**(-N)) def deuda_después_de_n_pagos(self, monto_cuota, interés_efectivo_mensual, total_de_meses, n): c = monto_cuota i = interés_efectivo_mensual N = total_de_meses return c/i * (1 - (1+i)**(n-N)) Talk is cheap Here&amp;rsquo;s the code.</description>
+      <description>Implemented as per explanation by Universidad de Valencia&amp;rsquo;s Professor Carlos Ivorra, in the article Las matemáticas de una hipoteca about &amp;ldquo;underlying math in mortgage loans&amp;rdquo;. The full pdf article (in spanish) is here.&#xA;The code is in spanish and by the way, it&amp;rsquo;s so cool to be able to name variables in python using spanish accents. It brough out a smile :).&#xA;The important part class Calculadora: def __init__(self): return def interés_efectivo_mensual(self, euríbor, diferencial_interés): # (divido tb por 100 para tener el por-uno) return (euríbor + diferencial_interés) / 1200 def cuota(self, monto_préstamo, interés_efectivo_mensual, total_de_meses): c_0 = monto_préstamo i = interés_efectivo_mensual N = total_de_meses return (c_0 * i) / (1-(1 + i)**(-N)) def deuda_después_de_n_pagos(self, monto_cuota, interés_efectivo_mensual, total_de_meses, n): c = monto_cuota i = interés_efectivo_mensual N = total_de_meses return c/i * (1 - (1+i)**(n-N)) Talk is cheap Here&amp;rsquo;s the code.</description>
     </item>
-    
   </channel>
 </rss>

@@ -6,17 +6,14 @@
     <description>Recent content in SSL on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/ssl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/ssl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Aspnet website in docker in windows, IIS and self-signed certificate</title>
       <link>https://www.bustroker.com/notes/aspnet-website-in-docker-in-windows-iis-and-self-signed-certificate/</link>
       <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/aspnet-website-in-docker-in-windows-iis-and-self-signed-certificate/</guid>
-      <description>The application is hosted in a docker container. The actual folder with the app publish, is mapped into the container, so when the code changes it&amp;rsquo;s inmediatly reflected in the running container.
-Dockerfile FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 SHELL [ &amp;#34;powershell&amp;#34; ] COPY src/Bustroker.LocalEnv.WebUI/bin/app.publish c:/webapp ADD configureIIS.ps1 /windows/temp/configureIIS.ps1 RUN powershell.exe -executionpolicy bypass c:\windows\temp\configureIIS.ps1 Configure IIS script configureIIS.ps1 script, copied into the image on build.
-# Configure SSL certificate for default website Import-Module WebAdministration Set-Location IIS:\SslBindings New-WebBinding -Name &amp;#34;Default Web Site&amp;#34; -IP &amp;#34;*&amp;#34; -Port 443 -Protocol https $c = New-SelfSignedCertificate -DnsName &amp;#34;localhost&amp;#34; -CertStoreLocation cert:\LocalMachine\My $c | New-Item 0.</description>
+      <description>The application is hosted in a docker container. The actual folder with the app publish, is mapped into the container, so when the code changes it&amp;rsquo;s inmediatly reflected in the running container.&#xA;Dockerfile FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 SHELL [ &amp;#34;powershell&amp;#34; ] COPY src/Bustroker.LocalEnv.WebUI/bin/app.publish c:/webapp ADD configureIIS.ps1 /windows/temp/configureIIS.ps1 RUN powershell.exe -executionpolicy bypass c:\windows\temp\configureIIS.ps1 Configure IIS script configureIIS.ps1 script, copied into the image on build.&#xA;# Configure SSL certificate for default website Import-Module WebAdministration Set-Location IIS:\SslBindings New-WebBinding -Name &amp;#34;Default Web Site&amp;#34; -IP &amp;#34;*&amp;#34; -Port 443 -Protocol https $c = New-SelfSignedCertificate -DnsName &amp;#34;localhost&amp;#34; -CertStoreLocation cert:\LocalMachine\My $c | New-Item 0.</description>
     </item>
-    
   </channel>
 </rss>

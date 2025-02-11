@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>raspberry pi on Coding notes</title>
+    <title>Raspberry Pi on Coding notes</title>
     <link>https://www.bustroker.com/tags/raspberry-pi/</link>
-    <description>Recent content in raspberry pi on Coding notes</description>
+    <description>Recent content in Raspberry Pi on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Voice commands assistant in node</title>
       <link>https://www.bustroker.com/notes/voice-commands-assistant-in-node/</link>
       <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/voice-commands-assistant-in-node/</guid>
-      <description>Shirka is a nodejs voice command assistant based in pocketsphinx, living in a RaspberryPi3. Nodered ties all up.
-The Ears Shirka_ears listens for voice commands through the microphone, and publishes them in a mosquitto queue. It&amp;rsquo;s based in pocketsphinx, a &amp;ldquo;a lightweight speech recognition engine, specifically tuned for handheld and mobile devices, though it works equally well on the desktop &amp;ldquo;, in their own saying.
-The Voice Shirka_voice is a listener to another mosquitto queue that receives the messages, creates a WAF file using pico2wave text-to-speech engine, and reproduces them with omxplayer.</description>
+      <description>Shirka is a nodejs voice command assistant based in pocketsphinx, living in a RaspberryPi3. Nodered ties all up.&#xA;The Ears Shirka_ears listens for voice commands through the microphone, and publishes them in a mosquitto queue. It&amp;rsquo;s based in pocketsphinx, a &amp;ldquo;a lightweight speech recognition engine, specifically tuned for handheld and mobile devices, though it works equally well on the desktop &amp;ldquo;, in their own saying.&#xA;The Voice Shirka_voice is a listener to another mosquitto queue that receives the messages, creates a WAF file using pico2wave text-to-speech engine, and reproduces them with omxplayer.</description>
     </item>
-    
   </channel>
 </rss>

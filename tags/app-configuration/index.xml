@@ -1,34 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>app configuration on Coding notes</title>
+    <title>App Configuration on Coding notes</title>
     <link>https://www.bustroker.com/tags/app-configuration/</link>
-    <description>Recent content in app configuration on Coding notes</description>
+    <description>Recent content in App Configuration on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/app-configuration/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 May 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/app-configuration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Azure App Configuration refresh on demand</title>
       <link>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand/</guid>
-      <description>Here&amp;rsquo;s what Azure App Configuration Service is.
-Here&amp;rsquo;s how to use it.
-How the web api middleware uses the App Configuration Client As per oficial documentation, refering to
-// Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env)app.UseAzureAppConfiguration(); &amp;ldquo;The middleware uses the refresh configuration specified in the AddAzureAppConfiguration method in Program.cs to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired.</description>
+      <description>Here&amp;rsquo;s what Azure App Configuration Service is.&#xA;Here&amp;rsquo;s how to use it.&#xA;How the web api middleware uses the App Configuration Client As per oficial documentation, refering to&#xA;// Startup.Configure(IApplicationBuilder app, IWebHostEnvironment env)&#xD;app.UseAzureAppConfiguration(); &amp;ldquo;The middleware uses the refresh configuration specified in the AddAzureAppConfiguration method in Program.cs to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration setting has expired.</description>
     </item>
-    
     <item>
       <title>Azure App Configuration with Key Vault and Managed Identity in HA</title>
       <link>https://www.bustroker.com/notes/azure-app-configuration-with-key-vault-and-managed-identity-in-ha/</link>
       <pubDate>Thu, 30 Apr 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/azure-app-configuration-with-key-vault-and-managed-identity-in-ha/</guid>
-      <description>Here&amp;rsquo;s what Azure App Configuration Service is.
-And I want a production ready setup:
-use it to serve secret params as well, keeping them in Key Vault access it with Managed Identity(MI). have it in High Availability How Azure App Configuration client works Here&amp;rsquo;s how the client works, using the sentinel pattern, i.e., using one key to be the one that the client actually checks to know whether or not a full configuration refresh is needed.</description>
+      <description>Here&amp;rsquo;s what Azure App Configuration Service is.&#xA;And I want a production ready setup:&#xA;use it to serve secret params as well, keeping them in Key Vault access it with Managed Identity(MI). have it in High Availability How Azure App Configuration client works Here&amp;rsquo;s how the client works, using the sentinel pattern, i.e., using one key to be the one that the client actually checks to know whether or not a full configuration refresh is needed.</description>
     </item>
-    
   </channel>
 </rss>

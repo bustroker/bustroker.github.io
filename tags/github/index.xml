@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>github on Coding notes</title>
+    <title>Github on Coding notes</title>
     <link>https://www.bustroker.com/tags/github/</link>
-    <description>Recent content in github on Coding notes</description>
+    <description>Recent content in Github on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+<<<<<<< HEAD
     <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
+=======
+    <lastBuildDate>Mon, 30 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
+>>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Github actions</title>
       <link>https://www.bustroker.com/notes/github-actions/</link>
       <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
+<<<<<<< HEAD
       
       <guid>https://www.bustroker.com/notes/github-actions/</guid>
       <description>Workflow to promote latest -rc image to release # It&amp;#39;s expected that when the new release candidate tag x.y.z is added by this workflow # to the latest x.y.z-rc image, a deployment is triggered to PRO environment name: Promote Latest RC Images to Release. Deploy to prod. on: workflow_dispatch: permissions: contents: read id-token: write jobs: promote-images: runs-on: ubuntu-latest strategy: matrix: repository: - atoss-identity-secrets-setup - atoss-identity-svc steps: - name: Checkout repository uses: actions/checkout@v4 - name: Configure AWS credentials uses: aws-actions/configure-aws-credentials@v4 with: role-to-assume: arn:aws:iam::XXXXXXXXXX:role/github/atoss-identity-deploy-role aws-region: eu-central-1 - name: Promote rc image to release uses: .</description>
     </item>
     
+=======
+      <guid>https://www.bustroker.com/notes/github-actions/</guid>
+      <description>Workflow to promote latest -rc image to release # It&amp;#39;s expected that when the new release candidate tag x.y.z is added by this workflow # to the latest x.y.z-rc image, a deployment is triggered to PRO environment name: Promote Latest RC Images to Release. Deploy to prod. on: workflow_dispatch: permissions: contents: read id-token: write jobs: promote-images: runs-on: ubuntu-latest strategy: matrix: repository: - atoss-identity-secrets-setup - atoss-identity-svc steps: - name: Checkout repository uses: actions/checkout@v4 - name: Configure AWS credentials uses: aws-actions/configure-aws-credentials@v4 with: role-to-assume: arn:aws:iam::XXXXXXXXXX:role/github/atoss-identity-deploy-role aws-region: eu-central-1 - name: Promote rc image to release uses: .</description>
+    </item>
+>>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Multiple SSH Keys settings for different github account</title>
       <link>https://www.bustroker.com/notes/multiple-ssh-keys-settings-for-different-github-account/</link>
       <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/multiple-ssh-keys-settings-for-different-github-account/</guid>
-      <description>Check existing keys $ ssh-add -l Create different public key create different ssh key according the article Mac Set-Up Git
-cd ~/.ssh ssh-keygen -t rsa -C &amp;#34;bustroker@email.com&amp;#34; -f &amp;#34;github_bustroker&amp;#34; ssh-keygen -t rsa -C &amp;#34;bkr@email.com&amp;#34; -f &amp;#34;github_bkr&amp;#34; The -C option is a comment to help identify the key. The -f option specifies the file name for the key pair.
-for example, 2 keys created at:
-~/.ssh/github-bustroker~/.ssh/github-bkr then, add these two keys as following</description>
+      <description>Create different public key create different ssh key according the article Mac Set-Up Git&#xA;cd ~/.ssh ssh-keygen -t rsa -C &amp;#34;bustroker@email.com&amp;#34; -f &amp;#34;github_bustroker&amp;#34; ssh-keygen -t rsa -C &amp;#34;bkr@email.com&amp;#34; -f &amp;#34;github_bkr&amp;#34; The -C option is a comment to help identify the key. The -f option specifies the file name for the key pair.&#xA;for example, 2 private/public key pairs are created at:&#xA;~/.ssh/github-bustroker&#xD;~/.ssh/github-bustroker.pub&#xD;~/.ssh/github-bkr&#xD;~/.ssh/github-bkr.pub Modify the ssh config $ cd ~/.</description>
     </item>
-    
   </channel>
 </rss>

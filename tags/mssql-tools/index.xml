@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>mssql-tools on Coding notes</title>
+    <title>Mssql-Tools on Coding notes</title>
     <link>https://www.bustroker.com/tags/mssql-tools/</link>
-    <description>Recent content in mssql-tools on Coding notes</description>
+    <description>Recent content in Mssql-Tools on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/mssql-tools/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/mssql-tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use sqlcmd cli tool</title>
       <link>https://www.bustroker.com/notes/use-sqlcmd-cli-tool/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/use-sqlcmd-cli-tool/</guid>
-      <description>sqlcmd utility (2019) Installed with Visual Studio 2019. (Apparently also with Sql Server 2019, but they dont&amp;rsquo;s explain WHERE it actually is :S)
-Add to path sqlcmd.exe is located in:
-Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Open CLI for queries sqlcmd -S localhost -U sa -P password -d database&amp;gt; select * from transactions&amp;gt; go Run sqlcmd from docker/kubernetes and connecto to host&amp;rsquo;s localhost sql server docker run --rm -it mcr.</description>
+      <description>sqlcmd utility (2019) Installed with Visual Studio 2019. (Apparently also with Sql Server 2019, but they dont&amp;rsquo;s explain WHERE it actually is :S)&#xA;Add to path sqlcmd.exe is located in:&#xA;Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Open CLI for queries sqlcmd -S localhost -U sa -P password -d database&#xD;&amp;gt; select * from transactions&#xD;&amp;gt; go Run sqlcmd from docker/kubernetes and connecto to host&amp;rsquo;s localhost sql server docker run --rm -it mcr.</description>
     </item>
-    
   </channel>
 </rss>

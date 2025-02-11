@@ -1,41 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>curl on Coding notes</title>
+    <title>Curl on Coding notes</title>
     <link>https://www.bustroker.com/tags/curl/</link>
-    <description>Recent content in curl on Coding notes</description>
+    <description>Recent content in Curl on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/curl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/curl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Curl azure app service with AAD auth</title>
       <link>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</link>
       <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</guid>
       <description>Get token curl -X POST -d &amp;#39;grant_type=client_credentials&amp;amp;client_id=&amp;lt;APP_ID&amp;gt;&amp;amp;client_secret=&amp;lt;PASSWORD&amp;gt;&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#39; https://login.microsoftonline.com/&amp;lt;TENANT_ID&amp;gt;/oauth2/token Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; POST json curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{&amp;#34;key1&amp;#34;:&amp;#34;value1&amp;#34;, &amp;#34;key2&amp;#34;:&amp;#34;value2&amp;#34;}&amp;#39; POST data from file. application/x-www-form-urlencoded is the default. curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; Disable certificate validation curl -k https://localhost:8080 Add bearer token header curl -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; https://bustroker.com/api/resource New line after output curl localhost:8080 ;echo Pretty format json output (Linux) curl localhost:8080 | json_pp also, jq would do it</description>
     </item>
-    
     <item>
       <title>Azure Managed Identity token with cURL</title>
       <link>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</guid>
-      <description>To test Managed Identity is working fine, SSH inside the VM with Managed Identity enabled (or RDP, for that matter) and cURL an access token for some resource.
-curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s resource query parameter, as per documentation:
-&amp;ldquo;A query string parameter, indicating the App ID URI of the target resource. It also appears in the aud (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.</description>
+      <description>To test Managed Identity is working fine, SSH inside the VM with Managed Identity enabled (or RDP, for that matter) and cURL an access token for some resource.&#xA;curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s resource query parameter, as per documentation:&#xA;&amp;ldquo;A query string parameter, indicating the App ID URI of the target resource. It also appears in the aud (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.</description>
     </item>
-    
     <item>
       <title>cURL usefull commands cheatsheet</title>
       <link>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</guid>
-      <description>Basic GET curl localhost:8080 Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; POST json curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{\&amp;#34;key1\&amp;#34;:\&amp;#34;value1\&amp;#34;, \&amp;#34;key2\&amp;#34;:\&amp;#34;value2\&amp;#34;}&amp;#39; curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#34;@data.json&amp;#34; Double quotes are escaped with \, required for powershell.
-Disable certificate validation curl -k https://localhost:8080 Add bearer token header curl https://bustroker.com/api/resource -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; New line after output curl localhost:8080 ;echo [Linux] Pretty format json output curl localhost:8080 | json_pp also, jq would do it</description>
+      <description>Basic GET curl localhost:8080 Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; POST json curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{\&amp;#34;key1\&amp;#34;:\&amp;#34;value1\&amp;#34;, \&amp;#34;key2\&amp;#34;:\&amp;#34;value2\&amp;#34;}&amp;#39; curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#34;@data.json&amp;#34; Double quotes are escaped with \, required for powershell.&#xA;Disable certificate validation curl -k https://localhost:8080 Add bearer token header curl https://bustroker.com/api/resource -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; New line after output curl localhost:8080 ;echo [Linux] Pretty format json output curl localhost:8080 | json_pp also, jq would do it</description>
     </item>
-    
   </channel>
 </rss>

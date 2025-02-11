@@ -4,7 +4,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.123.7">
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
@@ -131,9 +131,7 @@ audio {
         
 
 <h1>Multiple SSH Keys settings for different github account</h1>
-<h3 id="check-existing-keys">Check existing keys</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ssh-add -l
-</span></span></code></pre></div><h3 id="create-different-public-key">Create different public key</h3>
+<h3 id="create-different-public-key">Create different public key</h3>
 <hr>
 <p>create different ssh key according the article <a href="http://help.github.com/mac-set-up-git/">Mac Set-Up Git</a></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/.ssh
@@ -141,44 +139,55 @@ audio {
 </span></span><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#e6db74">&#34;bkr@email.com&#34;</span> -f <span style="color:#e6db74">&#34;github_bkr&#34;</span>
 </span></span></code></pre></div><p>The -C option is a comment to help identify the key.
 The -f option specifies the file name for the key pair.</p>
-<p>for example, 2 keys created at:</p>
+<p>for example, 2 private/public key pairs are created at:</p>
 <pre tabindex="0"><code>~/.ssh/github-bustroker
+~/.ssh/github-bustroker.pub
 ~/.ssh/github-bkr
-</code></pre><p>then, add these two keys as following</p>
+~/.ssh/github-bkr.pub
+</code></pre><h3 id="modify-the-ssh-config">Modify the ssh config</h3>
+<hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd ~/.ssh/
+</span></span><span style="display:flex;"><span>$ touch config
+</span></span><span style="display:flex;"><span>$ nano config
+</span></span></code></pre></div><p>Then add private keys files as IdentityFile</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">#bustroker account
+Host github.com-bustroker
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github_bustroker
+
+#bkr account
+Host github.com-bkr
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github_bkr
+</code></pre><p>The <code>Host</code> is an alias for the connection info. It can be use in <code>git@[alias]:[user_name]/[repo_name].git</code></p>
+<p>Test</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -T git@<span style="color:#f92672">[</span>alias<span style="color:#f92672">]</span>
+</span></span></code></pre></div><h3 id="add-public-key-to-github">Add public key to github</h3>
+<p>The corresponding public keys <code>~/.ssh/github_bustroker.pub</code> and <code>~/.ssh/github_bkr.pub</code> should be added to  GitHub account under SSH and GPG keys.</p>
+<h3 id="clone-or-add-origin-to-your-repo">Clone or add origin to your repo</h3>
+<p>Use alias in repos urls as: <code>git@[alias]:[user_name]/[repo_name].git</code></p>
+<p>To clone the repos</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone git@github.com-bustroker:bustroker/<span style="color:#f92672">[</span>repo_name<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>git clone git@github.com-bkf:bkr/<span style="color:#f92672">[</span>repo_name<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>Or to add remote.
+If copying the command from github, make sure to replace <code>@github.com</code> with the right alias, e.g. <code>@github.com-bkr</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git remote add origin git@github.com-bustroker:bustroker/<span style="color:#f92672">[</span>repo_name<span style="color:#f92672">]</span>
+</span></span></code></pre></div><h3 id="might-want-to-add-ssh-keys-to-ssh-agent">Might want to add ssh keys to ssh agent:</h3>
+<h4 id="enable-and-start-ssh-service-in-windows-if-not-already">Enable and start SSH service (in Windows) if not already</h4>
+<p>Enable <code>OpenSSH Authentication Agent</code> in windows services.
+Start the service</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Start-Service ssh-agent
+</span></span></code></pre></div><h4 id="check-existing-keys">Check existing keys</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ssh-add -l
+</span></span></code></pre></div><p>then, add these two keys as following</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ssh-add ~/.ssh/github_bustroker
 </span></span><span style="display:flex;"><span>$ ssh-add ~/.ssh/github_bkr
 </span></span></code></pre></div><p>you can delete all cached keys before</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ssh-add -D
 </span></span></code></pre></div><p>finally, you can check your saved keys</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ssh-add -l
-</span></span></code></pre></div><h3 id="modify-the-ssh-config">Modify the ssh config</h3>
-<hr>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd ~/.ssh/
-</span></span><span style="display:flex;"><span>$ touch config
-</span></span><span style="display:flex;"><span>$ nano config
-</span></span></code></pre></div><p>Then added</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#bustroker account
-</span></span><span style="display:flex;"><span>Host github.com-bustroker
-</span></span><span style="display:flex;"><span>    HostName github.com
-</span></span><span style="display:flex;"><span>    User git
-</span></span><span style="display:flex;"><span>    IdentityFile ~/.ssh/id_rsa_bustroker
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>#bkr account
-</span></span><span style="display:flex;"><span>Host github.com-bkr
-</span></span><span style="display:flex;"><span>    HostName github.com
-</span></span><span style="display:flex;"><span>    User git
-</span></span><span style="display:flex;"><span>    IdentityFile ~/.ssh/id_rsa_bkr
-</span></span></code></pre></div><p>The <code>Host</code> is an alias for the connection info. It can be use in <code>git@[alias]:[user_name]/[repo_name].git</code></p>
-<p>Test</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh -T git@<span style="color:#f92672">[</span>alias<span style="color:#f92672">]</span>
-</span></span></code></pre></div><h3 id="clone-or-add-origin-to-your-repo">Clone or add origin to your repo</h3>
-<p>Use alias in repos urls as: <code>git@[alias]:[user_name]/[repo_name].git</code></p>
-<p>To clone the repos</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone git@github.com-bustroker:bustroker/<span style="color:#f92672">[</span>repo_name<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>git clone git@github.com-bkf:bkr/<span style="color:#f92672">[</span>repo_name<span style="color:#f92672">]</span>
-</span></span></code></pre></div><p>Or to add remote. 
-If copying the command from github, make sure to replace <code>@github.com</code> with the right alias, e.g. <code>@github.com-bkr</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git remote add origin git@github.com-bustroker:bustroker/<span style="color:#f92672">[</span>repo_name<span style="color:#f92672">]</span>
 </span></span></code></pre></div>
 
 

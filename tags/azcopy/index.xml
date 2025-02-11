@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+<<<<<<< HEAD
     <title>azcopy on Coding notes</title>
     <link>https://www.bustroker.com/tags/azcopy/</link>
     <description>Recent content in azcopy on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bustroker.com/tags/azcopy/index.xml" rel="self" type="application/rss+xml" />
+=======
+    <title>Azcopy on Coding notes</title>
+    <link>https://www.bustroker.com/tags/azcopy/</link>
+    <description>Recent content in Azcopy on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/azcopy/index.xml" rel="self" type="application/rss+xml" />
+>>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
     <item>
       <title>Install azcopy in windows from powershell</title>
       <link>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</link>
       <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
+<<<<<<< HEAD
       
       <guid>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</guid>
       <description>Install func cli $InstallPath = &amp;#39;C:\AzCopy&amp;#39; # Cleanup Destination if (Test-Path $InstallPath) { Get-ChildItem $InstallPath | Remove-Item -Confirm:$false -Force } # Zip Destination $zip = &amp;#34;$InstallPath\AzCopy.Zip&amp;#34; # Create the installation folder (eg. C:\AzCopy) $null = New-Item -Type Directory -Path $InstallPath -Force # Download AzCopy zip for Windows Start-BitsTransfer -Source &amp;#34;https://aka.ms/downloadazcopy-v10-windows&amp;#34; -Destination $zip # Expand the Zip file Expand-Archive $zip $InstallPath -Force # Move to $InstallPath Get-ChildItem &amp;#34;$($InstallPath)\*\*&amp;#34; | Move-Item -Destination &amp;#34;$($InstallPath)\&amp;#34; -Force #Cleanup - delete ZIP and old folder Remove-Item $zip -Force -Confirm:$false Get-ChildItem &amp;#34;$($InstallPath)\*&amp;#34; -Directory | ForEach-Object { Remove-Item $_.</description>
     </item>
     
+=======
+      <guid>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</guid>
+      <description>Install func cli $InstallPath = &amp;#39;C:\AzCopy&amp;#39; # Cleanup Destination if (Test-Path $InstallPath) { Get-ChildItem $InstallPath | Remove-Item -Confirm:$false -Force } # Zip Destination $zip = &amp;#34;$InstallPath\AzCopy.Zip&amp;#34; # Create the installation folder (eg. C:\AzCopy) $null = New-Item -Type Directory -Path $InstallPath -Force # Download AzCopy zip for Windows Start-BitsTransfer -Source &amp;#34;https://aka.ms/downloadazcopy-v10-windows&amp;#34; -Destination $zip # Expand the Zip file Expand-Archive $zip $InstallPath -Force # Move to $InstallPath Get-ChildItem &amp;#34;$($InstallPath)\*\*&amp;#34; | Move-Item -Destination &amp;#34;$($InstallPath)\&amp;#34; -Force #Cleanup - delete ZIP and old folder Remove-Item $zip -Force -Confirm:$false Get-ChildItem &amp;#34;$($InstallPath)\*&amp;#34; -Directory | ForEach-Object { Remove-Item $_.</description>
+    </item>
+>>>>>>> 061839f6a30155c1270a4ec5da0df2ff48c1a2af
   </channel>
 </rss>
