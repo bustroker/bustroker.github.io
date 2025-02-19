@@ -6,8 +6,15 @@
     <description>Recent content in Powershell on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Remove `curl` alias from powershell permanently</title>
+      <link>https://www.bustroker.com/notes/remove-curl-alias-from-powershell-permanently/</link>
+      <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/remove-curl-alias-from-powershell-permanently/</guid>
+      <description>It&amp;rsquo;s Powershell, not Windows Powershell.&#xA;Check for existing powershell profile Test-Path $PROFILE If true, already exists, skip creation. Otherwise create it&#xA;New-Item -Path $PROFILE -ItemType File -Force Open profile in notepad notepad $profile Add this line to the profile, save and close&#xA;Remove-Item Alias:curl -ErrorAction SilentlyContinue Restart powershell&#xA;If the alias is not removed after restart Ensure PowerShell is set to allow profile scripts by running&#xA;Set-ExecutionPolicy RemoteSigned -Scope CurrentUser </description>
+    </item>
     <item>
       <title>Install azcopy in windows from powershell</title>
       <link>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</link>

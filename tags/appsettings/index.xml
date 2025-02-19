@@ -16,10 +16,10 @@
       <description>Check official documentation here&#xA;For a behaviour summary for each interface see here&#xA;Usage I prefer to create a section called Settings to keep all the parameters, so I&amp;rsquo;ll follow this approach.&#xA;Define AppSettings (or you name it) class class AppSettings { public string AadTenantName { get; set; } public string AadClientApplicationId { get; set; } } Create corresponding parameters in appsettings.json { &amp;#34;Logging&amp;#34;: { &amp;#34;LogLevel&amp;#34;: { ..... } }, &amp;#34;AllowedHosts&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;Settings&amp;#34;: { &amp;#34;AadTenantName&amp;#34;: &amp;#34;comercia.</description>
     </item>
     <item>
-      <title>Dotnet 3.1 appsettings &amp; env variables</title>
-      <link>https://www.bustroker.com/notes/dotnet-3.1-appsettings-env-variables/</link>
+      <title>Appsettings &amp; env variables</title>
+      <link>https://www.bustroker.com/notes/appsettings-env-variables/</link>
       <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/dotnet-3.1-appsettings-env-variables/</guid>
+      <guid>https://www.bustroker.com/notes/appsettings-env-variables/</guid>
       <description>Reading apppsettings.json in dotnet 3.1 Add the packages&#xA;dotnet add package Microsoft.Extensions.Configuration&#xD;dotnet add package Microsoft.Extensions.Configuration.FileExtensions&#xD;dotnet add package Microsoft.Extensions.Configuration.Json Add appsettings.json file with required parameters&#xA;{ &amp;#34;Settings&amp;#34;: { &amp;#34;Params&amp;#34;: { &amp;#34;Param1&amp;#34;: &amp;#34;value 1&amp;#34;, &amp;#34;Param2&amp;#34;: &amp;#34;value 2&amp;#34; } } } Load configuration section Console app // Program.cs var builder = new ConfigurationBuilder() .SetBasePath(Directory.GetCurrentDirectory()) .AddJsonFile(&amp;#34;appsettings.json&amp;#34;, optional: true, reloadOnChange: true); IConfiguration configuration = builder.Build(); Use configuration&#xA;var param1 = configuration.GetSection(&amp;#34;Settings&amp;#34;).GetValue&amp;lt;string&amp;gt;(&amp;#34;Params:Param1&amp;#34;); Web Api // Program.</description>
     </item>
   </channel>

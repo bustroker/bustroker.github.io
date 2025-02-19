@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Xunit | Coding notes</title>
+  <title>Remove `curl` alias from powershell permanently | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,31 +130,21 @@ audio {
       <main id="main">
         
 
-<h1>Xunit</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/">Create dotnet core sln with class library plus xunit tests with cli for vscode</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2019-09-05">Sep 5, 2019</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet">dotnet</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/xunit">xunit</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vscode">vscode</a>
-  
-
-</p>
-
+<h1>Remove `curl` alias from powershell permanently</h1>
+<p>It&rsquo;s <code>Powershell</code>, not <code>Windows Powershell</code>.</p>
+<h3 id="check-for-existing-powershell-profile">Check for existing powershell profile</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Test-Path $PROFILE
+</span></span></code></pre></div><p>If <code>true</code>, already exists, skip creation. Otherwise create it</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>New-Item -Path $PROFILE -ItemType File -Force
+</span></span></code></pre></div><h3 id="open-profile-in-notepad">Open profile in notepad</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>notepad $profile
+</span></span></code></pre></div><p>Add this line to the profile, save and close</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Remove-Item Alias:curl -ErrorAction SilentlyContinue
+</span></span></code></pre></div><p>Restart powershell</p>
+<h3 id="if-the-alias-is-not-removed-after-restart">If the alias is not removed after restart</h3>
+<p>Ensure PowerShell is set to allow profile scripts by running</p>
+<pre tabindex="0"><code class="language-poweshell" data-lang="poweshell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+</code></pre>
 
 
       </main>

@@ -6,8 +6,57 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Settings</title>
+      <link>https://www.bustroker.com/tags/settings/</link>
+      <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/settings/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vs Code</title>
+      <link>https://www.bustroker.com/tags/vs-code/</link>
+      <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/vs-code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://www.bustroker.com/tags/docker/</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows Subsystem for Linux</title>
+      <link>https://www.bustroker.com/tags/windows-subsystem-for-linux/</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/windows-subsystem-for-linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>WSL</title>
+      <link>https://www.bustroker.com/tags/wsl/</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/wsl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Curl Alias</title>
+      <link>https://www.bustroker.com/tags/curl-alias/</link>
+      <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/curl-alias/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Powershell</title>
+      <link>https://www.bustroker.com/tags/powershell/</link>
+      <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/powershell/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Hugo</title>
       <link>https://www.bustroker.com/tags/hugo/</link>
@@ -104,13 +153,6 @@
       <link>https://www.bustroker.com/tags/azcopy/</link>
       <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/azcopy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Powershell</title>
-      <link>https://www.bustroker.com/tags/powershell/</link>
-      <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/powershell/</guid>
       <description></description>
     </item>
     <item>
@@ -230,13 +272,6 @@
       <link>https://www.bustroker.com/tags/colima/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/colima/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Docker</title>
-      <link>https://www.bustroker.com/tags/docker/</link>
-      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/docker/</guid>
       <description></description>
     </item>
     <item>
@@ -800,10 +835,17 @@
       <description></description>
     </item>
     <item>
-      <title>Dotnet Core 3.1</title>
-      <link>https://www.bustroker.com/tags/dotnet-core-3.1/</link>
+      <title>Dotnet 3.1</title>
+      <link>https://www.bustroker.com/tags/dotnet-3.1/</link>
       <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/dotnet-core-3.1/</guid>
+      <guid>https://www.bustroker.com/tags/dotnet-3.1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Env Vars</title>
+      <link>https://www.bustroker.com/tags/env-vars/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/env-vars/</guid>
       <description></description>
     </item>
     <item>
@@ -846,6 +888,13 @@
       <link>https://www.bustroker.com/tags/troubleshooting/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/troubleshooting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dotnet Core 3.1</title>
+      <link>https://www.bustroker.com/tags/dotnet-core-3.1/</link>
+      <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/dotnet-core-3.1/</guid>
       <description></description>
     </item>
     <item>

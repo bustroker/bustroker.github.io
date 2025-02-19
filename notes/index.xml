@@ -6,8 +6,29 @@
     <description>Recent content in Notes on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Save and restore vs code settings</title>
+      <link>https://www.bustroker.com/notes/save-and-restore-vs-code-settings/</link>
+      <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/save-and-restore-vs-code-settings/</guid>
+      <description>Save vs code settings to current folder (optionally provider save targer folder path) param( [string]$destinationPath = &amp;#34;.&amp;#34; ) # Resolve full path $destinationPath = Resolve-Path -Path $destinationPath # Define the source directory $sourcePath = &amp;#34;$env:APPDATA\Code\User&amp;#34; # Ensure the destination folder exists if (!(Test-Path -Path $destinationPath)) { New-Item -ItemType Directory -Path $destinationPath | Out-Null } # Copy settings.json, keybindings.json, and snippets if they exist $files = @(&amp;#34;settings.json&amp;#34;, &amp;#34;keybindings.json&amp;#34;) $snippetsPath = &amp;#34;$sourcePath\snippets&amp;#34; foreach ($file in $files) { $filePath = &amp;#34;$sourcePath\$file&amp;#34; if (Test-Path -Path $filePath) { Copy-Item -Path $filePath -Destination $destinationPath -Force Write-Host &amp;#34;Copied $file to $destinationPath&amp;#34; } else { Write-Host &amp;#34;$file not found, skipping.</description>
+    </item>
+    <item>
+      <title>Run WSL (Windows Subsystem for Linux)</title>
+      <link>https://www.bustroker.com/notes/run-wsl-windows-subsystem-for-linux/</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/run-wsl-windows-subsystem-for-linux/</guid>
+      <description>Open git bash (better for linux than powershell I believe) and run&#xA;wsl --list --online wsl --install Ubuntu Run docker on windows folder cd /mnt/c/Users/bustroker/windowsfolder$ docker run --rm -v $(pwd):/windowsfolder openapitools/openaexpi-diff /windowsfolder/openapi_v2.json /windowsfolder/openapi_v3.json </description>
+    </item>
+    <item>
+      <title>Remove `curl` alias from powershell permanently</title>
+      <link>https://www.bustroker.com/notes/remove-curl-alias-from-powershell-permanently/</link>
+      <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/remove-curl-alias-from-powershell-permanently/</guid>
+      <description>It&amp;rsquo;s Powershell, not Windows Powershell.&#xA;Check for existing powershell profile Test-Path $PROFILE If true, already exists, skip creation. Otherwise create it&#xA;New-Item -Path $PROFILE -ItemType File -Force Open profile in notepad notepad $profile Add this line to the profile, save and close&#xA;Remove-Item Alias:curl -ErrorAction SilentlyContinue Restart powershell&#xA;If the alias is not removed after restart Ensure PowerShell is set to allow profile scripts by running&#xA;Set-ExecutionPolicy RemoteSigned -Scope CurrentUser </description>
+    </item>
     <item>
       <title>Add image to hugo site</title>
       <link>https://www.bustroker.com/notes/add-image-to-hugo-site/</link>
@@ -527,10 +548,10 @@
       <description>Docker compose services: zookeeper: image: debezium/zookeeper ports: - &amp;#34;2181:2181&amp;#34; - &amp;#34;2888:2888&amp;#34; - &amp;#34;3888:3888&amp;#34; kafka: image: debezium/kafka ports: - &amp;#34;9092:9092&amp;#34; volumes: - /var/run/docker.sock:/var/run/docker.sock depends_on: - &amp;#34;zookeeper&amp;#34; connect: image: debezium/connect ports: - &amp;#34;8083:8083&amp;#34; environment: - GROUP_ID=1 - CONFIG_STORAGE_TOPIC=my_connect_configs - OFFSET_STORAGE_TOPIC=my_connect_offsets - STATUS_STORAGE_TOPIC=my_connect_statuses depends_on: - &amp;#34;kafka&amp;#34; docker-compose terminal into service container docker-compose up exec [SERVICE_NAME] [TERMINAL] #or docker compose run --entrypoint /bin/sh [SERVICE_NAME] [TERMINAL] could be sh, cmd, powershell&amp;hellip;&#xA;docker-compose # launch the containers docker-compose up [-d] [--build] # launch the containers and opens interactive terminal inside docker-compose run [SERVICE] # stop and remove containers docker-compose down # stop the containers, without removing docker-compose stop </description>
     </item>
     <item>
-      <title>Dotnet 3.1 appsettings &amp; env variables</title>
-      <link>https://www.bustroker.com/notes/dotnet-3.1-appsettings-env-variables/</link>
+      <title>Appsettings &amp; env variables</title>
+      <link>https://www.bustroker.com/notes/appsettings-env-variables/</link>
       <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/dotnet-3.1-appsettings-env-variables/</guid>
+      <guid>https://www.bustroker.com/notes/appsettings-env-variables/</guid>
       <description>Reading apppsettings.json in dotnet 3.1 Add the packages&#xA;dotnet add package Microsoft.Extensions.Configuration&#xD;dotnet add package Microsoft.Extensions.Configuration.FileExtensions&#xD;dotnet add package Microsoft.Extensions.Configuration.Json Add appsettings.json file with required parameters&#xA;{ &amp;#34;Settings&amp;#34;: { &amp;#34;Params&amp;#34;: { &amp;#34;Param1&amp;#34;: &amp;#34;value 1&amp;#34;, &amp;#34;Param2&amp;#34;: &amp;#34;value 2&amp;#34; } } } Load configuration section Console app // Program.cs var builder = new ConfigurationBuilder() .SetBasePath(Directory.GetCurrentDirectory()) .AddJsonFile(&amp;#34;appsettings.json&amp;#34;, optional: true, reloadOnChange: true); IConfiguration configuration = builder.Build(); Use configuration&#xA;var param1 = configuration.GetSection(&amp;#34;Settings&amp;#34;).GetValue&amp;lt;string&amp;gt;(&amp;#34;Params:Param1&amp;#34;); Web Api // Program.</description>
     </item>
     <item>

@@ -8,13 +8,43 @@
     <loc>https://www.bustroker.com/notes/</loc>
     <lastmod>2025-10-28T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.bustroker.com/notes/save-and-restore-vs-code-settings/</loc>
+    <lastmod>2025-02-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/settings/</loc>
+    <lastmod>2025-02-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2025-02-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/vs-code/</loc>
+    <lastmod>2025-02-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/docker/</loc>
+    <lastmod>2025-02-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/run-wsl-windows-subsystem-for-linux/</loc>
+    <lastmod>2025-02-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/windows-subsystem-for-linux/</loc>
+    <lastmod>2025-02-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/wsl/</loc>
+    <lastmod>2025-02-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/curl-alias/</loc>
+    <lastmod>2025-02-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/powershell/</loc>
+    <lastmod>2025-02-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/remove-curl-alias-from-powershell-permanently/</loc>
+    <lastmod>2025-02-14T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/notes/add-image-to-hugo-site/</loc>
     <lastmod>2025-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/hugo/</loc>
-    <lastmod>2025-02-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/</loc>
     <lastmod>2025-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/actions/</loc>
@@ -69,9 +99,6 @@
     <lastmod>2024-08-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</loc>
-    <lastmod>2024-08-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/powershell/</loc>
     <lastmod>2024-08-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/windows/</loc>
@@ -144,9 +171,6 @@
     <lastmod>2024-02-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/colima/</loc>
-    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/docker/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/docker-in-mac-with-colima/</loc>
@@ -572,10 +596,13 @@
     <loc>https://www.bustroker.com/tags/docker-compose/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/dotnet-3.1-appsettings-env-variables/</loc>
+    <loc>https://www.bustroker.com/notes/appsettings-env-variables/</loc>
     <lastmod>2020-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/dotnet-core-3.1/</loc>
+    <loc>https://www.bustroker.com/tags/dotnet-3.1/</loc>
+    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/env-vars/</loc>
     <lastmod>2020-07-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</loc>
@@ -634,6 +661,9 @@
   </url><url>
     <loc>https://www.bustroker.com/tags/troubleshooting/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/dotnet-core-3.1/</loc>
+    <lastmod>2020-05-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/handling-parallel-exceptions-in-dotnet/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
