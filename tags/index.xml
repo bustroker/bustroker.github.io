@@ -9,6 +9,20 @@
     <lastBuildDate>Wed, 19 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Dotnet</title>
+      <link>https://www.bustroker.com/tags/dotnet/</link>
+      <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/dotnet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OpenAPI</title>
+      <link>https://www.bustroker.com/tags/openapi/</link>
+      <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/openapi/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Settings</title>
       <link>https://www.bustroker.com/tags/settings/</link>
       <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
@@ -111,13 +125,6 @@
       <link>https://www.bustroker.com/tags/csx/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/csx/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Dotnet</title>
-      <link>https://www.bustroker.com/tags/dotnet/</link>
-      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/dotnet/</guid>
       <description></description>
     </item>
     <item>

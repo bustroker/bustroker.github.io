@@ -9,6 +9,13 @@
     <lastBuildDate>Wed, 19 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Generate and diff openAPI specs in dotnet</title>
+      <link>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-dotnet/</link>
+      <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-dotnet/</guid>
+      <description>Setup generation of open api spec json Using swashbuckle&#xA;dotnet add package Swashbuckle.AspNetCore.Swagger dotnet tool install --global Swashbuckle.AspNetCore.Cli dotnet build Generate openAPI spec dotnet build swagger tofile --output &amp;#34;openapi.json&amp;#34; bin/Debug/net8.0/bkr-provider-api.dll [version] # e.g swagger tofile --output &amp;#34;openapi.json&amp;#34; bin/Debug/net8.0/bkr-provider-api.dll v1 OpenAPI diff https://github.com/OpenAPITools/openapi-diff Compare two openAPI specs to find breaking changes in the contract. openapi-diff &amp;lt;old&amp;gt; &amp;lt;new&amp;gt;&#xA;# two openapi specs from files docker run --rm -v ${PWD}:/spec openapitools/openapi-diff /spec/openapi_v4.json /spec/openapi_v5.json # spec from url.</description>
+    </item>
+    <item>
       <title>Save and restore vs code settings</title>
       <link>https://www.bustroker.com/notes/save-and-restore-vs-code-settings/</link>
       <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
