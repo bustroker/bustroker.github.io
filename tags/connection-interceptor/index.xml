@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Connection Interceptor on Coding notes</title>
+    <link>https://www.bustroker.com/tags/connection-interceptor/</link>
+    <description>Recent content in Connection Interceptor on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/connection-interceptor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Entityframework db connection interceptor (for RLS)</title>
+      <link>https://www.bustroker.com/notes/entityframework-db-connection-interceptor-for-rls/</link>
+      <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/entityframework-db-connection-interceptor-for-rls/</guid>
+      <description>Implement RLS in Azure SQL Server Create Data model CREATE TABLE Companies ( CompanyId UNIQUEIDENTIFIER PRIMARY KEY, Name NVARCHAR(255) ); CREATE TABLE Providers ( ProviderId UNIQUEIDENTIFIER PRIMARY KEY, Name NVARCHAR(255) ); CREATE TABLE CompanyProviderAccess ( CompanyId UNIQUEIDENTIFIER REFERENCES Companies(CompanyId), ProviderId UNIQUEIDENTIFIER REFERENCES Providers(ProviderId), PRIMARY KEY (CompanyId, ProviderId) ); CREATE TABLE Orders ( OrderId UNIQUEIDENTIFIER PRIMARY KEY, ProviderId UNIQUEIDENTIFIER REFERENCES Providers(ProviderId), Data NVARCHAR(MAX) -- Sample data column ); CompanyProviderAccess links companies to the providers they are allowed to access.</description>
+    </item>
+  </channel>
+</rss>
