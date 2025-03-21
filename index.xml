@@ -6,8 +6,15 @@
     <description>Recent content on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solution Architecture</title>
+      <link>https://www.bustroker.com/notes/solution-architecture/</link>
+      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/solution-architecture/</guid>
+      <description>Solutions Architecture at The Company We empower The Company to achieve strategic goals with a tech-at-core, multiproduct strategy, driving an evolutionary, business-driven, composable architecture that fosters outcome-based autonomous teams to innovate and deliver customer value at scale.&#xA;Responsibilities 1) Align product and technology strategy to enable business goals: Fully understand The Company’s business, long-term strategy, goals, and customer needs Build and maintain the architecture vision and principles Partner with business stakeholders to influence product direction (roadmap) 2) Define a composable and evolutionary architecture to promote team autonomy at scale: Map domain areas, business capabilities, system components, and team ownership Build and maintain the target architecture and roadmaps Make critical decisions on technology stack, frameworks, design patterns, and standards 3) Design solutions to meet product needs: Understand the immediate and mid-term product needs (roadmap items) Define end-to-end tech architecture solutions (frontend, backend, data, etc.</description>
+    </item>
     <item>
       <title>Entityframework db connection interceptor (for RLS)</title>
       <link>https://www.bustroker.com/notes/entityframework-db-connection-interceptor-for-rls/</link>
