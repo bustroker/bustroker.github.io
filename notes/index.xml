@@ -6,8 +6,15 @@
     <description>Recent content in Notes on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Engineering principles</title>
+      <link>https://www.bustroker.com/notes/engineering-principles/</link>
+      <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/engineering-principles/</guid>
+      <description>Build gradually Gradually build Eng Principles, fundamentally based on flaws I find in Eng team, so it serves to persuade engineers in the right direction, but most importantly to dissuade them from the wrong ones.&#xA;Possibly make a distinction between Principles and more specific ¿ADRs?&#xA;Prefer simplicity over complexity. Each complexity level introduced needs a clear justification. Every processing queue SHOULD (MUST?) have have a corresponding dead letter queue </description>
+    </item>
     <item>
       <title>Solution Architecture</title>
       <link>https://www.bustroker.com/notes/solution-architecture/</link>
