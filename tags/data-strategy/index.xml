@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Strategy on Coding notes</title>
+    <link>https://www.bustroker.com/tags/data-strategy/</link>
+    <description>Recent content in Data Strategy on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 May 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/data-strategy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Strategy</title>
+      <link>https://www.bustroker.com/notes/data-strategy/</link>
+      <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/data-strategy/</guid>
+      <description>Data Platform requirements 1. Vision &amp;amp; Objectives&#xA;The company operates a SaaS platform for equity plan management. The data strategy must support:&#xA;Internal analytics and ML use cases External, self-serve data access for clients Real-time data visibility and embedded analytics Strong data governance aligned with GDPR Key objectives:&#xA;Build a data mesh architecture with decentralized ownership Leverage Databricks (Spark, Delta Lake, Unity Catalog) as the core platform Enable real-time and batch data processing Provide self-service data access via APIs, BI tools, and direct SQL Ensure metadata management, lineage, and trust at scale 2.</description>
+    </item>
+  </channel>
+</rss>
