@@ -1,0 +1,792 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>DevOps notes | Coding notes</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>DevOps notes</h1>
+<h1 id="dotnet-templates">Dotnet templates</h1>
+<h2 id="testing-locally">Testing locally</h2>
+<ol>
+<li>Clone this repository</li>
+<li>Go into this directory</li>
+<li>Execute following command <code>dotnet new -i .\templates\bkr.microservice</code></li>
+<li>This will install template for <code>dotnet new</code> usage</li>
+<li>Create directory for you microservice and go into this directory</li>
+<li>Type <code>dotnet new bkr.microservice --name Cheese.Cake</code></li>
+<li>You have scaffolded new service.</li>
+</ol>
+<h2 id="distributing-with-package">Distributing with package</h2>
+<ol>
+<li>Execute <code>dotnet pack</code> from templates directory</li>
+<li>This will create package with templates in <code>.\bin\Debug\Bkr.Template.Service.1.0.0.nupkg</code></li>
+<li>Run <code>dotnet new -i .\bin\Debug\Bkr.Template.Service.1.0.0.nupkg</code></li>
+<li>This will install template for <code>dotnet new</code> usage</li>
+<li>Create directory for you microservice and go into this directory</li>
+<li>Type <code>dotnet new bkr.microservice --name Cheese.Cake</code></li>
+<li>You have scaffolded new service.</li>
+</ol>
+<h2 id="adding-new-project-to-solution">Adding new project to solution</h2>
+<p>If you are creating new project for template please add it to both solutions i.e.:</p>
+<ul>
+<li><code>template.dotnet.service.sln</code> solution for developing template</li>
+<li><code>templates\bkr.microservice\template\Vertical.Domain.sln</code> - solution containing template microservice</li>
+</ul>
+<h2 id="template-options">Template options</h2>
+<p>As in previous examples template has some options that can be overridden:</p>
+<ul>
+<li>name - for providing domain name of the service e.g. <code>Evaluation.Scoring</code>. This parameter is used to replace filenames, name of classes, namespaces, name of deployment in k8s etc.</li>
+<li>skipRestore - for skipping optional step of restoring nuget packages after creating template</li>
+</ul>
+<h3 id="how-is-name-used">How is <code>name</code> used</h3>
+<ul>
+<li><code>name</code> as is will be used for namespaces,</li>
+<li><code>name</code> will be transformed to alphanumeric value e.g. <code>Evaluation.Scoring</code> to <code>EvaluationScoring</code> for classes names and file names,</li>
+<li><code>name</code> will be transformed to lower case with special characters replaced by hyphens e.g. <code>Evaluation.Scoring</code> to <code>evaluation-scoring</code> for k8s deployment name</li>
+</ul>
+<blockquote>
+<p><strong><em>IMPORTANT!!!</em></strong></p>
+<p><code>Name</code> <strong>must</strong> conform to domain split diagram which can be found here <a href="https://miro.com/app/board/o9J_lM1TA9Y=/">diagram</a>.</p>
+<p>If you are creating new service please add it to aforementioned diagram, so everybody can see how our architecture looks like.</p>
+</blockquote>
+<h3 id="how-templating-works">How templating works?</h3>
+<p>Symbols that can be used as templating variables are defined in <code>template.json</code> file. Those symbols can be parameters for template like <code>name</code> or generated like <code>httpsPort</code>. <code>name</code> is a special parameter that is included by default and it&rsquo;s default value is placed in <code>sourceName</code> property in root object.</p>
+<h3 id="used-templating-variables">Used templating variables</h3>
+<h4 id="http-port">Http port</h4>
+<p>This is a generated parameter that randomizes port number for given service between 3000 and 6000.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;httpsPort&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;generated&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;generator&#34;</span>: <span style="color:#e6db74">&#34;port&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;parameters&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;low&#34;</span>: <span style="color:#ae81ff">3000</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;high&#34;</span>: <span style="color:#ae81ff">6000</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;replaces&#34;</span>: <span style="color:#e6db74">&#34;5302&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="name">Name</h4>
+<p>Below <code>json</code> shows how <code>name</code> is transformed for different purposes in codebase.</p>
+<ul>
+<li><code>domainLower</code> - is just intermediate rule to create lower case version of name e.g. <code>Flying.Tomato</code> to <code>flying.tomato</code>. It does not replace any value in newly created project.</li>
+<li><code>domainAlphanumeric</code> - is similar to previous parameter except it depends on <code>name</code> parameter. It&rsquo;s value is being used for both replacing <code>VerticalDomain</code> string in file contents and in file names.</li>
+<li><code>domainLowerHyphens</code> - another regex transformer. It is based on <code>nameLower</code> and replaces special characters to hyphens e.g. <code>flying.tomato</code> to <code>flying-tomato</code>. It is used to replace <code>vertical-domain</code> string in file contents.</li>
+<li><code>domainLowerPath</code> - another regex transformer. It is based on <code>nameLower</code> and replaces special characters to / e.g. <code>flying.tomato</code> to <code>flying/tomato</code>. It is used to replace <code>vertical/domain</code> string in file contents.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;domainLower&#34;</span><span style="color:#960050;background-color:#1e0010">:</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;generated&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;generator&#34;</span>: <span style="color:#e6db74">&#34;casing&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;parameters&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;name&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;toLower&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;domainAlphanumeric&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;generated&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;generator&#34;</span>: <span style="color:#e6db74">&#34;regex&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dataType&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;replaces&#34;</span>: <span style="color:#e6db74">&#34;VerticalDomain&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;fileRename&#34;</span>: <span style="color:#e6db74">&#34;VerticalDomain&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;parameters&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;name&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;steps&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;regex&#34;</span>: <span style="color:#e6db74">&#34;[^a-zA-Z\\d]&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;replacement&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;domainLowerHyphens&#34;</span><span style="color:#960050;background-color:#1e0010">:</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;generated&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;generator&#34;</span>: <span style="color:#e6db74">&#34;regex&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dataType&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;replaces&#34;</span>: <span style="color:#e6db74">&#34;vertical-domain&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;parameters&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;domainLower&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;steps&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;regex&#34;</span>: <span style="color:#e6db74">&#34;[^a-zA-Z\\d]&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;replacement&#34;</span>: <span style="color:#e6db74">&#34;-&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    }    
+</span></span><span style="display:flex;"><span>}<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;domainLowerPath&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;generated&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;generator&#34;</span>: <span style="color:#e6db74">&#34;regex&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;dataType&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;replaces&#34;</span>: <span style="color:#e6db74">&#34;vertical/domain&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;parameters&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;source&#34;</span>: <span style="color:#e6db74">&#34;domainLower&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;steps&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;regex&#34;</span>: <span style="color:#e6db74">&#34;[^a-zA-Z\\d]&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;replacement&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="sourcename">SourceName</h4>
+<p>Like already mentioned this is a global symbol not defined in symbols list. In template it&rsquo;s default value is <code>Vertical.Domain</code> and is used to replace file names or code fragments like parts of <code>namespace</code>, <code>csproj</code>, <code>solution files</code> etc.</p>
+<h1 id="_______________________________________________________________________________________________">_______________________________________________________________________________________________</h1>
+<h2 id="database-migration-project">Database migration project</h2>
+<h4 id="context"><strong>Context</strong></h4>
+<p>Database migrations are contained in a separate project and are executed upon deployment. This is a guide based on trial and error on setting up a migration project.</p>
+<h4 id="1-create-a-console-application-project"><strong>1. Create a console application project:</strong></h4>
+<p>The name of the project should be explicit enough, for example <code>DatabaseMigrationTool</code>
+The project may be located in the root of the solution or in a specific folder.</p>
+<p>Database migration project must be a console-based application.</p>
+<p><strong>Add the following nugets:</strong></p>
+<ol>
+<li>Ev.DbUpdate.KeyVault</li>
+<li>Microsoft.Extensions.Hosting</li>
+<li>Microsoft.Extensions.Hosting.Abstractions</li>
+</ol>
+<p>In <code>Program.cs</code> add the following lines, replacing with what corresponds:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">string</span> _fullNamespace = &lt;DbMigrationNameProject&gt;;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">string?</span> _connectionString = <span style="color:#66d9ef">string</span>.Empty;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> Main(<span style="color:#66d9ef">string</span>[] args)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> returnCode;
+</span></span><span style="display:flex;"><span>        Console.WriteLine(<span style="color:#e6db74">&#34;&lt;ServiceNameProject&gt; database migration host starting !!!&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> host = CreateHost(args))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            returnCode = host.StartWithResult();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Console.WriteLine(<span style="color:#e6db74">&#34;&lt;ServiceNameProject&gt; database migration host stopped !!!&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> returnCode;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> IHost CreateHost(<span style="color:#66d9ef">string</span>[] args)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> namespacePrefix = <span style="color:#66d9ef">typeof</span>(Program).Namespace;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> host = Host
+</span></span><span style="display:flex;"><span>            .CreateDefaultBuilder(args)
+</span></span><span style="display:flex;"><span>            .UseConsoleLifetime();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        host = host.UseDbUpdateWithKeyVaultConfigurationSourceAndArgs(
+</span></span><span style="display:flex;"><span>            args,
+</span></span><span style="display:flex;"><span>            ConfigureOptions()
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>        .ConfigureServices((hostContext, _) =&gt;
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Extensions.TransformAzureSqlConnectionStringForClientSecretAuth(hostContext.Configuration);
+</span></span><span style="display:flex;"><span>            _connectionString = hostContext.Configuration.GetConnectionString(<span style="color:#e6db74">&#34;SqlServer&#34;</span>);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> host.Build();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Action&lt;DbUpdateConfigurationBuilder&gt; ConfigureOptions()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> options =&gt; options
+</span></span><span style="display:flex;"><span>                            .WithUpgradeScriptsInNamespace(<span style="color:#e6db74">$&#34;{_fullNamespace}.UpScripts&#34;</span>)
+</span></span><span style="display:flex;"><span>                            .WithDowngradeScriptsInNamespace(<span style="color:#e6db74">$&#34;{_fullNamespace}.DownScripts&#34;</span>)
+</span></span><span style="display:flex;"><span>                            .WithPreScripts(<span style="color:#e6db74">$&#34;{_fullNamespace}.PreScripts&#34;</span>)
+</span></span><span style="display:flex;"><span>                            .WithPostScripts(<span style="color:#e6db74">$&#34;{_fullNamespace}.PostScripts&#34;</span>)
+</span></span><span style="display:flex;"><span>                            .WithConnectionString(_connectionString);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Then, add a file called <code>Extension.cs</code> at the root of the project with the following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">internal</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Extensions</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> _connectionStringPartsSeparator = <span style="color:#e6db74">&#39;;&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">string</span> AsConnectionStringWithKeysRemoved(<span style="color:#66d9ef">string</span> connectionString, <span style="color:#66d9ef">string</span>[] connStringKeysToRemove)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> connStringParts = connectionString.Split(_connectionStringPartsSeparator);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> builder = <span style="color:#66d9ef">new</span> StringBuilder();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> part <span style="color:#66d9ef">in</span> connStringParts.Where(_ =&gt; !<span style="color:#66d9ef">string</span>.IsNullOrEmpty(_)))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> partKeyValue = part.Split(<span style="color:#e6db74">&#39;=&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> key = partKeyValue[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (connStringKeysToRemove.Any(_ =&gt; _.Equals(key)))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            builder.Append(part);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (part[^<span style="color:#ae81ff">1</span>] != _connectionStringPartsSeparator)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                builder.Append(_connectionStringPartsSeparator);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> builder.ToString();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> TransformAzureSqlConnectionStringForClientSecretAuth(<span style="color:#66d9ef">this</span> IConfiguration configuration)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> azureSqlConnectionString = configuration[<span style="color:#e6db74">&#34;ConnectionStrings:SqlServer&#34;</span>]!;
+</span></span><span style="display:flex;"><span>        configuration[<span style="color:#e6db74">&#34;ConnectionStrings:SqlServer&#34;</span>] =
+</span></span><span style="display:flex;"><span>            AsConnectionStringWithKeysRemoved(azureSqlConnectionString, <span style="color:#66d9ef">new</span>[] { <span style="color:#e6db74">&#34;Uid&#34;</span>, <span style="color:#e6db74">&#34;Authentication&#34;</span> });
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>appsettings.json</code> should look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;ConnectionStrings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;SqlServer&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Logging&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;LogLevel&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Default&#34;</span>: <span style="color:#e6db74">&#34;Debug&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;System&#34;</span>: <span style="color:#e6db74">&#34;Information&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Microsoft&#34;</span>: <span style="color:#e6db74">&#34;Information&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;DbUpdate&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Timeout&#34;</span>: <span style="color:#e6db74">&#34;00:01:00.000&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ConnectionStringName&#34;</span>: <span style="color:#e6db74">&#34;SqlServer&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;KeyVault&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Url&#34;</span>: <span style="color:#e6db74">&#34;https://#{keyVaultName}#.vault.azure.net/&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;DatabaseAadAccess&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Enabled&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;AzureIdentity&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ClientId&#34;</span>: <span style="color:#e6db74">&#34;#{clientId}#&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ClientSecret&#34;</span>: <span style="color:#e6db74">&#34;#{clientSecret}#&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;TenantId&#34;</span>: <span style="color:#e6db74">&#34;#{azAccountTenantId}#&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>There&rsquo;s no need to add the ConnectionString for database, it will be taken from keyvault automatically. There&rsquo;s also no need to add appsettings.json for different environments.</p>
+<h4 id="2-create-the-scripts-folders"><strong>2. Create the Scripts folders</strong></h4>
+<p>Create two folders at the root of the project, one called DownScripts and the other called UpScripts. This two folders will contain the scripts to update the database and the scripts to revert.
+Example of Script named InitialSetup:
+{YYYYMMDD}_{HHmmss}_InitialSetup.sql</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> XACT_ABORT <span style="color:#66d9ef">ON</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> NOCOUNT <span style="color:#66d9ef">ON</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">BEGIN</span> TRAN
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">BEGIN</span> TRY
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    PRINT <span style="color:#e6db74">&#39;Bootstrapping &lt;ServiceName&gt; schema...&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (SCHEMA_ID(<span style="color:#e6db74">&#39;&lt;SchemaName&gt;&#39;</span>) <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NULL</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">BEGIN</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXEC</span> (<span style="color:#e6db74">&#39;CREATE SCHEMA [&lt;SchemaName&gt;] AUTHORIZATION [dbo]&#39;</span>)
+</span></span><span style="display:flex;"><span>            PRINT <span style="color:#e6db74">&#39;Schema [&lt;SchemaName&gt;] - created.&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">END</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ELSE</span>
+</span></span><span style="display:flex;"><span>        PRINT <span style="color:#e6db74">&#39;Schema [&lt;SchemaName&gt;] - already in place.&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">END</span> TRY
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">BEGIN</span> CATCH
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ROLLBACK</span>;
+</span></span><span style="display:flex;"><span>    THROW;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">END</span> CATCH;
+</span></span></code></pre></div><p>Example of DownScript named InitialSetup:
+{YYYYMMDD}_{HHMMss}_InitialSetup.sql
+<strong>In order to be able to execute the DowngradeToMigration action, the Up and Down scripts should have the same name</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> XACT_ABORT <span style="color:#66d9ef">ON</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SET</span> NOCOUNT <span style="color:#66d9ef">ON</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">BEGIN</span> TRAN
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">BEGIN</span> TRY
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">IF</span> (SCHEMA_ID(<span style="color:#e6db74">&#39;&lt;SchemaName&gt;&#39;</span>) <span style="color:#66d9ef">IS</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">BEGIN</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">EXEC</span> (<span style="color:#e6db74">&#39;DROP SCHEMA [&lt;SchemaName&gt;]&#39;</span>)
+</span></span><span style="display:flex;"><span>            PRINT <span style="color:#e6db74">&#39;Schema [&lt;SchemaName&gt;] - dropped.&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">END</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">COMMIT</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">END</span> TRY
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">BEGIN</span> CATCH
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">ROLLBACK</span>;
+</span></span><span style="display:flex;"><span>    THROW;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">END</span> CATCH;
+</span></span></code></pre></div><p>Each down script should undo the corresponding up script.</p>
+<p>Lastly, make sure the following lines are in the .csproj:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;None</span> <span style="color:#a6e22e">Remove=</span><span style="color:#e6db74">&#34;appsettings.json&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;None</span> <span style="color:#a6e22e">Remove=</span><span style="color:#e6db74">&#34;DownScripts\*&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;None</span> <span style="color:#a6e22e">Remove=</span><span style="color:#e6db74">&#34;UpScripts\*&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;Content</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;appsettings.json&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;CopyToOutputDirectory&gt;</span>PreserveNewest<span style="color:#f92672">&lt;/CopyToOutputDirectory&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;ExcludeFromSingleFile&gt;</span>true<span style="color:#f92672">&lt;/ExcludeFromSingleFile&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;CopyToPublishDirectory&gt;</span>PreserveNewest<span style="color:#f92672">&lt;/CopyToPublishDirectory&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/Content&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;EmbeddedResource</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;DownScripts\*&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;CopyToOutputDirectory&gt;</span>Never<span style="color:#f92672">&lt;/CopyToOutputDirectory&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/EmbeddedResource&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;EmbeddedResource</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;UpScripts\*&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;CopyToOutputDirectory&gt;</span>Never<span style="color:#f92672">&lt;/CopyToOutputDirectory&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/EmbeddedResource&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/ItemGroup&gt;</span>
+</span></span></code></pre></div><p>This will ensure that no matter how many scripts you add, the .csproj file will be clean. No lines should be added when you add new scripts.</p>
+<p>That&rsquo;s all for the migration project.</p>
+<h4 id="3-changes-into-service-project"><strong>3. Changes into Service Project</strong></h4>
+<p>If the database hasn&rsquo;t been created yet, make sure to uncomment the corresponding section in the <code>infrastructure.bicep</code> file:</p>
+<p><img src="/.attachments/image-6481dba6-7773-4788-a5b2-6ecae91e4d9d.png" alt="image.png"></p>
+<p>At the root of the project, there&rsquo;s a <code>package.yml</code> and a <code>pullrequest.yml</code>.</p>
+<p>##package.yaml
+Set the following variable in the package.yml in the variables section:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">databaseMigrationCsprojName</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#39;&lt;DatabaseMigrationProjectName&gt;&#39;</span>
+</span></span></code></pre></div><p>In the jobs section below set parameter <code>publishDatabaseMigration: 'true'</code></p>
+<p>##pullrequest.yaml
+Set the following variables in the pullrequest.yml in the variables section:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">databaseProjectLocation</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">value</span>: <span style="color:#ae81ff">&lt;DatabaseMigrationProjectName&gt;</span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">databaseMigrationCsprojName</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">value</span>: <span style="color:#ae81ff">&lt;DatabaseMigrationProjectName&gt;</span>
+</span></span></code></pre></div><p>In the jobs section below set parameter <code>runDatabaseMigration: 'true'</code></p>
+<p>##Variable groups
+The last change is to add the following variables to the <a href="https://dev.azure.com/evbts/EcoVadisApp/_library?itemType=VariableGroups">Library</a>  in Azure DevOps. Some may not have permissions, but a DevOps ambassador can do it instead. Both Prd and Lab var groups should be modified.
+Pattern for variable groups name:</p>
+<ul>
+<li>Lab-<Vertical><Service>-Common</li>
+<li>Prd-<Vertical><Service>-Common</li>
+</ul>
+<p>Variables to set/create:</p>
+<ul>
+<li><code>databaseMigrationCsprojName</code> = <code>&lt;DatabaseMigrationProjectName&gt;</code> (without .csproj and no &quot; nor &lsquo;)</li>
+<li><code>publishDatabaseMigration</code> = <code>true</code></li>
+</ul>
+<h1 id="________________________________________________________________________________________________">________________________________________________________________________________________________</h1>
+<h1 id="service-template-guide">Service Template Guide</h1>
+<p>This document describes how to use the service template.</p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong>  Please visit the <a href="./docs/README.md"><strong>Service Documentation</strong></a> for a detailed description of this service and its <a href="./docs/Runbooks/README.md">Runbook</a>.</p>
+</blockquote>
+<h1 id="health">Health</h1>
+<p>Template service exposes 2 health endpoints that are needed for deployment to work properly in kubernetes:</p>
+<ul>
+<li><code>livez</code> - simple endpoint for determining whether service is alive, it is called by liveness probe,</li>
+<li><code>readyz</code> - health endpoint for determining whether service can accept any requests, it is called by readiness probe.</li>
+<li><code>startz</code> - health endpoint for determining whether service is able to start. It is executed once just the application run. There can be checked whether eg. all is configured properly (like a Service Bus)</li>
+</ul>
+<p>Readiness probe will check all dependencies of service that are required for service to complete it&rsquo;s business value.
+By default there are configured two dependencies sql connection and idp connection.</p>
+<h1 id="service-configuration">Service Configuration</h1>
+<p>By default KeyVault is used to store all secrets and configuration that differs between environments.
+Applications connect to KeyVault via Service Principal (in the future this could be a Managed Identity). There is a separate KeyVault per application per environment.</p>
+<p>KeyVault secrets can be created in multiple ways:</p>
+<ul>
+<li>copied from environment keyvault</li>
+<li>as an output from resources created in bicep file</li>
+<li>created manually by DevOps or DevOps Ambassadors</li>
+</ul>
+<p>By convention appsettings.json should not contain any tokens #{token}#.</p>
+<h2 id="configuration-providers">Configuration providers</h2>
+<p>Configuration into service is loaded from couple of different places:</p>
+<ol>
+<li><code>appsettings.json</code></li>
+<li>environment variables</li>
+<li>command line</li>
+<li>Azure Key Vault - disabled for local development</li>
+<li><code>appsettings.Development.json</code> - for local development only</li>
+</ol>
+<p>The order provided in previous list matters, in such a way, that if same key is defined in different providers, value declared by provider later in this list takes precedence.</p>
+<h2 id="configuration-via-azurekeyvault">Configuration via AzureKeyVault</h2>
+<p>Is configured by default: yes
+Is enabled by default: yes</p>
+<p>Azure Key Vault is a used to securely store keys, passwords and other sensitive data and is used as one of configuration providers for the service.
+All keys defined in it are be loaded into <code>IConfiguration</code> object and can be used to configure service.</p>
+<p><strong>Important</strong> Access to AzureKeyVault is <strong>NOT</strong> configured with tokens in <code>appsettings.json</code> file. Service Principal configuration is provided by environment variables.</p>
+<p>Configuration:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;KeyVault&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Url&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;TennantId&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;ClientId&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;ClientSecret&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><code>Enabled</code> - whether or not KeyVault integration is enabled. Enabled by default, locally disabled.</li>
+<li><code>VaultUri</code> - Azure Key Vault uri,</li>
+<li><code>TennantId</code> - Azure Active Directory tenant Id of the service principal,</li>
+<li><code>ClientId</code> - client (application) ID of the service principal,</li>
+<li><code>ClientSecret</code> - client secret that was generated for the App Registration used to authenticate the client</li>
+</ul>
+<p>All keys except of <code>Enabled</code> are required and if KeyVault integration is enabled, lack of any of those keys will prevent application from starting.</p>
+<p>Keys in Azure Key Vault must conform to simple rule. They can only contain alphanumerical values or dashes.
+Dashes are special characters to declare nested keys e.g. <code>Logging--Elastic--Nodes</code>.</p>
+<h2 id="elasticsearch-logging">Elasticsearch logging</h2>
+<p>Is configured by default - yes</p>
+<p>Is enabled by default - yes</p>
+<p>Tokens taken from KeyVault:
+Logging&ndash;Elastic&ndash;Node
+Logging&ndash;Elastic&ndash;Credentials&ndash;Username
+Logging&ndash;Elastic&ndash;Credentials&ndash;Password</p>
+<p>Logging to Elasticsearch is configured in <code>Logging:Elastic</code> section of appsettings.</p>
+<p>To enable it locally:</p>
+<ul>
+<li>run Elasticsearch<br>
+you can use Docker to do that e.g. using a command (update version of ES when necessary):</li>
+</ul>
+<pre tabindex="0"><code>docker run -p 9200:9200 -p 9300:9300 -e &#34;discovery.type=single-node&#34; docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+</code></pre><ul>
+<li>update <code>Logging:Elastic</code> section of <code>appsettings.Development.json</code> to contain:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Logging&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Elastic&#34;</span>: {
+</span></span><span style="display:flex;"><span>	    <span style="color:#f92672">&#34;Enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>	    <span style="color:#f92672">&#34;Node&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:9200/&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>####For more information about logging refer to <a href="https://dev.azure.com/evbts/EcoVadisApp/_wiki/wikis/EcoVadisApp.wiki/2125/Logging">Wiki</a></p>
+<h2 id="elastic-apm">Elastic APM</h2>
+<p>Is configured by default - yes</p>
+<p>Is enabled by default - yes</p>
+<p>Tokens taken from KeyVault:
+Logging&ndash;ElasticApm&ndash;ServerUrl
+Logging&ndash;ElasticApm&ndash;SecretToken</p>
+<p>Elastic APM is a dependency that measures performance of application dependencies e.g. duration of HTTP calls or execution of SQL queries.</p>
+<p>Configuration is done in <code>ElasticApm</code> section in <code>appsettings.json</code> file e.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;ElasticApm&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ServerUrl&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;SecretToken&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;TransactionSampleRate&#34;</span>: <span style="color:#ae81ff">1.0</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;CaptureBody&#34;</span>: <span style="color:#e6db74">&#34;errors&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ServiceName&#34;</span>: <span style="color:#e6db74">&#34;ServiceName&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>There are multiple components of Elastic APM that can be configured in the same section.</p>
+<ol>
+<li><a href="https://www.elastic.co/guide/en/apm/agent/dotnet/current/config-core.html">Core configuration</a>:</li>
+</ol>
+<ul>
+<li><code>Enabled</code> - indicated whether or not to trace all dependencies,</li>
+<li><code>ServiceName</code> - name of the service under which it will be visible in Elastic APM interface,</li>
+<li><code>TransactionSampleRate</code> - indicated how much percentage of transactions to track,</li>
+</ul>
+<ol start="2">
+<li><a href="https://www.elastic.co/guide/en/apm/agent/dotnet/current/config-reporter.html">Reporter configuration</a>:</li>
+</ol>
+<ul>
+<li><code>ServerUrl</code> - Elastic APM server url,</li>
+<li><code>SecretToken</code> - token used to authenticate to Elastic APM server,</li>
+</ul>
+<ol start="3">
+<li><a href="https://www.elastic.co/guide/en/apm/agent/dotnet/current/config-http.html">Http configuration</a></li>
+</ol>
+<ul>
+<li><code>CaptureBody</code> - indicated whether or not to tract <code>POST</code> requests <code>BODY</code>. Available options <code>off</code>, <code>errors</code>, <code>transactions</code>, <code>all</code></li>
+</ul>
+<p>####For more information about logging refer to <a href="https://dev.azure.com/evbts/EcoVadisApp/_wiki/wikis/EcoVadisApp.wiki/2125/Logging">Wiki</a></p>
+<h2 id="sentry">Sentry</h2>
+<p>Is configured by default - no</p>
+<p>Is enabled by default - no</p>
+<p>Comment: Before enabling Sentry logging, you need to create project in Sentry on Lab and Prd and fill in SentryDsn in Lab and Prd KeyVault.
+Tokens taken from KeyVault:</p>
+<p>Logging&ndash;Sentry&ndash;Dsn</p>
+<p>Configuration is done in <code>Sentry</code> section in <code>appsettings.json</code> file e.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Sentry&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Enabled&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;IncludeRequestPayload&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;SendDefaultPii&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;MinimumBreadcrumbLevel&#34;</span>: <span style="color:#e6db74">&#34;Debug&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;MinimumEventLevel&#34;</span>: <span style="color:#e6db74">&#34;Error&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;AttachStacktrace&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Debug&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;DiagnosticLevel&#34;</span>: <span style="color:#e6db74">&#34;Error&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;RateLimitInMilliseconds&#34;</span>: <span style="color:#ae81ff">2000</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Dsn&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>####For more information about logging refer to <a href="https://dev.azure.com/evbts/EcoVadisApp/_wiki/wikis/EcoVadisApp.wiki/2125/Logging">Wiki</a></p>
+<h2 id="feature-toggle">Feature toggle</h2>
+<p>Is configured by default - yes
+Is enabled by default - yes</p>
+<p>Tokens taken from KeyVault:
+FeatureToggle&ndash;ConfigCatBlobUrl
+FeatureToggle&ndash;ConfigCatSdkKey</p>
+<p>For now we are using Optimizly and  ConfigCat as feature toggles services, that&rsquo;s why currently we need to configure both providers.
+Configuration is defined in <code>FeatureToggle</code> section in <code>appsettings.json</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;FeatureToggle&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ConfigCatBlobUrl&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;ConfigCatSdkKey&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>ConfigCatBlobUrl - directory of ConfigCat feature toggles file in blob storage, this is not a full path, because of how ConfigCat works, this is a root directory for environment, to which will be appended <code>configuration-files/{SdkKey}/config_v5.json</code>,</li>
+<li>ConfigCatSdkKey - API key for accessing ConfigCat.</li>
+</ul>
+<p>For more options please refer to <a href="https://dev.azure.com/evbts/EcoVadisApp/_git/Ev.FeatureToggle">Ev.FeatureToggle</a> repository.</p>
+<p>For local development Optimizly and ConfigCat feature toggles are disabled by setting &ldquo;Enable&rdquo; flag to false For more information refer to <a href="https://azuredevops.ecovadis.com/EcoVadisApp_TeamProjectCollection/EcoVadisApp/_wiki/wikis/EcoVadisApp.wiki?wikiVersion=GBwikiMaster&amp;pagePath=%2FEcoVadis%20Wiki%2FTechnical%20Knowledge%2FFeature%20Toggle%2FFeature%20Toggle%20Local%20provider&amp;pageId=1737">Feature Toggle Local provider</a>.</p>
+<h2 id="servicebus">ServiceBus</h2>
+<p>Is configured by default - yes</p>
+<p>Is enabled by default - no</p>
+<p>For Service Bus messaging, we are using <a href="https://github.com/EcovadisCode/Ev.ServiceBus">Ev.ServiceBus</a> NuGet package. You check the documentation of this Nuget before going further.</p>
+<p>Comment: By default source code references testqueue which does not exist and if enabled creates many errors in service output. You need to change the code to reference existing queues or subscriptions before enabling this feature</p>
+<p>Tokens taken from KeyVault:
+ConnectionStrings&ndash;ServiceBus</p>
+<p>Configuration to ServiceBus is done in two places. First is connection string to ServiceBus namespace is in <code>ConnectionStrings</code> section.
+Update it in <code>appsettings.Development.json</code> to avoid accidental push to azure devops.
+Other settings are in <code>ServiceBus</code> section:</p>
+<pre tabindex="0"><code>&#34;ServiceBus&#34;: {
+  &#34;Enabled&#34;: true,
+  &#34;ReceiveMessages&#34;: true
+},
+</code></pre><p>Default values for those options for local development are in <code>launchSettings.json</code> file and are set to <code>false</code>.</p>
+<h3 id="creating-new-queuestopicssubscriptions">Creating new queues/topics/subscriptions</h3>
+<p>Our current infrastructure supports creating topics and queues from single source of truth, which is <a href="https://azuredevops.ecovadis.com/EcoVadisApp_TeamProjectCollection/EcoVadisApp/_git/Borat?path=%2FInfrastructure%2Fsrc%2Farm-parameters.json&amp;version=GBmaster">ARM template</a> located in <code>Borat</code>.
+Because of that please add topic/queue configuration to that file.</p>
+<p>After that, you&rsquo;ll need to declare the resource in your application, check the <a href="https://github.com/EcovadisCode/Ev.ServiceBus">documentation</a> for that.</p>
+<h2 id="sql-connection">SQL connection</h2>
+<p>Is configured by default - yes</p>
+<p>Is enabled by default - yes</p>
+<p>Tokens:</p>
+<p><code>#{EcoPortalDataBase}#</code> - taken value taken from linked variable groups per environment:</p>
+<ul>
+<li>Lab-Database-{Environment}</li>
+<li>Prd-Database</li>
+</ul>
+<p>By deafult application will connect to local SQL server to <code>ecoPortal</code> database.
+If you want to customize connection string, please use either <code>appsettings.Development.json</code> or <code>launchProfile.json</code> file.</p>
+<h3 id="azuresql-database-configuration-steps">AzureSql database configuration steps</h3>
+<ul>
+<li>Create <a href="https://dev.azure.com/evbts/EcoVadisApp/_wiki/wikis/EcoVadisApp.wiki/5448/Database-Migration-Creation-Steps">DatabaseMigrationProject</a>.</li>
+<li>Configure <code>package.yaml</code>
+<ul>
+<li>Set variable <code>databaseMigrationCsprojName</code> value with the previously created DatabaseMigrationProject name.</li>
+<li>Change <code>publishDatabaseMigration</code> value to <code>true</code>.</li>
+</ul>
+</li>
+<li>Configure <code>pullrequest.yaml</code>
+<ul>
+<li>Set variable <code>databaseProjectLocation</code> value with the previously created DatabaseMigrationProject name.</li>
+<li>Set variable <code>databaseMigrationCsprojName</code> value with the previously created DatabaseMigrationProject name.</li>
+<li>Change <code>runDatabaseMigration</code> value to <code>true</code>.</li>
+</ul>
+</li>
+<li>Uncomment <code>module service_sqlDatabase</code> section in <code>infrastructure.bicep</code> file.</li>
+<li>Keyvault secret <code>ConnectionStrings--SqlServer</code> with correct value should be automatically created after first deployment.</li>
+</ul>
+<h3 id="healthcheck">Healthcheck</h3>
+<p>For SQL connection you can override default timeout (2 seconds) in configuration file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Sql&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;HealthcheckTimeoutSeconds&#34;</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="authentication">Authentication</h2>
+<p>If you are using a BFF, use the BFF pattern. For more information refer to</p>
+<p><a href="https://dev.azure.com/evbts/EcoVadisApp/_wiki/wikis/EcoVadisApp.wiki/8552/Ev.Authentication.Bff-Implementation-guide">Ev.Authentication.Bff-Implementation-guide</a></p>
+<h1 id="run-service-locally-advanced">Run Service locally (Advanced)</h1>
+<p>Service might need other services running in the backgroup.</p>
+<p>To prepare dockerized environment run <code>.\docker-setup.ps1</code> in Windows Powershell (NOT Core) with elevated permissions(you may need <a href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli">Azure Cli</a> installed).
+Once completed you will have all needed dependencies running in the background with printed out in the console &ldquo;borat-api&rdquo; access token that can be used for authentication.</p>
+<p>Other scripts in the repository:</p>
+<ul>
+<li><code>.\docker-start.ps1</code> - once you have things setup, you can use this script just to start dockerized development environment</li>
+<li><code>.\docker-pull.ps1</code> - run to get latest image from docker repository</li>
+<li><code>.\get-api-token.ps1</code> - get the &ldquo;borat-api&rdquo; token from IDP running in the background and print it to the console</li>
+</ul>
+<p>Once dependencies are running open solution in VS and press F5. Swagger should get opened.
+Once running authorize to swagger with access token from the console and execute &ldquo;hello&rdquo; via swagger or simply <code>curl -X POST &quot;https://localhost:5302/rpc/VerticalDomain/hello&quot; -H &quot;accept: application/json&quot; -H &quot;Content-Type: application/json&quot; -H &quot;Authorization: Bearer XXX&quot; -d &quot;{}&quot;</code>. where <code>XXX</code> is any valid access token.</p>
+<h3 id="run-image-from-acr">Run image from ACR</h3>
+<p>az login (choose lab credentials)
+az acr login -n cicdcr01weuy01
+docker pull cicdcr01weuy01.azurecr.io/vertical-domain:latest
+docker run -d -p 127.0.0.1:8080:80/tcp cicdcr01weuy01.azurecr.io/vertical-domain:latest</p>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

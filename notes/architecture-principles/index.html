@@ -163,6 +163,28 @@ BUT there&rsquo;s a second layer below the principles, which is the SPECIFIC/CON
 </ul>
 </li>
 </ul>
+<h3 id="engineering-principles-notes">Engineering principles notes</h3>
+<ul>
+<li>Prefer simplicity over complexity. Each complexity level introduced needs a clear justification.</li>
+<li>Every processing queue SHOULD (MUST?) have have a corresponding dead letter queue</li>
+<li>Aggregation Service. Prefer syncrhonous call than aggregation service. If addin infrastructure capacity solves the issue, do it instead of creating an aggregation service.
+<ul>
+<li>Only add it when the logic complexity requires it.</li>
+</ul>
+</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Observability
+<ul>
+<li>ELK. All setup automatically by <code>oneclick</code> pipeline that creates the new service project
+<ul>
+<li>setup kibana alerts</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
 
 

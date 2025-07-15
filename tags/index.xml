@@ -6,8 +6,99 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Api</title>
+      <link>https://www.bustroker.com/tags/api/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Guidelines</title>
+      <link>https://www.bustroker.com/tags/guidelines/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/guidelines/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Http</title>
+      <link>https://www.bustroker.com/tags/http/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/http/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Apm</title>
+      <link>https://www.bustroker.com/tags/apm/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/apm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>https://www.bustroker.com/tags/automation/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Az Devops</title>
+      <link>https://www.bustroker.com/tags/az-devops/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/az-devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Devops</title>
+      <link>https://www.bustroker.com/tags/devops/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/devops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dotnet</title>
+      <link>https://www.bustroker.com/tags/dotnet/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/dotnet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Elastic</title>
+      <link>https://www.bustroker.com/tags/elastic/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/elastic/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Logging</title>
+      <link>https://www.bustroker.com/tags/logging/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/logging/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Observability</title>
+      <link>https://www.bustroker.com/tags/observability/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/observability/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sentry</title>
+      <link>https://www.bustroker.com/tags/sentry/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/sentry/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Templates</title>
+      <link>https://www.bustroker.com/tags/templates/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/templates/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Data Strategy</title>
       <link>https://www.bustroker.com/tags/data-strategy/</link>
@@ -69,13 +160,6 @@
       <link>https://www.bustroker.com/tags/sql/</link>
       <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/sql/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Dotnet</title>
-      <link>https://www.bustroker.com/tags/dotnet/</link>
-      <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/dotnet/</guid>
       <description></description>
     </item>
     <item>

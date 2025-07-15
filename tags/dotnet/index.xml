@@ -6,8 +6,15 @@
     <description>Recent content in Dotnet on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/dotnet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DevOps notes</title>
+      <link>https://www.bustroker.com/notes/devops-notes/</link>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/devops-notes/</guid>
+      <description>Dotnet templates Testing locally Clone this repository Go into this directory Execute following command dotnet new -i .\templates\bkr.microservice This will install template for dotnet new usage Create directory for you microservice and go into this directory Type dotnet new bkr.microservice --name Cheese.Cake You have scaffolded new service. Distributing with package Execute dotnet pack from templates directory This will create package with templates in .\bin\Debug\Bkr.Template.Service.1.0.0.nupkg Run dotnet new -i .\bin\Debug\Bkr.Template.Service.1.0.0.nupkg This will install template for dotnet new usage Create directory for you microservice and go into this directory Type dotnet new bkr.</description>
+    </item>
     <item>
       <title>Generate and diff openAPI specs in dotnet</title>
       <link>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-dotnet/</link>
