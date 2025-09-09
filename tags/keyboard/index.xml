@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/auto-hot-key-to-customize-keyboard-strokes/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/auto-hot-key-to-customize-keyboard-strokes/</guid>
-      <description>Documentation Install autohotkey. Find documentation [here]{https://www.autohotkey.com/docs}.&#xA;Remarks Maximum two keys combinations. Create &amp;lt; and &amp;gt; Create a script for alt+z to be &amp;lt; lessThan.ahk&#xA;!z::&#xD;Send, &amp;lt;&#xD;return Create a script for alt+x to be &amp;gt; greaterThan.ahk&#xA;!x::&#xD;Send, &amp;gt;&#xD;return Double click the files (once AHK is installed) and that&amp;rsquo;s it.&#xA;For running them on startup, create shortcut and copy them into windows startup folder.</description>
+      <description>Documentation Install autohotkey. Find documentation here.&#xA;Remarks Maximum two keys combinations. Create &amp;lt; and &amp;gt; Create a script for alt+z to be &amp;lt; lessThan.ahk&#xA;!z::&#xD;Send, &amp;lt;&#xD;return Create a script for alt+x to be &amp;gt; greaterThan.ahk&#xA;!x::&#xD;Send, &amp;gt;&#xD;return Double click the files (once AHK is installed) and that&amp;rsquo;s it.&#xA;For running them on startup, create shortcut and copy them into windows startup folder.</description>
     </item>
   </channel>
 </rss>
