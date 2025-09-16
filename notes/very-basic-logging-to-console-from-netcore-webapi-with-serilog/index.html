@@ -131,41 +131,47 @@ audio {
         
 
 <h1>Very basic logging to console from netcore webapi with Serilog</h1>
-<p>Add serilog</p>
+<p>Add serilog required packages</p>
 <pre tabindex="0"><code>dotnet add package Serilog.AspNetCore
-</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+dotnet add package Serilog.Sinks.ElasticSearch
+</code></pre><p>Using</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Serilog;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Serilog.Sinks.Elasticsearch;
+</span></span></code></pre></div><p>Configure serilog on CreateHostBuilder. <em>Only relevant code is included.</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        Log.Logger = <span style="color:#66d9ef">new</span> LoggerConfiguration()
-</span></span><span style="display:flex;"><span>            .MinimumLevel.Debug()
-</span></span><span style="display:flex;"><span>            .MinimumLevel.Override(<span style="color:#e6db74">&#34;Microsoft&#34;</span>, LogEventLevel.Information)
-</span></span><span style="display:flex;"><span>            .Enrich.FromLogContext()
-</span></span><span style="display:flex;"><span>            .WriteTo.Console()
-</span></span><span style="display:flex;"><span>            .CreateLogger();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> ApplicationId = <span style="color:#e6db74">&#34;Bustroker.Transactions.WebApi&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> ElasticEndpoint = <span style="color:#e6db74">&#34;http://localhost:9200&#34;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>
-</span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            Log.Information(<span style="color:#e6db74">&#34;Starting web host&#34;</span>);
-</span></span><span style="display:flex;"><span>            CreateHostBuilder(args).Build().Run();
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> (Exception ex)
-</span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            Log.Fatal(ex, <span style="color:#e6db74">&#34;Host terminated unexpectedly&#34;</span>);
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">finally</span>
-</span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            Log.CloseAndFlush();
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///....</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///....</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///....</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///....</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
 </span></span><span style="display:flex;"><span>        Host.CreateDefaultBuilder(args)
-</span></span><span style="display:flex;"><span>            .UseSerilog()
+</span></span><span style="display:flex;"><span>            .UseSerilog((hostincContext, loggerConfiguration) =&gt; <span style="color:#75715e">// send to Elastic for real time monitoring</span>
+</span></span><span style="display:flex;"><span>                            ConfigureSerilogLoggerWithElastic(loggerConfiguration)
+</span></span><span style="display:flex;"><span>            )
 </span></span><span style="display:flex;"><span>            .ConfigureWebHostDefaults(webBuilder =&gt;
 </span></span><span style="display:flex;"><span>            {
 </span></span><span style="display:flex;"><span>                webBuilder.UseStartup&lt;Startup&gt;();
 </span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> LoggerConfiguration ConfigureSerilogLoggerWithElastic(LoggerConfiguration loggerConfiguration)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> sinkOptions = <span style="color:#66d9ef">new</span> ElasticsearchSinkOptions(<span style="color:#66d9ef">new</span> Uri(ElasticEndpoint))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            AutoRegisterTemplate = <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>            AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.ESv7,
+</span></span><span style="display:flex;"><span>            IndexFormat = <span style="color:#e6db74">$&#34;{ApplicationId}-{0:yyyy.MM}&#34;</span>                                    
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> loggerConfiguration
+</span></span><span style="display:flex;"><span>                    .MinimumLevel.Error()
+</span></span><span style="display:flex;"><span>                    .Enrich.FromLogContext()
+</span></span><span style="display:flex;"><span>                    .WriteTo.Elasticsearch(sinkOptions);
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Then add</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// Startup.cs</span>
@@ -183,11 +189,11 @@ audio {
 </span></span></code></pre></div><p>Now use it</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#a6e22e">[ApiController]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">[Route(&#34;[controller]</span><span style="color:#e6db74">&#34;)]
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OpsController</span> : ControllerBase
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OperationsController</span> : ControllerBase
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> ILogger&lt;OpsController&gt; _logger;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> OpsController(ILogger&lt;OpsController&gt; logger)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> OperationsController(ILogger&lt;OpsController&gt; logger)
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>        _logger = logger;
 </span></span><span style="display:flex;"><span>    }
@@ -195,11 +201,16 @@ audio {
 </span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [HttpGet, Route(&#34;{currency}&#34;)]</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;IActionResult&gt; Get(<span style="color:#66d9ef">string</span> currency)
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        _logger.LogInformation(<span style="color:#e6db74">&#34;Processed request /ops in {currency}&#34;</span>, currency);
+</span></span><span style="display:flex;"><span>        _logger.LogInformation(<span style="color:#e6db74">&#34;Processed request /operations in &#39;{currency}&#39;&#34;</span>, currency);
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Ok(result);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>Use kibana to query the elastic. Otherwise, the API can be used instead.</p>
+<p>Check the index has been created in elastic. Note that capital letters have been removed.</p>
+<pre tabindex="0"><code>curl http://localhost:9200/bustroker.transactions.webapi-*
+</code></pre><p>Query all the entries for the index</p>
+<pre tabindex="0"><code>curl http://localhost:9200/bustroker.transactions.webapi-*/_search?q=*
+</code></pre>
 
 
       </main>

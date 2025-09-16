@@ -6,8 +6,15 @@
     <description>Recent content in Solution Architecture on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/solution-architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Solution Architecture</title>
+      <link>https://www.bustroker.com/notes/ai-solution-architecture/</link>
+      <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/ai-solution-architecture/</guid>
+      <description>AI Architecture Course Topics: (https://www.umbctraining.com/courses/ai-for-architects)&#xA;Upon completing this course, participants will be able to: Understand the full AI solution lifecycle, from data acquisition and training to deployment and ongoing operations Evaluate architectural trade-offs across model training, inference, scale, and cost Design systems that incorporate AI agents, multi-agent collaboration, and orchestration frameworks Apply DevOps, CI/CD, and GitOps principles to AI workloads, ensuring repeatable and scalable delivery Integrate observability, governance, and monitoring practices to manage drift, data quality, and performance Architect secure and responsible AI systems that address privacy, compliance, and ethical considerations Anticipate Day 2 challenges, including model lifecycle management, versioning, and integration with enterprise platforms</description>
+    </item>
     <item>
       <title>Solution Architecture</title>
       <link>https://www.bustroker.com/notes/solution-architecture/</link>
