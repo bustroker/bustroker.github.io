@@ -154,6 +154,10 @@ audio {
 </span></span></code></pre></div><h1 id="9-push">9. Push</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push origin sync-with-dev
 </span></span></code></pre></div><p>Now just PR into master and merge without conflicts.</p>
+<p>Verify</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout dev
+</span></span><span style="display:flex;"><span>git pull origin master --no-commit --no-ff
+</span></span></code></pre></div><p>No pending changes should be available, since now <code>master</code> is identical to <code>dev</code></p>
 
 
 
