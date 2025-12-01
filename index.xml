@@ -20,7 +20,7 @@
       <link>https://www.bustroker.com/notes/git-force-dev-into-master-from-pr/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/git-force-dev-into-master-from-pr/</guid>
-      <description>1. Start from master git checkout master git pull origin master 2. Create new branch from master git checkout -b replace-master-with-dev 3. Reset this branch to have dev&amp;rsquo;s exact content (but keep master as parent) git reset --soft origin/dev 4. Stage all changes git add -A 5. Commit with a clear message git commit -m &amp;#34;Sync master with dev - replace all content&amp;#34; 6. Push git push origin replace-master-with-dev 7. Create PR in Azure DevOps from replace-master-with-dev to master 8.</description>
+      <description>When conflicts are crazy and I just want to have dev in master and PR is required.&#xA;1. Make sure you&amp;rsquo;re in the repository root cd /path/to/repository/root 2. Get the last commit in dev git checkout dev got log -n 1 &amp;gt; b2ed68964660648860bcf41d096e71b5d49226ae 3. Create branch from master git checkout master git checkout -b sync-with-dev 4. Remove EVERYTHING first from sync-with-dev branch git rm -rf . 5. Restore everything from the target commit git checkout b2ed68964660648860bcf41d096e71b5d49226ae -- .</description>
     </item>
     <item>
       <title>Remove alias (curl) from Powershell</title>

@@ -131,21 +131,29 @@ audio {
         
 
 <h1>Git force dev into master from PR</h1>
-<h1 id="1-start-from-master">1. Start from master</h1>
+<p>When conflicts are crazy and I just want to have dev in master and PR is required.</p>
+<h1 id="1-make-sure-youre-in-the-repository-root">1. Make sure you&rsquo;re in the repository root</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /path/to/repository/root
+</span></span></code></pre></div><h1 id="2-get-the-last-commit-in-dev">2. Get the last commit in dev</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout dev
+</span></span><span style="display:flex;"><span>got log -n <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>&gt; b2ed68964660648860bcf41d096e71b5d49226ae
+</span></span></code></pre></div><h1 id="3-create-branch-from-master">3. Create branch from master</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout master
-</span></span><span style="display:flex;"><span>git pull origin master
-</span></span></code></pre></div><h1 id="2-create-new-branch-from-master">2. Create new branch from master</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout -b replace-master-with-dev
-</span></span></code></pre></div><h1 id="3-reset-this-branch-to-have-devs-exact-content-but-keep-master-as-parent">3. Reset this branch to have dev&rsquo;s exact content (but keep master as parent)</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git reset --soft origin/dev
-</span></span></code></pre></div><h1 id="4-stage-all-changes">4. Stage all changes</h1>
+</span></span><span style="display:flex;"><span>git checkout -b sync-with-dev 
+</span></span></code></pre></div><h1 id="4-remove-everything-first-from-sync-with-dev-branch">4. Remove EVERYTHING first from <code>sync-with-dev</code> branch</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git rm -rf .
+</span></span></code></pre></div><h1 id="5-restore-everything-from-the-target-commit">5. Restore everything from the target commit</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout b2ed68964660648860bcf41d096e71b5d49226ae -- .
+</span></span></code></pre></div><h1 id="6-also-restore-any-files-that-might-have-been-gitignored">6. Also restore any files that might have been gitignored</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout b2ed68964660648860bcf41d096e71b5d49226ae -- <span style="color:#e6db74">&#39;:!.git&#39;</span>
+</span></span></code></pre></div><h1 id="7-add-all-changes-including-deletions">7. Add all changes (including deletions)</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add -A
-</span></span></code></pre></div><h1 id="5-commit-with-a-clear-message">5. Commit with a clear message</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Sync master with dev - replace all content&#34;</span>
-</span></span></code></pre></div><h1 id="6-push">6. Push</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push origin replace-master-with-dev
-</span></span></code></pre></div><h1 id="7-create-pr-in-azure-devops-from-replace-master-with-dev-to-master">7. Create PR in Azure DevOps from replace-master-with-dev to master</h1>
-<h1 id="8-complete-pr-with-squash-commit-strategy">8. Complete PR with &ldquo;Squash commit&rdquo; strategy</h1>
+</span></span></code></pre></div><h1 id="8-commit">8. Commit</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Sync master with dev&#34;</span>
+</span></span></code></pre></div><h1 id="9-push">9. Push</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push origin sync-with-dev
+</span></span></code></pre></div><p>Now just PR into master and merge without conflicts.</p>
 
 
 
