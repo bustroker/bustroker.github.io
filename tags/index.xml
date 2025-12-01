@@ -6,8 +6,57 @@
     <description>Recent content in Tags on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git</title>
+      <link>https://www.bustroker.com/tags/git/</link>
+      <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git Checout</title>
+      <link>https://www.bustroker.com/tags/git-checout/</link>
+      <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/git-checout/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Force</title>
+      <link>https://www.bustroker.com/tags/force/</link>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/force/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PR</title>
+      <link>https://www.bustroker.com/tags/pr/</link>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/pr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alias</title>
+      <link>https://www.bustroker.com/tags/alias/</link>
+      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/alias/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Curl</title>
+      <link>https://www.bustroker.com/tags/curl/</link>
+      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/curl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Poweshell</title>
+      <link>https://www.bustroker.com/tags/poweshell/</link>
+      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/poweshell/</guid>
+      <description></description>
+    </item>
     <item>
       <title>AI</title>
       <link>https://www.bustroker.com/tags/ai/</link>
@@ -286,13 +335,6 @@
       <link>https://www.bustroker.com/tags/script/</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/script/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Git</title>
-      <link>https://www.bustroker.com/tags/git/</link>
-      <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/git/</guid>
       <description></description>
     </item>
     <item>
@@ -895,13 +937,6 @@
       <link>https://www.bustroker.com/tags/azure/</link>
       <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/azure/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Curl</title>
-      <link>https://www.bustroker.com/tags/curl/</link>
-      <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/curl/</guid>
       <description></description>
     </item>
     <item>

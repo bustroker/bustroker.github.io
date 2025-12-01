@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git Checout on Coding notes</title>
+    <link>https://www.bustroker.com/tags/git-checout/</link>
+    <description>Recent content in Git Checout on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/git-checout/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git go to previous commit</title>
+      <link>https://www.bustroker.com/notes/git-go-to-previous-commit/</link>
+      <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/git-go-to-previous-commit/</guid>
+      <description>Check last commits git log --oneline -n &amp;lt;N&amp;gt; Get previous commit locally, WITHOUT modifying HEAD. git checkout &amp;lt;commit-hash&amp;gt; -- . Updates all files in the current directory and subdirectories to match the specified commit. HEAD stays on your current branch — you&amp;rsquo;re not switching commits or branches. Only the working directory is affected, not your branch pointer.&#xA;Without -- ., git checks out the entire commit and puts you in a detached HEAD state.</description>
+    </item>
+  </channel>
+</rss>

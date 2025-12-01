@@ -6,8 +6,15 @@
     <description>Recent content in Curl on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/curl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Remove alias (curl) from Powershell</title>
+      <link>https://www.bustroker.com/notes/remove-alias-curl-from-powershell/</link>
+      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/remove-alias-curl-from-powershell/</guid>
+      <description>Skip this step if you already have a Powershell profile:&#xA;New-Item $profile -force -itemtype file Then edit your profile:&#xA;notepad $profile Add the following line to it:&#xA;remove-item alias:curl Save, close notepad and lose and open Powershell to apply the profile.&#xA;Or reload the profile with the command below:&#xA;. $profile </description>
+    </item>
     <item>
       <title>Curl azure app service with AAD auth</title>
       <link>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</link>

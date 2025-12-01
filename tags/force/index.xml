@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Force on Coding notes</title>
+    <link>https://www.bustroker.com/tags/force/</link>
+    <description>Recent content in Force on Coding notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/force/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git force dev into master from PR</title>
+      <link>https://www.bustroker.com/notes/git-force-dev-into-master-from-pr/</link>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/git-force-dev-into-master-from-pr/</guid>
+      <description>1. Start from master git checkout master git pull origin master 2. Create new branch from master git checkout -b replace-master-with-dev 3. Reset this branch to have dev&amp;rsquo;s exact content (but keep master as parent) git reset --soft origin/dev 4. Stage all changes git add -A 5. Commit with a clear message git commit -m &amp;#34;Sync master with dev - replace all content&amp;#34; 6. Push git push origin replace-master-with-dev 7. Create PR in Azure DevOps from replace-master-with-dev to master 8.</description>
+    </item>
+  </channel>
+</rss>

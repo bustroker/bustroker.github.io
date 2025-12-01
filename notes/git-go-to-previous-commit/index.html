@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Curl | Coding notes</title>
+  <title>Git go to previous commit | Coding notes</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,93 +130,15 @@ audio {
       <main id="main">
         
 
-<h1>Curl</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/remove-alias-curl-from-powershell/">Remove alias (curl) from Powershell</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2025-10-28">Oct 28, 2025</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/curl">curl</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/poweshell">poweshell</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/alias">alias</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/">Curl azure app service with AAD auth</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2020-09-22">Sep 22, 2020</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/curl">curl</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/">Azure Managed Identity token with cURL</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2020-05-31">May 31, 2020</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/curl">curl</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/managed-id">managed Id</a>
-  
-
-</p>
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/">cURL usefull commands cheatsheet</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2020-05-30">May 30, 2020</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/curl">curl</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
-  
-
-</p>
+<h1>Git go to previous commit</h1>
+<h3 id="check-last-commits">Check last commits</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log --oneline -n &lt;N&gt;
+</span></span></code></pre></div><h3 id="get-previous-commit-locally-without-modifying-head">Get previous commit locally, WITHOUT modifying HEAD.</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout &lt;commit-hash&gt; -- .
+</span></span></code></pre></div><p>Updates all files in the current directory and subdirectories to match the specified commit.
+HEAD stays on your current branch — you&rsquo;re not switching commits or branches.
+Only the working directory is affected, not your branch pointer.</p>
+<p>Without <code>-- .</code>, git checks out the entire commit and puts you in a <strong>detached HEAD state</strong>.</p>
 
 
 

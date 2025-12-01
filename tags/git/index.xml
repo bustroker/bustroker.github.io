@@ -6,8 +6,22 @@
     <description>Recent content in Git on Coding notes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git go to previous commit</title>
+      <link>https://www.bustroker.com/notes/git-go-to-previous-commit/</link>
+      <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/git-go-to-previous-commit/</guid>
+      <description>Check last commits git log --oneline -n &amp;lt;N&amp;gt; Get previous commit locally, WITHOUT modifying HEAD. git checkout &amp;lt;commit-hash&amp;gt; -- . Updates all files in the current directory and subdirectories to match the specified commit. HEAD stays on your current branch — you&amp;rsquo;re not switching commits or branches. Only the working directory is affected, not your branch pointer.&#xA;Without -- ., git checks out the entire commit and puts you in a detached HEAD state.</description>
+    </item>
+    <item>
+      <title>Git force dev into master from PR</title>
+      <link>https://www.bustroker.com/notes/git-force-dev-into-master-from-pr/</link>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/git-force-dev-into-master-from-pr/</guid>
+      <description>1. Start from master git checkout master git pull origin master 2. Create new branch from master git checkout -b replace-master-with-dev 3. Reset this branch to have dev&amp;rsquo;s exact content (but keep master as parent) git reset --soft origin/dev 4. Stage all changes git add -A 5. Commit with a clear message git commit -m &amp;#34;Sync master with dev - replace all content&amp;#34; 6. Push git push origin replace-master-with-dev 7. Create PR in Azure DevOps from replace-master-with-dev to master 8.</description>
+    </item>
     <item>
       <title>Git stash - and patch</title>
       <link>https://www.bustroker.com/notes/git-stash-and-patch/</link>
