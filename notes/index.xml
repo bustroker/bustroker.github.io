@@ -86,6 +86,13 @@
       <description>Goal Establish engineering principles that guide teams toward better technical decisions and prevent common architectural mistakes.&#xA;Core Principles 1. Prefer Simplicity Over Complexity Every complexity level requires clear justification. If you can&amp;rsquo;t articulate why the complexity is necessary, it shouldn&amp;rsquo;t exist.&#xA;2. Dead Letter Queues Are Not Optional Every processing queue must have a corresponding dead letter queue.&#xA;Without a DLQ, you have no visibility into failures and no way to recover from processing errors.</description>
     </item>
     <item>
+      <title>Building a Solutions Architecture Organization</title>
+      <link>https://www.bustroker.com/notes/building-a-solutions-architecture-organization/</link>
+      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/building-a-solutions-architecture-organization/</guid>
+      <description>Building a Solutions Architecture Organization Goal: Establish a Solutions Architecture function that aligns product and technology strategy, drives composable architecture, and enables autonomous teams to deliver customer value at scale.&#xA;Core Responsibilities 1. Align Product and Technology Strategy Understand business strategy, goals, and customer needs Define architecture vision and principles Partner with stakeholders to influence product roadmap 2. Define Composable Architecture Map domains, capabilities, components, and team ownership Build target architecture and roadmaps Make critical decisions on tech stack, frameworks, design patterns, standards 3.</description>
+    </item>
+    <item>
       <title>Implementing Row-Level Security in Entity Framework with Connection Interceptors</title>
       <link>https://www.bustroker.com/notes/implementing-row-level-security-in-entity-framework-with-connection-interceptors/</link>
       <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>
@@ -105,6 +112,13 @@
       <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/save-and-restore-vs-code-settings-with-powershell/</guid>
       <description>Save VS Code Settings Back up your VS Code configuration (settings, keybindings, and snippets) to any folder:&#xA;param( [string]$destinationPath = &amp;#34;.&amp;#34; ) ## Resolve full path $destinationPath = Resolve-Path -Path $destinationPath ## Define the source directory $sourcePath = &amp;#34;$env:APPDATA\Code\User&amp;#34; ## Ensure the destination folder exists if (!(Test-Path -Path $destinationPath)) { New-Item -ItemType Directory -Path $destinationPath | Out-Null } ## Copy settings.json, keybindings.json, and snippets if they exist $files = @(&amp;#34;settings.json&amp;#34;, &amp;#34;keybindings.</description>
+    </item>
+    <item>
+      <title>Running Docker in WSL with Windows Folder Access</title>
+      <link>https://www.bustroker.com/notes/running-docker-in-wsl-with-windows-folder-access/</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/running-docker-in-wsl-with-windows-folder-access/</guid>
+      <description>Goal Run Docker containers in WSL that can access Windows folders directly.&#xA;Install WSL List available distributions and install Ubuntu:&#xA;wsl --list --online wsl --install Ubuntu Access Windows Folders from WSL Windows drives are mounted under /mnt/ in WSL. Navigate to any Windows folder:&#xA;cd /mnt/c/Users/bustroker/windowsfolder Run Docker with Windows Folder Mounts Mount the current Windows directory into a container:&#xA;docker run --rm -v $(pwd):/windowsfolder openapitools/openapi-diff /windowsfolder/openapi_v2.json /windowsfolder/openapi_v3.json The $(pwd) expands to the Windows path (e.</description>
     </item>
     <item>
       <title>Remove `curl` alias from PowerShell permanently</title>
@@ -154,6 +168,13 @@
       <pubDate>Thu, 08 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/</guid>
       <description>Goal Install AzCopy v10 on Windows and add it to the system PATH.&#xA;Installation Script $InstallPath = &amp;#39;C:\AzCopy&amp;#39; ## Cleanup Destination if (Test-Path $InstallPath) { Get-ChildItem $InstallPath | Remove-Item -Confirm:$false -Force } ## Zip Destination $zip = &amp;#34;$InstallPath\AzCopy.Zip&amp;#34; ## Create the installation folder (eg. C:\AzCopy) $null = New-Item -Type Directory -Path $InstallPath -Force ## Download AzCopy zip for Windows Start-BitsTransfer -Source &amp;#34;https://aka.ms/downloadazcopy-v10-windows&amp;#34; -Destination $zip ## Expand the Zip file Expand-Archive $zip $InstallPath -Force ## Move to $InstallPath Get-ChildItem &amp;#34;$($InstallPath)\*\*&amp;#34; | Move-Item -Destination &amp;#34;$($InstallPath)\&amp;#34; -Force ##Cleanup - delete ZIP and old folder Remove-Item $zip -Force -Confirm:$false Get-ChildItem &amp;#34;$($InstallPath)\*&amp;#34; -Directory | ForEach-Object { Remove-Item $_.</description>
+    </item>
+    <item>
+      <title>Convert React App to Progressive Web App (PWA)</title>
+      <link>https://www.bustroker.com/notes/convert-react-app-to-progressive-web-app-pwa/</link>
+      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/convert-react-app-to-progressive-web-app-pwa/</guid>
+      <description>Goal Transform a React app into a Progressive Web App that can be installed and run standalone on devices.&#xA;Create React App with TypeScript npx create-react-app bkr-dilution --template typescript The create-react-app command includes manifest.json by default, providing the foundation for PWA functionality.</description>
     </item>
     <item>
       <title>Include Files in Build Output Directory</title>
@@ -252,6 +273,13 @@
       <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/running-trivy-security-scanner-from-docker-on-macos/</guid>
       <description>Goal: Run Trivy security scanner using Docker without installing it locally.&#xA;Official documentation: https://aquasecurity.github.io/trivy/v0.38/&#xA;Basic Usage docker run aquasec/trivy version Scan Local Filesystem docker run -v /host/src/to/scan:/target aquasec/trivy --debug fs /target &amp;gt; trivy-output-report.txt Output file is created in your current directory.&#xA;https://aquasecurity.github.io/trivy/v0.20.2/getting-started/cli/fs/&#xA;Scan Git Repository Public repositories only: https://aquasecurity.github.io/trivy/v0.20.2/vulnerability/scanning/git-repository/&#xA;docker run aquasec/trivy repo REPO_URL Scan .NET Projects Trivy requires packages.config or *.deps.json files. For projects using &amp;lt;PackageReference/&amp;gt;, build first to generate the deps file:</description>
+    </item>
+    <item>
+      <title>Scan for Vulnerabilities with Trivy</title>
+      <link>https://www.bustroker.com/notes/scan-for-vulnerabilities-with-trivy/</link>
+      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/scan-for-vulnerabilities-with-trivy/</guid>
+      <description>Goal Scan a directory for security vulnerabilities using Trivy.&#xA;Install Trivy brew install trivy Scan a Directory trivy fs --severity CRITICAL,MEDIUM /path/to/folder This scans the specified folder and reports vulnerabilities with CRITICAL or MEDIUM severity levels.</description>
     </item>
     <item>
       <title>Setting Environment Variables on Mac</title>
@@ -450,6 +478,13 @@
       <description>Bypass digitally sign constraint for scripts execution Run as Administrator:&#xA;Set-ExecutionPolicy -ExecutionPolicy Unrestricted List environment variables Get-ChildItem -Path Env:\ Get system-level variables via .NET (also accepts user):&#xA;[System.Environment]::GetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;,&amp;#39;machine&amp;#39;) Get computer name (doesn&amp;rsquo;t work with the above method):&#xA;$env:computername Set environment variable Run as Administrator.&#xA;New variable:&#xA;[System.Environment]::SetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;, &amp;#39;VARIABLE_VALUE&amp;#39;,[System.EnvironmentVariableTarget]::Machine) Append to existing variable (e.g. PATH):&#xA;$current=[System.Environment]::GetEnvironmentVariable(&amp;#39;PATH&amp;#39;,&amp;#39;machine&amp;#39;);$newpath=&amp;#34;$current;C:\new\stuff\in\the\path&amp;#34;;[System.Environment]::SetEnvironmentVariable(&amp;#39;PATH&amp;#39;, $newpath,[System.EnvironmentVariableTarget]::Machine) Remove environment variable Remove-Item env:\VARIABLE_NAME Enable Windows feature (ServerManager) Install RSAT (includes ServerManager module) - run as Administrator:</description>
     </item>
     <item>
+      <title>Unattended SQL Server Installation with PowerShell</title>
+      <link>https://www.bustroker.com/notes/unattended-sql-server-installation-with-powershell/</link>
+      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/unattended-sql-server-installation-with-powershell/</guid>
+      <description>Download SQL Server installation media from here and select Download Media.&#xA;Express Edition Run PowerShell as administrator:&#xA;cd C:\SQL2019\SQLEXPR_x64_ENU .\setup.exe /Q /HIDECONSOLE=0 /ACTION=INSTALL /SUPPRESSPRIVACYSTATEMENTNOTICE /IACCEPTSQLSERVERLICENSETERMS=1 /FEATURES=SQLENGINE /UPDATEENABLED=0 /INSTANCENAME=&amp;#34;MSSQLSERVER&amp;#34; /ADDCURRENTUSERASSQLADMIN=1 /SECURITYMODE=SQL /SKIPRULES=RebootRequiredCheck /SAPWD=&amp;#34;Pasword_01&amp;#34; /SQLSVCSTARTUPTYPE=AUTOMATIC /INDICATEPROGRESS Developer Edition Run PowerShell as administrator:&#xA;cd C:\SQL2019\Developer_ENU .\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=&amp;#39;NT AUTHORITY\NETWORK SERVICE&amp;#39; /SQLSYSADMINACCOUNTS=&amp;#39;BUILTIN\ADMINISTRATORS&amp;#39; /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS /SECURITYMODE=SQL /SAPWD=&amp;#34;Password_01&amp;#34; Uninstall .\setup.exe /q /ACTION=Uninstall /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /INDICATEPROGRESS </description>
+    </item>
+    <item>
       <title>Minimal HTML5 Template</title>
       <link>https://www.bustroker.com/notes/minimal-html5-template/</link>
       <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
@@ -518,6 +553,13 @@
       <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-ci/cd-setup/</guid>
       <description>Goal Build a single YAML pipeline that builds a Docker container, pushes it to Azure Container Registry, and deploys it sequentially to dev and int environments with approval gates.&#xA;Key Points Use a single pipeline for CI-CD (no way to pass BuildId between separate pipelines) Environments are auto-created on first deployment Configure approvals directly on environments in Azure DevOps Create Service Connection before running pipeline Pipeline Structure Trigger on master branch push:</description>
+    </item>
+    <item>
+      <title>Passing Arguments to Batch and Bash Scripts</title>
+      <link>https://www.bustroker.com/notes/passing-arguments-to-batch-and-bash-scripts/</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/passing-arguments-to-batch-and-bash-scripts/</guid>
+      <description>Windows Batch Script //windows-script.bat set firstArgument=%1% set secondArgument=%2% echo You passed first %firstArgument% and second %secondArgument% Usage:&#xA;.\windows-script.bat &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Unix Bash Script //unix-script.bash ##!/bin/sh firstArgument=$1 secondArgument=$2 echo You passed first $firstArgument and second $secondArgument ## to give a default value to the argument arg=&amp;#34;${1:-DEFAULT_VALUE}&amp;#34; Usage:&#xA;bash unix-script.bash &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Default values: Use ${1:-DEFAULT_VALUE} syntax to provide fallback when no argument is passed.</description>
     </item>
     <item>
       <title>Authenticate and call Azure App Service with AAD using curl</title>
@@ -618,6 +660,13 @@
       <description>Goal: Set up Serilog for console logging in an ASP.NET Core Web API.&#xA;Install Serilog dotnet add package Serilog.AspNetCore Configure Serilog in Program.cs public class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.</description>
     </item>
     <item>
+      <title>File Logging in .NET Console Apps with Serilog</title>
+      <link>https://www.bustroker.com/notes/file-logging-in-.net-console-apps-with-serilog/</link>
+      <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/file-logging-in-.net-console-apps-with-serilog/</guid>
+      <description>Goal Set up basic file logging in a .NET Console application using Serilog.&#xA;Setup Install Serilog:&#xA;dotnet add package Serilog Implementation Configure the logger in your Main method:&#xA;static async Task Main(string[] args) { Log.Logger = new LoggerConfiguration() .Enrich.FromLogContext() .WriteTo.Console() .WriteTo.File(&amp;#34;logs/log.json&amp;#34;) .CreateLogger(); Log.Information(&amp;#34;Running..&amp;#34;); } This configuration:&#xA;Writes logs to both console and logs/log.json Enriches log events with contextual information via FromLogContext() </description>
+    </item>
+    <item>
       <title>Configure URL Rewrites in web.config for IIS</title>
       <link>https://www.bustroker.com/notes/configure-url-rewrites-in-web.config-for-iis/</link>
       <pubDate>Tue, 09 Jun 2020 00:00:00 +0000</pubDate>
@@ -665,6 +714,13 @@
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/python-data-science-cheatsheet/</guid>
       <description>Pandas import pandas as pd Importing Data pd.read_csv(filename) # From a CSV file pd.read_table(filename) # From a delimited text file (like TSV) pd.read_excel(filename) # From an Excel file pd.read_sql(query, connection_object) # Read from a SQL table/database pd.read_json(json_string) # Read from a JSON formatted string, URL or file pd.read_html(url) # Parses an html URL, string or file and extracts tables to a list of dataframes pd.read_clipboard() # Takes the contents of your clipboard and passes it to read_table() pd.</description>
+    </item>
+    <item>
+      <title>NuGet.config Authentication with Azure DevOps Package Feeds</title>
+      <link>https://www.bustroker.com/notes/nuget.config-authentication-with-azure-devops-package-feeds/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/nuget.config-authentication-with-azure-devops-package-feeds/</guid>
+      <description>Goal Authenticate NuGet to access private Azure DevOps Package Feeds.&#xA;Setup Azure DevOps Add user bustroker.packages.restore@bustroker.onmicrosoft.com as a Reader in your Feed&amp;rsquo;s Security tab, then generate a Read Package PAT.&#xA;Basic Authentication //nuget.config &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;packageSources&amp;gt; &amp;lt;clear /&amp;gt; &amp;lt;add key=&amp;#34;BustrokerPackages&amp;#34; value=&amp;#34;https://pkgs.dev.azure.com/bustroker/_packaging/Bustroker.Packages./nuget/v3/index.json&amp;#34; /&amp;gt; &amp;lt;/packageSources&amp;gt; &amp;lt;packageSourceCredentials&amp;gt; &amp;lt;BustrokerPackages&amp;gt; &amp;lt;add key=&amp;#34;Username&amp;#34; value=&amp;#34;bustroker.packages.restore@bustroker.onmicrosoft.com&amp;#34; /&amp;gt; &amp;lt;!-- Azure DevOps PAT that can ONLY ReadPackages --&amp;gt; &amp;lt;add key=&amp;#34;ClearTextPassword&amp;#34; value=&amp;#34;CLEAR_PAT&amp;#34; /&amp;gt; &amp;lt;/BustrokerPackages&amp;gt; &amp;lt;/packageSourceCredentials&amp;gt; &amp;lt;/configuration&amp;gt; Using Environment Variables //nuget.</description>
     </item>
     <item>
       <title>Enable Azure App Service Health Check from Azure CLI</title>
@@ -744,6 +800,13 @@
       <description>Goal Create a .NET Core solution with a class library project and xUnit test project, all configured and ready to use in VS Code.&#xA;Create Solution Structure mkdir Bustroker.Notes cd Bustroker.Notes dotnet new sln -n Bustroker.Notes Create Class Library dotnet new classlib -n Bustroker.Notes dotnet sln add Bustroker.Notes/Bustroker.Notes.csproj Create xUnit Test Project dotnet new xunit -n Bustroker.Notes.Tests dotnet sln add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj Link Test Project to Class Library dotnet add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj reference .</description>
     </item>
     <item>
+      <title>Build a Voice Command Assistant with Node.js on Raspberry Pi</title>
+      <link>https://www.bustroker.com/notes/build-a-voice-command-assistant-with-node.js-on-raspberry-pi/</link>
+      <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/build-a-voice-command-assistant-with-node.js-on-raspberry-pi/</guid>
+      <description>Build a voice-controlled assistant on a Raspberry Pi 3 using Node.js, PocketSphinx for speech recognition, and Node-RED for command orchestration.&#xA;Architecture Three components communicate via MQTT:&#xA;shirka_ears: Listens to microphone, publishes voice commands shirka_voice: Receives messages, converts to speech, plays audio Node-RED: Routes commands and responses between components The Ears Speech recognition using PocketSphinx:&#xA;npm install pocketsphinx Listen for commands and publish to MQTT:&#xA;const mqtt = require(&amp;#39;mqtt&amp;#39;); const ps = require(&amp;#39;pocketsphinx&amp;#39;); const client = mqtt.</description>
+    </item>
+    <item>
       <title>Minimal Node.js Express API</title>
       <link>https://www.bustroker.com/notes/minimal-node.js-express-api/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
@@ -763,69 +826,6 @@
       <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/python-mortgage-calculator/</guid>
       <description>Goal Calculate mortgage payments and remaining debt using the formulas from Universidad de Valencia Professor Carlos Ivorra&amp;rsquo;s article Las matemáticas de una hipoteca (PDF).&#xA;Implementation Monthly effective interest rate def interés_efectivo_mensual(self, euríbor, diferencial_interés): # (divido tb por 100 para tener el por-uno) return (euríbor + diferencial_interés) / 1200 Monthly payment amount def cuota(self, monto_préstamo, interés_efectivo_mensual, total_de_meses): c_0 = monto_préstamo i = interés_efectivo_mensual N = total_de_meses return (c_0 * i) / (1-(1 + i)**(-N)) Remaining debt after n payments def deuda_después_de_n_pagos(self, monto_cuota, interés_efectivo_mensual, total_de_meses, n): c = monto_cuota i = interés_efectivo_mensual N = total_de_meses return c/i * (1 - (1+i)**(n-N)) Complete code github.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>✓ List directory . └ 6 files found&#xA;--- title: NuGet.config Authentication with Azure DevOps Package Feeds tags: - nuget.config - cheatsheet date: 2020-05-25 --- ### Goal Authenticate NuGet to access private Azure DevOps Package Feeds. ### Setup Azure DevOps Add user `bustroker.packages.restore@bustroker.onmicrosoft.com` as a Reader in your Feed&amp;#39;s Security tab, then generate a Read Package PAT. ### Basic Authentication ```xml //nuget.config &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;packageSources&amp;gt; &amp;lt;clear /&amp;gt; &amp;lt;add key=&amp;#34;BustrokerPackages&amp;#34; value=&amp;#34;https://pkgs.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>✓ List directory . └ 6 files found&#xA;--- title: Passing Arguments to Batch and Bash Scripts tags: - command line - bat - bash date: 2020-09-29 --- ### Windows Batch Script ```console //windows-script.bat set firstArgument=%1% set secondArgument=%2% echo You passed first %firstArgument% and second %secondArgument% Usage:&#xA;.\windows-script.bat &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Unix Bash Script //unix-script.bash ##!/bin/sh firstArgument=$1 secondArgument=$2 echo You passed first $firstArgument and second $secondArgument ## to give a default value to the argument arg=&amp;#34;${1:-DEFAULT_VALUE}&amp;#34; Usage:</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>✓ List directory . └ 6 files found&#xA;--- title: Convert React App to Progressive Web App (PWA) tags: - react - web app - PWA - progressive web app - standalone date: 2024-07-10 --- ### Goal Transform a React app into a Progressive Web App that can be installed and run standalone on devices. ### Create React App with TypeScript ```bash npx create-react-app bkr-dilution --template typescript The create-react-app command includes manifest.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>✗ $ cat &amp;gt; /tmp/article.md &amp;laquo; &amp;lsquo;EOF&amp;rsquo; title: File Logging in .NET Console Apps with Serilog tags: - dotnet core&amp;hellip; Permission denied and could not request permission from user&#xA;--- title: File Logging in .NET Console Apps with Serilog tags: - dotnet core - serilog date: 2020-06-19 --- ### Goal Set up basic file logging in a .NET Console application using Serilog. ### Setup Install Serilog: ```bash dotnet add package Serilog Implementation Configure the logger in your Main method:</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>I&amp;rsquo;ll convert this technical note into a polished developer blog article by first reading any related files, then creating the final article.&#xA;✓ List directory . └ 6 files found&#xA;title: Build a Voice Command Assistant with Node.js on Raspberry Pi tags:&#xA;raspberry pi date: 2019-06-19 Build a voice-controlled assistant on a Raspberry Pi 3 using Node.js, PocketSphinx for speech recognition, and Node-RED for command orchestration.&#xA;Architecture Three components communicate via MQTT:</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>✓ List directory . └ 6 files found&#xA;title: Building a Solutions Architecture Organization tags:&#xA;solution architecture strategy date: 2025-03-19 Building a Solutions Architecture Organization Goal: Establish a Solutions Architecture function that aligns product and technology strategy, drives composable architecture, and enables autonomous teams to deliver customer value at scale.&#xA;Core Responsibilities 1. Align Product and Technology Strategy Understand business strategy, goals, and customer needs Define architecture vision and principles Partner with stakeholders to influence product roadmap 2.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>✓ List directory . └ 6 files found&#xA;--- title: Unattended SQL Server Installation with PowerShell tags: - mssqlserver - powershell date: 2021-03-29 --- Download SQL Server installation media from [here](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) and select **Download Media**. ### Express Edition Run PowerShell as administrator: ```powershell cd C:\SQL2019\SQLEXPR_x64_ENU .\setup.exe /Q /HIDECONSOLE=0 /ACTION=INSTALL /SUPPRESSPRIVACYSTATEMENTNOTICE /IACCEPTSQLSERVERLICENSETERMS=1 /FEATURES=SQLENGINE /UPDATEENABLED=0 /INSTANCENAME=&amp;#34;MSSQLSERVER&amp;#34; /ADDCURRENTUSERASSQLADMIN=1 /SECURITYMODE=SQL /SKIPRULES=RebootRequiredCheck /SAPWD=&amp;#34;Pasword_01&amp;#34; /SQLSVCSTARTUPTYPE=AUTOMATIC /INDICATEPROGRESS Developer Edition Run PowerShell as administrator:&#xA;cd C:\SQL2019\Developer_ENU .\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=0 /SQLSVCACCOUNT=&amp;#39;NT AUTHORITY\NETWORK SERVICE&amp;#39; /SQLSYSADMINACCOUNTS=&amp;#39;BUILTIN\ADMINISTRATORS&amp;#39; /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS /SECURITYMODE=SQL /SAPWD=&amp;#34;Password_01&amp;#34; Uninstall .</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>✓ List directory . └ 6 files found&#xA;I&amp;rsquo;ll create the polished technical article based on your requirements:&#xA;--- title: Scan for Vulnerabilities with Trivy tags: - Trivy - vulnerability - scan date: 2023-02-22 --- ### Goal Scan a directory for security vulnerabilities using Trivy. ### Install Trivy ```bash brew install trivy Scan a Directory trivy fs --severity CRITICAL,MEDIUM /path/to/folder This scans the specified folder and reports vulnerabilities with CRITICAL or MEDIUM severity levels.</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://www.bustroker.com/notes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/</guid>
-      <description>✗ $ cat &amp;gt; /app/out/polished-article.md &amp;laquo; &amp;lsquo;EOF&amp;rsquo; title: Running Docker in WSL with Windows Folder Access tags: - Windows Subsystem for Linux&amp;hellip; Permission denied and could not request permission from user&#xA;title: Running Docker in WSL with Windows Folder Access tags:&#xA;Windows Subsystem for Linux WSL docker date: 2025-02-17 Goal Run Docker containers in WSL that can access Windows folders directly.&#xA;Install WSL List available distributions and install Ubuntu:&#xA;wsl --list --online wsl --install Ubuntu Access Windows Folders from WSL Windows drives are mounted under /mnt/ in WSL.</description>
     </item>
   </channel>
 </rss>

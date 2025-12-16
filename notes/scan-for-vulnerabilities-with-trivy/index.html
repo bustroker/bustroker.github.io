@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Progressive Web App | Coding notes - and snippets</title>
+  <title>Scan for Vulnerabilities with Trivy | Coding notes - and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,36 +130,14 @@ audio {
       <main id="main">
         
 
-<h1>Progressive Web App</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/convert-react-app-to-progressive-web-app-pwa/">Convert React App to Progressive Web App (PWA)</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2024-07-10">Jul 10, 2024</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/react">react</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/web-app">web app</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/pwa">PWA</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/progressive-web-app">progressive web app</a>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/standalone">standalone</a>
-  
-
-</p>
+<h1>Scan for Vulnerabilities with Trivy</h1>
+<h3 id="goal">Goal</h3>
+<p>Scan a directory for security vulnerabilities using Trivy.</p>
+<h3 id="install-trivy">Install Trivy</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install trivy
+</span></span></code></pre></div><h3 id="scan-a-directory">Scan a Directory</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>trivy fs --severity CRITICAL,MEDIUM /path/to/folder
+</span></span></code></pre></div><p>This scans the specified folder and reports vulnerabilities with CRITICAL or MEDIUM severity levels.</p>
 
 
 

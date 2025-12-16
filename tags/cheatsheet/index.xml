@@ -100,6 +100,13 @@
       <description>Pandas import pandas as pd Importing Data pd.read_csv(filename) # From a CSV file pd.read_table(filename) # From a delimited text file (like TSV) pd.read_excel(filename) # From an Excel file pd.read_sql(query, connection_object) # Read from a SQL table/database pd.read_json(json_string) # Read from a JSON formatted string, URL or file pd.read_html(url) # Parses an html URL, string or file and extracts tables to a list of dataframes pd.read_clipboard() # Takes the contents of your clipboard and passes it to read_table() pd.</description>
     </item>
     <item>
+      <title>NuGet.config Authentication with Azure DevOps Package Feeds</title>
+      <link>https://www.bustroker.com/notes/nuget.config-authentication-with-azure-devops-package-feeds/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/nuget.config-authentication-with-azure-devops-package-feeds/</guid>
+      <description>Goal Authenticate NuGet to access private Azure DevOps Package Feeds.&#xA;Setup Azure DevOps Add user bustroker.packages.restore@bustroker.onmicrosoft.com as a Reader in your Feed&amp;rsquo;s Security tab, then generate a Read Package PAT.&#xA;Basic Authentication //nuget.config &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;packageSources&amp;gt; &amp;lt;clear /&amp;gt; &amp;lt;add key=&amp;#34;BustrokerPackages&amp;#34; value=&amp;#34;https://pkgs.dev.azure.com/bustroker/_packaging/Bustroker.Packages./nuget/v3/index.json&amp;#34; /&amp;gt; &amp;lt;/packageSources&amp;gt; &amp;lt;packageSourceCredentials&amp;gt; &amp;lt;BustrokerPackages&amp;gt; &amp;lt;add key=&amp;#34;Username&amp;#34; value=&amp;#34;bustroker.packages.restore@bustroker.onmicrosoft.com&amp;#34; /&amp;gt; &amp;lt;!-- Azure DevOps PAT that can ONLY ReadPackages --&amp;gt; &amp;lt;add key=&amp;#34;ClearTextPassword&amp;#34; value=&amp;#34;CLEAR_PAT&amp;#34; /&amp;gt; &amp;lt;/BustrokerPackages&amp;gt; &amp;lt;/packageSourceCredentials&amp;gt; &amp;lt;/configuration&amp;gt; Using Environment Variables //nuget.</description>
+    </item>
+    <item>
       <title>Change directory to different drive in Windows cmd</title>
       <link>https://www.bustroker.com/notes/change-directory-to-different-drive-in-windows-cmd/</link>
       <pubDate>Sat, 09 Nov 2019 00:00:00 +0000</pubDate>

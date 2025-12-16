@@ -6,8 +6,15 @@
     <description>Recent content in Docker on Coding notes - and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Running Docker in WSL with Windows Folder Access</title>
+      <link>https://www.bustroker.com/notes/running-docker-in-wsl-with-windows-folder-access/</link>
+      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/running-docker-in-wsl-with-windows-folder-access/</guid>
+      <description>Goal Run Docker containers in WSL that can access Windows folders directly.&#xA;Install WSL List available distributions and install Ubuntu:&#xA;wsl --list --online wsl --install Ubuntu Access Windows Folders from WSL Windows drives are mounted under /mnt/ in WSL. Navigate to any Windows folder:&#xA;cd /mnt/c/Users/bustroker/windowsfolder Run Docker with Windows Folder Mounts Mount the current Windows directory into a container:&#xA;docker run --rm -v $(pwd):/windowsfolder openapitools/openapi-diff /windowsfolder/openapi_v2.json /windowsfolder/openapi_v3.json The $(pwd) expands to the Windows path (e.</description>
+    </item>
     <item>
       <title>Running Docker on Mac with Colima</title>
       <link>https://www.bustroker.com/notes/running-docker-on-mac-with-colima/</link>

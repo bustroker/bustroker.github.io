@@ -15,5 +15,12 @@
       <guid>https://www.bustroker.com/notes/send-email-from-bash-in-linux/</guid>
       <description>Send emails from bash scripts using msmtp and any SMTP server (AWS SES, Gmail, etc.).&#xA;Install msmtp sudo apt-get install msmtp -y Configure SMTP Server cat &amp;gt; ~/.msmtprc &amp;lt;&amp;lt;EOF defaults auth on tls on tls_starttls on tls_certcheck off account aws_ses host email-smtp.eu-central-1.amazonaws.com port 587 from FROM@EMAIL.COM user USER password PASSWORD account default : aws_ses EOF Set Permissions chmod 600 ~/.msmtprc Send Email printf &amp;#34;Subject: Test smtp ubuntu\n\nHello there from ubuntu.&amp;#34; | msmtp -a aws_ses recipient@example.</description>
     </item>
+    <item>
+      <title>Passing Arguments to Batch and Bash Scripts</title>
+      <link>https://www.bustroker.com/notes/passing-arguments-to-batch-and-bash-scripts/</link>
+      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/passing-arguments-to-batch-and-bash-scripts/</guid>
+      <description>Windows Batch Script //windows-script.bat set firstArgument=%1% set secondArgument=%2% echo You passed first %firstArgument% and second %secondArgument% Usage:&#xA;.\windows-script.bat &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Unix Bash Script //unix-script.bash ##!/bin/sh firstArgument=$1 secondArgument=$2 echo You passed first $firstArgument and second $secondArgument ## to give a default value to the argument arg=&amp;#34;${1:-DEFAULT_VALUE}&amp;#34; Usage:&#xA;bash unix-script.bash &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Default values: Use ${1:-DEFAULT_VALUE} syntax to provide fallback when no argument is passed.</description>
+    </item>
   </channel>
 </rss>

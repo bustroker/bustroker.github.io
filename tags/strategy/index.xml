@@ -15,5 +15,12 @@
       <guid>https://www.bustroker.com/notes/ai-solution-architecture-learning-path/</guid>
       <description>Goal Build production AI systems with proper architecture, agent orchestration, and operational practices.&#xA;Resources Book https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0&#xA;Architecture Courses AdaSci - Agentic AI System Architect&#xA;https://adasci.org/courses/adasci-certified-agentic-ai-system-architect/&#xA;UMBC - AI for Architects&#xA;https://www.umbctraining.com/courses/ai-for-architects&#xA;AI Architecture Fundamentals Day 1: Core Architecture AI patterns and enterprise integration Training &amp;amp; inference pipelines Agent architectures: tools and context management Multi-agent collaboration and orchestration Day 2: Platform Operations Model registries and orchestration engines CI/CD automation for training and deployment GitOps for ML systems Observability: drift detection and agent behavior tracking Day 3: Production Operations Security for data, models, and multi-agent systems Privacy, fairness, and compliance Model versioning and lifecycle management Governance and cost management Advanced: Production Gen AI https://maven.</description>
     </item>
+    <item>
+      <title>Building a Solutions Architecture Organization</title>
+      <link>https://www.bustroker.com/notes/building-a-solutions-architecture-organization/</link>
+      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/building-a-solutions-architecture-organization/</guid>
+      <description>Building a Solutions Architecture Organization Goal: Establish a Solutions Architecture function that aligns product and technology strategy, drives composable architecture, and enables autonomous teams to deliver customer value at scale.&#xA;Core Responsibilities 1. Align Product and Technology Strategy Understand business strategy, goals, and customer needs Define architecture vision and principles Partner with stakeholders to influence product roadmap 2. Define Composable Architecture Map domains, capabilities, components, and team ownership Build target architecture and roadmaps Make critical decisions on tech stack, frameworks, design patterns, standards 3.</description>
+    </item>
   </channel>
 </rss>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Standalone on Coding notes</title>
+    <title>Standalone on Coding notes - and snippets</title>
     <link>https://www.bustroker.com/tags/standalone/</link>
-    <description>Recent content in Standalone on Coding notes</description>
+    <description>Recent content in Standalone on Coding notes - and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 10 Jul 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/standalone/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Getting started - React web app - PWA</title>
-      <link>https://www.bustroker.com/notes/getting-started-react-web-app-pwa/</link>
+      <title>Convert React App to Progressive Web App (PWA)</title>
+      <link>https://www.bustroker.com/notes/convert-react-app-to-progressive-web-app-pwa/</link>
       <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/getting-started-react-web-app-pwa/</guid>
-      <description>Create react app with typescript npx create-react-app bkr-dilution --template typescript Manifest file for PWA The create-react-app commands already adds manifest.json to make it a Progressive Web App.</description>
+      <guid>https://www.bustroker.com/notes/convert-react-app-to-progressive-web-app-pwa/</guid>
+      <description>Goal Transform a React app into a Progressive Web App that can be installed and run standalone on devices.&#xA;Create React App with TypeScript npx create-react-app bkr-dilution --template typescript The create-react-app command includes manifest.json by default, providing the foundation for PWA functionality.</description>
     </item>
   </channel>
 </rss>

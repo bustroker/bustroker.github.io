@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title> | Coding notes - and snippets</title>
+  <title>Notes | Coding notes - and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -104,11 +104,13 @@ audio {
       
       
       
+       
+        
         
       
     
     
-    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+    <a class="nav-link nav-link-active" href="/notes/"><i data-feather="edit"></i> Notes</a>
   
     
     
@@ -130,34 +132,2390 @@ audio {
       <main id="main">
         
 
-<h1></h1>
-<h2 id="--cat--appoutpolished-articlemd--eof">✗ $ cat &gt; /app/out/polished-article.md &laquo; &lsquo;EOF&rsquo;</h2>
-<p>title: Running Docker in WSL with Windows Folder Access
-tags:
-- Windows Subsystem for Linux&hellip;
-Permission denied and could not request permission from user</p>
-<hr>
-<p>title: Running Docker in WSL with Windows Folder Access
-tags:</p>
-<ul>
-<li>Windows Subsystem for Linux</li>
-<li>WSL</li>
-<li>docker</li>
-</ul>
-<h2 id="date-2025-02-17">date: 2025-02-17</h2>
-<h3 id="goal">Goal</h3>
-<p>Run Docker containers in WSL that can access Windows folders directly.</p>
-<h3 id="install-wsl">Install WSL</h3>
-<p>List available distributions and install Ubuntu:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wsl --list --online
-</span></span><span style="display:flex;"><span>wsl --install Ubuntu
-</span></span></code></pre></div><h3 id="access-windows-folders-from-wsl">Access Windows Folders from WSL</h3>
-<p>Windows drives are mounted under <code>/mnt/</code> in WSL. Navigate to any Windows folder:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /mnt/c/Users/bustroker/windowsfolder
-</span></span></code></pre></div><h3 id="run-docker-with-windows-folder-mounts">Run Docker with Windows Folder Mounts</h3>
-<p>Mount the current Windows directory into a container:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run --rm -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:/windowsfolder openapitools/openapi-diff /windowsfolder/openapi_v2.json /windowsfolder/openapi_v3.json
-</span></span></code></pre></div><p>The <code>$(pwd)</code> expands to the Windows path (e.g., <code>/mnt/c/Users/bustroker/windowsfolder</code>), making it accessible inside the container at <code>/windowsfolder</code>.</p>
+<h1>Notes</h1>
+
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/ai-agent-frameworks-mental-models-and-control-flow/">AI Agent Frameworks - Mental Models and Control Flow</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-12-10">Dec 10, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/ai">AI</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/llm">LLM</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/agents">agents</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/frameworks">frameworks</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/llm-agentic-patterns-a-practical-guide/">LLM Agentic Patterns - A Practical Guide</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-11-23">Nov 23, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/ai">AI</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/llm">LLM</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/agents">agents</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/patterns">patterns</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/restore-previous-commit-without-changing-head/">Restore Previous Commit Without Changing HEAD</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-11-13">Nov 13, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git-checkout">git checkout</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/force-sync-master-with-dev-branch-via-pull-request/">Force Sync Master with Dev Branch via Pull Request</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-11-01">Nov 1, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/force">force</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/pr">PR</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/remove-curl-alias-from-powershell/">Remove curl alias from PowerShell</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-10-28">Oct 28, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/curl">curl</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/alias">alias</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/ai-solution-architecture-learning-path/">AI Solution Architecture Learning Path</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-09-16">Sep 16, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/ai">AI</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/solution-architecture">solution architecture</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/strategy">strategy</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/enterprise-api-guidelines/">Enterprise API Guidelines</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-07-15">Jul 15, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/api">api</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/guidelines">guidelines</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/http">http</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/unified-observability-stack-with-.net-ilogger-elastic-and-sentry/">Unified Observability Stack with .NET ILogger, Elastic, and Sentry</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-06-26">Jun 26, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/elastic">elastic</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/sentry">sentry</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/logging">logging</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/observability">observability</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/apm">apm</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/.net-templates-and-database-migrations/">.NET Templates and Database Migrations</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-06-26">Jun 26, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/devops">devops</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/automation">automation</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/az-devops">az devops</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/templates">templates</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet">dotnet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/building-a-gdpr-compliant-data-platform-for-saas-with-databricks/">Building a GDPR-Compliant Data Platform for SaaS with Databricks</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-05-08">May 8, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/data-strategy">data strategy</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/engineering-principles-for-reliable-systems/">Engineering Principles for Reliable Systems</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-03-26">Mar 26, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/engineering">engineering</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/building-a-solutions-architecture-organization/">Building a Solutions Architecture Organization</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-03-19">Mar 19, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/solution-architecture">solution architecture</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/strategy">strategy</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/implementing-row-level-security-in-entity-framework-with-connection-interceptors/">Implementing Row-Level Security in Entity Framework with Connection Interceptors</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-03-05">Mar 5, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/entityframework">entityframework</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/connection-interceptor">connection interceptor</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/rls">RLS</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/row-level-security">row level security</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/sql">sql</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/save-and-restore-vs-code-settings-with-powershell/">Save and Restore VS Code Settings with PowerShell</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-02-19">Feb 19, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vs-code">vs code</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/settings">settings</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-.net/">Generate and Diff OpenAPI Specs in .NET</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-02-19">Feb 19, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/openapi">openAPI</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet">dotnet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/running-docker-in-wsl-with-windows-folder-access/">Running Docker in WSL with Windows Folder Access</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-02-17">Feb 17, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/windows-subsystem-for-linux">Windows Subsystem for Linux</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/wsl">WSL</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/remove-curl-alias-from-powershell-permanently/">Remove `curl` alias from PowerShell permanently</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-02-14">Feb 14, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/curl-alias">curl alias</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/adding-images-to-hugo-sites/">Adding Images to Hugo Sites</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2025-02-11">Feb 11, 2025</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/hugo">hugo</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/promote-rc-images-to-release-in-ecr-with-github-actions/">Promote RC Images to Release in ECR with GitHub Actions</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-09-30">Sep 30, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/github">github</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/actions">actions</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/testing-fluxcd-imagepolicy-regex-with-go/">Testing FluxCD ImagePolicy Regex with Go</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-09-13">Sep 13, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/go">go</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/regex">regex</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/imagepolicy">ImagePolicy</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/fluxcd">fluxcd</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/running-c">Running C# Scripts with dotnet-script</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-08-19">Aug 19, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet">dotnet</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/script">script</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/csx">csx</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/git-stash-and-diff-patches/">Git Stash and Diff Patches</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-08-12">Aug 12, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/stash">stash</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/save-diff">save diff</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/install-azcopy-in-windows-from-powershell/">Install AzCopy in Windows from PowerShell</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-08-08">Aug 8, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azcopy">azcopy</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/windows">windows</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/convert-react-app-to-progressive-web-app-pwa/">Convert React App to Progressive Web App (PWA)</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-07-10">Jul 10, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/react">react</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/web-app">web app</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/pwa">PWA</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/progressive-web-app">progressive web app</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/standalone">standalone</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/include-files-in-build-output-directory/">Include Files in Build Output Directory</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-05-14">May 14, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vscode">vscode</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/file-output">file output</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/minimal-typescript-project-setup/">Minimal TypeScript Project Setup</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-04-10">Apr 10, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/typescript">typescript</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/getting-started">getting started</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/building-a-python-oop-console-application/">Building a Python OOP Console Application</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-03-27">Mar 27, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/python">python</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/redis-cli-essential-commands/">Redis CLI Essential Commands</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-03-14">Mar 14, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/redis">redis</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cli">cli</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/run-llm-locally-with-ollama/">Run LLM Locally with Ollama</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-02-23">Feb 23, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/llm">LLM</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/autohotkey">autohotkey</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/ai">AI</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/git-stop-tracking-files-while-keeping-them-locally/">Git - Stop Tracking Files While Keeping Them Locally</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-02-08">Feb 8, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/forget">forget</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/running-docker-on-mac-with-colima/">Running Docker on Mac with Colima</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-02-06">Feb 6, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mac">mac</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/colima">colima</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/automating-git-push-with-ssh-keys-in-scripts/">Automating Git Push with SSH Keys in Scripts</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2024-02-06">Feb 6, 2024</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git-push">git push</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/script">script</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/send-email-from-bash-in-linux/">Send Email from Bash in Linux</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2023-10-06">Oct 6, 2023</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/bash">bash</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/email">email</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/aws-cli-cheatsheet/">AWS CLI Cheatsheet</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2023-08-23">Aug 23, 2023</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aws">aws</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aws-cli">aws cli</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/essential-developer-tools-catalog/">Essential Developer Tools Catalog</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2023-08-09">Aug 9, 2023</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/tools">tools</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/catalog">catalog</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/managing-multiple-ssh-keys-for-different-github-accounts/">Managing Multiple SSH Keys for Different GitHub Accounts</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2023-06-27">Jun 27, 2023</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/ssh">ssh</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/github">github</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/configure-aws-cli-authentication/">Configure AWS CLI Authentication</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2023-06-26">Jun 26, 2023</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aws">aws</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cli">cli</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/authentication">authentication</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/running-trivy-security-scanner-from-docker-on-macos/">Running Trivy Security Scanner from Docker on macOS</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2023-03-14">Mar 14, 2023</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mac">mac</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/trivy">trivy</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/scan-for-vulnerabilities-with-trivy/">Scan for Vulnerabilities with Trivy</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2023-02-22">Feb 22, 2023</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/trivy">Trivy</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vulnerability">vulnerability</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/scan">scan</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/setting-environment-variables-on-mac/">Setting Environment Variables on Mac</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2023-01-03">Jan 3, 2023</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mac">mac</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/environment">environment</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/java-ecosystem-overview/">Java Ecosystem Overview</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2022-10-10">Oct 10, 2022</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/java">java</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/architecture-principles-for-developer-autonomy/">Architecture Principles for Developer Autonomy</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2022-06-29">Jun 29, 2022</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/architecture">architecture</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/solution-architecture-assessment-checklist/">Solution Architecture Assessment Checklist</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2022-06-23">Jun 23, 2022</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/architecture">architecture</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/deploy-jar-to-azure-databricks-from-local-machine/">Deploy JAR to Azure Databricks from Local Machine</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2022-06-07">Jun 7, 2022</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/databricks">databricks</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/architecture-interview-questions-technical-reference/">Architecture Interview Questions - Technical Reference</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2022-05-20">May 20, 2022</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/architecture">architecture</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/interview">interview</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/.net-software-engineer-interview-questions/">.NET Software Engineer Interview Questions</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2022-05-20">May 20, 2022</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/interview">interview</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet-engineer">dotnet engineer</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/run-mssql-2019-on-kubernetes/">Run MSSQL 2019 on Kubernetes</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2022-02-03">Feb 3, 2022</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssql-2019">mssql 2019</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/kubernetes">kubernetes</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/running-concurrent-tasks-with-scala-futures/">Running Concurrent Tasks with Scala Futures</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2022-01-24">Jan 24, 2022</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/scala">scala</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/future">Future</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/query-azure-data-lake-from-synapse-sql-pools-using-sas-credentials/">Query Azure Data Lake from Synapse SQL Pools using SAS credentials</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-12-28">Dec 28, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/synapse">synapse</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/sqlpools">sqlpools</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/writing-to-delta-lake-from-spark-with-scala/">Writing to Delta Lake from Spark with Scala</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-12-20">Dec 20, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/scala">scala</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/spark">spark</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/delta-lake">delta lake</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/spark-with-scala-and-azure-storage/">Spark with Scala and Azure Storage</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-12-20">Dec 20, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/scala">scala</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/spark">spark</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/workaround-for-kafka-avro-deserializer-nullreferenceexception/">Workaround for Kafka Avro Deserializer NullReferenceException</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-11-20">Nov 20, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/kafka">kafka</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/avro">avro</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet">dotnet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/run-kafka-locally-with-docker-compose/">Run Kafka Locally with Docker Compose</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-11-03">Nov 3, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/kafka">kafka</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/scala-http-api-with-http4s/">Scala HTTP API with http4s</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-09-18">Sep 18, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/scala">scala</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/http4s">http4s</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/webapi">webapi</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/">Run Jupyter Notebook with Spark in Docker</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-08-15">Aug 15, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/spark">spark</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/jupyter">jupyter</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/install-spark-and-hadoop-on-windows-10/">Install Spark and Hadoop on Windows 10</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-08-12">Aug 12, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/spark">spark</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/hadoop">hadoop</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/windows">windows</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/recover-lost-path-variable-on-windows/">Recover lost PATH variable on Windows</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-08-10">Aug 10, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/path">PATH</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/extract-tar.gz-files-on-windows-with-7zip/">Extract tar.gz Files on Windows with 7zip</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-08-02">Aug 2, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/7zip">7zip</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/working-with-git-sparse-checkout/">Working with Git Sparse-Checkout</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-06-10">Jun 10, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/git">git</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/sparse-checkout">sparse-checkout</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/">Install dotnet localhost SSL certificate for development</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-05-10">May 10, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet">dotnet</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/ssl-certificate">ssl certificate</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/custom-keyboard-shortcuts-with-autohotkey/">Custom Keyboard Shortcuts with AutoHotKey</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-05-10">May 10, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/keyboard">keyboard</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/autohotkey">autohotkey</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/scala-up-and-running/">Scala Up and Running</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-05-05">May 5, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/scala">scala</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/run-elasticsearch-in-docker-inside-vagrant-vm/">Run Elasticsearch in Docker inside Vagrant VM</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-05-03">May 3, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/elasticsearch">elasticsearch</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vagrant">vagrant</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/asp.net-4.7-in-docker-with-iis-and-self-signed-ssl-certificate/">ASP.NET 4.7 in Docker with IIS and Self-Signed SSL Certificate</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-04-13">Apr 13, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aspnet-4.7">aspnet 4.7</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/iis">IIS</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/ssl">SSL</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/selfsigned-certificate">selfsigned certificate</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/using-sqlcmd-cli-for-sql-server/">Using sqlcmd CLI for SQL Server</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-04-03">Apr 3, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssql">mssql</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssql-tools">mssql-tools</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/sqlcmd">sqlcmd</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cli">cli</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/query-sql-server-from-powershell/">Query SQL Server from PowerShell</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-04-03">Apr 3, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssql">mssql</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/sqlcmd">sqlcmd</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cli">cli</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/unattended-sql-server-installation-with-powershell/">Unattended SQL Server Installation with PowerShell</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-03-29">Mar 29, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssqlserver">mssqlserver</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/powershell-cheatsheet/">PowerShell Cheatsheet</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-03-29">Mar 29, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/powershell">powershell</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/run-mssql-2017-server-in-docker-for-windows/">Run MSSQL 2017 Server in Docker for Windows</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-03-26">Mar 26, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssql-2017">mssql 2017</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/windows">windows</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/">MSSQL Server 2019 Docker Image for Windows</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-03-26">Mar 26, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssql-2019">mssql 2019</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/windows">windows</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/minimal-html5-template/">Minimal HTML5 Template</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-03-26">Mar 26, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/html">html</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/template">template</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/">Run MSSQL Server in Docker inside Vagrant Ubuntu VM</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2021-03-05">Mar 5, 2021</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mssql">mssql</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vagrant">vagrant</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/mysql/mariadb-command-line-cheatsheet/">MySQL/MariaDB Command Line Cheatsheet</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-12-16">Dec 16, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mysql">MySql</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/mariadb">MariaDb</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/technical-reading-list-essential-developer-resources/">Technical Reading List - Essential Developer Resources</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-12-09">Dec 9, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/links">links</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/good-reads">good reads</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/resources">resources</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/simplest-single-client-tcp-server-and-client-in-.net-core/">Simplest Single-Client TCP Server and Client in .NET Core</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-11-11">Nov 11, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/tcp">TCP</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/net-core-3.1">net core 3.1</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/azure-function-for-cosmosdb-change-feed/">Azure Function for CosmosDB Change Feed</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-10-27">Oct 27, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure-function">azure function</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/changefeed">changefeed</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cosmosdb">cosmosdb</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/dockerizing-azure-functions-with-.net/">Dockerizing Azure Functions with .NET</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-10-05">Oct 5, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure-function">azure function</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/azure-devops-yaml-pipeline-ci/cd-setup/">Azure DevOps YAML Pipeline CI/CD Setup</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-09-30">Sep 30, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure-devops">azure devops</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/passing-arguments-to-batch-and-bash-scripts/">Passing Arguments to Batch and Bash Scripts</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-09-29">Sep 29, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/command-line">command line</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/bat">bat</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/bash">bash</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/authenticate-and-call-azure-app-service-with-aad-using-curl/">Authenticate and call Azure App Service with AAD using curl</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-09-22">Sep 22, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/curl">curl</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/dotnet-core-3.1-appsettings-mapping-with-ioptions-ioptionssnapshot-and-ioptionsmonitor/">Dotnet Core 3.1 appsettings mapping with IOptions, IOptionsSnapshot and IOptionsMonitor</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-09-13">Sep 13, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet-core">dotnet core</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/appsettings">appsettings</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/jmeter-command-line-and-dashboard-reports/">JMeter Command Line and Dashboard Reports</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-09-09">Sep 9, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/jmeter">jmeter</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/links">links</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/bundling-and-minification-in-asp.net-core-mvc/">Bundling and Minification in ASP.NET Core MVC</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-08-29">Aug 29, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aspnet-core">aspnet core</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/bundling">bundling</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/minification">minification</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/logging-to-elasticsearch-with-serilog-in-asp.net-core/">Logging to Elasticsearch with Serilog in ASP.NET Core</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-08-24">Aug 24, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aspnet-core-3.1">aspnet core 3.1</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/serilog">serilog</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/elasticsearch">elasticsearch</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-with-phonegap-build-api/">Build native mobile packages from HTML/CSS/JS with PhoneGap Build API</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-08-09">Aug 9, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vagrant">vagrant</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/phonegap">phonegap</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/running-asp.net-core-in-docker-with-vagrant/">Running ASP.NET Core in Docker with Vagrant</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-08-08">Aug 8, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aspnet-core">aspnet core</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vagrant">vagrant</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/deploy-asp.net-core-to-heroku/">Deploy ASP.NET Core to Heroku</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-08-08">Aug 8, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aspnet-core">aspnet core</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/heroku">heroku</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/kubernetes-commands-cheatsheet/">Kubernetes Commands Cheatsheet</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-08-04">Aug 4, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/kubernetes">kubernetes</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/kubectl">kubectl</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/helm-3-commands-cheatsheet/">Helm 3 Commands Cheatsheet</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-08-04">Aug 4, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/helm">helm</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/docker-compose-cheatsheet/">Docker Compose Cheatsheet</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-07-23">Jul 23, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker-compose">docker-compose</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/docker-command-reference/">Docker Command Reference</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-07-23">Jul 23, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker-compose">docker-compose</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/reading-appsettings.json-and-environment-variables-in-.net-3.1/">Reading appsettings.json and Environment Variables in .NET 3.1</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-07-10">Jul 10, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet">dotnet</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/appsettings">appsettings</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/env-vars">env vars</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet-3.1">dotnet 3.1</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/console-logging-in-asp.net-core-with-serilog/">Console Logging in ASP.NET Core with Serilog</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-06-25">Jun 25, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aspnet-core">aspnet core</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/serilog">serilog</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/file-logging-in-.net-console-apps-with-serilog/">File Logging in .NET Console Apps with Serilog</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-06-19">Jun 19, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet-core">dotnet core</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/serilog">serilog</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/configure-url-rewrites-in-web.config-for-iis/">Configure URL Rewrites in web.config for IIS</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-06-09">Jun 9, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/iis">iis</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights--live-metrics/">ILogger&lt;TCategory&gt; with Azure App Service Application Insights &#43; Live Metrics</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-06-05">Jun 5, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/application-insights">application insights</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/live-metrics">live metrics</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aspnet-core-3.1">aspnet core 3.1</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/.net-core-3.1-ilogger-with-azure-app-service-log-streaming/">.NET Core 3.1 ILogger with Azure App Service Log Streaming</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-06-04">Jun 4, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/aspnet-core-3.1">aspnet core 3.1</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/get-azure-managed-identity-tokens-with-curl/">Get Azure Managed Identity tokens with cURL</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-05-31">May 31, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/curl">curl</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/managed-id">managed Id</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/curl-essential-commands-cheatsheet/">cURL Essential Commands Cheatsheet</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-05-30">May 30, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/curl">curl</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/create-files-from-command-line-in-windows/">Create Files from Command Line in Windows</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-05-29">May 29, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/command-line">command line</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/python-data-science-cheatsheet/">Python Data Science Cheatsheet</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-05-26">May 26, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/python">python</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/nuget.config-authentication-with-azure-devops-package-feeds/">NuGet.config Authentication with Azure DevOps Package Feeds</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-05-25">May 25, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/nuget.config">nuget.config</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/enable-azure-app-service-health-check-from-azure-cli/">Enable Azure App Service Health Check from Azure CLI</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-05-18">May 18, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/debugging-azure-app-service-500.30-startup-failures-with-application-insights/">Debugging Azure App Service 500.30 startup failures with Application Insights</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-05-06">May 6, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/troubleshooting">troubleshooting</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/azure-app-configuration.-on-demand-refresh/">Azure App Configuration. On-Demand Refresh</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-05-06">May 6, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/app-configuration">app configuration</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/handling-multiple-exceptions-from-parallel-tasks-in-.net/">Handling Multiple Exceptions from Parallel Tasks in .NET</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-05-05">May 5, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet">dotnet</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet-core-3.1">dotnet core 3.1</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/azure-app-configuration-with-key-vault-and-managed-identity-in-ha/">Azure App Configuration with Key Vault and Managed Identity in HA</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-04-30">Apr 30, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/app-configuration">app configuration</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/using-ihttpclientfactory-in-.net-core-3.1/">Using IHttpClientFactory in .NET Core 3.1</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2020-03-21">Mar 21, 2020</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/netcore-3.1">netcore 3.1</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/change-directory-to-different-drive-in-windows-cmd/">Change directory to different drive in Windows cmd</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2019-11-09">Nov 9, 2019</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/command-line">command line</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/context-menu-terminal-for-windows/">Context Menu Terminal for Windows</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2019-11-01">Nov 1, 2019</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/command-line">command line</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/getting-started">getting started</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/kusto-query-cheatsheet-for-application-insights/">Kusto Query Cheatsheet for Application Insights</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2019-10-25">Oct 25, 2019</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/azure">azure</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/application-insights">application insights</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/kusto">kusto</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/vagrant-vm-provisioning-commands-cheatsheet/">Vagrant VM Provisioning &amp; Commands Cheatsheet</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2019-09-13">Sep 13, 2019</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vagrant">vagrant</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/getting-started">getting started</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/cheatsheet">cheatsheet</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/setup-.net-core-solution-with-class-library-and-xunit-tests/">Setup .NET Core Solution with Class Library and xUnit Tests</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2019-09-05">Sep 5, 2019</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/dotnet">dotnet</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/xunit">xunit</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/vscode">vscode</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/build-a-voice-command-assistant-with-node.js-on-raspberry-pi/">Build a Voice Command Assistant with Node.js on Raspberry Pi</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2019-06-19">Jun 19, 2019</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/raspberry-pi">raspberry pi</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/minimal-node.js-express-static-file-server/">Minimal Node.js Express Static File Server</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2019-04-17">Apr 17, 2019</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/node">node</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/minimal-node.js-express-api/">Minimal Node.js Express API</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2019-04-17">Apr 17, 2019</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/node">node</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/getting-started">getting started</a>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/docker">docker</a>
+  
+
+</p>
+
+<p>
+  <a class="font-125" href="https://www.bustroker.com/notes/python-mortgage-calculator/">Python Mortgage Calculator</a>
+  <br>
+  
+
+<i data-feather="calendar"></i> <time datetime="2018-09-11">Sep 11, 2018</time>
+
+  <br>
+  <i data-feather="tag"></i>
+  
+  
+  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/python">python</a>
+  
+
+</p>
 
 
 

@@ -1,0 +1,232 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Build a Voice Command Assistant with Node.js on Raspberry Pi | Coding notes - and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Build a Voice Command Assistant with Node.js on Raspberry Pi</h1>
+<p>Build a voice-controlled assistant on a Raspberry Pi 3 using Node.js, PocketSphinx for speech recognition, and Node-RED for command orchestration.</p>
+<h4 id="architecture">Architecture</h4>
+<p>Three components communicate via MQTT:</p>
+<ul>
+<li><strong>shirka_ears</strong>: Listens to microphone, publishes voice commands</li>
+<li><strong>shirka_voice</strong>: Receives messages, converts to speech, plays audio</li>
+<li><strong>Node-RED</strong>: Routes commands and responses between components</li>
+</ul>
+<h4 id="the-ears">The Ears</h4>
+<p>Speech recognition using <a href="https://github.com/cmusphinx/pocketsphinx">PocketSphinx</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install pocketsphinx
+</span></span></code></pre></div><p>Listen for commands and publish to MQTT:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mqtt</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;mqtt&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;pocketsphinx&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mqtt</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#e6db74">&#39;mqtt://localhost&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ps</span>.<span style="color:#a6e22e">listen</span>()
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;data&#39;</span>, (<span style="color:#a6e22e">command</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">publish</span>(<span style="color:#e6db74">&#39;shirka/commands&#39;</span>, <span style="color:#a6e22e">command</span>);
+</span></span><span style="display:flex;"><span>  });
+</span></span></code></pre></div><h4 id="the-voice">The Voice</h4>
+<p>Text-to-speech pipeline using pico2wave and omxplayer:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install libttspico-utils omxplayer
+</span></span></code></pre></div><p>Subscribe to MQTT, generate speech, play audio:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mqtt</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;mqtt&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">exec</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mqtt</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#e6db74">&#39;mqtt://localhost&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#e6db74">&#39;shirka/responses&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;message&#39;</span>, (<span style="color:#a6e22e">topic</span>, <span style="color:#a6e22e">message</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">toString</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">`pico2wave -w response.wav &#34;</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">text</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34; &amp;&amp; omxplayer response.wav`</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h4 id="node-red-flow">Node-RED Flow</h4>
+<p>Install <a href="https://nodered.org/">Node-RED</a> and MQTT broker:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install mosquitto mosquitto-clients
+</span></span><span style="display:flex;"><span>npm install -g node-red
+</span></span></code></pre></div><p>Create a flow that:</p>
+<ol>
+<li>Subscribes to <code>shirka/commands</code></li>
+<li>Processes commands</li>
+<li>Publishes responses to <code>shirka/responses</code></li>
+</ol>
+<h4 id="code">Code</h4>
+<p>Full implementation: <a href="https://github.com/bustroker/bustroker.shirka">github.com/bustroker/bustroker.shirka</a></p>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

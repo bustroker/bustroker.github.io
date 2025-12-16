@@ -15,5 +15,12 @@
       <guid>https://www.bustroker.com/notes/running-trivy-security-scanner-from-docker-on-macos/</guid>
       <description>Goal: Run Trivy security scanner using Docker without installing it locally.&#xA;Official documentation: https://aquasecurity.github.io/trivy/v0.38/&#xA;Basic Usage docker run aquasec/trivy version Scan Local Filesystem docker run -v /host/src/to/scan:/target aquasec/trivy --debug fs /target &amp;gt; trivy-output-report.txt Output file is created in your current directory.&#xA;https://aquasecurity.github.io/trivy/v0.20.2/getting-started/cli/fs/&#xA;Scan Git Repository Public repositories only: https://aquasecurity.github.io/trivy/v0.20.2/vulnerability/scanning/git-repository/&#xA;docker run aquasec/trivy repo REPO_URL Scan .NET Projects Trivy requires packages.config or *.deps.json files. For projects using &amp;lt;PackageReference/&amp;gt;, build first to generate the deps file:</description>
     </item>
+    <item>
+      <title>Scan for Vulnerabilities with Trivy</title>
+      <link>https://www.bustroker.com/notes/scan-for-vulnerabilities-with-trivy/</link>
+      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/scan-for-vulnerabilities-with-trivy/</guid>
+      <description>Goal Scan a directory for security vulnerabilities using Trivy.&#xA;Install Trivy brew install trivy Scan a Directory trivy fs --severity CRITICAL,MEDIUM /path/to/folder This scans the specified folder and reports vulnerabilities with CRITICAL or MEDIUM severity levels.</description>
+    </item>
   </channel>
 </rss>

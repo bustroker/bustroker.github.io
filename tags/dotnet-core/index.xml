@@ -15,5 +15,12 @@
       <guid>https://www.bustroker.com/notes/dotnet-core-3.1-appsettings-mapping-with-ioptions-ioptionssnapshot-and-ioptionsmonitor/</guid>
       <description>Map appsettings.json to strongly-typed classes using the Options pattern. For behavior differences between IOptions, IOptionsSnapshot, and IOptionsMonitor, see the official documentation.&#xA;Define the settings class class AppSettings { public string AadTenantName { get; set; } public string AadClientApplicationId { get; set; } } Add settings to appsettings.json { &amp;#34;Logging&amp;#34;: { &amp;#34;LogLevel&amp;#34;: { ..... } }, &amp;#34;AllowedHosts&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;Settings&amp;#34;: { &amp;#34;AadTenantName&amp;#34;: &amp;#34;comercia.onmicrosoft.com&amp;#34;, &amp;#34;AadClientApplicationId&amp;#34;: &amp;#34;5e416176-9f18-4a96-9ce3-97f27599fb20&amp;#34; } } Register the configuration section // Startup.</description>
     </item>
+    <item>
+      <title>File Logging in .NET Console Apps with Serilog</title>
+      <link>https://www.bustroker.com/notes/file-logging-in-.net-console-apps-with-serilog/</link>
+      <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/file-logging-in-.net-console-apps-with-serilog/</guid>
+      <description>Goal Set up basic file logging in a .NET Console application using Serilog.&#xA;Setup Install Serilog:&#xA;dotnet add package Serilog Implementation Configure the logger in your Main method:&#xA;static async Task Main(string[] args) { Log.Logger = new LoggerConfiguration() .Enrich.FromLogContext() .WriteTo.Console() .WriteTo.File(&amp;#34;logs/log.json&amp;#34;) .CreateLogger(); Log.Information(&amp;#34;Running..&amp;#34;); } This configuration:&#xA;Writes logs to both console and logs/log.json Enriches log events with contextual information via FromLogContext() </description>
+    </item>
   </channel>
 </rss>

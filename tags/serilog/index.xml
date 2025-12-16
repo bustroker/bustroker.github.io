@@ -22,5 +22,12 @@
       <guid>https://www.bustroker.com/notes/console-logging-in-asp.net-core-with-serilog/</guid>
       <description>Goal: Set up Serilog for console logging in an ASP.NET Core Web API.&#xA;Install Serilog dotnet add package Serilog.AspNetCore Configure Serilog in Program.cs public class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.</description>
     </item>
+    <item>
+      <title>File Logging in .NET Console Apps with Serilog</title>
+      <link>https://www.bustroker.com/notes/file-logging-in-.net-console-apps-with-serilog/</link>
+      <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/file-logging-in-.net-console-apps-with-serilog/</guid>
+      <description>Goal Set up basic file logging in a .NET Console application using Serilog.&#xA;Setup Install Serilog:&#xA;dotnet add package Serilog Implementation Configure the logger in your Main method:&#xA;static async Task Main(string[] args) { Log.Logger = new LoggerConfiguration() .Enrich.FromLogContext() .WriteTo.Console() .WriteTo.File(&amp;#34;logs/log.json&amp;#34;) .CreateLogger(); Log.Information(&amp;#34;Running..&amp;#34;); } This configuration:&#xA;Writes logs to both console and logs/log.json Enriches log events with contextual information via FromLogContext() </description>
+    </item>
   </channel>
 </rss>
