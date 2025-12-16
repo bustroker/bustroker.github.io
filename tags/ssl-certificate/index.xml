@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ssl Certificate on Coding notes</title>
+    <title>Ssl Certificate on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/ssl-certificate/</link>
-    <description>Recent content in Ssl Certificate on Coding notes</description>
+    <description>Recent content in Ssl Certificate on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/ssl-certificate/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Install dotnet localhost ssl certificate for development</title>
+      <title>Install dotnet localhost SSL certificate for development</title>
       <link>https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/</guid>
-      <description>Install trusted localhost certificate dotnet dev-certs https --trust Confirm when pop up shows up.&#xA;Restart browser and browse to https://locahost:5001, or whatever localhost url, and ssl warning is gone.</description>
+      <description>Goal Eliminate SSL certificate warnings when running dotnet applications on localhost during development.&#xA;Install and trust the certificate dotnet dev-certs https --trust Confirm when the system prompt appears.&#xA;Verify Restart your browser and navigate to your application (e.g., https://localhost:5001). The SSL warning should be gone.</description>
     </item>
   </channel>
 </rss>

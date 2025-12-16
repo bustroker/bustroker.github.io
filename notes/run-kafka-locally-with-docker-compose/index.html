@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Run Kafka locally with docker compose | Coding notes</title>
+  <title>Run Kafka Locally with Docker Compose | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,8 +130,11 @@ audio {
       <main id="main">
         
 
-<h1>Run Kafka locally with docker compose</h1>
-<h3 id="basic">Basic</h3>
+<h1>Run Kafka Locally with Docker Compose</h1>
+<h3 id="goal">Goal</h3>
+<p>Run Apache Kafka locally using Docker Compose for development and testing.</p>
+<h3 id="basic-setup">Basic Setup</h3>
+<p>Minimal Kafka instance with Zookeeper:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">zookeeper</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">wurstmeister/zookeeper</span>
@@ -146,7 +149,8 @@ audio {
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_ZOOKEEPER_CONNECT</span>: <span style="color:#ae81ff">zookeeper:2181</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/var/run/docker.sock:/var/run/docker.sock</span>
-</span></span></code></pre></div><h3 id="full-stack">Full stack</h3>
+</span></span></code></pre></div><h3 id="full-stack-setup">Full Stack Setup</h3>
+<p>Complete Kafka ecosystem with Schema Registry, REST Proxy, and Kafka Connect:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">zookeeper</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">confluentinc/cp-zookeeper:6.2.1</span>
@@ -193,14 +197,12 @@ audio {
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">zookeeper</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">kafka</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">kafka-rest-proxy</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">confluentinc/cp-kafka-rest:6.2.1</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">kafka-rest-proxy</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;8082:8082&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># KAFKA_REST_ZOOKEEPER_CONNECT: zookeeper:2181</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_REST_LISTENERS</span>: <span style="color:#ae81ff">http://0.0.0.0:8082/</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_REST_SCHEMA_REGISTRY_URL</span>: <span style="color:#ae81ff">http://kafka-schema-registry:8081/</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_REST_HOST_NAME</span>: <span style="color:#ae81ff">kafka-rest-proxy</span>
@@ -210,7 +212,6 @@ audio {
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">kafka</span>
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">kafka-schema-registry</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">kafka-connect</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">confluentinc/cp-kafka-connect:6.2.1</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">kafka-connect</span>
@@ -250,7 +251,13 @@ audio {
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        confluent-hub install --no-prompt debezium/debezium-connector-mysql:latest
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        confluent-hub install --no-prompt confluentinc/kafka-connect-datagen:0.4.0
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        /etc/confluent/docker/run</span>        
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>The full stack includes:</p>
+<ul>
+<li><strong>Schema Registry</strong> (port 8081): Manages Avro schemas</li>
+<li><strong>REST Proxy</strong> (port 8082): HTTP interface to Kafka</li>
+<li><strong>Kafka Connect</strong> (port 8083): Data integration framework with Debezium MySQL connector and data generator pre-installed</li>
+</ul>
+
 
 
       </main>

@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cli on Coding notes</title>
+    <title>Cli on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/cli/</link>
-    <description>Recent content in Cli on Coding notes</description>
+    <description>Recent content in Cli on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/cli/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>redis-cli cheatsheet</title>
-      <link>https://www.bustroker.com/notes/redis-cli-cheatsheet/</link>
+      <title>Redis CLI Essential Commands</title>
+      <link>https://www.bustroker.com/notes/redis-cli-essential-commands/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/redis-cli-cheatsheet/</guid>
-      <description>Install redis with cli brew install redis Commands redis-cli -h your-cluster-endpoint -p your-cluster-port # all keys keys * # pattern keys prefix-* # key type type &amp;lt;key&amp;gt; # get string key get &amp;lt;key&amp;gt; # get all hash key hgetall &amp;lt;key&amp;gt; # expiration time in seconds # -2 if key doesn&amp;#39;t exist # -1 if key doesn&amp;#39;t expire ttl &amp;lt;key&amp;gt; </description>
+      <guid>https://www.bustroker.com/notes/redis-cli-essential-commands/</guid>
+      <description>Installation brew install redis Connect to Redis redis-cli -h your-cluster-endpoint -p your-cluster-port Query Keys ## List all keys keys * ## Pattern matching keys prefix-* ## Check key type type &amp;lt;key&amp;gt; Read Values ## String values get &amp;lt;key&amp;gt; ## Hash values hgetall &amp;lt;key&amp;gt; Check Expiration ttl &amp;lt;key&amp;gt; Returns:&#xA;-2: key doesn&amp;rsquo;t exist -1: key has no expiration n: seconds until expiration </description>
     </item>
     <item>
-      <title>Configure AWS CLI</title>
-      <link>https://www.bustroker.com/notes/configure-aws-cli/</link>
+      <title>Configure AWS CLI Authentication</title>
+      <link>https://www.bustroker.com/notes/configure-aws-cli-authentication/</link>
       <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/configure-aws-cli/</guid>
-      <description>From ChatGPT ;P To configure AWS CLI authentication for deploying applications, you can follow these steps:&#xA;Install AWS CLI: If you haven&amp;rsquo;t already, install the AWS CLI on your machine. You can download the AWS CLI installer appropriate for your operating system from the official AWS Command Line Interface documentation.&#xA;Create AWS IAM User: In the AWS Management Console, navigate to the IAM (Identity and Access Management) service. Create a new IAM user or use an existing one that will be used for authentication.</description>
+      <guid>https://www.bustroker.com/notes/configure-aws-cli-authentication/</guid>
+      <description>Goal Configure AWS CLI authentication to deploy applications and access AWS resources.&#xA;Steps 1. Install AWS CLI Download and install from the official AWS CLI documentation.&#xA;2. Create IAM User Navigate to IAM service in AWS Management Console and create a new user with appropriate deployment permissions.&#xA;3. Generate Access Keys In IAM user details → Security credentials tab → Create access key. Save the access key ID and secret access key.</description>
     </item>
     <item>
-      <title>Query sql server from powershell</title>
+      <title>Query SQL Server from PowerShell</title>
       <link>https://www.bustroker.com/notes/query-sql-server-from-powershell/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/query-sql-server-from-powershell/</guid>
-      <description>Query sqlserver powershell module Install-Module sqlserver -Force A minimun nuget version is required. A messages provides the command to install it if was required.&#xA;Run query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34; -ServerInstance &amp;#34;localhost&amp;#34; Run script Invoke-Sqlcmd -InputFile &amp;#34;C:\setupscripts\createUser.sql&amp;#34; | Out-File -FilePath &amp;#34;C:\setupscripts\createUser.log&amp;#34; </description>
+      <description>Install the sqlserver module Install-Module sqlserver -Force If a minimum NuGet version is required, the command output will tell you how to install it.&#xA;Run a query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34; -ServerInstance &amp;#34;localhost&amp;#34; Run a script file Invoke-Sqlcmd -InputFile &amp;#34;C:\setupscripts\createUser.sql&amp;#34; | Out-File -FilePath &amp;#34;C:\setupscripts\createUser.log&amp;#34; </description>
     </item>
     <item>
-      <title>Use sqlcmd cli tool</title>
-      <link>https://www.bustroker.com/notes/use-sqlcmd-cli-tool/</link>
+      <title>Using sqlcmd CLI for SQL Server</title>
+      <link>https://www.bustroker.com/notes/using-sqlcmd-cli-for-sql-server/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/use-sqlcmd-cli-tool/</guid>
-      <description>sqlcmd utility (2019) Installed with Visual Studio 2019. (Apparently also with Sql Server 2019, but they dont&amp;rsquo;s explain WHERE it actually is :S)&#xA;Add to path sqlcmd.exe is located in:&#xA;Visual Studio 2019: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Run a script sqlcmd -S [SERVER] -i C:\setupscripts\createStockUser.sql -o C:\setupscripts\createStockUser.log # e.g. sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Open CLI for queries sqlcmd -S localhost -U sa -P password -d database&#xD;&amp;gt; select * from transactions&#xD;&amp;gt; go Run sqlcmd from docker/kubernetes and connecto to host&amp;rsquo;s localhost sql server docker run --rm -it mcr.</description>
+      <guid>https://www.bustroker.com/notes/using-sqlcmd-cli-for-sql-server/</guid>
+      <description>Goal Execute SQL Server queries and scripts from the command line using sqlcmd.&#xA;Installation The sqlcmd.exe utility comes with Visual Studio 2019 or SQL Server 2019.&#xA;Location:&#xA;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Add this path to your system PATH environment variable.&#xA;Execute a SQL Script sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Interactive Query Session sqlcmd -S localhost -U sa -P password -d database select * from transactions go Run from Docker Container Connect to SQL Server running on host machine:</description>
     </item>
   </channel>
 </rss>

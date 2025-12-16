@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Curl on Coding notes</title>
+    <title>Curl on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/curl/</link>
-    <description>Recent content in Curl on Coding notes</description>
+    <description>Recent content in Curl on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/curl/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Remove alias (curl) from Powershell</title>
-      <link>https://www.bustroker.com/notes/remove-alias-curl-from-powershell/</link>
+      <title>Remove curl alias from PowerShell</title>
+      <link>https://www.bustroker.com/notes/remove-curl-alias-from-powershell/</link>
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/remove-alias-curl-from-powershell/</guid>
-      <description>Skip this step if you already have a Powershell profile:&#xA;New-Item $profile -force -itemtype file Then edit your profile:&#xA;notepad $profile Add the following line to it:&#xA;remove-item alias:curl Save, close notepad and lose and open Powershell to apply the profile.&#xA;Or reload the profile with the command below:&#xA;. $profile </description>
+      <guid>https://www.bustroker.com/notes/remove-curl-alias-from-powershell/</guid>
+      <description>PowerShell aliases curl to Invoke-WebRequest by default. To use the actual curl binary, remove the alias in your profile.&#xA;Create a PowerShell profile if you don&amp;rsquo;t have one:&#xA;New-Item $profile -force -itemtype file Edit the profile:&#xA;notepad $profile Add this line:&#xA;remove-item alias:curl Apply changes by restarting PowerShell, or reload the profile:&#xA;. $profile </description>
     </item>
     <item>
-      <title>Curl azure app service with AAD auth</title>
-      <link>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</link>
+      <title>Authenticate and call Azure App Service with AAD using curl</title>
+      <link>https://www.bustroker.com/notes/authenticate-and-call-azure-app-service-with-aad-using-curl/</link>
       <pubDate>Tue, 22 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</guid>
-      <description>Get token curl -X POST -d &amp;#39;grant_type=client_credentials&amp;amp;client_id=&amp;lt;APP_ID&amp;gt;&amp;amp;client_secret=&amp;lt;PASSWORD&amp;gt;&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#39; https://login.microsoftonline.com/&amp;lt;TENANT_ID&amp;gt;/oauth2/token Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; POST json curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{&amp;#34;key1&amp;#34;:&amp;#34;value1&amp;#34;, &amp;#34;key2&amp;#34;:&amp;#34;value2&amp;#34;}&amp;#39; POST data from file. application/x-www-form-urlencoded is the default. curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; Disable certificate validation curl -k https://localhost:8080 Add bearer token header curl -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; https://bustroker.com/api/resource New line after output curl localhost:8080 ;echo Pretty format json output (Linux) curl localhost:8080 | json_pp also, jq would do it</description>
+      <guid>https://www.bustroker.com/notes/authenticate-and-call-azure-app-service-with-aad-using-curl/</guid>
+      <description>Get AAD access token curl -X POST -d &amp;#39;grant_type=client_credentials&amp;amp;client_id=&amp;lt;APP_ID&amp;gt;&amp;amp;client_secret=&amp;lt;PASSWORD&amp;gt;&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#39; https://login.microsoftonline.com/&amp;lt;TENANT_ID&amp;gt;/oauth2/token Use bearer token in requests curl -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; https://bustroker.com/api/resource Common curl patterns POST form data curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; POST JSON curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{&amp;#34;key1&amp;#34;:&amp;#34;value1&amp;#34;, &amp;#34;key2&amp;#34;:&amp;#34;value2&amp;#34;}&amp;#39; POST from file curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; Disable certificate validation curl -k https://localhost:8080 Format and parse responses Add newline after output curl localhost:8080 ;echo Pretty print JSON curl localhost:8080 | json_pp curl localhost:8080 | jq &amp;#34;.</description>
     </item>
     <item>
-      <title>Azure Managed Identity token with cURL</title>
-      <link>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</link>
+      <title>Get Azure Managed Identity tokens with cURL</title>
+      <link>https://www.bustroker.com/notes/get-azure-managed-identity-tokens-with-curl/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</guid>
-      <description>To test Managed Identity is working fine, SSH inside the VM with Managed Identity enabled (or RDP, for that matter) and cURL an access token for some resource.&#xA;curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s resource query parameter, as per documentation:&#xA;&amp;ldquo;A query string parameter, indicating the App ID URI of the target resource. It also appears in the aud (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.</description>
+      <guid>https://www.bustroker.com/notes/get-azure-managed-identity-tokens-with-curl/</guid>
+      <description>Goal: Retrieve an access token using Azure Managed Identity from within a VM.&#xA;Get a token SSH (or RDP) into a VM with Managed Identity enabled and request a token:&#xA;curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s The resource parameter specifies the App ID URI of the target resource. It becomes the aud (audience) claim in the token.&#xA;Target different resources For Azure Storage:&#xA;curl &amp;#39;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fstorage.azure.com%2F&amp;#39; -H Metadata:true Official documentation</description>
     </item>
     <item>
-      <title>cURL usefull commands cheatsheet</title>
-      <link>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</link>
+      <title>cURL Essential Commands Cheatsheet</title>
+      <link>https://www.bustroker.com/notes/curl-essential-commands-cheatsheet/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</guid>
-      <description>Basic GET curl localhost:8080 Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; POST json curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{\&amp;#34;key1\&amp;#34;:\&amp;#34;value1\&amp;#34;, \&amp;#34;key2\&amp;#34;:\&amp;#34;value2\&amp;#34;}&amp;#39; curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#34;@data.json&amp;#34; Double quotes are escaped with \, required for powershell.&#xA;Disable certificate validation curl -k https://localhost:8080 Add bearer token header curl https://bustroker.com/api/resource -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; New line after output curl localhost:8080 ;echo [Linux] Pretty format json output curl localhost:8080 | json_pp also, jq would do it</description>
+      <guid>https://www.bustroker.com/notes/curl-essential-commands-cheatsheet/</guid>
+      <description>Goal Provide a quick reference for commonly used cURL commands.&#xA;GET Request curl localhost:8080 POST Form Data Default content type is application/x-www-form-urlencoded:&#xA;curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; POST JSON curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{\&amp;#34;key1\&amp;#34;:\&amp;#34;value1\&amp;#34;, \&amp;#34;key2\&amp;#34;:\&amp;#34;value2\&amp;#34;}&amp;#39; curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#34;@data.json&amp;#34; In PowerShell, escape double quotes with \.&#xA;Skip Certificate Validation curl -k https://localhost:8080 Bearer Token Authentication curl https://bustroker.</description>
     </item>
   </channel>
 </rss>

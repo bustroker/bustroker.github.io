@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vs Code on Coding notes</title>
+    <title>Vs Code on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/vs-code/</link>
-    <description>Recent content in Vs Code on Coding notes</description>
+    <description>Recent content in Vs Code on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 19 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/vs-code/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Save and restore vs code settings</title>
-      <link>https://www.bustroker.com/notes/save-and-restore-vs-code-settings/</link>
+      <title>Save and Restore VS Code Settings with PowerShell</title>
+      <link>https://www.bustroker.com/notes/save-and-restore-vs-code-settings-with-powershell/</link>
       <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/save-and-restore-vs-code-settings/</guid>
-      <description>Save vs code settings to current folder (optionally provider save targer folder path) param( [string]$destinationPath = &amp;#34;.&amp;#34; ) # Resolve full path $destinationPath = Resolve-Path -Path $destinationPath # Define the source directory $sourcePath = &amp;#34;$env:APPDATA\Code\User&amp;#34; # Ensure the destination folder exists if (!(Test-Path -Path $destinationPath)) { New-Item -ItemType Directory -Path $destinationPath | Out-Null } # Copy settings.json, keybindings.json, and snippets if they exist $files = @(&amp;#34;settings.json&amp;#34;, &amp;#34;keybindings.json&amp;#34;) $snippetsPath = &amp;#34;$sourcePath\snippets&amp;#34; foreach ($file in $files) { $filePath = &amp;#34;$sourcePath\$file&amp;#34; if (Test-Path -Path $filePath) { Copy-Item -Path $filePath -Destination $destinationPath -Force Write-Host &amp;#34;Copied $file to $destinationPath&amp;#34; } else { Write-Host &amp;#34;$file not found, skipping.</description>
+      <guid>https://www.bustroker.com/notes/save-and-restore-vs-code-settings-with-powershell/</guid>
+      <description>Save VS Code Settings Back up your VS Code configuration (settings, keybindings, and snippets) to any folder:&#xA;param( [string]$destinationPath = &amp;#34;.&amp;#34; ) ## Resolve full path $destinationPath = Resolve-Path -Path $destinationPath ## Define the source directory $sourcePath = &amp;#34;$env:APPDATA\Code\User&amp;#34; ## Ensure the destination folder exists if (!(Test-Path -Path $destinationPath)) { New-Item -ItemType Directory -Path $destinationPath | Out-Null } ## Copy settings.json, keybindings.json, and snippets if they exist $files = @(&amp;#34;settings.json&amp;#34;, &amp;#34;keybindings.</description>
     </item>
   </channel>
 </rss>

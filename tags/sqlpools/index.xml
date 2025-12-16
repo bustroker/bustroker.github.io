@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sqlpools on Coding notes</title>
+    <title>Sqlpools on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/sqlpools/</link>
-    <description>Recent content in Sqlpools on Coding notes</description>
+    <description>Recent content in Sqlpools on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Dec 2021 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/sqlpools/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Synapse sql pools credentials</title>
-      <link>https://www.bustroker.com/notes/synapse-sql-pools-credentials/</link>
+      <title>Query Azure Data Lake from Synapse SQL Pools using SAS credentials</title>
+      <link>https://www.bustroker.com/notes/query-azure-data-lake-from-synapse-sql-pools-using-sas-credentials/</link>
       <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/synapse-sql-pools-credentials/</guid>
-      <description>Create credentials to query datalake container through SQL Pools create credential [https://DATALAKE_ACCOUNT_NAME.dfs.core.windows.net/CONTAINER] with identity=&amp;#39;SHARED ACCESS SIGNATURE&amp;#39;, secret = &amp;#39;?sv=2020-08-04&amp;amp;ss=bfqt&amp;amp;srt=sco&amp;amp;sp=rwdlacupx&amp;amp;se=2022-12-21T21:35:50Z&amp;amp;st=2021-12-21T13:35:50Z&amp;amp;spr=https&amp;amp;sig=************************************&amp;#39; </description>
+      <guid>https://www.bustroker.com/notes/query-azure-data-lake-from-synapse-sql-pools-using-sas-credentials/</guid>
+      <description>Goal Query an Azure Data Lake container from Synapse SQL Pools using Shared Access Signature (SAS) authentication.&#xA;Create the credential CREATE CREDENTIAL [https://DATALAKE_ACCOUNT_NAME.dfs.core.windows.net/CONTAINER] WITH IDENTITY=&amp;#39;SHARED ACCESS SIGNATURE&amp;#39;, SECRET = &amp;#39;?sv=2020-08-04&amp;amp;ss=bfqt&amp;amp;srt=sco&amp;amp;sp=rwdlacupx&amp;amp;se=2022-12-21T21:35:50Z&amp;amp;st=2021-12-21T13:35:50Z&amp;amp;spr=https&amp;amp;sig=************************************&amp;#39; Replace:&#xA;DATALAKE_ACCOUNT_NAME with your storage account name CONTAINER with your container name SECRET value with your SAS token (generate from Azure Portal → Storage Account → Shared access signature) The credential URL must match the exact Data Lake path you&amp;rsquo;ll query in your OPENROWSET or external table definitions.</description>
     </item>
   </channel>
 </rss>

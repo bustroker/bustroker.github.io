@@ -1,0 +1,399 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Building a GDPR-Compliant Data Platform for SaaS with Databricks | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Building a GDPR-Compliant Data Platform for SaaS with Databricks</h1>
+<h3 id="goal">Goal</h3>
+<p>Build a data mesh architecture for a SaaS equity management platform that enables internal analytics, external self-service access, and real-time embedded analytics while maintaining GDPR compliance.</p>
+<h3 id="core-requirements">Core Requirements</h3>
+<ul>
+<li>Decentralized data ownership with domain-driven architecture</li>
+<li>Real-time and batch processing capabilities</li>
+<li>Multi-tenant isolation with row/column-level security</li>
+<li>Self-service access via APIs, SQL, and BI tools</li>
+<li>Full data lineage and metadata management</li>
+</ul>
+<h3 id="data-domains">Data Domains</h3>
+<p>Organize data into business-aligned domains:</p>
+<ol>
+<li><strong>Core Business Entities</strong> - EquityPlans, Grants, Products</li>
+<li><strong>Users &amp; Identity</strong> - Users, Permissions, Sessions</li>
+<li><strong>Operational Activities</strong> - ClientOps, Billing, Support</li>
+<li><strong>Usage &amp; Engagement</strong> - Events, Interactions, Feature Usage</li>
+<li><strong>Outcomes &amp; Performance</strong> - KPIs, Adoption, Forecasts</li>
+<li><strong>External Integrations</strong> - Valuation APIs, Compliance Feeds</li>
+</ol>
+<p>Each domain owns its datasets, publishes data contracts, and maintains SLAs.</p>
+<h3 id="architecture-stack">Architecture Stack</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Ingestion</span>: <span style="color:#ae81ff">Kafka + Databricks Delta Live Tables</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Processing</span>: <span style="color:#ae81ff">Databricks (Spark, Delta Lake)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Governance</span>: <span style="color:#ae81ff">Unity Catalog + DataHub</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Orchestration</span>: <span style="color:#ae81ff">Databricks Workflows</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Serving</span>: <span style="color:#ae81ff">Databricks SQL + REST APIs + Embedded BI</span>
+</span></span></code></pre></div><h3 id="multi-tenancy-implementation">Multi-Tenancy Implementation</h3>
+<p>Partition all tables by <code>tenant_id</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> equity_grants (
+</span></span><span style="display:flex;"><span>  tenant_id STRING <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  grant_id STRING,
+</span></span><span style="display:flex;"><span>  user_id STRING,
+</span></span><span style="display:flex;"><span>  grant_date DATE,
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (tenant_id);
+</span></span></code></pre></div><p>Enforce row-level security with Unity Catalog:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">ROW</span> FILTER tenant_filter
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">AS</span> (tenant_id) <span style="color:#f92672">-&gt;</span> tenant_id <span style="color:#f92672">=</span> current_user_tenant();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> equity_grants <span style="color:#66d9ef">SET</span> <span style="color:#66d9ef">ROW</span> FILTER tenant_filter <span style="color:#66d9ef">ON</span> (tenant_id);
+</span></span></code></pre></div><h3 id="streaming-ingestion">Streaming Ingestion</h3>
+<p>Configure Kafka topics per domain:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## Delta Live Tables pipeline</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@dlt.table</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">equity_events_bronze</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        spark<span style="color:#f92672">.</span>readStream
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">.</span>format(<span style="color:#e6db74">&#34;kafka&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;kafka.bootstrap.servers&#34;</span>, <span style="color:#e6db74">&#34;kafka:9092&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;subscribe&#34;</span>, <span style="color:#e6db74">&#34;equity.grants,equity.exercises&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">.</span>option(<span style="color:#e6db74">&#34;startingOffsets&#34;</span>, <span style="color:#e6db74">&#34;latest&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">.</span>load()
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><p>Transform with Delta Live Tables:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@dlt.table</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@dlt.expect_or_drop</span>(<span style="color:#e6db74">&#34;valid_tenant&#34;</span>, <span style="color:#e6db74">&#34;tenant_id IS NOT NULL&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">equity_grants_silver</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>        dlt<span style="color:#f92672">.</span>read_stream(<span style="color:#e6db74">&#34;equity_events_bronze&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">.</span>selectExpr(<span style="color:#e6db74">&#34;CAST(value AS STRING) as json_data&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">.</span>select(from_json(<span style="color:#e6db74">&#34;json_data&#34;</span>, schema)<span style="color:#f92672">.</span>alias(<span style="color:#e6db74">&#34;data&#34;</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">.</span>select(<span style="color:#e6db74">&#34;data.*&#34;</span>)
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><h3 id="data-access-layers">Data Access Layers</h3>
+<h4 id="api-access">API Access</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## FastAPI endpoint with tenant isolation</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.get</span>(<span style="color:#e6db74">&#34;/api/v1/grants&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_grants</span>(
+</span></span><span style="display:flex;"><span>    current_user: User <span style="color:#f92672">=</span> Depends(get_current_user)
+</span></span><span style="display:flex;"><span>):
+</span></span><span style="display:flex;"><span>    query <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        SELECT * FROM equity_grants 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        WHERE tenant_id = &#39;</span><span style="color:#e6db74">{</span>current_user<span style="color:#f92672">.</span>tenant_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> databricks_sql<span style="color:#f92672">.</span>execute(query)
+</span></span></code></pre></div><h4 id="direct-sql-access">Direct SQL Access</h4>
+<p>Configure Unity Catalog permissions:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">TABLE</span> equity_grants <span style="color:#66d9ef">TO</span> <span style="color:#66d9ef">ROLE</span> client_admin;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">TABLE</span> equity_grants <span style="color:#66d9ef">TO</span> <span style="color:#66d9ef">ROLE</span> internal_analyst;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Column masking for PII
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">FUNCTION</span> mask_email(email STRING)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">RETURNS</span> STRING
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">RETURN</span> CONCAT(<span style="color:#66d9ef">SUBSTRING</span>(email, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;***@***.com&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> users <span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">COLUMN</span> email <span style="color:#66d9ef">SET</span> MASK mask_email;
+</span></span></code></pre></div><h4 id="embedded-bi">Embedded BI</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Embed Power BI report with tenant context
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">embedConfig</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;report&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tokenType</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">models</span>.<span style="color:#a6e22e">TokenType</span>.<span style="color:#a6e22e">Embed</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">token</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">filters</span><span style="color:#f92672">:</span> [{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">$schema</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http://powerbi.com/product/schema#basic&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">target</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">table</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;equity_grants&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">column</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;tenant_id&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">operator</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;In&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">values</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">currentUser</span>.<span style="color:#a6e22e">tenantId</span>]
+</span></span><span style="display:flex;"><span>    }]
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="gdpr-compliance">GDPR Compliance</h3>
+<h4 id="subject-access-request">Subject Access Request</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">extract_user_data</span>(user_id: str, tenant_id: str):
+</span></span><span style="display:flex;"><span>    tables <span style="color:#f92672">=</span> unity_catalog<span style="color:#f92672">.</span>list_tables(schema<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gdpr_scope&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> table <span style="color:#f92672">in</span> tables:
+</span></span><span style="display:flex;"><span>        query <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            SELECT * FROM </span><span style="color:#e6db74">{</span>table<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            WHERE tenant_id = &#39;</span><span style="color:#e6db74">{</span>tenant_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            AND user_id = &#39;</span><span style="color:#e6db74">{</span>user_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield</span> databricks_sql<span style="color:#f92672">.</span>execute(query)
+</span></span></code></pre></div><h4 id="data-erasure">Data Erasure</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">erase_user_data</span>(user_id: str, tenant_id: str):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Mark for deletion in Delta Lake</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> table <span style="color:#f92672">in</span> gdpr_tables:
+</span></span><span style="display:flex;"><span>        spark<span style="color:#f92672">.</span>sql(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            UPDATE </span><span style="color:#e6db74">{</span>table<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            SET deleted_at = current_timestamp(),
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                pii_fields = NULL
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            WHERE tenant_id = &#39;</span><span style="color:#e6db74">{</span>tenant_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            AND user_id = &#39;</span><span style="color:#e6db74">{</span>user_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Audit trail</span>
+</span></span><span style="display:flex;"><span>    log_gdpr_action(<span style="color:#e6db74">&#34;ERASURE&#34;</span>, user_id, tenant_id)
+</span></span></code></pre></div><h4 id="pii-annotation">PII Annotation</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> users 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">COLUMN</span> email <span style="color:#66d9ef">SET</span> TAGS (<span style="color:#e6db74">&#39;pii&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;email&#39;</span>, <span style="color:#e6db74">&#39;retention&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;7y&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> users 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">COLUMN</span> ssn <span style="color:#66d9ef">SET</span> TAGS (<span style="color:#e6db74">&#39;pii&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sensitive&#39;</span>, <span style="color:#e6db74">&#39;retention&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;7y&#39;</span>);
+</span></span></code></pre></div><h3 id="metadata-management-with-datahub">Metadata Management with DataHub</h3>
+<p>Deploy DataHub for lineage tracking:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">## docker-compose.yml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datahub-gms</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">acryldata/datahub-gms:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">DATAHUB_ANALYTICS_ENABLED=true</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">datahub-frontend</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">acryldata/datahub-frontend-react:latest</span>
+</span></span></code></pre></div><p>Ingest Unity Catalog metadata:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install <span style="color:#e6db74">&#39;acryl-datahub[databricks]&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>datahub ingest -c databricks-recipe.yml
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">## databricks-recipe.yml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">source</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">databricks</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">config</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">workspace_url</span>: <span style="color:#e6db74">&#34;https://workspace.databricks.com&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">token</span>: <span style="color:#e6db74">&#34;${DATABRICKS_TOKEN}&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">unity_catalog_enabled</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span><span style="color:#f92672">sink</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">datahub-rest</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">config</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">server</span>: <span style="color:#e6db74">&#34;http://datahub-gms:8080&#34;</span>
+</span></span></code></pre></div><h3 id="access-control-by-persona">Access Control by Persona</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Internal Data Scientist
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">GRANT</span> USE <span style="color:#66d9ef">CATALOG</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">CATALOG</span> main <span style="color:#66d9ef">TO</span> <span style="color:#66d9ef">ROLE</span> data_scientist;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">SCHEMA</span> main.<span style="color:#f92672">*</span> <span style="color:#66d9ef">TO</span> <span style="color:#66d9ef">ROLE</span> data_scientist;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Client Admin (HR)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">TABLE</span> equity_grants <span style="color:#66d9ef">TO</span> <span style="color:#66d9ef">ROLE</span> client_admin;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">TABLE</span> equity_exercises <span style="color:#66d9ef">TO</span> <span style="color:#66d9ef">ROLE</span> client_admin;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- End User (Employee)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">VIEW</span> user_equity_view <span style="color:#66d9ef">AS</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> equity_grants 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> user_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">current_user</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">VIEW</span> user_equity_view <span style="color:#66d9ef">TO</span> <span style="color:#66d9ef">ROLE</span> end_user;
+</span></span></code></pre></div><h3 id="monitoring--audit">Monitoring &amp; Audit</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Create audit log table
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> audit_log (
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">timestamp</span> <span style="color:#66d9ef">TIMESTAMP</span>,
+</span></span><span style="display:flex;"><span>  user_id STRING,
+</span></span><span style="display:flex;"><span>  tenant_id STRING,
+</span></span><span style="display:flex;"><span>  action STRING,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">table_name</span> STRING,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">row_count</span> BIGINT,
+</span></span><span style="display:flex;"><span>  query_text STRING
+</span></span><span style="display:flex;"><span>) PARTITIONED <span style="color:#66d9ef">BY</span> (DATE(<span style="color:#66d9ef">timestamp</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Capture all queries via system tables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> LIVE <span style="color:#66d9ef">TABLE</span> query_audit <span style="color:#66d9ef">AS</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> 
+</span></span><span style="display:flex;"><span>  query_start_time,
+</span></span><span style="display:flex;"><span>  user_identity,
+</span></span><span style="display:flex;"><span>  executed_as_user_name,
+</span></span><span style="display:flex;"><span>  statement_text
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">system</span>.query.history
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> statement_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;SELECT&#39;</span>;
+</span></span></code></pre></div><h3 id="deployment">Deployment</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## Initialize Databricks workspace</span>
+</span></span><span style="display:flex;"><span>databricks workspace import_dir ./pipelines /Workspace/pipelines
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Deploy Delta Live Tables</span>
+</span></span><span style="display:flex;"><span>databricks pipelines create <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --name <span style="color:#e6db74">&#34;equity-data-pipeline&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --storage <span style="color:#e6db74">&#34;/mnt/delta/equity&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --target <span style="color:#e6db74">&#34;production&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --configuration pipeline.json
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Set up Unity Catalog</span>
+</span></span><span style="display:flex;"><span>databricks unity-catalog create-catalog <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --name production <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --comment <span style="color:#e6db74">&#34;Production data catalog&#34;</span>
+</span></span></code></pre></div><p>This architecture provides a scalable, governed data platform that balances self-service access with strict compliance requirements.</p>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

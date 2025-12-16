@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>OpenAPI on Coding notes</title>
+    <title>OpenAPI on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/openapi/</link>
-    <description>Recent content in OpenAPI on Coding notes</description>
+    <description>Recent content in OpenAPI on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 19 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/openapi/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Generate and diff openAPI specs in dotnet</title>
-      <link>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-dotnet/</link>
+      <title>Generate and Diff OpenAPI Specs in .NET</title>
+      <link>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-.net/</link>
       <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-dotnet/</guid>
-      <description>Setup generation of open api spec json Using swashbuckle&#xA;dotnet add package Swashbuckle.AspNetCore.Swagger dotnet tool install --global Swashbuckle.AspNetCore.Cli dotnet build Generate openAPI spec dotnet build swagger tofile --output &amp;#34;openapi.json&amp;#34; bin/Debug/net8.0/bkr-provider-api.dll [version] # e.g swagger tofile --output &amp;#34;openapi.json&amp;#34; bin/Debug/net8.0/bkr-provider-api.dll v1 OpenAPI diff https://github.com/OpenAPITools/openapi-diff Compare two openAPI specs to find breaking changes in the contract. openapi-diff &amp;lt;old&amp;gt; &amp;lt;new&amp;gt;&#xA;# two openapi specs from files docker run --rm -v ${PWD}:/spec openapitools/openapi-diff /spec/openapi_v4.json /spec/openapi_v5.json # spec from url.</description>
+      <guid>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-.net/</guid>
+      <description>Goal: Generate OpenAPI specification files from .NET APIs and detect breaking changes between versions.&#xA;Setup Install Swashbuckle tools:&#xA;dotnet add package Swashbuckle.AspNetCore.Swagger dotnet tool install --global Swashbuckle.AspNetCore.Cli dotnet build Generate OpenAPI Spec dotnet build swagger tofile --output &amp;#34;openapi.json&amp;#34; bin/Debug/net8.0/bkr-provider-api.dll v1 Replace bkr-provider-api.dll with your assembly name and v1 with your API version.&#xA;Compare Specs Use openapi-diff to detect breaking changes:&#xA;## Compare two local files docker run --rm -v ${PWD}:/spec openapitools/openapi-diff /spec/openapi_v4.</description>
     </item>
   </channel>
 </rss>

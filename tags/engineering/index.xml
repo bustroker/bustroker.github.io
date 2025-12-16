@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Engineering on Coding notes</title>
+    <title>Engineering on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/engineering/</link>
-    <description>Recent content in Engineering on Coding notes</description>
+    <description>Recent content in Engineering on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 26 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Engineering principles</title>
-      <link>https://www.bustroker.com/notes/engineering-principles/</link>
+      <title>Engineering Principles for Reliable Systems</title>
+      <link>https://www.bustroker.com/notes/engineering-principles-for-reliable-systems/</link>
       <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/engineering-principles/</guid>
-      <description>Build gradually Gradually build Eng Principles, fundamentally based on flaws I find in Eng team, so it serves to persuade engineers in the right direction, but most importantly to dissuade them from the wrong ones.&#xA;Possibly make a distinction between Principles and more specific ¿ADRs?&#xA;Prefer simplicity over complexity. Each complexity level introduced needs a clear justification. Every processing queue SHOULD (MUST?) have have a corresponding dead letter queue </description>
+      <guid>https://www.bustroker.com/notes/engineering-principles-for-reliable-systems/</guid>
+      <description>Goal Establish engineering principles that guide teams toward better technical decisions and prevent common architectural mistakes.&#xA;Core Principles 1. Prefer Simplicity Over Complexity Every complexity level requires clear justification. If you can&amp;rsquo;t articulate why the complexity is necessary, it shouldn&amp;rsquo;t exist.&#xA;2. Dead Letter Queues Are Not Optional Every processing queue must have a corresponding dead letter queue.&#xA;Without a DLQ, you have no visibility into failures and no way to recover from processing errors.</description>
     </item>
   </channel>
 </rss>

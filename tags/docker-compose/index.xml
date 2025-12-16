@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker-Compose on Coding notes</title>
+    <title>Docker-Compose on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/docker-compose/</link>
-    <description>Recent content in Docker-Compose on Coding notes</description>
+    <description>Recent content in Docker-Compose on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 23 Jul 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Docker cheatsheet</title>
-      <link>https://www.bustroker.com/notes/docker-cheatsheet/</link>
+      <title>Docker Command Reference</title>
+      <link>https://www.bustroker.com/notes/docker-command-reference/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/docker-cheatsheet/</guid>
-      <description>Version: 19.03&#xA;build image and set tag -t docker build -t bustroker.notes.webui:v1 . multiple tags are allowed as well&#xA;docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest . build image and see commands output For debugging issues. E.g., run RUN ls and see out put&#xA;docker build -t bustroker.notes.webui --progress=plain --no-cache . tag image docker tag [localImage] [registryServer]/[imageName]:[version] # ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1 add tag to existing tagged image docker tag bustroker.</description>
+      <guid>https://www.bustroker.com/notes/docker-command-reference/</guid>
+      <description>Version: 19.03&#xA;Building Images Build with single tag:&#xA;docker build -t bustroker.notes.webui:v1 . Build with multiple tags:&#xA;docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest . Debug build by viewing command output:&#xA;docker build -t bustroker.notes.webui --progress=plain --no-cache . Tagging Images Tag for registry:&#xA;docker tag [localImage] [registryServer]/[imageName]:[version] ## example docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1 Add tag to existing image:&#xA;docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latest Managing Images List images:&#xA;docker images Remove all images (add -f to force):</description>
     </item>
     <item>
-      <title>Docker compose</title>
-      <link>https://www.bustroker.com/notes/docker-compose/</link>
+      <title>Docker Compose Cheatsheet</title>
+      <link>https://www.bustroker.com/notes/docker-compose-cheatsheet/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/docker-compose/</guid>
-      <description>Docker compose services: zookeeper: image: debezium/zookeeper ports: - &amp;#34;2181:2181&amp;#34; - &amp;#34;2888:2888&amp;#34; - &amp;#34;3888:3888&amp;#34; kafka: image: debezium/kafka ports: - &amp;#34;9092:9092&amp;#34; volumes: - /var/run/docker.sock:/var/run/docker.sock depends_on: - &amp;#34;zookeeper&amp;#34; connect: image: debezium/connect ports: - &amp;#34;8083:8083&amp;#34; environment: - GROUP_ID=1 - CONFIG_STORAGE_TOPIC=my_connect_configs - OFFSET_STORAGE_TOPIC=my_connect_offsets - STATUS_STORAGE_TOPIC=my_connect_statuses depends_on: - &amp;#34;kafka&amp;#34; docker-compose terminal into service container docker-compose up exec [SERVICE_NAME] [TERMINAL] #or docker compose run --entrypoint /bin/sh [SERVICE_NAME] [TERMINAL] could be sh, cmd, powershell&amp;hellip;&#xA;docker-compose # launch the containers docker-compose up [-d] [--build] # launch the containers and opens interactive terminal inside docker-compose run [SERVICE] # stop and remove containers docker-compose down # stop the containers, without removing docker-compose stop </description>
+      <guid>https://www.bustroker.com/notes/docker-compose-cheatsheet/</guid>
+      <description>Multi-service setup example services: zookeeper: image: debezium/zookeeper ports: - &amp;#34;2181:2181&amp;#34; - &amp;#34;2888:2888&amp;#34; - &amp;#34;3888:3888&amp;#34; kafka: image: debezium/kafka ports: - &amp;#34;9092:9092&amp;#34; volumes: - /var/run/docker.sock:/var/run/docker.sock depends_on: - &amp;#34;zookeeper&amp;#34; connect: image: debezium/connect ports: - &amp;#34;8083:8083&amp;#34; environment: - GROUP_ID=1 - CONFIG_STORAGE_TOPIC=my_connect_configs - OFFSET_STORAGE_TOPIC=my_connect_offsets - STATUS_STORAGE_TOPIC=my_connect_statuses depends_on: - &amp;#34;kafka&amp;#34; Basic commands ## Launch containers docker-compose up [-d] [--build] ## Launch and open interactive terminal docker-compose run [SERVICE] ## Stop and remove containers docker-compose down ## Stop without removing docker-compose stop Shell access to running containers docker-compose exec [SERVICE_NAME] [TERMINAL] ## or docker compose run --entrypoint /bin/sh [SERVICE_NAME] [TERMINAL] can be sh, bash, cmd, powershell, etc.</description>
     </item>
   </channel>
 </rss>

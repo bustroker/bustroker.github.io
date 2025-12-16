@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tools on Coding notes</title>
+    <title>Tools on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/tools/</link>
-    <description>Recent content in Tools on Coding notes</description>
+    <description>Recent content in Tools on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 09 Aug 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Tools catalog</title>
-      <link>https://www.bustroker.com/notes/tools-catalog/</link>
+      <title>Essential Developer Tools Catalog</title>
+      <link>https://www.bustroker.com/notes/essential-developer-tools-catalog/</link>
       <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/tools-catalog/</guid>
-      <description>Performance tests https://github.com/ddosify/ddosify&#xA;Docker for mack Colima https://github.com/abiosoft/colima</description>
+      <guid>https://www.bustroker.com/notes/essential-developer-tools-catalog/</guid>
+      <description>Performance Testing Ddosify - High-performance load testing tool.&#xA;## Install brew install ddosify/tap/ddosify ## Basic load test ddosify -t https://example.com -n 1000 -d 30 ## Advanced test with custom config ddosify -config config.json Docker for macOS Colima - Lightweight Docker runtime alternative to Docker Desktop.&#xA;## Install brew install colima ## Start with default settings colima start ## Start with custom resources colima start --cpu 4 --memory 8 --disk 100 ## Use with Docker CLI docker ps </description>
     </item>
   </channel>
 </rss>

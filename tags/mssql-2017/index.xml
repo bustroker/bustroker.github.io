@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mssql 2017 on Coding notes</title>
+    <title>Mssql 2017 on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/mssql-2017/</link>
-    <description>Recent content in Mssql 2017 on Coding notes</description>
+    <description>Recent content in Mssql 2017 on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 26 Mar 2021 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/mssql-2017/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Run MSSQL 2017 server in docker for windows</title>
+      <title>Run MSSQL 2017 Server in Docker for Windows</title>
       <link>https://www.bustroker.com/notes/run-mssql-2017-server-in-docker-for-windows/</link>
       <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/run-mssql-2017-server-in-docker-for-windows/</guid>
-      <description>MSSQL 2019 not available yet in official images.&#xA;Docker compose First check attach_dbs argument. The first time running it, remove it. Afterwards, if starting with an existing db, use it to attach existing mdf/ldf files. They can also be attached from T-Sql after starting the server.&#xA;Note: Mapping localhost folder to default C:/Program Files&amp;hellip; fails, probably for permission reasons (not clear from the message, as usual).&#xA;// docker-compose.yaml version: &amp;#39;3.8&amp;#39; services: SQLServer: image: microsoft/mssql-server-windows-developer:2017 environment: - ACCEPT_EULA=Y - SA_PASSWORD=Password_01 # - attach_dbs=[{&amp;#39;dbName&amp;#39;:&amp;#39;Joker&amp;#39;,&amp;#39;dbFiles&amp;#39;:[&amp;#39;C:\\SQLData\\Joker1.</description>
+      <description>Goal: Run MSSQL Server 2017 in Docker on Windows with persistent database storage mapped to the host filesystem.&#xA;Note: MSSQL 2019 not available in official images at time of writing.&#xA;Docker Compose Setup // docker-compose.yaml version: &amp;#39;3.8&amp;#39; services: SQLServer: image: microsoft/mssql-server-windows-developer:2017 environment: - ACCEPT_EULA=Y - SA_PASSWORD=Password_01 # - attach_dbs=[{&amp;#39;dbName&amp;#39;:&amp;#39;Joker&amp;#39;,&amp;#39;dbFiles&amp;#39;:[&amp;#39;C:\\SQLData\\Joker1.mdf&amp;#39;,&amp;#39;C:\\SQLData\\Joker1.ldf&amp;#39;]},{&amp;#39;dbName&amp;#39;:&amp;#39;Joker2&amp;#39;,&amp;#39;dbFiles&amp;#39;:[&amp;#39;C:\\SQLData\\Joker2.mdf&amp;#39;,&amp;#39;C:\\SQLData\\Joker2.ldf&amp;#39;]}] ports: - &amp;#39;1433:1433&amp;#39; volumes: - ./data:c:\SqlData Important: On first run, omit the attach_dbs argument. Use it only when restarting with existing database files.</description>
     </item>
   </channel>
 </rss>

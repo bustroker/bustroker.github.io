@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>MSSQL Server 2019 docker image for windows | Coding notes</title>
+  <title>MSSQL Server 2019 Docker Image for Windows | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,39 +130,32 @@ audio {
       <main id="main">
         
 
-<h1>MSSQL Server 2019 docker image for windows</h1>
-<p><em>MSSQL 2019 not available yet in official images, so&hellip;</em></p>
+<h1>MSSQL Server 2019 Docker Image for Windows</h1>
+<p><strong>Goal:</strong> Build a custom Docker image for MSSQL Server 2019 on Windows (official images don&rsquo;t include 2019 yet).</p>
+<h3 id="get-your-windows-version">Get Your Windows Version</h3>
+<p>The base image must match your host Windows version. Run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">ver</span>
+</span></span></code></pre></div><p>Output example: <code>10.0.19042.867</code></p>
 <h3 id="dockerfile">Dockerfile</h3>
-<p>The windows server base images must be the same windows version as the host, as per <a href="https://hub.docker.com/_/microsoft-windows-servercore">official documentation</a> (¡¿?!). To get the version open <code>cmd</code> and type <code>ver</code>, to get something like <code>10.0.19042.867</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/windows/servercore:10.0.19042.867</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">SHELL</span> [ <span style="color:#e6db74">&#34;powershell&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1<span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Copy installers</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./installers /installers<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># install Sql Server Developer edition (see readme.md for details)</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> c:/setupScripts/installSqlServerTools.ps1<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
-</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> /setupScripts/startAndConfigSqlServer.ps1 -sa_password $env:sa_password -attach_dbs <span style="color:#ae81ff">\&#34;</span>$env:attach_dbs<span style="color:#ae81ff">\&#34;</span> -ACCEPT_EULA Y -Verbose<span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div><h3 id="installers">Installers</h3>
-<p>The folder installers contains:</p>
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> /setupScripts/startAndConfigSqlServer.ps1 -sa_password <span style="color:#ae81ff">\$</span>env:sa_password -attach_dbs <span style="color:#e6db74">&#34;\$env:attach_dbs&#34;</span> -ACCEPT_EULA Y -Verbose<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h3 id="required-files">Required Files</h3>
+<p>Place these in the <code>installers/</code> directory:</p>
 <ul>
-<li>
-<p>Sql Server 2019 installer, like <code>installers\sql2019install\Developer_ENU</code>.  Folder <code>Developer_ENU</code> contains the actuall installation files. The documentation is <a href="https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-ver15">here</a></p>
-</li>
-<li>
-<p>SqlPackage binaries (dacpac tool), to be added to <code>PATH</code>. It&rsquo;s in <code>installers\sqlpackage-win7-x64-en-US-15.0.5084.2</code>. Downloaded from <a href="https://docs.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver15#get-sqlpackage-for-windows">here</a></p>
-</li>
+<li><strong>SQL Server 2019 installer</strong>: <code>installers/sql2019install/Developer_ENU/</code> (<a href="https://docs.microsoft.com/en-us/sql/database-engine/install-windows/install-sql-server-from-the-command-prompt?view=sql-server-ver15">docs</a>)</li>
+<li><strong>SqlPackage</strong>: <code>installers/sqlpackage-win7-x64-en-US-15.0.5084.2/</code> (<a href="https://docs.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver15#get-sqlpackage-for-windows">download</a>)</li>
 </ul>
-<h3 id="scripts">Scripts</h3>
-<ul>
-<li><code>installSqlServerTools.ps1</code> installs sql server 2019 and adds <code>SqlPackage</code> tool (dacpac tool) to path.</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e"># install sql server</span>
+<h3 id="installation-script">Installation Script</h3>
+<p><code>setupScripts/installSqlServerTools.ps1</code> - Installs SQL Server 2019 with TCP enabled on port 1433 and adds SqlPackage to PATH:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">## install sql server</span>
 </span></span><span style="display:flex;"><span>cd c:/installers/sql2019install/Developer_ENU; 
 </span></span><span style="display:flex;"><span>.\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=<span style="color:#ae81ff">0</span> /SQLSVCACCOUNT=<span style="color:#e6db74">&#39;NT AUTHORITY\NETWORK SERVICE&#39;</span> /SQLSYSADMINACCOUNTS=<span style="color:#e6db74">&#39;BUILTIN\ADMINISTRATORS&#39;</span> /TCPENABLED=<span style="color:#ae81ff">1</span> /NPENABLED=<span style="color:#ae81ff">0</span> /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS /SECURITYMODE=SQL /SAPWD=<span style="color:#e6db74">&#34;Password_01&#34;</span>
 </span></span><span style="display:flex;"><span>
@@ -171,14 +164,12 @@ audio {
 </span></span><span style="display:flex;"><span>set-itemproperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall&#39;</span> -name tcpport -value <span style="color:#ae81ff">1433</span>
 </span></span><span style="display:flex;"><span>set-itemproperty -path <span style="color:#e6db74">&#39;HKLM:\software\microsoft\microsoft sql server\mssql15.MSSQLSERVER\mssqlserver\&#39;</span> -name LoginMode -value <span style="color:#ae81ff">2</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># add sqlpackage tools to PATH</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## add sqlpackage tools to PATH</span>
 </span></span><span style="display:flex;"><span>$current=[<span style="color:#66d9ef">System.Environment</span>]::GetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>,<span style="color:#e6db74">&#39;machine&#39;</span>)
 </span></span><span style="display:flex;"><span>$newpath=<span style="color:#e6db74">&#34;</span>$current<span style="color:#e6db74">;C:\installers\sqlpackage-win7-x64-en-US-15.0.5084.2&#34;</span>
 </span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">System.Environment</span>]::SetEnvironmentVariable(<span style="color:#e6db74">&#39;PATH&#39;</span>, $newpath,[<span style="color:#66d9ef">System.EnvironmentVariableTarget</span>]::Machine)
-</span></span></code></pre></div><ul>
-<li><code>startAndConfigSqlServer.ps1</code> starts SqlServer and attaches the <code>mdf/ldf</code> files as per environment variable.</li>
-</ul>
+</span></span></code></pre></div><h3 id="startup-script">Startup Script</h3>
+<p><code>setupScripts/startAndConfigSqlServer.ps1</code> - Starts SQL Server, sets SA password, and attaches databases from environment variable:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#66d9ef">param</span>(
 </span></span><span style="display:flex;"><span>[Parameter(<span style="color:#a6e22e">Mandatory</span>=$false)]
 </span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">string</span>]$sa_password,
@@ -227,6 +218,7 @@ audio {
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> ($true) 
 </span></span><span style="display:flex;"><span>{ 
 </span></span><span style="display:flex;"><span>    Get-EventLog -LogName Application -Source <span style="color:#e6db74">&#34;MSSQL*&#34;</span> -After $lastCheck | Select-Object TimeGenerated, EntryType, Message	 
+</span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    $lastCheck = Get-Date 
 </span></span><span style="display:flex;"><span>    Start-Sleep -Seconds <span style="color:#ae81ff">2</span> 
 </span></span><span style="display:flex;"><span>}

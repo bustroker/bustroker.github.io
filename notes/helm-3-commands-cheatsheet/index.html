@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Helm 3 commands cheatsheet | Coding notes</title>
+  <title>Helm 3 Commands Cheatsheet | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,22 +130,24 @@ audio {
       <main id="main">
         
 
-<h1>Helm 3 commands cheatsheet</h1>
-<h3 id="create-tgz-package-from-chart-folder-content">Create .tgz package from chart folder content</h3>
+<h1>Helm 3 Commands Cheatsheet</h1>
+<h3 id="create-tgz-package-from-chart-folder">Create .tgz package from chart folder</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>cd chart
 </span></span><span style="display:flex;"><span>helm package .
-</span></span></code></pre></div><h3 id="deploy-local-tgz-package-to-kubernetes">Deploy local tgz package to kubernetes</h3>
-<p>The terminal must have been authenticated. In case of AKS, run <code>az aks get-credentials --resource-group &lt;RESOURCEGROUP_NAME&gt; --name &lt;AKS_CLUSTERNAME&gt;</code></p>
+</span></span></code></pre></div><h3 id="deploy-local-tgz-package">Deploy local .tgz package</h3>
+<p>Authenticate first (AKS example):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>az aks get-credentials --resource-group &lt;RESOURCEGROUP_NAME&gt; --name &lt;AKS_CLUSTERNAME&gt;
+</span></span></code></pre></div><p>Install the package:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>helm install &lt;RELEASE_NAME&gt; &lt;TGZ_PACKAGE&gt;
-</span></span></code></pre></div><h3 id="list-releases-in-kubernetes">List releases in kubernetes</h3>
-<pre tabindex="0"><code>helm list
-helm get all &lt;RELEASE_NAME&gt;
-</code></pre><h3 id="deploy-chart-from-registry">Deploy chart from registry</h3>
-<p>No direct way for the moment. Need to pull, export and then install</p>
-<pre tabindex="0"><code>helm chart pull &lt;PACKAGE_REPO_WITH_VERSION&gt;
-helm chart export &lt;PACKAGE_REPO_WITH_VERSION&gt;
-helm install &lt;RELEASE_NAME&gt; &lt;EXPORTED_CHART_FOLDER&gt; 
-</code></pre><p><code>helm chart export</code> will create a folder named after the chart (chart.yaml, name), which not necesarily needs to match the repository name where the chart is kept in the registry, although I prefer to make them match. The chart name would be used as <code>EXPORTED_CHART_FOLDER</code> then.</p>
+</span></span></code></pre></div><h3 id="list-releases">List releases</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>helm list
+</span></span><span style="display:flex;"><span>helm get all &lt;RELEASE_NAME&gt;
+</span></span></code></pre></div><h3 id="deploy-chart-from-registry">Deploy chart from registry</h3>
+<p>No direct install available. Pull, export, then install:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>helm chart pull &lt;PACKAGE_REPO_WITH_VERSION&gt;
+</span></span><span style="display:flex;"><span>helm chart export &lt;PACKAGE_REPO_WITH_VERSION&gt;
+</span></span><span style="display:flex;"><span>helm install &lt;RELEASE_NAME&gt; &lt;EXPORTED_CHART_FOLDER&gt;
+</span></span></code></pre></div><p><strong>Note:</strong> <code>helm chart export</code> creates a folder named after the chart (from <code>Chart.yaml</code> name field), which may differ from the registry repository name. Use the chart name as <code>&lt;EXPORTED_CHART_FOLDER&gt;</code>.</p>
 
 
 

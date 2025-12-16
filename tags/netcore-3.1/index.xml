@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Netcore 3.1 on Coding notes</title>
+    <title>Netcore 3.1 on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/netcore-3.1/</link>
-    <description>Recent content in Netcore 3.1 on Coding notes</description>
+    <description>Recent content in Netcore 3.1 on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 21 Mar 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/netcore-3.1/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Basic usage IHttpClientFactory</title>
-      <link>https://www.bustroker.com/notes/basic-usage-ihttpclientfactory/</link>
+      <title>Using IHttpClientFactory in .NET Core 3.1</title>
+      <link>https://www.bustroker.com/notes/using-ihttpclientfactory-in-.net-core-3.1/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/basic-usage-ihttpclientfactory/</guid>
-      <description>Register it //Startup.cs public void ConfigureServices(IServiceCollection services) { ... services.AddHttpClient(); } Use it //HealthController.cs private readonly IHttpClientFactory _clientFactory; public HealthController(IHttpClientFactory clientFactory) { _clientFactory = clientFactory; } </description>
+      <guid>https://www.bustroker.com/notes/using-ihttpclientfactory-in-.net-core-3.1/</guid>
+      <description>Goal Use IHttpClientFactory to create HTTP clients with proper lifecycle management and avoid socket exhaustion.&#xA;Register the factory //Startup.cs public void ConfigureServices(IServiceCollection services) { services.AddHttpClient(); } Inject and use //HealthController.cs private readonly IHttpClientFactory _clientFactory; public HealthController(IHttpClientFactory clientFactory) { _clientFactory = clientFactory; } // Create clients on demand var client = _clientFactory.CreateClient(); var response = await client.GetAsync(&amp;#34;https://api.example.com/health&amp;#34;); </description>
     </item>
   </channel>
 </rss>

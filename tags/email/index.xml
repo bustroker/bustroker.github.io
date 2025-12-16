@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Email on Coding notes</title>
+    <title>Email on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/email/</link>
-    <description>Recent content in Email on Coding notes</description>
+    <description>Recent content in Email on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 06 Oct 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/email/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Send email from bash in Linux</title>
+      <title>Send Email from Bash in Linux</title>
       <link>https://www.bustroker.com/notes/send-email-from-bash-in-linux/</link>
       <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/send-email-from-bash-in-linux/</guid>
-      <description>Bash script to send email through SMTP server #!/bin/bash # Install msmtp if it&amp;#39;s not already installed sudo apt-get install msmtp -y # Create a configuration file for msmtp with your SMTP server details cat &amp;gt; ~/.msmtprc &amp;lt;&amp;lt;EOF defaults auth on tls on tls_starttls on tls_certcheck off account aws_ses host email-smtp.eu-central-1.amazonaws.com port 587 from FROM@EMAIL.COM user USER password PASSWORD account default : aws_ses EOF # Set proper permissions for the configuration file chmod 600 ~/.</description>
+      <description>Send emails from bash scripts using msmtp and any SMTP server (AWS SES, Gmail, etc.).&#xA;Install msmtp sudo apt-get install msmtp -y Configure SMTP Server cat &amp;gt; ~/.msmtprc &amp;lt;&amp;lt;EOF defaults auth on tls on tls_starttls on tls_certcheck off account aws_ses host email-smtp.eu-central-1.amazonaws.com port 587 from FROM@EMAIL.COM user USER password PASSWORD account default : aws_ses EOF Set Permissions chmod 600 ~/.msmtprc Send Email printf &amp;#34;Subject: Test smtp ubuntu\n\nHello there from ubuntu.&amp;#34; | msmtp -a aws_ses recipient@example.</description>
     </item>
   </channel>
 </rss>

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Install dotnet localhost ssl certificate for development | Coding notes</title>
+  <title>Install dotnet localhost SSL certificate for development | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,11 +130,14 @@ audio {
       <main id="main">
         
 
-<h1>Install dotnet localhost ssl certificate for development</h1>
-<h3 id="install-trusted-localhost-certificate">Install trusted localhost certificate</h3>
+<h1>Install dotnet localhost SSL certificate for development</h1>
+<h3 id="goal">Goal</h3>
+<p>Eliminate SSL certificate warnings when running dotnet applications on localhost during development.</p>
+<h3 id="install-and-trust-the-certificate">Install and trust the certificate</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>dotnet dev-certs https --trust
-</span></span></code></pre></div><p>Confirm when pop up shows up.</p>
-<p>Restart browser and browse to <code>https://locahost:5001</code>, or whatever localhost url, and ssl warning is gone.</p>
+</span></span></code></pre></div><p>Confirm when the system prompt appears.</p>
+<h3 id="verify">Verify</h3>
+<p>Restart your browser and navigate to your application (e.g., <code>https://localhost:5001</code>). The SSL warning should be gone.</p>
 
 
 

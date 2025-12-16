@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dotnet on Coding notes</title>
+    <title>Dotnet on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/dotnet/</link>
-    <description>Recent content in Dotnet on Coding notes</description>
+    <description>Recent content in Dotnet on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 26 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/dotnet/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>DevOps notes</title>
-      <link>https://www.bustroker.com/notes/devops-notes/</link>
+      <title>.NET Templates and Database Migrations</title>
+      <link>https://www.bustroker.com/notes/.net-templates-and-database-migrations/</link>
       <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/devops-notes/</guid>
-      <description>Dotnet templates Testing locally Clone this repository Go into this directory Execute following command dotnet new -i .\templates\bkr.microservice This will install template for dotnet new usage Create directory for you microservice and go into this directory Type dotnet new bkr.microservice --name Cheese.Cake You have scaffolded new service. Distributing with package Execute dotnet pack from templates directory This will create package with templates in .\bin\Debug\Bkr.Template.Service.1.0.0.nupkg Run dotnet new -i .\bin\Debug\Bkr.Template.Service.1.0.0.nupkg This will install template for dotnet new usage Create directory for you microservice and go into this directory Type dotnet new bkr.</description>
+      <guid>https://www.bustroker.com/notes/.net-templates-and-database-migrations/</guid>
+      <description>.NET Custom Templates Testing Locally ## Clone and navigate to repository cd templates/bkr.microservice ## Install template dotnet new -i . ## Create new service mkdir MyService &amp;amp;&amp;amp; cd MyService dotnet new bkr.microservice --name Cheese.Cake Distributing via Package ## Create package dotnet pack ## Install from package dotnet new -i ./bin/Debug/Bkr.Template.Service.1.0.0.nupkg ## Use template mkdir MyService &amp;amp;&amp;amp; cd MyService dotnet new bkr.microservice --name Cheese.Cake Template Structure When adding new projects, include them in both solutions:</description>
     </item>
     <item>
-      <title>Generate and diff openAPI specs in dotnet</title>
-      <link>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-dotnet/</link>
+      <title>Generate and Diff OpenAPI Specs in .NET</title>
+      <link>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-.net/</link>
       <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-dotnet/</guid>
-      <description>Setup generation of open api spec json Using swashbuckle&#xA;dotnet add package Swashbuckle.AspNetCore.Swagger dotnet tool install --global Swashbuckle.AspNetCore.Cli dotnet build Generate openAPI spec dotnet build swagger tofile --output &amp;#34;openapi.json&amp;#34; bin/Debug/net8.0/bkr-provider-api.dll [version] # e.g swagger tofile --output &amp;#34;openapi.json&amp;#34; bin/Debug/net8.0/bkr-provider-api.dll v1 OpenAPI diff https://github.com/OpenAPITools/openapi-diff Compare two openAPI specs to find breaking changes in the contract. openapi-diff &amp;lt;old&amp;gt; &amp;lt;new&amp;gt;&#xA;# two openapi specs from files docker run --rm -v ${PWD}:/spec openapitools/openapi-diff /spec/openapi_v4.json /spec/openapi_v5.json # spec from url.</description>
+      <guid>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-.net/</guid>
+      <description>Goal: Generate OpenAPI specification files from .NET APIs and detect breaking changes between versions.&#xA;Setup Install Swashbuckle tools:&#xA;dotnet add package Swashbuckle.AspNetCore.Swagger dotnet tool install --global Swashbuckle.AspNetCore.Cli dotnet build Generate OpenAPI Spec dotnet build swagger tofile --output &amp;#34;openapi.json&amp;#34; bin/Debug/net8.0/bkr-provider-api.dll v1 Replace bkr-provider-api.dll with your assembly name and v1 with your API version.&#xA;Compare Specs Use openapi-diff to detect breaking changes:&#xA;## Compare two local files docker run --rm -v ${PWD}:/spec openapitools/openapi-diff /spec/openapi_v4.</description>
     </item>
     <item>
-      <title>dotnet scrips</title>
-      <link>https://www.bustroker.com/notes/dotnet-scrips/</link>
+      <title>Running C# Scripts with dotnet-script</title>
+      <link>https://www.bustroker.com/notes/running-c</link>
       <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/dotnet-scrips/</guid>
-      <description>Install dotnet script dotnet tool install -g dotnet-script Write csx script file with nuget package reference // script.csx #r &amp;#34;nuget:Newtonsoft.Json, 13.0.1&amp;#34; using Newtonsoft.Json; using Newtonsoft.Json.Linq; var args = Environment.GetCommandLineArgs(); if(args.Any(a =&amp;gt; a == &amp;#34;--dry-run&amp;#34;)) { return; } Console.WriteLine(&amp;#34;Using Newtonsoft.Json to parse JSON.&amp;#34;); var json = JObject.Parse(@&amp;#34;{ &amp;#39;name&amp;#39;: &amp;#39;John&amp;#39;, &amp;#39;age&amp;#39;: 30 }&amp;#34;); Console.WriteLine(json[&amp;#34;name&amp;#34;]); Run script dotnet-script script.csx </description>
+      <guid>https://www.bustroker.com/notes/running-c</guid>
+      <description>Goal Run C# scripts (.csx files) with NuGet package support using dotnet-script.&#xA;Install dotnet-script dotnet tool install -g dotnet-script Create a .csx script file // script.csx ##r &amp;#34;nuget:Newtonsoft.Json, 13.0.1&amp;#34; using Newtonsoft.Json; using Newtonsoft.Json.Linq; var args = Environment.GetCommandLineArgs(); if(args.Any(a =&amp;gt; a == &amp;#34;--dry-run&amp;#34;)) { return; } Console.WriteLine(&amp;#34;Using Newtonsoft.Json to parse JSON.&amp;#34;); var json = JObject.Parse(@&amp;#34;{ &amp;#39;name&amp;#39;: &amp;#39;John&amp;#39;, &amp;#39;age&amp;#39;: 30 }&amp;#34;); Console.WriteLine(json[&amp;#34;name&amp;#34;]); NuGet packages are referenced using #r &amp;quot;nuget:PackageName, Version&amp;quot; at the top of the file.</description>
     </item>
     <item>
-      <title>Kafka Avro Consumer issue workaround</title>
-      <link>https://www.bustroker.com/notes/kafka-avro-consumer-issue-workaround/</link>
+      <title>Workaround for Kafka Avro Deserializer NullReferenceException</title>
+      <link>https://www.bustroker.com/notes/workaround-for-kafka-avro-deserializer-nullreferenceexception/</link>
       <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/kafka-avro-consumer-issue-workaround/</guid>
-      <description>I reported the issue here&#xA;Description AvroDeserializer throws NullReferenceException without any further info.&#xA;Unhandled exception. Confluent.Kafka.ConsumeException: Local: Value deserialization error&#xD;---&amp;gt; System.NullReferenceException: Object reference not set to an instance of an object.&#xD;at Confluent.SchemaRegistry.Serdes.GenericDeserializerImpl.Deserialize(String topic, Byte[] array)&#xD;at Confluent.SchemaRegistry.Serdes.AvroDeserializer`1.DeserializeAsync(ReadOnlyMemory`1 data, Boolean isNull, SerializationContext context)&#xD;at Confluent.Kafka.SyncOverAsync.SyncOverAsyncDeserializer`1.Deserialize(ReadOnlySpan`1 data, Boolean isNull, SerializationContext context)&#xD;at Confluent.Kafka.Consumer`2.Consume(Int32 millisecondsTimeout)&#xD;--- End of inner exception stack trace ---&#xD;at Confluent.Kafka.Consumer`2.Consume(Int32 millisecondsTimeout)&#xD;at Confluent.Kafka.Consumer`2.Consume(TimeSpan timeout)&#xD;at Arch.Pocs.KafkaClient.Consumer.ConsoleUI.KafkaAvroConsumer.Poll(String topic)+MoveNext() in /app/KafkaAvroConsumer.</description>
+      <guid>https://www.bustroker.com/notes/workaround-for-kafka-avro-deserializer-nullreferenceexception/</guid>
+      <description>The Problem AvroDeserializer&amp;lt;GenericRecord&amp;gt; throws a cryptic NullReferenceException when deserializing null byte arrays:&#xA;Unhandled exception. Confluent.Kafka.ConsumeException: Local: Value deserialization error ---&amp;gt; System.NullReferenceException: Object reference not set to an instance of an object. at Confluent.SchemaRegistry.Serdes.GenericDeserializerImpl.Deserialize(String topic, Byte[] array) at Confluent.SchemaRegistry.Serdes.AvroDeserializer`1.DeserializeAsync(ReadOnlyMemory`1 data, Boolean isNull, SerializationContext context) Root cause: GenericDeserializerImpl.Deserialize() doesn&amp;rsquo;t validate null input before accessing the byte array.&#xA;The Solution Create a wrapper that intercepts null values before they reach the deserializer:&#xA;using System; using System.</description>
     </item>
     <item>
-      <title>Install dotnet localhost ssl certificate for development</title>
+      <title>Install dotnet localhost SSL certificate for development</title>
       <link>https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/</guid>
-      <description>Install trusted localhost certificate dotnet dev-certs https --trust Confirm when pop up shows up.&#xA;Restart browser and browse to https://locahost:5001, or whatever localhost url, and ssl warning is gone.</description>
+      <description>Goal Eliminate SSL certificate warnings when running dotnet applications on localhost during development.&#xA;Install and trust the certificate dotnet dev-certs https --trust Confirm when the system prompt appears.&#xA;Verify Restart your browser and navigate to your application (e.g., https://localhost:5001). The SSL warning should be gone.</description>
     </item>
     <item>
-      <title>Appsettings &amp; env variables</title>
-      <link>https://www.bustroker.com/notes/appsettings-env-variables/</link>
+      <title>Reading appsettings.json and Environment Variables in .NET 3.1</title>
+      <link>https://www.bustroker.com/notes/reading-appsettings.json-and-environment-variables-in-.net-3.1/</link>
       <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/appsettings-env-variables/</guid>
-      <description>Reading apppsettings.json in dotnet 3.1 Add the packages&#xA;dotnet add package Microsoft.Extensions.Configuration&#xD;dotnet add package Microsoft.Extensions.Configuration.FileExtensions&#xD;dotnet add package Microsoft.Extensions.Configuration.Json Add appsettings.json file with required parameters&#xA;{ &amp;#34;Settings&amp;#34;: { &amp;#34;Params&amp;#34;: { &amp;#34;Param1&amp;#34;: &amp;#34;value 1&amp;#34;, &amp;#34;Param2&amp;#34;: &amp;#34;value 2&amp;#34; } } } Load configuration section Console app // Program.cs var builder = new ConfigurationBuilder() .SetBasePath(Directory.GetCurrentDirectory()) .AddJsonFile(&amp;#34;appsettings.json&amp;#34;, optional: true, reloadOnChange: true); IConfiguration configuration = builder.Build(); Use configuration&#xA;var param1 = configuration.GetSection(&amp;#34;Settings&amp;#34;).GetValue&amp;lt;string&amp;gt;(&amp;#34;Params:Param1&amp;#34;); Web Api // Program.</description>
+      <guid>https://www.bustroker.com/notes/reading-appsettings.json-and-environment-variables-in-.net-3.1/</guid>
+      <description>Goal Read configuration from appsettings.json files and environment variables in .NET 3.1 console apps and Web APIs.&#xA;Setup Install required packages:&#xA;dotnet add package Microsoft.Extensions.Configuration dotnet add package Microsoft.Extensions.Configuration.FileExtensions dotnet add package Microsoft.Extensions.Configuration.Json Create appsettings.json:&#xA;{ &amp;#34;Settings&amp;#34;: { &amp;#34;Params&amp;#34;: { &amp;#34;Param1&amp;#34;: &amp;#34;value 1&amp;#34;, &amp;#34;Param2&amp;#34;: &amp;#34;value 2&amp;#34; } } } Console Application Load configuration in Program.cs:&#xA;var builder = new ConfigurationBuilder() .SetBasePath(Directory.GetCurrentDirectory()) .AddJsonFile(&amp;#34;appsettings.json&amp;#34;, optional: true, reloadOnChange: true); IConfiguration configuration = builder.Build(); Access values:</description>
     </item>
     <item>
-      <title>Handling parallel exceptions in dotnet</title>
-      <link>https://www.bustroker.com/notes/handling-parallel-exceptions-in-dotnet/</link>
+      <title>Handling Multiple Exceptions from Parallel Tasks in .NET</title>
+      <link>https://www.bustroker.com/notes/handling-multiple-exceptions-from-parallel-tasks-in-.net/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/handling-parallel-exceptions-in-dotnet/</guid>
-      <description>I&amp;rsquo;m executing several tasks in parallel, where more than one throw exceptions. I want to handle all the exceptions, which basically means catching them all and being able to, at least, rethrowing them with all the info they carry.&#xA;So, here it is how&#xA;var runnersTasks = new List&amp;lt;Task&amp;gt;();// list to keep the tasks created Task compositeTask = null; // task consisting in waiting for all the tasks to finish in parallel try { // run all the tasks and keep them in the list Runners.</description>
+      <guid>https://www.bustroker.com/notes/handling-multiple-exceptions-from-parallel-tasks-in-.net/</guid>
+      <description>When executing multiple tasks in parallel where more than one can throw exceptions, you need to catch and handle all exceptions, not just the first one.&#xA;The Problem The exception caught in a catch block when awaiting Task.WhenAll() is only the first exception thrown. All exceptions are actually stored in an AggregateException in the task&amp;rsquo;s Exception property.&#xA;The Solution var runnersTasks = new List&amp;lt;Task&amp;gt;(); Task compositeTask = null; try { // Run all tasks in parallel Runners.</description>
     </item>
     <item>
-      <title>Create dotnet core sln with class library plus xunit tests with cli for vscode</title>
-      <link>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</link>
+      <title>Setup .NET Core Solution with Class Library and xUnit Tests</title>
+      <link>https://www.bustroker.com/notes/setup-.net-core-solution-with-class-library-and-xunit-tests/</link>
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</guid>
-      <description>Create a folder for the solution and cd into it A solution (sln file) is required to be able to have projects referencing others.&#xA;mkdir Bustroker.Notes&#xD;cd Bustroker.Notes Create solution The sln file is created directly in the folder it&amp;rsquo;s run.&#xA;dotnet new sln -n Bustroker.Notes Create class library project and add it to the solution A folder is created, containing the project&#xA;dotnet new classlib -n Bustroker.Notes&#xD;dotnet sln add Bustroker.</description>
+      <guid>https://www.bustroker.com/notes/setup-.net-core-solution-with-class-library-and-xunit-tests/</guid>
+      <description>Goal Create a .NET Core solution with a class library project and xUnit test project, all configured and ready to use in VS Code.&#xA;Create Solution Structure mkdir Bustroker.Notes cd Bustroker.Notes dotnet new sln -n Bustroker.Notes Create Class Library dotnet new classlib -n Bustroker.Notes dotnet sln add Bustroker.Notes/Bustroker.Notes.csproj Create xUnit Test Project dotnet new xunit -n Bustroker.Notes.Tests dotnet sln add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj Link Test Project to Class Library dotnet add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj reference .</description>
     </item>
   </channel>
 </rss>

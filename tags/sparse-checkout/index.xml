@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sparse-Checkout on Coding notes</title>
+    <title>Sparse-Checkout on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/sparse-checkout/</link>
-    <description>Recent content in Sparse-Checkout on Coding notes</description>
+    <description>Recent content in Sparse-Checkout on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 10 Jun 2021 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/sparse-checkout/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Git sparse-checkout</title>
-      <link>https://www.bustroker.com/notes/git-sparse-checkout/</link>
+      <title>Working with Git Sparse-Checkout</title>
+      <link>https://www.bustroker.com/notes/working-with-git-sparse-checkout/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/git-sparse-checkout/</guid>
-      <description>To checkout and work only with a subset/subtree of folders from a repo (yes, some people insist in economizing repos)&#xA;Initialize sparse-checkout config git clone URL --no-checkout # add `--depth 1` to only include latest commit from all commit history cd REPO_ROOT git sparse-checkout init --cone # `--cone` to include root files git checkout Set existing folders to be actually checked out git sparse-checkout add Apps/OtherApp # to add new folders to the current checkout list.</description>
+      <guid>https://www.bustroker.com/notes/working-with-git-sparse-checkout/</guid>
+      <description>Goal: Checkout and work with only a subset of folders from a repository.&#xA;Initial Setup git clone URL --no-checkout # add `--depth 1` to only include latest commit cd REPO_ROOT git sparse-checkout init --cone # `--cone` includes root files git checkout Add Folders to Checkout git sparse-checkout add Apps/OtherApp git sparse-checkout list # view currently checked out paths Create New Folder and Add to Checkout cd ROOT/Apps mkdir OneMoreApp git sparse-checkout add Apps/OneMoreApp git sparse-checkout list Standard Git Operations Work from any included folder:</description>
     </item>
   </channel>
 </rss>

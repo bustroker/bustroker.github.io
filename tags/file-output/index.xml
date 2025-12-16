@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>File Output on Coding notes</title>
+    <title>File Output on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/file-output/</link>
-    <description>Recent content in File Output on Coding notes</description>
+    <description>Recent content in File Output on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 14 May 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/file-output/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>VS Code - include file output</title>
-      <link>https://www.bustroker.com/notes/vs-code-include-file-output/</link>
+      <title>Include Files in Build Output Directory</title>
+      <link>https://www.bustroker.com/notes/include-files-in-build-output-directory/</link>
       <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/vs-code-include-file-output/</guid>
-      <description>In csproj add &amp;lt;ItemGroup&amp;gt; &amp;lt;None Update=&amp;#34;file.exe&amp;#34;&amp;gt; &amp;lt;CopyToOutputDirectory&amp;gt;PreserveNewest&amp;lt;/CopyToOutputDirectory&amp;gt; &amp;lt;/None&amp;gt; &amp;lt;/ItemGroup&amp;gt; </description>
+      <guid>https://www.bustroker.com/notes/include-files-in-build-output-directory/</guid>
+      <description>Goal Copy specific files to your build output directory when building a .NET project.&#xA;Solution Add the following to your .csproj file:&#xA;&amp;lt;ItemGroup&amp;gt; &amp;lt;None Update=&amp;#34;file.exe&amp;#34;&amp;gt; &amp;lt;CopyToOutputDirectory&amp;gt;PreserveNewest&amp;lt;/CopyToOutputDirectory&amp;gt; &amp;lt;/None&amp;gt; &amp;lt;/ItemGroup&amp;gt; This ensures file.exe is copied to the output directory only if it&amp;rsquo;s newer than the existing copy or doesn&amp;rsquo;t exist yet.</description>
     </item>
   </channel>
 </rss>

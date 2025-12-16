@@ -1,0 +1,362 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>AI Agent Frameworks - Mental Models and Control Flow | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>AI Agent Frameworks - Mental Models and Control Flow</h1>
+<h3 id="goal">Goal</h3>
+<p>Compare agent frameworks by their control flow, memory model, and tool execution patterns using a common problem: <strong>&ldquo;Automatically detect, diagnose, and remediate a production outage in a microservices system.&rdquo;</strong></p>
+<hr>
+<h3 id="smolagents">smolagents</h3>
+<p><strong>Multi-step decision loop over tools.</strong></p>
+<p>Each iteration:</p>
+<ol>
+<li>App injects goal + memory + tools</li>
+<li>LLM returns one tool call or final answer</li>
+<li>App executes tool, appends result to memory</li>
+<li>Loop repeats</li>
+</ol>
+<p><strong>Memory:</strong> Python list/dict managed by your application</p>
+<p><strong>Tools:</strong> Pure API actions. Agent requests, never executes.</p>
+<p><strong>RAG:</strong> Just another tool:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>retrieve(query) <span style="color:#960050;background-color:#1e0010">→</span> documents
+</span></span></code></pre></div><p><strong>Approach:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## Expose tools: get_metrics, read_logs, restart_service, update_config</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## One agent repeatedly:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - observes system state</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - picks exactly one tool</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - applies it</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - continues until stable</span>
+</span></span></code></pre></div><p>One agent owns the entire reasoning loop.</p>
+<hr>
+<h3 id="langchain--langgraph">LangChain + LangGraph</h3>
+<p><strong>Graph-first architecture.</strong> You define nodes, edges, state, and flow. Agents only exist inside nodes when needed.</p>
+<p><strong>Memory:</strong> Structured state object, automatically passed between nodes</p>
+<p><strong>Tools:</strong> Inside agent nodes or as standalone graph nodes</p>
+<p><strong>RAG:</strong> First-class workflow pattern</p>
+<p><strong>Approach:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## State machine with nodes:</span>
+</span></span><span style="display:flex;"><span>graph <span style="color:#f92672">=</span> StateGraph()
+</span></span><span style="display:flex;"><span>graph<span style="color:#f92672">.</span>add_node(<span style="color:#e6db74">&#34;detect_anomaly&#34;</span>, detect_fn)
+</span></span><span style="display:flex;"><span>graph<span style="color:#f92672">.</span>add_node(<span style="color:#e6db74">&#34;identify_service&#34;</span>, identify_fn)
+</span></span><span style="display:flex;"><span>graph<span style="color:#f92672">.</span>add_node(<span style="color:#e6db74">&#34;analyze_logs&#34;</span>, analyze_fn)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>graph<span style="color:#f92672">.</span>add_conditional_edges(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;analyze_logs&#34;</span>,
+</span></span><span style="display:flex;"><span>    route_decision,
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;safe&#34;</span>: <span style="color:#e6db74">&#34;auto_restart&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;risk&#34;</span>: <span style="color:#e6db74">&#34;escalate&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;unresolved&#34;</span>: <span style="color:#e6db74">&#34;analyze_logs&#34;</span>  <span style="color:#75715e"># loop</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>The workflow owns the logic. Agents appear only in specific diagnostic nodes.</p>
+<hr>
+<h3 id="microsoft-agents-framework">Microsoft Agents Framework</h3>
+<p><strong>Stateful, long-lived, message-driven services.</strong> Agents behave like microservices with memory.</p>
+<p><strong>Memory:</strong> Built-in, durable, scoped per agent and user</p>
+<p><strong>Tools:</strong> Declared capabilities invoked via native function-calling</p>
+<p><strong>RAG:</strong> Enterprise integration with search indexes, vector DBs</p>
+<p><strong>Approach:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## Deploy persistent Incident Response Agent</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - Listens to alerts</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - Maintains long-term incident state</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - Coordinates remediation over hours</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - Interactive with humans</span>
+</span></span></code></pre></div><p>The platform owns orchestration and persistence.</p>
+<hr>
+<h3 id="autogen">AutoGen</h3>
+<p><strong>Conversational agents with distinct roles.</strong> No central control loop—behavior emerges from dialogue.</p>
+<p><strong>Memory:</strong> Conversation transcripts + per-agent memory</p>
+<p><strong>Tools:</strong> Wrapped in tool agents, called via message passing</p>
+<p><strong>RAG:</strong> Via Retriever Agent feeding other agents</p>
+<p><strong>Approach:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## Create agent roles:</span>
+</span></span><span style="display:flex;"><span>monitoring_agent <span style="color:#f92672">=</span> Agent(<span style="color:#e6db74">&#34;Monitor&#34;</span>)
+</span></span><span style="display:flex;"><span>diagnosis_agent <span style="color:#f92672">=</span> Agent(<span style="color:#e6db74">&#34;Diagnostician&#34;</span>)
+</span></span><span style="display:flex;"><span>remediation_agent <span style="color:#f92672">=</span> Agent(<span style="color:#e6db74">&#34;Executor&#34;</span>)
+</span></span><span style="display:flex;"><span>verification_agent <span style="color:#f92672">=</span> Agent(<span style="color:#e6db74">&#34;Verifier&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## They discuss the outage, propose fixes, confirm outcomes</span>
+</span></span></code></pre></div><p>Conversation owns the workflow.</p>
+<hr>
+<h3 id="crewai">CrewAI</h3>
+<p><strong>Role-based team members in a crew.</strong> Organizational model, not algorithmic.</p>
+<p><strong>Memory:</strong> Per-agent + optional shared crew context</p>
+<p><strong>Tools:</strong> Assigned per agent, executed during tasks</p>
+<p><strong>RAG:</strong> Common in research/synthesis roles</p>
+<p><strong>Approach:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>crew <span style="color:#f92672">=</span> Crew(
+</span></span><span style="display:flex;"><span>    agents<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>        Agent(role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Incident Analyst&#34;</span>, tools<span style="color:#f92672">=</span>[metrics_tool]),
+</span></span><span style="display:flex;"><span>        Agent(role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Fix Executor&#34;</span>, tools<span style="color:#f92672">=</span>[restart_tool]),
+</span></span><span style="display:flex;"><span>        Agent(role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Validator&#34;</span>, tools<span style="color:#f92672">=</span>[health_check_tool]),
+</span></span><span style="display:flex;"><span>        Agent(role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Communications&#34;</span>, tools<span style="color:#f92672">=</span>[notify_tool])
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    tasks<span style="color:#f92672">=</span>[detect_task, fix_task, validate_task, notify_task]
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>Role-based delegation owns execution.</p>
+<hr>
+<h3 id="auto-gpt">Auto-GPT</h3>
+<p><strong>Fully autonomous agent.</strong> Decomposes goals, executes, reflects, spawns subtasks, iterates. No explicit workflow design.</p>
+<p><strong>Memory:</strong> Vector DB + filesystem + scratchpad</p>
+<p><strong>Tools:</strong> Shell, web browsing, APIs, local actions</p>
+<p><strong>RAG:</strong> Emergent, not formally structured</p>
+<p><strong>Approach:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## Goal: &#34;Restore system stability&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Agent invents:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - diagnostic steps</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - tries fixes</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - reflects on results</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## - continues until done</span>
+</span></span></code></pre></div><p>The agent invents the plan.</p>
+<hr>
+<h3 id="openai-agents-sdk">OpenAI Agents SDK</h3>
+<p><strong>Hosted function-calling system with built-in orchestration.</strong> LLM-native service orchestrator.</p>
+<p>SDK abstracts: control loops, tool routing, multi-step reasoning, execution environment.</p>
+<p><strong>Memory:</strong> Message-based context. External state stores if needed.</p>
+<p><strong>Tools:</strong> Python functions with schema enforcement</p>
+<p><strong>RAG:</strong> Via retrieval tools or Assistants + vector stores</p>
+<p><strong>Approach:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_metrics</span>(service: str) <span style="color:#f92672">-&gt;</span> dict: <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inspect_logs</span>(service: str, lines: int) <span style="color:#f92672">-&gt;</span> str: <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">restart_service</span>(service: str) <span style="color:#f92672">-&gt;</span> bool: <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">notify_sre</span>(message: str) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">None</span>: <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## OpenAI Agent chooses which function to call at each step</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## SDK manages loops, calls, decision-making</span>
+</span></span></code></pre></div><p>The agent is a hosted planner + function caller.</p>
+<hr>
+<h3 id="summary-by-control-model">Summary by Control Model</h3>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Control Owner</th>
+<th>Memory</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>smolagents</td>
+<td>Agent loop</td>
+<td>App-managed</td>
+<td>Programmatic automation</td>
+</tr>
+<tr>
+<td>LangGraph</td>
+<td>Workflow graph</td>
+<td>Structured state</td>
+<td>Multi-step validation logic</td>
+</tr>
+<tr>
+<td>Microsoft</td>
+<td>Platform</td>
+<td>Built-in durable</td>
+<td>Enterprise long-running processes</td>
+</tr>
+<tr>
+<td>AutoGen</td>
+<td>Conversation</td>
+<td>Transcript-based</td>
+<td>Multi-agent collaboration</td>
+</tr>
+<tr>
+<td>CrewAI</td>
+<td>Role delegation</td>
+<td>Per-agent + shared</td>
+<td>Organizational workflows</td>
+</tr>
+<tr>
+<td>Auto-GPT</td>
+<td>Autonomous agent</td>
+<td>Vector + filesystem</td>
+<td>Open-ended research</td>
+</tr>
+<tr>
+<td>OpenAI SDK</td>
+<td>Hosted orchestrator</td>
+<td>Message context</td>
+<td>LLM-native backends</td>
+</tr>
+</tbody>
+</table>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

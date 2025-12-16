@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Coding notes</title>
+    <title>Tags on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/</link>
-    <description>Recent content in Tags on Coding notes</description>
+    <description>Recent content in Tags on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agents</title>
+      <link>https://www.bustroker.com/tags/agents/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI</title>
+      <link>https://www.bustroker.com/tags/ai/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Frameworks</title>
+      <link>https://www.bustroker.com/tags/frameworks/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/frameworks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>LLM</title>
+      <link>https://www.bustroker.com/tags/llm/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Patterns</title>
+      <link>https://www.bustroker.com/tags/patterns/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/patterns/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Git</title>
       <link>https://www.bustroker.com/tags/git/</link>
@@ -16,10 +51,10 @@
       <description></description>
     </item>
     <item>
-      <title>Git Checout</title>
-      <link>https://www.bustroker.com/tags/git-checout/</link>
+      <title>Git Checkout</title>
+      <link>https://www.bustroker.com/tags/git-checkout/</link>
       <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/git-checout/</guid>
+      <guid>https://www.bustroker.com/tags/git-checkout/</guid>
       <description></description>
     </item>
     <item>
@@ -51,17 +86,10 @@
       <description></description>
     </item>
     <item>
-      <title>Poweshell</title>
-      <link>https://www.bustroker.com/tags/poweshell/</link>
+      <title>Powershell</title>
+      <link>https://www.bustroker.com/tags/powershell/</link>
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/poweshell/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AI</title>
-      <link>https://www.bustroker.com/tags/ai/</link>
-      <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/ai/</guid>
+      <guid>https://www.bustroker.com/tags/powershell/</guid>
       <description></description>
     </item>
     <item>
@@ -240,38 +268,10 @@
       <description></description>
     </item>
     <item>
-      <title>Docker</title>
-      <link>https://www.bustroker.com/tags/docker/</link>
-      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Windows Subsystem for Linux</title>
-      <link>https://www.bustroker.com/tags/windows-subsystem-for-linux/</link>
-      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/windows-subsystem-for-linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>WSL</title>
-      <link>https://www.bustroker.com/tags/wsl/</link>
-      <pubDate>Mon, 17 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/wsl/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Curl Alias</title>
       <link>https://www.bustroker.com/tags/curl-alias/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/curl-alias/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Powershell</title>
-      <link>https://www.bustroker.com/tags/powershell/</link>
-      <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/powershell/</guid>
       <description></description>
     </item>
     <item>
@@ -366,41 +366,6 @@
       <description></description>
     </item>
     <item>
-      <title>Progressive Web App</title>
-      <link>https://www.bustroker.com/tags/progressive-web-app/</link>
-      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/progressive-web-app/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>PWA</title>
-      <link>https://www.bustroker.com/tags/pwa/</link>
-      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/pwa/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>React</title>
-      <link>https://www.bustroker.com/tags/react/</link>
-      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/react/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Standalone</title>
-      <link>https://www.bustroker.com/tags/standalone/</link>
-      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/standalone/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Web App</title>
-      <link>https://www.bustroker.com/tags/web-app/</link>
-      <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/web-app/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>File Output</title>
       <link>https://www.bustroker.com/tags/file-output/</link>
       <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
@@ -457,13 +422,6 @@
       <description></description>
     </item>
     <item>
-      <title>LLM</title>
-      <link>https://www.bustroker.com/tags/llm/</link>
-      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/llm/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Forget</title>
       <link>https://www.bustroker.com/tags/forget/</link>
       <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
@@ -475,6 +433,13 @@
       <link>https://www.bustroker.com/tags/colima/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/colima/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://www.bustroker.com/tags/docker/</link>
+      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/docker/</guid>
       <description></description>
     </item>
     <item>
@@ -559,20 +524,6 @@
       <link>https://www.bustroker.com/tags/trivy/</link>
       <pubDate>Tue, 14 Mar 2023 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/trivy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Scan</title>
-      <link>https://www.bustroker.com/tags/scan/</link>
-      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/scan/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Vulnerability</title>
-      <link>https://www.bustroker.com/tags/vulnerability/</link>
-      <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/vulnerability/</guid>
       <description></description>
     </item>
     <item>
@@ -814,13 +765,6 @@
       <description></description>
     </item>
     <item>
-      <title>Mssqlserver</title>
-      <link>https://www.bustroker.com/tags/mssqlserver/</link>
-      <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/mssqlserver/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Html</title>
       <link>https://www.bustroker.com/tags/html/</link>
       <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
@@ -916,20 +860,6 @@
       <link>https://www.bustroker.com/tags/azure-devops/</link>
       <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/azure-devops/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Bat</title>
-      <link>https://www.bustroker.com/tags/bat/</link>
-      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/bat/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Command Line</title>
-      <link>https://www.bustroker.com/tags/command-line/</link>
-      <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/command-line/</guid>
       <description></description>
     </item>
     <item>
@@ -1066,10 +996,10 @@
       <description></description>
     </item>
     <item>
-      <title>Nuget.config</title>
-      <link>https://www.bustroker.com/tags/nuget.config/</link>
-      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/nuget.config/</guid>
+      <title>Command Line</title>
+      <link>https://www.bustroker.com/tags/command-line/</link>
+      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/command-line/</guid>
       <description></description>
     </item>
     <item>
@@ -1112,13 +1042,6 @@
       <link>https://www.bustroker.com/tags/xunit/</link>
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/xunit/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Raspberry Pi</title>
-      <link>https://www.bustroker.com/tags/raspberry-pi/</link>
-      <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/raspberry-pi/</guid>
       <description></description>
     </item>
     <item>

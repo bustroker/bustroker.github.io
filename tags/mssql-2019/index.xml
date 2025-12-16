@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mssql 2019 on Coding notes</title>
+    <title>Mssql 2019 on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/mssql-2019/</link>
-    <description>Recent content in Mssql 2019 on Coding notes</description>
+    <description>Recent content in Mssql 2019 on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 03 Feb 2022 00:00:00 +0000</lastBuildDate>
@@ -13,14 +13,14 @@
       <link>https://www.bustroker.com/notes/run-mssql-2019-on-kubernetes/</link>
       <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/run-mssql-2019-on-kubernetes/</guid>
-      <description>Secret for sa password kubectl create secret generic mssql --from-literal=SA_PASSWORD=&amp;#34;P@55word&amp;#34; Storage kind: PersistentVolumeClaim apiVersion: v1 metadata: name: mssql-data annotations: volume.beta.kubernetes.io/storage-class: default spec: accessModes: - ReadWriteOnce resources: requests: storage: 10Gi Mount optional azure storage account apiVersion: v1 kind: Secret metadata: name: mssql-optionalAddedStorage-secret namespace: sqlserver type: Opaque data: azurestorageaccountname: Z3NhcmNocG9jc3NoYXJlZHN0b3JhZ2U= azurestorageaccountkey: SndPbTRlTFhLSVdWc1IzYkhONFV2WGlUM3NVSjBseHYvbUpQUU5DY1pYNEsyUmhTUjBZY3c5bzdmM3huU2h6bE9KVXhhSFcxT09KSmF4VktxRityVWc9PQ== Values of azurestorageaccountname and azurestorageaccountkey are 64-based account name and key as extracted from Azure. A File Share needs to be created in the storage account and named optionalAddedStorage, as referenced below.</description>
+      <description>Goal Deploy MSSQL Server 2019 on Kubernetes with persistent storage and optional Azure File Share mount.&#xA;Create SA Password Secret kubectl create secret generic mssql --from-literal=SA_PASSWORD=&amp;#34;P@55word&amp;#34; Configure Persistent Storage kind: PersistentVolumeClaim apiVersion: v1 metadata: name: mssql-data annotations: volume.beta.kubernetes.io/storage-class: default spec: accessModes: - ReadWriteOnce resources: requests: storage: 10Gi Optional: Mount Azure File Share Create secret with base64-encoded Azure Storage credentials:&#xA;apiVersion: v1 kind: Secret metadata: name: mssql-optionalAddedStorage-secret namespace: sqlserver type: Opaque data: azurestorageaccountname: Z3NhcmNocG9jc3NoYXJlZHN0b3JhZ2U= azurestorageaccountkey: SndPbTRlTFhLSVdWc1IzYkhONFV2WGlUM3NVSjBseHYvbUpQUU5DY1pYNEsyUmhTUjBZY3c5bzdmM3huU2h6bE9KVXhhSFcxT09KSmF4VktxRityVWc9PQ== Create a File Share named optionalAddedStorage in your Azure Storage account.</description>
     </item>
     <item>
-      <title>MSSQL Server 2019 docker image for windows</title>
+      <title>MSSQL Server 2019 Docker Image for Windows</title>
       <link>https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/</link>
       <pubDate>Fri, 26 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/mssql-server-2019-docker-image-for-windows/</guid>
-      <description>MSSQL 2019 not available yet in official images, so&amp;hellip;&#xA;Dockerfile The windows server base images must be the same windows version as the host, as per official documentation (¡¿?!). To get the version open cmd and type ver, to get something like 10.0.19042.867.&#xA;FROM mcr.microsoft.com/windows/servercore:10.0.19042.867 SHELL [ &amp;#34;powershell&amp;#34; ] # Copy COPY ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1 COPY ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1 # Copy installers COPY ./installers /installers # install Sql Server Developer edition (see readme.</description>
+      <description>Goal: Build a custom Docker image for MSSQL Server 2019 on Windows (official images don&amp;rsquo;t include 2019 yet).&#xA;Get Your Windows Version The base image must match your host Windows version. Run:&#xA;ver Output example: 10.0.19042.867&#xA;Dockerfile FROM mcr.microsoft.com/windows/servercore:10.0.19042.867 SHELL [ &amp;#34;powershell&amp;#34; ] COPY ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1 COPY ./setupScripts/startAndConfigSqlServer.ps1 /setupScripts/startAndConfigSqlServer.ps1 COPY ./installers /installers RUN c:/setupScripts/installSqlServerTools.ps1 CMD /setupScripts/startAndConfigSqlServer.ps1 -sa_password \$env:sa_password -attach_dbs &amp;#34;\$env:attach_dbs&amp;#34; -ACCEPT_EULA Y -Verbose Required Files Place these in the installers/ directory:</description>
     </item>
   </channel>
 </rss>

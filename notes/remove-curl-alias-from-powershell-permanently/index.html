@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Remove `curl` alias from powershell permanently | Coding notes</title>
+  <title>Remove `curl` alias from PowerShell permanently | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,21 +130,21 @@ audio {
       <main id="main">
         
 
-<h1>Remove `curl` alias from powershell permanently</h1>
-<p>It&rsquo;s <code>Powershell</code>, not <code>Windows Powershell</code>.</p>
-<h3 id="check-for-existing-powershell-profile">Check for existing powershell profile</h3>
+<h1>Remove `curl` alias from PowerShell permanently</h1>
+<p>PowerShell aliases <code>curl</code> to <code>Invoke-WebRequest</code> by default. To use the actual <code>curl</code> binary, remove this alias permanently.</p>
+<h3 id="check-if-profile-exists">Check if profile exists</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Test-Path $PROFILE
-</span></span></code></pre></div><p>If <code>true</code>, already exists, skip creation. Otherwise create it</p>
+</span></span></code></pre></div><p>If <code>False</code>, create it:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>New-Item -Path $PROFILE -ItemType File -Force
-</span></span></code></pre></div><h3 id="open-profile-in-notepad">Open profile in notepad</h3>
+</span></span></code></pre></div><h3 id="add-alias-removal-to-profile">Add alias removal to profile</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>notepad $profile
-</span></span></code></pre></div><p>Add this line to the profile, save and close</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Remove-Item Alias:curl -ErrorAction SilentlyContinue
-</span></span></code></pre></div><p>Restart powershell</p>
-<h3 id="if-the-alias-is-not-removed-after-restart">If the alias is not removed after restart</h3>
-<p>Ensure PowerShell is set to allow profile scripts by running</p>
-<pre tabindex="0"><code class="language-poweshell" data-lang="poweshell">Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-</code></pre>
+</span></span></code></pre></div><p>Add this line and save:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Remove-Item Alias<span style="color:#960050;background-color:#1e0010">:</span>curl -ErrorAction SilentlyContinue
+</span></span></code></pre></div><p>Restart PowerShell.</p>
+<h3 id="if-alias-persists">If alias persists</h3>
+<p>Enable script execution:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+</span></span></code></pre></div>
 
 
       </main>

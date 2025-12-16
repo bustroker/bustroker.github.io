@@ -1,0 +1,469 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Architecture Interview Questions - Technical Reference | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Architecture Interview Questions - Technical Reference</h1>
+<h3 id="architect-vs-tech-lead">Architect vs Tech Lead</h3>
+<p><strong>Main concerns:</strong></p>
+<ul>
+<li>Architect: Cross-cutting concerns, system-wide design, technology strategy</li>
+<li>Tech Lead: Team execution, code quality, sprint delivery</li>
+</ul>
+<p><strong>Key questions:</strong></p>
+<ul>
+<li>Most difficult aspect switching from TL to Solution Architect?</li>
+<li>Mentoring strategy?</li>
+<li>Establishing and enforcing guidelines/best practices?</li>
+<li>Relationship with Tech Leads in design/development?</li>
+</ul>
+<h3 id="web-architecture-styles">Web Architecture Styles</h3>
+<p>Reference: <a href="https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures">Common Web Application Architectures</a></p>
+<p><strong>Monolithic</strong></p>
+<ul>
+<li>Single deployment unit</li>
+<li>Tight coupling</li>
+</ul>
+<p><strong>N-layers</strong></p>
+<ul>
+<li>Presentation → Business Logic → Data Access</li>
+<li>Horizontal slicing</li>
+</ul>
+<p><strong>Clean Architecture</strong> (Onion/Hexagonal)</p>
+<ul>
+<li>Domain-centric dependency organization</li>
+<li>Dependency Inversion Principle</li>
+<li><a href="https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/">Deep dive</a></li>
+</ul>
+<p><strong>Vertical Slice Architecture</strong></p>
+<ul>
+<li>Feature-based slicing</li>
+<li><a href="https://jimmybogard.com/vertical-slice-architecture/">Jimmy Bogard&rsquo;s approach</a></li>
+</ul>
+<h3 id="event-driven-architecture">Event-Driven Architecture</h3>
+<p><strong>Event vs Message:</strong></p>
+<ul>
+<li>Event: Something that happened (past tense)</li>
+<li>Message: Command or request (imperative)</li>
+</ul>
+<p><strong>Eventual Consistency:</strong></p>
+<ul>
+<li>BASE (Basically Available, Soft-state, Eventually-consistent)</li>
+<li>vs ACID (Atomic, Consistent, Isolated, Durable)</li>
+</ul>
+<p><strong>Message Brokers:</strong></p>
+<ul>
+<li><strong>Azure ServiceBus/RabbitMQ</strong>: Guaranteed delivery, message queuing</li>
+<li><strong>Kafka/Azure Event Hub</strong>: High-throughput event streaming</li>
+</ul>
+<p><strong>Kafka setup considerations:</strong></p>
+<ul>
+<li>Environment strategy</li>
+<li>Throughput requirements</li>
+<li>Cost-control measures</li>
+<li>Scaling strategies</li>
+</ul>
+<h3 id="domain-driven-design-ddd">Domain-Driven Design (DDD)</h3>
+<p><strong>Core concepts:</strong></p>
+<ul>
+<li>Entity: Identity-based object</li>
+<li>Value Object: Immutable, equality by value</li>
+<li>Aggregate: Consistency boundary</li>
+</ul>
+<p><strong>Relation to microservices:</strong></p>
+<ul>
+<li>Bounded contexts map to service boundaries</li>
+<li>Domain models guide service decomposition</li>
+</ul>
+<h3 id="microservices">Microservices</h3>
+<p><strong>vs SOA:</strong></p>
+<ul>
+<li>Microservices: Fine-grained, independent deployment</li>
+<li>SOA: Coarser services, shared infrastructure</li>
+</ul>
+<p><strong>Trade-offs:</strong></p>
+<ul>
+<li>Benefits: Scalability, technology diversity, fault isolation</li>
+<li>Costs: Distributed system complexity, data consistency challenges</li>
+</ul>
+<p><strong>Data management:</strong></p>
+<ul>
+<li>Database per service pattern</li>
+<li>Eventual consistency</li>
+<li>Saga pattern for distributed transactions</li>
+</ul>
+<p><strong>Monolith to microservices:</strong></p>
+<ul>
+<li>Strangler Fig pattern</li>
+<li>Branch by Abstraction</li>
+<li>Extract service incrementally</li>
+</ul>
+<h3 id="authentication--authorization">Authentication &amp; Authorization</h3>
+<p><strong>OAuth + OIDC:</strong></p>
+<ul>
+<li>OAuth 2.0: Authorization framework</li>
+<li>OIDC: Authentication layer on OAuth</li>
+</ul>
+<p><strong>Flows:</strong></p>
+<pre tabindex="0"><code>Authorization Code: Server-to-server communication
+Authorization Code + PKCE: Public clients (SPAs, mobile)
+Resource Owner Password: Legacy (avoid if possible)
+</code></pre><h3 id="high-availability-on-azure">High Availability on Azure</h3>
+<p><strong>Infrastructure:</strong></p>
+<ul>
+<li>Availability Zones: Zone-redundant deployment</li>
+<li>Multi-region: Cross-region replication</li>
+</ul>
+<p><strong>Deployment strategies:</strong></p>
+<pre tabindex="0"><code>Active-Active: Load balanced across regions
+Active-Passive: Failover to standby region
+
+RPO (Recovery Point Objective): Max acceptable data loss
+RTO (Recovery Time Objective): Max acceptable downtime
+</code></pre><p><strong>Deployment patterns:</strong></p>
+<ul>
+<li>Blue/Green: Zero-downtime deployment via environment swap</li>
+<li>Canary: Gradual traffic shift to new version</li>
+</ul>
+<h3 id="transactional-messaging">Transactional Messaging</h3>
+<p><strong>Outbox pattern:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Ensure exactly-once message publishing</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> transaction = dbContext.Database.BeginTransaction())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 1. Save business entity</span>
+</span></span><span style="display:flex;"><span>    dbContext.Orders.Add(order);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 2. Save message to outbox table</span>
+</span></span><span style="display:flex;"><span>    dbContext.OutboxMessages.Add(<span style="color:#66d9ef">new</span> OutboxMessage 
+</span></span><span style="display:flex;"><span>    { 
+</span></span><span style="display:flex;"><span>        Payload = JsonSerializer.Serialize(orderCreatedEvent) 
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> dbContext.SaveChangesAsync();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> transaction.CommitAsync();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 3. Background process publishes from outbox</span>
+</span></span></code></pre></div><h3 id="cache-vs-database">Cache vs Database</h3>
+<p><strong>Key differences:</strong></p>
+<ul>
+<li>Cache: In-memory, fast reads, volatile</li>
+<li>Database: Persistent, ACID guarantees, durable</li>
+</ul>
+<p><strong>Why not cache-only storage?</strong></p>
+<ul>
+<li>Durability requirements</li>
+<li>Data size constraints</li>
+<li>Cost at scale</li>
+</ul>
+<h3 id="kubernetesdocker-on-aks">Kubernetes/Docker on AKS</h3>
+<p><strong>Core components:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">## Pod: Smallest deployable unit</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Service: Stable network endpoint</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Ingress: External access routing</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## ConfigMap/Secret: Configuration management</span>
+</span></span></code></pre></div><p><strong>Additional concerns:</strong></p>
+<ul>
+<li>Service mesh (Istio/Linkerd): Traffic management, observability</li>
+<li>Security: RBAC, Network Policies, Pod Security Standards</li>
+<li>Helm: Package management</li>
+</ul>
+<h3 id="cicd">CI/CD</h3>
+<p><strong>Definitions:</strong></p>
+<pre tabindex="0"><code>CI (Continuous Integration): Automated build + test on commit
+CD (Continuous Delivery): Always releasable, manual deployment trigger
+CD (Continuous Deployment): Automated production deployment
+</code></pre><p><strong>Branching strategies:</strong></p>
+<ul>
+<li>Trunk-based: Short-lived branches, frequent integration</li>
+<li>GitFlow: Feature/develop/release/hotfix branches</li>
+<li>GitHub Flow: Main + feature branches</li>
+</ul>
+<h3 id="non-functional-requirements-nfrs">Non-Functional Requirements (NFRs)</h3>
+<p><strong>Also known as:</strong></p>
+<ul>
+<li>Quality Attributes</li>
+<li>Architecturally Significant Requirements (ASRs)</li>
+</ul>
+<p><strong>Categories:</strong></p>
+<ul>
+<li>Performance: Response time, throughput</li>
+<li>Scalability: Load handling capacity</li>
+<li>Security: Authentication, authorization, encryption</li>
+<li>Reliability: Uptime, fault tolerance</li>
+<li>Maintainability: Code quality, testability</li>
+</ul>
+<p><strong>References:</strong></p>
+<ul>
+<li><a href="https://iso25000.com/index.php/en/iso-25000-standards/iso-25010">ISO 25010 Quality Model</a></li>
+<li><a href="https://www.scaledagileframework.com/nonfunctional-requirements/">SAFe NFRs</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Architecturally_significant_requirements">ASRs on Wikipedia</a></li>
+</ul>
+<h3 id="technical-governance">Technical Governance</h3>
+<p><strong>Documentation approach:</strong></p>
+<ul>
+<li>Architecture Decision Records (ADRs)</li>
+<li>C4 model diagrams (Context, Container, Component, Code)</li>
+<li>Living documentation in code</li>
+</ul>
+<p><strong>Diagram types:</strong></p>
+<ul>
+<li>System Context: External dependencies</li>
+<li>Container: High-level technology choices</li>
+<li>Component: Internal structure</li>
+<li>Sequence: Interaction flows</li>
+</ul>
+<h3 id="agile-methodology">Agile Methodology</h3>
+<p><strong>Core principle:</strong> Iterative delivery, customer collaboration, responding to change</p>
+<p><strong>SCRUM ceremonies:</strong></p>
+<ul>
+<li>Sprint Planning</li>
+<li>Daily Standup</li>
+<li>Sprint Review</li>
+<li>Retrospective</li>
+</ul>
+<p><strong>Requirement lifecycle with Architect:</strong></p>
+<pre tabindex="0"><code>PO defines requirement
+  ↓
+Architect reviews for technical feasibility/NFRs
+  ↓
+SM facilitates refinement with Tech Lead + Dev Team
+  ↓
+Sprint Planning: Architect provides design guidance
+  ↓
+Development: Tech Lead ensures implementation quality
+  ↓
+Review: Architect validates solution
+</code></pre><h3 id="react-native-mobile">React Native (Mobile)</h3>
+<p><strong>React Native vs Native:</strong></p>
+<ul>
+<li>Code sharing across iOS/Android</li>
+<li>Faster development cycle</li>
+<li>Trade-off: Performance, platform-specific features</li>
+</ul>
+<p><strong>SDLC setup:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## Branching</span>
+</span></span><span style="display:flex;"><span>main → develop → feature branches
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Environments</span>
+</span></span><span style="display:flex;"><span>- Development <span style="color:#f92672">(</span>TestFlight/Internal Testing<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>- Staging <span style="color:#f92672">(</span>External beta<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>- Production <span style="color:#f92672">(</span>App Store/Play Store<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Testing</span>
+</span></span><span style="display:flex;"><span>- Unit: Jest
+</span></span><span style="display:flex;"><span>- Integration: Detox/Appium
+</span></span><span style="display:flex;"><span>- Manual: Device farm testing
+</span></span></code></pre></div><p><strong>Web + Mobile code sharing:</strong></p>
+<ul>
+<li>Shared business logic layer</li>
+<li>Platform-specific UI components</li>
+<li>Monorepo with Nx/Turborepo</li>
+</ul>
+<p><strong>Module decoupling:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Feature-based structure
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">/features</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">/auth</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">/orders</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">/profile</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Dependency injection for cross-cutting concerns
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">container</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createContainer</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">register</span>(<span style="color:#e6db74">&#39;api&#39;</span>, <span style="color:#a6e22e">ApiService</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">register</span>(<span style="color:#e6db74">&#39;auth&#39;</span>, <span style="color:#a6e22e">AuthService</span>);
+</span></span></code></pre></div><p><strong>Microfrontends:</strong></p>
+<ul>
+<li>Module Federation (Webpack 5)</li>
+<li>Independent deployment of UI modules</li>
+<li>Runtime integration</li>
+</ul>
+<h3 id="interview-assessment-criteria">Interview Assessment Criteria</h3>
+<ul>
+<li>Non-functional requirements identification</li>
+<li>Architecture pattern knowledge and experience</li>
+<li>NFR-based architecture scoring</li>
+<li>Service communication strategies</li>
+<li>Data storage design</li>
+<li>Dependency and release management</li>
+<li>High availability solutions</li>
+<li>Observability implementation</li>
+<li>Communication clarity</li>
+</ul>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

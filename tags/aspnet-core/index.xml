@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aspnet Core on Coding notes</title>
+    <title>Aspnet Core on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/aspnet-core/</link>
-    <description>Recent content in Aspnet Core on Coding notes</description>
+    <description>Recent content in Aspnet Core on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 29 Aug 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/aspnet-core/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Bundling and minification in Aspnet Core MVC</title>
-      <link>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc/</link>
+      <title>Bundling and Minification in ASP.NET Core MVC</title>
+      <link>https://www.bustroker.com/notes/bundling-and-minification-in-asp.net-core-mvc/</link>
       <pubDate>Sat, 29 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc/</guid>
-      <description>Static files should be bundled and minified, and forced to be updated by the browser (not cached) when content changes.&#xA;Bundle and minify them To bundle and minify js and css files, add bundleconfig.json file to the project root folder&#xA;[ { &amp;#34;outputFileName&amp;#34;: &amp;#34;wwwroot/css/site.min.css&amp;#34;, &amp;#34;inputFiles&amp;#34;: [ &amp;#34;wwwroot/css/site.css&amp;#34; ] }, { &amp;#34;outputFileName&amp;#34;: &amp;#34;wwwroot/js/site.min.js&amp;#34;, &amp;#34;inputFiles&amp;#34;: [ &amp;#34;wwwroot/js/site.js&amp;#34; ], &amp;#34;minify&amp;#34;: { &amp;#34;enabled&amp;#34;: true, &amp;#34;renameLocals&amp;#34;: true }, &amp;#34;sourceMap&amp;#34;: false } ] Load them Add the reference to the page</description>
+      <guid>https://www.bustroker.com/notes/bundling-and-minification-in-asp.net-core-mvc/</guid>
+      <description>Goal: Bundle and minify static files, forcing browser updates when content changes.&#xA;Bundle and Minify Create bundleconfig.json in the project root:&#xA;[ { &amp;#34;outputFileName&amp;#34;: &amp;#34;wwwroot/css/site.min.css&amp;#34;, &amp;#34;inputFiles&amp;#34;: [ &amp;#34;wwwroot/css/site.css&amp;#34; ] }, { &amp;#34;outputFileName&amp;#34;: &amp;#34;wwwroot/js/site.min.js&amp;#34;, &amp;#34;inputFiles&amp;#34;: [ &amp;#34;wwwroot/js/site.js&amp;#34; ], &amp;#34;minify&amp;#34;: { &amp;#34;enabled&amp;#34;: true, &amp;#34;renameLocals&amp;#34;: true }, &amp;#34;sourceMap&amp;#34;: false } ] Reference Bundled Files &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;~/css/site.min.css&amp;#34; asp-append-version=&amp;#34;true&amp;#34; /&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;footer&amp;gt; ....... &amp;lt;/footer&amp;gt; &amp;lt;script src=&amp;#34;~/js/site.min.js&amp;#34; asp-append-version=&amp;#34;true&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; The asp-append-version=&amp;quot;true&amp;quot; attribute appends a version hash to the file URL, bypassing browser cache when content changes.</description>
     </item>
     <item>
-      <title>Deploy dotnet core app to heroku</title>
-      <link>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku/</link>
+      <title>Deploy ASP.NET Core to Heroku</title>
+      <link>https://www.bustroker.com/notes/deploy-asp.net-core-to-heroku/</link>
       <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku/</guid>
-      <description>An aspnet core web app/api app is assumed to have been implemented already. Following is how to deploy it.&#xA;Heroku PORT Heroku saves in the environment variable PORT, the port where the application should listen. So the port needs to be changed to that one.&#xA;//Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { var herokuPort = Environment.GetEnvironmentVariable(&amp;#34;PORT&amp;#34;); if (!string.IsNullOrWhiteSpace(herokuPort)) { webBuilder.UseUrls($&amp;#34;http://*:{herokuPort}&amp;#34;); } webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); Dockerfile FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env WORKDIR /app # Copy csproj and restore as distinct layers COPY *.</description>
+      <guid>https://www.bustroker.com/notes/deploy-asp.net-core-to-heroku/</guid>
+      <description>Goal Deploy an ASP.NET Core application to Heroku using Docker.&#xA;Configure PORT Heroku sets the PORT environment variable dynamically. Configure your app to use it:&#xA;//Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { var herokuPort = Environment.GetEnvironmentVariable(&amp;#34;PORT&amp;#34;); if (!string.IsNullOrWhiteSpace(herokuPort)) { webBuilder.UseUrls($&amp;#34;http://*:{herokuPort}&amp;#34;); } webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); Create Dockerfile FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env WORKDIR /app ## Copy csproj and restore as distinct layers COPY *.csproj ./ RUN dotnet restore ## Copy everything else and build COPY .</description>
     </item>
     <item>
-      <title>Setup aspnet core app with vagrant and docker</title>
-      <link>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</link>
+      <title>Running ASP.NET Core in Docker with Vagrant</title>
+      <link>https://www.bustroker.com/notes/running-asp.net-core-in-docker-with-vagrant/</link>
       <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</guid>
-      <description>Create dotnet application. For example, a webapi The webapi will be named Bustroker.Notes.WebApi.&#xA;dotnet new webapi -n Bustroker.Notes.WebApi Create linux VM with Vagrant I rather a linux vm to work with docker. Check the post Vagrant VM provision &amp;amp; vagrant commands cheathsheet for Vagrantfile and provision script. From there select the tools required in the VM. In the example port 8080 of VM is mapped to port 8080 in host. If another is required, it needs to be set.</description>
+      <guid>https://www.bustroker.com/notes/running-asp.net-core-in-docker-with-vagrant/</guid>
+      <description>Goal Run an ASP.NET Core application in Docker inside a Linux VM, accessible from your host machine.&#xA;Create the ASP.NET Core application dotnet new webapi -n Bustroker.Notes.WebApi Create Linux VM with Vagrant Configure Vagrantfile to map port 8080 from VM to host:&#xA;config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 8080, host: 8080 Setup Docker Dockerfile:&#xA;FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env WORKDIR /app ## Copy csproj and restore as distinct layers COPY *.csproj ./ RUN dotnet restore ## Copy everything else and build COPY .</description>
     </item>
     <item>
-      <title>Very basic logging to console from netcore webapi with Serilog</title>
-      <link>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</link>
+      <title>Console Logging in ASP.NET Core with Serilog</title>
+      <link>https://www.bustroker.com/notes/console-logging-in-asp.net-core-with-serilog/</link>
       <pubDate>Thu, 25 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
-      <description>Add serilog&#xA;dotnet add package Serilog.AspNetCore public class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog() .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); } Then add&#xA;// Startup.cs public void Configure(IApplicationBuilder app, IWebHostEnvironment env) { if (env.</description>
+      <guid>https://www.bustroker.com/notes/console-logging-in-asp.net-core-with-serilog/</guid>
+      <description>Goal: Set up Serilog for console logging in an ASP.NET Core Web API.&#xA;Install Serilog dotnet add package Serilog.AspNetCore Configure Serilog in Program.cs public class Program { public static void Main(string[] args) { Log.Logger = new LoggerConfiguration() .MinimumLevel.Debug() .MinimumLevel.Override(&amp;#34;Microsoft&amp;#34;, LogEventLevel.Information) .Enrich.FromLogContext() .WriteTo.Console() .CreateLogger(); try { Log.Information(&amp;#34;Starting web host&amp;#34;); CreateHostBuilder(args).Build().Run(); } catch (Exception ex) { Log.Fatal(ex, &amp;#34;Host terminated unexpectedly&amp;#34;); } finally { Log.CloseAndFlush(); } } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.</description>
     </item>
   </channel>
 </rss>

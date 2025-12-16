@@ -2,28 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.bustroker.com/tags/agents/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/ai/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/ai-agent-frameworks-mental-models-and-control-flow/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/</loc>
-    <lastmod>2025-11-13T00:00:00+00:00</lastmod>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/frameworks/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/llm/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/</loc>
+    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/llm-agentic-patterns-a-practical-guide/</loc>
+    <lastmod>2025-11-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/patterns/</loc>
+    <lastmod>2025-11-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/git/</loc>
     <lastmod>2025-11-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/git-checout/</loc>
+    <loc>https://www.bustroker.com/tags/git-checkout/</loc>
     <lastmod>2025-11-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/git-go-to-previous-commit/</loc>
-    <lastmod>2025-11-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/</loc>
-    <lastmod>2025-11-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/</loc>
+    <loc>https://www.bustroker.com/notes/restore-previous-commit-without-changing-head/</loc>
     <lastmod>2025-11-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/force/</loc>
     <lastmod>2025-11-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/git-force-dev-into-master-from-pr/</loc>
+    <loc>https://www.bustroker.com/notes/force-sync-master-with-dev-branch-via-pull-request/</loc>
     <lastmod>2025-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/pr/</loc>
@@ -35,16 +56,13 @@
     <loc>https://www.bustroker.com/tags/curl/</loc>
     <lastmod>2025-10-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/poweshell/</loc>
+    <loc>https://www.bustroker.com/tags/powershell/</loc>
     <lastmod>2025-10-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/remove-alias-curl-from-powershell/</loc>
+    <loc>https://www.bustroker.com/notes/remove-curl-alias-from-powershell/</loc>
     <lastmod>2025-10-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/ai/</loc>
-    <lastmod>2025-09-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/ai-solution-architecture/</loc>
+    <loc>https://www.bustroker.com/notes/ai-solution-architecture-learning-path/</loc>
     <lastmod>2025-09-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/solution-architecture/</loc>
@@ -56,7 +74,7 @@
     <loc>https://www.bustroker.com/tags/api/</loc>
     <lastmod>2025-07-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/api-guidelines/</loc>
+    <loc>https://www.bustroker.com/notes/enterprise-api-guidelines/</loc>
     <lastmod>2025-07-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/guidelines/</loc>
@@ -64,6 +82,9 @@
   </url><url>
     <loc>https://www.bustroker.com/tags/http/</loc>
     <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/.net-templates-and-database-migrations/</loc>
+    <lastmod>2025-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/apm/</loc>
     <lastmod>2025-06-26T00:00:00+00:00</lastmod>
@@ -75,9 +96,6 @@
     <lastmod>2025-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/devops/</loc>
-    <lastmod>2025-06-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/devops-notes/</loc>
     <lastmod>2025-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/dotnet/</loc>
@@ -92,29 +110,26 @@
     <loc>https://www.bustroker.com/tags/observability/</loc>
     <lastmod>2025-06-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/observability-notes/</loc>
-    <lastmod>2025-06-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/tags/sentry/</loc>
     <lastmod>2025-06-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/templates/</loc>
     <lastmod>2025-06-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/data-strategy/</loc>
+    <loc>https://www.bustroker.com/notes/unified-observability-stack-with-.net-ilogger-elastic-and-sentry/</loc>
+    <lastmod>2025-06-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/building-a-gdpr-compliant-data-platform-for-saas-with-databricks/</loc>
     <lastmod>2025-05-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/data-strategy/</loc>
+    <loc>https://www.bustroker.com/tags/data-strategy/</loc>
     <lastmod>2025-05-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/engineering/</loc>
     <lastmod>2025-03-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/engineering-principles/</loc>
+    <loc>https://www.bustroker.com/notes/engineering-principles-for-reliable-systems/</loc>
     <lastmod>2025-03-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/solution-architecture/</loc>
-    <lastmod>2025-03-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/connection-interceptor/</loc>
     <lastmod>2025-03-05T00:00:00+00:00</lastmod>
@@ -122,7 +137,7 @@
     <loc>https://www.bustroker.com/tags/entityframework/</loc>
     <lastmod>2025-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/entityframework-db-connection-interceptor-for-rls/</loc>
+    <loc>https://www.bustroker.com/notes/implementing-row-level-security-in-entity-framework-with-connection-interceptors/</loc>
     <lastmod>2025-03-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/rls/</loc>
@@ -134,13 +149,13 @@
     <loc>https://www.bustroker.com/tags/sql/</loc>
     <lastmod>2025-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-dotnet/</loc>
+    <loc>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-.net/</loc>
     <lastmod>2025-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/openapi/</loc>
     <lastmod>2025-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/save-and-restore-vs-code-settings/</loc>
+    <loc>https://www.bustroker.com/notes/save-and-restore-vs-code-settings-with-powershell/</loc>
     <lastmod>2025-02-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/settings/</loc>
@@ -149,28 +164,13 @@
     <loc>https://www.bustroker.com/tags/vs-code/</loc>
     <lastmod>2025-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/docker/</loc>
-    <lastmod>2025-02-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/run-wsl-windows-subsystem-for-linux/</loc>
-    <lastmod>2025-02-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/windows-subsystem-for-linux/</loc>
-    <lastmod>2025-02-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/wsl/</loc>
-    <lastmod>2025-02-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/tags/curl-alias/</loc>
-    <lastmod>2025-02-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/powershell/</loc>
     <lastmod>2025-02-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/remove-curl-alias-from-powershell-permanently/</loc>
     <lastmod>2025-02-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/add-image-to-hugo-site/</loc>
+    <loc>https://www.bustroker.com/notes/adding-images-to-hugo-sites/</loc>
     <lastmod>2025-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/hugo/</loc>
@@ -182,7 +182,7 @@
     <loc>https://www.bustroker.com/tags/github/</loc>
     <lastmod>2024-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/github-actions/</loc>
+    <loc>https://www.bustroker.com/notes/promote-rc-images-to-release-in-ecr-with-github-actions/</loc>
     <lastmod>2024-09-30T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/fluxcd/</loc>
@@ -191,25 +191,25 @@
     <loc>https://www.bustroker.com/tags/go/</loc>
     <lastmod>2024-09-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/go-hello-world-with-regex/</loc>
-    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/tags/imagepolicy/</loc>
     <lastmod>2024-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/regex/</loc>
     <lastmod>2024-09-13T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.bustroker.com/notes/testing-fluxcd-imagepolicy-regex-with-go/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/tags/csx/</loc>
     <lastmod>2024-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/dotnet-scrips/</loc>
+    <loc>https://www.bustroker.com/notes/running-c</loc>
     <lastmod>2024-08-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/script/</loc>
     <lastmod>2024-08-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/git-stash-and-patch/</loc>
+    <loc>https://www.bustroker.com/notes/git-stash-and-diff-patches/</loc>
     <lastmod>2024-08-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/save-diff/</loc>
@@ -227,28 +227,10 @@
     <loc>https://www.bustroker.com/tags/windows/</loc>
     <lastmod>2024-08-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/getting-started-react-web-app-pwa/</loc>
-    <lastmod>2024-07-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/progressive-web-app/</loc>
-    <lastmod>2024-07-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/pwa/</loc>
-    <lastmod>2024-07-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/react/</loc>
-    <lastmod>2024-07-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/standalone/</loc>
-    <lastmod>2024-07-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/web-app/</loc>
-    <lastmod>2024-07-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/tags/file-output/</loc>
     <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/vs-code-include-file-output/</loc>
+    <loc>https://www.bustroker.com/notes/include-files-in-build-output-directory/</loc>
     <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/vscode/</loc>
@@ -257,16 +239,16 @@
     <loc>https://www.bustroker.com/tags/getting-started/</loc>
     <lastmod>2024-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/new-typescript-project/</loc>
+    <loc>https://www.bustroker.com/notes/minimal-typescript-project-setup/</loc>
     <lastmod>2024-04-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/typescript/</loc>
     <lastmod>2024-04-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/python/</loc>
+    <loc>https://www.bustroker.com/notes/building-a-python-oop-console-application/</loc>
     <lastmod>2024-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/python-oop-console-app/</loc>
+    <loc>https://www.bustroker.com/tags/python/</loc>
     <lastmod>2024-03-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/cli/</loc>
@@ -275,37 +257,37 @@
     <loc>https://www.bustroker.com/tags/redis/</loc>
     <lastmod>2024-03-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/redis-cli-cheatsheet/</loc>
+    <loc>https://www.bustroker.com/notes/redis-cli-essential-commands/</loc>
     <lastmod>2024-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/autohotkey/</loc>
     <lastmod>2024-02-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/llm/</loc>
-    <lastmod>2024-02-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/run-llm-locally/</loc>
+    <loc>https://www.bustroker.com/notes/run-llm-locally-with-ollama/</loc>
     <lastmod>2024-02-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/forget/</loc>
     <lastmod>2024-02-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/git-forget-a-file-and-ignore/</loc>
+    <loc>https://www.bustroker.com/notes/git-stop-tracking-files-while-keeping-them-locally/</loc>
     <lastmod>2024-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/automating-git-push-with-ssh-keys-in-scripts/</loc>
+    <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/colima/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/docker-in-mac-with-colima/</loc>
+    <loc>https://www.bustroker.com/tags/docker/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/git-push/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/git-push-from-script/</loc>
+    <loc>https://www.bustroker.com/tags/mac/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/mac/</loc>
+    <loc>https://www.bustroker.com/notes/running-docker-on-mac-with-colima/</loc>
     <lastmod>2024-02-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/bash/</loc>
@@ -332,13 +314,13 @@
     <loc>https://www.bustroker.com/tags/catalog/</loc>
     <lastmod>2023-08-09T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.bustroker.com/notes/essential-developer-tools-catalog/</loc>
+    <lastmod>2023-08-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/tags/tools/</loc>
     <lastmod>2023-08-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/tools-catalog/</loc>
-    <lastmod>2023-08-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/multiple-ssh-keys-settings-for-different-github-account/</loc>
+    <loc>https://www.bustroker.com/notes/managing-multiple-ssh-keys-for-different-github-accounts/</loc>
     <lastmod>2023-06-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/ssh/</loc>
@@ -347,58 +329,49 @@
     <loc>https://www.bustroker.com/tags/authentication/</loc>
     <lastmod>2023-06-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/configure-aws-cli/</loc>
+    <loc>https://www.bustroker.com/notes/configure-aws-cli-authentication/</loc>
     <lastmod>2023-06-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/run-trivy-from-docker-on-mac/</loc>
+    <loc>https://www.bustroker.com/notes/running-trivy-security-scanner-from-docker-on-macos/</loc>
     <lastmod>2023-03-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/trivy/</loc>
     <lastmod>2023-03-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/scan/</loc>
-    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/vulnerability/</loc>
-    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/vulnerability-scan-with-trivy/</loc>
-    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/tags/environment/</loc>
     <lastmod>2023-01-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/mac-environment-variable/</loc>
+    <loc>https://www.bustroker.com/notes/setting-environment-variables-on-mac/</loc>
     <lastmod>2023-01-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/java/</loc>
     <lastmod>2022-10-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/java-overview/</loc>
+    <loc>https://www.bustroker.com/notes/java-ecosystem-overview/</loc>
     <lastmod>2022-10-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/architecture/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/architecture-principles/</loc>
+    <loc>https://www.bustroker.com/notes/architecture-principles-for-developer-autonomy/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/solution-architecture-assessment/</loc>
+    <loc>https://www.bustroker.com/notes/solution-architecture-assessment-checklist/</loc>
     <lastmod>2022-06-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/databricks/</loc>
     <lastmod>2022-06-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/databricks-submit-jar/</loc>
+    <loc>https://www.bustroker.com/notes/deploy-jar-to-azure-databricks-from-local-machine/</loc>
     <lastmod>2022-06-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/architecture-interview-questions/</loc>
+    <loc>https://www.bustroker.com/notes/.net-software-engineer-interview-questions/</loc>
+    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/architecture-interview-questions-technical-reference/</loc>
     <lastmod>2022-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/dotnet-engineer/</loc>
-    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/dotnet-software-engineer-interview-questions/</loc>
     <lastmod>2022-05-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/interview/</loc>
@@ -416,19 +389,19 @@
     <loc>https://www.bustroker.com/tags/future/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.bustroker.com/notes/running-concurrent-tasks-with-scala-futures/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/tags/scala/</loc>
     <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/scala-hello-futures/</loc>
-    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+    <loc>https://www.bustroker.com/notes/query-azure-data-lake-from-synapse-sql-pools-using-sas-credentials/</loc>
+    <lastmod>2021-12-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/sqlpools/</loc>
     <lastmod>2021-12-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/synapse/</loc>
-    <lastmod>2021-12-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/synapse-sql-pools-credentials/</loc>
     <lastmod>2021-12-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/delta-lake/</loc>
@@ -437,10 +410,10 @@
     <loc>https://www.bustroker.com/tags/spark/</loc>
     <lastmod>2021-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/spark-with-delta-lake/</loc>
+    <loc>https://www.bustroker.com/notes/spark-with-scala-and-azure-storage/</loc>
     <lastmod>2021-12-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/spark-with-scala/</loc>
+    <loc>https://www.bustroker.com/notes/writing-to-delta-lake-from-spark-with-scala/</loc>
     <lastmod>2021-12-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/avro/</loc>
@@ -449,7 +422,7 @@
     <loc>https://www.bustroker.com/tags/kafka/</loc>
     <lastmod>2021-11-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/kafka-avro-consumer-issue-workaround/</loc>
+    <loc>https://www.bustroker.com/notes/workaround-for-kafka-avro-deserializer-nullreferenceexception/</loc>
     <lastmod>2021-11-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/run-kafka-locally-with-docker-compose/</loc>
@@ -458,7 +431,7 @@
     <loc>https://www.bustroker.com/tags/http4s/</loc>
     <lastmod>2021-09-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/scala-hello-world-web-api-with-http4s/</loc>
+    <loc>https://www.bustroker.com/notes/scala-http-api-with-http4s/</loc>
     <lastmod>2021-09-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/webapi/</loc>
@@ -473,28 +446,28 @@
     <loc>https://www.bustroker.com/tags/hadoop/</loc>
     <lastmod>2021-08-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/install-spark-and-hadoop-in-windows-10/</loc>
+    <loc>https://www.bustroker.com/notes/install-spark-and-hadoop-on-windows-10/</loc>
     <lastmod>2021-08-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/path/</loc>
     <lastmod>2021-08-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/recover-lost-path-variable/</loc>
+    <loc>https://www.bustroker.com/notes/recover-lost-path-variable-on-windows/</loc>
     <lastmod>2021-08-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/7zip/</loc>
     <lastmod>2021-08-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/7zip-command-line/</loc>
+    <loc>https://www.bustroker.com/notes/extract-tar.gz-files-on-windows-with-7zip/</loc>
     <lastmod>2021-08-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/git-sparse-checkout/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/sparse-checkout/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/auto-hot-key-to-customize-keyboard-strokes/</loc>
+    <loc>https://www.bustroker.com/notes/working-with-git-sparse-checkout/</loc>
+    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/custom-keyboard-shortcuts-with-autohotkey/</loc>
     <lastmod>2021-05-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/</loc>
@@ -512,16 +485,16 @@
     <loc>https://www.bustroker.com/tags/elasticsearch/</loc>
     <lastmod>2021-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</loc>
+    <loc>https://www.bustroker.com/notes/run-elasticsearch-in-docker-inside-vagrant-vm/</loc>
     <lastmod>2021-05-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/vagrant/</loc>
     <lastmod>2021-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/aspnet-4.7/</loc>
+    <loc>https://www.bustroker.com/notes/asp.net-4.7-in-docker-with-iis-and-self-signed-ssl-certificate/</loc>
     <lastmod>2021-04-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/aspnet-website-in-docker-in-windows-iis-and-self-signed-certificate/</loc>
+    <loc>https://www.bustroker.com/tags/aspnet-4.7/</loc>
     <lastmod>2021-04-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/iis/</loc>
@@ -545,19 +518,16 @@
     <loc>https://www.bustroker.com/tags/sqlcmd/</loc>
     <lastmod>2021-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/use-sqlcmd-cli-tool/</loc>
+    <loc>https://www.bustroker.com/notes/using-sqlcmd-cli-for-sql-server/</loc>
     <lastmod>2021-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/install-sql-server-unattended-from-powershell/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/mssqlserver/</loc>
-    <lastmod>2021-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/powershell-cheatsheet/</loc>
     <lastmod>2021-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/html/</loc>
+    <lastmod>2021-03-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/minimal-html5-template/</loc>
     <lastmod>2021-03-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/mssql-2017/</loc>
@@ -567,9 +537,6 @@
     <lastmod>2021-03-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/run-mssql-2017-server-in-docker-for-windows/</loc>
-    <lastmod>2021-03-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/simplest-html-empty-file/</loc>
     <lastmod>2021-03-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/template/</loc>
@@ -590,19 +557,19 @@
     <loc>https://www.bustroker.com/tags/good-reads/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/good-reads.-well-explained-miscelanea-subjects/</loc>
-    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/tags/links/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/resources/</loc>
     <lastmod>2020-12-09T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.bustroker.com/notes/technical-reading-list-essential-developer-resources/</loc>
+    <lastmod>2020-12-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/tags/net-core-3.1/</loc>
     <lastmod>2020-11-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/simplest-single-client-tcp-client-and-server/</loc>
+    <loc>https://www.bustroker.com/notes/simplest-single-client-tcp-server-and-client-in-.net-core/</loc>
     <lastmod>2020-11-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/tcp/</loc>
@@ -611,7 +578,7 @@
     <loc>https://www.bustroker.com/tags/azure-function/</loc>
     <lastmod>2020-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/azure-function-for-cosmosdb-changefeed./</loc>
+    <loc>https://www.bustroker.com/notes/azure-function-for-cosmosdb-change-feed/</loc>
     <lastmod>2020-10-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/changefeed/</loc>
@@ -620,28 +587,19 @@
     <loc>https://www.bustroker.com/tags/cosmosdb/</loc>
     <lastmod>2020-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/azure-function-with-docker/</loc>
+    <loc>https://www.bustroker.com/notes/dockerizing-azure-functions-with-.net/</loc>
     <lastmod>2020-10-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/azure-devops/</loc>
     <lastmod>2020-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-cheatsheet/</loc>
+    <loc>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-ci/cd-setup/</loc>
     <lastmod>2020-09-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/bat/</loc>
-    <lastmod>2020-09-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/command-line/</loc>
-    <lastmod>2020-09-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/passing-arguments-to-scripts-both-bat-and-bash/</loc>
-    <lastmod>2020-09-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/azure/</loc>
+    <loc>https://www.bustroker.com/notes/authenticate-and-call-azure-app-service-with-aad-using-curl/</loc>
     <lastmod>2020-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/curl-azure-app-service-with-aad-auth/</loc>
+    <loc>https://www.bustroker.com/tags/azure/</loc>
     <lastmod>2020-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/appsettings/</loc>
@@ -656,7 +614,7 @@
     <loc>https://www.bustroker.com/tags/jmeter/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/jmeter-command-line-links/</loc>
+    <loc>https://www.bustroker.com/notes/jmeter-command-line-and-dashboard-reports/</loc>
     <lastmod>2020-09-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/aspnet-core/</loc>
@@ -665,7 +623,7 @@
     <loc>https://www.bustroker.com/tags/bundling/</loc>
     <lastmod>2020-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/bundling-and-minification-in-aspnet-core-mvc/</loc>
+    <loc>https://www.bustroker.com/notes/bundling-and-minification-in-asp.net-core-mvc/</loc>
     <lastmod>2020-08-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/minification/</loc>
@@ -674,25 +632,25 @@
     <loc>https://www.bustroker.com/tags/aspnet-core-3.1/</loc>
     <lastmod>2020-08-24T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.bustroker.com/notes/logging-to-elasticsearch-with-serilog-in-asp.net-core/</loc>
+    <lastmod>2020-08-24T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/tags/serilog/</loc>
     <lastmod>2020-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</loc>
-    <lastmod>2020-08-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service/</loc>
+    <loc>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-with-phonegap-build-api/</loc>
     <lastmod>2020-08-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/phonegap/</loc>
     <lastmod>2020-08-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/deploy-dotnet-core-app-to-heroku/</loc>
+    <loc>https://www.bustroker.com/notes/deploy-asp.net-core-to-heroku/</loc>
     <lastmod>2020-08-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/heroku/</loc>
     <lastmod>2020-08-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/setup-aspnet-core-app-with-vagrant-and-docker/</loc>
+    <loc>https://www.bustroker.com/notes/running-asp.net-core-in-docker-with-vagrant/</loc>
     <lastmod>2020-08-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/helm/</loc>
@@ -704,20 +662,17 @@
     <loc>https://www.bustroker.com/tags/kubectl/</loc>
     <lastmod>2020-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</loc>
+    <loc>https://www.bustroker.com/notes/kubernetes-commands-cheatsheet/</loc>
     <lastmod>2020-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/docker-cheatsheet/</loc>
+    <loc>https://www.bustroker.com/notes/docker-command-reference/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/docker-compose/</loc>
+    <loc>https://www.bustroker.com/notes/docker-compose-cheatsheet/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/docker-compose/</loc>
     <lastmod>2020-07-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/appsettings-env-variables/</loc>
-    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/dotnet-3.1/</loc>
     <lastmod>2020-07-10T00:00:00+00:00</lastmod>
@@ -725,58 +680,55 @@
     <loc>https://www.bustroker.com/tags/env-vars/</loc>
     <lastmod>2020-07-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</loc>
+    <loc>https://www.bustroker.com/notes/reading-appsettings.json-and-environment-variables-in-.net-3.1/</loc>
+    <lastmod>2020-07-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/console-logging-in-asp.net-core-with-serilog/</loc>
     <lastmod>2020-06-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/very-basic-logging-to-file-from-console-app-with-serilog/</loc>
-    <lastmod>2020-06-19T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/configure-a-rewrite-url-in-web.config-for-iis-hosted-apps/</loc>
+    <loc>https://www.bustroker.com/notes/configure-url-rewrites-in-web.config-for-iis/</loc>
     <lastmod>2020-06-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/application-insights/</loc>
     <lastmod>2020-06-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</loc>
+    <loc>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights--live-metrics/</loc>
     <lastmod>2020-06-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/live-metrics/</loc>
     <lastmod>2020-06-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</loc>
+    <loc>https://www.bustroker.com/notes/.net-core-3.1-ilogger-with-azure-app-service-log-streaming/</loc>
     <lastmod>2020-06-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</loc>
+    <loc>https://www.bustroker.com/notes/get-azure-managed-identity-tokens-with-curl/</loc>
     <lastmod>2020-05-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/managed-id/</loc>
     <lastmod>2020-05-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</loc>
+    <loc>https://www.bustroker.com/notes/curl-essential-commands-cheatsheet/</loc>
     <lastmod>2020-05-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/create-file-from-command-line-in-windows/</loc>
+    <loc>https://www.bustroker.com/tags/command-line/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/create-files-from-command-line-in-windows/</loc>
     <lastmod>2020-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/python-data-science-cheatsheet/</loc>
     <lastmod>2020-05-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/nuget.config/</loc>
-    <lastmod>2020-05-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/nuget.config-file/</loc>
-    <lastmod>2020-05-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/enable-app-service-healthcheck-from-az-cli/</loc>
+    <loc>https://www.bustroker.com/notes/enable-azure-app-service-health-check-from-azure-cli/</loc>
     <lastmod>2020-05-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/app-configuration/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/azure-api-app-failing-on-startup-with-500.30/</loc>
+    <loc>https://www.bustroker.com/notes/azure-app-configuration.-on-demand-refresh/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/azure-app-configuration-refresh-on-demand/</loc>
+    <loc>https://www.bustroker.com/notes/debugging-azure-app-service-500.30-startup-failures-with-application-insights/</loc>
     <lastmod>2020-05-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/troubleshooting/</loc>
@@ -785,55 +737,67 @@
     <loc>https://www.bustroker.com/tags/dotnet-core-3.1/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/handling-parallel-exceptions-in-dotnet/</loc>
+    <loc>https://www.bustroker.com/notes/handling-multiple-exceptions-from-parallel-tasks-in-.net/</loc>
     <lastmod>2020-05-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/azure-app-configuration-with-key-vault-and-managed-identity-in-ha/</loc>
     <lastmod>2020-04-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/basic-usage-ihttpclientfactory/</loc>
+    <loc>https://www.bustroker.com/tags/netcore-3.1/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/netcore-3.1/</loc>
+    <loc>https://www.bustroker.com/notes/using-ihttpclientfactory-in-.net-core-3.1/</loc>
     <lastmod>2020-03-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/change-directory-to-different-drive-in-windows-cmd/</loc>
     <lastmod>2019-11-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/a-cool-terminal-for-windows-with-context-menu/</loc>
+    <loc>https://www.bustroker.com/notes/context-menu-terminal-for-windows/</loc>
     <lastmod>2019-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/kusto/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/kusto-cheatsheet/</loc>
+    <loc>https://www.bustroker.com/notes/kusto-query-cheatsheet-for-application-insights/</loc>
     <lastmod>2019-10-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</loc>
+    <loc>https://www.bustroker.com/notes/vagrant-vm-provisioning-commands-cheatsheet/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/create-dotnet-core-sln-with-class-library-plus-xunit-tests-with-cli-for-vscode/</loc>
+    <loc>https://www.bustroker.com/notes/setup-.net-core-solution-with-class-library-and-xunit-tests/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/xunit/</loc>
     <lastmod>2019-09-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/raspberry-pi/</loc>
-    <lastmod>2019-06-19T00:00:00+00:00</lastmod>
+    <loc>https://www.bustroker.com/notes/minimal-node.js-express-api/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/voice-commands-assistant-in-node/</loc>
-    <lastmod>2019-06-19T00:00:00+00:00</lastmod>
+    <loc>https://www.bustroker.com/notes/minimal-node.js-express-static-file-server/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/node/</loc>
     <lastmod>2019-04-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/simplest-node-express-web-api/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/notes/mortgage-simulator-in-python/</loc>
+    <loc>https://www.bustroker.com/notes/python-mortgage-calculator/</loc>
     <lastmod>2018-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/</loc>
   </url>
 </urlset>

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Azure Function on Coding notes</title>
+    <title>Azure Function on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/azure-function/</link>
-    <description>Recent content in Azure Function on Coding notes</description>
+    <description>Recent content in Azure Function on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 27 Oct 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/azure-function/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Azure function for CosmosDb Changefeed.</title>
-      <link>https://www.bustroker.com/notes/azure-function-for-cosmosdb-changefeed./</link>
+      <title>Azure Function for CosmosDB Change Feed</title>
+      <link>https://www.bustroker.com/notes/azure-function-for-cosmosdb-change-feed/</link>
       <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/azure-function-for-cosmosdb-changefeed./</guid>
-      <description>Cosmos Create cosmos account, cosmos container Database: arch-pocs-misc-cosmosdb. Container being monitored: Transactions Lease container, required for the changefeed: TransactionsLease. The partition key for the lease container must be /id. Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools&#xA;Create function project func init Bustroker.CosmosDbChangeFeed.Func --dotnet [--docker] I renamed csproj file from Bustroker_CosmosDbChangeFeed_Func.csproj to Bustroker.CosmosDbChangeFeed.Func.csproj.&#xA;Check details for development with docker here&#xA;Create ChangeFeed function cd Bustroker.CosmosDbChangeFeed.Func func new --name TransactionsChangeFeed [--template {HttpTrigger, CosmosDbTrigger, etc}] And the code</description>
+      <guid>https://www.bustroker.com/notes/azure-function-for-cosmosdb-change-feed/</guid>
+      <description>Goal Process CosmosDB document changes in real-time using an Azure Function triggered by the CosmosDB Change Feed.&#xA;Setup CosmosDB Create a Cosmos account with:&#xA;Database: arch-pocs-misc-cosmosdb Container to monitor: Transactions Lease container: TransactionsLease with partition key /id The lease container tracks Change Feed progress across function instances.&#xA;Install Azure Functions Core Tools https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools Create Function Project func init Bustroker.CosmosDbChangeFeed.Func --dotnet [--docker] Rename the generated .csproj file from Bustroker_CosmosDbChangeFeed_Func.csproj to Bustroker.CosmosDbChangeFeed.Func.csproj.</description>
     </item>
     <item>
-      <title>Azure function with docker</title>
-      <link>https://www.bustroker.com/notes/azure-function-with-docker/</link>
+      <title>Dockerizing Azure Functions with .NET</title>
+      <link>https://www.bustroker.com/notes/dockerizing-azure-functions-with-.net/</link>
       <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/azure-function-with-docker/</guid>
-      <description>Install func cli https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools&#xA;Create function project func init Bustroker.HttpEndpoint.Func --dotnet --docker I renamed csproj file from Bustroker_HttpEndpoint_Func.csproj to Bustroker.HttpEndpoint.Func.csproj. The docker file is created. No need for docker to be installed. I run docker in Ubuntu VM, with Vagrant.&#xA;Create function cd Bustroker.HttpEndpoint.Func func new --name HttpEndpoint [--template {HttpTrigger, CosmosDbTrigger, etc}] App settings Add required packages dotnet add package Microsoft.Azure.Functions.Extensions dotnet add package Microsoft.NET.Sdk.Functions Make the function class and methods not static and inject IConfiguration in the constructor namespace Bustroker.</description>
+      <guid>https://www.bustroker.com/notes/dockerizing-azure-functions-with-.net/</guid>
+      <description>Goal Run Azure Functions in Docker containers with configuration and dependency injection support.&#xA;Setup Install Azure Functions Core Tools: https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash#install-the-azure-functions-core-tools&#xA;Create Project func init Bustroker.HttpEndpoint.Func --dotnet --docker The --docker flag generates a Dockerfile. Rename the .csproj file if needed (e.g., Bustroker_HttpEndpoint_Func.csproj → Bustroker.HttpEndpoint.Func.csproj).&#xA;Create Function cd Bustroker.HttpEndpoint.Func func new --name HttpEndpoint --template HttpTrigger Configuration Injection Add required packages:&#xA;dotnet add package Microsoft.Azure.Functions.Extensions dotnet add package Microsoft.NET.Sdk.Functions Make the function non-static and inject IConfiguration:</description>
     </item>
   </channel>
 </rss>

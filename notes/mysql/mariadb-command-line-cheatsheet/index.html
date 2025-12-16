@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>MySql/MariaDb command line cheatsheet | Coding notes</title>
+  <title>MySQL/MariaDB Command Line Cheatsheet | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,24 +130,18 @@ audio {
       <main id="main">
         
 
-<h1>MySql/MariaDb command line cheatsheet</h1>
-<h3 id="commands">Commands</h3>
-<ul>
-<li>Connect</li>
-</ul>
-<pre tabindex="0"><code>mysql [-h 192.168.1.100] -u USER_NAME -p [DATABASE_NAME]
-</code></pre><p>Will be prompted for password</p>
-<p>Once connected, the commanda need to end with <code>;</code>.</p>
-<ul>
-<li>Common commands
-´´´
-show tables;</li>
-</ul>
-<p>´´´</p>
-<ul>
-<li>Exit
-Ctrl+C</li>
-</ul>
+<h1>MySQL/MariaDB Command Line Cheatsheet</h1>
+<h3 id="connect-to-database">Connect to Database</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql <span style="color:#f92672">[</span>-h 192.168.1.100<span style="color:#f92672">]</span> -u USER_NAME -p <span style="color:#f92672">[</span>DATABASE_NAME<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>You&rsquo;ll be prompted for the password. All commands inside the MySQL shell must end with <code>;</code>.</p>
+<h3 id="common-commands">Common Commands</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SHOW</span> TABLES;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SHOW</span> DATABASES;
+</span></span><span style="display:flex;"><span>USE database_name;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DESCRIBE</span> <span style="color:#66d9ef">table_name</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> <span style="color:#66d9ef">table_name</span>;
+</span></span></code></pre></div><h3 id="exit">Exit</h3>
+<p>Press <code>Ctrl+C</code> or type <code>exit;</code></p>
 
 
 

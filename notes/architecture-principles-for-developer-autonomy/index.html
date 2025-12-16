@@ -1,0 +1,250 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Architecture Principles for Developer Autonomy | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Architecture Principles for Developer Autonomy</h1>
+<h3 id="goal">Goal</h3>
+<p>Reduce architect gatekeeping by establishing clear principles that enable teams to make autonomous decisions. This requires two layers:</p>
+<ol>
+<li><strong>Architecture principles</strong> - high-level guidelines</li>
+<li><strong>Concrete processes</strong> - specific governance artifacts (system documentation, context maps, component diagrams)</li>
+</ol>
+<h3 id="principle-management">Principle Management</h3>
+<h4 id="treat-principles-as-living-artifacts">Treat principles as living artifacts</h4>
+<p>Store principles in markdown within a version-controlled repository:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init architecture-principles
+</span></span><span style="display:flex;"><span>cd architecture-principles
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;# Architecture Principles&#34;</span> &gt; principles.md
+</span></span><span style="display:flex;"><span>git add principles.md
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Initial principles&#34;</span>
+</span></span></code></pre></div><h4 id="architects-as-collaborators-not-gatekeepers">Architects as collaborators, not gatekeepers</h4>
+<p>Architecture teams should act as consultants and coaches, not approval boards. Engage them early to:</p>
+<ul>
+<li>Articulate organizational constraints</li>
+<li>Help teams meet requirements</li>
+<li>Harvest and evangelize reusable patterns</li>
+</ul>
+<p><a href="https://www.thoughtworks.com/insights/articles/lightweight-technology-governance">Source: Thoughtworks Lightweight Technology Governance</a></p>
+<h3 id="code-documentation">Code Documentation</h3>
+<p>Follow Minimum Viable Documentation principles:</p>
+<p><a href="https://google.github.io/styleguide/docguide/best_practices.html">https://google.github.io/styleguide/docguide/best_practices.html</a></p>
+<h3 id="engineering-principles">Engineering Principles</h3>
+<h4 id="simplicity-first">Simplicity first</h4>
+<p>Justify each complexity layer introduced. If adding infrastructure capacity solves the problem, do that instead of adding complexity.</p>
+<h4 id="queue-management">Queue management</h4>
+<p>Every processing queue requires a corresponding dead letter queue:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">## example-queue-config.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">queues</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">order-processing</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">dlq</span>: <span style="color:#ae81ff">order-processing-dlq</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">payment-processing</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">dlq</span>: <span style="color:#ae81ff">payment-processing-dlq</span>
+</span></span></code></pre></div><h4 id="aggregation-services">Aggregation services</h4>
+<p>Prefer synchronous calls over aggregation services. Only introduce aggregation when logic complexity demands it, not for performance issues solvable by scaling.</p>
+<h3 id="back-office-principles">Back Office Principles</h3>
+<ul>
+<li>Dedicated Back Office app per business unit</li>
+<li>Prefer self-serve features in EV10 over Back Office</li>
+<li>Make it simple: rethink business process if required</li>
+<li>Role-based control: covered by ACL, no impersonation</li>
+<li>Leverage AI for operational efficiency</li>
+<li>Minimum custom development: buy over build
+<ul>
+<li>Frontline operations → Salesforce</li>
+<li>Reporting → Tableau</li>
+</ul>
+</li>
+</ul>
+<h3 id="observability">Observability</h3>
+<p>ELK stack setup via <code>oneclick</code> pipeline:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>oneclick create-service --name my-service --observability elk
+</span></span></code></pre></div><p>Configure Kibana alerts for the new service.</p>
+<h3 id="references">References</h3>
+<p><strong>Governance:</strong></p>
+<ul>
+<li><a href="https://www.thoughtworks.com/insights/articles/lightweight-technology-governance">Thoughtworks: Lightweight Technology Governance</a></li>
+</ul>
+<p><strong>Example principles:</strong></p>
+<ul>
+<li><a href="http://engineering-principles.onejl.uk/operational/Cloud_Native.html">John Lewis Engineering Principles</a></li>
+<li><a href="https://monzo.com/blog/2018/06/29/engineering-principles">Monzo Engineering Principles</a></li>
+</ul>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

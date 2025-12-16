@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Resources on Coding notes</title>
+    <title>Resources on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/resources/</link>
-    <description>Recent content in Resources on Coding notes</description>
+    <description>Recent content in Resources on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/resources/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Good reads. Well explained miscelanea subjects</title>
-      <link>https://www.bustroker.com/notes/good-reads.-well-explained-miscelanea-subjects/</link>
+      <title>Technical Reading List - Essential Developer Resources</title>
+      <link>https://www.bustroker.com/notes/technical-reading-list-essential-developer-resources/</link>
       <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/good-reads.-well-explained-miscelanea-subjects/</guid>
-      <description>About containers and Unix OS About netcore 2.2 host in IIS InProcess/OutOfProcess About netcore compilation and packages About microservices About Java, JRE, JDK and installation Scala module pattern Spark Data processing architectures Streaming analytics SaaS bussines model [Monolith to microservices] notes. (https://danlebrero.com/2022/02/09/monolith-to-microservices-summary/) </description>
+      <guid>https://www.bustroker.com/notes/technical-reading-list-essential-developer-resources/</guid>
+      <description>Containers and Unix The container is a lie - Deep dive into how containers actually work at the OS level.&#xA;ASP.NET Core Hosting on IIS with ASP.NET Core 2.2 - InProcess vs OutOfProcess hosting models.&#xA;.NET Core compilation and packages - Understanding .NET Core primitives.&#xA;Microservices How to cut microservices - Practical approach to service boundaries.&#xA;Monolith to microservices summary - Migration strategies and patterns.&#xA;Java and Scala Download and install JDK 11 on Windows - Java, JRE, and JDK setup guide.</description>
     </item>
   </channel>
 </rss>

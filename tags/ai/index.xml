@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AI on Coding notes</title>
+    <title>AI on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/ai/</link>
-    <description>Recent content in AI on Coding notes</description>
+    <description>Recent content in AI on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AI Solution Architecture</title>
-      <link>https://www.bustroker.com/notes/ai-solution-architecture/</link>
+      <title>AI Agent Frameworks - Mental Models and Control Flow</title>
+      <link>https://www.bustroker.com/notes/ai-agent-frameworks-mental-models-and-control-flow/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/ai-agent-frameworks-mental-models-and-control-flow/</guid>
+      <description>Goal Compare agent frameworks by their control flow, memory model, and tool execution patterns using a common problem: &amp;ldquo;Automatically detect, diagnose, and remediate a production outage in a microservices system.&amp;rdquo;&#xA;smolagents Multi-step decision loop over tools.&#xA;Each iteration:&#xA;App injects goal + memory + tools LLM returns one tool call or final answer App executes tool, appends result to memory Loop repeats Memory: Python list/dict managed by your application&#xA;Tools: Pure API actions.</description>
+    </item>
+    <item>
+      <title>LLM Agentic Patterns - A Practical Guide</title>
+      <link>https://www.bustroker.com/notes/llm-agentic-patterns-a-practical-guide/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/llm-agentic-patterns-a-practical-guide/</guid>
+      <description>Prompt Engineering Best Practices Clear Instructions&#xA;Be explicit about output format, style, and constraints. The model cannot infer unstated requirements. Few-Shot Examples&#xA;Example Input: &amp;#34;Analyze sentiment&amp;#34; Example Output: {&amp;#34;sentiment&amp;#34;: &amp;#34;positive&amp;#34;, &amp;#34;confidence&amp;#34;: 0.92} Now analyze: [your actual query] Reduce Hallucination with References&#xA;Context: [source documents] Instructions: Only answer based on the provided context. If information is not in the context, say &amp;#34;I don&amp;#39;t know.&amp;#34; Question: [user query] Chain-of-Thought Reasoning&#xA;Problem: [complex task] First, work out your own solution step by step.</description>
+    </item>
+    <item>
+      <title>AI Solution Architecture Learning Path</title>
+      <link>https://www.bustroker.com/notes/ai-solution-architecture-learning-path/</link>
       <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/ai-solution-architecture/</guid>
-      <description>Book https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0&#xA;Courses: https://adasci.org/courses/adasci-certified-agentic-ai-system-architect/ https://www.umbctraining.com/courses/ai-for-architects AI Architecture Course Topics: (https://www.umbctraining.com/courses/ai-for-architects)&#xA;Upon completing this course, participants will be able to: Understand the full AI solution lifecycle, from data acquisition and training to deployment and ongoing operations Evaluate architectural trade-offs across model training, inference, scale, and cost Design systems that incorporate AI agents, multi-agent collaboration, and orchestration frameworks Apply DevOps, CI/CD, and GitOps principles to AI workloads, ensuring repeatable and scalable delivery Integrate observability, governance, and monitoring practices to manage drift, data quality, and performance Architect secure and responsible AI systems that address privacy, compliance, and ethical considerations Anticipate Day 2 challenges, including model lifecycle management, versioning, and integration with enterprise platforms</description>
+      <guid>https://www.bustroker.com/notes/ai-solution-architecture-learning-path/</guid>
+      <description>Goal Build production AI systems with proper architecture, agent orchestration, and operational practices.&#xA;Resources Book https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0&#xA;Architecture Courses AdaSci - Agentic AI System Architect&#xA;https://adasci.org/courses/adasci-certified-agentic-ai-system-architect/&#xA;UMBC - AI for Architects&#xA;https://www.umbctraining.com/courses/ai-for-architects&#xA;AI Architecture Fundamentals Day 1: Core Architecture AI patterns and enterprise integration Training &amp;amp; inference pipelines Agent architectures: tools and context management Multi-agent collaboration and orchestration Day 2: Platform Operations Model registries and orchestration engines CI/CD automation for training and deployment GitOps for ML systems Observability: drift detection and agent behavior tracking Day 3: Production Operations Security for data, models, and multi-agent systems Privacy, fairness, and compliance Model versioning and lifecycle management Governance and cost management Advanced: Production Gen AI https://maven.</description>
+    </item>
+    <item>
+      <title>Run LLM Locally with Ollama</title>
+      <link>https://www.bustroker.com/notes/run-llm-locally-with-ollama/</link>
+      <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/run-llm-locally-with-ollama/</guid>
+      <description>Goal Run large language models locally on your machine using Ollama.&#xA;Setup Install Ollama from https://ollama.com/download&#xA;Run a Model ollama run llama2 Reference: https://klu.ai/glossary/ollama</description>
     </item>
   </channel>
 </rss>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dotnet Core on Coding notes</title>
+    <title>Dotnet Core on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/dotnet-core/</link>
-    <description>Recent content in Dotnet Core on Coding notes</description>
+    <description>Recent content in Dotnet Core on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 13 Sep 2020 00:00:00 +0000</lastBuildDate>
@@ -13,14 +13,7 @@
       <link>https://www.bustroker.com/notes/dotnet-core-3.1-appsettings-mapping-with-ioptions-ioptionssnapshot-and-ioptionsmonitor/</link>
       <pubDate>Sun, 13 Sep 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/dotnet-core-3.1-appsettings-mapping-with-ioptions-ioptionssnapshot-and-ioptionsmonitor/</guid>
-      <description>Check official documentation here&#xA;For a behaviour summary for each interface see here&#xA;Usage I prefer to create a section called Settings to keep all the parameters, so I&amp;rsquo;ll follow this approach.&#xA;Define AppSettings (or you name it) class class AppSettings { public string AadTenantName { get; set; } public string AadClientApplicationId { get; set; } } Create corresponding parameters in appsettings.json { &amp;#34;Logging&amp;#34;: { &amp;#34;LogLevel&amp;#34;: { ..... } }, &amp;#34;AllowedHosts&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;Settings&amp;#34;: { &amp;#34;AadTenantName&amp;#34;: &amp;#34;comercia.</description>
-    </item>
-    <item>
-      <title>Very basic logging to file from Console app with Serilog</title>
-      <link>https://www.bustroker.com/notes/very-basic-logging-to-file-from-console-app-with-serilog/</link>
-      <pubDate>Fri, 19 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/very-basic-logging-to-file-from-console-app-with-serilog/</guid>
-      <description>Add serilog&#xA;dotnet add package Serilog static async Task Main(string[] args) { Log.Logger = new LoggerConfiguration() .Enrich.FromLogContext() .WriteTo.Console() .WriteTo.File(&amp;#34;logs/log.json&amp;#34;) .CreateLogger(); Log.Information(&amp;#34;Running..&amp;#34;); } </description>
+      <description>Map appsettings.json to strongly-typed classes using the Options pattern. For behavior differences between IOptions, IOptionsSnapshot, and IOptionsMonitor, see the official documentation.&#xA;Define the settings class class AppSettings { public string AadTenantName { get; set; } public string AadClientApplicationId { get; set; } } Add settings to appsettings.json { &amp;#34;Logging&amp;#34;: { &amp;#34;LogLevel&amp;#34;: { ..... } }, &amp;#34;AllowedHosts&amp;#34;: &amp;#34;*&amp;#34;, &amp;#34;Settings&amp;#34;: { &amp;#34;AadTenantName&amp;#34;: &amp;#34;comercia.onmicrosoft.com&amp;#34;, &amp;#34;AadClientApplicationId&amp;#34;: &amp;#34;5e416176-9f18-4a96-9ce3-97f27599fb20&amp;#34; } } Register the configuration section // Startup.</description>
     </item>
   </channel>
 </rss>

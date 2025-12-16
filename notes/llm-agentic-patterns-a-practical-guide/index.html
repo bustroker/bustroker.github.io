@@ -1,0 +1,349 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>LLM Agentic Patterns - A Practical Guide | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>LLM Agentic Patterns - A Practical Guide</h1>
+<h3 id="prompt-engineering-best-practices">Prompt Engineering Best Practices</h3>
+<p><strong>Clear Instructions</strong></p>
+<pre tabindex="0"><code>Be explicit about output format, style, and constraints.
+The model cannot infer unstated requirements.
+</code></pre><p><strong>Few-Shot Examples</strong></p>
+<pre tabindex="0"><code>Example Input: &#34;Analyze sentiment&#34;
+Example Output: {&#34;sentiment&#34;: &#34;positive&#34;, &#34;confidence&#34;: 0.92}
+
+Now analyze: [your actual query]
+</code></pre><p><strong>Reduce Hallucination with References</strong></p>
+<pre tabindex="0"><code>Context: [source documents]
+
+Instructions: Only answer based on the provided context.
+If information is not in the context, say &#34;I don&#39;t know.&#34;
+
+Question: [user query]
+</code></pre><p><strong>Chain-of-Thought Reasoning</strong></p>
+<pre tabindex="0"><code>Problem: [complex task]
+
+First, work out your own solution step by step.
+Then compare it with the expected outcome.
+</code></pre><p><strong>Staged Prompts</strong></p>
+<pre tabindex="0"><code>Stage 1: Extract key entities → output1
+Stage 2: Analyze relationships using output1 → output2
+Stage 3: Generate summary using output2 → final result
+</code></pre><p><strong>Prompt Routing</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">route_query</span>(user_input):
+</span></span><span style="display:flex;"><span>    intent <span style="color:#f92672">=</span> detect_intent(user_input)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> intent <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;simple_faq&#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> small_model(user_input)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> intent <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;complex_reasoning&#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> large_model(user_input)
+</span></span></code></pre></div><p><strong>Automated Evaluation</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## Ground truth</span>
+</span></span><span style="display:flex;"><span>qa_pairs <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;question&#34;</span>: <span style="color:#e6db74">&#34;...&#34;</span>, <span style="color:#e6db74">&#34;expected&#34;</span>: <span style="color:#e6db74">&#34;...&#34;</span>},
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## LLM as judge</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> pair <span style="color:#f92672">in</span> qa_pairs:
+</span></span><span style="display:flex;"><span>    generated <span style="color:#f92672">=</span> model(pair[<span style="color:#e6db74">&#34;question&#34;</span>])
+</span></span><span style="display:flex;"><span>    score <span style="color:#f92672">=</span> llm_judge(generated, pair[<span style="color:#e6db74">&#34;expected&#34;</span>])
+</span></span></code></pre></div><h3 id="rag-retrieval-augmented-generation">RAG: Retrieval Augmented Generation</h3>
+<p><strong>Problem:</strong> Hallucination, outdated knowledge, no access to proprietary data.</p>
+<p><strong>Solution:</strong> Ground LLM responses in external data.</p>
+<p><strong>Implementation:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## 1. Indexing</span>
+</span></span><span style="display:flex;"><span>chunks <span style="color:#f92672">=</span> split_documents(documents)
+</span></span><span style="display:flex;"><span>embeddings <span style="color:#f92672">=</span> embed(chunks)
+</span></span><span style="display:flex;"><span>vector_db<span style="color:#f92672">.</span>store(embeddings, chunks)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 2. Query</span>
+</span></span><span style="display:flex;"><span>query_embedding <span style="color:#f92672">=</span> embed(user_query)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 3. Retrieval</span>
+</span></span><span style="display:flex;"><span>top_k_chunks <span style="color:#f92672">=</span> vector_db<span style="color:#f92672">.</span>nearest_neighbors(query_embedding, k<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## 4. Prompt Construction</span>
+</span></span><span style="display:flex;"><span>prompt <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Context: </span><span style="color:#e6db74">{</span>top_k_chunks<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Question: </span><span style="color:#e6db74">{</span>user_query<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Answer based only on the context above.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> llm(prompt)
+</span></span></code></pre></div><h3 id="agentic-patterns">Agentic Patterns</h3>
+<p><strong>Agent = LLM + Tools + Memory + Iteration</strong></p>
+<h4 id="react-reason--act">ReAct (Reason + Act)</h4>
+<pre tabindex="0"><code>Thought: I need current weather to answer this.
+Action: call_weather_api(location=&#34;San Francisco&#34;)
+Observation: Temperature is 65°F, sunny
+Thought: Now I can provide the answer.
+Answer: It&#39;s 65°F and sunny in San Francisco.
+</code></pre><h4 id="planning">Planning</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">plan_task</span>(high_level_goal):
+</span></span><span style="display:flex;"><span>    prompt <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Break down this goal into actionable steps:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Goal: </span><span style="color:#e6db74">{</span>high_level_goal<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Output format:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Step 1: [action]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Step 2: [action]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ...
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> llm(prompt)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Example Output:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Step 1: Check order status in database</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Step 2: Verify refund policy</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Step 3: Calculate refund amount</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Step 4: Draft customer response</span>
+</span></span></code></pre></div><h4 id="reflection">Reflection</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">## First pass</span>
+</span></span><span style="display:flex;"><span>draft_code <span style="color:#f92672">=</span> agent<span style="color:#f92672">.</span>generate_code(problem)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Self-critique</span>
+</span></span><span style="display:flex;"><span>reflection_prompt <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Code: </span><span style="color:#e6db74">{</span>draft_code<span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Review this code for:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Bugs
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Edge cases
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Performance issues
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Suggest improvements.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>critique <span style="color:#f92672">=</span> llm(reflection_prompt)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Improved output</span>
+</span></span><span style="display:flex;"><span>final_code <span style="color:#f92672">=</span> agent<span style="color:#f92672">.</span>generate_code(problem, critique)
+</span></span></code></pre></div><h4 id="tool-usage">Tool Usage</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tools <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;search&#34;</span>: web_search_api,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;calculator&#34;</span>: calculate,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;database&#34;</span>: query_db,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> llm(prompt)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## LLM outputs: {&#34;tool&#34;: &#34;calculator&#34;, &#34;args&#34;: {&#34;expression&#34;: &#34;127 * 83&#34;}}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tool_result <span style="color:#f92672">=</span> tools[response[<span style="color:#e6db74">&#34;tool&#34;</span>]](<span style="color:#f92672">**</span>response[<span style="color:#e6db74">&#34;args&#34;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Feed result back</span>
+</span></span><span style="display:flex;"><span>final_answer <span style="color:#f92672">=</span> llm(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Using result </span><span style="color:#e6db74">{</span>tool_result<span style="color:#e6db74">}</span><span style="color:#e6db74">, answer: </span><span style="color:#e6db74">{</span>original_question<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><h4 id="multi-agent-collaboration">Multi-Agent Collaboration</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>agents <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;researcher&#34;</span>: Agent(role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Find relevant information&#34;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;analyzer&#34;</span>: Agent(role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Analyze data&#34;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;writer&#34;</span>: Agent(role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Draft final report&#34;</span>),
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Workflow</span>
+</span></span><span style="display:flex;"><span>research_output <span style="color:#f92672">=</span> agents[<span style="color:#e6db74">&#34;researcher&#34;</span>]<span style="color:#f92672">.</span>run(task)
+</span></span><span style="display:flex;"><span>analysis_output <span style="color:#f92672">=</span> agents[<span style="color:#e6db74">&#34;analyzer&#34;</span>]<span style="color:#f92672">.</span>run(research_output)
+</span></span><span style="display:flex;"><span>final_report <span style="color:#f92672">=</span> agents[<span style="color:#e6db74">&#34;writer&#34;</span>]<span style="color:#f92672">.</span>run(analysis_output)
+</span></span></code></pre></div><h3 id="use-cases">Use Cases</h3>
+<p><strong>Software Development</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>agent<span style="color:#f92672">.</span>review_code(pull_request)
+</span></span><span style="display:flex;"><span>agent<span style="color:#f92672">.</span>diagnose_bug(error_trace)
+</span></span><span style="display:flex;"><span>agent<span style="color:#f92672">.</span>generate_test(function)
+</span></span></code></pre></div><p><strong>Research</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>agent<span style="color:#f92672">.</span>search_papers(topic)
+</span></span><span style="display:flex;"><span>agent<span style="color:#f92672">.</span>synthesize_findings(papers)
+</span></span><span style="display:flex;"><span>agent<span style="color:#f92672">.</span>generate_report()
+</span></span></code></pre></div><p><strong>Automation</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>agent<span style="color:#f92672">.</span>process_support_ticket()
+</span></span><span style="display:flex;"><span>agent<span style="color:#f92672">.</span>update_crm()
+</span></span><span style="display:flex;"><span>agent<span style="color:#f92672">.</span>send_response()
+</span></span></code></pre></div><h3 id="references">References</h3>
+<ol>
+<li><strong>Agentic Design Patterns Part 1</strong>: <a href="https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/">https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/</a></li>
+<li><strong>Large Language Model Agents, MOOC Fall 2024</strong>: <a href="https://llmagents-learning.org/f24">https://llmagents-learning.org/f24</a></li>
+<li><strong>Natural Language Processing with Deep Learning, 2024</strong>: <a href="https://web.stanford.edu/class/cs224n">https://web.stanford.edu/class/cs224n</a></li>
+<li><strong>Building Effective Agents</strong>: <a href="https://www.anthropic.com/research/building-effective-">https://www.anthropic.com/research/building-effective-</a></li>
+<li><strong>RAG and AI Agents from Deep Learning</strong>: <a href="https://cs230.stanford.edu/syllabus/fall_2024/rag_agents.pdf">https://cs230.stanford.edu/syllabus/fall_2024/rag_agents.pdf</a></li>
+<li><strong>Tool Use and LLM Agent Basics from Advanced NLP</strong>: <a href="https://www.phontron.com/class/anlp-fall-2024/assets/slides/anlp-15-tooluse-agent-basics.pdf">https://www.phontron.com/class/anlp-fall-2024/assets/slides/anlp-15-tooluse-agent-basics.pdf</a></li>
+<li><strong>What are AI Agents?</strong>: <a href="https://www.youtube.com/watch?v=F8NKVhkZZWl">https://www.youtube.com/watch?v=F8NKVhkZZWl</a></li>
+<li><strong>Frontiers-of-AI-Agents-Tutorial</strong>: <a href="https://frontiers-of-ai-agents-tutorial.github.io/">https://frontiers-of-ai-agents-tutorial.github.io/</a></li>
+</ol>
+<hr>
+<p><em>Source: Stanford Webinar - Agentic AI: A Progression of Language Model Usage</em><br>
+<a href="https://www.youtube.com/watch?v=kJLiOGle3Lw&amp;t=1434s">https://www.youtube.com/watch?v=kJLiOGle3Lw&amp;t=1434s</a></p>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

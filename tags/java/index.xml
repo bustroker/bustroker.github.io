@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Java on Coding notes</title>
+    <title>Java on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/java/</link>
-    <description>Recent content in Java on Coding notes</description>
+    <description>Recent content in Java on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 10 Oct 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Java overview</title>
-      <link>https://www.bustroker.com/notes/java-overview/</link>
+      <title>Java Ecosystem Overview</title>
+      <link>https://www.bustroker.com/notes/java-ecosystem-overview/</link>
       <pubDate>Mon, 10 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/java-overview/</guid>
-      <description>Echosystem https://whichjdk.com/&#xA;Spring boot vs Microprofiles https://www.ibm.com/cloud/blog/migrate-java-microservices-from-spring-to-microprofile-p2&#xA;Spring boot vs Spring MVC https://www.youtube.com/watch?v=e6Ps8I3X-g4</description>
+      <guid>https://www.bustroker.com/notes/java-ecosystem-overview/</guid>
+      <description>Choosing a JDK https://whichjdk.com/&#xA;Framework Comparison Spring Boot vs MicroProfile Migration guide and comparison: https://www.ibm.com/cloud/blog/migrate-java-microservices-from-spring-to-microprofile-p2&#xA;Spring Boot vs Spring MVC Architecture differences: https://www.youtube.com/watch?v=e6Ps8I3X-g4</description>
     </item>
   </channel>
 </rss>

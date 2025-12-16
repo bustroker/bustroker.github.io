@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Query sql server from powershell | Coding notes</title>
+  <title>Query SQL Server from PowerShell | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,13 +130,13 @@ audio {
       <main id="main">
         
 
-<h1>Query sql server from powershell</h1>
-<h2 id="query-sqlserver-powershell-module">Query <code>sqlserver</code> powershell module</h2>
+<h1>Query SQL Server from PowerShell</h1>
+<h3 id="install-the-sqlserver-module">Install the sqlserver module</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Install-Module sqlserver -Force
-</span></span></code></pre></div><p>A minimun nuget version is required. A messages provides the command to install it if was required.</p>
-<h3 id="run-query">Run query</h3>
+</span></span></code></pre></div><p>If a minimum NuGet version is required, the command output will tell you how to install it.</p>
+<h3 id="run-a-query">Run a query</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-Sqlcmd -Query <span style="color:#e6db74">&#34;SELECT GETDATE() AS TimeOfQuery&#34;</span> -ServerInstance <span style="color:#e6db74">&#34;localhost&#34;</span>
-</span></span></code></pre></div><h3 id="run-script">Run script</h3>
+</span></span></code></pre></div><h3 id="run-a-script-file">Run a script file</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Invoke-Sqlcmd -InputFile <span style="color:#e6db74">&#34;C:\setupscripts\createUser.sql&#34;</span> | Out-File -FilePath <span style="color:#e6db74">&#34;C:\setupscripts\createUser.log&#34;</span>
 </span></span></code></pre></div>
 

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sentry on Coding notes</title>
+    <title>Sentry on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/sentry/</link>
-    <description>Recent content in Sentry on Coding notes</description>
+    <description>Recent content in Sentry on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 26 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/sentry/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Observability notes</title>
-      <link>https://www.bustroker.com/notes/observability-notes/</link>
+      <title>Unified Observability Stack with .NET ILogger, Elastic, and Sentry</title>
+      <link>https://www.bustroker.com/notes/unified-observability-stack-with-.net-ilogger-elastic-and-sentry/</link>
       <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/observability-notes/</guid>
-      <description>How the Full Setup Works Together (Assuming All Are Set Up) 1. ILogger&amp;lt;T&amp;gt; as the unified logging interface Your app writes logs using ILogger&amp;lt;T&amp;gt;, and the EvLoggingBuilder setup routes these logs to all configured sinks based on:&#xA;Configured log levels Sink-specific filters Environment settings (e.g., dev vs prod) Example:&#xA;_logger.LogWarning(&amp;#34;Something might be wrong here&amp;#34;); This log could go to:&#xA;Console (if enabled) Elasticsearch (structured, for querying) Sentry (if it&amp;rsquo;s an error and meets Sentry&amp;rsquo;s criteria) Sink Behavior Overview Sink Captures Triggered By Key Value Console Logs All levels (e.</description>
+      <guid>https://www.bustroker.com/notes/unified-observability-stack-with-.net-ilogger-elastic-and-sentry/</guid>
+      <description>Goal Route logs from ILogger&amp;lt;T&amp;gt; to multiple sinks (Console, Elasticsearch, Sentry, Elastic APM) for comprehensive observability across development and production environments.&#xA;Unified Logging Interface ILogger&amp;lt;T&amp;gt; routes logs to all configured sinks based on log levels, filters, and environment:&#xA;_logger.LogWarning(&amp;#34;Something might be wrong here&amp;#34;); This single call outputs to:&#xA;Console (dev environments) Elasticsearch (structured, queryable) Sentry (errors meeting severity threshold) Sink Configuration Sink Captures Triggered By Key Value Console Logs All levels (e.</description>
     </item>
   </channel>
 </rss>

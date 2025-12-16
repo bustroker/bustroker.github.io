@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Automation on Coding notes</title>
+    <title>Automation on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/automation/</link>
-    <description>Recent content in Automation on Coding notes</description>
+    <description>Recent content in Automation on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 26 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/automation/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>DevOps notes</title>
-      <link>https://www.bustroker.com/notes/devops-notes/</link>
+      <title>.NET Templates and Database Migrations</title>
+      <link>https://www.bustroker.com/notes/.net-templates-and-database-migrations/</link>
       <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/devops-notes/</guid>
-      <description>Dotnet templates Testing locally Clone this repository Go into this directory Execute following command dotnet new -i .\templates\bkr.microservice This will install template for dotnet new usage Create directory for you microservice and go into this directory Type dotnet new bkr.microservice --name Cheese.Cake You have scaffolded new service. Distributing with package Execute dotnet pack from templates directory This will create package with templates in .\bin\Debug\Bkr.Template.Service.1.0.0.nupkg Run dotnet new -i .\bin\Debug\Bkr.Template.Service.1.0.0.nupkg This will install template for dotnet new usage Create directory for you microservice and go into this directory Type dotnet new bkr.</description>
+      <guid>https://www.bustroker.com/notes/.net-templates-and-database-migrations/</guid>
+      <description>.NET Custom Templates Testing Locally ## Clone and navigate to repository cd templates/bkr.microservice ## Install template dotnet new -i . ## Create new service mkdir MyService &amp;amp;&amp;amp; cd MyService dotnet new bkr.microservice --name Cheese.Cake Distributing via Package ## Create package dotnet pack ## Install from package dotnet new -i ./bin/Debug/Bkr.Template.Service.1.0.0.nupkg ## Use template mkdir MyService &amp;amp;&amp;amp; cd MyService dotnet new bkr.microservice --name Cheese.Cake Template Structure When adding new projects, include them in both solutions:</description>
     </item>
   </channel>
 </rss>

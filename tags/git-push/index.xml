@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git Push on Coding notes</title>
+    <title>Git Push on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/git-push/</link>
-    <description>Recent content in Git Push on Coding notes</description>
+    <description>Recent content in Git Push on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/git-push/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Git push from script</title>
-      <link>https://www.bustroker.com/notes/git-push-from-script/</link>
+      <title>Automating Git Push with SSH Keys in Scripts</title>
+      <link>https://www.bustroker.com/notes/automating-git-push-with-ssh-keys-in-scripts/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/git-push-from-script/</guid>
-      <description>Push to github from script mkdir -p ~/.ssh echo &amp;#34;${{ secrets.GITHUB_SSH_PRIVATE_KEY}}&amp;#34; &amp;gt; ~/.ssh/id_rsa chmod 600 ~/.ssh/id_rsa git push git@github.com:bustroker/bkr.hobies.web.git </description>
+      <guid>https://www.bustroker.com/notes/automating-git-push-with-ssh-keys-in-scripts/</guid>
+      <description>Goal Push to GitHub from an automated script using SSH authentication.&#xA;Setup Configure SSH key and push:&#xA;mkdir -p ~/.ssh echo &amp;#34;${{ secrets.GITHUB_SSH_PRIVATE_KEY}}&amp;#34; &amp;gt; ~/.ssh/id_rsa chmod 600 ~/.ssh/id_rsa git push git@github.com:bustroker/bkr.hobies.web.git The chmod 600 is required - SSH will reject keys with overly permissive permissions.</description>
     </item>
   </channel>
 </rss>

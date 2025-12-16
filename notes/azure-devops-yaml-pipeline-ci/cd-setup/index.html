@@ -1,0 +1,343 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Azure DevOps YAML Pipeline CI/CD Setup | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Azure DevOps YAML Pipeline CI/CD Setup</h1>
+<h3 id="goal">Goal</h3>
+<p>Build a single YAML pipeline that builds a Docker container, pushes it to Azure Container Registry, and deploys it sequentially to <code>dev</code> and <code>int</code> environments with approval gates.</p>
+<h3 id="key-points">Key Points</h3>
+<ul>
+<li>Use a single pipeline for CI-CD (no way to pass BuildId between separate pipelines)</li>
+<li>Environments are auto-created on first deployment</li>
+<li>Configure approvals directly on environments in Azure DevOps</li>
+<li>Create Service Connection before running pipeline</li>
+</ul>
+<h3 id="pipeline-structure">Pipeline Structure</h3>
+<p>Trigger on master branch push:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">master</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">repo</span>: <span style="color:#ae81ff">self</span>
+</span></span></code></pre></div><p>Variables - use BuildId as container tag:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">variables</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dockerRegistryServiceConnection</span>: <span style="color:#e6db74">&#39;ra076bb1-83c4-4bff-9c7d-d2e1b7918498&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">imageRepository</span>: <span style="color:#e6db74">&#39;bustroker.yamlpipelines.webapi&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">containerRegistry</span>: <span style="color:#e6db74">&#39;bustrokeryamlpipelines.azurecr.io&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dockerfilePath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/Bustroker.YamlPipelines.WebApi/Dockerfile&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tag</span>: <span style="color:#e6db74">&#39;$(Build.BuildId)&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImageName</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span></code></pre></div><h3 id="stage-1-build-and-push">Stage 1: Build and Push</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">BuildStage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:  
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Build and push</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">$(vmImageName)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">Docker@2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Build and push an image to container registry</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">command</span>: <span style="color:#ae81ff">buildAndPush</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">repository</span>: <span style="color:#ae81ff">$(imageRepository)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">$(dockerfilePath)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">containerRegistry</span>: <span style="color:#ae81ff">$(dockerRegistryServiceConnection)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">tags</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          $(tag)</span>          
+</span></span></code></pre></div><h3 id="stage-2-deploy-to-dev">Stage 2: Deploy to Dev</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">DevDeployStage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">BuildStage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Dev</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">DevDeploymentJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Deploy to dev</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">dev</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>: 
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">runOnce</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">AzureWebAppContainer@1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">azureSubscription</span>: <span style="color:#e6db74">&#39;AzDevOps.ServiceConnection&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">appName</span>: <span style="color:#e6db74">&#39;bustroker-yamlpipelines-webapi-dev&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">containers</span>: <span style="color:#e6db74">&#39;$(containerRegistry)/$(imageRepository):$(tag)&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">appSettings</span>: <span style="color:#e6db74">&#39;-ASPNETCORE_ENVIRONMENT dev&#39;</span>
+</span></span></code></pre></div><h3 id="stage-3-deploy-to-int">Stage 3: Deploy to Int</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">IntDeployStage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">DevDeployStage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Int</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">IntDeploymentJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Deploy to int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">$(vmImageName)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>: 
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">runOnce</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">AzureWebAppContainer@1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">azureSubscription</span>: <span style="color:#e6db74">&#39;AzDevOps.ServiceConnection&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">appName</span>: <span style="color:#e6db74">&#39;bustroker-yamlpipelines-webapi-int&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">containers</span>: <span style="color:#e6db74">&#39;$(containerRegistry)/$(imageRepository):$(tag)&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">appSettings</span>: <span style="color:#e6db74">&#39;-ASPNETCORE_ENVIRONMENT int&#39;</span>
+</span></span></code></pre></div><h3 id="complete-pipeline">Complete Pipeline</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">## Docker</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Build and push an image to Azure Container Registry</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## https://docs.microsoft.com/azure/devops/pipelines/languages/docker</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">master</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">resources</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">repo</span>: <span style="color:#ae81ff">self</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">variables</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Container registry service connection established during pipeline creation</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dockerRegistryServiceConnection</span>: <span style="color:#e6db74">&#39;ra076bb1-83c4-4bff-9c7d-d2e1b7918498&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">imageRepository</span>: <span style="color:#e6db74">&#39;bustroker.yamlpipelines.webapi&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">containerRegistry</span>: <span style="color:#e6db74">&#39;bustrokeryamlpipelines.azurecr.io&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dockerfilePath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/Bustroker.YamlPipelines.WebApi/Dockerfile&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tag</span>: <span style="color:#e6db74">&#39;$(Build.BuildId)&#39;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Agent VM image name</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImageName</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">BuildStage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:  
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Build and push</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">$(vmImageName)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">Docker@2</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Build and push an image to container registry</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">command</span>: <span style="color:#ae81ff">buildAndPush</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">repository</span>: <span style="color:#ae81ff">$(imageRepository)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">$(dockerfilePath)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">containerRegistry</span>: <span style="color:#ae81ff">$(dockerRegistryServiceConnection)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">tags</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          $(tag)</span>          
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">DevDeployStage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">BuildStage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Dev</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">DevDeploymentJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Deploy to dev</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">dev</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>: 
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">runOnce</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">AzureWebAppContainer@1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">azureSubscription</span>: <span style="color:#e6db74">&#39;AzDevOps.ServiceConnection&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">appName</span>: <span style="color:#e6db74">&#39;bustroker-yamlpipelines-webapi-dev&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">containers</span>: <span style="color:#e6db74">&#39;$(containerRegistry)/$(imageRepository):$(tag)&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">appSettings</span>: <span style="color:#e6db74">&#39;-ASPNETCORE_ENVIRONMENT dev&#39;</span>
+</span></span><span style="display:flex;"><span>              
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">IntDeployStage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">DevDeployStage</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Int</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">IntDeploymentJob</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Deploy to int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">int</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">$(vmImageName)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>: 
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">runOnce</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">task</span>: <span style="color:#ae81ff">AzureWebAppContainer@1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">inputs</span>:
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">azureSubscription</span>: <span style="color:#e6db74">&#39;AzDevOps.ServiceConnection&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">appName</span>: <span style="color:#e6db74">&#39;bustroker-yamlpipelines-webapi-int&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">containers</span>: <span style="color:#e6db74">&#39;$(containerRegistry)/$(imageRepository):$(tag)&#39;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">appSettings</span>: <span style="color:#e6db74">&#39;-ASPNETCORE_ENVIRONMENT int&#39;</span>
+</span></span></code></pre></div>
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

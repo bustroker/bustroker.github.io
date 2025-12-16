@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data Strategy on Coding notes</title>
+    <title>Data Strategy on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/data-strategy/</link>
-    <description>Recent content in Data Strategy on Coding notes</description>
+    <description>Recent content in Data Strategy on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 08 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/data-strategy/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Data Strategy</title>
-      <link>https://www.bustroker.com/notes/data-strategy/</link>
+      <title>Building a GDPR-Compliant Data Platform for SaaS with Databricks</title>
+      <link>https://www.bustroker.com/notes/building-a-gdpr-compliant-data-platform-for-saas-with-databricks/</link>
       <pubDate>Thu, 08 May 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/data-strategy/</guid>
-      <description>Data Platform requirements 1. Vision &amp;amp; Objectives&#xA;The company operates a SaaS platform for equity plan management. The data strategy must support:&#xA;Internal analytics and ML use cases External, self-serve data access for clients Real-time data visibility and embedded analytics Strong data governance aligned with GDPR Key objectives:&#xA;Build a data mesh architecture with decentralized ownership Leverage Databricks (Spark, Delta Lake, Unity Catalog) as the core platform Enable real-time and batch data processing Provide self-service data access via APIs, BI tools, and direct SQL Ensure metadata management, lineage, and trust at scale 2.</description>
+      <guid>https://www.bustroker.com/notes/building-a-gdpr-compliant-data-platform-for-saas-with-databricks/</guid>
+      <description>Goal Build a data mesh architecture for a SaaS equity management platform that enables internal analytics, external self-service access, and real-time embedded analytics while maintaining GDPR compliance.&#xA;Core Requirements Decentralized data ownership with domain-driven architecture Real-time and batch processing capabilities Multi-tenant isolation with row/column-level security Self-service access via APIs, SQL, and BI tools Full data lineage and metadata management Data Domains Organize data into business-aligned domains:&#xA;Core Business Entities - EquityPlans, Grants, Products Users &amp;amp; Identity - Users, Permissions, Sessions Operational Activities - ClientOps, Billing, Support Usage &amp;amp; Engagement - Events, Interactions, Feature Usage Outcomes &amp;amp; Performance - KPIs, Adoption, Forecasts External Integrations - Valuation APIs, Compliance Feeds Each domain owns its datasets, publishes data contracts, and maintains SLAs.</description>
     </item>
   </channel>
 </rss>

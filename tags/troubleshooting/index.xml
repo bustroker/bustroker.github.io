@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Troubleshooting on Coding notes</title>
+    <title>Troubleshooting on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/troubleshooting/</link>
-    <description>Recent content in Troubleshooting on Coding notes</description>
+    <description>Recent content in Troubleshooting on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 06 May 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Azure Api App failing on startup with 500.30</title>
-      <link>https://www.bustroker.com/notes/azure-api-app-failing-on-startup-with-500.30/</link>
+      <title>Debugging Azure App Service 500.30 startup failures with Application Insights</title>
+      <link>https://www.bustroker.com/notes/debugging-azure-app-service-500.30-startup-failures-with-application-insights/</link>
       <pubDate>Wed, 06 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/azure-api-app-failing-on-startup-with-500.30/</guid>
-      <description>When the app startup fails, it does so silently. Or effectivly silently: complaining without providing relevant information. This is the IIS complain&#xA;&amp;lt;body&amp;gt; &amp;lt;h1&amp;gt; HTTP Error 500.30 - ANCM In-Process Start Failure &amp;lt;/h1&amp;gt; &amp;lt;h2&amp;gt; Common solutions to this issue: &amp;lt;/h2&amp;gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;The application failed to start&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;The application started but then stopped&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;The application started but threw an exception during startup&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &amp;lt;h2&amp;gt; Troubleshooting steps: &amp;lt;/h2&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; Check the system event log for error messages &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; Enable logging the application process&amp;#39; stdout messages &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; Attach a debugger to the application process and inspect &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;h2&amp;gt; For more information visit: &amp;lt;a href=&amp;#34;https://go.</description>
+      <guid>https://www.bustroker.com/notes/debugging-azure-app-service-500.30-startup-failures-with-application-insights/</guid>
+      <description>Goal Capture and diagnose silent startup failures in Azure App Service that only show HTTP Error 500.30 - ANCM In-Process Start Failure.&#xA;The Problem Azure App Service fails with a generic IIS error page that provides no actionable information:&#xA;&amp;lt;body&amp;gt; &amp;lt;h1&amp;gt; HTTP Error 500.30 - ANCM In-Process Start Failure &amp;lt;/h1&amp;gt; &amp;lt;h2&amp;gt; Common solutions to this issue: &amp;lt;/h2&amp;gt;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;The application failed to start&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;The application started but then stopped&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;The application started but threw an exception during startup&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt; &amp;lt;h2&amp;gt; Troubleshooting steps: &amp;lt;/h2&amp;gt; &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt; Check the system event log for error messages &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; Enable logging the application process&amp;#39; stdout messages &amp;lt;/li&amp;gt; &amp;lt;li&amp;gt; Attach a debugger to the application process and inspect &amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; &amp;lt;h2&amp;gt; For more information visit: &amp;lt;a href=&amp;#34;https://go.</description>
     </item>
   </channel>
 </rss>

@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Azure App Configuration with Key Vault and Managed Identity in HA | Coding notes</title>
+  <title>Azure App Configuration with Key Vault and Managed Identity in HA | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -131,104 +131,82 @@ audio {
         
 
 <h1>Azure App Configuration with Key Vault and Managed Identity in HA</h1>
-<p><a href="https://docs.microsoft.com/en-us/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core?tabs=core3x">Here&rsquo;s</a> what Azure App Configuration Service is.</p>
-<p>And I want a production ready setup:</p>
-<ul>
-<li>use it to serve secret params as well, keeping them in Key Vault</li>
-<li>access it with <a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview">Managed Identity</a>(MI).</li>
-<li>have it in High Availability</li>
-</ul>
-<h3 id="how-azure-app-configuration-client-works">How Azure App Configuration client works</h3>
-<p>Here&rsquo;s how the client works, <strong>using the sentinel pattern</strong>, i.e., using one key to be the one that the client actually checks to know whether or not a full configuration refresh is needed.
-When <em>Refresh</em> methods are called, the client:</p>
-<ul>
-<li>checks whether cache is expired. If it&rsquo;s not, it does nothing and keeps using the values in cache</li>
-<li>if cache is expired, client will go ahead and get &lsquo;sentinel&rsquo; app configuration parameter.</li>
-<li>if sentinel hasn&rsquo;t changed from last time, it does nothing and keeps using the values in cache</li>
-<li>if sentinel has changed, it will go and refresh all configuration parameters.</li>
-<li>when making a request to the App Configuration service if it fails, then an attempt with the Fail over App Configuration configured is attempted. The <em>fail over</em> service is typically located in a different azure region.</li>
-</ul>
-<p>So, <strong>every time a parameter is changed in the configuration, sentinel must be changed as well so the client knows that it needs to do a full refresh</strong>.</p>
-<h3 id="configure-api-key-vault-and-app-configuration-access-in-azure">Configure API, Key Vault and App Configuration access in Azure</h3>
-<ul>
-<li>Create an api app and <a href="https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet">add a Systems Managed Identity</a></li>
-<li>Create a Key Vault and add a policy so the Api App identity can read secrets</li>
-<li>Create an App Configuration. In <em>Access Control(IAM)</em> add the Api App identity with the role <em>App Configuration Data Reader</em>.</li>
-</ul>
-<p>It&rsquo;s relevant that the App Configuration services <strong>does not keep key vault values or accesses key vault in any way</strong>. It just keeps the reference to the parameter, so what we&rsquo;ll configure next is the application configuration provider to be able to go to the key vault and actually retrieve the parameter value, after the name is received from the App Configuration.</p>
-<h3 id="create-the-params-in-app-configuration">Create the params in App Configuration</h3>
-<p>I like to simulate a json structure, as one normally comes from appsettings.json. So I prefix with application name, and observe the format [ApplicationName]:[ParamName]
-It&rsquo;s also usefull when more than one application consume the App Configuration service.</p>
-<p>The params in our case would be (let&rsquo;s create various types/options):</p>
-<ul>
-<li><em>Bustroker.AzureAppConfiguration.WebApi:Sentinel</em> =&gt; 0</li>
-<li><em>Bustroker.AzureAppConfiguration.WebApi:CsvValues</em> =&gt; Mr Orange,Mr Pink,Mr Brown</li>
-<li><em>Bustroker.AzureAppConfiguration.WebApi:IntegerValue</em> =&gt; 69</li>
-<li><em>Bustroker.AzureAppConfiguration.WebApi:SecretInKeyvault</em> =&gt; The value is kept in key vault. When creating it, just select &ldquo;Key Vault Reference&rdquo;, rather than &ldquo;Key-value&rdquo;.</li>
-</ul>
-<h3 id="now-the-code">Now the code</h3>
-<h4 id="first-add-the-nuget-package">First, add the nuget package</h4>
-<pre tabindex="0"><code>dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
-</code></pre><h4 id="then-it-goes-like-this">Then it goes like this.</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// Program.cs</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
+<p><strong>Goal:</strong> Production-ready Azure App Configuration setup with Key Vault secrets, Managed Identity authentication, and High Availability.</p>
+<h4 id="how-the-client-works">How the Client Works</h4>
+<p>Azure App Configuration client uses the <strong>sentinel pattern</strong> - a single key that determines if a full configuration refresh is needed.</p>
+<p>On <code>Refresh()</code>:</p>
+<ol>
+<li>If cache is valid → does nothing</li>
+<li>If cache expired → fetches sentinel key</li>
+<li>If sentinel unchanged → does nothing</li>
+<li>If sentinel changed → refreshes all configuration</li>
+<li>On failure → attempts failover App Configuration (typically different region)</li>
+</ol>
+<p><strong>Important:</strong> Update the sentinel whenever you change any parameter to trigger a client refresh.</p>
+<h4 id="azure-setup">Azure Setup</h4>
+<p>Create API app with <a href="https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet">Managed Identity</a>:</p>
+<p>Create Key Vault and grant API app identity read access to secrets.</p>
+<p>Create App Configuration service and add API app identity with role <code>App Configuration Data Reader</code> in Access Control (IAM).</p>
+<p><strong>Note:</strong> App Configuration only stores Key Vault references, not values. Your app retrieves the actual secret from Key Vault.</p>
+<h4 id="create-parameters">Create Parameters</h4>
+<p>Use JSON-like structure: <code>[ApplicationName]:[ParamName]</code></p>
+<pre tabindex="0"><code>Bustroker.AzureAppConfiguration.WebApi:Sentinel =&gt; 0
+Bustroker.AzureAppConfiguration.WebApi:CsvValues =&gt; Mr Orange,Mr Pink,Mr Brown
+Bustroker.AzureAppConfiguration.WebApi:IntegerValue =&gt; 69
+Bustroker.AzureAppConfiguration.WebApi:SecretInKeyvault =&gt; (Key Vault Reference)
+</code></pre><p>For the Key Vault secret, select &ldquo;Key Vault Reference&rdquo; instead of &ldquo;Key-value&rdquo; when creating it.</p>
+<h4 id="implementation">Implementation</h4>
+<p>Install package:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+</span></span></code></pre></div><p>Configure in <code>Program.cs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
 </span></span><span style="display:flex;"><span>    Host.CreateDefaultBuilder(args)
 </span></span><span style="display:flex;"><span>        .ConfigureWebHostDefaults(webBuilder =&gt;
 </span></span><span style="display:flex;"><span>        {
 </span></span><span style="display:flex;"><span>            webBuilder
 </span></span><span style="display:flex;"><span>                .ConfigureAppConfiguration((hostingContext, config) =&gt;
-</span></span><span style="display:flex;"><span>                    {
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">var</span> settings = config.Build();
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">var</span> azAppConfigurationMainRegionUrl = settings.GetValue&lt;<span style="color:#66d9ef">string</span>&gt;(<span style="color:#e6db74">&#34;AzAppConfigurationMainRegionUrl&#34;</span>);
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">var</span> azAppConfigurationFailOverRegionUrl = settings.GetValue&lt;<span style="color:#66d9ef">string</span>&gt;(<span style="color:#e6db74">&#34;AzAppConfigurationMainRegionUrl&#34;</span>);
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">var</span> settings = config.Build();
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">var</span> azAppConfigurationMainRegionUrl = settings.GetValue&lt;<span style="color:#66d9ef">string</span>&gt;(<span style="color:#e6db74">&#34;AzAppConfigurationMainRegionUrl&#34;</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">var</span> azAppConfigurationFailOverRegionUrl = settings.GetValue&lt;<span style="color:#66d9ef">string</span>&gt;(<span style="color:#e6db74">&#34;AzAppConfigurationFailOverRegionUrl&#34;</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                        config
-</span></span><span style="display:flex;"><span>                            .AddAzureAppConfiguration(options =&gt; 
-</span></span><span style="display:flex;"><span>                            {
-</span></span><span style="display:flex;"><span>                                options.Connect(<span style="color:#66d9ef">new</span> Uri(azAppConfigurationFailOverRegionUrl), <span style="color:#66d9ef">new</span> DefaultAzureCredential())
-</span></span><span style="display:flex;"><span>                                    .ConfigureKeyVault(kv =&gt; 
-</span></span><span style="display:flex;"><span>                                    {
-</span></span><span style="display:flex;"><span>                                        kv.SetCredential(<span style="color:#66d9ef">new</span> DefaultAzureCredential());
-</span></span><span style="display:flex;"><span>                                    })
-</span></span><span style="display:flex;"><span>                                    .ConfigureRefresh(refreshOptions =&gt;
-</span></span><span style="display:flex;"><span>                                    {
-</span></span><span style="display:flex;"><span>                                        refreshOptions.Register(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi:sentinel&#34;</span>, refreshAll: <span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>                                                .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">30</span>));
-</span></span><span style="display:flex;"><span>                                    });
-</span></span><span style="display:flex;"><span>                            }, optional: <span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>                            .AddAzureAppConfiguration(options =&gt; 
-</span></span><span style="display:flex;"><span>                            {
-</span></span><span style="display:flex;"><span>                                options.Connect(<span style="color:#66d9ef">new</span> Uri(azAppConfigurationMainRegionUrl), <span style="color:#66d9ef">new</span> DefaultAzureCredential())
-</span></span><span style="display:flex;"><span>                                    .ConfigureKeyVault(kv =&gt; 
-</span></span><span style="display:flex;"><span>                                    {
-</span></span><span style="display:flex;"><span>                                        kv.SetCredential(<span style="color:#66d9ef">new</span> DefaultAzureCredential());
-</span></span><span style="display:flex;"><span>                                    })
-</span></span><span style="display:flex;"><span>                                    .ConfigureRefresh(refreshOptions =&gt;
-</span></span><span style="display:flex;"><span>                                    {
-</span></span><span style="display:flex;"><span>                                        refreshOptions.Register(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi:sentinel&#34;</span>, refreshAll: <span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>                                                .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">1</span>));
-</span></span><span style="display:flex;"><span>                                    });
-</span></span><span style="display:flex;"><span>                            }, optional: <span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span>                    })
+</span></span><span style="display:flex;"><span>                    config
+</span></span><span style="display:flex;"><span>                        .AddAzureAppConfiguration(options =&gt; 
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            options.Connect(<span style="color:#66d9ef">new</span> Uri(azAppConfigurationFailOverRegionUrl), <span style="color:#66d9ef">new</span> DefaultAzureCredential())
+</span></span><span style="display:flex;"><span>                                .ConfigureKeyVault(kv =&gt; 
+</span></span><span style="display:flex;"><span>                                {
+</span></span><span style="display:flex;"><span>                                    kv.SetCredential(<span style="color:#66d9ef">new</span> DefaultAzureCredential());
+</span></span><span style="display:flex;"><span>                                })
+</span></span><span style="display:flex;"><span>                                .ConfigureRefresh(refreshOptions =&gt;
+</span></span><span style="display:flex;"><span>                                {
+</span></span><span style="display:flex;"><span>                                    refreshOptions.Register(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi:Sentinel&#34;</span>, refreshAll: <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>                                        .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">30</span>));
+</span></span><span style="display:flex;"><span>                                });
+</span></span><span style="display:flex;"><span>                        }, optional: <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>                        .AddAzureAppConfiguration(options =&gt; 
+</span></span><span style="display:flex;"><span>                        {
+</span></span><span style="display:flex;"><span>                            options.Connect(<span style="color:#66d9ef">new</span> Uri(azAppConfigurationMainRegionUrl), <span style="color:#66d9ef">new</span> DefaultAzureCredential())
+</span></span><span style="display:flex;"><span>                                .ConfigureKeyVault(kv =&gt; 
+</span></span><span style="display:flex;"><span>                                {
+</span></span><span style="display:flex;"><span>                                    kv.SetCredential(<span style="color:#66d9ef">new</span> DefaultAzureCredential());
+</span></span><span style="display:flex;"><span>                                })
+</span></span><span style="display:flex;"><span>                                .ConfigureRefresh(refreshOptions =&gt;
+</span></span><span style="display:flex;"><span>                                {
+</span></span><span style="display:flex;"><span>                                    refreshOptions.Register(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi:Sentinel&#34;</span>, refreshAll: <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>                                        .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">1</span>));
+</span></span><span style="display:flex;"><span>                                });
+</span></span><span style="display:flex;"><span>                        }, optional: <span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>                })
 </span></span><span style="display:flex;"><span>                .UseStartup&lt;Startup&gt;();
 </span></span><span style="display:flex;"><span>        });
-</span></span></code></pre></div><p>Note the <em>ConfigureKeyVault(kv =&gt; ..)</em> method.</p>
-<ul>
-<li>AddAzureAppConfiguration(..): adds a configuration provider for <em>Az App Configuration</em> service to the API, i.e., a source to populate IConfiguration from <em>Az App Configuration</em>. Two are configured, one for failover (yes, the first one is the failover one ¿?&hellip; see <a href="https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-disaster-recovery?tabs=core3x">here</a>), both optional. In case of no HA desired, only configure one, preferably with <em>optional: false</em>.</li>
-<li>Connect(..): configure actual connection to az AppConfiguration, in this case with Managed Id</li>
-<li>ConfigureKeyVault(..): configure keyvault so values in <em>Az App Configuration</em> that are in Key Vault can be accessed by the application</li>
-<li>ConfigureRefresh(..): configure refresh of the cache of the App Configuration Client, as explained before.</li>
-</ul>
-<p>DefaultAzureCredential class is the one responsible for getting the credentials available through MI.
-<em>Note: for DefaultAzureCredential class to work locally, the credentials need to be provided in the local environment. See <a href="https://docs.microsoft.com/sv-se/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet">here</a></em></p>
-<h3 id="register-a-configuration-section-so-its-bound-against-toptions-and-iazureappconfigurationrefresher-service">Register a configuration section so it&rsquo;s bound against TOptions, and IAzureAppConfigurationRefresher service</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// Startup.ConfigureServices(...)</span>
-</span></span><span style="display:flex;"><span>services.Configure&lt;AppSettings&gt;(Configuration.GetSection(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi&#34;</span>));
+</span></span></code></pre></div><p><strong>Failover:</strong> First provider is failover, second is primary (<a href="https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-disaster-recovery?tabs=core3x">docs</a>). For non-HA, configure only one with <code>optional: false</code>.</p>
+<p><strong>Local development:</strong> <code>DefaultAzureCredential</code> requires local credentials (<a href="https://docs.microsoft.com/sv-se/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet">docs</a>).</p>
+<p>Register configuration in <code>Startup.ConfigureServices</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>services.Configure&lt;AppSettings&gt;(Configuration.GetSection(<span style="color:#e6db74">&#34;Bustroker.AzureAppConfiguration.WebApi&#34;</span>));
 </span></span><span style="display:flex;"><span>services.AddScoped&lt;IAzureAppConfigurationRefresher, OnDemandAzureAppConfigurationRefresher&gt;();
-</span></span></code></pre></div><h3 id="using-configuration-values">Using Configuration values</h3>
-<p>To use the configuration values, inject <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">IOptionsSnapshot</a> into the Controller.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// AzAppConfigurationController.cs</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[ApiController]</span>
+</span></span></code></pre></div><p>Use in controller:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#a6e22e">[ApiController]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">[Route(&#34;[controller]</span><span style="color:#e6db74">&#34;)]
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AzAppConfigurationController</span> : ControllerBase
 </span></span><span style="display:flex;"><span>{
@@ -246,9 +224,7 @@ It&rsquo;s also usefull when more than one application consume the App Configura
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Ok(_appSettings);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ul>
-<li><strong>NOTE: it&rsquo;s important to use IOptionsSnapshot, and not IOptions (wouldn&rsquo;t refresh anyway unless restarted the application), nor IOptionsMonitor (could change the values in the middle of a request potentially leading to weird results).</strong> Check <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">here</a>.</li>
-</ul>
+</span></span></code></pre></div><p><strong>Critical:</strong> Use <code>IOptionsSnapshot&lt;T&gt;</code>, not <code>IOptions&lt;T&gt;</code> (no refresh without restart) or <code>IOptionsMonitor&lt;T&gt;</code> (values can change mid-request). <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1">Details</a>.</p>
 
 
 

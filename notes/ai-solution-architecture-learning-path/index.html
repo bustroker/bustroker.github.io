@@ -1,0 +1,273 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>AI Solution Architecture Learning Path | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>AI Solution Architecture Learning Path</h1>
+<h3 id="goal">Goal</h3>
+<p>Build production AI systems with proper architecture, agent orchestration, and operational practices.</p>
+<h3 id="resources">Resources</h3>
+<h4 id="book">Book</h4>
+<p><a href="https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0">https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0</a></p>
+<h4 id="architecture-courses">Architecture Courses</h4>
+<p><strong>AdaSci - Agentic AI System Architect</strong><br>
+<a href="https://adasci.org/courses/adasci-certified-agentic-ai-system-architect/">https://adasci.org/courses/adasci-certified-agentic-ai-system-architect/</a></p>
+<p><strong>UMBC - AI for Architects</strong><br>
+<a href="https://www.umbctraining.com/courses/ai-for-architects">https://www.umbctraining.com/courses/ai-for-architects</a></p>
+<h3 id="ai-architecture-fundamentals">AI Architecture Fundamentals</h3>
+<h4 id="day-1-core-architecture">Day 1: Core Architecture</h4>
+<ul>
+<li>AI patterns and enterprise integration</li>
+<li>Training &amp; inference pipelines</li>
+<li>Agent architectures: tools and context management</li>
+<li>Multi-agent collaboration and orchestration</li>
+</ul>
+<h4 id="day-2-platform-operations">Day 2: Platform Operations</h4>
+<ul>
+<li>Model registries and orchestration engines</li>
+<li>CI/CD automation for training and deployment</li>
+<li>GitOps for ML systems</li>
+<li>Observability: drift detection and agent behavior tracking</li>
+</ul>
+<h4 id="day-3-production-operations">Day 3: Production Operations</h4>
+<ul>
+<li>Security for data, models, and multi-agent systems</li>
+<li>Privacy, fairness, and compliance</li>
+<li>Model versioning and lifecycle management</li>
+<li>Governance and cost management</li>
+</ul>
+<h3 id="advanced-production-gen-ai">Advanced: Production Gen AI</h3>
+<p><a href="https://maven.com/boring-bot/advanced-llm">https://maven.com/boring-bot/advanced-llm</a></p>
+<h4 id="1-agentic-rag-with-routers">1. Agentic RAG with Routers</h4>
+<p>Build context-aware retrieval with routers, reflection, and memory.</p>
+<p><strong>Topics:</strong></p>
+<ul>
+<li>Stateless vs. stateful RAG</li>
+<li>Context-aware routing logic</li>
+<li>Reflection, ReAsk, multi-hop search</li>
+<li>Tool invocation and multi-agent coordination</li>
+</ul>
+<h4 id="2-hosting--quantizing-llms">2. Hosting &amp; Quantizing LLMs</h4>
+<p>Deploy models locally and in cloud with quantization.</p>
+<p><strong>Stack:</strong></p>
+<ul>
+<li>Quantization: GPTQ, GGUF, 4-bit, GGML, QLoRA</li>
+<li>Local hosting: Ollama</li>
+<li>Cloud deployment: RunPod, GCP serverless</li>
+<li>API layer: FastAPI with streamed inference</li>
+</ul>
+<h4 id="3-semantic-caching">3. Semantic Caching</h4>
+<p>Reduce costs and latency by caching similar queries using vector proximity.</p>
+<p><strong>Implementation:</strong></p>
+<ul>
+<li>Cache hit/miss architecture</li>
+<li>Semantic distance functions + reranking</li>
+<li>Feedback loop for cache training</li>
+<li>Cost and latency benchmarking</li>
+</ul>
+<h4 id="4-knowledge-graphs">4. Knowledge Graphs</h4>
+<p>Structured reasoning with graph-based memory.</p>
+<p><strong>Stack:</strong></p>
+<ul>
+<li>Graph databases: Neo4j, Memgraph</li>
+<li>Text-to-Cypher generation with DSPy</li>
+<li>Entity and relation extraction</li>
+<li>Graph-integrated RAG</li>
+</ul>
+<h4 id="5-react-agents">5. ReAct Agents</h4>
+<p>Build Reason + Act agents in code and no-code.</p>
+<p><strong>Implementations:</strong></p>
+<ul>
+<li>Python: modular pipelines with tool use, planning, reflection</li>
+<li>No-code: n8n with API and database connections</li>
+<li>Human-in-the-loop workflows</li>
+<li>Visual orchestration for multi-step processes</li>
+</ul>
+<h4 id="6-production-system-integration">6. Production System Integration</h4>
+<p>Combine everything into a secure, monitored production system.</p>
+<p><strong>Stack:</strong></p>
+<ul>
+<li>Google ADK (Agent Development Kit)</li>
+<li>MCP (Modular Cognitive Planning)</li>
+<li>Agent-to-agent (A2A) collaboration</li>
+<li>Safety guardrails: Llama Guard</li>
+<li>GCP deployment with monitoring</li>
+</ul>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

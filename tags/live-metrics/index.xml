@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Live Metrics on Coding notes</title>
+    <title>Live Metrics on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/live-metrics/</link>
-    <description>Recent content in Live Metrics on Coding notes</description>
+    <description>Recent content in Live Metrics on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/live-metrics/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ILogger&lt;TCategory&gt; with azure app service Application Insights, plus Live Metrics</title>
-      <link>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</link>
+      <title>ILogger&lt;TCategory&gt; with Azure App Service Application Insights &#43; Live Metrics</title>
+      <link>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights--live-metrics/</link>
       <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</guid>
-      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service // Startup.cs public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.&#xA;// appsettings.json { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, .... } Add the ApplicationInsights logging provider This is for the ILogger injected object to send to ApplicationInsights as well.</description>
+      <guid>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights--live-metrics/</guid>
+      <description>Goal Send ILogger&amp;lt;TCategory&amp;gt; logs to Azure Application Insights and enable Live Metrics.&#xA;Setup Application Insights Install the package:&#xA;dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service:&#xA;// Startup.cs public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Configure the instrumentation key:&#xA;// appsettings.json { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, ... } Alternatively, pass the key directly to AddApplicationInsightsTelemetry().&#xA;Configure ILogger to Send to Application Insights // Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.</description>
     </item>
   </channel>
 </rss>

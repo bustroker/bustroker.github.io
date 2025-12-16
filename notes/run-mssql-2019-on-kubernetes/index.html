@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Run MSSQL 2019 on Kubernetes | Coding notes</title>
+  <title>Run MSSQL 2019 on Kubernetes | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -131,9 +131,11 @@ audio {
         
 
 <h1>Run MSSQL 2019 on Kubernetes</h1>
-<h3 id="secret-for-sa-password">Secret for <code>sa</code> password</h3>
+<h3 id="goal">Goal</h3>
+<p>Deploy MSSQL Server 2019 on Kubernetes with persistent storage and optional Azure File Share mount.</p>
+<h3 id="create-sa-password-secret">Create SA Password Secret</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>kubectl create secret generic mssql --from-literal=SA_PASSWORD=<span style="color:#e6db74">&#34;P@55word&#34;</span>
-</span></span></code></pre></div><h3 id="storage">Storage</h3>
+</span></span></code></pre></div><h3 id="configure-persistent-storage">Configure Persistent Storage</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">PersistentVolumeClaim</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
@@ -146,7 +148,8 @@ audio {
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">resources</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">requests</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">storage</span>: <span style="color:#ae81ff">10Gi</span>
-</span></span></code></pre></div><h3 id="mount-optional-azure-storage-account">Mount optional azure storage account</h3>
+</span></span></code></pre></div><h3 id="optional-mount-azure-file-share">Optional: Mount Azure File Share</h3>
+<p>Create secret with base64-encoded Azure Storage credentials:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">v1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Secret</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
@@ -156,10 +159,8 @@ audio {
 </span></span><span style="display:flex;"><span><span style="color:#f92672">data</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">azurestorageaccountname</span>: <span style="color:#ae81ff">Z3NhcmNocG9jc3NoYXJlZHN0b3JhZ2U=</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">azurestorageaccountkey</span>: <span style="color:#ae81ff">SndPbTRlTFhLSVdWc1IzYkhONFV2WGlUM3NVSjBseHYvbUpQUU5DY1pYNEsyUmhTUjBZY3c5bzdmM3huU2h6bE9KVXhhSFcxT09KSmF4VktxRityVWc9PQ==</span>
-</span></span></code></pre></div><p>Values of <code>azurestorageaccountname</code> and <code>azurestorageaccountkey</code> are 64-based account name and key as extracted from Azure.
-A <code>File Share</code> needs to be created in the storage account and named <code>optionalAddedStorage</code>, as referenced below.</p>
-<h3 id="sql-server">Sql Server</h3>
-<p>There are optional values for the optional storage.</p>
+</span></span></code></pre></div><p>Create a File Share named <code>optionalAddedStorage</code> in your Azure Storage account.</p>
+<h3 id="deploy-mssql-server">Deploy MSSQL Server</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
@@ -198,13 +199,13 @@ A <code>File Share</code> needs to be created in the storage account and named <
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">volumeMounts</span>:
 </span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mssqldb</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/var/opt/mssql</span>
-</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">optionalAddedStorage</span> <span style="color:#75715e">## Optional storage</span>
+</span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">optionalAddedStorage</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/var/optionalAddedStorage</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">volumes</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mssqldb</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">persistentVolumeClaim</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">claimName</span>: <span style="color:#ae81ff">mssql-data</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">optionalAddedStorage</span> <span style="color:#75715e">## Optional storage</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">optionalAddedStorage</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">azureFile</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">secretName</span>: <span style="color:#ae81ff">mssql-optionalAddedStorage-secret</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">shareName</span>: <span style="color:#ae81ff">optionalAddedStorage</span>
@@ -224,7 +225,8 @@ A <code>File Share</code> needs to be created in the storage account and named <
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">port</span>: <span style="color:#ae81ff">1433</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">targetPort</span>: <span style="color:#ae81ff">1433</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">LoadBalancer</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>Remove the <code>optionalAddedStorage</code> volumeMounts and volumes sections if Azure File Share is not needed.</p>
+
 
 
       </main>

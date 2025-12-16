@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aspnet Core 3.1 on Coding notes</title>
+    <title>Aspnet Core 3.1 on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/aspnet-core-3.1/</link>
-    <description>Recent content in Aspnet Core 3.1 on Coding notes</description>
+    <description>Recent content in Aspnet Core 3.1 on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 24 Aug 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/aspnet-core-3.1/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Very basic logging to console from netcore webapi with Serilog</title>
-      <link>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</link>
+      <title>Logging to Elasticsearch with Serilog in ASP.NET Core</title>
+      <link>https://www.bustroker.com/notes/logging-to-elasticsearch-with-serilog-in-asp.net-core/</link>
       <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/very-basic-logging-to-console-from-netcore-webapi-with-serilog/</guid>
-      <description>Add serilog required packages&#xA;dotnet add package Serilog.AspNetCore&#xD;dotnet add package Serilog.Sinks.ElasticSearch Using&#xA;using Serilog; using Serilog.Sinks.Elasticsearch; Configure serilog on CreateHostBuilder. Only relevant code is included.&#xA;public class Program { private const string ApplicationId = &amp;#34;Bustroker.Transactions.WebApi&amp;#34;; private const string ElasticEndpoint = &amp;#34;http://localhost:9200&amp;#34;; ///.... ///.... ///.... ///.... public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog((hostincContext, loggerConfiguration) =&amp;gt; // send to Elastic for real time monitoring ConfigureSerilogLoggerWithElastic(loggerConfiguration) ) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); private static LoggerConfiguration ConfigureSerilogLoggerWithElastic(LoggerConfiguration loggerConfiguration) { var sinkOptions = new ElasticsearchSinkOptions(new Uri(ElasticEndpoint)) { AutoRegisterTemplate = true, AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.</description>
+      <guid>https://www.bustroker.com/notes/logging-to-elasticsearch-with-serilog-in-asp.net-core/</guid>
+      <description>Goal: Send ASP.NET Core logs to Elasticsearch using Serilog for real-time monitoring.&#xA;Install packages dotnet add package Serilog.AspNetCore dotnet add package Serilog.Sinks.ElasticSearch Configure Serilog using Serilog; using Serilog.Sinks.Elasticsearch; public class Program { private const string ApplicationId = &amp;#34;Bustroker.Transactions.WebApi&amp;#34;; private const string ElasticEndpoint = &amp;#34;http://localhost:9200&amp;#34;; public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .UseSerilog((hostincContext, loggerConfiguration) =&amp;gt; ConfigureSerilogLoggerWithElastic(loggerConfiguration) ) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); private static LoggerConfiguration ConfigureSerilogLoggerWithElastic(LoggerConfiguration loggerConfiguration) { var sinkOptions = new ElasticsearchSinkOptions(new Uri(ElasticEndpoint)) { AutoRegisterTemplate = true, AutoRegisterTemplateVersion = AutoRegisterTemplateVersion.</description>
     </item>
     <item>
-      <title>ILogger&lt;TCategory&gt; with azure app service Application Insights, plus Live Metrics</title>
-      <link>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</link>
+      <title>ILogger&lt;TCategory&gt; with Azure App Service Application Insights &#43; Live Metrics</title>
+      <link>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights--live-metrics/</link>
       <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights-plus-live-metrics/</guid>
-      <description>Add Application Insights to the webapi Add the package dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service // Startup.cs public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Set the instrumentation key in the appsettings.json. It can also be provided to AddApplicationInsightsTelemetry method when registering the service.&#xA;// appsettings.json { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, .... } Add the ApplicationInsights logging provider This is for the ILogger injected object to send to ApplicationInsights as well.</description>
+      <guid>https://www.bustroker.com/notes/iloggertcategory-with-azure-app-service-application-insights--live-metrics/</guid>
+      <description>Goal Send ILogger&amp;lt;TCategory&amp;gt; logs to Azure Application Insights and enable Live Metrics.&#xA;Setup Application Insights Install the package:&#xA;dotnet add package Microsoft.ApplicationInsights.AspnetCore Register the service:&#xA;// Startup.cs public void ConfigureServices(IServiceCollection services) { services.AddApplicationInsightsTelemetry(); ... } Configure the instrumentation key:&#xA;// appsettings.json { &amp;#34;ApplicationInsights&amp;#34;: { &amp;#34;InstrumentationKey&amp;#34;: &amp;#34;putinstrumentationkeyhere&amp;#34; }, ... } Alternatively, pass the key directly to AddApplicationInsightsTelemetry().&#xA;Configure ILogger to Send to Application Insights // Program.cs public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.</description>
     </item>
     <item>
-      <title>Basics of .Net Core 3.1 ILogger&lt;TCategory&gt;</title>
-      <link>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</link>
+      <title>.NET Core 3.1 ILogger with Azure App Service Log Streaming</title>
+      <link>https://www.bustroker.com/notes/.net-core-3.1-ilogger-with-azure-app-service-log-streaming/</link>
       <pubDate>Thu, 04 Jun 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/basics-of-.net-core-3.1-iloggertcategory/</guid>
-      <description>Applying it to logging to Log Streaming in Azure Web app net core 3.1, (and to Console)&#xA;netcore 3.1 basic console logging Azure app services real time logs monitoring for troubleshooting.&#xA;Log Stream Add package to write to Azure File dotnet add package Microsoft.Extensions.Logging.AzureAppServices Add the provider I like to add the Console provider as well so I can check what&amp;rsquo;s going on when running locally too, but it&amp;rsquo;s not required for the portal Log Streaming.</description>
+      <guid>https://www.bustroker.com/notes/.net-core-3.1-ilogger-with-azure-app-service-log-streaming/</guid>
+      <description>Goal Enable real-time log monitoring in Azure App Service using ILogger&amp;lt;T&amp;gt; in .NET Core 3.1.&#xA;Install Azure Logging Package dotnet add package Microsoft.Extensions.Logging.AzureAppServices Configure Logging Providers public class Program { public static void Main(string[] args) { CreateHostBuilder(args).Build().Run(); } public static IHostBuilder CreateHostBuilder(string[] args) =&amp;gt; Host.CreateDefaultBuilder(args) .ConfigureLogging(logging =&amp;gt; { logging.ClearProviders() .AddConsole() .AddAzureWebAppDiagnostics(); }) .ConfigureWebHostDefaults(webBuilder =&amp;gt; { webBuilder.UseStartup&amp;lt;Startup&amp;gt;(); }); } Adding AddConsole() is optional but useful for local debugging.&#xA;Configure Log Levels Option 1: appsettings.</description>
     </item>
   </channel>
 </rss>

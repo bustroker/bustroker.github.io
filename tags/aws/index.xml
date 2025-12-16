@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aws on Coding notes</title>
+    <title>Aws on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/aws/</link>
-    <description>Recent content in Aws on Coding notes</description>
+    <description>Recent content in Aws on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 23 Aug 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AWS CLI cheatsheet</title>
+      <title>AWS CLI Cheatsheet</title>
       <link>https://www.bustroker.com/notes/aws-cli-cheatsheet/</link>
       <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/aws-cli-cheatsheet/</guid>
-      <description>Install amazon lambda tools and templates dotnet tool install --global Amazon.Lambda.Tools dotnet new --install Amazon.Lambda.Templates Authenticate to AWS with SSO Check profiles already available locally&#xA;aws configure list-profiles #or cat ~/.aws/config Authenticate a profile, in this case aws-profile to connect to corresponding account&#xA;aws sso login --profile aws-profile # test by listing s3 buckets aws s3 ls --profile aws-profile #or dotnet lambda list-functions Lambda function - download package Get the url to download the zip package</description>
+      <description>Install AWS Lambda Tools dotnet tool install --global Amazon.Lambda.Tools dotnet new --install Amazon.Lambda.Templates AWS SSO Authentication List configured profiles:&#xA;aws configure list-profiles ## or cat ~/.aws/config Authenticate and verify access:&#xA;aws sso login --profile aws-profile ## Verify authentication aws s3 ls --profile aws-profile ## or dotnet lambda list-functions Download Lambda Function Package aws lambda get-function --profile AWS_PROFILE --function-name FUNCTION_NAME --query &amp;#39;Code.Location&amp;#39; --output text Invoke Lambda Function aws lambda invoke --profile AWS_PROFILE --function-name FUNCTION_NAME output-file --log-type Tail --query &amp;#39;LogResult&amp;#39; --output text | base64 -d Login Docker to ECR aws sso login --profile PROFILE aws ecr get-login-password --region REGION --profile PROFILE | docker login --username AWS --password-stdin ECR_URL Example:</description>
     </item>
     <item>
-      <title>Configure AWS CLI</title>
-      <link>https://www.bustroker.com/notes/configure-aws-cli/</link>
+      <title>Configure AWS CLI Authentication</title>
+      <link>https://www.bustroker.com/notes/configure-aws-cli-authentication/</link>
       <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/configure-aws-cli/</guid>
-      <description>From ChatGPT ;P To configure AWS CLI authentication for deploying applications, you can follow these steps:&#xA;Install AWS CLI: If you haven&amp;rsquo;t already, install the AWS CLI on your machine. You can download the AWS CLI installer appropriate for your operating system from the official AWS Command Line Interface documentation.&#xA;Create AWS IAM User: In the AWS Management Console, navigate to the IAM (Identity and Access Management) service. Create a new IAM user or use an existing one that will be used for authentication.</description>
+      <guid>https://www.bustroker.com/notes/configure-aws-cli-authentication/</guid>
+      <description>Goal Configure AWS CLI authentication to deploy applications and access AWS resources.&#xA;Steps 1. Install AWS CLI Download and install from the official AWS CLI documentation.&#xA;2. Create IAM User Navigate to IAM service in AWS Management Console and create a new user with appropriate deployment permissions.&#xA;3. Generate Access Keys In IAM user details → Security credentials tab → Create access key. Save the access key ID and secret access key.</description>
     </item>
   </channel>
 </rss>

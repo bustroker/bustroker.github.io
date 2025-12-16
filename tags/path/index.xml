@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>PATH on Coding notes</title>
+    <title>PATH on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/path/</link>
-    <description>Recent content in PATH on Coding notes</description>
+    <description>Recent content in PATH on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Aug 2021 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/path/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Recover lost `PATH` variable</title>
-      <link>https://www.bustroker.com/notes/recover-lost-path-variable/</link>
+      <title>Recover lost PATH variable on Windows</title>
+      <link>https://www.bustroker.com/notes/recover-lost-path-variable-on-windows/</link>
       <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/recover-lost-path-variable/</guid>
-      <description>The idea is to open a cmd in the context of an application that was running before the PATH variable was broken, e.g., Chrome. Go to Chrome, hit ctrl+o, and it opens an explorer window. Go to the window&amp;rsquo;s path bar and type cmd and enter. A cmd opens &amp;ldquo;in the context&amp;rdquo; of Chrome. Now just display the PATH variable that was in place when Chrome was executed&#xA;echo %PATH% </description>
+      <guid>https://www.bustroker.com/notes/recover-lost-path-variable-on-windows/</guid>
+      <description>Goal Recover your Windows PATH variable after it has been corrupted or accidentally cleared.&#xA;Solution Use a running application to access its inherited environment variables. Any application launched before the PATH was broken still has the correct value in memory.&#xA;Steps 1. Open a file dialog from a running application (e.g., Chrome):&#xA;Press Ctrl+O to open the file picker.&#xA;2. Launch CMD from the file picker:&#xA;Click the address bar and type:</description>
     </item>
   </channel>
 </rss>

@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on Coding notes</title>
+    <title>Git on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/git/</link>
-    <description>Recent content in Git on Coding notes</description>
+    <description>Recent content in Git on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 13 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Git go to previous commit</title>
-      <link>https://www.bustroker.com/notes/git-go-to-previous-commit/</link>
+      <title>Restore Previous Commit Without Changing HEAD</title>
+      <link>https://www.bustroker.com/notes/restore-previous-commit-without-changing-head/</link>
       <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/git-go-to-previous-commit/</guid>
-      <description>Check last commits git log --oneline -n &amp;lt;N&amp;gt; Get previous commit locally, WITHOUT modifying HEAD. git checkout &amp;lt;commit-hash&amp;gt; -- . Updates all files in the current directory and subdirectories to match the specified commit. HEAD stays on your current branch — you&amp;rsquo;re not switching commits or branches. Only the working directory is affected, not your branch pointer.&#xA;Without -- ., git checks out the entire commit and puts you in a detached HEAD state.</description>
+      <guid>https://www.bustroker.com/notes/restore-previous-commit-without-changing-head/</guid>
+      <description>Goal Restore files from a previous commit to your working directory while keeping HEAD on the current branch (avoiding detached HEAD state).&#xA;Find the Target Commit git log --oneline -n &amp;lt;N&amp;gt; Restore Files from Previous Commit git checkout &amp;lt;commit-hash&amp;gt; -- . This command:&#xA;Updates all files in current directory and subdirectories to match the specified commit Leaves HEAD on your current branch (no branch switching) Only affects working directory, not branch pointer Without -- .</description>
     </item>
     <item>
-      <title>Git force dev into master from PR</title>
-      <link>https://www.bustroker.com/notes/git-force-dev-into-master-from-pr/</link>
+      <title>Force Sync Master with Dev Branch via Pull Request</title>
+      <link>https://www.bustroker.com/notes/force-sync-master-with-dev-branch-via-pull-request/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/git-force-dev-into-master-from-pr/</guid>
-      <description>When conflicts are crazy and I just want to have dev in master and PR is required.&#xA;1. Make sure you&amp;rsquo;re in the repository root cd /path/to/repository/root 2. Get the last commit in dev git checkout dev got log -n 1 &amp;gt; b2ed68964660648860bcf41d096e71b5d49226ae 3. Create branch from master git checkout master git checkout -b sync-with-dev 4. Remove EVERYTHING first from sync-with-dev branch git rm -rf . 5. Restore everything from the target commit git checkout b2ed68964660648860bcf41d096e71b5d49226ae -- .</description>
+      <guid>https://www.bustroker.com/notes/force-sync-master-with-dev-branch-via-pull-request/</guid>
+      <description>Goal: Make master branch identical to dev branch when merge conflicts are unresolvable, using a pull request workflow.&#xA;Get the target commit cd /path/to/repository/root git checkout dev git log -n 1 Copy the commit SHA (e.g., b2ed68964660648860bcf41d096e71b5d49226ae).&#xA;Create sync branch git checkout master git checkout -b sync-with-dev Replace all content ## Remove everything git rm -rf . ## Restore from dev commit (replace SHA with your commit) git checkout b2ed68964660648860bcf41d096e71b5d49226ae -- .</description>
     </item>
     <item>
-      <title>Git stash - and patch</title>
-      <link>https://www.bustroker.com/notes/git-stash-and-patch/</link>
+      <title>Git Stash and Diff Patches</title>
+      <link>https://www.bustroker.com/notes/git-stash-and-diff-patches/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/git-stash-and-patch/</guid>
-      <description>Stash git stash list # create or save stash git stash # or git stash push -m &amp;#34;description&amp;#34; # Apply latest Stash stash@{0} git stash apply # or git stash apply [INDEX] # Pop - Apply and Remove the latest stash: git stash pop # Drop Stash: git stash drop [INDEX] Stashes can&amp;rsquo;t be managed by name. A way to do so (like light solution for saving specific changes for specific build config), save pending changes to a file</description>
+      <guid>https://www.bustroker.com/notes/git-stash-and-diff-patches/</guid>
+      <description>Basic Stash Operations git stash list ## Create stash git stash ## or with description git stash push -m &amp;#34;description&amp;#34; ## Apply latest stash (stash@{0}) git stash apply ## or specific stash git stash apply [INDEX] ## Apply and remove latest stash git stash pop ## Remove stash git stash drop [INDEX] Named Change Sets with Diff Patches Stashes can&amp;rsquo;t be referenced by name, only by index. To save specific changes with identifiable names (useful for build configs or feature variants):</description>
     </item>
     <item>
-      <title>Git - forget a file and ignore</title>
-      <link>https://www.bustroker.com/notes/git-forget-a-file-and-ignore/</link>
+      <title>Git - Stop Tracking Files While Keeping Them Locally</title>
+      <link>https://www.bustroker.com/notes/git-stop-tracking-files-while-keeping-them-locally/</link>
       <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/git-forget-a-file-and-ignore/</guid>
-      <description>Ignore .gitignore will prevent untracked files from being added (without an add -f) to the set of files tracked by Git. However, Git will continue to track any files that are already being tracked.&#xA;To stop tracking a file, we must remove it from the index:&#xA;git rm --cached &amp;lt;file&amp;gt; To remove a folder and all files in the folder recursively:&#xA;git rm -r --cached &amp;lt;folder&amp;gt; The removal of the file from the head revision will happen on the next commit.</description>
+      <guid>https://www.bustroker.com/notes/git-stop-tracking-files-while-keeping-them-locally/</guid>
+      <description>Goal Stop Git from tracking a file or folder that&amp;rsquo;s already committed, while keeping it in your working directory.&#xA;Context .gitignore only prevents untracked files from being added. Files already tracked by Git will continue to be tracked even after adding them to .gitignore.&#xA;Solution Remove the file from Git&amp;rsquo;s index while keeping it locally:&#xA;git rm --cached &amp;lt;file&amp;gt; For folders:&#xA;git rm -r --cached &amp;lt;folder&amp;gt; The file removal is staged immediately but only takes effect in the repository after you commit:</description>
     </item>
     <item>
-      <title>Git push from script</title>
-      <link>https://www.bustroker.com/notes/git-push-from-script/</link>
+      <title>Automating Git Push with SSH Keys in Scripts</title>
+      <link>https://www.bustroker.com/notes/automating-git-push-with-ssh-keys-in-scripts/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/git-push-from-script/</guid>
-      <description>Push to github from script mkdir -p ~/.ssh echo &amp;#34;${{ secrets.GITHUB_SSH_PRIVATE_KEY}}&amp;#34; &amp;gt; ~/.ssh/id_rsa chmod 600 ~/.ssh/id_rsa git push git@github.com:bustroker/bkr.hobies.web.git </description>
+      <guid>https://www.bustroker.com/notes/automating-git-push-with-ssh-keys-in-scripts/</guid>
+      <description>Goal Push to GitHub from an automated script using SSH authentication.&#xA;Setup Configure SSH key and push:&#xA;mkdir -p ~/.ssh echo &amp;#34;${{ secrets.GITHUB_SSH_PRIVATE_KEY}}&amp;#34; &amp;gt; ~/.ssh/id_rsa chmod 600 ~/.ssh/id_rsa git push git@github.com:bustroker/bkr.hobies.web.git The chmod 600 is required - SSH will reject keys with overly permissive permissions.</description>
     </item>
     <item>
-      <title>Git sparse-checkout</title>
-      <link>https://www.bustroker.com/notes/git-sparse-checkout/</link>
+      <title>Working with Git Sparse-Checkout</title>
+      <link>https://www.bustroker.com/notes/working-with-git-sparse-checkout/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/git-sparse-checkout/</guid>
-      <description>To checkout and work only with a subset/subtree of folders from a repo (yes, some people insist in economizing repos)&#xA;Initialize sparse-checkout config git clone URL --no-checkout # add `--depth 1` to only include latest commit from all commit history cd REPO_ROOT git sparse-checkout init --cone # `--cone` to include root files git checkout Set existing folders to be actually checked out git sparse-checkout add Apps/OtherApp # to add new folders to the current checkout list.</description>
+      <guid>https://www.bustroker.com/notes/working-with-git-sparse-checkout/</guid>
+      <description>Goal: Checkout and work with only a subset of folders from a repository.&#xA;Initial Setup git clone URL --no-checkout # add `--depth 1` to only include latest commit cd REPO_ROOT git sparse-checkout init --cone # `--cone` includes root files git checkout Add Folders to Checkout git sparse-checkout add Apps/OtherApp git sparse-checkout list # view currently checked out paths Create New Folder and Add to Checkout cd ROOT/Apps mkdir OneMoreApp git sparse-checkout add Apps/OneMoreApp git sparse-checkout list Standard Git Operations Work from any included folder:</description>
     </item>
   </channel>
 </rss>

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Node on Coding notes</title>
+    <title>Node on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/node/</link>
-    <description>Recent content in Node on Coding notes</description>
+    <description>Recent content in Node on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 17 Apr 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/node/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Simplest node express static files server</title>
-      <link>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</link>
+      <title>Minimal Node.js Express API</title>
+      <link>https://www.bustroker.com/notes/minimal-node.js-express-api/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/simplest-node-express-static-files-server/</guid>
-      <description>The simplest node static files server.&#xA;Create the project and install express package npm init npm install express --save Create server.js file in the root. // server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); Create a static page Now all files in www folder are being served. Create a www folder in the root and add an html file.</description>
+      <guid>https://www.bustroker.com/notes/minimal-node.js-express-api/</guid>
+      <description>Goal Create a minimal Express API server and run it locally or in Docker.&#xA;Setup npm init npm install express Server Create server.js:&#xA;// ./server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.send({ message: &amp;#34;I&amp;#39;m here&amp;#34;}); }); app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000!&amp;#39;)); Run it:&#xA;node server.js Test it:&#xA;curl localhost:3000 Docker Create Dockerfile:&#xA;## ./Dockerfile FROM node WORKDIR /usr/src/app COPY package*.json ./ RUN npm install COPY .</description>
     </item>
     <item>
-      <title>Simplest node express web API</title>
-      <link>https://www.bustroker.com/notes/simplest-node-express-web-api/</link>
+      <title>Minimal Node.js Express Static File Server</title>
+      <link>https://www.bustroker.com/notes/minimal-node.js-express-static-file-server/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/simplest-node-express-web-api/</guid>
-      <description>For frontend dev, the simplest web API to joke around with.&#xA;Create the project and install express package&#xA;npm init npm install express Node server Create server.js file in the root.&#xA;// ./server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.send({ message: &amp;#34;I&amp;#39;m here&amp;#34;}); }); app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000!&amp;#39;)); Run it&#xA;node server.js Test it&#xA;curl localhost:3000 Package it in a docker container # .</description>
+      <guid>https://www.bustroker.com/notes/minimal-node.js-express-static-file-server/</guid>
+      <description>Build a minimal static file server with Express.&#xA;Setup npm init npm install express --save Server Create server.js:&#xA;// server.js const express = require(&amp;#39;express&amp;#39;); const app = express(); app.use(express.static(&amp;#39;www&amp;#39;)) /* routes root &amp;#39;/&amp;#39; to index.html */ app.get(&amp;#39;/&amp;#39;, (req, res) =&amp;gt; { res.sendFile(&amp;#39;/index.html&amp;#39;); }) app.listen(3000, () =&amp;gt; console.log(&amp;#39;Listening on port 3000..&amp;#39;)); All files in www folder are now served automatically.&#xA;Static Content Create www/index.html:&#xA;&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;Static express&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div&amp;gt; &amp;lt;p&amp;gt;All work and no play makes Jack a dull boy.</description>
     </item>
   </channel>
 </rss>

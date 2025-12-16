@@ -1,131 +1,124 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cheatsheet on Coding notes</title>
+    <title>Cheatsheet on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/cheatsheet/</link>
-    <description>Recent content in Cheatsheet on Coding notes</description>
+    <description>Recent content in Cheatsheet on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 23 Aug 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AWS CLI cheatsheet</title>
+      <title>AWS CLI Cheatsheet</title>
       <link>https://www.bustroker.com/notes/aws-cli-cheatsheet/</link>
       <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/aws-cli-cheatsheet/</guid>
-      <description>Install amazon lambda tools and templates dotnet tool install --global Amazon.Lambda.Tools dotnet new --install Amazon.Lambda.Templates Authenticate to AWS with SSO Check profiles already available locally&#xA;aws configure list-profiles #or cat ~/.aws/config Authenticate a profile, in this case aws-profile to connect to corresponding account&#xA;aws sso login --profile aws-profile # test by listing s3 buckets aws s3 ls --profile aws-profile #or dotnet lambda list-functions Lambda function - download package Get the url to download the zip package</description>
+      <description>Install AWS Lambda Tools dotnet tool install --global Amazon.Lambda.Tools dotnet new --install Amazon.Lambda.Templates AWS SSO Authentication List configured profiles:&#xA;aws configure list-profiles ## or cat ~/.aws/config Authenticate and verify access:&#xA;aws sso login --profile aws-profile ## Verify authentication aws s3 ls --profile aws-profile ## or dotnet lambda list-functions Download Lambda Function Package aws lambda get-function --profile AWS_PROFILE --function-name FUNCTION_NAME --query &amp;#39;Code.Location&amp;#39; --output text Invoke Lambda Function aws lambda invoke --profile AWS_PROFILE --function-name FUNCTION_NAME output-file --log-type Tail --query &amp;#39;LogResult&amp;#39; --output text | base64 -d Login Docker to ECR aws sso login --profile PROFILE aws ecr get-login-password --region REGION --profile PROFILE | docker login --username AWS --password-stdin ECR_URL Example:</description>
     </item>
     <item>
-      <title>Recover lost `PATH` variable</title>
-      <link>https://www.bustroker.com/notes/recover-lost-path-variable/</link>
+      <title>Recover lost PATH variable on Windows</title>
+      <link>https://www.bustroker.com/notes/recover-lost-path-variable-on-windows/</link>
       <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/recover-lost-path-variable/</guid>
-      <description>The idea is to open a cmd in the context of an application that was running before the PATH variable was broken, e.g., Chrome. Go to Chrome, hit ctrl+o, and it opens an explorer window. Go to the window&amp;rsquo;s path bar and type cmd and enter. A cmd opens &amp;ldquo;in the context&amp;rdquo; of Chrome. Now just display the PATH variable that was in place when Chrome was executed&#xA;echo %PATH% </description>
+      <guid>https://www.bustroker.com/notes/recover-lost-path-variable-on-windows/</guid>
+      <description>Goal Recover your Windows PATH variable after it has been corrupted or accidentally cleared.&#xA;Solution Use a running application to access its inherited environment variables. Any application launched before the PATH was broken still has the correct value in memory.&#xA;Steps 1. Open a file dialog from a running application (e.g., Chrome):&#xA;Press Ctrl+O to open the file picker.&#xA;2. Launch CMD from the file picker:&#xA;Click the address bar and type:</description>
     </item>
     <item>
-      <title>Powershell cheatsheet</title>
+      <title>PowerShell Cheatsheet</title>
       <link>https://www.bustroker.com/notes/powershell-cheatsheet/</link>
       <pubDate>Mon, 29 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/powershell-cheatsheet/</guid>
-      <description>Bypass digitally sign constrain for scripts execution Run powershell as Administrator.&#xA;Set-ExecutionPolicy -ExecutionPolicy Unrestricted List environment variables Get-ChildItem -Path Env:\ Also, using .net from powershell, and specifying system-level variables, by specifying machine as second argument. This argument could also be user&#xA;[System.Environment]::GetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;,&amp;#39;machine&amp;#39;) For some reason, the previous doesn&amp;rsquo;t work for variable COMPUTERNAME. To get computer name:&#xA;$env:computername Set environment variable Run powershell as Admin.&#xA;new variable [System.Environment]::SetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;, &amp;#39;VARIABLE_VALUE&amp;#39;,[System.EnvironmentVariableTarget]::Machine) add to an existing variable (typically to PATH) $current=[System.</description>
+      <description>Bypass digitally sign constraint for scripts execution Run as Administrator:&#xA;Set-ExecutionPolicy -ExecutionPolicy Unrestricted List environment variables Get-ChildItem -Path Env:\ Get system-level variables via .NET (also accepts user):&#xA;[System.Environment]::GetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;,&amp;#39;machine&amp;#39;) Get computer name (doesn&amp;rsquo;t work with the above method):&#xA;$env:computername Set environment variable Run as Administrator.&#xA;New variable:&#xA;[System.Environment]::SetEnvironmentVariable(&amp;#39;VARIABLE_NAME&amp;#39;, &amp;#39;VARIABLE_VALUE&amp;#39;,[System.EnvironmentVariableTarget]::Machine) Append to existing variable (e.g. PATH):&#xA;$current=[System.Environment]::GetEnvironmentVariable(&amp;#39;PATH&amp;#39;,&amp;#39;machine&amp;#39;);$newpath=&amp;#34;$current;C:\new\stuff\in\the\path&amp;#34;;[System.Environment]::SetEnvironmentVariable(&amp;#39;PATH&amp;#39;, $newpath,[System.EnvironmentVariableTarget]::Machine) Remove environment variable Remove-Item env:\VARIABLE_NAME Enable Windows feature (ServerManager) Install RSAT (includes ServerManager module) - run as Administrator:</description>
     </item>
     <item>
-      <title>MySql/MariaDb command line cheatsheet</title>
+      <title>MySQL/MariaDB Command Line Cheatsheet</title>
       <link>https://www.bustroker.com/notes/mysql/mariadb-command-line-cheatsheet/</link>
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/mysql/mariadb-command-line-cheatsheet/</guid>
-      <description>Commands Connect mysql [-h 192.168.1.100] -u USER_NAME -p [DATABASE_NAME] Will be prompted for password&#xA;Once connected, the commanda need to end with ;.&#xA;Common commands ´´´ show tables; ´´´&#xA;Exit Ctrl+C </description>
+      <description>Connect to Database mysql [-h 192.168.1.100] -u USER_NAME -p [DATABASE_NAME] You&amp;rsquo;ll be prompted for the password. All commands inside the MySQL shell must end with ;.&#xA;Common Commands SHOW TABLES; SHOW DATABASES; USE database_name; DESCRIBE table_name; SELECT * FROM table_name; Exit Press Ctrl+C or type exit;</description>
     </item>
     <item>
-      <title>Azure DevOps yaml pipeline cheatsheet</title>
-      <link>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-cheatsheet/</link>
+      <title>Azure DevOps YAML Pipeline CI/CD Setup</title>
+      <link>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-ci/cd-setup/</link>
       <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-cheatsheet/</guid>
-      <description>A couple remarks Use a single pipeline for CI-CD, as there seems to be no way to connect BuildId (i.e., container version/tag to deploy) from CI pipeline to CD pipeline. The environment referenced in the deployment jobs are created if doesn&amp;rsquo;t exist The environment is where the approvals are configured, directly in Azure DevOps The pipeline is linked to a git repo in Azure DevOps as well. The pipeline is triggered when the master branch is pushed.</description>
+      <guid>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-ci/cd-setup/</guid>
+      <description>Goal Build a single YAML pipeline that builds a Docker container, pushes it to Azure Container Registry, and deploys it sequentially to dev and int environments with approval gates.&#xA;Key Points Use a single pipeline for CI-CD (no way to pass BuildId between separate pipelines) Environments are auto-created on first deployment Configure approvals directly on environments in Azure DevOps Create Service Connection before running pipeline Pipeline Structure Trigger on master branch push:</description>
     </item>
     <item>
-      <title>Helm 3 commands cheatsheet</title>
+      <title>Helm 3 Commands Cheatsheet</title>
       <link>https://www.bustroker.com/notes/helm-3-commands-cheatsheet/</link>
       <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/helm-3-commands-cheatsheet/</guid>
-      <description>Create .tgz package from chart folder content cd chart helm package . Deploy local tgz package to kubernetes The terminal must have been authenticated. In case of AKS, run az aks get-credentials --resource-group &amp;lt;RESOURCEGROUP_NAME&amp;gt; --name &amp;lt;AKS_CLUSTERNAME&amp;gt;&#xA;helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;TGZ_PACKAGE&amp;gt; List releases in kubernetes helm list&#xD;helm get all &amp;lt;RELEASE_NAME&amp;gt; Deploy chart from registry No direct way for the moment. Need to pull, export and then install&#xA;helm chart pull &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt;&#xD;helm chart export &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt;&#xD;helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;EXPORTED_CHART_FOLDER&amp;gt; helm chart export will create a folder named after the chart (chart.</description>
+      <description>Create .tgz package from chart folder cd chart helm package . Deploy local .tgz package Authenticate first (AKS example):&#xA;az aks get-credentials --resource-group &amp;lt;RESOURCEGROUP_NAME&amp;gt; --name &amp;lt;AKS_CLUSTERNAME&amp;gt; Install the package:&#xA;helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;TGZ_PACKAGE&amp;gt; List releases helm list helm get all &amp;lt;RELEASE_NAME&amp;gt; Deploy chart from registry No direct install available. Pull, export, then install:&#xA;helm chart pull &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt; helm chart export &amp;lt;PACKAGE_REPO_WITH_VERSION&amp;gt; helm install &amp;lt;RELEASE_NAME&amp;gt; &amp;lt;EXPORTED_CHART_FOLDER&amp;gt; Note: helm chart export creates a folder named after the chart (from Chart.</description>
     </item>
     <item>
-      <title>Kubernetes (1.7) commands cheatsheet</title>
-      <link>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</link>
+      <title>Kubernetes Commands Cheatsheet</title>
+      <link>https://www.bustroker.com/notes/kubernetes-commands-cheatsheet/</link>
       <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/kubernetes-1.7-commands-cheatsheet/</guid>
-      <description>Version: 1.6&#xA;Contexts kubectl config get-contexts kubectl config delete-context CONTEXT_NAME kubectl config set-context --current --namespace=NAMESPACE kubectl config use-context CONTEXT_NAME Run pod from image kubectl run NAME --image=image [--env=&amp;#34;key=value&amp;#34;] Get info kubectl get pods [-o wide] kubectl describe service SERVICE_NAME kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName=NODE_NAME Delete all pods with a label kubectl delete pods -l label=value Delete all pods in a specific state pods, in Linux E.g., STATE=Evicted</description>
+      <guid>https://www.bustroker.com/notes/kubernetes-commands-cheatsheet/</guid>
+      <description>Version: 1.6&#xA;Contexts kubectl config get-contexts kubectl config delete-context CONTEXT_NAME kubectl config set-context --current --namespace=NAMESPACE kubectl config use-context CONTEXT_NAME Run Pod from Image kubectl run NAME --image=image [--env=&amp;#34;key=value&amp;#34;] Get Info kubectl get pods [-o wide] kubectl describe service SERVICE_NAME kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName=NODE_NAME Delete Pods By label:&#xA;kubectl delete pods -l label=value By state (e.g., Evicted):&#xA;kubectl get pod | grep Evicted | awk &amp;#39;{print $1}&amp;#39; | xargs kubectl delete pod Set Namespace for Session kubectl config set-context --current -n=&amp;lt;NAMESPACE&amp;gt; Validate Before Deployment kubectl apply --dry-run=client -f deployment.</description>
     </item>
     <item>
-      <title>Docker cheatsheet</title>
-      <link>https://www.bustroker.com/notes/docker-cheatsheet/</link>
+      <title>Docker Command Reference</title>
+      <link>https://www.bustroker.com/notes/docker-command-reference/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/docker-cheatsheet/</guid>
-      <description>Version: 19.03&#xA;build image and set tag -t docker build -t bustroker.notes.webui:v1 . multiple tags are allowed as well&#xA;docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest . build image and see commands output For debugging issues. E.g., run RUN ls and see out put&#xA;docker build -t bustroker.notes.webui --progress=plain --no-cache . tag image docker tag [localImage] [registryServer]/[imageName]:[version] # ej docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1 add tag to existing tagged image docker tag bustroker.</description>
+      <guid>https://www.bustroker.com/notes/docker-command-reference/</guid>
+      <description>Version: 19.03&#xA;Building Images Build with single tag:&#xA;docker build -t bustroker.notes.webui:v1 . Build with multiple tags:&#xA;docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest . Debug build by viewing command output:&#xA;docker build -t bustroker.notes.webui --progress=plain --no-cache . Tagging Images Tag for registry:&#xA;docker tag [localImage] [registryServer]/[imageName]:[version] ## example docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1 Add tag to existing image:&#xA;docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latest Managing Images List images:&#xA;docker images Remove all images (add -f to force):</description>
     </item>
     <item>
-      <title>Docker compose</title>
-      <link>https://www.bustroker.com/notes/docker-compose/</link>
+      <title>Docker Compose Cheatsheet</title>
+      <link>https://www.bustroker.com/notes/docker-compose-cheatsheet/</link>
       <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/docker-compose/</guid>
-      <description>Docker compose services: zookeeper: image: debezium/zookeeper ports: - &amp;#34;2181:2181&amp;#34; - &amp;#34;2888:2888&amp;#34; - &amp;#34;3888:3888&amp;#34; kafka: image: debezium/kafka ports: - &amp;#34;9092:9092&amp;#34; volumes: - /var/run/docker.sock:/var/run/docker.sock depends_on: - &amp;#34;zookeeper&amp;#34; connect: image: debezium/connect ports: - &amp;#34;8083:8083&amp;#34; environment: - GROUP_ID=1 - CONFIG_STORAGE_TOPIC=my_connect_configs - OFFSET_STORAGE_TOPIC=my_connect_offsets - STATUS_STORAGE_TOPIC=my_connect_statuses depends_on: - &amp;#34;kafka&amp;#34; docker-compose terminal into service container docker-compose up exec [SERVICE_NAME] [TERMINAL] #or docker compose run --entrypoint /bin/sh [SERVICE_NAME] [TERMINAL] could be sh, cmd, powershell&amp;hellip;&#xA;docker-compose # launch the containers docker-compose up [-d] [--build] # launch the containers and opens interactive terminal inside docker-compose run [SERVICE] # stop and remove containers docker-compose down # stop the containers, without removing docker-compose stop </description>
+      <guid>https://www.bustroker.com/notes/docker-compose-cheatsheet/</guid>
+      <description>Multi-service setup example services: zookeeper: image: debezium/zookeeper ports: - &amp;#34;2181:2181&amp;#34; - &amp;#34;2888:2888&amp;#34; - &amp;#34;3888:3888&amp;#34; kafka: image: debezium/kafka ports: - &amp;#34;9092:9092&amp;#34; volumes: - /var/run/docker.sock:/var/run/docker.sock depends_on: - &amp;#34;zookeeper&amp;#34; connect: image: debezium/connect ports: - &amp;#34;8083:8083&amp;#34; environment: - GROUP_ID=1 - CONFIG_STORAGE_TOPIC=my_connect_configs - OFFSET_STORAGE_TOPIC=my_connect_offsets - STATUS_STORAGE_TOPIC=my_connect_statuses depends_on: - &amp;#34;kafka&amp;#34; Basic commands ## Launch containers docker-compose up [-d] [--build] ## Launch and open interactive terminal docker-compose run [SERVICE] ## Stop and remove containers docker-compose down ## Stop without removing docker-compose stop Shell access to running containers docker-compose exec [SERVICE_NAME] [TERMINAL] ## or docker compose run --entrypoint /bin/sh [SERVICE_NAME] [TERMINAL] can be sh, bash, cmd, powershell, etc.</description>
     </item>
     <item>
-      <title>Azure Managed Identity token with cURL</title>
-      <link>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</link>
+      <title>Get Azure Managed Identity tokens with cURL</title>
+      <link>https://www.bustroker.com/notes/get-azure-managed-identity-tokens-with-curl/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/azure-managed-identity-token-with-curl/</guid>
-      <description>To test Managed Identity is working fine, SSH inside the VM with Managed Identity enabled (or RDP, for that matter) and cURL an access token for some resource.&#xA;curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s resource query parameter, as per documentation:&#xA;&amp;ldquo;A query string parameter, indicating the App ID URI of the target resource. It also appears in the aud (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of https://management.</description>
+      <guid>https://www.bustroker.com/notes/get-azure-managed-identity-tokens-with-curl/</guid>
+      <description>Goal: Retrieve an access token using Azure Managed Identity from within a VM.&#xA;Get a token SSH (or RDP) into a VM with Managed Identity enabled and request a token:&#xA;curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s The resource parameter specifies the App ID URI of the target resource. It becomes the aud (audience) claim in the token.&#xA;Target different resources For Azure Storage:&#xA;curl &amp;#39;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fstorage.azure.com%2F&amp;#39; -H Metadata:true Official documentation</description>
     </item>
     <item>
-      <title>cURL usefull commands cheatsheet</title>
-      <link>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</link>
+      <title>cURL Essential Commands Cheatsheet</title>
+      <link>https://www.bustroker.com/notes/curl-essential-commands-cheatsheet/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/curl-usefull-commands-cheatsheet/</guid>
-      <description>Basic GET curl localhost:8080 Basic POST. application/x-www-form-urlencoded is the default curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; POST json curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{\&amp;#34;key1\&amp;#34;:\&amp;#34;value1\&amp;#34;, \&amp;#34;key2\&amp;#34;:\&amp;#34;value2\&amp;#34;}&amp;#39; curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#34;@data.json&amp;#34; Double quotes are escaped with \, required for powershell.&#xA;Disable certificate validation curl -k https://localhost:8080 Add bearer token header curl https://bustroker.com/api/resource -H &amp;#39;Accept: application/json&amp;#39; -H &amp;#34;Authorization: Bearer &amp;lt;TOKEN&amp;gt;&amp;#34; New line after output curl localhost:8080 ;echo [Linux] Pretty format json output curl localhost:8080 | json_pp also, jq would do it</description>
+      <guid>https://www.bustroker.com/notes/curl-essential-commands-cheatsheet/</guid>
+      <description>Goal Provide a quick reference for commonly used cURL commands.&#xA;GET Request curl localhost:8080 POST Form Data Default content type is application/x-www-form-urlencoded:&#xA;curl -X POST http://localhost:8080/data -d &amp;#34;param1=value1&amp;amp;param2=value2&amp;#34; curl -X POST http://localhost:3000/data -d &amp;#34;@data.txt&amp;#34; POST JSON curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#39;{\&amp;#34;key1\&amp;#34;:\&amp;#34;value1\&amp;#34;, \&amp;#34;key2\&amp;#34;:\&amp;#34;value2\&amp;#34;}&amp;#39; curl -X POST http://localhost:3000/data -H &amp;#34;Content-Type: application/json&amp;#34; -d &amp;#34;@data.json&amp;#34; In PowerShell, escape double quotes with \.&#xA;Skip Certificate Validation curl -k https://localhost:8080 Bearer Token Authentication curl https://bustroker.</description>
     </item>
     <item>
-      <title>Create file from command line in Windows</title>
-      <link>https://www.bustroker.com/notes/create-file-from-command-line-in-windows/</link>
+      <title>Create Files from Command Line in Windows</title>
+      <link>https://www.bustroker.com/notes/create-files-from-command-line-in-windows/</link>
       <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/create-file-from-command-line-in-windows/</guid>
-      <description>Create a file with some content from command line in windows from any console&#xA;echo &amp;#34;whate ever content&amp;#34; &amp;gt; filename.txt </description>
+      <guid>https://www.bustroker.com/notes/create-files-from-command-line-in-windows/</guid>
+      <description>Create a file with content:&#xA;echo &amp;#34;whatever content&amp;#34; &amp;gt; filename.txt Works in any Windows console (CMD, PowerShell, Git Bash).</description>
     </item>
     <item>
-      <title>Python data science cheatsheet</title>
+      <title>Python Data Science Cheatsheet</title>
       <link>https://www.bustroker.com/notes/python-data-science-cheatsheet/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/python-data-science-cheatsheet/</guid>
-      <description>Pandas import pandas as pd&#xA;Load CSV with &amp;lsquo;;&amp;rsquo; separator df = pd.read_csv(&amp;ldquo;data/entryRequests.csv&amp;rdquo;, sep = &amp;ldquo;;&amp;rdquo;, parse_dates=[[&amp;ldquo;Date&amp;rdquo;, &amp;ldquo;Time&amp;rdquo;]])&#xA;Print column names print(df.columns)&#xA;Importing pd.read_csv(filename) # From a CSV file pd.read_table(filename) # From a delimited text file (like TSV) pd.read_excel(filename) # From an Excel file pd.read_sql(query, connection_object) # Read from a SQL table/database pd.read_json(json_string) # Read from a JSON formatted string, URL or file. pd.read_html(url) # Parses an html URL, string or file and extracts tables to a list of dataframes pd.</description>
-    </item>
-    <item>
-      <title>Nuget.config file</title>
-      <link>https://www.bustroker.com/notes/nuget.config-file/</link>
-      <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/nuget.config-file/</guid>
-      <description>In Azure DevOps&amp;rsquo; Package Feed, the user bustroker.packages.restore@bustroker.onmicrosoft.com needs to be added explicitly as a Reader, in the Feed&amp;rsquo;s Security tab. Then generate a Read Package PAT for that user.&#xA;//nuget.config &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;packageSources&amp;gt; &amp;lt;clear /&amp;gt; &amp;lt;add key=&amp;#34;BustrokerPackages&amp;#34; value=&amp;#34;https://pkgs.dev.azure.com/bustroker/_packaging/Bustroker.Packages./nuget/v3/index.json&amp;#34; /&amp;gt; &amp;lt;/packageSources&amp;gt; &amp;lt;packageSourceCredentials&amp;gt; &amp;lt;BustrokerPackages&amp;gt; &amp;lt;add key=&amp;#34;Username&amp;#34; value=&amp;#34;bustroker.packages.restore@bustroker.onmicrosoft.com&amp;#34; /&amp;gt; &amp;lt;!-- Azure DevOps PAT that can ONLY ReadPackages --&amp;gt; &amp;lt;add key=&amp;#34;ClearTextPassword&amp;#34; value=&amp;#34;CLEAR_PAT&amp;#34; /&amp;gt; &amp;lt;/BustrokerPackages&amp;gt; &amp;lt;/packageSourceCredentials&amp;gt; &amp;lt;/configuration&amp;gt; Environment Variables can be used as well //nuget.</description>
+      <description>Pandas import pandas as pd Importing Data pd.read_csv(filename) # From a CSV file pd.read_table(filename) # From a delimited text file (like TSV) pd.read_excel(filename) # From an Excel file pd.read_sql(query, connection_object) # Read from a SQL table/database pd.read_json(json_string) # Read from a JSON formatted string, URL or file pd.read_html(url) # Parses an html URL, string or file and extracts tables to a list of dataframes pd.read_clipboard() # Takes the contents of your clipboard and passes it to read_table() pd.</description>
     </item>
     <item>
       <title>Change directory to different drive in Windows cmd</title>
       <link>https://www.bustroker.com/notes/change-directory-to-different-drive-in-windows-cmd/</link>
       <pubDate>Sat, 09 Nov 2019 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/change-directory-to-different-drive-in-windows-cmd/</guid>
-      <description>To change from C drive to D drive, going cd D: or any similar, doesn&amp;rsquo;t work. Instead go:&#xA;C:\Users\bustroker&amp;gt; d:&#xD;D:\&amp;gt; </description>
+      <description>To switch drives in Windows cmd, use the drive letter followed by a colon. cd won&amp;rsquo;t work across drives.&#xA;C:\Users\bustroker&amp;gt; d: D:\&amp;gt; </description>
     </item>
     <item>
-      <title>Kusto cheatsheet</title>
-      <link>https://www.bustroker.com/notes/kusto-cheatsheet/</link>
+      <title>Kusto Query Cheatsheet for Application Insights</title>
+      <link>https://www.bustroker.com/notes/kusto-query-cheatsheet-for-application-insights/</link>
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/kusto-cheatsheet/</guid>
-      <description>requests durations distribution with steps (bins) of 100 ms app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests&#xD;| where name == &amp;#34;POST SalesController/Post&amp;#34;&#xD;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id&#xD;| summarize count() by bin(req_duration, 100)&#xD;| sort by req_duration asc&#xD;| render timechart requests duration percentiles and requests dependencies duration percentiles app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests&#xD;| where name == &amp;#34;POST SalesControler/Post&amp;#34;&#xD;| project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id&#xD;| summarize count(), avg(req_duration), stdev(req_duration) , percentiles(req_duration, 25, 50, 95, 99)&#xD;| project type_tag = &amp;#34;Core Request&amp;#34;, total = count_ , avg_duration = avg_req_duration, stdev = stdev_req_duration, percentile_duration_25 = percentile_req_duration_25, percentile_duration_50 = percentile_req_duration_50, percentile_duration_95 = percentile_req_duration_95, percentile_duration_99 = percentile_req_duration_99 | union(&#xD;app(&amp;#34;bustroker-sales-webapi&amp;#34;).</description>
+      <guid>https://www.bustroker.com/notes/kusto-query-cheatsheet-for-application-insights/</guid>
+      <description>Request Duration Distribution (100ms bins) app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests | where name == &amp;#34;POST SalesController/Post&amp;#34; | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id | summarize count() by bin(req_duration, 100) | sort by req_duration asc | render timechart Request and Dependency Duration Percentiles Calculate percentiles (p25, p50, p95, p99) for core requests and their dependencies:</description>
     </item>
     <item>
-      <title>Vagrant VM provision &amp; vagrant commands cheathsheet</title>
-      <link>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</link>
+      <title>Vagrant VM Provisioning &amp; Commands Cheatsheet</title>
+      <link>https://www.bustroker.com/notes/vagrant-vm-provisioning-commands-cheatsheet/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/vagrant-vm-provision-vagrant-commands-cheathsheet/</guid>
-      <description>Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| # config.vm.box = &amp;#34;debian/bullseye64&amp;#34; config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 8080, host: 8080 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;UbuntuBionic&amp;#34; vb.memory = 2048 # vb.gui = true end end Vagrant provision script Create a file vagrant_provision.sh in the same folder of Vagrantfile, with the following content. Just remove the tools not required, here&amp;rsquo;s all I&amp;rsquo;ve ever needed.</description>
+      <guid>https://www.bustroker.com/notes/vagrant-vm-provisioning-commands-cheatsheet/</guid>
+      <description>Goal Set up a Vagrant VM with a complete development toolchain: Docker, Kubernetes, Azure CLI, .NET, Node.js, Java/Scala/Spark stack, and various CLI tools.&#xA;Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| # config.vm.box = &amp;#34;debian/bullseye64&amp;#34; config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 8080, host: 8080 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;UbuntuBionic&amp;#34; vb.memory = 2048 # vb.gui = true end end Provision Script Create vagrant_provision.</description>
     </item>
   </channel>
 </rss>

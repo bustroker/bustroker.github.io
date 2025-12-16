@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Fluxcd on Coding notes</title>
+    <title>Fluxcd on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/fluxcd/</link>
-    <description>Recent content in Fluxcd on Coding notes</description>
+    <description>Recent content in Fluxcd on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/fluxcd/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go hello world with regex</title>
-      <link>https://www.bustroker.com/notes/go-hello-world-with-regex/</link>
+      <title>Testing FluxCD ImagePolicy Regex with Go</title>
+      <link>https://www.bustroker.com/notes/testing-fluxcd-imagepolicy-regex-with-go/</link>
       <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/go-hello-world-with-regex/</guid>
-      <description>FluxCD Image policy applies regex to select latest tag. FluxCD uses go regex, so this go app tests a regex.&#xA;Create project # create go module go mod init atoss-regex # create main file touch main.go Code&#xA;// main.go package main import ( &amp;#34;fmt&amp;#34; &amp;#34;regexp&amp;#34; ) func main() { // pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\.[0-9]+\.[0-9]+)$` pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\\.[0-9]+\\.[0-9]+)$` // pattern := `^([0-9]+\\.[0-9]+\\.[0-9]+)$` tags := []string{ &amp;#34;v1.0.0&amp;#34;, &amp;#34;0.0.51&amp;#34;, &amp;#34;0.0.16&amp;#34;, &amp;#34;2.1.0&amp;#34;, &amp;#34;1.2.3&amp;#34;, &amp;#34;v0.9.8&amp;#34;, &amp;#34;1.0&amp;#34;, &amp;#34;invalid&amp;#34;, &amp;#34;1.</description>
+      <guid>https://www.bustroker.com/notes/testing-fluxcd-imagepolicy-regex-with-go/</guid>
+      <description>FluxCD ImagePolicy uses Go regex to filter image tags. Test your regex patterns locally before deploying.&#xA;Setup go mod init atoss-regex touch main.go Code // main.go package main import ( &amp;#34;fmt&amp;#34; &amp;#34;regexp&amp;#34; ) func main() { // pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\.[0-9]+\.[0-9]+)$` pattern := `^(?P&amp;lt;version&amp;gt;[0-9]+\\.[0-9]+\\.[0-9]+)$` // pattern := `^([0-9]+\\.[0-9]+\\.[0-9]+)$` tags := []string{ &amp;#34;v1.0.0&amp;#34;, &amp;#34;0.0.51&amp;#34;, &amp;#34;0.0.16&amp;#34;, &amp;#34;2.1.0&amp;#34;, &amp;#34;1.2.3&amp;#34;, &amp;#34;v0.9.8&amp;#34;, &amp;#34;1.0&amp;#34;, &amp;#34;invalid&amp;#34;, &amp;#34;1.0.0-beta&amp;#34;, } re, err := regexp.Compile(pattern) if err != nil { fmt.Println(&amp;#34;Error compiling regex:&amp;#34;, err) return } for _, tag := range tags { if re.</description>
     </item>
   </channel>
 </rss>

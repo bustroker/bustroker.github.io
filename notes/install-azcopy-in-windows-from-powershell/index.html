@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Install azcopy in windows from powershell | Coding notes</title>
+  <title>Install AzCopy in Windows from PowerShell | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,35 +130,37 @@ audio {
       <main id="main">
         
 
-<h1>Install azcopy in windows from powershell</h1>
-<h3 id="install-func-cli">Install func cli</h3>
+<h1>Install AzCopy in Windows from PowerShell</h1>
+<h3 id="goal">Goal</h3>
+<p>Install AzCopy v10 on Windows and add it to the system PATH.</p>
+<h3 id="installation-script">Installation Script</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$InstallPath = <span style="color:#e6db74">&#39;C:\AzCopy&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Cleanup Destination</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Cleanup Destination</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (Test-Path $InstallPath) {
 </span></span><span style="display:flex;"><span>    Get-ChildItem $InstallPath | Remove-Item -Confirm:$false -Force
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Zip Destination</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Zip Destination</span>
 </span></span><span style="display:flex;"><span>$zip = <span style="color:#e6db74">&#34;</span>$InstallPath<span style="color:#e6db74">\AzCopy.Zip&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create the installation folder (eg. C:\AzCopy)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Create the installation folder (eg. C:\AzCopy)</span>
 </span></span><span style="display:flex;"><span>$null = New-Item -Type Directory -Path $InstallPath -Force
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Download AzCopy zip for Windows</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Download AzCopy zip for Windows</span>
 </span></span><span style="display:flex;"><span>Start-BitsTransfer -Source <span style="color:#e6db74">&#34;https://aka.ms/downloadazcopy-v10-windows&#34;</span> -Destination $zip
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expand the Zip file</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Expand the Zip file</span>
 </span></span><span style="display:flex;"><span>Expand-Archive $zip $InstallPath -Force
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Move to $InstallPath</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Move to $InstallPath</span>
 </span></span><span style="display:flex;"><span>Get-ChildItem <span style="color:#e6db74">&#34;</span>$($InstallPath)<span style="color:#e6db74">\*\*&#34;</span> | Move-Item -Destination <span style="color:#e6db74">&#34;</span>$($InstallPath)<span style="color:#e6db74">\&#34;</span> -Force
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Cleanup - delete ZIP and old folder</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##Cleanup - delete ZIP and old folder</span>
 </span></span><span style="display:flex;"><span>Remove-Item $zip -Force -Confirm:$false
 </span></span><span style="display:flex;"><span>Get-ChildItem <span style="color:#e6db74">&#34;</span>$($InstallPath)<span style="color:#e6db74">\*&#34;</span> -Directory | ForEach-Object { Remove-Item $_.FullName -Recurse -Force -Confirm:$false }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add InstallPath to the System Path if it does not exist</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Add InstallPath to the System Path if it does not exist</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ($env:PATH <span style="color:#f92672">-notcontains</span> $InstallPath) {
 </span></span><span style="display:flex;"><span>    $path = ($env:PATH -split <span style="color:#e6db74">&#34;;&#34;</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (!($path <span style="color:#f92672">-contains</span> $InstallPath)) {
@@ -168,11 +170,12 @@ audio {
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    [<span style="color:#66d9ef">Environment</span>]::SetEnvironmentVariable(<span style="color:#e6db74">&#34;Path&#34;</span>, ($env:path), [<span style="color:#66d9ef">System.EnvironmentVariableTarget</span>]::Machine)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#Test if install worked. Should see azcopy.exe utility and a license text file</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##Test if install worked. Should see azcopy.exe utility and a license text file</span>
 </span></span><span style="display:flex;"><span>Get-ChildItem -Path $InstallPath
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>Read-Host -Prompt <span style="color:#e6db74">&#34;Press Enter to exit&#34;</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>The script downloads AzCopy v10, extracts it to <code>C:\AzCopy</code>, flattens the directory structure, and adds the path to your system environment variables. Run it with administrator privileges to modify the machine-level PATH.</p>
+
 
 
       </main>

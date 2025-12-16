@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Redis on Coding notes</title>
+    <title>Redis on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/redis/</link>
-    <description>Recent content in Redis on Coding notes</description>
+    <description>Recent content in Redis on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 14 Mar 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>redis-cli cheatsheet</title>
-      <link>https://www.bustroker.com/notes/redis-cli-cheatsheet/</link>
+      <title>Redis CLI Essential Commands</title>
+      <link>https://www.bustroker.com/notes/redis-cli-essential-commands/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/redis-cli-cheatsheet/</guid>
-      <description>Install redis with cli brew install redis Commands redis-cli -h your-cluster-endpoint -p your-cluster-port # all keys keys * # pattern keys prefix-* # key type type &amp;lt;key&amp;gt; # get string key get &amp;lt;key&amp;gt; # get all hash key hgetall &amp;lt;key&amp;gt; # expiration time in seconds # -2 if key doesn&amp;#39;t exist # -1 if key doesn&amp;#39;t expire ttl &amp;lt;key&amp;gt; </description>
+      <guid>https://www.bustroker.com/notes/redis-cli-essential-commands/</guid>
+      <description>Installation brew install redis Connect to Redis redis-cli -h your-cluster-endpoint -p your-cluster-port Query Keys ## List all keys keys * ## Pattern matching keys prefix-* ## Check key type type &amp;lt;key&amp;gt; Read Values ## String values get &amp;lt;key&amp;gt; ## Hash values hgetall &amp;lt;key&amp;gt; Check Expiration ttl &amp;lt;key&amp;gt; Returns:&#xA;-2: key doesn&amp;rsquo;t exist -1: key has no expiration n: seconds until expiration </description>
     </item>
   </channel>
 </rss>

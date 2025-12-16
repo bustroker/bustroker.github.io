@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>7zip on Coding notes</title>
+    <title>7zip on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/7zip/</link>
-    <description>Recent content in 7zip on Coding notes</description>
+    <description>Recent content in 7zip on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 02 Aug 2021 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/7zip/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>7zip command line</title>
-      <link>https://www.bustroker.com/notes/7zip-command-line/</link>
+      <title>Extract tar.gz Files on Windows with 7zip</title>
+      <link>https://www.bustroker.com/notes/extract-tar.gz-files-on-windows-with-7zip/</link>
       <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/7zip-command-line/</guid>
-      <description>Unzip tar.gz in windows from powershell 7zip installed and already in the PATH&#xA;7z x filename.tar.gz 7z x filename.tar </description>
+      <guid>https://www.bustroker.com/notes/extract-tar.gz-files-on-windows-with-7zip/</guid>
+      <description>Extract tar.gz Archives on Windows Use 7zip from PowerShell to extract .tar.gz files in two steps:&#xA;7z x filename.tar.gz 7z x filename.tar The first command extracts the gzip compression, producing a .tar file. The second extracts the tar archive contents.</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,405 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>.NET Software Engineer Interview Questions | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>.NET Software Engineer Interview Questions</h1>
+<h3 id="language-fundamentals">Language Fundamentals</h3>
+<p><strong>Interface vs Abstract class</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Interface - contract only</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IPaymentProcessor</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> ProcessPayment(<span style="color:#66d9ef">decimal</span> amount);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Abstract class - shared implementation</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaymentProcessor</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> ProcessPayment(<span style="color:#66d9ef">decimal</span> amount);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> LogTransaction() { <span style="color:#75715e">/* shared logic */</span> }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Value vs Reference types</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Reference type (class) - nullable by default</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> { <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Name { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; } }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Value type (struct) - not nullable unless explicit</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Point</span> { <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> X; <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Y; }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Point</span>? nullablePoint = <span style="color:#66d9ef">null</span>; <span style="color:#75715e">// Nullable value type</span>
+</span></span></code></pre></div><p><strong>async/await in Web API</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Frees thread pool threads during I/O operations</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;ActionResult&lt;User&gt;&gt; GetUser(<span style="color:#66d9ef">int</span> id)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> user = <span style="color:#66d9ef">await</span> _repository.GetUserAsync(id); <span style="color:#75715e">// Thread released during DB call</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Ok(user);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>const vs readonly</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> MaxRetries = <span style="color:#ae81ff">3</span>;        <span style="color:#75715e">// Compile-time constant</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">readonly</span> DateTime CreatedAt;     <span style="color:#75715e">// Runtime constant, set in constructor</span>
+</span></span></code></pre></div><p><strong>yield</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> IEnumerable&lt;<span style="color:#66d9ef">int</span>&gt; GetNumbers()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">yield</span> <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">yield</span> <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">yield</span> <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span>; <span style="color:#75715e">// Lazy evaluation, generates values on demand</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>throw vs throw ex</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">try</span> { <span style="color:#75715e">/* code */</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">catch</span> (Exception ex)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span>;    <span style="color:#75715e">// Preserves stack trace</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> ex; <span style="color:#75715e">// Resets stack trace - avoid this</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>IQueryable vs IEnumerable</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>IQueryable&lt;User&gt; query = dbContext.Users
+</span></span><span style="display:flex;"><span>    .Where(u =&gt; u.Age &gt; <span style="color:#ae81ff">18</span>); <span style="color:#75715e">// Translates to SQL, executes on DB</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>IEnumerable&lt;User&gt; users = dbContext.Users.AsEnumerable()
+</span></span><span style="display:flex;"><span>    .Where(u =&gt; u.Age &gt; <span style="color:#ae81ff">18</span>); <span style="color:#75715e">// Loads all, filters in memory</span>
+</span></span></code></pre></div><p><strong>Delegates</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">delegate</span> <span style="color:#66d9ef">void</span> NotifyHandler(<span style="color:#66d9ef">string</span> message);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">event</span> NotifyHandler OnNotify;
+</span></span><span style="display:flex;"><span>OnNotify?.Invoke(<span style="color:#e6db74">&#34;Event fired&#34;</span>);
+</span></span></code></pre></div><h3 id="orms">ORMs</h3>
+<ul>
+<li><strong>Entity Framework</strong>: Full-featured, convention-based, great for CRUD</li>
+<li><strong>Dapper</strong>: Micro-ORM, SQL control, high performance</li>
+<li><strong>ADO.NET</strong>: Raw SQL, maximum control, use for complex queries or performance-critical paths</li>
+</ul>
+<h3 id="patterns">Patterns</h3>
+<p><strong>SOLID Principles</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Single Responsibility</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrderService</span> { <span style="color:#75715e">/* handles orders only */</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Dependency Inversion</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrderController</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IOrderService _orderService;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> OrderController(IOrderService orderService) 
+</span></span><span style="display:flex;"><span>        =&gt; _orderService = orderService; <span style="color:#75715e">// Depends on abstraction</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Builder Pattern</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">QueryBuilder</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> _select;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> _from;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> QueryBuilder Select(<span style="color:#66d9ef">string</span> fields) { _select = fields; <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> QueryBuilder From(<span style="color:#66d9ef">string</span> table) { _from = table; <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Build() =&gt; <span style="color:#e6db74">$&#34;SELECT {_select} FROM {_from}&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> query = <span style="color:#66d9ef">new</span> QueryBuilder().Select(<span style="color:#e6db74">&#34;*&#34;</span>).From(<span style="color:#e6db74">&#34;Users&#34;</span>).Build();
+</span></span></code></pre></div><p><strong>Factory Pattern</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IPaymentGateway</span> { }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaymentFactory</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> IPaymentGateway Create(<span style="color:#66d9ef">string</span> type) =&gt; type <span style="color:#66d9ef">switch</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;stripe&#34;</span> =&gt; <span style="color:#66d9ef">new</span> StripeGateway(),
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;paypal&#34;</span> =&gt; <span style="color:#66d9ef">new</span> PayPalGateway(),
+</span></span><span style="display:flex;"><span>        _ =&gt; <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ArgumentException()
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="ddd">DDD</h3>
+<p><strong>Entity vs Value Object vs Aggregate</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Entity - has identity</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Guid Id { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> OrderStatus Status { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Value Object - no identity, immutable</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">Money</span>(<span style="color:#66d9ef">decimal</span> Amount, <span style="color:#66d9ef">string</span> Currency);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Aggregate - consistency boundary</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> <span style="color:#75715e">// Aggregate Root</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> List&lt;OrderLine&gt; _lines = <span style="color:#66d9ef">new</span>(); <span style="color:#75715e">// Only Order can modify lines</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> AddLine(Product product, <span style="color:#66d9ef">int</span> quantity) { <span style="color:#75715e">/* business rules */</span> }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Common Antipatterns</strong></p>
+<ul>
+<li>Anemic Domain Model: Entities with only getters/setters, logic in services</li>
+</ul>
+<p><strong>Bounded Context</strong></p>
+<p>Logical boundary where a domain model applies. <code>Customer</code> in Sales context differs from <code>Customer</code> in Support context.</p>
+<h3 id="cqrs">CQRS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Command - writes</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">CreateOrderCommand</span>(Guid CustomerId, List&lt;OrderLine&gt; Lines);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CreateOrderHandler</span> : IRequestHandler&lt;CreateOrderCommand, Guid&gt; { }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Query - reads</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">GetOrderQuery</span>(Guid OrderId);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GetOrderHandler</span> : IRequestHandler&lt;GetOrderQuery, OrderDto&gt; { }
+</span></span></code></pre></div><p>Use with MediatR for separation of reads/writes, different models, and scalability.</p>
+<h3 id="architecture">Architecture</h3>
+<p><strong>REST API Design</strong></p>
+<pre tabindex="0"><code>POST   /api/v1/cars          201 Created
+GET    /api/v1/cars          200 OK
+GET    /api/v1/cars/{id}     200 OK, 404 Not Found
+PUT    /api/v1/cars/{id}     200 OK, 404 Not Found
+DELETE /api/v1/cars/{id}     204 No Content, 404 Not Found
+</code></pre><p><strong>Microservices vs Monolith</strong></p>
+<p>Microservices:</p>
+<ul>
+<li>✅ Independent deployment, technology freedom, scalability</li>
+<li>❌ Complexity, distributed transactions, network latency</li>
+</ul>
+<p>Monolith:</p>
+<ul>
+<li>✅ Simpler deployment, easier debugging, single database</li>
+<li>❌ Tight coupling, scaling challenges</li>
+</ul>
+<p><strong>Event Driven Architecture</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Event - something that happened</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">OrderCreatedEvent</span>(Guid OrderId, DateTime CreatedAt);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Command - instruction to do something</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">record</span> <span style="color:#a6e22e">CreateOrderCommand</span>(Guid CustomerId);
+</span></span></code></pre></div><p>Messages are generic; Events are past-tense facts; Commands are imperative instructions.</p>
+<h3 id="technologies">Technologies</h3>
+<p><strong>Docker</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## Build image</span>
+</span></span><span style="display:flex;"><span>docker build -t myapp:1.0 .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Run container</span>
+</span></span><span style="display:flex;"><span>docker run -p 8080:80 myapp:1.0
+</span></span></code></pre></div><p>Benefits: Consistency across environments, isolation, portability
+Drawbacks: Learning curve, resource overhead</p>
+<p><strong>Kubernetes</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">myapp</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">replicas</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">myapp</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">myapp:1.0</span>
+</span></span></code></pre></div><p>Orchestration for containerized apps. Monitor with Prometheus, Grafana, or built-in <code>kubectl</code> commands.</p>
+<h3 id="sdlc">SDLC</h3>
+<p><strong>CI/CD Pipeline</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e">## Example GitHub Actions</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">CI/CD</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>: [<span style="color:#ae81ff">push]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">dotnet build</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Test</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">dotnet test</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy to staging</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">if</span>: <span style="color:#ae81ff">github.ref == &#39;refs/heads/main&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">./deploy.sh staging</span>
+</span></span></code></pre></div><p><strong>Branching Strategies</strong></p>
+<ul>
+<li>Trunk-based: Short-lived branches, CI/CD friendly</li>
+<li>Feature branching: Isolated features, longer-lived</li>
+</ul>
+<p><strong>Environments</strong>: Dev → Staging → Production</p>
+<h3 id="react">React</h3>
+<p><strong>Functional vs Class Components</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#75715e">// Functional (preferred) - simpler, hooks support
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">UserProfile</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">userId</span> }) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">setUser</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">null</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; { <span style="color:#a6e22e">fetchUser</span>(<span style="color:#a6e22e">userId</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">setUser</span>); }, [<span style="color:#a6e22e">userId</span>]);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;{<span style="color:#a6e22e">user</span><span style="color:#f92672">?</span>.<span style="color:#a6e22e">name</span>}&lt;/<span style="color:#f92672">div</span>&gt;;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Class - legacy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserProfile</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> { }
+</span></span></code></pre></div><p><strong>Hooks</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">useState</span>()    <span style="color:#75715e">// State management
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">useEffect</span>()   <span style="color:#75715e">// Side effects
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">useContext</span>()  <span style="color:#75715e">// Context consumption
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">useMemo</span>()     <span style="color:#75715e">// Memoization
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">useCallback</span>() <span style="color:#75715e">// Callback memoization
+</span></span></span></code></pre></div><h3 id="agile">Agile</h3>
+<ul>
+<li><strong>Scrum</strong>: Sprints, ceremonies (standup, planning, retro, review)</li>
+<li><strong>Kanban</strong>: Continuous flow, WIP limits</li>
+</ul>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

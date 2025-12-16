@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Agents on Coding notes - cheat sheets and snippets</title>
+    <link>https://www.bustroker.com/tags/agents/</link>
+    <description>Recent content in Agents on Coding notes - cheat sheets and snippets</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/agents/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Agent Frameworks - Mental Models and Control Flow</title>
+      <link>https://www.bustroker.com/notes/ai-agent-frameworks-mental-models-and-control-flow/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/ai-agent-frameworks-mental-models-and-control-flow/</guid>
+      <description>Goal Compare agent frameworks by their control flow, memory model, and tool execution patterns using a common problem: &amp;ldquo;Automatically detect, diagnose, and remediate a production outage in a microservices system.&amp;rdquo;&#xA;smolagents Multi-step decision loop over tools.&#xA;Each iteration:&#xA;App injects goal + memory + tools LLM returns one tool call or final answer App executes tool, appends result to memory Loop repeats Memory: Python list/dict managed by your application&#xA;Tools: Pure API actions.</description>
+    </item>
+    <item>
+      <title>LLM Agentic Patterns - A Practical Guide</title>
+      <link>https://www.bustroker.com/notes/llm-agentic-patterns-a-practical-guide/</link>
+      <pubDate>Sun, 23 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/llm-agentic-patterns-a-practical-guide/</guid>
+      <description>Prompt Engineering Best Practices Clear Instructions&#xA;Be explicit about output format, style, and constraints. The model cannot infer unstated requirements. Few-Shot Examples&#xA;Example Input: &amp;#34;Analyze sentiment&amp;#34; Example Output: {&amp;#34;sentiment&amp;#34;: &amp;#34;positive&amp;#34;, &amp;#34;confidence&amp;#34;: 0.92} Now analyze: [your actual query] Reduce Hallucination with References&#xA;Context: [source documents] Instructions: Only answer based on the provided context. If information is not in the context, say &amp;#34;I don&amp;#39;t know.&amp;#34; Question: [user query] Chain-of-Thought Reasoning&#xA;Problem: [complex task] First, work out your own solution step by step.</description>
+    </item>
+  </channel>
+</rss>

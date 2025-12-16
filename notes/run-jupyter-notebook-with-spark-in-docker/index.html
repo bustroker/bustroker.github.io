@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Run Jupyter notebook with spark in docker | Coding notes</title>
+  <title>Run Jupyter Notebook with Spark in Docker | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,13 +130,27 @@ audio {
       <main id="main">
         
 
-<h1>Run Jupyter notebook with spark in docker</h1>
-<h3 id="install-spark-to-run-locally">Install spark to run locally</h3>
+<h1>Run Jupyter Notebook with Spark in Docker</h1>
+<h3 id="goal">Goal</h3>
+<p>Run a Jupyter notebook with Apache Spark support using Docker, enabling Scala code execution and Spark monitoring.</p>
+<h3 id="setup">Setup</h3>
+<p>Pull and run the Spark-enabled Jupyter container:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>docker run -p <span style="color:#ae81ff">8888</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">8888</span> -p <span style="color:#ae81ff">4041</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">4041</span> jupyter/all-spark-notebook
-</span></span></code></pre></div><p>The auth token is logged in the terminal. Copy it.
-In host browse to <code>localhost:8888</code>. Use the token to authenticate in the interface.</p>
-<p>Create new <code>spylon-kernel</code> notebook and write scala code.</p>
-<p>Spark WebUI is running on port <code>4041</code></p>
+</span></span></code></pre></div><p>This exposes:</p>
+<ul>
+<li>Port 8888: Jupyter interface</li>
+<li>Port 4041: Spark WebUI</li>
+</ul>
+<h3 id="access-jupyter">Access Jupyter</h3>
+<ol>
+<li>Copy the authentication token from the terminal output</li>
+<li>Navigate to <code>localhost:8888</code> in your browser</li>
+<li>Authenticate using the token</li>
+</ol>
+<h3 id="write-spark-code">Write Spark Code</h3>
+<p>Create a new notebook with the <code>spylon-kernel</code> kernel to write Scala code with Spark.</p>
+<h3 id="monitor-jobs">Monitor Jobs</h3>
+<p>Access the Spark WebUI at <code>localhost:4041</code> to monitor job execution and performance.</p>
 
 
 

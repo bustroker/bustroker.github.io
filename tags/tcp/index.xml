@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TCP on Coding notes</title>
+    <title>TCP on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/tcp/</link>
-    <description>Recent content in TCP on Coding notes</description>
+    <description>Recent content in TCP on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 Nov 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/tcp/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Simplest single-client TCP client and server</title>
-      <link>https://www.bustroker.com/notes/simplest-single-client-tcp-client-and-server/</link>
+      <title>Simplest Single-Client TCP Server and Client in .NET Core</title>
+      <link>https://www.bustroker.com/notes/simplest-single-client-tcp-server-and-client-in-.net-core/</link>
       <pubDate>Wed, 11 Nov 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/simplest-single-client-tcp-client-and-server/</guid>
-      <description>Single-client TCP server //Program.cs public class Program { private const int Port = 8080; public static async Task Main(String[] args) { var address = GetLocalIPAddress(); var tcpListener = new TcpListener(GetLocalIPAddress(), Port); tcpListener.Start(); Console.WriteLine($&amp;#34;Server started. Listening to TCP clients at {address}, port {Port}&amp;#34;); while (true) { await WaitForClientConnectionAndHandleAsync(tcpListener); } } static IPAddress GetLocalIPAddress() { var host = Dns.GetHostEntry(Dns.GetHostName()); foreach (var ip in host.AddressList) { if (ip.AddressFamily == AddressFamily.InterNetwork) { return ip; } } throw new Exception(&amp;#34;No network adapters with an IPv4 address in the system!</description>
+      <guid>https://www.bustroker.com/notes/simplest-single-client-tcp-server-and-client-in-.net-core/</guid>
+      <description>Goal Build a minimal TCP server and client in .NET Core 3.1 that can exchange messages.&#xA;TCP Server //Program.cs public class Program { private const int Port = 8080; public static async Task Main(String[] args) { var address = GetLocalIPAddress(); var tcpListener = new TcpListener(GetLocalIPAddress(), Port); tcpListener.Start(); Console.WriteLine($&amp;#34;Server started. Listening to TCP clients at {address}, port {Port}&amp;#34;); while (true) { await WaitForClientConnectionAndHandleAsync(tcpListener); } } static IPAddress GetLocalIPAddress() { var host = Dns.</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,290 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Azure App Configuration. On-Demand Refresh | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Azure App Configuration. On-Demand Refresh</h1>
+<h4 id="the-problem">The Problem</h4>
+<p>Azure App Configuration&rsquo;s default middleware triggers refresh checks on every HTTP request. With a 30-second cache:</p>
+<ul>
+<li><strong>Short cache = High costs</strong>: One request every 30 seconds = 200K+ calls/day across 10 services (beyond free tier)</li>
+<li><strong>Long cache = Slow updates</strong>: Configuration changes take longer to propagate</li>
+</ul>
+<h4 id="goal">Goal</h4>
+<ul>
+<li>Minimal API calls to App Configuration</li>
+<li>Fast configuration updates when needed</li>
+<li>Manual control over refresh timing</li>
+</ul>
+<h4 id="implementation">Implementation</h4>
+<h5 id="ondemandazureappconfigurationrefresher">OnDemandAzureAppConfigurationRefresher</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OnDemandAzureAppConfigurationRefresher</span> : IAzureAppConfigurationRefresher
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> List&lt;IConfigurationRefresher&gt; _configurationRefreshers = <span style="color:#66d9ef">new</span> List&lt;IConfigurationRefresher&gt;();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> OnDemandAzureAppConfigurationRefresher(IConfiguration configuration)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> configurationRoot = configuration <span style="color:#66d9ef">as</span> IConfigurationRoot;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (configurationRoot == <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> InvalidOperationException(<span style="color:#e6db74">&#34;The &#39;IConfiguration&#39; injected in OnDemantConfigurationRefresher is not an &#39;IConfigurationRoot&#39;, and needs to be as well.&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> provider <span style="color:#66d9ef">in</span> configurationRoot.Providers)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (provider <span style="color:#66d9ef">is</span> IConfigurationRefresher refresher)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                _configurationRefreshers.Add(refresher);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task RefreshAllRegisteredKeysAsync()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Task compositeTask = <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> refreshersTasks = <span style="color:#66d9ef">new</span> List&lt;Task&gt;();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            _configurationRefreshers.ForEach(r =&gt; refreshersTasks.Add(r.RefreshAsync()));
+</span></span><span style="display:flex;"><span>            compositeTask = Task.WhenAll(refreshersTasks);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">await</span> compositeTask;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">catch</span> (Exception)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> compositeTask.Exception;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="install-package">Install Package</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+</span></span></code></pre></div><h5 id="configure-app-configuration">Configure App Configuration</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Program.cs</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
+</span></span><span style="display:flex;"><span>    Host.CreateDefaultBuilder(args)
+</span></span><span style="display:flex;"><span>        .ConfigureWebHostDefaults(webBuilder =&gt;
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            webBuilder
+</span></span><span style="display:flex;"><span>                .ConfigureAppConfiguration((hostingContext, config) =&gt;
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">var</span> settings = config.Build();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                        config
+</span></span><span style="display:flex;"><span>                            .AddAzureAppConfiguration(options =&gt; 
+</span></span><span style="display:flex;"><span>                            {
+</span></span><span style="display:flex;"><span>                                options.Connect(settings[<span style="color:#e6db74">&#34;ConnectionStrings:AzAppConfigurationConnectionString&#34;</span>])
+</span></span><span style="display:flex;"><span>                                    .ConfigureRefresh(refreshOptions =&gt;
+</span></span><span style="display:flex;"><span>                                    {
+</span></span><span style="display:flex;"><span>                                        refreshOptions.Register(<span style="color:#e6db74">&#34;Bustroker.AppConfiguration.WebApi:sentinel&#34;</span>, refreshAll: <span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>                                                .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">30</span>));
+</span></span><span style="display:flex;"><span>                                    });
+</span></span><span style="display:flex;"><span>                            });
+</span></span><span style="display:flex;"><span>                    })
+</span></span><span style="display:flex;"><span>                .UseStartup&lt;Startup&gt;();
+</span></span><span style="display:flex;"><span>        });
+</span></span></code></pre></div><p><strong>Note</strong>: Do NOT register <code>app.UseAzureAppConfiguration()</code> middleware in <code>Startup.Configure</code>.</p>
+<h5 id="register-service">Register Service</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Startup.ConfigureServices</span>
+</span></span><span style="display:flex;"><span>services.AddScoped&lt;IAzureAppConfigurationRefresher, OnDemandAzureAppConfigurationRefresher&gt;();
+</span></span></code></pre></div><h5 id="expose-refresh-endpoint">Expose Refresh Endpoint</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#a6e22e">[ApiController]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">[Route(&#34;[controller]</span><span style="color:#e6db74">&#34;)]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RefreshAzAppConfigurationController</span> : ControllerBase
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IAzureAppConfigurationRefresher _azureAppConfigurationRefresher;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> RefreshAzAppConfigurationController(IAzureAppConfigurationRefresher onDemandConfigurationRefresher)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _azureAppConfigurationRefresher = onDemandConfigurationRefresher;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">    [HttpPost]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task&lt;IActionResult&gt; Post()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> _azureAppConfigurationRefresher.RefreshAllRegisteredKeysAsync();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Ok();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="resources">Resources</h4>
+<ul>
+<li><a href="https://github.com/bustroker/Bustroker.AzureAppConfiguration">Full code &amp; usage</a></li>
+<li><a href="https://www.nuget.org/packages/Bustroker.AzureAppConfigurationRefresher/">NuGet package</a></li>
+</ul>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

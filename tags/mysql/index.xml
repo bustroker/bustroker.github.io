@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>MySql on Coding notes</title>
+    <title>MySql on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/mysql/</link>
-    <description>Recent content in MySql on Coding notes</description>
+    <description>Recent content in MySql on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Dec 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>MySql/MariaDb command line cheatsheet</title>
+      <title>MySQL/MariaDB Command Line Cheatsheet</title>
       <link>https://www.bustroker.com/notes/mysql/mariadb-command-line-cheatsheet/</link>
       <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/mysql/mariadb-command-line-cheatsheet/</guid>
-      <description>Commands Connect mysql [-h 192.168.1.100] -u USER_NAME -p [DATABASE_NAME] Will be prompted for password&#xA;Once connected, the commanda need to end with ;.&#xA;Common commands ´´´ show tables; ´´´&#xA;Exit Ctrl+C </description>
+      <description>Connect to Database mysql [-h 192.168.1.100] -u USER_NAME -p [DATABASE_NAME] You&amp;rsquo;ll be prompted for the password. All commands inside the MySQL shell must end with ;.&#xA;Common Commands SHOW TABLES; SHOW DATABASES; USE database_name; DESCRIBE table_name; SELECT * FROM table_name; Exit Press Ctrl+C or type exit;</description>
     </item>
   </channel>
 </rss>

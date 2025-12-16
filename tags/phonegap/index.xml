@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Phonegap on Coding notes</title>
+    <title>Phonegap on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/phonegap/</link>
-    <description>Recent content in Phonegap on Coding notes</description>
+    <description>Recent content in Phonegap on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/phonegap/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Build native mobile packages from html/css/js app with PhoneGap Build cloud service</title>
-      <link>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service/</link>
+      <title>Build native mobile packages from HTML/CSS/JS with PhoneGap Build API</title>
+      <link>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-with-phonegap-build-api/</link>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-app-with-phonegap-build-cloud-service/</guid>
-      <description>Note: PhoneGap and PhoneGap Build are going to be shut down&#xA;General idea Startup with an html/js/css app. Build an APK from the front-end web app using PhoneGap Build cloud service. Unfortunatly Phonegap CLI fails for some weird reason, so the I had to manually zip it before posting it to the API (the API doesn&amp;rsquo;t fail but expects the zip up to where I got).&#xA;Phonegap Build account Create an account in https://build.</description>
+      <guid>https://www.bustroker.com/notes/build-native-mobile-packages-from-html/css/js-with-phonegap-build-api/</guid>
+      <description>Note: PhoneGap and PhoneGap Build are going to be shut down&#xA;Goal Convert an HTML/CSS/JS web app into a native Android APK using PhoneGap Build cloud service.&#xA;Setup Create an account at https://build.phonegap.com/&#xA;Create config file Add config.xml to your app root folder:&#xA;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; ?&amp;gt; &amp;lt;widget xmlns = &amp;#34;http://www.w3.org/ns/widgets&amp;#34; xmlns:gap = &amp;#34;http://phonegap.com/ns/1.0&amp;#34; id = &amp;#34;com.bustroker.notes&amp;#34; versionCode = &amp;#34;10&amp;#34; version = &amp;#34;1.0.0&amp;#34; &amp;gt; &amp;lt;name&amp;gt;Bustroker Notes&amp;lt;/name&amp;gt; &amp;lt;description&amp;gt; Personal memorandum. &amp;lt;/description&amp;gt; &amp;lt;author href=&amp;#34;https://www.</description>
     </item>
   </channel>
 </rss>

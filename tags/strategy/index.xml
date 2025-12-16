@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Strategy on Coding notes</title>
+    <title>Strategy on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/strategy/</link>
-    <description>Recent content in Strategy on Coding notes</description>
+    <description>Recent content in Strategy on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 16 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/strategy/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AI Solution Architecture</title>
-      <link>https://www.bustroker.com/notes/ai-solution-architecture/</link>
+      <title>AI Solution Architecture Learning Path</title>
+      <link>https://www.bustroker.com/notes/ai-solution-architecture-learning-path/</link>
       <pubDate>Tue, 16 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/ai-solution-architecture/</guid>
-      <description>Book https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0&#xA;Courses: https://adasci.org/courses/adasci-certified-agentic-ai-system-architect/ https://www.umbctraining.com/courses/ai-for-architects AI Architecture Course Topics: (https://www.umbctraining.com/courses/ai-for-architects)&#xA;Upon completing this course, participants will be able to: Understand the full AI solution lifecycle, from data acquisition and training to deployment and ongoing operations Evaluate architectural trade-offs across model training, inference, scale, and cost Design systems that incorporate AI agents, multi-agent collaboration, and orchestration frameworks Apply DevOps, CI/CD, and GitOps principles to AI workloads, ensuring repeatable and scalable delivery Integrate observability, governance, and monitoring practices to manage drift, data quality, and performance Architect secure and responsible AI systems that address privacy, compliance, and ethical considerations Anticipate Day 2 challenges, including model lifecycle management, versioning, and integration with enterprise platforms</description>
-    </item>
-    <item>
-      <title>Solution Architecture</title>
-      <link>https://www.bustroker.com/notes/solution-architecture/</link>
-      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/solution-architecture/</guid>
-      <description>Solutions Architecture at The Company We empower The Company to achieve strategic goals with a tech-at-core, multiproduct strategy, driving an evolutionary, business-driven, composable architecture that fosters outcome-based autonomous teams to innovate and deliver customer value at scale.&#xA;Responsibilities 1) Align product and technology strategy to enable business goals: Fully understand The Company’s business, long-term strategy, goals, and customer needs Build and maintain the architecture vision and principles Partner with business stakeholders to influence product direction (roadmap) 2) Define a composable and evolutionary architecture to promote team autonomy at scale: Map domain areas, business capabilities, system components, and team ownership Build and maintain the target architecture and roadmaps Make critical decisions on technology stack, frameworks, design patterns, and standards 3) Design solutions to meet product needs: Understand the immediate and mid-term product needs (roadmap items) Define end-to-end tech architecture solutions (frontend, backend, data, etc.</description>
+      <guid>https://www.bustroker.com/notes/ai-solution-architecture-learning-path/</guid>
+      <description>Goal Build production AI systems with proper architecture, agent orchestration, and operational practices.&#xA;Resources Book https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0&#xA;Architecture Courses AdaSci - Agentic AI System Architect&#xA;https://adasci.org/courses/adasci-certified-agentic-ai-system-architect/&#xA;UMBC - AI for Architects&#xA;https://www.umbctraining.com/courses/ai-for-architects&#xA;AI Architecture Fundamentals Day 1: Core Architecture AI patterns and enterprise integration Training &amp;amp; inference pipelines Agent architectures: tools and context management Multi-agent collaboration and orchestration Day 2: Platform Operations Model registries and orchestration engines CI/CD automation for training and deployment GitOps for ML systems Observability: drift detection and agent behavior tracking Day 3: Production Operations Security for data, models, and multi-agent systems Privacy, fairness, and compliance Model versioning and lifecycle management Governance and cost management Advanced: Production Gen AI https://maven.</description>
     </item>
   </channel>
 </rss>

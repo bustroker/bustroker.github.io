@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Alias on Coding notes</title>
+    <title>Alias on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/alias/</link>
-    <description>Recent content in Alias on Coding notes</description>
+    <description>Recent content in Alias on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/alias/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Remove alias (curl) from Powershell</title>
-      <link>https://www.bustroker.com/notes/remove-alias-curl-from-powershell/</link>
+      <title>Remove curl alias from PowerShell</title>
+      <link>https://www.bustroker.com/notes/remove-curl-alias-from-powershell/</link>
       <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/remove-alias-curl-from-powershell/</guid>
-      <description>Skip this step if you already have a Powershell profile:&#xA;New-Item $profile -force -itemtype file Then edit your profile:&#xA;notepad $profile Add the following line to it:&#xA;remove-item alias:curl Save, close notepad and lose and open Powershell to apply the profile.&#xA;Or reload the profile with the command below:&#xA;. $profile </description>
+      <guid>https://www.bustroker.com/notes/remove-curl-alias-from-powershell/</guid>
+      <description>PowerShell aliases curl to Invoke-WebRequest by default. To use the actual curl binary, remove the alias in your profile.&#xA;Create a PowerShell profile if you don&amp;rsquo;t have one:&#xA;New-Item $profile -force -itemtype file Edit the profile:&#xA;notepad $profile Add this line:&#xA;remove-item alias:curl Apply changes by restarting PowerShell, or reload the profile:&#xA;. $profile </description>
     </item>
   </channel>
 </rss>

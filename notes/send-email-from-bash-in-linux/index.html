@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Send email from bash in Linux | Coding notes</title>
+  <title>Send Email from Bash in Linux | Coding notes - cheat sheets and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -130,15 +130,12 @@ audio {
       <main id="main">
         
 
-<h1>Send email from bash in Linux</h1>
-<h3 id="bash-script-to-send-email-through-smtp-server">Bash script to send email through SMTP server</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Install msmtp if it&#39;s not already installed</span>
-</span></span><span style="display:flex;"><span>sudo apt-get install msmtp -y  
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a configuration file for msmtp with your SMTP server details</span>
-</span></span><span style="display:flex;"><span>cat &gt; ~/.msmtprc <span style="color:#e6db74">&lt;&lt;EOF
+<h1>Send Email from Bash in Linux</h1>
+<p>Send emails from bash scripts using <code>msmtp</code> and any SMTP server (AWS SES, Gmail, etc.).</p>
+<h3 id="install-msmtp">Install msmtp</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install msmtp -y
+</span></span></code></pre></div><h3 id="configure-smtp-server">Configure SMTP Server</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat &gt; ~/.msmtprc <span style="color:#e6db74">&lt;&lt;EOF
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">defaults
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">auth on
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">tls on
@@ -154,12 +151,12 @@ audio {
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">account default : aws_ses
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set proper permissions for the configuration file</span>
-</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> ~/.msmtprc
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Send an email using msmtp</span>
-</span></span><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;Subject: Test smtp ubuntu\n\nHello there from ubuntu.&#34;</span> | msmtp -a aws_ses bkr@bustroker.com,bustroker@bustroker.com
+</span></span></code></pre></div><h3 id="set-permissions">Set Permissions</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> ~/.msmtprc
+</span></span></code></pre></div><h3 id="send-email">Send Email</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;Subject: Test smtp ubuntu\n\nHello there from ubuntu.&#34;</span> | msmtp -a aws_ses recipient@example.com
+</span></span></code></pre></div><p>Send to multiple recipients with comma-separated addresses:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>printf <span style="color:#e6db74">&#34;Subject: Test smtp ubuntu\n\nHello there from ubuntu.&#34;</span> | msmtp -a aws_ses user1@example.com,user2@example.com
 </span></span></code></pre></div>
 
 

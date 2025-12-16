@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Guidelines on Coding notes</title>
+    <title>Guidelines on Coding notes - cheat sheets and snippets</title>
     <link>https://www.bustroker.com/tags/guidelines/</link>
-    <description>Recent content in Guidelines on Coding notes</description>
+    <description>Recent content in Guidelines on Coding notes - cheat sheets and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 15 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/guidelines/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>API guidelines</title>
-      <link>https://www.bustroker.com/notes/api-guidelines/</link>
+      <title>Enterprise API Guidelines</title>
+      <link>https://www.bustroker.com/notes/enterprise-api-guidelines/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/api-guidelines/</guid>
-      <description>Enterprise API Guidelines API Style Guideline Inspired by Zalando’s API Guidelines.&#xA;The requirement level keywords &amp;ldquo;MUST&amp;rdquo;, &amp;ldquo;MUST NOT&amp;rdquo;, &amp;ldquo;REQUIRED&amp;rdquo;, &amp;ldquo;SHALL&amp;rdquo;, &amp;ldquo;SHALL NOT&amp;rdquo;, &amp;ldquo;SHOULD&amp;rdquo;, &amp;ldquo;SHOULD NOT&amp;rdquo;, &amp;ldquo;RECOMMENDED&amp;rdquo;, &amp;ldquo;MAY&amp;rdquo;, and &amp;ldquo;OPTIONAL&amp;rdquo; used in this document (case insensitive) are to be interpreted as described in RFC 2119.&#xA;A. API Specification and Documentation MUST provide and publish API specifications using OpenAPI.&#xA;MUST create or update API documentation in the developer portal.&#xA;SHOULD provide comprehensive documentation, from straight-forward getting started examples to in-depth details on all request and response parameters.</description>
+      <guid>https://www.bustroker.com/notes/enterprise-api-guidelines/</guid>
+      <description>Enterprise API Guidelines Inspired by Zalando&amp;rsquo;s API Guidelines. Keywords &amp;ldquo;MUST&amp;rdquo;, &amp;ldquo;MUST NOT&amp;rdquo;, &amp;ldquo;REQUIRED&amp;rdquo;, &amp;ldquo;SHALL&amp;rdquo;, &amp;ldquo;SHALL NOT&amp;rdquo;, &amp;ldquo;SHOULD&amp;rdquo;, &amp;ldquo;SHOULD NOT&amp;rdquo;, &amp;ldquo;RECOMMENDED&amp;rdquo;, &amp;ldquo;MAY&amp;rdquo;, and &amp;ldquo;OPTIONAL&amp;rdquo; are interpreted as described in RFC 2119.&#xA;API Specification and Documentation MUST provide and publish API specifications using OpenAPI.&#xA;MUST create or update API documentation in the developer portal.&#xA;SHOULD provide comprehensive documentation, from getting started examples to in-depth details on all request and response parameters.&#xA;REST Design MUST use REST maturity level 2 (Richardson Maturity Model).</description>
     </item>
   </channel>
 </rss>

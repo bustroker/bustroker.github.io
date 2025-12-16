@@ -1,0 +1,286 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Implementing Row-Level Security in Entity Framework with Connection Interceptors | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Implementing Row-Level Security in Entity Framework with Connection Interceptors</h1>
+<h3 id="goal">Goal</h3>
+<p>Implement Row-Level Security (RLS) in Azure SQL Server that automatically filters queries based on the current user&rsquo;s company. Entity Framework will set the session context on every connection using a custom interceptor.</p>
+<h3 id="sql-server-setup">SQL Server Setup</h3>
+<h4 id="create-the-data-model">Create the Data Model</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Companies (
+</span></span><span style="display:flex;"><span>    CompanyId UNIQUEIDENTIFIER <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+</span></span><span style="display:flex;"><span>    Name NVARCHAR(<span style="color:#ae81ff">255</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Providers (
+</span></span><span style="display:flex;"><span>    ProviderId UNIQUEIDENTIFIER <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+</span></span><span style="display:flex;"><span>    Name NVARCHAR(<span style="color:#ae81ff">255</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> CompanyProviderAccess (
+</span></span><span style="display:flex;"><span>    CompanyId UNIQUEIDENTIFIER <span style="color:#66d9ef">REFERENCES</span> Companies(CompanyId),
+</span></span><span style="display:flex;"><span>    ProviderId UNIQUEIDENTIFIER <span style="color:#66d9ef">REFERENCES</span> Providers(ProviderId),
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (CompanyId, ProviderId)
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> Orders (
+</span></span><span style="display:flex;"><span>    OrderId UNIQUEIDENTIFIER <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span>,
+</span></span><span style="display:flex;"><span>    ProviderId UNIQUEIDENTIFIER <span style="color:#66d9ef">REFERENCES</span> Providers(ProviderId),
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Data</span> NVARCHAR(<span style="color:#66d9ef">MAX</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p><code>CompanyProviderAccess</code> links companies to the providers they can access. <code>Orders</code> will be filtered based on these access rights.</p>
+<h4 id="create-the-security-predicate-function">Create the Security Predicate Function</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">FUNCTION</span> dbo.fn_OrderAccessPredicate(<span style="color:#f92672">@</span>ProviderId UNIQUEIDENTIFIER)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">RETURNS</span> <span style="color:#66d9ef">TABLE</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WITH</span> SCHEMABINDING
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">AS</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">RETURN</span>
+</span></span><span style="display:flex;"><span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">SELECT</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">AS</span> fn_result
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">FROM</span> CompanyProviderAccess cpa
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">WHERE</span> cpa.ProviderId <span style="color:#f92672">=</span> <span style="color:#f92672">@</span>ProviderId
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">AND</span> cpa.CompanyId <span style="color:#f92672">=</span> <span style="color:#66d9ef">CONVERT</span>(UNIQUEIDENTIFIER, SESSION_CONTEXT(N<span style="color:#e6db74">&#39;current_company&#39;</span>))
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p>The function checks if the provider ID matches any provider the current company has access to. The company ID comes from <code>SESSION_CONTEXT</code>.</p>
+<h4 id="apply-the-security-policy">Apply the Security Policy</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">SECURITY</span> POLICY OrderSecurityPolicy
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ADD</span> FILTER PREDICATE dbo.fn_OrderAccessPredicate(ProviderId) <span style="color:#66d9ef">ON</span> dbo.Orders
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WITH</span> (<span style="color:#66d9ef">STATE</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">ON</span>);
+</span></span></code></pre></div><p>All queries on <code>Orders</code> now automatically filter to only return accessible provider data.</p>
+<h3 id="entity-framework-integration">Entity Framework Integration</h3>
+<h4 id="create-the-connection-interceptor">Create the Connection Interceptor</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.EntityFrameworkCore.Diagnostics;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Data.SqlClient;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Data.Common;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Threading;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CompanySessionInterceptor</span> : DbConnectionInterceptor
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IHttpContextAccessor _httpContextAccessor;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> CompanySessionInterceptor(IHttpContextAccessor httpContextAccessor)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _httpContextAccessor = httpContextAccessor;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> Task ConnectionOpenedAsync(DbConnection connection, ConnectionOpenedEventData eventData, CancellationToken cancellationToken = <span style="color:#66d9ef">default</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (connection <span style="color:#66d9ef">is</span> SqlConnection sqlConnection)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> companyId = _httpContextAccessor.HttpContext?.User?.FindFirst(<span style="color:#e6db74">&#34;company_id&#34;</span>)?.Value;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (!<span style="color:#66d9ef">string</span>.IsNullOrEmpty(companyId))
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">using</span> var command = sqlConnection.CreateCommand();
+</span></span><span style="display:flex;"><span>                command.CommandText = <span style="color:#e6db74">&#34;EXEC sp_set_session_context @key=N&#39;current_company&#39;, @value=@companyId&#34;</span>;
+</span></span><span style="display:flex;"><span>                command.Parameters.Add(<span style="color:#66d9ef">new</span> SqlParameter(<span style="color:#e6db74">&#34;@companyId&#34;</span>, companyId));
+</span></span><span style="display:flex;"><span>                command.ExecuteNonQuery();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="register-the-interceptor-in-dbcontext">Register the Interceptor in DbContext</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppDbContext</span> : DbContext
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> CompanySessionInterceptor _companySessionInterceptor;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> AppDbContext(DbContextOptions&lt;AppDbContext&gt; options, CompanySessionInterceptor companySessionInterceptor)
+</span></span><span style="display:flex;"><span>        : <span style="color:#66d9ef">base</span>(options)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _companySessionInterceptor = companySessionInterceptor;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        optionsBuilder.AddInterceptors(_companySessionInterceptor);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DbSet&lt;Order&gt; Orders { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="configure-dependency-injection">Configure Dependency Injection</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span>builder.Services.AddHttpContextAccessor();
+</span></span><span style="display:flex;"><span>builder.Services.AddDbContext&lt;AppDbContext&gt;(options =&gt;
+</span></span><span style="display:flex;"><span>    options.UseSqlServer(builder.Configuration.GetConnectionString(<span style="color:#e6db74">&#34;DefaultConnection&#34;</span>)));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>builder.Services.AddSingleton&lt;CompanySessionInterceptor&gt;();
+</span></span></code></pre></div><p>Every database connection now automatically sets the session context, and RLS filters apply transparently to all queries.</p>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

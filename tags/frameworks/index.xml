@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Frameworks on Coding notes - cheat sheets and snippets</title>
+    <link>https://www.bustroker.com/tags/frameworks/</link>
+    <description>Recent content in Frameworks on Coding notes - cheat sheets and snippets</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/frameworks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Agent Frameworks - Mental Models and Control Flow</title>
+      <link>https://www.bustroker.com/notes/ai-agent-frameworks-mental-models-and-control-flow/</link>
+      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/ai-agent-frameworks-mental-models-and-control-flow/</guid>
+      <description>Goal Compare agent frameworks by their control flow, memory model, and tool execution patterns using a common problem: &amp;ldquo;Automatically detect, diagnose, and remediate a production outage in a microservices system.&amp;rdquo;&#xA;smolagents Multi-step decision loop over tools.&#xA;Each iteration:&#xA;App injects goal + memory + tools LLM returns one tool call or final answer App executes tool, appends result to memory Loop repeats Memory: Python list/dict managed by your application&#xA;Tools: Pure API actions.</description>
+    </item>
+  </channel>
+</rss>

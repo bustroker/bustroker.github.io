@@ -1,0 +1,296 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Docker Command Reference | Coding notes - cheat sheets and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Docker Command Reference</h1>
+<p>Version: 19.03</p>
+<h3 id="building-images">Building Images</h3>
+<p>Build with single tag:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker build -t bustroker.notes.webui:v1 .
+</span></span></code></pre></div><p>Build with multiple tags:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker build -t bustroker.notes.webui:v1 -t bustroker.notes.webui:latest .
+</span></span></code></pre></div><p>Debug build by viewing command output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker build -t bustroker.notes.webui --progress=plain --no-cache .
+</span></span></code></pre></div><h3 id="tagging-images">Tagging Images</h3>
+<p>Tag for registry:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker tag [localImage] [registryServer]/[imageName]:[version]
+</span></span><span style="display:flex;"><span>#<span style="color:#75715e"># example</span>
+</span></span><span style="display:flex;"><span>docker tag bustroker.notes.webui:v1 bustrokeracr.azurecr.io/bustroker.notes.webui:v1
+</span></span></code></pre></div><p>Add tag to existing image:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker tag bustroker.notes.webui:v1 bustroker.notes.webui:latest
+</span></span></code></pre></div><h3 id="managing-images">Managing Images</h3>
+<p>List images:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker images
+</span></span></code></pre></div><p>Remove all images (add <code>-f</code> to force):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>#<span style="color:#75715e"># Linux</span>
+</span></span><span style="display:flex;"><span>docker rmi $(docker images -q)
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>#<span style="color:#75715e"># Windows (PowerShell)</span>
+</span></span><span style="display:flex;"><span>docker images -a -q | % { docker image rm $_ -f }
+</span></span></code></pre></div><h3 id="running-containers">Running Containers</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>docker run --rm -d `
+</span></span><span style="display:flex;"><span>-p [<span style="color:#66d9ef">HOST_PORT</span>]<span style="color:#960050;background-color:#1e0010">:</span>[<span style="color:#66d9ef">CONTAINER_PORT</span>] `
+</span></span><span style="display:flex;"><span>--network host `
+</span></span><span style="display:flex;"><span>-e [<span style="color:#66d9ef">ENV_VAR_NAME</span>]=[<span style="color:#66d9ef">ENV_VAR_VALUE</span>] `
+</span></span><span style="display:flex;"><span>-v /host/directory<span style="color:#960050;background-color:#1e0010">:</span>/container/directory `
+</span></span><span style="display:flex;"><span>[<span style="color:#66d9ef">IMAGE_NAME</span>]
+</span></span></code></pre></div><p>Flags:</p>
+<ul>
+<li><code>--rm</code> - Remove container on exit</li>
+<li><code>-d</code> - Run as daemon (detached)</li>
+<li><code>-p</code> - Map container port to host</li>
+<li><code>--network host</code> - Use host network (not supported on Windows)</li>
+<li><code>-e</code> - Set environment variables</li>
+<li><code>-v</code> - Mount volumes</li>
+</ul>
+<p>Run with interactive bash:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker run -it &lt;IMAGE-NAME&gt; bash
+</span></span></code></pre></div><p>Run with volume mount:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker run -v /host/directory:/container/directory &lt;IMAGE-NAME&gt;
+</span></span></code></pre></div><h3 id="working-with-running-containers">Working with Running Containers</h3>
+<p>List containers:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker ps
+</span></span></code></pre></div><p>View logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker logs --follow &lt;CONTAINER&gt;
+</span></span></code></pre></div><p>Execute bash in running container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker exec -it &lt;containerId&gt; bash
+</span></span></code></pre></div><p>Stop all containers:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker stop $(docker ps -a -q)
+</span></span></code></pre></div><p>Remove all containers:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>#<span style="color:#75715e"># Linux</span>
+</span></span><span style="display:flex;"><span>docker rm $(docker ps -a -q)
+</span></span></code></pre></div><h3 id="copying-files">Copying Files</h3>
+<p>Container must be stopped first:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker stop [CONTAINER_ID]
+</span></span><span style="display:flex;"><span>docker cp [CONTAINER_ID]:/file/path/within/container /host/path/target
+</span></span></code></pre></div><p>Copy from host to container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker cp /host/path/to/folder/ [CONTAINER_ID]:/folder/path/within/container/
+</span></span></code></pre></div><p>Notes:</p>
+<ul>
+<li>Append <code>/</code> to signify folders</li>
+<li>Target folder must exist</li>
+<li>On Windows: use double quotes, omit <code>c:</code> prefix</li>
+</ul>
+<h3 id="pushing-to-registry">Pushing to Registry</h3>
+<p>Build with registry tag:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker build . -t bustrokeracr.azurecr.io/bustroker-webui:v1 -t bustrokeracr.azurecr.io/bustroker-webui:latest
+</span></span></code></pre></div><p>Login and push (enable Admin user in ACR Access keys):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>docker login bustrokeracr.azurecr.io
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## OR</span>
+</span></span><span style="display:flex;"><span>docker login --username=$DOCKER_USER --password=$DOCKER_PASS bustrokeracr.azurecr.io
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## THEN</span>
+</span></span><span style="display:flex;"><span>docker push --all-tags bustrokeracr.azurecr.io/bustroker-webui
+</span></span></code></pre></div><h3 id="aws-ecr-login">AWS ECR Login</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sso login --profile PROFILE
+</span></span><span style="display:flex;"><span>aws ecr get-login-password --region REGION --profile PROFILE | docker login --username AWS --password-stdin ECR
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## example</span>
+</span></span><span style="display:flex;"><span>aws sso login --profile aws-infrastructure
+</span></span><span style="display:flex;"><span>aws ecr get-login-password --region eu-central-1 --profile aws-infrastructure | docker login --username AWS --password-stdin 258781458051.dkr.ecr.eu-central-1.amazonaws.com
+</span></span></code></pre></div><h3 id="storage-configuration">Storage Configuration</h3>
+<p>Increase container disk space:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>#<span style="color:#75715e"># Linux</span>
+</span></span><span style="display:flex;"><span>docker run --storage-opt dm.basesize=40G hello-world
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>#<span style="color:#75715e"># Windows</span>
+</span></span><span style="display:flex;"><span>docker run --storage-opt &#34;size=40GB&#34; mcr.microsoft.com/windows/servercore:ltsc2019 cmd
+</span></span></code></pre></div><p>Or configure via <code>C:\ProgramData\Docker\config\daemon.json</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;storage-opts&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;size=40GB&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Restart Docker after config change. Verify with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Get-WmiObject -Class Win32_logicaldisk -Filter <span style="color:#e6db74">&#34;DriveType = &#39;3&#39;&#34;</span>
+</span></span></code></pre></div><p>See <a href="https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon#configure-docker-with-a-configuration-file">Docker daemon configuration</a> for all options.</p>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<h4 id="docker-for-windows-hns-error">Docker for Windows HNS Error</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>Stop-Service docker
+</span></span><span style="display:flex;"><span>Stop-service hns
+</span></span><span style="display:flex;"><span>Start-service hns
+</span></span><span style="display:flex;"><span>Start-Service docker
+</span></span><span style="display:flex;"><span>docker network prune
+</span></span></code></pre></div><h4 id="access-host-network-from-container">Access Host Network from Container</h4>
+<p>Use <code>host.docker.internal</code> hostname:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>docker exec -it [<span style="color:#66d9ef">CONTAINER_NAME</span>] /bin/bash
+</span></span><span style="display:flex;"><span>curl host.docker.internal<span style="color:#960050;background-color:#1e0010">:</span><span style="color:#ae81ff">3000</span>
+</span></span></code></pre></div>
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>
