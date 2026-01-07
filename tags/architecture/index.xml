@@ -16,6 +16,13 @@
       <description>White Paper: Core Knowledge for an Agentic AI Solutions Architect Focus areas: Prompt Engineering · Retrieval Pipelines · Evaluation Metrics Date: 27 Dec 2025 (Europe/Madrid)&#xA;Executive summary Agentic AI systems differ from “single-call” LLM apps: they plan, call tools, retrieve knowledge, iterate, and must be measurably reliable under real-world constraints (latency, cost, governance, safety). This white paper lays out practical fundamentals an Agentic AI Solutions Architect should know across:&#xA;Prompt engineering as policy + interface design between humans, tools, and models (not just “clever wording”).</description>
     </item>
     <item>
+      <title>Team growth support strategies</title>
+      <link>https://www.bustroker.com/notes/team-growth-support-strategies/</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/team-growth-support-strategies/</guid>
+      <description>1. How You Support Team Members’ Growth – Real Strategies 1️⃣ Create Technical Career Paths, Not Just Tasks You’ve led chapters, governance, and large teams. Use that.&#xA;What you do:&#xA;Define clear role expectations (e.g. Junior → Senior → Staff → Principal).&#xA;Make growth visible:&#xA;Junior → mastering delivery + testing. Senior → owning subsystems. Staff → architecture ownership, cross-team impact. In practice:&#xA;Run quarterly career conversations focused on:&#xA;“What kind of engineer do you want to be in 12 months?</description>
+    </item>
+    <item>
       <title>Architecture Principles for Developer Autonomy</title>
       <link>https://www.bustroker.com/notes/architecture-principles-for-developer-autonomy/</link>
       <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
