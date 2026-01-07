@@ -1,0 +1,535 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Agentic AI Solutions Architecture | Coding notes - and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Agentic AI Solutions Architecture</h1>
+<h2 id="white-paper-core-knowledge-for-an-agentic-ai-solutions-architect">White Paper: Core Knowledge for an Agentic AI Solutions Architect</h2>
+<p><strong>Focus areas:</strong> Prompt Engineering · Retrieval Pipelines · Evaluation Metrics
+<strong>Date:</strong> 27 Dec 2025 (Europe/Madrid)</p>
+<hr>
+<h3 id="executive-summary">Executive summary</h3>
+<p>Agentic AI systems differ from “single-call” LLM apps: they plan, call tools, retrieve knowledge, iterate, and must be <em>measurably reliable</em> under real-world constraints (latency, cost, governance, safety). This white paper lays out practical fundamentals an Agentic AI Solutions Architect should know across:</p>
+<ul>
+<li><strong>Prompt engineering</strong> as <em>policy + interface design</em> between humans, tools, and models (not just “clever wording”). (<a href="https://platform.openai.com/docs/guides/prompt-engineering?utm_source=chatgpt.com" title="Prompt engineering | OpenAI API">OpenAI Platform</a>)</li>
+<li><strong>Retrieval pipelines</strong> as the backbone of enterprise grounding and controllability, spanning ingestion → indexing → query understanding → retrieval → reranking → context construction → generation. (<a href="https://docs.langchain.com/oss/python/langchain/retrieval?utm_source=chatgpt.com" title="Retrieval - Docs by LangChain">LangChain Docs</a>)</li>
+<li><strong>Evaluation metrics</strong> that separately measure retriever quality, generator grounding, and end-to-end task success—because failure can occur in multiple coupled components. (<a href="https://arxiv.org/html/2405.07437v1?utm_source=chatgpt.com" title="Evaluation of Retrieval-Augmented Generation: A Survey">arXiv</a>)</li>
+</ul>
+<hr>
+<h3 id="1-prompt-engineering-for-agentic-systems">1) Prompt engineering for agentic systems</h3>
+<h4 id="11-what-prompting-really-is-in-agentic-architectures">1.1 What “prompting” really is in agentic architectures</h4>
+<p>For an agent, prompts serve three distinct roles:</p>
+<ol>
+<li><strong>Policy:</strong> rules, boundaries, escalation behavior, safety constraints, and what “done” means.</li>
+<li><strong>Protocol:</strong> the interaction contract for tools (schemas, formats, retries, error handling).</li>
+<li><strong>Product UX:</strong> tone, level of detail, explanation style, and “how the assistant behaves” across turns.</li>
+</ol>
+<p>This matches modern vendor guidance: prompts are reusable, versionable artifacts and should be treated like deployable configuration. (<a href="https://platform.openai.com/docs/guides/prompt-engineering?utm_source=chatgpt.com" title="Prompt engineering | OpenAI API">OpenAI Platform</a>)</p>
+<h4 id="12-a-canonical-prompt-stack">1.2 A canonical prompt stack</h4>
+<p>A robust agent prompt stack (conceptual, not tied to any one vendor) usually includes:</p>
+<ul>
+<li><strong>System layer (non-negotiable):</strong> identity, safety, privacy, decision boundaries, tool-use rules.</li>
+<li><strong>Developer layer:</strong> product requirements, style guides, domain constraints, output schema.</li>
+<li><strong>Task layer (per-run):</strong> user request, current objective, tool inventory, context budget.</li>
+<li><strong>State layer:</strong> scratch state summaries, prior decisions, memory snapshots (when allowed).</li>
+<li><strong>Retrieved evidence:</strong> citations/quotes/IDs from retrieval and tool calls.</li>
+</ul>
+<p>OpenAI’s prompting guidance emphasizes clear instructions, explicit format requirements, and using examples when needed (few-shot) to shape behavior. (<a href="https://platform.openai.com/docs/guides/prompt-engineering?utm_source=chatgpt.com" title="Prompt engineering | OpenAI API">OpenAI Platform</a>)</p>
+<h4 id="13-prompt-patterns-that-matter-for-agents">1.3 Prompt patterns that matter for agents</h4>
+<h5 id="a-tool-first-reasoning-pattern">A) Tool-first reasoning pattern</h5>
+<p>Use a pattern that forces “check tools before guessing,” especially in enterprise contexts:</p>
+<ul>
+<li>If info is missing or time-sensitive → <strong>retrieve / call tool</strong></li>
+<li>If tool fails → <strong>fallback policy</strong> (ask user, broaden search, partial answer with caveats)</li>
+</ul>
+<p>This improves reliability more than adding more “be helpful” prose.</p>
+<h5 id="b-structured-outputs--schemas">B) Structured outputs / schemas</h5>
+<p>Agents frequently pass outputs to downstream systems. Enforce:</p>
+<ul>
+<li>strict JSON (or equivalent) schemas,</li>
+<li>field-level constraints,</li>
+<li>explicit null-handling and error objects.</li>
+</ul>
+<p>(Practical note: treat schema errors as <em>first-class</em> failures; log them like exceptions.)</p>
+<h5 id="c-few-shot-examples-as-unit-tests">C) Few-shot examples as “unit tests”</h5>
+<p>Few-shot prompting is best used as <em>behavioral fixtures</em>:</p>
+<ul>
+<li>tricky edge cases,</li>
+<li>formatting rules,</li>
+<li>“should refuse” cases,</li>
+<li>tool error responses.</li>
+</ul>
+<p>OpenAI’s docs explicitly recommend few-shot learning when you want consistent patterns without fine-tuning. (<a href="https://platform.openai.com/docs/guides/prompt-engineering?utm_source=chatgpt.com" title="Prompt engineering | OpenAI API">OpenAI Platform</a>)</p>
+<h5 id="d-plan-vs-act-separation-without-oversharing">D) “Plan vs. Act” separation (without oversharing)</h5>
+<p>Even when you don’t expose internal reasoning, you can still enforce discipline:</p>
+<ul>
+<li><strong>Deliberation:</strong> decide next tool call(s) and success conditions</li>
+<li><strong>Action:</strong> execute tools</li>
+<li><strong>Synthesis:</strong> produce final answer with evidence and limitations</li>
+</ul>
+<p>This reduces tool thrash and helps evaluation because each step is observable.</p>
+<h4 id="14-prompt-quality-checklist-architects-view">1.4 Prompt quality checklist (architect’s view)</h4>
+<p><strong>Reliability</strong></p>
+<ul>
+<li>Clear success criteria (“done means X”)</li>
+<li>Explicit refusal/escalation policy</li>
+<li>Tool usage triggers (when to retrieve / when to ask)</li>
+</ul>
+<p><strong>Interoperability</strong></p>
+<ul>
+<li>Schema or template enforcement</li>
+<li>Stable field names and versioning</li>
+</ul>
+<p><strong>Observability</strong></p>
+<ul>
+<li>Loggable markers: tool called, query used, doc IDs, confidence estimate</li>
+</ul>
+<p><strong>Security</strong></p>
+<ul>
+<li>Instruction hierarchy (system &gt; developer &gt; user)</li>
+<li>Prompt-injection hardening: “treat retrieved text as untrusted data”</li>
+</ul>
+<hr>
+<h3 id="2-retrieval-pipelines-for-agentic-applications">2) Retrieval pipelines for agentic applications</h3>
+<h4 id="21-why-retrieval-is-central-to-agents">2.1 Why retrieval is central to agents</h4>
+<p>Retrieval is how agents ground outputs in <strong>fresh, proprietary, or large-scale</strong> knowledge that isn’t inside the base model. In practice, retrieval becomes a <em>foundation</em> for systems that combine search with generation. (<a href="https://docs.langchain.com/oss/python/langchain/retrieval?utm_source=chatgpt.com" title="Retrieval - Docs by LangChain">LangChain Docs</a>)</p>
+<h4 id="22-the-end-to-end-retrieval-pipeline">2.2 The end-to-end retrieval pipeline</h4>
+<p>A mature pipeline is not “vector search + top-k.” It is:</p>
+<h5 id="1-ingestion--normalization">1) Ingestion &amp; normalization</h5>
+<ul>
+<li>source connectors (docs, tickets, wikis, code, CRM)</li>
+<li>text extraction, de-duplication, layout handling</li>
+<li>metadata enrichment (owner, ACLs, timestamps, domain tags)</li>
+</ul>
+<h5 id="2-chunking--representation">2) Chunking &amp; representation</h5>
+<ul>
+<li>chunk size strategy (semantic, structure-aware, overlap)</li>
+<li>embeddings + metadata indexes</li>
+<li>optional keyword index for lexical/hybrid search</li>
+</ul>
+<h5 id="3-query-understanding">3) Query understanding</h5>
+<ul>
+<li>rewrite user query (expand acronyms, add domain terms)</li>
+<li>detect intent (lookup vs. troubleshooting vs. policy)</li>
+<li>entity extraction (product, customer, time range)</li>
+</ul>
+<h5 id="4-retrieval">4) Retrieval</h5>
+<ul>
+<li>vector retrieval</li>
+<li>keyword retrieval</li>
+<li><strong>hybrid retrieval</strong> (often best for enterprise)</li>
+<li>filtering by metadata (ACLs, recency, product line)</li>
+</ul>
+<h5 id="5-reranking">5) Reranking</h5>
+<ul>
+<li>cross-encoder rerankers or LLM-based rerank</li>
+<li>diversity constraints (avoid redundant chunks)</li>
+<li>“answerability” heuristics</li>
+</ul>
+<p>Advanced RAG guidance widely recommends hybrid search + reranking as early high-impact upgrades. (<a href="https://neo4j.com/blog/genai/advanced-rag-techniques/?utm_source=chatgpt.com" title="Advanced RAG Techniques for High-Performance LLM ...">Graph Database &amp; Analytics</a>)</p>
+<h5 id="6-context-construction">6) Context construction</h5>
+<ul>
+<li>compress/distill retrieved text to fit context window</li>
+<li>citeable snippets with IDs</li>
+<li>ordering: most relevant first, group by source</li>
+</ul>
+<h5 id="7-generation">7) Generation</h5>
+<ul>
+<li>evidence-grounded answer style</li>
+<li>explicit citations to retrieved sources where applicable</li>
+<li>uncertainty handling (what you <em>don’t</em> know)</li>
+</ul>
+<h4 id="23-retrieval-for-multi-step-agents">2.3 Retrieval for multi-step agents</h4>
+<p>Agents often need <em>multiple retrievals</em>:</p>
+<ul>
+<li>initial broad retrieval to map the space,</li>
+<li>focused retrieval after tool outputs,</li>
+<li>verification retrieval for critical claims.</li>
+</ul>
+<p>Architecturally, treat retrieval as a tool with:</p>
+<ul>
+<li>deterministic inputs/outputs,</li>
+<li>retries,</li>
+<li>caching,</li>
+<li>rate limits,</li>
+<li>observability (queries, hit rate, latency).</li>
+</ul>
+<h4 id="24-common-failure-modes-and-fixes">2.4 Common failure modes (and fixes)</h4>
+<ol>
+<li>
+<p><strong>Good retrieval, bad answer</strong></p>
+<ul>
+<li>Cause: model ignores context, mixes priors, or overgeneralizes</li>
+<li>Fix: groundedness/faithfulness prompts + stricter evidence requirements + citations</li>
+</ul>
+</li>
+<li>
+<p><strong>Bad retrieval, good answer (sometimes)</strong></p>
+<ul>
+<li>Cause: model answers from general knowledge and “sounds right”</li>
+<li>Fix: enforce “retrieve-first” policy for domains where freshness matters</li>
+</ul>
+</li>
+<li>
+<p><strong>Wrong chunking</strong></p>
+<ul>
+<li>Cause: splits break meaning; embeddings lose coherence</li>
+<li>Fix: structure-aware chunking; chunk-by-section; metadata + titles</li>
+</ul>
+</li>
+<li>
+<p><strong>Tool/prompt injection via retrieved text</strong></p>
+<ul>
+<li>Cause: untrusted text instructs the agent</li>
+<li>Fix: system policy: retrieved text is data, not instructions; sanitize and segment</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="3-evaluation-metrics-measuring-what-matters">3) Evaluation metrics: measuring what matters</h3>
+<h4 id="31-why-evaluation-is-hard-for-rag--agents">3.1 Why evaluation is hard for RAG + agents</h4>
+<p>RAG/agent systems are <em>multi-component</em> and errors propagate: retriever quality, context assembly, and generator behavior all interact, so end-to-end evaluation alone won’t tell you what to fix. Surveys on RAG evaluation emphasize these coupled challenges and the need to evaluate modules and the pipeline together. (<a href="https://arxiv.org/html/2405.07437v1?utm_source=chatgpt.com" title="Evaluation of Retrieval-Augmented Generation: A Survey">arXiv</a>)</p>
+<h4 id="32-three-layers-of-evaluation">3.2 Three layers of evaluation</h4>
+<h5 id="layer-a-retriever-evaluation-information-access-quality">Layer A: Retriever evaluation (information access quality)</h5>
+<p>Measures: “Did we fetch what we needed?”</p>
+<p>Common metrics (conceptual):</p>
+<ul>
+<li><strong>Context precision</strong>: how much retrieved context is relevant</li>
+<li><strong>Context recall</strong>: did we retrieve the necessary info</li>
+<li><strong>Latency / cost</strong>: retrieval time, reranker time, token overhead</li>
+</ul>
+<p>RAGAS formalizes widely used retrieval-related dimensions like context precision/recall alongside generation quality dimensions. (<a href="https://redis.io/blog/get-better-rag-responses-with-ragas/?utm_source=chatgpt.com" title="Get better RAG responses with Ragas">Redis</a>)</p>
+<h5 id="layer-b-generator-evaluation-answer-quality-under-provided-context">Layer B: Generator evaluation (answer quality under provided context)</h5>
+<p>Measures: “Given this context, did we answer correctly and responsibly?”</p>
+<p>Key dimensions:</p>
+<ul>
+<li><strong>Answer relevance</strong> (did it address the question?)</li>
+<li><strong>Faithfulness / groundedness</strong> (is it supported by retrieved evidence?)</li>
+<li><strong>Completeness</strong> (did it cover required sub-points?)</li>
+<li><strong>Safety &amp; policy adherence</strong> (refusals, privacy)</li>
+</ul>
+<p>The “RAG Triad” popularizes a practical trio: <strong>context relevance, groundedness, and answer relevance</strong>. (<a href="https://www.trulens.org/getting_started/core_concepts/rag_triad/?utm_source=chatgpt.com" title="RAG Triad">TruLens</a>)</p>
+<h5 id="layer-c-end-to-end-task-evaluation-real-product-outcomes">Layer C: End-to-end task evaluation (real product outcomes)</h5>
+<p>Measures: “Did the agent accomplish the task?”</p>
+<p>Examples:</p>
+<ul>
+<li>task success rate (with explicit rubrics)</li>
+<li>tool success / recovery rate</li>
+<li>multi-step efficiency (steps taken, tool thrash)</li>
+<li>user satisfaction proxy (thumbs up/down, escalation rates)</li>
+</ul>
+<h4 id="33-reference-based-vs-reference-free-evaluation">3.3 Reference-based vs. reference-free evaluation</h4>
+<ul>
+<li>
+<p><strong>Reference-based</strong>: compare to a gold answer / labeled dataset</p>
+<ul>
+<li>Pros: strong for regression tests</li>
+<li>Cons: expensive to create; brittle across phrasing differences</li>
+</ul>
+</li>
+<li>
+<p><strong>Reference-free (LLM-as-judge)</strong>: score relevance/faithfulness without a gold label</p>
+<ul>
+<li>Pros: scalable; good for continuous evaluation</li>
+<li>Cons: judge bias, drift, and calibration issues</li>
+</ul>
+</li>
+</ul>
+<p>RAGAS and tools like TruLens provide LLM-assisted feedback functions intended to operationalize these dimensions in practice. (<a href="https://aclanthology.org/2024.eacl-demo.16.pdf?utm_source=chatgpt.com" title="Automated Evaluation of Retrieval Augmented Generation">ACL Anthology</a>)</p>
+<h4 id="34-a-practical-metrics-starter-pack-what-most-teams-should-track">3.4 A practical metrics “starter pack” (what most teams should track)</h4>
+<p><strong>Retriever</strong></p>
+<ul>
+<li>Context precision</li>
+<li>Context recall (or sufficiency)</li>
+<li>Retrieval latency p50/p95</li>
+<li>Cost per query (retrieval + rerank)</li>
+</ul>
+<p><strong>Generator</strong></p>
+<ul>
+<li>Answer relevance</li>
+<li>Faithfulness/groundedness</li>
+<li>Safety/policy violations</li>
+<li>Structured output validity rate (schema pass %)</li>
+</ul>
+<p><strong>Agent</strong></p>
+<ul>
+<li>Task success rate (rubric-based)</li>
+<li>Tool-call success + recovery rate</li>
+<li>Steps per task (efficiency)</li>
+<li>Human escalation rate</li>
+</ul>
+<p>Industry guidance and frameworks frequently converge on these core dimensions (even if names differ). (<a href="https://www.patronus.ai/llm-testing/rag-evaluation-metrics?utm_source=chatgpt.com" title="Best Practices for Evaluating RAG Systems">Patronus AI</a>)</p>
+<h4 id="35-how-to-run-evaluations-without-fooling-yourself">3.5 How to run evaluations without fooling yourself</h4>
+<p><strong>1) Build an eval set that reflects reality</strong></p>
+<ul>
+<li>include messy user queries, partial info, contradictions</li>
+<li>include “should refuse” and “should ask follow-up” cases</li>
+</ul>
+<p><strong>2) Separate “offline” and “online”</strong></p>
+<ul>
+<li>Offline: regression tests on fixed corpora</li>
+<li>Online: continuous monitoring with sampling + alerting</li>
+</ul>
+<p><strong>3) Version everything</strong></p>
+<ul>
+<li>prompt versions, retriever configs, embedding models, reranker versions, corpora snapshots</li>
+</ul>
+<p><strong>4) Use error taxonomy</strong>
+When a test fails, label the root cause:</p>
+<ul>
+<li>retrieval miss</li>
+<li>retrieval noise</li>
+<li>context assembly error</li>
+<li>hallucination/ungrounded answer</li>
+<li>tool failure</li>
+<li>instruction-following failure</li>
+<li>formatting/schema failure</li>
+</ul>
+<p>That taxonomy is what turns evals into engineering velocity.</p>
+<hr>
+<h3 id="4-putting-it-together-a-reference-architecture-for-an-agentic-rag-system">4) Putting it together: a reference architecture for an agentic RAG system</h3>
+<p>A clean, evolvable architecture typically includes:</p>
+<ul>
+<li>
+<p><strong>Orchestrator/Agent runtime</strong></p>
+<ul>
+<li>manages state, tool calls, retries, timeouts</li>
+</ul>
+</li>
+<li>
+<p><strong>Prompt &amp; policy service</strong></p>
+<ul>
+<li>versioned prompts, safety policies, schemas</li>
+</ul>
+</li>
+<li>
+<p><strong>Retrieval service</strong></p>
+<ul>
+<li>ingestion, indexing, retrieval, reranking, caching</li>
+</ul>
+</li>
+<li>
+<p><strong>Evaluation &amp; observability</strong></p>
+<ul>
+<li>tracing, feedback metrics (triad + task success), dashboards</li>
+</ul>
+</li>
+<li>
+<p><strong>Governance</strong></p>
+<ul>
+<li>ACL enforcement, audit logs, PII handling, retention</li>
+</ul>
+</li>
+</ul>
+<p>LangChain’s retrieval docs frame retrieval as the core idea behind RAG and a foundation for broader systems that combine search and generation—exactly how agents are usually built in practice. (<a href="https://docs.langchain.com/oss/python/langchain/retrieval?utm_source=chatgpt.com" title="Retrieval - Docs by LangChain">LangChain Docs</a>)</p>
+<hr>
+<h3 id="5-implementation-playbook-90-day-view">5) Implementation playbook (90-day view)</h3>
+<h4 id="phase-1-weeks-14-make-it-work">Phase 1 (Weeks 1–4): Make it work</h4>
+<ul>
+<li>baseline RAG pipeline (ingest → embed → retrieve → answer)</li>
+<li>strict output schema</li>
+<li>basic eval set (50–200 cases)</li>
+<li>log traces: query, docs, latency, tokens</li>
+</ul>
+<h4 id="phase-2-weeks-58-make-it-reliable">Phase 2 (Weeks 5–8): Make it reliable</h4>
+<ul>
+<li>hybrid retrieval + reranking (often biggest lift) (<a href="https://neo4j.com/blog/genai/advanced-rag-techniques/?utm_source=chatgpt.com" title="Advanced RAG Techniques for High-Performance LLM ...">Graph Database &amp; Analytics</a>)</li>
+<li>groundedness enforcement + citations</li>
+<li>add triad metrics (context relevance, groundedness, answer relevance) (<a href="https://www.trulens.org/getting_started/core_concepts/rag_triad/?utm_source=chatgpt.com" title="RAG Triad">TruLens</a>)</li>
+<li>failure taxonomy + dashboards</li>
+</ul>
+<h4 id="phase-3-weeks-912-make-it-operable">Phase 3 (Weeks 9–12): Make it operable</h4>
+<ul>
+<li>continuous evaluation (sampled online eval)</li>
+<li>drift monitoring (corpus changes, prompt changes)</li>
+<li>red-team prompt injection cases</li>
+<li>SLA targets (p95 latency, cost ceilings)</li>
+</ul>
+<hr>
+<h3 id="appendix-a-glossary-minimal-architect-focused">Appendix A: Glossary (minimal, architect-focused)</h3>
+<ul>
+<li><strong>RAG:</strong> Retrieval-Augmented Generation; uses retrieval at runtime to ground model outputs. (<a href="https://docs.langchain.com/oss/python/langchain/retrieval?utm_source=chatgpt.com" title="Retrieval - Docs by LangChain">LangChain Docs</a>)</li>
+<li><strong>Reranking:</strong> a second-stage model that reorders retrieved candidates by relevance. (<a href="https://neo4j.com/blog/genai/advanced-rag-techniques/?utm_source=chatgpt.com" title="Advanced RAG Techniques for High-Performance LLM ...">Graph Database &amp; Analytics</a>)</li>
+<li><strong>Groundedness/Faithfulness:</strong> degree to which the answer is supported by retrieved context. (<a href="https://www.trulens.org/getting_started/core_concepts/rag_triad/?utm_source=chatgpt.com" title="RAG Triad">TruLens</a>)</li>
+<li><strong>RAG Triad:</strong> context relevance, groundedness, answer relevance. (<a href="https://www.trulens.org/getting_started/core_concepts/rag_triad/?utm_source=chatgpt.com" title="RAG Triad">TruLens</a>)</li>
+<li><strong>RAGAS:</strong> a framework/paperline for automated RAG evaluation dimensions including context precision/recall, faithfulness, and answer relevance. (<a href="https://redis.io/blog/get-better-rag-responses-with-ragas/?utm_source=chatgpt.com" title="Get better RAG responses with Ragas">Redis</a>)</li>
+</ul>
+<hr>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

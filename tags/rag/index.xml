@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rag on Coding notes - and snippets</title>
+    <link>https://www.bustroker.com/tags/rag/</link>
+    <description>Recent content in Rag on Coding notes - and snippets</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/rag/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agentic AI Solutions Architecture</title>
+      <link>https://www.bustroker.com/notes/agentic-ai-solutions-architecture/</link>
+      <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/agentic-ai-solutions-architecture/</guid>
+      <description>White Paper: Core Knowledge for an Agentic AI Solutions Architect Focus areas: Prompt Engineering · Retrieval Pipelines · Evaluation Metrics Date: 27 Dec 2025 (Europe/Madrid)&#xA;Executive summary Agentic AI systems differ from “single-call” LLM apps: they plan, call tools, retrieve knowledge, iterate, and must be measurably reliable under real-world constraints (latency, cost, governance, safety). This white paper lays out practical fundamentals an Agentic AI Solutions Architect should know across:&#xA;Prompt engineering as policy + interface design between humans, tools, and models (not just “clever wording”).</description>
+    </item>
+  </channel>
+</rss>
