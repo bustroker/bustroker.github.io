@@ -1,0 +1,249 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="Hugo 0.123.7">
+  <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
+  
+  
+  <title>Agentic AI Solutions Architecture .NET | Coding notes - and snippets</title>
+  <style>
+.container {
+  max-width: 700px;
+}
+#nav a {
+  font-weight: bold;
+  color: inherit;
+}
+#nav a.nav-link-active {
+  background-color: #212529;
+  color: #fff;
+}
+#nav-border {
+  border-bottom: 1px solid #212529;
+}
+#main {
+  margin-top: 1em;
+  margin-bottom: 4em;
+}
+#home-jumbotron {
+  background-color: inherit;
+}
+#footer .container {
+  padding: 1em 0;
+}
+#footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+.font-125 {
+  font-size: 125%;
+}
+.tag-btn {
+  margin-bottom: 0.3em;
+}
+pre {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 16px;
+}
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit; 
+  background-color: transparent;
+  border-radius: 0;
+}
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+img,
+iframe,
+embed,
+video,
+audio {
+  max-width: 100%;
+}
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: initial;
+}
+</style>
+</head>
+  <body class="d-flex flex-column h-100">
+    <div id="nav-border" class="container">
+  <nav id="nav" class="nav justify-content-center">
+  
+  
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/"><i data-feather="home"></i> Home</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/notes/"><i data-feather="edit"></i> Notes</a>
+  
+    
+    
+      
+      
+      
+      
+      
+        
+      
+    
+    
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
+  
+  </nav>
+</div>
+
+    <div class="container">
+      <main id="main">
+        
+
+<h1>Agentic AI Solutions Architecture .NET</h1>
+<p>This white paper is designed to align an extensive background in distributed systems  with the specific requirements of an <strong>Agentic AI</strong> architecture role. It bridges the experience in <strong>.NET, Azure, and DDD</strong>  with the cutting-edge patterns required for autonomous AI systems.</p>
+<hr>
+<h1 id="white-paper-architecting-agentic-ai-systems-in-net--azure">White Paper: Architecting Agentic AI Systems in .NET &amp; Azure</h1>
+<p><strong>Prepared for:</strong> Senior Solutions Architect</p>
+<p><strong>Subject:</strong> Technical Foundations for Market-Leading Agentic AI in Pharma</p>
+<h2 id="1-core-concepts-beyond-simple-llms">1. Core Concepts: Beyond Simple LLMs</h2>
+<p>While standard AI follows a linear path (Input → LLM → Output), <strong>Agentic AI</strong> introduces a &ldquo;reasoning loop&rdquo; where the system determines its own execution path.</p>
+<ul>
+<li><strong>The Reasoning Loop:</strong> The core engine (usually an LLM) interprets a goal, breaks it into steps, executes a tool, observes the result, and iterates until the goal is met.</li>
+<li><strong>Tools &amp; Plugins:</strong> Discrete units of logic (e.g., a .NET Web API or a SQL query) that an agent can &ldquo;call.&rdquo;</li>
+<li><strong>Planning:</strong> The ability of an agent to create a multi-step sequence of actions before executing them.</li>
+<li><strong>State &amp; Memory:</strong> Maintaining context across long-running &ldquo;conversations&rdquo; or complex scientific workflows.</li>
+</ul>
+<hr>
+<h2 id="2-architectural-patterns-for-agentic-systems">2. Architectural Patterns for Agentic Systems</h2>
+<h3 id="a-the-orchestrator-pattern-semantic-kernel">A. The Orchestrator Pattern (Semantic Kernel)</h3>
+<p>In the .NET ecosystem, <strong>Semantic Kernel (SK)</strong> is the primary framework. It treats the LLM as a &ldquo;kernel&rdquo; that orchestrates &ldquo;plugins&rdquo; (your existing C# code).</p>
+<ul>
+<li><strong>Implementation:</strong> Define your business logic as <code>[KernelFunction]</code> decorated methods.</li>
+<li><strong>Relevance:</strong> Ideal for pharma workflows where an agent needs to access specific clinical trial databases or regulatory APIs.</li>
+</ul>
+<h3 id="b-multi-agent-systems-mas--conversational-agents-autogen">B. Multi-Agent Systems (MAS) &amp; Conversational Agents (AutoGen)</h3>
+<p>This involves multiple specialized agents (e.g., a &ldquo;Researcher Agent&rdquo; and a &ldquo;Compliance Agent&rdquo;) talking to each other to solve a problem.</p>
+<ul>
+<li><strong>Pattern:</strong> One agent proposes a drug dosage; the second agent (Compliance) critiques it against FDA guidelines.</li>
+<li><strong>Implementation:</strong> Use <strong>AutoGen.NET</strong> or Microsoft’s <strong>Orleans</strong> for distributed state management to handle agent-to-agent communication at scale.</li>
+</ul>
+<h3 id="c-the-small-agent-loop-smolagentsminimalist">C. The &ldquo;Small Agent&rdquo; Loop (smolagents/Minimalist)</h3>
+<p>Focuses on lightweight, code-first agents that treat code generation as their primary reasoning tool.</p>
+<ul>
+<li><strong>Pattern:</strong> The agent writes and executes temporary Python or C# scripts to perform complex calculations or data analysis.</li>
+</ul>
+<hr>
+<h2 id="3-the-net--azure-implementation-stack">3. The .NET &amp; Azure Implementation Stack</h2>
+<h3 id="infrastructure-as-code-bicepterraform">Infrastructure as Code (Bicep/Terraform)</h3>
+<p>For a pharmaceutical product, your IaC must provision a &ldquo;Secure AI Landing Zone.&rdquo;</p>
+<ul>
+<li><strong>Resources:</strong> Azure OpenAI Service, Azure AI Search (Vector Store), and Azure Container Apps (to host the agents).</li>
+<li></li>
+</ul>
+<p><strong>Luis&rsquo;s Edge:</strong> Use your <strong>15+ years of experience</strong>  to discuss how you automate the deployment of <strong>Provisioned Throughput (PTU)</strong> to ensure low latency for time-critical pharma research.</p>
+<h3 id="identity--security">Identity &amp; Security</h3>
+<ul>
+<li><strong>Managed Identity:</strong> Use <strong>Azure Entra ID</strong> (Managed Identities) so your .NET services never handle raw API keys for Azure OpenAI.</li>
+<li><strong>Data Residency:</strong> Ensure data processed by agents stays within specific Azure regions to comply with healthcare regulations (GDPR/HIPAA).</li>
+</ul>
+<h3 id="guardrails--safety">Guardrails &amp; Safety</h3>
+<ul>
+<li><strong>Azure AI Content Safety:</strong> Use this to filter harmful outputs or sensitive medical misinformation.</li>
+<li><strong>Semantic Guardrails:</strong> Implement custom .NET logic to validate that an agent&rsquo;s output adheres to a specific JSON schema or a medical ontology before it reaches the UI.</li>
+</ul>
+<h3 id="monitoring--observability">Monitoring &amp; Observability</h3>
+<ul>
+<li><strong>OpenTelemetry:</strong> Standardize your agentic traces.</li>
+<li><strong>App Insights (AI Lens):</strong> Track &ldquo;Token Usage&rdquo; and &ldquo;Reasoning Latency.&rdquo;</li>
+<li><strong>Traceability:</strong> In Pharma, you must be able to &ldquo;audit&rdquo; why an agent made a specific decision. Store the full reasoning chain (the &ldquo;Thought&rdquo; process) in <strong>Azure Cosmos DB</strong>.</li>
+</ul>
+<hr>
+<h2 id="4-testing-the-non-deterministic">4. Testing the Non-Deterministic</h2>
+<p>Testing agents is harder than testing standard APIs because the &ldquo;answer&rdquo; can change.</p>
+<ul>
+<li><strong>LLM-as-a-Judge:</strong> Use a stronger model (GPT-4o) to grade the outputs of your agentic model.</li>
+<li><strong>Prompt Flow:</strong> Use Azure AI Studio’s Prompt Flow to run bulk tests against &ldquo;Golden Datasets&rdquo; of medical queries to ensure no regression in accuracy.</li>
+</ul>
+<hr>
+
+
+
+      </main>
+    </div>
+    
+<footer id="footer" class="mt-auto text-center text-muted">
+  <div class="container">
+    Bustroker - Made with <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme">Vanilla</a>
+  </div>
+</footer>
+
+    <script src="https://www.bustroker.com/js/feather.min.js"></script>
+<script>
+  feather.replace()
+</script>
+
+
+    
+
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+  crossorigin="anonymous"
+/>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+  crossorigin="anonymous"
+></script>
+
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+  crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"
+></script>
+
+
+    
+  
+
+  </body>
+</html>

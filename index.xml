@@ -9,6 +9,13 @@
     <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Agentic AI Solutions Architecture .NET</title>
+      <link>https://www.bustroker.com/notes/agentic-ai-solutions-architecture-.net/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/agentic-ai-solutions-architecture-.net/</guid>
+      <description>This white paper is designed to align an extensive background in distributed systems with the specific requirements of an Agentic AI architecture role. It bridges the experience in .NET, Azure, and DDD with the cutting-edge patterns required for autonomous AI systems.&#xA;White Paper: Architecting Agentic AI Systems in .NET &amp;amp; Azure Prepared for: Senior Solutions Architect&#xA;Subject: Technical Foundations for Market-Leading Agentic AI in Pharma&#xA;1. Core Concepts: Beyond Simple LLMs While standard AI follows a linear path (Input → LLM → Output), Agentic AI introduces a &amp;ldquo;reasoning loop&amp;rdquo; where the system determines its own execution path.</description>
+    </item>
+    <item>
       <title>AI Prompt Engineering</title>
       <link>https://www.bustroker.com/notes/ai-prompt-engineering/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
