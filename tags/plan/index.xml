@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plan on Coding notes - and snippets</title>
+    <link>https://www.bustroker.com/tags/plan/</link>
+    <description>Recent content in Plan on Coding notes - and snippets</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/plan/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Principal roadmap</title>
+      <link>https://www.bustroker.com/notes/principal-roadmap/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/principal-roadmap/</guid>
+      <description>First 6-Month Principal Engineer Plan Mindset Shift You’re no longer measured by code you write. You’re measured by:&#xA;How many people deliver better systems because Principal exists.&#xA;Overall Outcomes by Month 6 Principal should be known as the person who:&#xA;Owns technical direction across teams Has improved delivery velocity or quality measurably Is a trusted advisor to Product, Architecture and Leadership Has created at least 1 lasting technical system or standard Month 1 — Learn, Map, Earn Trust Goals Understand business, product, and org reality.</description>
+    </item>
+  </channel>
+</rss>
