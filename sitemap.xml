@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.bustroker.com/tags/ai/</loc>
+    <lastmod>2026-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/ai-prompt-engineering/</loc>
+    <lastmod>2026-01-15T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/</loc>
     <lastmod>2026-01-15T00:00:00+00:00</lastmod>
   </url><url>
@@ -15,6 +21,9 @@
     <lastmod>2026-01-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/principal-roadmap/</loc>
+    <lastmod>2026-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/prompt-enginneering/</loc>
     <lastmod>2026-01-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/roadmap/</loc>
@@ -48,9 +57,6 @@
     <lastmod>2026-01-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/agents/</loc>
-    <lastmod>2025-12-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://www.bustroker.com/tags/ai/</loc>
     <lastmod>2025-12-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/notes/ai-agent-frameworks-mental-models-and-control-flow/</loc>

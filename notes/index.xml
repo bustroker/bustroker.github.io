@@ -9,6 +9,13 @@
     <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>AI Prompt Engineering</title>
+      <link>https://www.bustroker.com/notes/ai-prompt-engineering/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/ai-prompt-engineering/</guid>
+      <description>Source: https://www.promptingguide.ai/</description>
+    </item>
+    <item>
       <title>Principal roadmap</title>
       <link>https://www.bustroker.com/notes/principal-roadmap/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>

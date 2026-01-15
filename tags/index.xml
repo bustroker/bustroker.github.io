@@ -9,6 +9,13 @@
     <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>AI</title>
+      <link>https://www.bustroker.com/tags/ai/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Plan</title>
       <link>https://www.bustroker.com/tags/plan/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
@@ -20,6 +27,13 @@
       <link>https://www.bustroker.com/tags/principal/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/principal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prompt Enginneering</title>
+      <link>https://www.bustroker.com/tags/prompt-enginneering/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/prompt-enginneering/</guid>
       <description></description>
     </item>
     <item>
@@ -76,13 +90,6 @@
       <link>https://www.bustroker.com/tags/agents/</link>
       <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/agents/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>AI</title>
-      <link>https://www.bustroker.com/tags/ai/</link>
-      <pubDate>Wed, 10 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/tags/ai/</guid>
       <description></description>
     </item>
     <item>

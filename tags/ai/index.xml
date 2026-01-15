@@ -6,8 +6,15 @@
     <description>Recent content in AI on Coding notes - and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Prompt Engineering</title>
+      <link>https://www.bustroker.com/notes/ai-prompt-engineering/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/ai-prompt-engineering/</guid>
+      <description>Source: https://www.promptingguide.ai/</description>
+    </item>
     <item>
       <title>AI Agent Frameworks - Mental Models and Control Flow</title>
       <link>https://www.bustroker.com/notes/ai-agent-frameworks-mental-models-and-control-flow/</link>
