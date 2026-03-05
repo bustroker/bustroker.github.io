@@ -9,6 +9,13 @@
     <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Agent</title>
+      <link>https://www.bustroker.com/tags/agent/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/agent/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Architecture</title>
       <link>https://www.bustroker.com/tags/architecture/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
@@ -20,6 +27,13 @@
       <link>https://www.bustroker.com/tags/design/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/tags/design/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prompt</title>
+      <link>https://www.bustroker.com/tags/prompt/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/tags/prompt/</guid>
       <description></description>
     </item>
     <item>
