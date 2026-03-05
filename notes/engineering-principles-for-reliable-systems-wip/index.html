@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://www.bustroker.com/css/bootstrap.min.css">
   
   
-  <title>Engineering | Coding notes - and snippets</title>
+  <title>Engineering Principles for Reliable Systems (WIP) | Coding notes - and snippets</title>
   <style>
 .container {
   max-width: 700px;
@@ -117,13 +117,11 @@ audio {
       
       
       
-       
-        
         
       
     
     
-    <a class="nav-link nav-link-active" href="/tags/"><i data-feather="tag"></i> Tags</a>
+    <a class="nav-link " href="/tags/"><i data-feather="tag"></i> Tags</a>
   
   </nav>
 </div>
@@ -132,24 +130,17 @@ audio {
       <main id="main">
         
 
-<h1>Engineering</h1>
-
-
-<p>
-  <a class="font-125" href="https://www.bustroker.com/notes/engineering-principles-for-reliable-systems-wip/">Engineering Principles for Reliable Systems (WIP)</a>
-  <br>
-  
-
-<i data-feather="calendar"></i> <time datetime="2025-03-26">Mar 26, 2025</time>
-
-  <br>
-  <i data-feather="tag"></i>
-  
-  
-  <a class="btn btn-sm btn-outline-dark tag-btn" href="https://www.bustroker.com/tags/engineering">engineering</a>
-  
-
-</p>
+<h1>Engineering Principles for Reliable Systems (WIP)</h1>
+<h3 id="goal">Goal</h3>
+<p>Establish engineering principles that guide teams toward better technical decisions and prevent common architectural mistakes.</p>
+<h3 id="core-principles">Core Principles</h3>
+<h4 id="1-prefer-simplicity-over-complexity">1. Prefer Simplicity Over Complexity</h4>
+<p>Every complexity level requires clear justification. If you can&rsquo;t articulate why the complexity is necessary, it shouldn&rsquo;t exist.</p>
+<h4 id="2-dead-letter-queues-are-not-optional">2. Dead Letter Queues Are Not Optional</h4>
+<p>Every processing queue <strong>must</strong> have a corresponding dead letter queue.</p>
+<p>Without a DLQ, you have no visibility into failures and no way to recover from processing errors. This isn&rsquo;t about best practices—it&rsquo;s about operational necessity.</p>
+<h3 id="implementation-notes">Implementation Notes</h3>
+<p>Consider separating high-level principles from specific technical decisions (ADRs - Architecture Decision Records). Principles guide thinking; ADRs document specific choices and their context.</p>
 
 
 

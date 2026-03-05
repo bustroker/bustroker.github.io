@@ -9,10 +9,10 @@
     <lastBuildDate>Wed, 26 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Engineering Principles for Reliable Systems</title>
-      <link>https://www.bustroker.com/notes/engineering-principles-for-reliable-systems/</link>
+      <title>Engineering Principles for Reliable Systems (WIP)</title>
+      <link>https://www.bustroker.com/notes/engineering-principles-for-reliable-systems-wip/</link>
       <pubDate>Wed, 26 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/engineering-principles-for-reliable-systems/</guid>
+      <guid>https://www.bustroker.com/notes/engineering-principles-for-reliable-systems-wip/</guid>
       <description>Goal Establish engineering principles that guide teams toward better technical decisions and prevent common architectural mistakes.&#xA;Core Principles 1. Prefer Simplicity Over Complexity Every complexity level requires clear justification. If you can&amp;rsquo;t articulate why the complexity is necessary, it shouldn&amp;rsquo;t exist.&#xA;2. Dead Letter Queues Are Not Optional Every processing queue must have a corresponding dead letter queue.&#xA;Without a DLQ, you have no visibility into failures and no way to recover from processing errors.</description>
     </item>
   </channel>
