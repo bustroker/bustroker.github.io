@@ -6,8 +6,15 @@
     <description>Recent content in Architecture on Coding notes - and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Mar 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/architecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>System architecture design process</title>
+      <link>https://www.bustroker.com/notes/system-architecture-design-process/</link>
+      <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/system-architecture-design-process/</guid>
+      <description>Iterative System Design — Thinking Framework&#xA;This framework structures system design as a series of iterations. Instead of designing for scale and complexity upfront, the process begins with the simplest possible system and progressively improves it. The approach is inspired by Google’s Non-Abstract Large Scale Design (NALSD) and extended to explicitly cover operability and system management.&#xA;At each iteration, pressure is applied, limitations are identified, and the design is adapted. Mechanisms such as caching, asynchronous processing, or partitioning are introduced only when a concrete bottleneck appears.</description>
+    </item>
     <item>
       <title>Agentic AI Solutions Architecture .NET</title>
       <link>https://www.bustroker.com/notes/agentic-ai-solutions-architecture-.net/</link>
