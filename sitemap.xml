@@ -158,9 +158,6 @@
     <loc>https://www.bustroker.com/tags/guidelines/</loc>
     <lastmod>2025-07-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://www.bustroker.com/tags/http/</loc>
-    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bustroker.com/notes/.net-templates-and-database-migrations/</loc>
     <lastmod>2025-06-26T00:00:00+00:00</lastmod>
   </url><url>
@@ -464,7 +461,22 @@
     <loc>https://www.bustroker.com/notes/architecture-principles-for-developer-autonomy/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://www.bustroker.com/tags/principles/</loc>
+    <lastmod>2022-06-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/assessment/</loc>
+    <lastmod>2022-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/ceremonies/</loc>
+    <lastmod>2022-06-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://www.bustroker.com/notes/solution-architecture-assessment-checklist/</loc>
+    <lastmod>2022-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/notes/solutions-architect-ceremonies-staff/principal-engineer/</loc>
+    <lastmod>2022-06-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bustroker.com/tags/staff/</loc>
     <lastmod>2022-06-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bustroker.com/tags/databricks/</loc>
