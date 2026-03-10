@@ -16,6 +16,13 @@
       <description>Iterative System Design — Thinking Framework&#xA;This framework structures system design as a series of iterations. Instead of designing for scale and complexity upfront, the process begins with the simplest possible system and progressively improves it. The approach is inspired by Google’s Non-Abstract Large Scale Design (NALSD) and extended to explicitly cover operability and system management.&#xA;At each iteration, pressure is applied, limitations are identified, and the design is adapted. Mechanisms such as caching, asynchronous processing, or partitioning are introduced only when a concrete bottleneck appears.</description>
     </item>
     <item>
+      <title>Principal Engineer operating principles</title>
+      <link>https://www.bustroker.com/notes/principal-engineer-operating-principles/</link>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/principal-engineer-operating-principles/</guid>
+      <description>Staff/Principal Engineer Operating Principles: Product Strategy, Roadmaps, and Team Impact 1. Product Strategy (engineering influence) Key idea: connect product goals with platform capabilities&#xA;Core points:&#xA;start from product goals identify technical constraints and opportunities propose platform capabilities that unlock features ensure the system can evolve with the product Key words: product goals, platform capabilities, future evolution, technical constraints, enabling product&#xA;2. Roadmap Definition &amp;amp; Prioritization Key idea: balance product value with engineering leverage</description>
+    </item>
+    <item>
       <title>Agentic AI Solutions Architecture .NET</title>
       <link>https://www.bustroker.com/notes/agentic-ai-solutions-architecture-.net/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
