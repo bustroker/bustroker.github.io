@@ -863,10 +863,10 @@
       <description>Goal Set up a Vagrant VM with a complete development toolchain: Docker, Kubernetes, Azure CLI, .NET, Node.js, Java/Scala/Spark stack, and various CLI tools.&#xA;Vagrantfile Vagrant.configure(&amp;#34;2&amp;#34;) do |config| # config.vm.box = &amp;#34;debian/bullseye64&amp;#34; config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 8080, host: 8080 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;UbuntuBionic&amp;#34; vb.memory = 2048 # vb.gui = true end end Provision Script Create vagrant_provision.</description>
     </item>
     <item>
-      <title>Setup .NET Core Solution with Class Library and xUnit Tests</title>
-      <link>https://www.bustroker.com/notes/setup-.net-core-solution-with-class-library-and-xunit-tests/</link>
+      <title>Setup dotnet Solution with Class Library and xUnit Tests</title>
+      <link>https://www.bustroker.com/notes/setup-dotnet-solution-with-class-library-and-xunit-tests/</link>
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/setup-.net-core-solution-with-class-library-and-xunit-tests/</guid>
+      <guid>https://www.bustroker.com/notes/setup-dotnet-solution-with-class-library-and-xunit-tests/</guid>
       <description>Goal Create a .NET Core solution with a class library project and xUnit test project, all configured and ready to use in VS Code.&#xA;Create Solution Structure mkdir Bustroker.Notes cd Bustroker.Notes dotnet new sln -n Bustroker.Notes Create Class Library dotnet new classlib -n Bustroker.Notes dotnet sln add Bustroker.Notes/Bustroker.Notes.csproj Create xUnit Test Project dotnet new xunit -n Bustroker.Notes.Tests dotnet sln add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj Link Test Project to Class Library dotnet add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj reference .</description>
     </item>
     <item>

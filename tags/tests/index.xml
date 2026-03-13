@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Xunit on Coding notes - and snippets</title>
-    <link>https://www.bustroker.com/tags/xunit/</link>
-    <description>Recent content in Xunit on Coding notes - and snippets</description>
+    <title>Tests on Coding notes - and snippets</title>
+    <link>https://www.bustroker.com/tags/tests/</link>
+    <description>Recent content in Tests on Coding notes - and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Sep 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://www.bustroker.com/tags/xunit/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://www.bustroker.com/tags/tests/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setup dotnet Solution with Class Library and xUnit Tests</title>
       <link>https://www.bustroker.com/notes/setup-dotnet-solution-with-class-library-and-xunit-tests/</link>

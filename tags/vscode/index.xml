@@ -16,10 +16,10 @@
       <description>Goal Copy specific files to your build output directory when building a .NET project.&#xA;Solution Add the following to your .csproj file:&#xA;&amp;lt;ItemGroup&amp;gt; &amp;lt;None Update=&amp;#34;file.exe&amp;#34;&amp;gt; &amp;lt;CopyToOutputDirectory&amp;gt;PreserveNewest&amp;lt;/CopyToOutputDirectory&amp;gt; &amp;lt;/None&amp;gt; &amp;lt;/ItemGroup&amp;gt; This ensures file.exe is copied to the output directory only if it&amp;rsquo;s newer than the existing copy or doesn&amp;rsquo;t exist yet.</description>
     </item>
     <item>
-      <title>Setup .NET Core Solution with Class Library and xUnit Tests</title>
-      <link>https://www.bustroker.com/notes/setup-.net-core-solution-with-class-library-and-xunit-tests/</link>
+      <title>Setup dotnet Solution with Class Library and xUnit Tests</title>
+      <link>https://www.bustroker.com/notes/setup-dotnet-solution-with-class-library-and-xunit-tests/</link>
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/setup-.net-core-solution-with-class-library-and-xunit-tests/</guid>
+      <guid>https://www.bustroker.com/notes/setup-dotnet-solution-with-class-library-and-xunit-tests/</guid>
       <description>Goal Create a .NET Core solution with a class library project and xUnit test project, all configured and ready to use in VS Code.&#xA;Create Solution Structure mkdir Bustroker.Notes cd Bustroker.Notes dotnet new sln -n Bustroker.Notes Create Class Library dotnet new classlib -n Bustroker.Notes dotnet sln add Bustroker.Notes/Bustroker.Notes.csproj Create xUnit Test Project dotnet new xunit -n Bustroker.Notes.Tests dotnet sln add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj Link Test Project to Class Library dotnet add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj reference .</description>
     </item>
   </channel>
