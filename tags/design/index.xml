@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/system-architecture-design-process/</link>
       <pubDate>Thu, 05 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/system-architecture-design-process/</guid>
-      <description>Iterative System Design — Thinking Framework&#xA;This framework structures system design as a series of iterations. Instead of designing for scale and complexity upfront, the process begins with the simplest possible system and progressively improves it. The approach is inspired by Google’s Non-Abstract Large Scale Design (NALSD) and extended to explicitly cover operability and system management.&#xA;At each iteration, pressure is applied, limitations are identified, and the design is adapted. Mechanisms such as caching, asynchronous processing, or partitioning are introduced only when a concrete bottleneck appears.</description>
+      <description>Iterative System Design — Thinking Framework This framework structures system design as a series of iterations. Instead of designing for scale and complexity upfront, the process begins with the simplest possible system and progressively improves it. The approach is inspired by Google’s Non-Abstract Large Scale Design (NALSD) and extended to explicitly cover operability and system management.&#xA;At each iteration, pressure is applied, limitations are identified, and the design is adapted. Mechanisms such as caching, asynchronous processing, or partitioning are introduced only when a concrete bottleneck appears.</description>
     </item>
   </channel>
 </rss>

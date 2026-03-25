@@ -131,182 +131,206 @@ audio {
         
 
 <h1>System architecture design process</h1>
-<p><strong>Iterative System Design — Thinking Framework</strong></p>
-<p>This framework structures system design as a series of iterations. Instead of designing for scale and complexity upfront, the process begins with the <strong>simplest possible system</strong> and progressively improves it. The approach is <strong>inspired by Google’s Non-Abstract Large Scale Design (NALSD)</strong> and extended to explicitly cover <strong>operability and system management</strong>.</p>
-<p>At each iteration, <strong>pressure is applied, limitations are identified, and the design is adapted</strong>. Mechanisms such as caching, asynchronous processing, or partitioning are introduced only when a concrete bottleneck appears.</p>
-<p>This keeps the design <strong>incremental, grounded in real constraints, and resistant to unnecessary complexity</strong>.</p>
+<h2 id="iterative-system-design--thinking-framework">Iterative System Design — Thinking Framework</h2>
+<p>This framework structures system design as a series of iterations. Instead of designing for scale and complexity upfront, the process begins with the simplest possible system and progressively improves it. The approach is inspired by Google’s Non-Abstract Large Scale Design (NALSD) and extended to explicitly cover operability and system management.</p>
+<p>At each iteration, pressure is applied, limitations are identified, and the design is adapted. Mechanisms such as caching, asynchronous processing, or partitioning are introduced only when a concrete bottleneck appears.</p>
+<p>This keeps the design incremental, grounded in real constraints, and resistant to unnecessary complexity.</p>
+<hr>
+<h2 id="solution-architecture-design-process">Solution Architecture Design Process</h2>
+<h3 id="goal-of-the-exercise">Goal of the exercise</h3>
+<p><strong>Output</strong></p>
+<ul>
+<li>Final C2 diagram</li>
+<li>Trade-offs (list)</li>
+<li>Key decisions</li>
+</ul>
+<p>The goal is to produce a clear, justified architecture.
+Everything else exists to derive or validate that.</p>
+<hr>
+<h3 id="step-0--capture-requirements">Step 0 — Capture requirements</h3>
+<p><strong>Principle:</strong>
+<strong>Requirements Must Be Explicit Before Designing</strong></p>
+<p><strong>Output</strong></p>
+<ul>
+<li>User Journey cards</li>
+<li>Constraints / NFR card</li>
+<li>C1 context diagram</li>
+</ul>
+<p>Discover the requirements by asking focused questions to the product owner or interviewer until the main user journeys, constraints, and system scope are clear.</p>
+<p>What follows defines the format of the requirement artifacts.</p>
+<h4 id="user-journey-cards">User Journey cards</h4>
+<p>Format:</p>
+<ul>
+<li>Name</li>
+<li>Goal</li>
+<li>Steps</li>
+<li>Critical rules</li>
+<li>Notes</li>
+</ul>
+<p>Example:</p>
+<p>User Journey — Patient books appointment</p>
+<p>Goal
+Book an available slot with a doctor</p>
+<p>Steps</p>
 <ol>
-<li>
-<p><strong>Iteration 0 — Reality Anchor</strong></p>
-<ul>
-<li>
-<p><strong>Goal:</strong> Remove abstraction. Define a concrete minimal system.</p>
-</li>
-<li>
-<p><strong>Core Question:</strong> What exactly are we building and how does a user interact with it?</p>
-</li>
-<li>
-<p><strong>Define explicitly:</strong></p>
-<ul>
-<li>1–3 concrete user flows</li>
-<li>Core data entities</li>
-<li>Basic request/response flow</li>
-<li>Any obvious constraints (consistency expectations, geography, etc.)</li>
-</ul>
-</li>
-<li>
-<p><strong>Design posture:</strong></p>
-<ul>
-<li>Simplest possible architecture</li>
-<li>Prefer a single service</li>
-<li>Prefer a single datastore</li>
-<li>No caching</li>
-<li>No async processing</li>
-<li>No scaling mechanisms</li>
-</ul>
-</li>
-<li>
-<p><strong>Assumption:</strong> System serves <strong>few users at low request rate</strong>.</p>
-</li>
-<li>
-<p><strong>Exit condition:</strong> A clear design exists for the simplest version of the system.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Iteration 1 — Load &amp; Bottlenecks</strong></p>
-<ul>
-<li>
-<p><strong>Goal:</strong> Improve performance and scalability as system pressure increases.</p>
-</li>
-<li>
-<p><strong>Core Question:</strong> As usage grows, what becomes the bottleneck and how should the system adapt?</p>
-</li>
-<li>
-<p><strong>2.1 Apply pressure</strong></p>
-<ul>
-<li>Increase usage assumptions</li>
-<li>Increase request rate</li>
-<li>Increase dataset size</li>
-</ul>
-</li>
-<li>
-<p><strong>2.2 Identify bottleneck</strong></p>
-<ul>
-<li>Database load</li>
-<li>CPU saturation</li>
-<li>Memory pressure</li>
-<li>Network overhead</li>
-<li>Contention hotspots</li>
-<li>Large payloads</li>
-</ul>
-</li>
-<li>
-<p><strong>2.3 Adapt system</strong></p>
-<ul>
-<li>
-<p>Introduce mechanisms <strong>only to address the bottleneck</strong>.</p>
-</li>
-<li>
-<p>Typical patterns:</p>
-<ul>
-<li><strong>Caching</strong> (read caching, write-through, distributed cache)</li>
-<li><strong>Edge distribution</strong> (CDN, edge caches, regional replicas, edge compute)</li>
-<li><strong>Data access optimization</strong> (read replicas, partitioning/sharding)</li>
-<li><strong>Read/write separation</strong> (CQRS, specialized read models, dedicated read services)</li>
-<li><strong>Workload decoupling</strong> (async processing jobs, message queues, event-driven flows)</li>
-<li><strong>Service decomposition</strong> (extract services, microservices, domain boundaries, independent scaling)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>2.4 Repeat</strong></p>
-<ul>
-<li>Apply more pressure</li>
-<li>Identify the next bottleneck</li>
-<li>Adapt again</li>
-</ul>
-</li>
-<li>
-<p><strong>Rule:</strong> No mechanism without a named bottleneck.</p>
-</li>
-<li>
-<p><strong>Exit condition:</strong> The system evolves to handle increasing pressure through successive adaptations.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Iteration 2 — Failure Behavior</strong></p>
-<ul>
-<li>
-<p><strong>Goal:</strong> Define how the system behaves when parts fail.</p>
-</li>
-<li>
-<p><strong>Core Question:</strong> When components fail, how does the system respond?</p>
-</li>
-<li>
-<p><strong>Consider failures such as:</strong></p>
-<ul>
-<li>Service instance failure</li>
-<li>Database unavailability</li>
-<li>Cache failure</li>
-<li>Dependency timeouts</li>
-</ul>
-</li>
-<li>
-<p><strong>Typical patterns:</strong></p>
-<ul>
-<li><strong>Failure control</strong> (timeouts, retries with backoff, circuit breakers)</li>
-<li><strong>Graceful degradation</strong> (reduced functionality, stale data, partial responses)</li>
-<li><strong>Redundancy</strong> (replication, multiple instances)</li>
-<li><strong>Recovery</strong> (backup and restore strategies)</li>
-<li><strong>Safe retries</strong> (idempotent operations)</li>
-</ul>
-</li>
-<li>
-<p><strong>Rule:</strong> Every dependency must have a defined failure behavior.</p>
-</li>
-<li>
-<p><strong>Exit condition:</strong> Failure scenarios and system responses are clearly defined.</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Iteration 3 — Operability</strong></p>
-<ul>
-<li>
-<p><strong>Goal:</strong> Make the system observable and manageable in production.</p>
-</li>
-<li>
-<p><strong>Core Question:</strong> How do we know the system is healthy and how do we intervene when it is not?</p>
-</li>
-<li>
-<p><strong>Define:</strong></p>
-<ul>
-<li>Signals that indicate system health</li>
-<li>Signals that indicate degradation</li>
-</ul>
-</li>
-<li>
-<p><strong>Typical patterns:</strong></p>
-<ul>
-<li><strong>Observability</strong> (metrics, logging, distributed tracing)</li>
-<li><strong>Alerting</strong> (alerts on latency, errors, saturation)</li>
-<li><strong>Health management</strong> (health checks, service monitoring)</li>
-<li><strong>Deployment safety</strong> (canary releases, blue/green deployments)</li>
-<li><strong>Recovery mechanisms</strong> (rollback strategies)</li>
-</ul>
-</li>
-<li>
-<p><strong>Rule:</strong> If you cannot detect degradation, you cannot control the system.</p>
-</li>
-<li>
-<p><strong>Exit condition:</strong> Operators can detect issues and respond effectively.</p>
-</li>
-</ul>
-</li>
+<li>Patient views available slots</li>
+<li>Patient selects a slot</li>
+<li>System checks availability</li>
+<li>System creates appointment</li>
+<li>System marks slot as booked</li>
+<li>System confirms booking</li>
 </ol>
+<p>Critical rules</p>
+<ul>
+<li>A slot cannot be double-booked</li>
+<li>An appointment belongs to one patient and one doctor</li>
+</ul>
+<p>Notes</p>
+<ul>
+<li>Booking should be fast</li>
+<li>Notifications can be asynchronous</li>
+</ul>
+<h4 id="constraints--nfr-card">Constraints / NFR card</h4>
+<p>Format:</p>
+<ul>
+<li>one card with bullet points</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li>Prevent double booking</li>
+<li>Fast booking confirmation</li>
+<li>Notifications can happen later</li>
+<li>Handle peak booking traffic</li>
+<li>Patients and doctors must be authenticated</li>
+</ul>
+<h4 id="c1-context-diagram">C1 context diagram</h4>
+<p>Defines:</p>
+<ul>
+<li>actors</li>
+<li>system boundary</li>
+<li>external systems</li>
+</ul>
+<hr>
+<h3 id="step-1--derive-the-simplest-c2-from-the-user-journeys">Step 1 — Derive the simplest C2 from the User Journeys</h3>
+<p><strong>Principle:</strong>
+<strong>Start With The Simplest System That Supports The Journeys</strong></p>
+<p><strong>Output</strong></p>
+<ul>
+<li>Initial C2 diagram</li>
+</ul>
+<p>Follow the user journeys step by step and derive the minimum set of responsibilities, components, interactions, and data needed to support them.</p>
+<p>Keep it minimal:</p>
+<ul>
+<li>no premature services</li>
+<li>no unnecessary infrastructure</li>
+</ul>
+<hr>
+<h3 id="step-2--refine-architecture-boundaries">Step 2 — Refine architecture boundaries</h3>
+<p><strong>Principle:</strong>
+<strong>Boundaries Should Reflect Ownership, Cohesion, And Rules</strong></p>
+<p><strong>Output</strong></p>
+<ul>
+<li>Refined C2 diagram</li>
+<li>Trade-offs (list)</li>
+</ul>
+<p>Review the initial architecture in both directions: merge components where separation is artificial, and extract bounded contexts where a real domain or ownership boundary exists.</p>
+<p>Review and adjust boundaries:</p>
+<ul>
+<li>merge artificial separations</li>
+<li>extract real bounded contexts</li>
+<li>align responsibilities and data ownership</li>
+<li>define source of truth per concept</li>
+<li>ensure rules are enforced in the right place</li>
+</ul>
+<h4 id="trade-offs-format">Trade-offs format</h4>
+<p>Each trade-off is captured as:</p>
+<ul>
+<li>Decision</li>
+<li>Alternative</li>
+<li>Why</li>
+<li>Trade-off</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li>Decision: Keep booking and availability in one service</li>
+<li>Alternative: Split into separate services</li>
+<li>Why: Strong consistency needed</li>
+<li>Trade-off: Less independent scalability</li>
+</ul>
+<hr>
+<h3 id="step-3--refine-architecture-under-stress-and-failure">Step 3 — Refine architecture under stress and failure</h3>
+<p><strong>Principle:</strong>
+<strong>No Mechanism Without A Real Problem</strong></p>
+<p><strong>Output</strong></p>
+<ul>
+<li>Final / near-final C2</li>
+<li>Trade-offs (updated list)</li>
+</ul>
+<p>This step is iterative:</p>
+<p>apply pressure → identify issue → adjust → repeat</p>
+<h4 id="apply-concrete-pressures">Apply concrete pressures</h4>
+<p>Load &amp; growth</p>
+<ul>
+<li>10x traffic</li>
+<li>large data volumes</li>
+</ul>
+<p>Concurrency &amp; correctness</p>
+<ul>
+<li>concurrent booking of the same slot</li>
+<li>retries / duplicate requests</li>
+</ul>
+<p>Read vs write imbalance</p>
+<ul>
+<li>heavy search vs booking</li>
+</ul>
+<p>Latency</p>
+<ul>
+<li>response time expectations</li>
+</ul>
+<p>Failures</p>
+<ul>
+<li>dependency unavailable</li>
+<li>timeouts</li>
+</ul>
+<h4 id="possible-outcomes">Possible outcomes</h4>
+<ul>
+<li>no change</li>
+<li>caching</li>
+<li>async flows</li>
+<li>queue/broker</li>
+<li>read models</li>
+<li>service extraction</li>
+<li>transaction boundary clarification</li>
+<li>traffic control</li>
+</ul>
+<h4 id="trade-offs">Trade-offs</h4>
+<p>Update the trade-off list as decisions evolve</p>
+<p>Example:</p>
+<ul>
+<li>Decision: Introduce async notifications</li>
+<li>Alternative: Keep synchronous</li>
+<li>Why: Reduce latency on booking path</li>
+<li>Trade-off: Eventual delivery</li>
+</ul>
+<hr>
+<h3 id="step-4--ensure-operability">Step 4 — Ensure operability</h3>
+<p><strong>Principle:</strong>
+<strong>If You Cannot Observe The System, You Cannot Operate It</strong></p>
+<p><strong>Output</strong></p>
+<ul>
+<li>Operability notes (bullet list)</li>
+<li>Any required updates to C2</li>
+</ul>
+<p>Review the architecture from an operational perspective and make explicit how the system will be monitored, debugged, deployed safely, and recovered when something goes wrong.</p>
+<p>Format:</p>
+<ul>
+<li>key metrics (latency, errors, throughput)</li>
+<li>logging needs</li>
+<li>alerting triggers</li>
+<li>deployment strategy</li>
+<li>rollback approach</li>
+<li>recovery approach</li>
+</ul>
 
 
 
