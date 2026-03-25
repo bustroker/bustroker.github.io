@@ -478,13 +478,6 @@
       <description>Goal Recover your Windows PATH variable after it has been corrupted or accidentally cleared.&#xA;Solution Use a running application to access its inherited environment variables. Any application launched before the PATH was broken still has the correct value in memory.&#xA;Steps 1. Open a file dialog from a running application (e.g., Chrome):&#xA;Press Ctrl+O to open the file picker.&#xA;2. Launch CMD from the file picker:&#xA;Click the address bar and type:</description>
     </item>
     <item>
-      <title>Extract tar.gz Files on Windows with 7zip</title>
-      <link>https://www.bustroker.com/notes/extract-tar.gz-files-on-windows-with-7zip/</link>
-      <pubDate>Mon, 02 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://www.bustroker.com/notes/extract-tar.gz-files-on-windows-with-7zip/</guid>
-      <description>Extract tar.gz Archives on Windows Use 7zip from PowerShell to extract .tar.gz files in two steps:&#xA;7z x filename.tar.gz 7z x filename.tar The first command extracts the gzip compression, producing a .tar file. The second extracts the tar archive contents.</description>
-    </item>
-    <item>
       <title>Working with Git Sparse-Checkout</title>
       <link>https://www.bustroker.com/notes/working-with-git-sparse-checkout/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
