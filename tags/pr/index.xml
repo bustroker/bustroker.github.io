@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/force-sync-master-with-dev-branch-via-pull-request/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/force-sync-master-with-dev-branch-via-pull-request/</guid>
-      <description>Goal: Make master branch identical to dev branch when merge conflicts are unresolvable, using a pull request workflow.&#xA;Get the target commit cd /path/to/repository/root git checkout dev git log -n 1 Copy the commit SHA (e.g., b2ed68964660648860bcf41d096e71b5d49226ae).&#xA;Create sync branch git checkout master git checkout -b sync-with-dev Replace all content ## Remove everything git rm -rf . ## Restore from dev commit (replace SHA with your commit) git checkout b2ed68964660648860bcf41d096e71b5d49226ae -- .</description>
+      <description>Force Sync Master with Dev Branch via Pull Request Goal: Make master branch identical to dev branch when merge conflicts are unresolvable, using a pull request workflow.&#xA;Get the target commit cd /path/to/repository/root git checkout dev git log -n 1 Copy the commit SHA (e.g., b2ed68964660648860bcf41d096e71b5d49226ae).&#xA;Create sync branch git checkout master git checkout -b sync-with-dev Replace all content ## Remove everything git rm -rf . ## Restore from dev commit (replace SHA with your commit) git checkout b2ed68964660648860bcf41d096e71b5d49226ae -- .</description>
     </item>
   </channel>
 </rss>

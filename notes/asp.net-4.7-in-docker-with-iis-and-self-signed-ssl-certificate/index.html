@@ -131,9 +131,10 @@ audio {
         
 
 <h1>ASP.NET 4.7 in Docker with IIS and Self-Signed SSL Certificate</h1>
+<h2 id="aspnet-47-in-docker-with-iis-and-self-signed-ssl-certificate">ASP.NET 4.7 in Docker with IIS and Self-Signed SSL Certificate</h2>
 <p><strong>Goal:</strong> Run an ASP.NET 4.7 application in a Docker container with IIS and HTTPS support, using a volume-mapped folder for live code updates during development.</p>
 <h3 id="dockerfile">Dockerfile</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/framework/aspnet:4.8</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/framework/aspnet:4.8</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">SHELL</span> [ <span style="color:#e6db74">&#34;powershell&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
@@ -154,12 +155,12 @@ audio {
 </span></span><span style="display:flex;"><span>New-WebApplication -Site <span style="color:#e6db74">&#39;Default Web Site&#39;</span> -Name <span style="color:#e6db74">&#39;webapp&#39;</span> -PhysicalPath <span style="color:#e6db74">&#39;C:\webapp&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">## Grant full access to IIS AppPool for volume-mapped folder</span>
-</span></span><span style="display:flex;"><span>$path = <span style="color:#e6db74">&#34;C:\webapp&#34;</span>  
-</span></span><span style="display:flex;"><span>$user = <span style="color:#e6db74">&#34;IIS AppPool\DefaultAppPool&#34;</span>  
-</span></span><span style="display:flex;"><span>$acl = Get-Acl $path  
-</span></span><span style="display:flex;"><span>$accessRule = New-Object system.security.accesscontrol.filesystemaccessrule($User,<span style="color:#e6db74">&#34;FullControl&#34;</span>, <span style="color:#e6db74">&#34;ContainerInherit,ObjectInherit&#34;</span>, <span style="color:#e6db74">&#34;None&#34;</span>, <span style="color:#e6db74">&#34;Allow&#34;</span>)  
+</span></span><span style="display:flex;"><span>$path = <span style="color:#e6db74">&#34;C:\webapp&#34;</span>
+</span></span><span style="display:flex;"><span>$user = <span style="color:#e6db74">&#34;IIS AppPool\DefaultAppPool&#34;</span>
+</span></span><span style="display:flex;"><span>$acl = Get-Acl $path
+</span></span><span style="display:flex;"><span>$accessRule = New-Object system.security.accesscontrol.filesystemaccessrule($User,<span style="color:#e6db74">&#34;FullControl&#34;</span>, <span style="color:#e6db74">&#34;ContainerInherit,ObjectInherit&#34;</span>, <span style="color:#e6db74">&#34;None&#34;</span>, <span style="color:#e6db74">&#34;Allow&#34;</span>)
 </span></span><span style="display:flex;"><span>$acl.SetAccessRule($accessRule)
-</span></span><span style="display:flex;"><span>Set-Acl $path $acl 
+</span></span><span style="display:flex;"><span>Set-Acl $path $acl
 </span></span></code></pre></div><p>The script sets up HTTPS with a self-signed certificate, creates the web application, and grants the AppPool permissions to access the volume-mapped folder.</p>
 <h3 id="docker-compose">Docker Compose</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.8&#39;</span>

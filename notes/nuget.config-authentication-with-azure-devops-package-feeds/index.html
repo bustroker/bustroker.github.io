@@ -131,6 +131,7 @@ audio {
         
 
 <h1>NuGet.config Authentication with Azure DevOps Package Feeds</h1>
+<h2 id="nugetconfig-authentication-with-azure-devops-package-feeds">NuGet.config Authentication with Azure DevOps Package Feeds</h2>
 <h3 id="goal">Goal</h3>
 <p>Authenticate NuGet to access private Azure DevOps Package Feeds.</p>
 <h3 id="setup-azure-devops">Setup Azure DevOps</h3>
@@ -155,7 +156,7 @@ audio {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>//nuget.config
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;packageSourceCredentials&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;BustrokerPackages&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;%USER_VARIABLE%&#34;</span> <span style="color:#f92672">/&gt;</span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;%USER_VARIABLE%&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;ClearTextPassword&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;%PAT%&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/BustrokerPackages&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/packageSourceCredentials&gt;</span>
@@ -163,7 +164,7 @@ audio {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>//nuget.config
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;packageSourceCredentials&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;BustrokerPackages&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;bustroker.packages.restore@bustroker.onmicrosoft.com&#34;</span> <span style="color:#f92672">/&gt;</span>      
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;bustroker.packages.restore@bustroker.onmicrosoft.com&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;ENCRYPTED_PAT&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/BustrokerPackages&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;/packageSourceCredentials&gt;</span>

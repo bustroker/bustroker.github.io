@@ -131,6 +131,7 @@ audio {
         
 
 <h1>Running ASP.NET Core in Docker with Vagrant</h1>
+<h2 id="running-aspnet-core-in-docker-with-vagrant">Running ASP.NET Core in Docker with Vagrant</h2>
 <h3 id="goal">Goal</h3>
 <p>Run an ASP.NET Core application in Docker inside a Linux VM, accessible from your host machine.</p>
 <h3 id="create-the-aspnet-core-application">Create the ASP.NET Core application</h3>
@@ -140,7 +141,7 @@ audio {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;forwarded_port&#34;</span>, <span style="color:#e6db74">guest</span>: <span style="color:#ae81ff">8080</span>, <span style="color:#e6db74">host</span>: <span style="color:#ae81ff">8080</span>
 </span></span></code></pre></div><h3 id="setup-docker">Setup Docker</h3>
 <p><strong>Dockerfile:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/sdk:5.0 AS build-env</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/sdk:5.0 AS build-env</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /app</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e">## Copy csproj and restore as distinct layers</span><span style="color:#960050;background-color:#1e0010">

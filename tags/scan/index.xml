@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/scan-for-vulnerabilities-with-trivy/</link>
       <pubDate>Wed, 22 Feb 2023 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/scan-for-vulnerabilities-with-trivy/</guid>
-      <description>Goal Scan a directory for security vulnerabilities using Trivy.&#xA;Install Trivy brew install trivy Scan a Directory trivy fs --severity CRITICAL,MEDIUM /path/to/folder This scans the specified folder and reports vulnerabilities with CRITICAL or MEDIUM severity levels.</description>
+      <description>Scan for Vulnerabilities with Trivy Goal Scan a directory for security vulnerabilities using Trivy.&#xA;Install Trivy brew install trivy Scan a Directory trivy fs --severity CRITICAL,MEDIUM /path/to/folder This scans the specified folder and reports vulnerabilities with CRITICAL or MEDIUM severity levels.</description>
     </item>
   </channel>
 </rss>

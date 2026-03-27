@@ -131,7 +131,8 @@ audio {
         
 
 <h1>.NET Templates and Database Migrations</h1>
-<h2 id="net-custom-templates">.NET Custom Templates</h2>
+<h2 id="net-templates-and-database-migrations">.NET Templates and Database Migrations</h2>
+<h3 id="net-custom-templates">.NET Custom Templates</h3>
 <h3 id="testing-locally">Testing Locally</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## Clone and navigate to repository</span>
 </span></span><span style="display:flex;"><span>cd templates/bkr.microservice
@@ -219,7 +220,7 @@ audio {
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">&#34;replacement&#34;</span>: <span style="color:#e6db74">&#34;-&#34;</span>
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        ]
-</span></span><span style="display:flex;"><span>    }    
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}<span style="color:#960050;background-color:#1e0010">,</span>
 </span></span><span style="display:flex;"><span><span style="color:#e6db74">&#34;domainLowerPath&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;generated&#34;</span>,
@@ -236,7 +237,7 @@ audio {
 </span></span><span style="display:flex;"><span>        ]
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="database-migration-project">Database Migration Project</h2>
+</span></span></code></pre></div><h3 id="database-migration-project">Database Migration Project</h3>
 <h3 id="1-create-console-application">1. Create Console Application</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## Create project</span>
 </span></span><span style="display:flex;"><span>dotnet new console -n DatabaseMigrationTool
@@ -416,7 +417,7 @@ audio {
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;None</span> <span style="color:#a6e22e">Remove=</span><span style="color:#e6db74">&#34;DownScripts\*&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;None</span> <span style="color:#a6e22e">Remove=</span><span style="color:#e6db74">&#34;UpScripts\*&#34;</span> <span style="color:#f92672">/&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/ItemGroup&gt;</span>
-</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;ItemGroup&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;Content</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;appsettings.json&#34;</span><span style="color:#f92672">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;CopyToOutputDirectory&gt;</span>PreserveNewest<span style="color:#f92672">&lt;/CopyToOutputDirectory&gt;</span>

@@ -135,19 +135,19 @@ audio {
 <p>Inspired by Zalando&rsquo;s API Guidelines. Keywords <strong>&ldquo;MUST&rdquo;</strong>, <strong>&ldquo;MUST NOT&rdquo;</strong>, <strong>&ldquo;REQUIRED&rdquo;</strong>, <strong>&ldquo;SHALL&rdquo;</strong>, <strong>&ldquo;SHALL NOT&rdquo;</strong>, <strong>&ldquo;SHOULD&rdquo;</strong>, <strong>&ldquo;SHOULD NOT&rdquo;</strong>, <strong>&ldquo;RECOMMENDED&rdquo;</strong>, <strong>&ldquo;MAY&rdquo;</strong>, and <strong>&ldquo;OPTIONAL&rdquo;</strong> are interpreted as described in <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>.</p>
 <hr>
 <h3 id="api-specification-and-documentation">API Specification and Documentation</h3>
-<p><strong>MUST</strong> provide and publish API specifications using OpenAPI.<br>
-<strong>MUST</strong> create or update API documentation in the developer portal.<br>
+<p><strong>MUST</strong> provide and publish API specifications using OpenAPI.
+<strong>MUST</strong> create or update API documentation in the developer portal.
 <strong>SHOULD</strong> provide comprehensive documentation, from getting started examples to in-depth details on all request and response parameters.</p>
 <hr>
 <h3 id="rest-design">REST Design</h3>
 <p><strong>MUST</strong> use REST maturity level 2 (Richardson Maturity Model).</p>
 <hr>
 <h3 id="http-request-standards">HTTP Request Standards</h3>
-<p><strong>MUST</strong> use HTTP methods correctly per <a href="https://www.rfc-editor.org/rfc/rfc9110.html">RFC-9110 Methods</a>.<br>
-<strong>MUST</strong> fulfill common method properties (safety, idempotency, cacheability).<br>
-<strong>MUST</strong> use official HTTP status codes per <a href="https://www.rfc-editor.org/rfc/rfc9110.html">RFC-9110 Status Codes</a>.<br>
-<strong>SHOULD</strong> only use most common HTTP status codes.<br>
-<strong>MUST</strong> use most specific HTTP status codes.<br>
+<p><strong>MUST</strong> use HTTP methods correctly per <a href="https://www.rfc-editor.org/rfc/rfc9110.html">RFC-9110 Methods</a>.
+<strong>MUST</strong> fulfill common method properties (safety, idempotency, cacheability).
+<strong>MUST</strong> use official HTTP status codes per <a href="https://www.rfc-editor.org/rfc/rfc9110.html">RFC-9110 Status Codes</a>.
+<strong>SHOULD</strong> only use most common HTTP status codes.
+<strong>MUST</strong> use most specific HTTP status codes.
 <strong>MUST</strong> use <code>EV-</code> prefix for custom headers.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">EV-Quota-Limit: 1000
 </span></span></span></code></pre></div><p><strong>MAY</strong> consider supporting <code>Idempotency-Key</code> header for POST requests.</p>
@@ -227,40 +227,40 @@ audio {
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><hr>
 <h3 id="resource-naming-and-url-structure">Resource Naming and URL Structure</h3>
-<p><strong>MUST NOT</strong> use <code>/api</code> as base path.<br>
-<strong>MUST</strong> keep URLs verb-free.<br>
-<strong>MUST</strong> avoid actions — think about resources.<br>
-<strong>MUST</strong> use domain-specific resource names.<br>
-<strong>MUST</strong> pluralize resource names.<br>
-<strong>MUST</strong> use URL-friendly resource identifiers.<br>
-<strong>MUST</strong> use kebab-case for path segments.<br>
+<p><strong>MUST NOT</strong> use <code>/api</code> as base path.
+<strong>MUST</strong> keep URLs verb-free.
+<strong>MUST</strong> avoid actions — think about resources.
+<strong>MUST</strong> use domain-specific resource names.
+<strong>MUST</strong> pluralize resource names.
+<strong>MUST</strong> use URL-friendly resource identifiers.
+<strong>MUST</strong> use kebab-case for path segments.
 <strong>MUST</strong> identify resources and sub-resources via path segments:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">GET /resources/{resource-id}/sub-resources/{sub-resource-id}
-</span></span></span></code></pre></div><p><strong>MAY</strong> consider using non-nested URLs for sub-resources.<br>
-<strong>SHOULD</strong> limit number of sub-resource levels (≤ 3).<br>
+</span></span></span></code></pre></div><p><strong>MAY</strong> consider using non-nested URLs for sub-resources.
+<strong>SHOULD</strong> limit number of sub-resource levels (≤ 3).
 <strong>MUST</strong> use snake_case for query parameters:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">GET /resources?filter_field_value=value
 </span></span></span></code></pre></div><p><strong>SHOULD</strong> pass lists in query parameters using comma-separated values:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">GET /scorecards?siren_numbers=1,2,3,4,5
 </span></span></span></code></pre></div><hr>
 <h3 id="data-and-format-standards">Data and Format Standards</h3>
-<p><strong>MUST</strong> use JSON as the payload data format.<br>
-<strong>SHOULD</strong> define and observe a general response format for all outcomes (success, error, batch).<br>
-<strong>MUST</strong> use standard media types (IANA).<br>
-<strong>MUST</strong> use OpenAPI-defined standard data formats.<br>
+<p><strong>MUST</strong> use JSON as the payload data format.
+<strong>SHOULD</strong> define and observe a general response format for all outcomes (success, error, batch).
+<strong>MUST</strong> use standard media types (IANA).
+<strong>MUST</strong> use OpenAPI-defined standard data formats.
 <strong>MUST</strong> use standard date/time formats (RFC 3339):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;createdAt&#34;</span>: <span style="color:#e6db74">&#34;2025-03-21T14:23:45Z&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><strong>SHOULD</strong> use UTC for time representation.<br>
-<strong>SHOULD</strong> use <code>Accept-Language</code> header for localization.<br>
+</span></span></code></pre></div><p><strong>SHOULD</strong> use UTC for time representation.
+<strong>SHOULD</strong> use <code>Accept-Language</code> header for localization.
 <strong>MUST</strong> use standard formats for country, language, and currency codes:</p>
 <ul>
 <li>Country: ISO 3166-1-alpha-2</li>
 <li>Language: ISO 639-1</li>
 <li>Currency: ISO 4217</li>
 </ul>
-<p><strong>MUST</strong> use camelCase for property names.<br>
+<p><strong>MUST</strong> use camelCase for property names.
 <strong>SHOULD</strong> declare enum values using UPPER_SNAKE_CASE (except case-sensitive external standards like ISO 639-1).</p>
 <p><strong>MUST</strong> follow a common sorting behavior using <code>sort_field</code> and <code>sort_type</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">GET /resources?sort_field=name&amp;sort_type=asc
@@ -283,16 +283,16 @@ audio {
 <p><strong>MUST</strong> specify success and error responses with actionable messages (see HTTP Response Standards section).</p>
 <hr>
 <h3 id="security">Security</h3>
-<p><strong>MUST</strong> secure all endpoints.<br>
+<p><strong>MUST</strong> secure all endpoints.
 <strong>MUST NOT</strong> expose stack traces in production.</p>
 <hr>
 <h3 id="versioning-and-compatibility">Versioning and Compatibility</h3>
-<p><strong>MUST</strong> not break backward compatibility.<br>
-<strong>SHOULD</strong> prefer backward-compatible extensions: add only optional fields, avoid changing semantics, keep validation consistent.<br>
-<strong>SHOULD</strong> avoid versioning — prefer resource variants over breaking changes.<br>
-<strong>MUST</strong> use semantic versioning (SemVer 2.0.0).<br>
-<strong>MUST</strong> use URL versioning.<br>
-<strong>MUST</strong> reflect deprecation in OpenAPI specs.<br>
+<p><strong>MUST</strong> not break backward compatibility.
+<strong>SHOULD</strong> prefer backward-compatible extensions: add only optional fields, avoid changing semantics, keep validation consistent.
+<strong>SHOULD</strong> avoid versioning — prefer resource variants over breaking changes.
+<strong>MUST</strong> use semantic versioning (SemVer 2.0.0).
+<strong>MUST</strong> use URL versioning.
+<strong>MUST</strong> reflect deprecation in OpenAPI specs.
 <strong>SHOULD</strong> add <code>Deprecation</code> and <code>Sunset</code> headers to responses.</p>
 
 

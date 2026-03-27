@@ -131,6 +131,7 @@ audio {
         
 
 <h1>Azure DevOps YAML Pipeline CI/CD Setup</h1>
+<h2 id="azure-devops-yaml-pipeline-cicd-setup">Azure DevOps YAML Pipeline CI/CD Setup</h2>
 <h3 id="goal">Goal</h3>
 <p>Build a single YAML pipeline that builds a Docker container, pushes it to Azure Container Registry, and deploys it sequentially to <code>dev</code> and <code>int</code> environments with approval gates.</p>
 <h3 id="key-points">Key Points</h3>
@@ -159,7 +160,7 @@ audio {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
 </span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">BuildStage</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Build</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Build</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Build and push</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
@@ -182,7 +183,7 @@ audio {
 </span></span><span style="display:flex;"><span>  - <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">DevDeploymentJob</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Deploy to dev</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">dev</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">runOnce</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">deploy</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
@@ -202,7 +203,7 @@ audio {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">int</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">$(vmImageName)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">runOnce</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">deploy</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
@@ -230,14 +231,14 @@ audio {
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">containerRegistry</span>: <span style="color:#e6db74">&#39;bustrokeryamlpipelines.azurecr.io&#39;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">dockerfilePath</span>: <span style="color:#e6db74">&#39;$(Build.SourcesDirectory)/Bustroker.YamlPipelines.WebApi/Dockerfile&#39;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">tag</span>: <span style="color:#e6db74">&#39;$(Build.BuildId)&#39;</span>
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Agent VM image name</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">vmImageName</span>: <span style="color:#e6db74">&#39;ubuntu-latest&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">stages</span>:
 </span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">BuildStage</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Build</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobs</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job</span>: <span style="color:#ae81ff">Build</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Build and push</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
@@ -260,7 +261,7 @@ audio {
 </span></span><span style="display:flex;"><span>  - <span style="color:#f92672">deployment</span>: <span style="color:#ae81ff">DevDeploymentJob</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Deploy to dev</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">dev</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">runOnce</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">deploy</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:
@@ -270,7 +271,7 @@ audio {
 </span></span><span style="display:flex;"><span>              <span style="color:#f92672">appName</span>: <span style="color:#e6db74">&#39;bustroker-yamlpipelines-webapi-dev&#39;</span>
 </span></span><span style="display:flex;"><span>              <span style="color:#f92672">containers</span>: <span style="color:#e6db74">&#39;$(containerRegistry)/$(imageRepository):$(tag)&#39;</span>
 </span></span><span style="display:flex;"><span>              <span style="color:#f92672">appSettings</span>: <span style="color:#e6db74">&#39;-ASPNETCORE_ENVIRONMENT dev&#39;</span>
-</span></span><span style="display:flex;"><span>              
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>- <span style="color:#f92672">stage</span>: <span style="color:#ae81ff">IntDeployStage</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">dependsOn</span>: <span style="color:#ae81ff">DevDeployStage</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">displayName</span>: <span style="color:#ae81ff">Int</span>
@@ -280,7 +281,7 @@ audio {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">int</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">pool</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">vmImage</span>: <span style="color:#ae81ff">$(vmImageName)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">runOnce</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">deploy</span>:
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">steps</span>:

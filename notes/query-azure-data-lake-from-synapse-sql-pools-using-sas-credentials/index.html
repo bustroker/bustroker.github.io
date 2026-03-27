@@ -131,12 +131,13 @@ audio {
         
 
 <h1>Query Azure Data Lake from Synapse SQL Pools using SAS credentials</h1>
+<h2 id="query-azure-data-lake-from-synapse-sql-pools-using-sas-credentials">Query Azure Data Lake from Synapse SQL Pools using SAS credentials</h2>
 <h3 id="goal">Goal</h3>
 <p>Query an Azure Data Lake container from Synapse SQL Pools using Shared Access Signature (SAS) authentication.</p>
 <h3 id="create-the-credential">Create the credential</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> CREDENTIAL [https:<span style="color:#f92672">//</span>DATALAKE_ACCOUNT_NAME.dfs.core.windows.net<span style="color:#f92672">/</span>CONTAINER]
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">WITH</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IDENTITY</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SHARED ACCESS SIGNATURE&#39;</span>, 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">IDENTITY</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;SHARED ACCESS SIGNATURE&#39;</span>,
 </span></span><span style="display:flex;"><span>SECRET <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;?sv=2020-08-04&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacupx&amp;se=2022-12-21T21:35:50Z&amp;st=2021-12-21T13:35:50Z&amp;spr=https&amp;sig=************************************&#39;</span>
 </span></span></code></pre></div><p>Replace:</p>
 <ul>

@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/git-stash-and-diff-patches/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/git-stash-and-diff-patches/</guid>
-      <description>Saving Changes to Apply Later in Git Git provides lightweight ways to save uncommitted changes so they can be applied later—useful for repeated deployment tweaks, build configuration changes, or quick context switching without commits.&#xA;Git Stash: Temporary Change Storage Git stash temporarily saves your working directory changes and restores a clean state.&#xA;Basic Stash Operations List all saved stashes:&#xA;git stash list Save current changes with an automatic message:&#xA;git stash Save current changes with a custom description:</description>
+      <description>Git Stash and Diff Patches Saving Changes to Apply Later in Git Git provides lightweight ways to save uncommitted changes so they can be applied later—useful for repeated deployment tweaks, build configuration changes, or quick context switching without commits.&#xA;Git Stash: Temporary Change Storage Git stash temporarily saves your working directory changes and restores a clean state.&#xA;Basic Stash Operations List all saved stashes:&#xA;git stash list Save current changes with an automatic message:</description>
     </item>
   </channel>
 </rss>

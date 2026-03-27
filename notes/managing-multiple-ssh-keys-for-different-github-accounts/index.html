@@ -131,6 +131,7 @@ audio {
         
 
 <h1>Managing Multiple SSH Keys for Different GitHub Accounts</h1>
+<h2 id="managing-multiple-ssh-keys-for-different-github-accounts">Managing Multiple SSH Keys for Different GitHub Accounts</h2>
 <h3 id="goal">Goal</h3>
 <p>Use different SSH keys for multiple GitHub accounts on the same machine.</p>
 <h3 id="generate-ssh-key-pairs">Generate SSH Key Pairs</h3>
@@ -138,11 +139,11 @@ audio {
 </span></span><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#e6db74">&#34;bustroker@email.com&#34;</span> -f <span style="color:#e6db74">&#34;github_bustroker&#34;</span>
 </span></span><span style="display:flex;"><span>ssh-keygen -t rsa -C <span style="color:#e6db74">&#34;bkr@email.com&#34;</span> -f <span style="color:#e6db74">&#34;github_bkr&#34;</span>
 </span></span></code></pre></div><p>This creates:</p>
-<pre tabindex="0"><code>~/.ssh/github_bustroker
-~/.ssh/github_bustroker.pub
-~/.ssh/github_bkr
-~/.ssh/github_bkr.pub
-</code></pre><h3 id="configure-ssh">Configure SSH</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>~/.ssh/github_bustroker
+</span></span><span style="display:flex;"><span>~/.ssh/github_bustroker.pub
+</span></span><span style="display:flex;"><span>~/.ssh/github_bkr
+</span></span><span style="display:flex;"><span>~/.ssh/github_bkr.pub
+</span></span></code></pre></div><h3 id="configure-ssh">Configure SSH</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/.ssh/
 </span></span><span style="display:flex;"><span>touch config
 </span></span><span style="display:flex;"><span>nano config

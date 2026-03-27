@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/install-dotnet-localhost-ssl-certificate-for-development/</guid>
-      <description>Goal Eliminate SSL certificate warnings when running dotnet applications on localhost during development.&#xA;Install and trust the certificate dotnet dev-certs https --trust Confirm when the system prompt appears.&#xA;Verify Restart your browser and navigate to your application (e.g., https://localhost:5001). The SSL warning should be gone.</description>
+      <description>Install dotnet localhost SSL certificate for development Goal Eliminate SSL certificate warnings when running dotnet applications on localhost during development.&#xA;Install and trust the certificate dotnet dev-certs https --trust Confirm when the system prompt appears.&#xA;Verify Restart your browser and navigate to your application (e.g., https://localhost:5001). The SSL warning should be gone.</description>
     </item>
   </channel>
 </rss>

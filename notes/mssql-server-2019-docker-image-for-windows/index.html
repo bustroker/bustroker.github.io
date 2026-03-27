@@ -131,13 +131,14 @@ audio {
         
 
 <h1>MSSQL Server 2019 Docker Image for Windows</h1>
+<h2 id="mssql-server-2019-docker-image-for-windows">MSSQL Server 2019 Docker Image for Windows</h2>
 <p><strong>Goal:</strong> Build a custom Docker image for MSSQL Server 2019 on Windows (official images don&rsquo;t include 2019 yet).</p>
 <h3 id="get-your-windows-version">Get Your Windows Version</h3>
 <p>The base image must match your host Windows version. Run:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">ver</span>
 </span></span></code></pre></div><p>Output example: <code>10.0.19042.867</code></p>
 <h3 id="dockerfile">Dockerfile</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/windows/servercore:10.0.19042.867</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/windows/servercore:10.0.19042.867</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">SHELL</span> [ <span style="color:#e6db74">&#34;powershell&#34;</span> ]<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> ./setupScripts/installSqlServerTools.ps1 /setupScripts/installSqlServerTools.ps1<span style="color:#960050;background-color:#1e0010">
@@ -156,7 +157,7 @@ audio {
 <h3 id="installation-script">Installation Script</h3>
 <p><code>setupScripts/installSqlServerTools.ps1</code> - Installs SQL Server 2019 with TCP enabled on port 1433 and adds SqlPackage to PATH:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#75715e">## install sql server</span>
-</span></span><span style="display:flex;"><span>cd c:/installers/sql2019install/Developer_ENU; 
+</span></span><span style="display:flex;"><span>cd c:/installers/sql2019install/Developer_ENU;
 </span></span><span style="display:flex;"><span>.\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine /UPDATEENABLED=<span style="color:#ae81ff">0</span> /SQLSVCACCOUNT=<span style="color:#e6db74">&#39;NT AUTHORITY\NETWORK SERVICE&#39;</span> /SQLSYSADMINACCOUNTS=<span style="color:#e6db74">&#39;BUILTIN\ADMINISTRATORS&#39;</span> /TCPENABLED=<span style="color:#ae81ff">1</span> /NPENABLED=<span style="color:#ae81ff">0</span> /IACCEPTSQLSERVERLICENSETERMS /INDICATEPROGRESS /SECURITYMODE=SQL /SAPWD=<span style="color:#e6db74">&#34;Password_01&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>stop-service MSSQLSERVER
@@ -195,13 +196,13 @@ audio {
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ($null <span style="color:#f92672">-ne</span> $dbs <span style="color:#f92672">-And</span> $dbs.Length <span style="color:#f92672">-gt</span> <span style="color:#ae81ff">0</span>)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    Write-Verbose <span style="color:#e6db74">&#34;Attaching </span>$($dbs.Length)<span style="color:#e6db74"> database(s)...&#34;</span>
-</span></span><span style="display:flex;"><span>	    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Foreach</span>($db <span style="color:#66d9ef">in</span> $dbs) 
-</span></span><span style="display:flex;"><span>    {            
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Foreach</span>($db <span style="color:#66d9ef">in</span> $dbs)
+</span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>        $files = @();
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">Foreach</span>($file <span style="color:#66d9ef">in</span> $db.dbFiles)
 </span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            $files += <span style="color:#e6db74">&#34;(FILENAME = N&#39;</span>$($file)<span style="color:#e6db74">&#39;)&#34;</span>;           
+</span></span><span style="display:flex;"><span>            $files += <span style="color:#e6db74">&#34;(FILENAME = N&#39;</span>$($file)<span style="color:#e6db74">&#39;)&#34;</span>;
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        $files = $files -join <span style="color:#e6db74">&#34;,&#34;</span>
@@ -214,13 +215,13 @@ audio {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Write-Verbose <span style="color:#e6db74">&#34;Started SQL Server.&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$lastCheck = (Get-Date).AddSeconds(<span style="color:#ae81ff">-2</span>) 
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> ($true) 
-</span></span><span style="display:flex;"><span>{ 
-</span></span><span style="display:flex;"><span>    Get-EventLog -LogName Application -Source <span style="color:#e6db74">&#34;MSSQL*&#34;</span> -After $lastCheck | Select-Object TimeGenerated, EntryType, Message	 
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    $lastCheck = Get-Date 
-</span></span><span style="display:flex;"><span>    Start-Sleep -Seconds <span style="color:#ae81ff">2</span> 
+</span></span><span style="display:flex;"><span>$lastCheck = (Get-Date).AddSeconds(<span style="color:#ae81ff">-2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> ($true)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    Get-EventLog -LogName Application -Source <span style="color:#e6db74">&#34;MSSQL*&#34;</span> -After $lastCheck | Select-Object TimeGenerated, EntryType, Message
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    $lastCheck = Get-Date
+</span></span><span style="display:flex;"><span>    Start-Sleep -Seconds <span style="color:#ae81ff">2</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 

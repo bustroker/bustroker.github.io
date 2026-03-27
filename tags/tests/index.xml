@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/setup-dotnet-solution-with-class-library-and-xunit-tests/</link>
       <pubDate>Thu, 05 Sep 2019 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/setup-dotnet-solution-with-class-library-and-xunit-tests/</guid>
-      <description>Goal Create a .NET Core solution with a class library project and xUnit test project, all configured and ready to use in VS Code.&#xA;Create Solution Structure mkdir Bustroker.Notes cd Bustroker.Notes dotnet new sln -n Bustroker.Notes Create Class Library dotnet new classlib -n Bustroker.Notes dotnet sln add Bustroker.Notes/Bustroker.Notes.csproj Create xUnit Test Project dotnet new xunit -n Bustroker.Notes.Tests dotnet sln add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj Link Test Project to Class Library dotnet add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj reference .</description>
+      <description>Setup dotnet Solution with Class Library and xUnit Tests Goal Create a .NET Core solution with a class library project and xUnit test project, all configured and ready to use in VS Code.&#xA;Create Solution Structure mkdir Bustroker.Notes cd Bustroker.Notes dotnet new sln -n Bustroker.Notes Create Class Library dotnet new classlib -n Bustroker.Notes dotnet sln add Bustroker.Notes/Bustroker.Notes.csproj Create xUnit Test Project dotnet new xunit -n Bustroker.Notes.Tests dotnet sln add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj Link Test Project to Class Library dotnet add .</description>
     </item>
   </channel>
 </rss>

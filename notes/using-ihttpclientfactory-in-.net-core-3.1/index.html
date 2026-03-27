@@ -131,16 +131,17 @@ audio {
         
 
 <h1>Using IHttpClientFactory in .NET Core 3.1</h1>
+<h2 id="using-ihttpclientfactory-in-net-core-31">Using IHttpClientFactory in .NET Core 3.1</h2>
 <h3 id="goal">Goal</h3>
 <p>Use <code>IHttpClientFactory</code> to create HTTP clients with proper lifecycle management and avoid socket exhaustion.</p>
 <h3 id="register-the-factory">Register the factory</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">//Startup.cs</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">//Startup.cs</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ConfigureServices(IServiceCollection services)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    services.AddHttpClient();
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="inject-and-use">Inject and use</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">//HealthController.cs</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">//HealthController.cs</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IHttpClientFactory _clientFactory;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> HealthController(IHttpClientFactory clientFactory)

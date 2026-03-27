@@ -131,35 +131,36 @@ audio {
         
 
 <h1>LLM Agentic Patterns - A Practical Guide</h1>
+<h2 id="llm-agentic-patterns---a-practical-guide">LLM Agentic Patterns - A Practical Guide</h2>
 <h3 id="prompt-engineering-best-practices">Prompt Engineering Best Practices</h3>
 <p><strong>Clear Instructions</strong></p>
-<pre tabindex="0"><code>Be explicit about output format, style, and constraints.
-The model cannot infer unstated requirements.
-</code></pre><p><strong>Few-Shot Examples</strong></p>
-<pre tabindex="0"><code>Example Input: &#34;Analyze sentiment&#34;
-Example Output: {&#34;sentiment&#34;: &#34;positive&#34;, &#34;confidence&#34;: 0.92}
-
-Now analyze: [your actual query]
-</code></pre><p><strong>Reduce Hallucination with References</strong></p>
-<pre tabindex="0"><code>Context: [source documents]
-
-Instructions: Only answer based on the provided context.
-If information is not in the context, say &#34;I don&#39;t know.&#34;
-
-Question: [user query]
-</code></pre><p><strong>Chain-of-Thought Reasoning</strong></p>
-<pre tabindex="0"><code>Problem: [complex task]
-
-First, work out your own solution step by step.
-Then compare it with the expected outcome.
-</code></pre><p><strong>Staged Prompts</strong></p>
-<pre tabindex="0"><code>Stage 1: Extract key entities → output1
-Stage 2: Analyze relationships using output1 → output2
-Stage 3: Generate summary using output2 → final result
-</code></pre><p><strong>Prompt Routing</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Be explicit about output format, style, and constraints.
+</span></span><span style="display:flex;"><span>The model cannot infer unstated requirements.
+</span></span></code></pre></div><p><strong>Few-Shot Examples</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Example Input: &#34;Analyze sentiment&#34;
+</span></span><span style="display:flex;"><span>Example Output: {&#34;sentiment&#34;: &#34;positive&#34;, &#34;confidence&#34;: 0.92}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Now analyze: [your actual query]
+</span></span></code></pre></div><p><strong>Reduce Hallucination with References</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Context</span>: [<span style="color:#ae81ff">source documents]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Instructions</span>: <span style="color:#ae81ff">Only answer based on the provided context.</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">If information is not in the context, say &#34;I don&#39;t know.&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Question</span>: [<span style="color:#ae81ff">user query]</span>
+</span></span></code></pre></div><p><strong>Chain-of-Thought Reasoning</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Problem</span>: [<span style="color:#ae81ff">complex task]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">First, work out your own solution step by step.</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Then compare it with the expected outcome.</span>
+</span></span></code></pre></div><p><strong>Staged Prompts</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Stage 1: Extract key entities → output1
+</span></span><span style="display:flex;"><span>Stage 2: Analyze relationships using output1 → output2
+</span></span><span style="display:flex;"><span>Stage 3: Generate summary using output2 → final result
+</span></span></code></pre></div><p><strong>Prompt Routing</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">route_query</span>(user_input):
 </span></span><span style="display:flex;"><span>    intent <span style="color:#f92672">=</span> detect_intent(user_input)
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> intent <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;simple_faq&#34;</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> small_model(user_input)
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> intent <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;complex_reasoning&#34;</span>:
@@ -202,17 +203,17 @@ Stage 3: Generate summary using output2 → final result
 </span></span></code></pre></div><h3 id="agentic-patterns">Agentic Patterns</h3>
 <p><strong>Agent = LLM + Tools + Memory + Iteration</strong></p>
 <h4 id="react-reason--act">ReAct (Reason + Act)</h4>
-<pre tabindex="0"><code>Thought: I need current weather to answer this.
-Action: call_weather_api(location=&#34;San Francisco&#34;)
-Observation: Temperature is 65°F, sunny
-Thought: Now I can provide the answer.
-Answer: It&#39;s 65°F and sunny in San Francisco.
-</code></pre><h4 id="planning">Planning</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Thought</span>: <span style="color:#ae81ff">I need current weather to answer this.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Action</span>: <span style="color:#ae81ff">call_weather_api(location=&#34;San Francisco&#34;)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Observation</span>: <span style="color:#ae81ff">Temperature is 65°F, sunny</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Thought</span>: <span style="color:#ae81ff">Now I can provide the answer.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Answer</span>: <span style="color:#ae81ff">It&#39;s 65°F and sunny in San Francisco.</span>
+</span></span></code></pre></div><h4 id="planning">Planning</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">plan_task</span>(high_level_goal):
 </span></span><span style="display:flex;"><span>    prompt <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Break down this goal into actionable steps:
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Goal: </span><span style="color:#e6db74">{</span>high_level_goal<span style="color:#e6db74">}</span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Output format:
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Step 1: [action]
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Step 2: [action]
@@ -294,7 +295,7 @@ Answer: It&#39;s 65°F and sunny in San Francisco.
 <li><strong>Frontiers-of-AI-Agents-Tutorial</strong>: <a href="https://frontiers-of-ai-agents-tutorial.github.io/">https://frontiers-of-ai-agents-tutorial.github.io/</a></li>
 </ol>
 <hr>
-<p><em>Source: Stanford Webinar - Agentic AI: A Progression of Language Model Usage</em><br>
+<p><em>Source: Stanford Webinar - Agentic AI: A Progression of Language Model Usage</em>
 <a href="https://www.youtube.com/watch?v=kJLiOGle3Lw&amp;t=1434s">https://www.youtube.com/watch?v=kJLiOGle3Lw&amp;t=1434s</a></p>
 
 

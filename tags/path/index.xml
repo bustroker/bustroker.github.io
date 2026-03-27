@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/recover-lost-path-variable-on-windows/</link>
       <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/recover-lost-path-variable-on-windows/</guid>
-      <description>Goal Recover your Windows PATH variable after it has been corrupted or accidentally cleared.&#xA;Solution Use a running application to access its inherited environment variables. Any application launched before the PATH was broken still has the correct value in memory.&#xA;Steps 1. Open a file dialog from a running application (e.g., Chrome):&#xA;Press Ctrl+O to open the file picker.&#xA;2. Launch CMD from the file picker:&#xA;Click the address bar and type:</description>
+      <description>Recover lost PATH variable on Windows Goal Recover your Windows PATH variable after it has been corrupted or accidentally cleared.&#xA;Solution Use a running application to access its inherited environment variables. Any application launched before the PATH was broken still has the correct value in memory.&#xA;Steps 1. Open a file dialog from a running application (e.g., Chrome):&#xA;Press Ctrl+O to open the file picker.&#xA;2. Launch CMD from the file picker:</description>
     </item>
   </channel>
 </rss>

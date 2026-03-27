@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-.net/</link>
       <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/generate-and-diff-openapi-specs-in-.net/</guid>
-      <description>Goal: Generate OpenAPI specification files from .NET APIs and detect breaking changes between versions.&#xA;Setup Install Swashbuckle tools:&#xA;dotnet add package Swashbuckle.AspNetCore.Swagger dotnet tool install --global Swashbuckle.AspNetCore.Cli dotnet build Generate OpenAPI Spec dotnet build swagger tofile --output &amp;#34;openapi.json&amp;#34; bin/Debug/net8.0/bkr-provider-api.dll v1 Replace bkr-provider-api.dll with your assembly name and v1 with your API version.&#xA;Compare Specs Use openapi-diff to detect breaking changes:&#xA;## Compare two local files docker run --rm -v ${PWD}:/spec openapitools/openapi-diff /spec/openapi_v4.</description>
+      <description>Generate and Diff OpenAPI Specs in .NET Goal: Generate OpenAPI specification files from .NET APIs and detect breaking changes between versions.&#xA;Setup Install Swashbuckle tools:&#xA;dotnet add package Swashbuckle.AspNetCore.Swagger dotnet tool install --global Swashbuckle.AspNetCore.Cli dotnet build Generate OpenAPI Spec dotnet build swagger tofile --output &amp;#34;openapi.json&amp;#34; bin/Debug/net8.0/bkr-provider-api.dll v1 Replace bkr-provider-api.dll with your assembly name and v1 with your API version.&#xA;Compare Specs Use openapi-diff to detect breaking changes:&#xA;## Compare two local files docker run --rm -v ${PWD}:/spec openapitools/openapi-diff /spec/openapi_v4.</description>
     </item>
   </channel>
 </rss>

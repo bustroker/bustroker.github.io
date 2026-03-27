@@ -131,7 +131,8 @@ audio {
         
 
 <h1>Azure App Configuration. On-Demand Refresh</h1>
-<h4 id="the-problem">The Problem</h4>
+<h2 id="azure-app-configuration-on-demand-refresh">Azure App Configuration. On-Demand Refresh</h2>
+<h3 id="the-problem">The Problem</h3>
 <p>Azure App Configuration&rsquo;s default middleware triggers refresh checks on every HTTP request. With a 30-second cache:</p>
 <ul>
 <li><strong>Short cache = High costs</strong>: One request every 30 seconds = 200K+ calls/day across 10 services (beyond free tier)</li>
@@ -197,7 +198,7 @@ audio {
 </span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">var</span> settings = config.Build();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                        config
-</span></span><span style="display:flex;"><span>                            .AddAzureAppConfiguration(options =&gt; 
+</span></span><span style="display:flex;"><span>                            .AddAzureAppConfiguration(options =&gt;
 </span></span><span style="display:flex;"><span>                            {
 </span></span><span style="display:flex;"><span>                                options.Connect(settings[<span style="color:#e6db74">&#34;ConnectionStrings:AzAppConfigurationConnectionString&#34;</span>])
 </span></span><span style="display:flex;"><span>                                    .ConfigureRefresh(refreshOptions =&gt;

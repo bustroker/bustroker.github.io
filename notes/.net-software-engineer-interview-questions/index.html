@@ -131,6 +131,7 @@ audio {
         
 
 <h1>.NET Software Engineer Interview Questions</h1>
+<h2 id="net-software-engineer-interview-questions">.NET Software Engineer Interview Questions</h2>
 <h3 id="language-fundamentals">Language Fundamentals</h3>
 <p><strong>Interface vs Abstract class</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Interface - contract only</span>
@@ -201,7 +202,7 @@ audio {
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OrderController</span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IOrderService _orderService;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> OrderController(IOrderService orderService) 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> OrderController(IOrderService orderService)
 </span></span><span style="display:flex;"><span>        =&gt; _orderService = orderService; <span style="color:#75715e">// Depends on abstraction</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p><strong>Builder Pattern</strong></p>
@@ -209,7 +210,7 @@ audio {
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> _select;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> _from;
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> QueryBuilder Select(<span style="color:#66d9ef">string</span> fields) { _select = fields; <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>; }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> QueryBuilder From(<span style="color:#66d9ef">string</span> table) { _from = table; <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>; }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Build() =&gt; <span style="color:#e6db74">$&#34;SELECT {_select} FROM {_from}&#34;</span>;
@@ -230,7 +231,7 @@ audio {
 </span></span></code></pre></div><h3 id="ddd">DDD</h3>
 <p><strong>Entity vs Value Object vs Aggregate</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Entity - has identity</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Guid Id { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">set</span>; }
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> OrderStatus Status { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">set</span>; }
@@ -262,12 +263,12 @@ audio {
 </span></span></code></pre></div><p>Use with MediatR for separation of reads/writes, different models, and scalability.</p>
 <h3 id="architecture">Architecture</h3>
 <p><strong>REST API Design</strong></p>
-<pre tabindex="0"><code>POST   /api/v1/cars          201 Created
-GET    /api/v1/cars          200 OK
-GET    /api/v1/cars/{id}     200 OK, 404 Not Found
-PUT    /api/v1/cars/{id}     200 OK, 404 Not Found
-DELETE /api/v1/cars/{id}     204 No Content, 404 Not Found
-</code></pre><p><strong>Microservices vs Monolith</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>POST   <span style="color:#f92672">/</span>api<span style="color:#f92672">/</span>v1<span style="color:#f92672">/</span>cars          <span style="color:#ae81ff">201</span> Created
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GET</span>    <span style="color:#f92672">/</span>api<span style="color:#f92672">/</span>v1<span style="color:#f92672">/</span>cars          <span style="color:#ae81ff">200</span> OK
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GET</span>    <span style="color:#f92672">/</span>api<span style="color:#f92672">/</span>v1<span style="color:#f92672">/</span>cars<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">{</span>id<span style="color:#960050;background-color:#1e0010">}</span>     <span style="color:#ae81ff">200</span> OK, <span style="color:#ae81ff">404</span> <span style="color:#66d9ef">Not</span> <span style="color:#66d9ef">Found</span>
+</span></span><span style="display:flex;"><span>PUT    <span style="color:#f92672">/</span>api<span style="color:#f92672">/</span>v1<span style="color:#f92672">/</span>cars<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">{</span>id<span style="color:#960050;background-color:#1e0010">}</span>     <span style="color:#ae81ff">200</span> OK, <span style="color:#ae81ff">404</span> <span style="color:#66d9ef">Not</span> <span style="color:#66d9ef">Found</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DELETE</span> <span style="color:#f92672">/</span>api<span style="color:#f92672">/</span>v1<span style="color:#f92672">/</span>cars<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">{</span>id<span style="color:#960050;background-color:#1e0010">}</span>     <span style="color:#ae81ff">204</span> <span style="color:#66d9ef">No</span> Content, <span style="color:#ae81ff">404</span> <span style="color:#66d9ef">Not</span> <span style="color:#66d9ef">Found</span>
+</span></span></code></pre></div><p><strong>Microservices vs Monolith</strong></p>
 <p>Microservices:</p>
 <ul>
 <li>✅ Independent deployment, technology freedom, scalability</li>

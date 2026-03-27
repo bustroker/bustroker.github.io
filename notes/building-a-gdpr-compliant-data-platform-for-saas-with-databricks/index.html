@@ -131,6 +131,7 @@ audio {
         
 
 <h1>Building a GDPR-Compliant Data Platform for SaaS with Databricks</h1>
+<h2 id="building-a-gdpr-compliant-data-platform-for-saas-with-databricks">Building a GDPR-Compliant Data Platform for SaaS with Databricks</h2>
 <h3 id="goal">Goal</h3>
 <p>Build a data mesh architecture for a SaaS equity management platform that enables internal analytics, external self-service access, and real-time embedded analytics while maintaining GDPR compliance.</p>
 <h3 id="core-requirements">Core Requirements</h3>
@@ -203,7 +204,7 @@ audio {
 </span></span><span style="display:flex;"><span>    current_user: User <span style="color:#f92672">=</span> Depends(get_current_user)
 </span></span><span style="display:flex;"><span>):
 </span></span><span style="display:flex;"><span>    query <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        SELECT * FROM equity_grants 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        SELECT * FROM equity_grants
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        WHERE tenant_id = &#39;</span><span style="color:#e6db74">{</span>current_user<span style="color:#f92672">.</span>tenant_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> databricks_sql<span style="color:#f92672">.</span>execute(query)
@@ -238,11 +239,11 @@ audio {
 <h4 id="subject-access-request">Subject Access Request</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">extract_user_data</span>(user_id: str, tenant_id: str):
 </span></span><span style="display:flex;"><span>    tables <span style="color:#f92672">=</span> unity_catalog<span style="color:#f92672">.</span>list_tables(schema<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gdpr_scope&#34;</span>)
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> table <span style="color:#f92672">in</span> tables:
 </span></span><span style="display:flex;"><span>        query <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            SELECT * FROM </span><span style="color:#e6db74">{</span>table<span style="color:#e6db74">}</span><span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            WHERE tenant_id = &#39;</span><span style="color:#e6db74">{</span>tenant_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            WHERE tenant_id = &#39;</span><span style="color:#e6db74">{</span>tenant_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            AND user_id = &#39;</span><span style="color:#e6db74">{</span>user_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">yield</span> databricks_sql<span style="color:#f92672">.</span>execute(query)
@@ -254,17 +255,17 @@ audio {
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            UPDATE </span><span style="color:#e6db74">{</span>table<span style="color:#e6db74">}</span><span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            SET deleted_at = current_timestamp(),
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                pii_fields = NULL
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            WHERE tenant_id = &#39;</span><span style="color:#e6db74">{</span>tenant_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39; 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            WHERE tenant_id = &#39;</span><span style="color:#e6db74">{</span>tenant_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            AND user_id = &#39;</span><span style="color:#e6db74">{</span>user_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>)
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Audit trail</span>
 </span></span><span style="display:flex;"><span>    log_gdpr_action(<span style="color:#e6db74">&#34;ERASURE&#34;</span>, user_id, tenant_id)
 </span></span></code></pre></div><h4 id="pii-annotation">PII Annotation</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> users 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> users
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">COLUMN</span> email <span style="color:#66d9ef">SET</span> TAGS (<span style="color:#e6db74">&#39;pii&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;email&#39;</span>, <span style="color:#e6db74">&#39;retention&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;7y&#39;</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> users 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">TABLE</span> users
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">COLUMN</span> ssn <span style="color:#66d9ef">SET</span> TAGS (<span style="color:#e6db74">&#39;pii&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;sensitive&#39;</span>, <span style="color:#e6db74">&#39;retention&#39;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;7y&#39;</span>);
 </span></span></code></pre></div><h3 id="metadata-management-with-datahub">Metadata Management with DataHub</h3>
 <p>Deploy DataHub for lineage tracking:</p>
@@ -275,7 +276,7 @@ audio {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">acryldata/datahub-gms:latest</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">DATAHUB_ANALYTICS_ENABLED=true</span>
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">datahub-frontend</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">acryldata/datahub-frontend-react:latest</span>
 </span></span></code></pre></div><p>Ingest Unity Catalog metadata:</p>
@@ -289,7 +290,7 @@ audio {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">workspace_url</span>: <span style="color:#e6db74">&#34;https://workspace.databricks.com&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">token</span>: <span style="color:#e6db74">&#34;${DATABRICKS_TOKEN}&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">unity_catalog_enabled</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">sink</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">type</span>: <span style="color:#ae81ff">datahub-rest</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">config</span>:
@@ -305,7 +306,7 @@ audio {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">-- End User (Employee)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">VIEW</span> user_equity_view <span style="color:#66d9ef">AS</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> equity_grants 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> equity_grants
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> user_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">current_user</span>();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">GRANT</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">ON</span> <span style="color:#66d9ef">VIEW</span> user_equity_view <span style="color:#66d9ef">TO</span> <span style="color:#66d9ef">ROLE</span> end_user;
@@ -323,7 +324,7 @@ audio {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">-- Capture all queries via system tables
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">CREATE</span> LIVE <span style="color:#66d9ef">TABLE</span> query_audit <span style="color:#66d9ef">AS</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span>
 </span></span><span style="display:flex;"><span>  query_start_time,
 </span></span><span style="display:flex;"><span>  user_identity,
 </span></span><span style="display:flex;"><span>  executed_as_user_name,

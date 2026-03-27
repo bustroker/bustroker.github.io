@@ -131,21 +131,22 @@ audio {
         
 
 <h1>Custom Keyboard Shortcuts with AutoHotKey</h1>
+<h2 id="custom-keyboard-shortcuts-with-autohotkey">Custom Keyboard Shortcuts with AutoHotKey</h2>
 <p><strong>Goal:</strong> Remap keyboard combinations to different characters using AutoHotKey.</p>
 <p><strong>Limitation:</strong> Maximum two keys combinations.</p>
-<h4 id="install-autohotkey">Install AutoHotKey</h4>
+<h3 id="install-autohotkey">Install AutoHotKey</h3>
 <p><a href="https://www.autohotkey.com/docs/v2/howto/Install.htm">Download and install</a>. <a href="https://www.autohotkey.com/docs">Documentation</a>.</p>
 <h4 id="map-altz-to-">Map Alt+Z to &lt;</h4>
 <p><code>lessThan.ahk</code></p>
-<pre tabindex="0"><code>!z::
-Send, &lt;
-return
-</code></pre><h4 id="map-altx-to-">Map Alt+X to &gt;</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>!z::
+</span></span><span style="display:flex;"><span>Send, &lt;
+</span></span><span style="display:flex;"><span>return
+</span></span></code></pre></div><h4 id="map-altx-to-">Map Alt+X to &gt;</h4>
 <p><code>greaterThan.ahk</code></p>
-<pre tabindex="0"><code>!x::
-Send, &gt;
-return
-</code></pre><h4 id="activate">Activate</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>!x::
+</span></span><span style="display:flex;"><span>Send, &gt;
+</span></span><span style="display:flex;"><span>return
+</span></span></code></pre></div><h4 id="activate">Activate</h4>
 <p>Double click the <code>.ahk</code> files to run them.</p>
 <h4 id="run-on-startup">Run on Startup</h4>
 <p>Create shortcuts to the <code>.ahk</code> files and copy them into the Windows startup folder.</p>

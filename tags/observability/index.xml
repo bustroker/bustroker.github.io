@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/unified-observability-stack-with-.net-ilogger-elastic-and-sentry/</link>
       <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/unified-observability-stack-with-.net-ilogger-elastic-and-sentry/</guid>
-      <description>Goal Route logs from ILogger&amp;lt;T&amp;gt; to multiple sinks (Console, Elasticsearch, Sentry, Elastic APM) for comprehensive observability across development and production environments.&#xA;Unified Logging Interface ILogger&amp;lt;T&amp;gt; routes logs to all configured sinks based on log levels, filters, and environment:&#xA;_logger.LogWarning(&amp;#34;Something might be wrong here&amp;#34;); This single call outputs to:&#xA;Console (dev environments) Elasticsearch (structured, queryable) Sentry (errors meeting severity threshold) Sink Configuration Sink Captures Triggered By Key Value Console Logs All levels (e.</description>
+      <description>Unified Observability Stack with .NET ILogger, Elastic, and Sentry Goal Route logs from ILogger&amp;lt;T&amp;gt; to multiple sinks (Console, Elasticsearch, Sentry, Elastic APM) for comprehensive observability across development and production environments.&#xA;Unified Logging Interface ILogger&amp;lt;T&amp;gt; routes logs to all configured sinks based on log levels, filters, and environment:&#xA;_logger.LogWarning(&amp;#34;Something might be wrong here&amp;#34;); This single call outputs to:&#xA;Console (dev environments) Elasticsearch (structured, queryable) Sentry (errors meeting severity threshold) Sink Configuration Sink Captures Triggered By Key Value Console Logs All levels (e.</description>
     </item>
   </channel>
 </rss>

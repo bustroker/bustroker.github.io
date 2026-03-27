@@ -131,10 +131,11 @@ audio {
         
 
 <h1>Git Stash and Diff Patches</h1>
-<h2 id="saving-changes-to-apply-later-in-git">Saving Changes to Apply Later in Git</h2>
+<h2 id="git-stash-and-diff-patches">Git Stash and Diff Patches</h2>
+<h3 id="saving-changes-to-apply-later-in-git">Saving Changes to Apply Later in Git</h3>
 <p>Git provides lightweight ways to <strong>save uncommitted changes</strong> so they can be applied later—useful for repeated deployment tweaks, build configuration changes, or quick context switching without commits.</p>
 <hr>
-<h2 id="git-stash-temporary-change-storage">Git Stash: Temporary Change Storage</h2>
+<h3 id="git-stash-temporary-change-storage">Git Stash: Temporary Change Storage</h3>
 <p>Git stash temporarily saves your working directory changes and restores a clean state.</p>
 <h3 id="basic-stash-operations">Basic Stash Operations</h3>
 <p>List all saved stashes:</p>
@@ -152,20 +153,20 @@ audio {
 </span></span></code></pre></div><p>Remove a stash you no longer need:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git stash drop stash@<span style="color:#f92672">{</span>INDEX<span style="color:#f92672">}</span>
 </span></span></code></pre></div><hr>
-<h2 id="diff-patches-named-reusable-change-sets">Diff Patches: Named, Reusable Change Sets</h2>
+<h3 id="diff-patches-named-reusable-change-sets">Diff Patches: Named, Reusable Change Sets</h3>
 <p>Diff patches allow you to <strong>save changes as files</strong>, making them easy to name, reuse, and apply across branches or repositories.</p>
 <p>Save the current working changes into a reusable patch file:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git diff &gt; changes.save
 </span></span></code></pre></div><p>Re-apply the saved changes at any time:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git apply changes.save
 </span></span></code></pre></div><hr>
-<h2 id="when-to-use-each-approach">When to Use Each Approach</h2>
+<h3 id="when-to-use-each-approach">When to Use Each Approach</h3>
 <ul>
 <li><strong>Use stash</strong> for quick, short-term saves while switching tasks or branches</li>
 <li><strong>Use diff patches</strong> for named, repeatable changes that need to be applied on demand</li>
 </ul>
 <hr>
-<h2 id="summary">Summary</h2>
+<h3 id="summary">Summary</h3>
 <ul>
 <li>Git stash is ideal for <strong>temporary local saves</strong></li>
 <li>Diff patches are best for <strong>persistent, reusable change sets</strong></li>

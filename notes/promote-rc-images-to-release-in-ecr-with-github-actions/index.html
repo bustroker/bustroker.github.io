@@ -131,6 +131,7 @@ audio {
         
 
 <h1>Promote RC Images to Release in ECR with GitHub Actions</h1>
+<h2 id="promote-rc-images-to-release-in-ecr-with-github-actions">Promote RC Images to Release in ECR with GitHub Actions</h2>
 <h3 id="goal">Goal</h3>
 <p>Automatically promote the latest release candidate image (<code>x.y.z-rc</code>) in AWS ECR to production (<code>x.y.z</code>) using a GitHub Actions workflow.</p>
 <h3 id="workflow">Workflow</h3>
@@ -148,7 +149,7 @@ audio {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">strategy</span>:
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">matrix</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">repository</span>: 
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">repository</span>:
 </span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">atoss-identity-secrets-setup</span>
 </span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">atoss-identity-svc</span>
 </span></span><span style="display:flex;"><span>
@@ -175,7 +176,7 @@ audio {
 </span></span></code></pre></div><h3 id="reusable-action">Reusable Action</h3>
 <p>Create the following files in <code>/.github/workflows/actions/promote-latest-rc-img-to-release</code>:</p>
 <h4 id="dockerfile">Dockerfile</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> amazonlinux:2</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> amazonlinux:2</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> yum install -y jq aws-cli docker<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> action.sh /action.sh<span style="color:#960050;background-color:#1e0010">
 </span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> chmod +x /action.sh<span style="color:#960050;background-color:#1e0010">

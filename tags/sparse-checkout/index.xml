@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/working-with-git-sparse-checkout/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/working-with-git-sparse-checkout/</guid>
-      <description>Goal: Checkout and work with only a subset of folders from a repository.&#xA;Initial Setup git clone URL --no-checkout # add `--depth 1` to only include latest commit cd REPO_ROOT git sparse-checkout init --cone # `--cone` includes root files git checkout Add Folders to Checkout git sparse-checkout add Apps/OtherApp git sparse-checkout list # view currently checked out paths Create New Folder and Add to Checkout cd ROOT/Apps mkdir OneMoreApp git sparse-checkout add Apps/OneMoreApp git sparse-checkout list Standard Git Operations Work from any included folder:</description>
+      <description>Working with Git Sparse-Checkout Goal: Checkout and work with only a subset of folders from a repository.&#xA;Initial Setup git clone URL --no-checkout # add `--depth 1` to only include latest commit cd REPO_ROOT git sparse-checkout init --cone # `--cone` includes root files git checkout Add Folders to Checkout git sparse-checkout add Apps/OtherApp git sparse-checkout list # view currently checked out paths Create New Folder and Add to Checkout cd ROOT/Apps mkdir OneMoreApp git sparse-checkout add Apps/OneMoreApp git sparse-checkout list Standard Git Operations Work from any included folder:</description>
     </item>
   </channel>
 </rss>

@@ -131,6 +131,7 @@ audio {
         
 
 <h1>Run Elasticsearch in Docker inside Vagrant VM</h1>
+<h2 id="run-elasticsearch-in-docker-inside-vagrant-vm">Run Elasticsearch in Docker inside Vagrant VM</h2>
 <h3 id="goal">Goal</h3>
 <p>Run Elasticsearch in a Docker container inside an Ubuntu VM managed by Vagrant, with data persistence and port forwarding to your host machine.</p>
 <h3 id="setup-files">Setup Files</h3>
@@ -140,9 +141,9 @@ audio {
 </span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>synced_folder <span style="color:#e6db74">&#34;./&#34;</span>, <span style="color:#e6db74">&#34;/vagrant&#34;</span>
 </span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;forwarded_port&#34;</span>, <span style="color:#e6db74">guest</span>: <span style="color:#ae81ff">9200</span>, <span style="color:#e6db74">host</span>: <span style="color:#ae81ff">9200</span>
 </span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>network <span style="color:#e6db74">&#34;forwarded_port&#34;</span>, <span style="color:#e6db74">guest</span>: <span style="color:#ae81ff">9300</span>, <span style="color:#e6db74">host</span>: <span style="color:#ae81ff">9300</span>
-</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">:shell</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;vagrant_provision.sh&#34;</span>  
+</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provision <span style="color:#e6db74">:shell</span>, <span style="color:#e6db74">path</span>: <span style="color:#e6db74">&#34;vagrant_provision.sh&#34;</span>
 </span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>vm<span style="color:#f92672">.</span>provider <span style="color:#e6db74">&#34;virtualbox&#34;</span> <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>vb<span style="color:#f92672">|</span>
-</span></span><span style="display:flex;"><span>      vb<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Elasticsearch&#34;</span>     
+</span></span><span style="display:flex;"><span>      vb<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Elasticsearch&#34;</span>
 </span></span><span style="display:flex;"><span>      vb<span style="color:#f92672">.</span>memory <span style="color:#f92672">=</span> <span style="color:#ae81ff">1024</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>

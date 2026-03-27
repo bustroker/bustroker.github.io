@@ -131,13 +131,14 @@ audio {
         
 
 <h1>ILogger&lt;TCategory&gt; with Azure App Service Application Insights &#43; Live Metrics</h1>
+<h2 id="iloggertcategory-with-azure-app-service-application-insights--live-metrics">ILogger<TCategory> with Azure App Service Application Insights + Live Metrics</h2>
 <h3 id="goal">Goal</h3>
 <p>Send <code>ILogger&lt;TCategory&gt;</code> logs to Azure Application Insights and enable Live Metrics.</p>
 <h3 id="setup-application-insights">Setup Application Insights</h3>
 <p>Install the package:</p>
-<pre tabindex="0"><code>dotnet add package Microsoft.ApplicationInsights.AspnetCore
-</code></pre><p>Register the service:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// Startup.cs</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet add package Microsoft.ApplicationInsights.AspnetCore
+</span></span></code></pre></div><p>Register the service:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Startup.cs</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ConfigureServices(IServiceCollection services)
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    services.AddApplicationInsightsTelemetry();
@@ -153,7 +154,7 @@ audio {
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Alternatively, pass the key directly to <code>AddApplicationInsightsTelemetry()</code>.</p>
 <h3 id="configure-ilogger-to-send-to-application-insights">Configure ILogger to Send to Application Insights</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">// Program.cs</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Program.cs</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IHostBuilder CreateHostBuilder(<span style="color:#66d9ef">string</span>[] args) =&gt;
 </span></span><span style="display:flex;"><span>    Host.CreateDefaultBuilder(args)
 </span></span><span style="display:flex;"><span>        .ConfigureLogging(logging =&gt;
@@ -161,7 +162,7 @@ audio {
 </span></span><span style="display:flex;"><span>            logging.ClearProviders();
 </span></span><span style="display:flex;"><span>            logging.AddConsole();
 </span></span><span style="display:flex;"><span>            logging.AddApplicationInsights()
-</span></span><span style="display:flex;"><span>                .AddFilter&lt;ApplicationInsightsLoggerProvider&gt;(<span style="color:#e6db74">&#34;&#34;</span>, LogLevel.Information); 
+</span></span><span style="display:flex;"><span>                .AddFilter&lt;ApplicationInsightsLoggerProvider&gt;(<span style="color:#e6db74">&#34;&#34;</span>, LogLevel.Information);
 </span></span><span style="display:flex;"><span>        })
 </span></span><span style="display:flex;"><span>        .ConfigureWebHostDefaults(webBuilder =&gt;
 </span></span><span style="display:flex;"><span>        {
@@ -172,8 +173,8 @@ audio {
 <h3 id="view-logs">View Logs</h3>
 <p>Logs appear in the <strong>traces</strong> collection in Application Insights, not in requests.</p>
 <h3 id="enable-live-metrics">Enable Live Metrics</h3>
-<pre tabindex="0"><code>dotnet add package Microsoft.ApplicationInsights.PerfCounterCollector
-</code></pre><p>No additional configuration needed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet add package Microsoft.ApplicationInsights.PerfCounterCollector
+</span></span></code></pre></div><p>No additional configuration needed.</p>
 
 
 

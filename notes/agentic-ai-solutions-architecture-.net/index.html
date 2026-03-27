@@ -131,12 +131,13 @@ audio {
         
 
 <h1>Agentic AI Solutions Architecture .NET</h1>
+<h2 id="agentic-ai-solutions-architecture-net">Agentic AI Solutions Architecture .NET</h2>
 <p>This white paper is designed to align an extensive background in distributed systems  with the specific requirements of an <strong>Agentic AI</strong> architecture role. It bridges the experience in <strong>.NET, Azure, and DDD</strong>  with the cutting-edge patterns required for autonomous AI systems.</p>
 <hr>
-<h1 id="white-paper-architecting-agentic-ai-systems-in-net--azure">White Paper: Architecting Agentic AI Systems in .NET &amp; Azure</h1>
+<h3 id="white-paper-architecting-agentic-ai-systems-in-net--azure">White Paper: Architecting Agentic AI Systems in .NET &amp; Azure</h3>
 <p><strong>Prepared for:</strong> Senior Solutions Architect</p>
 <p><strong>Subject:</strong> Technical Foundations for Market-Leading Agentic AI in Pharma</p>
-<h2 id="1-core-concepts-beyond-simple-llms">1. Core Concepts: Beyond Simple LLMs</h2>
+<h3 id="1-core-concepts-beyond-simple-llms">1. Core Concepts: Beyond Simple LLMs</h3>
 <p>While standard AI follows a linear path (Input → LLM → Output), <strong>Agentic AI</strong> introduces a &ldquo;reasoning loop&rdquo; where the system determines its own execution path.</p>
 <ul>
 <li><strong>The Reasoning Loop:</strong> The core engine (usually an LLM) interprets a goal, breaks it into steps, executes a tool, observes the result, and iterates until the goal is met.</li>
@@ -145,7 +146,7 @@ audio {
 <li><strong>State &amp; Memory:</strong> Maintaining context across long-running &ldquo;conversations&rdquo; or complex scientific workflows.</li>
 </ul>
 <hr>
-<h2 id="2-architectural-patterns-for-agentic-systems">2. Architectural Patterns for Agentic Systems</h2>
+<h3 id="2-architectural-patterns-for-agentic-systems">2. Architectural Patterns for Agentic Systems</h3>
 <h3 id="a-the-orchestrator-pattern-semantic-kernel">A. The Orchestrator Pattern (Semantic Kernel)</h3>
 <p>In the .NET ecosystem, <strong>Semantic Kernel (SK)</strong> is the primary framework. It treats the LLM as a &ldquo;kernel&rdquo; that orchestrates &ldquo;plugins&rdquo; (your existing C# code).</p>
 <ul>
@@ -164,7 +165,7 @@ audio {
 <li><strong>Pattern:</strong> The agent writes and executes temporary Python or C# scripts to perform complex calculations or data analysis.</li>
 </ul>
 <hr>
-<h2 id="3-the-net--azure-implementation-stack">3. The .NET &amp; Azure Implementation Stack</h2>
+<h3 id="3-the-net--azure-implementation-stack">3. The .NET &amp; Azure Implementation Stack</h3>
 <h3 id="infrastructure-as-code-bicepterraform">Infrastructure as Code (Bicep/Terraform)</h3>
 <p>For a pharmaceutical product, your IaC must provision a &ldquo;Secure AI Landing Zone.&rdquo;</p>
 <ul>
@@ -189,7 +190,7 @@ audio {
 <li><strong>Traceability:</strong> In Pharma, you must be able to &ldquo;audit&rdquo; why an agent made a specific decision. Store the full reasoning chain (the &ldquo;Thought&rdquo; process) in <strong>Azure Cosmos DB</strong>.</li>
 </ul>
 <hr>
-<h2 id="4-testing-the-non-deterministic">4. Testing the Non-Deterministic</h2>
+<h3 id="4-testing-the-non-deterministic">4. Testing the Non-Deterministic</h3>
 <p>Testing agents is harder than testing standard APIs because the &ldquo;answer&rdquo; can change.</p>
 <ul>
 <li><strong>LLM-as-a-Judge:</strong> Use a stronger model (GPT-4o) to grade the outputs of your agentic model.</li>

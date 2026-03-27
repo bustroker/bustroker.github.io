@@ -131,23 +131,24 @@ audio {
         
 
 <h1>Setup dotnet Solution with Class Library and xUnit Tests</h1>
+<h2 id="setup-dotnet-solution-with-class-library-and-xunit-tests">Setup dotnet Solution with Class Library and xUnit Tests</h2>
 <h3 id="goal">Goal</h3>
 <p>Create a .NET Core solution with a class library project and xUnit test project, all configured and ready to use in VS Code.</p>
 <h3 id="create-solution-structure">Create Solution Structure</h3>
-<pre tabindex="0"><code>mkdir Bustroker.Notes
-cd Bustroker.Notes
-dotnet new sln -n Bustroker.Notes
-</code></pre><h3 id="create-class-library">Create Class Library</h3>
-<pre tabindex="0"><code>dotnet new classlib -n Bustroker.Notes
-dotnet sln add Bustroker.Notes/Bustroker.Notes.csproj
-</code></pre><h3 id="create-xunit-test-project">Create xUnit Test Project</h3>
-<pre tabindex="0"><code>dotnet new xunit -n Bustroker.Notes.Tests
-dotnet sln add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj
-</code></pre><h3 id="link-test-project-to-class-library">Link Test Project to Class Library</h3>
-<pre tabindex="0"><code>dotnet add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj reference ./Bustroker.Notes/Bustroker.Notes.csproj
-</code></pre><h3 id="open-in-vs-code">Open in VS Code</h3>
-<pre tabindex="0"><code>code .
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir Bustroker.Notes
+</span></span><span style="display:flex;"><span>cd Bustroker.Notes
+</span></span><span style="display:flex;"><span>dotnet new sln -n Bustroker.Notes
+</span></span></code></pre></div><h3 id="create-class-library">Create Class Library</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet new classlib -n Bustroker.Notes
+</span></span><span style="display:flex;"><span>dotnet sln add Bustroker.Notes/Bustroker.Notes.csproj
+</span></span></code></pre></div><h3 id="create-xunit-test-project">Create xUnit Test Project</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet new xunit -n Bustroker.Notes.Tests
+</span></span><span style="display:flex;"><span>dotnet sln add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj
+</span></span></code></pre></div><h3 id="link-test-project-to-class-library">Link Test Project to Class Library</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet add ./Bustroker.Notes.Tests/Bustroker.Notes.Tests.csproj reference ./Bustroker.Notes/Bustroker.Notes.csproj
+</span></span></code></pre></div><h3 id="open-in-vs-code">Open in VS Code</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>code .
+</span></span></code></pre></div>
 
 
       </main>

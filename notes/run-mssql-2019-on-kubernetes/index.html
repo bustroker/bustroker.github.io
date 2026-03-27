@@ -131,6 +131,7 @@ audio {
         
 
 <h1>Run MSSQL 2019 on Kubernetes</h1>
+<h2 id="run-mssql-2019-on-kubernetes">Run MSSQL 2019 on Kubernetes</h2>
 <h3 id="goal">Goal</h3>
 <p>Deploy MSSQL Server 2019 on Kubernetes with persistent storage and optional Azure File Share mount.</p>
 <h3 id="create-sa-password-secret">Create SA Password Secret</h3>
@@ -195,7 +196,7 @@ audio {
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">valueFrom</span>:
 </span></span><span style="display:flex;"><span>            <span style="color:#f92672">secretKeyRef</span>:
 </span></span><span style="display:flex;"><span>              <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mssql</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">SA_PASSWORD </span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">key</span>: <span style="color:#ae81ff">SA_PASSWORD</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">volumeMounts</span>:
 </span></span><span style="display:flex;"><span>        - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">mssqldb</span>
 </span></span><span style="display:flex;"><span>          <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/var/opt/mssql</span>

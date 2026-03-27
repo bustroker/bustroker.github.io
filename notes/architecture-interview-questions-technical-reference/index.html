@@ -131,6 +131,7 @@ audio {
         
 
 <h1>Architecture Interview Questions - Technical Reference</h1>
+<h2 id="architecture-interview-questions---technical-reference">Architecture Interview Questions - Technical Reference</h2>
 <h3 id="architect-vs-tech-lead">Architect vs Tech Lead</h3>
 <p><strong>Main concerns:</strong></p>
 <ul>
@@ -232,22 +233,22 @@ audio {
 <li>OIDC: Authentication layer on OAuth</li>
 </ul>
 <p><strong>Flows:</strong></p>
-<pre tabindex="0"><code>Authorization Code: Server-to-server communication
-Authorization Code + PKCE: Public clients (SPAs, mobile)
-Resource Owner Password: Legacy (avoid if possible)
-</code></pre><h3 id="high-availability-on-azure">High Availability on Azure</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Authorization Code: Server-to-server communication
+</span></span><span style="display:flex;"><span>Authorization Code + PKCE: Public clients (SPAs, mobile)
+</span></span><span style="display:flex;"><span>Resource Owner Password: Legacy (avoid if possible)
+</span></span></code></pre></div><h3 id="high-availability-on-azure">High Availability on Azure</h3>
 <p><strong>Infrastructure:</strong></p>
 <ul>
 <li>Availability Zones: Zone-redundant deployment</li>
 <li>Multi-region: Cross-region replication</li>
 </ul>
 <p><strong>Deployment strategies:</strong></p>
-<pre tabindex="0"><code>Active-Active: Load balanced across regions
-Active-Passive: Failover to standby region
-
-RPO (Recovery Point Objective): Max acceptable data loss
-RTO (Recovery Time Objective): Max acceptable downtime
-</code></pre><p><strong>Deployment patterns:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Active-Active</span>: <span style="color:#ae81ff">Load balanced across regions</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Active-Passive</span>: <span style="color:#ae81ff">Failover to standby region</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">RPO (Recovery Point Objective)</span>: <span style="color:#ae81ff">Max acceptable data loss</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">RTO (Recovery Time Objective)</span>: <span style="color:#ae81ff">Max acceptable downtime</span>
+</span></span></code></pre></div><p><strong>Deployment patterns:</strong></p>
 <ul>
 <li>Blue/Green: Zero-downtime deployment via environment swap</li>
 <li>Canary: Gradual traffic shift to new version</li>
@@ -259,13 +260,13 @@ RTO (Recovery Time Objective): Max acceptable downtime
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 1. Save business entity</span>
 </span></span><span style="display:flex;"><span>    dbContext.Orders.Add(order);
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 2. Save message to outbox table</span>
-</span></span><span style="display:flex;"><span>    dbContext.OutboxMessages.Add(<span style="color:#66d9ef">new</span> OutboxMessage 
-</span></span><span style="display:flex;"><span>    { 
-</span></span><span style="display:flex;"><span>        Payload = JsonSerializer.Serialize(orderCreatedEvent) 
+</span></span><span style="display:flex;"><span>    dbContext.OutboxMessages.Add(<span style="color:#66d9ef">new</span> OutboxMessage
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        Payload = JsonSerializer.Serialize(orderCreatedEvent)
 </span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> dbContext.SaveChangesAsync();
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> transaction.CommitAsync();
 </span></span><span style="display:flex;"><span>}
@@ -297,10 +298,10 @@ RTO (Recovery Time Objective): Max acceptable downtime
 </ul>
 <h3 id="cicd">CI/CD</h3>
 <p><strong>Definitions:</strong></p>
-<pre tabindex="0"><code>CI (Continuous Integration): Automated build + test on commit
-CD (Continuous Delivery): Always releasable, manual deployment trigger
-CD (Continuous Deployment): Automated production deployment
-</code></pre><p><strong>Branching strategies:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>CI (Continuous Integration): Automated build + test on commit
+</span></span><span style="display:flex;"><span>CD (Continuous Delivery): Always releasable, manual deployment trigger
+</span></span><span style="display:flex;"><span>CD (Continuous Deployment): Automated production deployment
+</span></span></code></pre></div><p><strong>Branching strategies:</strong></p>
 <ul>
 <li>Trunk-based: Short-lived branches, frequent integration</li>
 <li>GitFlow: Feature/develop/release/hotfix branches</li>
@@ -350,18 +351,18 @@ CD (Continuous Deployment): Automated production deployment
 <li>Retrospective</li>
 </ul>
 <p><strong>Requirement lifecycle with Architect:</strong></p>
-<pre tabindex="0"><code>PO defines requirement
-  ↓
-Architect reviews for technical feasibility/NFRs
-  ↓
-SM facilitates refinement with Tech Lead + Dev Team
-  ↓
-Sprint Planning: Architect provides design guidance
-  ↓
-Development: Tech Lead ensures implementation quality
-  ↓
-Review: Architect validates solution
-</code></pre><h3 id="react-native-mobile">React Native (Mobile)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ae81ff">PO defines requirement</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">↓</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">Architect reviews for technical feasibility/NFRs</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">↓</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">SM facilitates refinement with Tech Lead + Dev Team</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">↓</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Sprint Planning</span>: <span style="color:#ae81ff">Architect provides design guidance</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">↓</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Development</span>: <span style="color:#ae81ff">Tech Lead ensures implementation quality</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">↓</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">Review</span>: <span style="color:#ae81ff">Architect validates solution</span>
+</span></span></code></pre></div><h3 id="react-native-mobile">React Native (Mobile)</h3>
 <p><strong>React Native vs Native:</strong></p>
 <ul>
 <li>Code sharing across iOS/Android</li>
@@ -393,7 +394,7 @@ Review: Architect validates solution
 </span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">/auth</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">/orders</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">/profile</span>
-</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// Dependency injection for cross-cutting concerns
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">container</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createContainer</span>();
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">container</span>.<span style="color:#a6e22e">register</span>(<span style="color:#e6db74">&#39;api&#39;</span>, <span style="color:#a6e22e">ApiService</span>);

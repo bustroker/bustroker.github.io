@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/passing-arguments-to-batch-and-bash-scripts/</link>
       <pubDate>Tue, 29 Sep 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/passing-arguments-to-batch-and-bash-scripts/</guid>
-      <description>Windows Batch Script //windows-script.bat set firstArgument=%1% set secondArgument=%2% echo You passed first %firstArgument% and second %secondArgument% Usage:&#xA;.\windows-script.bat &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Unix Bash Script //unix-script.bash ##!/bin/sh firstArgument=$1 secondArgument=$2 echo You passed first $firstArgument and second $secondArgument ## to give a default value to the argument arg=&amp;#34;${1:-DEFAULT_VALUE}&amp;#34; Usage:&#xA;bash unix-script.bash &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Default values: Use ${1:-DEFAULT_VALUE} syntax to provide fallback when no argument is passed.</description>
+      <description>Passing Arguments to Batch and Bash Scripts Windows Batch Script //windows-script.bat set firstArgument=%1% set secondArgument=%2% echo You passed first %firstArgument% and second %secondArgument% Usage:&#xA;.\windows-script.bat &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Unix Bash Script //unix-script.bash ##!/bin/sh firstArgument=$1 secondArgument=$2 echo You passed first $firstArgument and second $secondArgument ## to give a default value to the argument arg=&amp;#34;${1:-DEFAULT_VALUE}&amp;#34; Usage:&#xA;bash unix-script.bash &amp;#34;little donald&amp;#34; &amp;#34;had a farm&amp;#34; Default values: Use ${1:-DEFAULT_VALUE} syntax to provide fallback when no argument is passed.</description>
     </item>
   </channel>
 </rss>

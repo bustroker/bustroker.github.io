@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/using-sqlcmd-cli-for-sql-server/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/using-sqlcmd-cli-for-sql-server/</guid>
-      <description>Goal Execute SQL Server queries and scripts from the command line using sqlcmd.&#xA;Installation The sqlcmd.exe utility comes with Visual Studio 2019 or SQL Server 2019.&#xA;Location:&#xA;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Add this path to your system PATH environment variable.&#xA;Execute a SQL Script sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Interactive Query Session sqlcmd -S localhost -U sa -P password -d database select * from transactions go Run from Docker Container Connect to SQL Server running on host machine:</description>
+      <description>Using sqlcmd CLI for SQL Server Goal Execute SQL Server queries and scripts from the command line using sqlcmd.&#xA;Installation The sqlcmd.exe utility comes with Visual Studio 2019 or SQL Server 2019.&#xA;Location:&#xA;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Add this path to your system PATH environment variable.&#xA;Execute a SQL Script sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Interactive Query Session sqlcmd -S localhost -U sa -P password -d database select * from transactions go Run from Docker Container Connect to SQL Server running on host machine:</description>
     </item>
   </channel>
 </rss>

@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/using-ihttpclientfactory-in-.net-core-3.1/</link>
       <pubDate>Sat, 21 Mar 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/using-ihttpclientfactory-in-.net-core-3.1/</guid>
-      <description>Goal Use IHttpClientFactory to create HTTP clients with proper lifecycle management and avoid socket exhaustion.&#xA;Register the factory //Startup.cs public void ConfigureServices(IServiceCollection services) { services.AddHttpClient(); } Inject and use //HealthController.cs private readonly IHttpClientFactory _clientFactory; public HealthController(IHttpClientFactory clientFactory) { _clientFactory = clientFactory; } // Create clients on demand var client = _clientFactory.CreateClient(); var response = await client.GetAsync(&amp;#34;https://api.example.com/health&amp;#34;); </description>
+      <description>Using IHttpClientFactory in .NET Core 3.1 Goal Use IHttpClientFactory to create HTTP clients with proper lifecycle management and avoid socket exhaustion.&#xA;Register the factory //Startup.cs public void ConfigureServices(IServiceCollection services) { services.AddHttpClient(); } Inject and use //HealthController.cs private readonly IHttpClientFactory _clientFactory; public HealthController(IHttpClientFactory clientFactory) { _clientFactory = clientFactory; } // Create clients on demand var client = _clientFactory.CreateClient(); var response = await client.GetAsync(&amp;#34;https://api.example.com/health&amp;#34;); </description>
     </item>
   </channel>
 </rss>

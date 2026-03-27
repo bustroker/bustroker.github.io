@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/.net-templates-and-database-migrations/</link>
       <pubDate>Thu, 26 Jun 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/.net-templates-and-database-migrations/</guid>
-      <description>.NET Custom Templates Testing Locally ## Clone and navigate to repository cd templates/bkr.microservice ## Install template dotnet new -i . ## Create new service mkdir MyService &amp;amp;&amp;amp; cd MyService dotnet new bkr.microservice --name Cheese.Cake Distributing via Package ## Create package dotnet pack ## Install from package dotnet new -i ./bin/Debug/Bkr.Template.Service.1.0.0.nupkg ## Use template mkdir MyService &amp;amp;&amp;amp; cd MyService dotnet new bkr.microservice --name Cheese.Cake Template Structure When adding new projects, include them in both solutions:</description>
+      <description>.NET Templates and Database Migrations .NET Custom Templates Testing Locally ## Clone and navigate to repository cd templates/bkr.microservice ## Install template dotnet new -i . ## Create new service mkdir MyService &amp;amp;&amp;amp; cd MyService dotnet new bkr.microservice --name Cheese.Cake Distributing via Package ## Create package dotnet pack ## Install from package dotnet new -i ./bin/Debug/Bkr.Template.Service.1.0.0.nupkg ## Use template mkdir MyService &amp;amp;&amp;amp; cd MyService dotnet new bkr.microservice --name Cheese.Cake Template Structure When adding new projects, include them in both solutions:</description>
     </item>
   </channel>
 </rss>

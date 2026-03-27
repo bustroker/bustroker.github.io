@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/redis-cli-essential-commands/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/redis-cli-essential-commands/</guid>
-      <description>Installation brew install redis Connect to Redis redis-cli -h your-cluster-endpoint -p your-cluster-port Query Keys ## List all keys keys * ## Pattern matching keys prefix-* ## Check key type type &amp;lt;key&amp;gt; Read Values ## String values get &amp;lt;key&amp;gt; ## Hash values hgetall &amp;lt;key&amp;gt; Check Expiration ttl &amp;lt;key&amp;gt; Returns:&#xA;-2: key doesn&amp;rsquo;t exist -1: key has no expiration n: seconds until expiration </description>
+      <description>Redis CLI Essential Commands Installation brew install redis Connect to Redis redis-cli -h your-cluster-endpoint -p your-cluster-port Query Keys ## List all keys keys * ## Pattern matching keys prefix-* ## Check key type type &amp;lt;key&amp;gt; Read Values ## String values get &amp;lt;key&amp;gt; ## Hash values hgetall &amp;lt;key&amp;gt; Check Expiration ttl &amp;lt;key&amp;gt; Returns:&#xA;-2: key doesn&amp;rsquo;t exist -1: key has no expiration n: seconds until expiration </description>
     </item>
   </channel>
 </rss>

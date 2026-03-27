@@ -131,22 +131,23 @@ audio {
         
 
 <h1>Adding Images to Hugo Sites</h1>
+<h2 id="adding-images-to-hugo-sites">Adding Images to Hugo Sites</h2>
 <h3 id="goal">Goal</h3>
 <p>Add images to your Hugo site pages using the appropriate method for your use case.</p>
 <h3 id="methods">Methods</h3>
 <h4 id="page-bundles">Page Bundles</h4>
 <p>Place images alongside your markdown file:</p>
-<pre tabindex="0"><code>content/posts/my-post/
-├── index.md
-├── my-image.jpg
-</code></pre><p>Reference in <code>index.md</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>content/posts/my-post/
+</span></span><span style="display:flex;"><span>├── index.md
+</span></span><span style="display:flex;"><span>├── my-image.jpg
+</span></span></code></pre></div><p>Reference in <code>index.md</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>![<span style="color:#f92672">Alt text</span>](<span style="color:#a6e22e">my-image.jpg</span>)
 </span></span></code></pre></div><p>or with full path:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>![<span style="color:#f92672">Alt text</span>](<span style="color:#a6e22e">/posts/my-post/my-image.jpg</span>)
 </span></span></code></pre></div><h4 id="static-directory">Static Directory</h4>
 <p>For globally shared images:</p>
-<pre tabindex="0"><code>static/images/my-image.jpg
-</code></pre><p>Reference in markdown:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>static/images/my-image.jpg
+</span></span></code></pre></div><p>Reference in markdown:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>![<span style="color:#f92672">Alt text</span>](<span style="color:#a6e22e">/images/my-image.jpg</span>)
 </span></span></code></pre></div><h4 id="hugo-figure-shortcode">Hugo Figure Shortcode</h4>
 <p>For captions and additional styling:</p>

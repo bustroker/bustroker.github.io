@@ -131,6 +131,7 @@ audio {
         
 
 <h1>Running Docker on Mac with Colima</h1>
+<h2 id="running-docker-on-mac-with-colima">Running Docker on Mac with Colima</h2>
 <p><strong>Goal:</strong> Replace Docker Desktop with Colima, a lightweight alternative for running Docker containers on Mac and Linux.</p>
 <p>Find Colima at <a href="https://github.com/abiosoft/colima">https://github.com/abiosoft/colima</a></p>
 <h3 id="installation">Installation</h3>
@@ -142,8 +143,8 @@ audio {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps
 </span></span></code></pre></div><h3 id="fix-docker-socket-issues">Fix Docker Socket Issues</h3>
 <p>Some applications fail to connect with:</p>
-<pre tabindex="0"><code>Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
-</code></pre><p>Set the correct socket path:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+</span></span></code></pre></div><p>Set the correct socket path:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export DOCKER_HOST<span style="color:#f92672">=</span>unix://<span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span>/.colima/default/docker.sock
 </span></span></code></pre></div>
 

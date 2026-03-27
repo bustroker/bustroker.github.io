@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/jmeter-command-line-and-dashboard-reports/</link>
       <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/jmeter-command-line-and-dashboard-reports/</guid>
-      <description>Running JMeter from Command Line Execute tests in non-GUI mode for better performance:&#xA;jmeter -n -t test-plan.jmx -l results.jtl Key parameters:&#xA;-n - Non-GUI mode -t - Test plan file -l - Results log file Generating Dashboard Reports Option 1: Generate During Test Execution jmeter -n -t test-plan.jmx -l results.jtl -e -o /path/to/output/folder Additional parameters:&#xA;-e - Generate report after test -o - Output folder for dashboard Option 2: Generate from Existing Results jmeter -g results.</description>
+      <description>JMeter Command Line and Dashboard Reports Running JMeter from Command Line Execute tests in non-GUI mode for better performance:&#xA;jmeter -n -t test-plan.jmx -l results.jtl Key parameters:&#xA;-n - Non-GUI mode -t - Test plan file -l - Results log file Generating Dashboard Reports Option 1: Generate During Test Execution jmeter -n -t test-plan.jmx -l results.jtl -e -o /path/to/output/folder Additional parameters:&#xA;-e - Generate report after test -o - Output folder for dashboard Option 2: Generate from Existing Results jmeter -g results.</description>
     </item>
   </channel>
 </rss>

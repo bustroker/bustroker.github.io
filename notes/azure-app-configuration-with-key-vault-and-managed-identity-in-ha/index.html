@@ -131,8 +131,9 @@ audio {
         
 
 <h1>Azure App Configuration with Key Vault and Managed Identity in HA</h1>
+<h2 id="azure-app-configuration-with-key-vault-and-managed-identity-in-ha">Azure App Configuration with Key Vault and Managed Identity in HA</h2>
 <p><strong>Goal:</strong> Production-ready Azure App Configuration setup with Key Vault secrets, Managed Identity authentication, and High Availability.</p>
-<h4 id="how-the-client-works">How the Client Works</h4>
+<h3 id="how-the-client-works">How the Client Works</h3>
 <p>Azure App Configuration client uses the <strong>sentinel pattern</strong> - a single key that determines if a full configuration refresh is needed.</p>
 <p>On <code>Refresh()</code>:</p>
 <ol>
@@ -150,11 +151,11 @@ audio {
 <p><strong>Note:</strong> App Configuration only stores Key Vault references, not values. Your app retrieves the actual secret from Key Vault.</p>
 <h4 id="create-parameters">Create Parameters</h4>
 <p>Use JSON-like structure: <code>[ApplicationName]:[ParamName]</code></p>
-<pre tabindex="0"><code>Bustroker.AzureAppConfiguration.WebApi:Sentinel =&gt; 0
-Bustroker.AzureAppConfiguration.WebApi:CsvValues =&gt; Mr Orange,Mr Pink,Mr Brown
-Bustroker.AzureAppConfiguration.WebApi:IntegerValue =&gt; 69
-Bustroker.AzureAppConfiguration.WebApi:SecretInKeyvault =&gt; (Key Vault Reference)
-</code></pre><p>For the Key Vault secret, select &ldquo;Key Vault Reference&rdquo; instead of &ldquo;Key-value&rdquo; when creating it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Bustroker.AzureAppConfiguration.WebApi:Sentinel =&gt; 0
+</span></span><span style="display:flex;"><span>Bustroker.AzureAppConfiguration.WebApi:CsvValues =&gt; Mr Orange,Mr Pink,Mr Brown
+</span></span><span style="display:flex;"><span>Bustroker.AzureAppConfiguration.WebApi:IntegerValue =&gt; 69
+</span></span><span style="display:flex;"><span>Bustroker.AzureAppConfiguration.WebApi:SecretInKeyvault =&gt; (Key Vault Reference)
+</span></span></code></pre></div><p>For the Key Vault secret, select &ldquo;Key Vault Reference&rdquo; instead of &ldquo;Key-value&rdquo; when creating it.</p>
 <h4 id="implementation">Implementation</h4>
 <p>Install package:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
@@ -171,10 +172,10 @@ Bustroker.AzureAppConfiguration.WebApi:SecretInKeyvault =&gt; (Key Vault Referen
 </span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">var</span> azAppConfigurationFailOverRegionUrl = settings.GetValue&lt;<span style="color:#66d9ef">string</span>&gt;(<span style="color:#e6db74">&#34;AzAppConfigurationFailOverRegionUrl&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>                    config
-</span></span><span style="display:flex;"><span>                        .AddAzureAppConfiguration(options =&gt; 
+</span></span><span style="display:flex;"><span>                        .AddAzureAppConfiguration(options =&gt;
 </span></span><span style="display:flex;"><span>                        {
 </span></span><span style="display:flex;"><span>                            options.Connect(<span style="color:#66d9ef">new</span> Uri(azAppConfigurationFailOverRegionUrl), <span style="color:#66d9ef">new</span> DefaultAzureCredential())
-</span></span><span style="display:flex;"><span>                                .ConfigureKeyVault(kv =&gt; 
+</span></span><span style="display:flex;"><span>                                .ConfigureKeyVault(kv =&gt;
 </span></span><span style="display:flex;"><span>                                {
 </span></span><span style="display:flex;"><span>                                    kv.SetCredential(<span style="color:#66d9ef">new</span> DefaultAzureCredential());
 </span></span><span style="display:flex;"><span>                                })
@@ -184,10 +185,10 @@ Bustroker.AzureAppConfiguration.WebApi:SecretInKeyvault =&gt; (Key Vault Referen
 </span></span><span style="display:flex;"><span>                                        .SetCacheExpiration(TimeSpan.FromSeconds(<span style="color:#ae81ff">30</span>));
 </span></span><span style="display:flex;"><span>                                });
 </span></span><span style="display:flex;"><span>                        }, optional: <span style="color:#66d9ef">true</span>)
-</span></span><span style="display:flex;"><span>                        .AddAzureAppConfiguration(options =&gt; 
+</span></span><span style="display:flex;"><span>                        .AddAzureAppConfiguration(options =&gt;
 </span></span><span style="display:flex;"><span>                        {
 </span></span><span style="display:flex;"><span>                            options.Connect(<span style="color:#66d9ef">new</span> Uri(azAppConfigurationMainRegionUrl), <span style="color:#66d9ef">new</span> DefaultAzureCredential())
-</span></span><span style="display:flex;"><span>                                .ConfigureKeyVault(kv =&gt; 
+</span></span><span style="display:flex;"><span>                                .ConfigureKeyVault(kv =&gt;
 </span></span><span style="display:flex;"><span>                                {
 </span></span><span style="display:flex;"><span>                                    kv.SetCredential(<span style="color:#66d9ef">new</span> DefaultAzureCredential());
 </span></span><span style="display:flex;"><span>                                })

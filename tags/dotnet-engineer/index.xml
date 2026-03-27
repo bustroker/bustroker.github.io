@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/.net-software-engineer-interview-questions/</link>
       <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/.net-software-engineer-interview-questions/</guid>
-      <description>Language Fundamentals Interface vs Abstract class&#xA;// Interface - contract only public interface IPaymentProcessor { void ProcessPayment(decimal amount); } // Abstract class - shared implementation public abstract class PaymentProcessor { public abstract void ProcessPayment(decimal amount); public void LogTransaction() { /* shared logic */ } } Value vs Reference types&#xA;// Reference type (class) - nullable by default public class Person { public string Name { get; set; } } // Value type (struct) - not nullable unless explicit public struct Point { public int X; public int Y; } public struct Point?</description>
+      <description>.NET Software Engineer Interview Questions Language Fundamentals Interface vs Abstract class&#xA;// Interface - contract only public interface IPaymentProcessor { void ProcessPayment(decimal amount); } // Abstract class - shared implementation public abstract class PaymentProcessor { public abstract void ProcessPayment(decimal amount); public void LogTransaction() { /* shared logic */ } } Value vs Reference types&#xA;// Reference type (class) - nullable by default public class Person { public string Name { get; set; } } // Value type (struct) - not nullable unless explicit public struct Point { public int X; public int Y; } public struct Point?</description>
     </item>
   </channel>
 </rss>

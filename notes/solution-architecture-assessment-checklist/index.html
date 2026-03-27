@@ -131,13 +131,14 @@ audio {
         
 
 <h1>Solution Architecture Assessment Checklist</h1>
+<h2 id="solution-architecture-assessment-checklist">Solution Architecture Assessment Checklist</h2>
 <h3 id="functional-assessment">Functional Assessment</h3>
 <p>Identify business domains and their revenue impact:</p>
-<pre tabindex="0"><code>Business Domains
-├── Frontend functional areas
-├── Regional/country-specific features
-└── Backoffice &amp; BI/Reporting
-</code></pre><p>Document:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Business Domains
+</span></span><span style="display:flex;"><span>├── Frontend functional areas
+</span></span><span style="display:flex;"><span>├── Regional/country-specific features
+</span></span><span style="display:flex;"><span>└── Backoffice &amp; BI/Reporting
+</span></span></code></pre></div><p>Document:</p>
 <ul>
 <li>User requests the system cannot currently fulfill</li>
 <li>Manual tasks requiring automation</li>
@@ -160,17 +161,17 @@ audio {
 </ul>
 <h3 id="modules-and-components">Modules and Components</h3>
 <p><strong>Modules</strong> (code organization):</p>
-<pre tabindex="0"><code>repos/
-├── applications/
-└── packages/
-    └── dependencies
-</code></pre><p><strong>Components</strong> (runtime):</p>
-<pre tabindex="0"><code>Runtime Environment
-├── Services
-├── Databases
-├── Queues
-└── 3rd party services
-</code></pre><p>Document hosting model for each: on-premise, Azure PaaS, containers.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>repos/
+</span></span><span style="display:flex;"><span>├── applications/
+</span></span><span style="display:flex;"><span>└── packages/
+</span></span><span style="display:flex;"><span>    └── dependencies
+</span></span></code></pre></div><p><strong>Components</strong> (runtime):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Runtime Environment
+</span></span><span style="display:flex;"><span>├── Services
+</span></span><span style="display:flex;"><span>├── Databases
+</span></span><span style="display:flex;"><span>├── Queues
+</span></span><span style="display:flex;"><span>└── 3rd party services
+</span></span></code></pre></div><p>Document hosting model for each: on-premise, Azure PaaS, containers.</p>
 <p><strong>Identity Management</strong>:</p>
 <ul>
 <li>B2C flows</li>

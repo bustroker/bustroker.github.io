@@ -131,6 +131,7 @@ audio {
         
 
 <h1>Run MSSQL Server in Docker inside Vagrant Ubuntu VM</h1>
+<h2 id="run-mssql-server-in-docker-inside-vagrant-ubuntu-vm">Run MSSQL Server in Docker inside Vagrant Ubuntu VM</h2>
 <h3 id="goal">Goal</h3>
 <p>Run Microsoft SQL Server in a Docker container inside a Vagrant Ubuntu VM, accessible from the host machine.</p>
 <h3 id="configuration-files">Configuration Files</h3>
@@ -139,9 +140,9 @@ audio {
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">config.vm.box = &#34;ubuntu/focal64&#34;</span> <span style="color:#75715e"># v 20.04 LTS</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">config.vm.synced_folder &#34;./&#34;, &#34;/vagrant&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">config.vm.network &#34;forwarded_port&#34;, guest: 1433, host: 1433</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">config.vm.provision :shell, path</span>: <span style="color:#e6db74">&#34;vagrant_provision.sh&#34;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">config.vm.provision :shell, path</span>: <span style="color:#e6db74">&#34;vagrant_provision.sh&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">config.vm.provider &#34;virtualbox&#34; do |vb|</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">vb.name = &#34;SqlServer&#34;     </span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">vb.name = &#34;SqlServer&#34;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">vb.memory = 2048 </span> <span style="color:#75715e"># Minimum 2GB required</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">end</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">end</span>
@@ -200,8 +201,8 @@ audio {
 </span></span><span style="display:flex;"><span>        -d mcr.microsoft.com/mssql/server:2017-latest
 </span></span></code></pre></div><h3 id="connect">Connect</h3>
 <p><strong>From host machine:</strong></p>
-<p>Server: <code>localhost:1433</code><br>
-User: <code>sa</code><br>
+<p>Server: <code>localhost:1433</code>
+User: <code>sa</code>
 Password: <code>StrongP@ssword!</code></p>
 <p><strong>From terminal inside Vagrant VM:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker exec -it mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P StrongP@ssword!

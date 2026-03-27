@@ -131,20 +131,21 @@ audio {
         
 
 <h1>Simplest Single-Client TCP Server and Client in .NET Core</h1>
+<h2 id="simplest-single-client-tcp-server-and-client-in-net-core">Simplest Single-Client TCP Server and Client in .NET Core</h2>
 <h3 id="goal">Goal</h3>
 <p>Build a minimal TCP server and client in .NET Core 3.1 that can exchange messages.</p>
 <h3 id="tcp-server">TCP Server</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#75715e">//Program.cs</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">//Program.cs</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> Port = <span style="color:#ae81ff">8080</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task Main(String[] args)  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task Main(String[] args)
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> address = GetLocalIPAddress();
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> tcpListener = <span style="color:#66d9ef">new</span> TcpListener(GetLocalIPAddress(), Port);
-</span></span><span style="display:flex;"><span>        tcpListener.Start();  
-</span></span><span style="display:flex;"><span>        Console.WriteLine(<span style="color:#e6db74">$&#34;Server started. Listening to TCP clients at {address}, port {Port}&#34;</span>); 
+</span></span><span style="display:flex;"><span>        tcpListener.Start();
+</span></span><span style="display:flex;"><span>        Console.WriteLine(<span style="color:#e6db74">$&#34;Server started. Listening to TCP clients at {address}, port {Port}&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (<span style="color:#66d9ef">true</span>)
 </span></span><span style="display:flex;"><span>        {
@@ -208,7 +209,7 @@ audio {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>netcat [SERVER_IP] [PORT]
 </span></span><span style="display:flex;"><span>hello server!
 </span></span></code></pre></div><h3 id="tcp-client">TCP Client</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c#" data-lang="c#"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">async</span> Task Main(<span style="color:#66d9ef">string</span>[] args)
 </span></span><span style="display:flex;"><span>    {
@@ -218,7 +219,7 @@ audio {
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> serverIp = Console.ReadLine();
 </span></span><span style="display:flex;"><span>            Console.WriteLine(<span style="color:#e6db74">&#34;Enter server port:&#34;</span>);
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">var</span> serverPort = <span style="color:#66d9ef">int</span>.Parse(Console.ReadLine());
-</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            using(<span style="color:#66d9ef">var</span> client = <span style="color:#66d9ef">new</span> TcpClient(serverIp, serverPort))
 </span></span><span style="display:flex;"><span>            {
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">using</span> (<span style="color:#66d9ef">var</span> networkStream = client.GetStream())

@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/get-azure-managed-identity-tokens-with-curl/</link>
       <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/get-azure-managed-identity-tokens-with-curl/</guid>
-      <description>Goal: Retrieve an access token using Azure Managed Identity from within a VM.&#xA;Get a token SSH (or RDP) into a VM with Managed Identity enabled and request a token:&#xA;curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s The resource parameter specifies the App ID URI of the target resource. It becomes the aud (audience) claim in the token.&#xA;Target different resources For Azure Storage:&#xA;curl &amp;#39;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fstorage.azure.com%2F&amp;#39; -H Metadata:true Official documentation</description>
+      <description>Get Azure Managed Identity tokens with cURL Goal: Retrieve an access token using Azure Managed Identity from within a VM.&#xA;Get a token SSH (or RDP) into a VM with Managed Identity enabled and request a token:&#xA;curl &amp;#34;http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&amp;amp;resource=https%3A%2F%2Fmanagement.azure.com%2F&amp;#34; -H Metadata:true -s The resource parameter specifies the App ID URI of the target resource. It becomes the aud (audience) claim in the token.&#xA;Target different resources For Azure Storage:&#xA;curl &amp;#39;http://169.</description>
     </item>
   </channel>
 </rss>

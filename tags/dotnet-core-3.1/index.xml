@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/handling-multiple-exceptions-from-parallel-tasks-in-.net/</link>
       <pubDate>Tue, 05 May 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/handling-multiple-exceptions-from-parallel-tasks-in-.net/</guid>
-      <description>When executing multiple tasks in parallel where more than one can throw exceptions, you need to catch and handle all exceptions, not just the first one.&#xA;The Problem The exception caught in a catch block when awaiting Task.WhenAll() is only the first exception thrown. All exceptions are actually stored in an AggregateException in the task&amp;rsquo;s Exception property.&#xA;The Solution var runnersTasks = new List&amp;lt;Task&amp;gt;(); Task compositeTask = null; try { // Run all tasks in parallel Runners.</description>
+      <description>Handling Multiple Exceptions from Parallel Tasks in .NET When executing multiple tasks in parallel where more than one can throw exceptions, you need to catch and handle all exceptions, not just the first one.&#xA;The Problem The exception caught in a catch block when awaiting Task.WhenAll() is only the first exception thrown. All exceptions are actually stored in an AggregateException in the task&amp;rsquo;s Exception property.&#xA;The Solution var runnersTasks = new List&amp;lt;Task&amp;gt;(); Task compositeTask = null; try { // Run all tasks in parallel Runners.</description>
     </item>
   </channel>
 </rss>

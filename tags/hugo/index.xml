@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/adding-images-to-hugo-sites/</link>
       <pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/adding-images-to-hugo-sites/</guid>
-      <description>Goal Add images to your Hugo site pages using the appropriate method for your use case.&#xA;Methods Page Bundles Place images alongside your markdown file:&#xA;content/posts/my-post/ ├── index.md ├── my-image.jpg Reference in index.md:&#xA;![Alt text](my-image.jpg) or with full path:&#xA;![Alt text](/posts/my-post/my-image.jpg) Static Directory For globally shared images:&#xA;static/images/my-image.jpg Reference in markdown:&#xA;![Alt text](/images/my-image.jpg) Hugo Figure Shortcode For captions and additional styling:&#xA;Image Title With static directory:&#xA;Image Title External URLs !</description>
+      <description>Adding Images to Hugo Sites Goal Add images to your Hugo site pages using the appropriate method for your use case.&#xA;Methods Page Bundles Place images alongside your markdown file:&#xA;content/posts/my-post/ ├── index.md ├── my-image.jpg Reference in index.md:&#xA;![Alt text](my-image.jpg) or with full path:&#xA;![Alt text](/posts/my-post/my-image.jpg) Static Directory For globally shared images:&#xA;static/images/my-image.jpg Reference in markdown:&#xA;![Alt text](/images/my-image.jpg) Hugo Figure Shortcode For captions and additional styling:&#xA;Image Title With static directory:</description>
     </item>
   </channel>
 </rss>

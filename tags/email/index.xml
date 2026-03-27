@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/send-email-from-bash-in-linux/</link>
       <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/send-email-from-bash-in-linux/</guid>
-      <description>Send emails from bash scripts using msmtp and any SMTP server (AWS SES, Gmail, etc.).&#xA;Install msmtp sudo apt-get install msmtp -y Configure SMTP Server cat &amp;gt; ~/.msmtprc &amp;lt;&amp;lt;EOF defaults auth on tls on tls_starttls on tls_certcheck off account aws_ses host email-smtp.eu-central-1.amazonaws.com port 587 from FROM@EMAIL.COM user USER password PASSWORD account default : aws_ses EOF Set Permissions chmod 600 ~/.msmtprc Send Email printf &amp;#34;Subject: Test smtp ubuntu\n\nHello there from ubuntu.&amp;#34; | msmtp -a aws_ses recipient@example.</description>
+      <description>Send Email from Bash in Linux Send emails from bash scripts using msmtp and any SMTP server (AWS SES, Gmail, etc.).&#xA;Install msmtp sudo apt-get install msmtp -y Configure SMTP Server cat &amp;gt; ~/.msmtprc &amp;lt;&amp;lt;EOF defaults auth on tls on tls_starttls on tls_certcheck off account aws_ses host email-smtp.eu-central-1.amazonaws.com port 587 from FROM@EMAIL.COM user USER password PASSWORD account default : aws_ses EOF Set Permissions chmod 600 ~/.msmtprc Send Email printf &amp;#34;Subject: Test smtp ubuntu\n\nHello there from ubuntu.</description>
     </item>
   </channel>
 </rss>
