@@ -131,11 +131,10 @@ audio {
         
 
 <h1>Configure URL Rewrites in web.config for IIS</h1>
-<h2 id="configure-url-rewrites-in-webconfig-for-iis">Configure URL Rewrites in web.config for IIS</h2>
 <h3 id="goal">Goal</h3>
 <p>Map internal application URLs to different public-facing URLs without redirects (no 3xx responses, no browser URL changes).</p>
 <h3 id="the-difference">The Difference</h3>
-<p>Rewrite ≠ Redirect. A rewrite maps URLs at the IIS level before they reach your application.</p>
+<p>Rewrite ≠ Redirect. A rewrite maps URLs at the IIS level before they reach the application.</p>
 <p><a href="https://docs.microsoft.com/en-us/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference">IIS URL Rewrite Module Documentation</a></p>
 <h3 id="basic-example">Basic Example</h3>
 <p>Expose <code>/internalendpoint</code> as <code>/publicendpoint</code>:</p>

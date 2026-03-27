@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/configure-aws-cli-authentication/</link>
       <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/configure-aws-cli-authentication/</guid>
-      <description>Configure AWS CLI Authentication Goal Configure AWS CLI authentication to deploy applications and access AWS resources.&#xA;Steps 1. Install AWS CLI Download and install from the official AWS CLI documentation.&#xA;2. Create IAM User Navigate to IAM service in AWS Management Console and create a new user with appropriate deployment permissions.&#xA;3. Generate Access Keys In IAM user details → Security credentials tab → Create access key. Save the access key ID and secret access key.</description>
+      <description>Goal Configure AWS CLI authentication to deploy applications and access AWS resources.&#xA;Steps 1. Install AWS CLI Download and install from the official AWS CLI documentation.&#xA;2. Create IAM User Navigate to IAM service in AWS Management Console and create a new user with appropriate deployment permissions.&#xA;3. Generate Access Keys In IAM user details → Security credentials tab → Create access key. Save the access key ID and secret access key.</description>
     </item>
   </channel>
 </rss>

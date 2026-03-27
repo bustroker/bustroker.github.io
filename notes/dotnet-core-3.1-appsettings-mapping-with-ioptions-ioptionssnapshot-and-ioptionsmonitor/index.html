@@ -131,7 +131,6 @@ audio {
         
 
 <h1>Dotnet Core 3.1 appsettings mapping with IOptions, IOptionsSnapshot and IOptionsMonitor</h1>
-<h2 id="dotnet-core-31-appsettings-mapping-with-ioptions-ioptionssnapshot-and-ioptionsmonitor">Dotnet Core 3.1 appsettings mapping with IOptions, IOptionsSnapshot and IOptionsMonitor</h2>
 <p>Map appsettings.json to strongly-typed classes using the Options pattern. For behavior differences between IOptions, IOptionsSnapshot, and IOptionsMonitor, see the <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1#options-interfaces">official documentation</a>.</p>
 <h3 id="define-the-settings-class">Define the settings class</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppSettings</span>
@@ -156,7 +155,7 @@ audio {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Startup.ConfigureServices(...)</span>
 </span></span><span style="display:flex;"><span>services.Configure&lt;AppSettings&gt;(Configuration.GetSection(<span style="color:#e6db74">&#34;Settings&#34;</span>));
 </span></span></code></pre></div><h3 id="inject-and-use">Inject and use</h3>
-<p>Choose IOptions, IOptionsSnapshot, or IOptionsMonitor based on your requirements:</p>
+<p>Choose IOptions, IOptionsSnapshot, or IOptionsMonitor based on the requirements:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#a6e22e">[ApiController]</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">[Route(&#34;[controller]</span><span style="color:#e6db74">&#34;)]
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppSettingsController</span> : ControllerBase

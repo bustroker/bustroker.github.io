@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/custom-keyboard-shortcuts-with-autohotkey/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/custom-keyboard-shortcuts-with-autohotkey/</guid>
-      <description>Custom Keyboard Shortcuts with AutoHotKey Goal: Remap keyboard combinations to different characters using AutoHotKey.&#xA;Limitation: Maximum two keys combinations.&#xA;Install AutoHotKey Download and install. Documentation.&#xA;Map Alt+Z to &amp;lt; lessThan.ahk&#xA;!z:: Send, &amp;lt; return Map Alt+X to &amp;gt; greaterThan.ahk&#xA;!x:: Send, &amp;gt; return Activate Double click the .ahk files to run them.&#xA;Run on Startup Create shortcuts to the .ahk files and copy them into the Windows startup folder.</description>
+      <description>Goal: Remap keyboard combinations to different characters using AutoHotKey.&#xA;Limitation: Maximum two keys combinations.&#xA;Install AutoHotKey Download and install. Documentation.&#xA;Map Alt+Z to &amp;lt; lessThan.ahk&#xA;!z:: Send, &amp;lt; return Map Alt+X to &amp;gt; greaterThan.ahk&#xA;!x:: Send, &amp;gt; return Activate Double click the .ahk files to run them.&#xA;Run on Startup Create shortcuts to the .ahk files and copy them into the Windows startup folder.</description>
     </item>
   </channel>
 </rss>

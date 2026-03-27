@@ -131,14 +131,13 @@ audio {
         
 
 <h1>Build native mobile packages from HTML/CSS/JS with PhoneGap Build API</h1>
-<h2 id="build-native-mobile-packages-from-htmlcssjs-with-phonegap-build-api">Build native mobile packages from HTML/CSS/JS with PhoneGap Build API</h2>
 <p><strong><em>Note: PhoneGap and PhoneGap Build <a href="https://blog.phonegap.com/update-for-customers-using-phonegap-and-phonegap-build-cc701c77502c">are going to be shut down</a></em></strong></p>
 <h3 id="goal">Goal</h3>
 <p>Convert an HTML/CSS/JS web app into a native Android APK using PhoneGap Build cloud service.</p>
 <h3 id="setup">Setup</h3>
 <p>Create an account at <a href="https://build.phonegap.com/">https://build.phonegap.com/</a></p>
 <h3 id="create-config-file">Create config file</h3>
-<p>Add <code>config.xml</code> to your app root folder:</p>
+<p>Add <code>config.xml</code> to the app root folder:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;widget</span> <span style="color:#a6e22e">xmlns   =</span> <span style="color:#e6db74">&#34;http://www.w3.org/ns/widgets&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xmlns:gap   =</span> <span style="color:#e6db74">&#34;http://phonegap.com/ns/1.0&#34;</span>
@@ -159,17 +158,17 @@ audio {
 </span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/widget&gt;</span>
 </span></span></code></pre></div><p>The <code>versionCode</code> attribute is optional and Android-only.</p>
 <h3 id="build-apk">Build APK</h3>
-<p>Zip your app folder including <code>config.xml</code>:</p>
+<p>Zip the app folder including <code>config.xml</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>zip -r app.zip .
 </span></span></code></pre></div><p>Upload to PhoneGap Build:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -u PHONEGAP-BUILD-ACCOUNT-USER-ID -X PUT -F file<span style="color:#f92672">=</span>@app.zip https://build.phonegap.com/api/v1/apps/APP-ID
 </span></span></code></pre></div><ul>
-<li><code>PHONEGAP-BUILD-ACCOUNT-USER-ID</code>: Your PhoneGap Build email</li>
+<li><code>PHONEGAP-BUILD-ACCOUNT-USER-ID</code>: The PhoneGap Build email</li>
 <li><code>APP-ID</code>: Found at <a href="https://build.phonegap.com/apps">https://build.phonegap.com/apps</a> (e.g., <code>4016017</code>)</li>
 </ul>
-<p>Enter your password when prompted.</p>
+<p>Enter the password when prompted.</p>
 <h3 id="install">Install</h3>
-<p>Visit <a href="https://build.phonegap.com/apps">https://build.phonegap.com/apps</a> and scan the QR code to download the APK to your device.</p>
+<p>Visit <a href="https://build.phonegap.com/apps">https://build.phonegap.com/apps</a> and scan the QR code to download the APK to the device.</p>
 
 
 

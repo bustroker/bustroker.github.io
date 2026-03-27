@@ -131,9 +131,8 @@ audio {
         
 
 <h1>Git - Stop Tracking Files While Keeping Them Locally</h1>
-<h2 id="git---stop-tracking-files-while-keeping-them-locally">Git - Stop Tracking Files While Keeping Them Locally</h2>
 <h3 id="goal">Goal</h3>
-<p>Stop Git from tracking a file or folder that&rsquo;s already committed, while keeping it in your working directory.</p>
+<p>Stop Git from tracking a file or folder that&rsquo;s already committed, while keeping it in the working directory.</p>
 <h3 id="context">Context</h3>
 <p><code>.gitignore</code> only prevents <strong>untracked</strong> files from being added. Files already tracked by Git will continue to be tracked even after adding them to <code>.gitignore</code>.</p>
 <h3 id="solution">Solution</h3>
@@ -141,7 +140,7 @@ audio {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git rm --cached &lt;file&gt;
 </span></span></code></pre></div><p>For folders:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git rm -r --cached &lt;folder&gt;
-</span></span></code></pre></div><p>The file removal is staged immediately but only takes effect in the repository after you commit:</p>
+</span></span></code></pre></div><p>The file removal is staged immediately but only takes effect in the repository after the next commit:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;Stop tracking &lt;file&gt;&#34;</span>
 </span></span></code></pre></div><h3 id="warning">Warning</h3>
 <p><strong>Other developers will lose these files on their next <code>git pull</code></strong>. The files are removed from their working directory, not just untracked. Make sure they back up local versions or add the files to <code>.gitignore</code> before pulling.</p>

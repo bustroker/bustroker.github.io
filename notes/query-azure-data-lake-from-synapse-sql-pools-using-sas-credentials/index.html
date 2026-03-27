@@ -131,7 +131,6 @@ audio {
         
 
 <h1>Query Azure Data Lake from Synapse SQL Pools using SAS credentials</h1>
-<h2 id="query-azure-data-lake-from-synapse-sql-pools-using-sas-credentials">Query Azure Data Lake from Synapse SQL Pools using SAS credentials</h2>
 <h3 id="goal">Goal</h3>
 <p>Query an Azure Data Lake container from Synapse SQL Pools using Shared Access Signature (SAS) authentication.</p>
 <h3 id="create-the-credential">Create the credential</h3>
@@ -141,11 +140,11 @@ audio {
 </span></span><span style="display:flex;"><span>SECRET <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;?sv=2020-08-04&amp;ss=bfqt&amp;srt=sco&amp;sp=rwdlacupx&amp;se=2022-12-21T21:35:50Z&amp;st=2021-12-21T13:35:50Z&amp;spr=https&amp;sig=************************************&#39;</span>
 </span></span></code></pre></div><p>Replace:</p>
 <ul>
-<li><code>DATALAKE_ACCOUNT_NAME</code> with your storage account name</li>
-<li><code>CONTAINER</code> with your container name</li>
-<li><code>SECRET</code> value with your SAS token (generate from Azure Portal → Storage Account → Shared access signature)</li>
+<li><code>DATALAKE_ACCOUNT_NAME</code> with the storage account name</li>
+<li><code>CONTAINER</code> with the container name</li>
+<li><code>SECRET</code> value with the SAS token (generate from Azure Portal → Storage Account → Shared access signature)</li>
 </ul>
-<p>The credential URL must match the exact Data Lake path you&rsquo;ll query in your OPENROWSET or external table definitions.</p>
+<p>The credential URL must match the exact Data Lake path used in the OPENROWSET or external table definitions.</p>
 
 
 

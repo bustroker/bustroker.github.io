@@ -131,9 +131,8 @@ audio {
         
 
 <h1>Recover lost PATH variable on Windows</h1>
-<h2 id="recover-lost-path-variable-on-windows">Recover lost PATH variable on Windows</h2>
 <h3 id="goal">Goal</h3>
-<p>Recover your Windows <code>PATH</code> variable after it has been corrupted or accidentally cleared.</p>
+<p>Recover the Windows <code>PATH</code> variable after it has been corrupted or accidentally cleared.</p>
 <h3 id="solution">Solution</h3>
 <p>Use a running application to access its inherited environment variables. Any application launched before the <code>PATH</code> was broken still has the correct value in memory.</p>
 <h4 id="steps">Steps</h4>
@@ -145,7 +144,7 @@ audio {
 </span></span></code></pre></div><p>Press Enter. This opens a command prompt that inherits Chrome&rsquo;s environment.</p>
 <p><strong>3. Display the PATH variable:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> %PATH%
-</span></span></code></pre></div><p>Copy this value to restore your <code>PATH</code> in System Environment Variables.</p>
+</span></span></code></pre></div><p>Copy this value to restore the <code>PATH</code> in System Environment Variables.</p>
 
 
 

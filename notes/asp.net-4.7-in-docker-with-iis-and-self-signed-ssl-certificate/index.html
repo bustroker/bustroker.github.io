@@ -131,7 +131,6 @@ audio {
         
 
 <h1>ASP.NET 4.7 in Docker with IIS and Self-Signed SSL Certificate</h1>
-<h2 id="aspnet-47-in-docker-with-iis-and-self-signed-ssl-certificate">ASP.NET 4.7 in Docker with IIS and Self-Signed SSL Certificate</h2>
 <p><strong>Goal:</strong> Run an ASP.NET 4.7 application in a Docker container with IIS and HTTPS support, using a volume-mapped folder for live code updates during development.</p>
 <h3 id="dockerfile">Dockerfile</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> mcr.microsoft.com/dotnet/framework/aspnet:4.8</span><span style="color:#960050;background-color:#1e0010">
@@ -174,7 +173,7 @@ audio {
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./src/Bustroker.WebUI/bin/app.publish:C:/webapp</span>
 </span></span></code></pre></div><p>The volume mapping enables live updates—changes to the published folder are immediately reflected in the container.</p>
 <h3 id="run">Run</h3>
-<p>Publish your ASP.NET application to <code>bin/app.publish</code>:</p>
+<p>Publish the ASP.NET application to <code>bin/app.publish</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>docker-compose up -d --build
 </span></span></code></pre></div><p>Browse to <code>http://localhost/webapp</code> or <code>https://localhost/webapp</code>. The browser will show a certificate warning since the self-signed certificate isn&rsquo;t in the Trusted Root Certification Authorities store.</p>
 

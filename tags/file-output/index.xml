@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/include-files-in-build-output-directory/</link>
       <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/include-files-in-build-output-directory/</guid>
-      <description>Include Files in Build Output Directory Goal Copy specific files to your build output directory when building a .NET project.&#xA;Solution Add the following to your .csproj file:&#xA;&amp;lt;ItemGroup&amp;gt; &amp;lt;None Update=&amp;#34;file.exe&amp;#34;&amp;gt; &amp;lt;CopyToOutputDirectory&amp;gt;PreserveNewest&amp;lt;/CopyToOutputDirectory&amp;gt; &amp;lt;/None&amp;gt; &amp;lt;/ItemGroup&amp;gt; This ensures file.exe is copied to the output directory only if it&amp;rsquo;s newer than the existing copy or doesn&amp;rsquo;t exist yet.</description>
+      <description>Goal Copy specific files to the build output directory when building a .NET project.&#xA;Solution Add the following to the .csproj file:&#xA;&amp;lt;ItemGroup&amp;gt; &amp;lt;None Update=&amp;#34;file.exe&amp;#34;&amp;gt; &amp;lt;CopyToOutputDirectory&amp;gt;PreserveNewest&amp;lt;/CopyToOutputDirectory&amp;gt; &amp;lt;/None&amp;gt; &amp;lt;/ItemGroup&amp;gt; This ensures file.exe is copied to the output directory only if it&amp;rsquo;s newer than the existing copy or doesn&amp;rsquo;t exist yet.</description>
     </item>
   </channel>
 </rss>

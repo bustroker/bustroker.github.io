@@ -13,14 +13,14 @@
       <link>https://www.bustroker.com/notes/agentic-ai-solutions-architecture-.net/</link>
       <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/agentic-ai-solutions-architecture-.net/</guid>
-      <description>Agentic AI Solutions Architecture .NET This white paper is designed to align an extensive background in distributed systems with the specific requirements of an Agentic AI architecture role. It bridges the experience in .NET, Azure, and DDD with the cutting-edge patterns required for autonomous AI systems.&#xA;White Paper: Architecting Agentic AI Systems in .NET &amp;amp; Azure Prepared for: Senior Solutions Architect&#xA;Subject: Technical Foundations for Market-Leading Agentic AI in Pharma</description>
+      <description>This white paper is designed to align an extensive background in distributed systems with the specific requirements of an Agentic AI architecture role. It bridges the experience in .NET, Azure, and DDD with the cutting-edge patterns required for autonomous AI systems.&#xA;White Paper: Architecting Agentic AI Systems in .NET &amp;amp; Azure Prepared for: Senior Solutions Architect&#xA;Subject: Technical Foundations for Market-Leading Agentic AI in Pharma&#xA;1. Core Concepts: Beyond Simple LLMs While standard AI follows a linear path (Input → LLM → Output), Agentic AI introduces a &amp;ldquo;reasoning loop&amp;rdquo; where the system determines its own execution path.</description>
     </item>
     <item>
       <title>Agentic AI Solutions Architecture</title>
       <link>https://www.bustroker.com/notes/agentic-ai-solutions-architecture/</link>
       <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/agentic-ai-solutions-architecture/</guid>
-      <description>Agentic AI Solutions Architecture White Paper: Core Knowledge for an Agentic AI Solutions Architect Focus areas: Prompt Engineering · Retrieval Pipelines · Evaluation Metrics Date: 27 Dec 2025 (Europe/Madrid)&#xA;Executive summary Agentic AI systems differ from “single-call” LLM apps: they plan, call tools, retrieve knowledge, iterate, and must be measurably reliable under real-world constraints (latency, cost, governance, safety). This white paper lays out practical fundamentals an Agentic AI Solutions Architect should know across:</description>
+      <description>White Paper: Core Knowledge for an Agentic AI Solutions Architect Focus areas: Prompt Engineering · Retrieval Pipelines · Evaluation Metrics Date: 27 Dec 2025 (Europe/Madrid)&#xA;Executive summary Agentic AI systems differ from “single-call” LLM apps: they plan, call tools, retrieve knowledge, iterate, and must be measurably reliable under real-world constraints (latency, cost, governance, safety). This white paper lays out practical fundamentals an Agentic AI Solutions Architect should know across:&#xA;Prompt engineering as policy + interface design between humans, tools, and models (not just “clever wording”).</description>
     </item>
   </channel>
 </rss>

@@ -13,28 +13,28 @@
       <link>https://www.bustroker.com/notes/redis-cli-essential-commands/</link>
       <pubDate>Thu, 14 Mar 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/redis-cli-essential-commands/</guid>
-      <description>Redis CLI Essential Commands Installation brew install redis Connect to Redis redis-cli -h your-cluster-endpoint -p your-cluster-port Query Keys ## List all keys keys * ## Pattern matching keys prefix-* ## Check key type type &amp;lt;key&amp;gt; Read Values ## String values get &amp;lt;key&amp;gt; ## Hash values hgetall &amp;lt;key&amp;gt; Check Expiration ttl &amp;lt;key&amp;gt; Returns:&#xA;-2: key doesn&amp;rsquo;t exist -1: key has no expiration n: seconds until expiration </description>
+      <description>Installation brew install redis Connect to Redis redis-cli -h your-cluster-endpoint -p your-cluster-port Query Keys ## List all keys keys * ## Pattern matching keys prefix-* ## Check key type type &amp;lt;key&amp;gt; Read Values ## String values get &amp;lt;key&amp;gt; ## Hash values hgetall &amp;lt;key&amp;gt; Check Expiration ttl &amp;lt;key&amp;gt; Returns:&#xA;-2: key doesn&amp;rsquo;t exist -1: key has no expiration n: seconds until expiration </description>
     </item>
     <item>
       <title>Configure AWS CLI Authentication</title>
       <link>https://www.bustroker.com/notes/configure-aws-cli-authentication/</link>
       <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/configure-aws-cli-authentication/</guid>
-      <description>Configure AWS CLI Authentication Goal Configure AWS CLI authentication to deploy applications and access AWS resources.&#xA;Steps 1. Install AWS CLI Download and install from the official AWS CLI documentation.&#xA;2. Create IAM User Navigate to IAM service in AWS Management Console and create a new user with appropriate deployment permissions.&#xA;3. Generate Access Keys In IAM user details → Security credentials tab → Create access key. Save the access key ID and secret access key.</description>
+      <description>Goal Configure AWS CLI authentication to deploy applications and access AWS resources.&#xA;Steps 1. Install AWS CLI Download and install from the official AWS CLI documentation.&#xA;2. Create IAM User Navigate to IAM service in AWS Management Console and create a new user with appropriate deployment permissions.&#xA;3. Generate Access Keys In IAM user details → Security credentials tab → Create access key. Save the access key ID and secret access key.</description>
     </item>
     <item>
       <title>Query SQL Server from PowerShell</title>
       <link>https://www.bustroker.com/notes/query-sql-server-from-powershell/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/query-sql-server-from-powershell/</guid>
-      <description>Query SQL Server from PowerShell Install the sqlserver module Install-Module sqlserver -Force If a minimum NuGet version is required, the command output will tell you how to install it.&#xA;Run a query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34; -ServerInstance &amp;#34;localhost&amp;#34; Run a script file Invoke-Sqlcmd -InputFile &amp;#34;C:\setupscripts\createUser.sql&amp;#34; | Out-File -FilePath &amp;#34;C:\setupscripts\createUser.log&amp;#34; </description>
+      <description>Install the sqlserver module Install-Module sqlserver -Force If a minimum NuGet version is required, the command output shows how to install it.&#xA;Run a query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34; -ServerInstance &amp;#34;localhost&amp;#34; Run a script file Invoke-Sqlcmd -InputFile &amp;#34;C:\setupscripts\createUser.sql&amp;#34; | Out-File -FilePath &amp;#34;C:\setupscripts\createUser.log&amp;#34; </description>
     </item>
     <item>
       <title>Using sqlcmd CLI for SQL Server</title>
       <link>https://www.bustroker.com/notes/using-sqlcmd-cli-for-sql-server/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/using-sqlcmd-cli-for-sql-server/</guid>
-      <description>Using sqlcmd CLI for SQL Server Goal Execute SQL Server queries and scripts from the command line using sqlcmd.&#xA;Installation The sqlcmd.exe utility comes with Visual Studio 2019 or SQL Server 2019.&#xA;Location:&#xA;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Add this path to your system PATH environment variable.&#xA;Execute a SQL Script sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Interactive Query Session sqlcmd -S localhost -U sa -P password -d database select * from transactions go Run from Docker Container Connect to SQL Server running on host machine:</description>
+      <description>Goal Execute SQL Server queries and scripts from the command line using sqlcmd.&#xA;Installation The sqlcmd.exe utility comes with Visual Studio 2019 or SQL Server 2019.&#xA;Location:&#xA;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Add this path to the system PATH environment variable.&#xA;Execute a SQL Script sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Interactive Query Session sqlcmd -S localhost -U sa -P password -d database select * from transactions go Run from Docker Container Connect to SQL Server running on host machine:</description>
     </item>
   </channel>
 </rss>

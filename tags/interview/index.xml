@@ -13,21 +13,21 @@
       <link>https://www.bustroker.com/notes/team-growth-support-strategies/</link>
       <pubDate>Wed, 07 Jan 2026 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/team-growth-support-strategies/</guid>
-      <description>Team growth support strategies 1. How You Support Team Members’ Growth – Real Strategies 1️⃣ Create Technical Career Paths, Not Just Tasks What you do:&#xA;Define clear role expectations (e.g. Junior → Senior → Staff → Principal).&#xA;Make growth visible:&#xA;Junior → mastering delivery + testing. Senior → owning subsystems. Staff → architecture ownership, cross-team impact. In practice:&#xA;Run quarterly career conversations focused on:&#xA;“What kind of engineer do you want to be in 12 months?</description>
+      <description>1. Supporting Team Members’ Growth – Real Strategies 1️⃣ Create Technical Career Paths, Not Just Tasks Recommended actions:&#xA;Define clear role expectations (e.g. Junior → Senior → Staff → Principal).&#xA;Make growth visible:&#xA;Junior → mastering delivery + testing. Senior → owning subsystems. Staff → architecture ownership, cross-team impact. In practice:&#xA;Run quarterly career conversations focused on:&#xA;“What kind of engineer is the target in 12 months?” “Which architectural areas should become ownership areas?</description>
     </item>
     <item>
       <title>.NET Software Engineer Interview Questions</title>
       <link>https://www.bustroker.com/notes/.net-software-engineer-interview-questions/</link>
       <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/.net-software-engineer-interview-questions/</guid>
-      <description>.NET Software Engineer Interview Questions Language Fundamentals Interface vs Abstract class&#xA;// Interface - contract only public interface IPaymentProcessor { void ProcessPayment(decimal amount); } // Abstract class - shared implementation public abstract class PaymentProcessor { public abstract void ProcessPayment(decimal amount); public void LogTransaction() { /* shared logic */ } } Value vs Reference types&#xA;// Reference type (class) - nullable by default public class Person { public string Name { get; set; } } // Value type (struct) - not nullable unless explicit public struct Point { public int X; public int Y; } public struct Point?</description>
+      <description>Language Fundamentals Interface vs Abstract class&#xA;// Interface - contract only public interface IPaymentProcessor { void ProcessPayment(decimal amount); } // Abstract class - shared implementation public abstract class PaymentProcessor { public abstract void ProcessPayment(decimal amount); public void LogTransaction() { /* shared logic */ } } Value vs Reference types&#xA;// Reference type (class) - nullable by default public class Person { public string Name { get; set; } } // Value type (struct) - not nullable unless explicit public struct Point { public int X; public int Y; } public struct Point?</description>
     </item>
     <item>
       <title>Architecture Interview Questions - Technical Reference</title>
       <link>https://www.bustroker.com/notes/architecture-interview-questions-technical-reference/</link>
       <pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/architecture-interview-questions-technical-reference/</guid>
-      <description>Architecture Interview Questions - Technical Reference Architect vs Tech Lead Main concerns:&#xA;Architect: Cross-cutting concerns, system-wide design, technology strategy Tech Lead: Team execution, code quality, sprint delivery Key questions:&#xA;Most difficult aspect switching from TL to Solution Architect? Mentoring strategy? Establishing and enforcing guidelines/best practices? Relationship with Tech Leads in design/development? Web Architecture Styles Reference: Common Web Application Architectures&#xA;Monolithic&#xA;Single deployment unit Tight coupling N-layers&#xA;Presentation → Business Logic → Data Access Horizontal slicing Clean Architecture (Onion/Hexagonal)</description>
+      <description>Architect vs Tech Lead Main concerns:&#xA;Architect: Cross-cutting concerns, system-wide design, technology strategy Tech Lead: Team execution, code quality, sprint delivery Key questions:&#xA;Most difficult aspect switching from TL to Solution Architect? Mentoring strategy? Establishing and enforcing guidelines/best practices? Relationship with Tech Leads in design/development? Web Architecture Styles Reference: Common Web Application Architectures&#xA;Monolithic&#xA;Single deployment unit Tight coupling N-layers&#xA;Presentation → Business Logic → Data Access Horizontal slicing Clean Architecture (Onion/Hexagonal)</description>
     </item>
   </channel>
 </rss>

@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-ci/cd-setup/</link>
       <pubDate>Wed, 30 Sep 2020 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/azure-devops-yaml-pipeline-ci/cd-setup/</guid>
-      <description>Azure DevOps YAML Pipeline CI/CD Setup Goal Build a single YAML pipeline that builds a Docker container, pushes it to Azure Container Registry, and deploys it sequentially to dev and int environments with approval gates.&#xA;Key Points Use a single pipeline for CI-CD (no way to pass BuildId between separate pipelines) Environments are auto-created on first deployment Configure approvals directly on environments in Azure DevOps Create Service Connection before running pipeline Pipeline Structure Trigger on master branch push:</description>
+      <description>Goal Build a single YAML pipeline that builds a Docker container, pushes it to Azure Container Registry, and deploys it sequentially to dev and int environments with approval gates.&#xA;Key Points Use a single pipeline for CI-CD (no way to pass BuildId between separate pipelines) Environments are auto-created on first deployment Configure approvals directly on environments in Azure DevOps Create Service Connection before running pipeline Pipeline Structure Trigger on master branch push:</description>
     </item>
   </channel>
 </rss>

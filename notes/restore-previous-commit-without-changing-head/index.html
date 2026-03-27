@@ -131,9 +131,8 @@ audio {
         
 
 <h1>Restore Previous Commit Without Changing HEAD</h1>
-<h2 id="restore-previous-commit-without-changing-head">Restore Previous Commit Without Changing HEAD</h2>
 <h3 id="goal">Goal</h3>
-<p>Restore files from a previous commit to your working directory while keeping HEAD on the current branch (avoiding detached HEAD state).</p>
+<p>Restore files from a previous commit to the working directory while keeping HEAD on the current branch (avoiding detached HEAD state).</p>
 <h3 id="find-the-target-commit">Find the Target Commit</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log --oneline -n &lt;N&gt;
 </span></span></code></pre></div><h3 id="restore-files-from-previous-commit">Restore Files from Previous Commit</h3>
@@ -141,7 +140,7 @@ audio {
 </span></span></code></pre></div><p>This command:</p>
 <ul>
 <li>Updates all files in current directory and subdirectories to match the specified commit</li>
-<li>Leaves HEAD on your current branch (no branch switching)</li>
+<li>Leaves HEAD on the current branch (no branch switching)</li>
 <li>Only affects working directory, not branch pointer</li>
 </ul>
 <p><strong>Without <code>-- .</code></strong>: Git checks out the entire commit and enters detached HEAD state.</p>

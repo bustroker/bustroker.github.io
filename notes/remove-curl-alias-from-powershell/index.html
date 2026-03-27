@@ -131,9 +131,8 @@ audio {
         
 
 <h1>Remove curl alias from PowerShell</h1>
-<h2 id="remove-curl-alias-from-powershell">Remove curl alias from PowerShell</h2>
-<p>PowerShell aliases <code>curl</code> to <code>Invoke-WebRequest</code> by default. To use the actual curl binary, remove the alias in your profile.</p>
-<p>Create a PowerShell profile if you don&rsquo;t have one:</p>
+<p>PowerShell aliases <code>curl</code> to <code>Invoke-WebRequest</code> by default. To use the actual curl binary, remove the alias in the profile.</p>
+<p>Create a PowerShell profile if none exists:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>New-Item $profile -force -itemtype file
 </span></span></code></pre></div><p>Edit the profile:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>notepad $profile

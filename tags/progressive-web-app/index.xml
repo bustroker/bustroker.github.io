@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/convert-react-app-to-progressive-web-app-pwa/</link>
       <pubDate>Wed, 10 Jul 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/convert-react-app-to-progressive-web-app-pwa/</guid>
-      <description>Convert React App to Progressive Web App (PWA) Goal Transform a React app into a Progressive Web App that can be installed and run standalone on devices.&#xA;Create React App with TypeScript npx create-react-app bkr-dilution --template typescript The create-react-app command includes manifest.json by default, providing the foundation for PWA functionality.</description>
+      <description>Goal Transform a React app into a Progressive Web App that can be installed and run standalone on devices.&#xA;Create React App with TypeScript npx create-react-app bkr-dilution --template typescript The create-react-app command includes manifest.json by default, providing the foundation for PWA functionality.</description>
     </item>
   </channel>
 </rss>

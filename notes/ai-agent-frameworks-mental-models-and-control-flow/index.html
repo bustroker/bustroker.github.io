@@ -131,7 +131,6 @@ audio {
         
 
 <h1>AI Agent Frameworks - Mental Models and Control Flow</h1>
-<h2 id="ai-agent-frameworks---mental-models-and-control-flow">AI Agent Frameworks - Mental Models and Control Flow</h2>
 <h3 id="goal">Goal</h3>
 <p>Compare agent frameworks by their control flow, memory model, and tool execution patterns using a common problem: <strong>&ldquo;Automatically detect, diagnose, and remediate a production outage in a microservices system.&rdquo;</strong></p>
 <hr>
@@ -144,7 +143,7 @@ audio {
 <li>App executes tool, appends result to memory</li>
 <li>Loop repeats</li>
 </ol>
-<p><strong>Memory:</strong> Python list/dict managed by your application</p>
+<p><strong>Memory:</strong> Python list/dict managed by the application</p>
 <p><strong>Tools:</strong> Pure API actions. Agent requests, never executes.</p>
 <p><strong>RAG:</strong> Just another tool:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>retrieve(query) <span style="color:#960050;background-color:#1e0010">→</span> documents
@@ -158,7 +157,7 @@ audio {
 </span></span></code></pre></div><p>One agent owns the entire reasoning loop.</p>
 <hr>
 <h3 id="langchain--langgraph">LangChain + LangGraph</h3>
-<p><strong>Graph-first architecture.</strong> You define nodes, edges, state, and flow. Agents only exist inside nodes when needed.</p>
+<p><strong>Graph-first architecture.</strong> Nodes, edges, state, and flow are defined explicitly. Agents only exist inside nodes when needed.</p>
 <p><strong>Memory:</strong> Structured state object, automatically passed between nodes</p>
 <p><strong>Tools:</strong> Inside agent nodes or as standalone graph nodes</p>
 <p><strong>RAG:</strong> First-class workflow pattern</p>

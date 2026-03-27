@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/build-a-voice-command-assistant-with-node.js-on-raspberry-pi/</link>
       <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/build-a-voice-command-assistant-with-node.js-on-raspberry-pi/</guid>
-      <description>Build a Voice Command Assistant with Node.js on Raspberry Pi Build a voice-controlled assistant on a Raspberry Pi 3 using Node.js, PocketSphinx for speech recognition, and Node-RED for command orchestration.&#xA;Architecture Three components communicate via MQTT:&#xA;shirka_ears: Listens to microphone, publishes voice commands shirka_voice: Receives messages, converts to speech, plays audio Node-RED: Routes commands and responses between components The Ears Speech recognition using PocketSphinx:&#xA;npm install pocketsphinx Listen for commands and publish to MQTT:</description>
+      <description>Build a voice-controlled assistant on a Raspberry Pi 3 using Node.js, PocketSphinx for speech recognition, and Node-RED for command orchestration.&#xA;Architecture Three components communicate via MQTT:&#xA;shirka_ears: Listens to microphone, publishes voice commands shirka_voice: Receives messages, converts to speech, plays audio Node-RED: Routes commands and responses between components The Ears Speech recognition using PocketSphinx:&#xA;npm install pocketsphinx Listen for commands and publish to MQTT:&#xA;const mqtt = require(&amp;#39;mqtt&amp;#39;); const ps = require(&amp;#39;pocketsphinx&amp;#39;); const client = mqtt.</description>
     </item>
   </channel>
 </rss>

@@ -131,7 +131,6 @@ audio {
         
 
 <h1>Vagrant VM Provisioning &amp; Commands Cheatsheet</h1>
-<h2 id="vagrant-vm-provisioning--commands-cheatsheet">Vagrant VM Provisioning &amp; Commands Cheatsheet</h2>
 <h3 id="goal">Goal</h3>
 <p>Set up a Vagrant VM with a complete development toolchain: Docker, Kubernetes, Azure CLI, .NET, Node.js, Java/Scala/Spark stack, and various CLI tools.</p>
 <h3 id="vagrantfile">Vagrantfile</h3>
@@ -149,7 +148,7 @@ audio {
   end
 end
 </code></pre><h3 id="provision-script">Provision Script</h3>
-<p>Create <code>vagrant_provision.sh</code> in the same folder as <code>Vagrantfile</code>. Remove tools you don&rsquo;t need. Check for latest versions before using.</p>
+<p>Create <code>vagrant_provision.sh</code> in the same folder as <code>Vagrantfile</code>. Remove unneeded tools. Check for latest versions before use.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;provisioning VM...&#34;</span>
 </span></span><span style="display:flex;"><span>sudo apt update
 </span></span><span style="display:flex;"><span>sudo apt-get update
@@ -291,7 +290,7 @@ end
 </span></span><span style="display:flex;"><span>vagrant ssh         <span style="color:#75715e"># Connect via SSH (exit with Ctrl+d)</span>
 </span></span><span style="display:flex;"><span>vagrant halt        <span style="color:#75715e"># Shut down VM (preserves state)</span>
 </span></span><span style="display:flex;"><span>vagrant destroy     <span style="color:#75715e"># Delete VM completely</span>
-</span></span></code></pre></div><p>Your local project folder syncs to <code>/vagrant</code> inside the VM.</p>
+</span></span></code></pre></div><p>The local project folder syncs to <code>/vagrant</code> inside the VM.</p>
 <h4 id="status--updates">Status &amp; Updates</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vagrant status              <span style="color:#75715e"># Current VM status</span>
 </span></span><span style="display:flex;"><span>vagrant global-status       <span style="color:#75715e"># All VMs status</span>

@@ -131,7 +131,6 @@ audio {
         
 
 <h1>Generate and Diff OpenAPI Specs in .NET</h1>
-<h2 id="generate-and-diff-openapi-specs-in-net">Generate and Diff OpenAPI Specs in .NET</h2>
 <p><strong>Goal:</strong> Generate OpenAPI specification files from .NET APIs and detect breaking changes between versions.</p>
 <h3 id="setup">Setup</h3>
 <p>Install Swashbuckle tools:</p>
@@ -141,7 +140,7 @@ audio {
 </span></span></code></pre></div><h3 id="generate-openapi-spec">Generate OpenAPI Spec</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet build
 </span></span><span style="display:flex;"><span>swagger tofile --output <span style="color:#e6db74">&#34;openapi.json&#34;</span> bin/Debug/net8.0/bkr-provider-api.dll v1
-</span></span></code></pre></div><p>Replace <code>bkr-provider-api.dll</code> with your assembly name and <code>v1</code> with your API version.</p>
+</span></span></code></pre></div><p>Replace <code>bkr-provider-api.dll</code> with the assembly name and <code>v1</code> with the API version.</p>
 <h3 id="compare-specs">Compare Specs</h3>
 <p>Use <a href="https://github.com/OpenAPITools/openapi-diff">openapi-diff</a> to detect breaking changes:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## Compare two local files</span>

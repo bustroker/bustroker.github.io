@@ -131,7 +131,6 @@ audio {
         
 
 <h1>Managing Multiple SSH Keys for Different GitHub Accounts</h1>
-<h2 id="managing-multiple-ssh-keys-for-different-github-accounts">Managing Multiple SSH Keys for Different GitHub Accounts</h2>
 <h3 id="goal">Goal</h3>
 <p>Use different SSH keys for multiple GitHub accounts on the same machine.</p>
 <h3 id="generate-ssh-key-pairs">Generate SSH Key Pairs</h3>
@@ -169,7 +168,7 @@ Host github.com-bkr
 <li><code>~/.ssh/github_bkr.pub</code> → bkr account</li>
 </ul>
 <h3 id="use-the-correct-alias-when-cloning">Use the Correct Alias When Cloning</h3>
-<p>Replace <code>github.com</code> with your host alias:</p>
+<p>Replace <code>github.com</code> with the host alias:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone git@github.com-bustroker:bustroker/<span style="color:#f92672">[</span>repo_name<span style="color:#f92672">]</span>
 </span></span><span style="display:flex;"><span>git clone git@github.com-bkr:bkr/<span style="color:#f92672">[</span>repo_name<span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>Or when adding a remote:</p>

@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/managing-multiple-ssh-keys-for-different-github-accounts/</link>
       <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/managing-multiple-ssh-keys-for-different-github-accounts/</guid>
-      <description>Managing Multiple SSH Keys for Different GitHub Accounts Goal Use different SSH keys for multiple GitHub accounts on the same machine.&#xA;Generate SSH Key Pairs cd ~/.ssh ssh-keygen -t rsa -C &amp;#34;bustroker@email.com&amp;#34; -f &amp;#34;github_bustroker&amp;#34; ssh-keygen -t rsa -C &amp;#34;bkr@email.com&amp;#34; -f &amp;#34;github_bkr&amp;#34; This creates:&#xA;~/.ssh/github_bustroker ~/.ssh/github_bustroker.pub ~/.ssh/github_bkr ~/.ssh/github_bkr.pub Configure SSH cd ~/.ssh/ touch config nano config Add host aliases for each account:&#xA;##bustroker account Host github.com-bustroker HostName github.com User git IdentityFile ~/.</description>
+      <description>Goal Use different SSH keys for multiple GitHub accounts on the same machine.&#xA;Generate SSH Key Pairs cd ~/.ssh ssh-keygen -t rsa -C &amp;#34;bustroker@email.com&amp;#34; -f &amp;#34;github_bustroker&amp;#34; ssh-keygen -t rsa -C &amp;#34;bkr@email.com&amp;#34; -f &amp;#34;github_bkr&amp;#34; This creates:&#xA;~/.ssh/github_bustroker ~/.ssh/github_bustroker.pub ~/.ssh/github_bkr ~/.ssh/github_bkr.pub Configure SSH cd ~/.ssh/ touch config nano config Add host aliases for each account:&#xA;##bustroker account Host github.com-bustroker HostName github.com User git IdentityFile ~/.ssh/github_bustroker ##bkr account Host github.com-bkr HostName github.com User git IdentityFile ~/.</description>
     </item>
   </channel>
 </rss>

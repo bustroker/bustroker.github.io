@@ -131,7 +131,6 @@ audio {
         
 
 <h1>Run MSSQL 2019 on Kubernetes</h1>
-<h2 id="run-mssql-2019-on-kubernetes">Run MSSQL 2019 on Kubernetes</h2>
 <h3 id="goal">Goal</h3>
 <p>Deploy MSSQL Server 2019 on Kubernetes with persistent storage and optional Azure File Share mount.</p>
 <h3 id="create-sa-password-secret">Create SA Password Secret</h3>
@@ -160,7 +159,7 @@ audio {
 </span></span><span style="display:flex;"><span><span style="color:#f92672">data</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">azurestorageaccountname</span>: <span style="color:#ae81ff">Z3NhcmNocG9jc3NoYXJlZHN0b3JhZ2U=</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">azurestorageaccountkey</span>: <span style="color:#ae81ff">SndPbTRlTFhLSVdWc1IzYkhONFV2WGlUM3NVSjBseHYvbUpQUU5DY1pYNEsyUmhTUjBZY3c5bzdmM3huU2h6bE9KVXhhSFcxT09KSmF4VktxRityVWc9PQ==</span>
-</span></span></code></pre></div><p>Create a File Share named <code>optionalAddedStorage</code> in your Azure Storage account.</p>
+</span></span></code></pre></div><p>Create a File Share named <code>optionalAddedStorage</code> in the Azure Storage account.</p>
 <h3 id="deploy-mssql-server">Deploy MSSQL Server</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">apps/v1</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Deployment</span>

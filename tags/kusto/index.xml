@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/kusto-query-cheatsheet-for-application-insights/</link>
       <pubDate>Fri, 25 Oct 2019 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/kusto-query-cheatsheet-for-application-insights/</guid>
-      <description>Kusto Query Cheatsheet for Application Insights Request Duration Distribution (100ms bins) app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests | where name == &amp;#34;POST SalesController/Post&amp;#34; | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id | summarize count() by bin(req_duration, 100) | sort by req_duration asc | render timechart Request and Dependency Duration Percentiles Calculate percentiles (p25, p50, p95, p99) for core requests and their dependencies:</description>
+      <description>Request Duration Distribution (100ms bins) app(&amp;#34;bustroker-sales-webapi&amp;#34;).requests | where name == &amp;#34;POST SalesController/Post&amp;#34; | project req_timestamp = timestamp, req_id = id, req_name = name, req_url = url, req_success = success, req_resultCode = resultCode, req_duration = duration, req_operation_name = operation_Name, req_operation_Id = operation_Id | summarize count() by bin(req_duration, 100) | sort by req_duration asc | render timechart Request and Dependency Duration Percentiles Calculate percentiles (p25, p50, p95, p99) for core requests and their dependencies:</description>
     </item>
   </channel>
 </rss>

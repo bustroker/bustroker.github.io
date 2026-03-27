@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/</link>
       <pubDate>Sun, 15 Aug 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/run-jupyter-notebook-with-spark-in-docker/</guid>
-      <description>Run Jupyter Notebook with Spark in Docker Goal Run a Jupyter notebook with Apache Spark support using Docker, enabling Scala code execution and Spark monitoring.&#xA;Setup Pull and run the Spark-enabled Jupyter container:&#xA;docker run -p 8888:8888 -p 4041:4041 jupyter/all-spark-notebook This exposes:&#xA;Port 8888: Jupyter interface Port 4041: Spark WebUI Access Jupyter Copy the authentication token from the terminal output Navigate to localhost:8888 in your browser Authenticate using the token Write Spark Code Create a new notebook with the spylon-kernel kernel to write Scala code with Spark.</description>
+      <description>Goal Run a Jupyter notebook with Apache Spark support using Docker, enabling Scala code execution and Spark monitoring.&#xA;Setup Pull and run the Spark-enabled Jupyter container:&#xA;docker run -p 8888:8888 -p 4041:4041 jupyter/all-spark-notebook This exposes:&#xA;Port 8888: Jupyter interface Port 4041: Spark WebUI Access Jupyter Copy the authentication token from the terminal output Navigate to localhost:8888 in the browser Authenticate using the token Write Spark Code Create a new notebook with the spylon-kernel kernel to write Scala code with Spark.</description>
     </item>
   </channel>
 </rss>

@@ -13,42 +13,42 @@
       <link>https://www.bustroker.com/notes/restore-previous-commit-without-changing-head/</link>
       <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/restore-previous-commit-without-changing-head/</guid>
-      <description>Restore Previous Commit Without Changing HEAD Goal Restore files from a previous commit to your working directory while keeping HEAD on the current branch (avoiding detached HEAD state).&#xA;Find the Target Commit git log --oneline -n &amp;lt;N&amp;gt; Restore Files from Previous Commit git checkout &amp;lt;commit-hash&amp;gt; -- . This command:&#xA;Updates all files in current directory and subdirectories to match the specified commit Leaves HEAD on your current branch (no branch switching) Only affects working directory, not branch pointer Without -- .</description>
+      <description>Goal Restore files from a previous commit to the working directory while keeping HEAD on the current branch (avoiding detached HEAD state).&#xA;Find the Target Commit git log --oneline -n &amp;lt;N&amp;gt; Restore Files from Previous Commit git checkout &amp;lt;commit-hash&amp;gt; -- . This command:&#xA;Updates all files in current directory and subdirectories to match the specified commit Leaves HEAD on the current branch (no branch switching) Only affects working directory, not branch pointer Without -- .</description>
     </item>
     <item>
       <title>Force Sync Master with Dev Branch via Pull Request</title>
       <link>https://www.bustroker.com/notes/force-sync-master-with-dev-branch-via-pull-request/</link>
       <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/force-sync-master-with-dev-branch-via-pull-request/</guid>
-      <description>Force Sync Master with Dev Branch via Pull Request Goal: Make master branch identical to dev branch when merge conflicts are unresolvable, using a pull request workflow.&#xA;Get the target commit cd /path/to/repository/root git checkout dev git log -n 1 Copy the commit SHA (e.g., b2ed68964660648860bcf41d096e71b5d49226ae).&#xA;Create sync branch git checkout master git checkout -b sync-with-dev Replace all content ## Remove everything git rm -rf . ## Restore from dev commit (replace SHA with your commit) git checkout b2ed68964660648860bcf41d096e71b5d49226ae -- .</description>
+      <description>Goal: Make master branch identical to dev branch when merge conflicts are unresolvable, using a pull request workflow.&#xA;Get the target commit cd /path/to/repository/root git checkout dev git log -n 1 Copy the commit SHA (e.g., b2ed68964660648860bcf41d096e71b5d49226ae).&#xA;Create sync branch git checkout master git checkout -b sync-with-dev Replace all content ## Remove everything git rm -rf . ## Restore from dev commit (replace SHA with your commit) git checkout b2ed68964660648860bcf41d096e71b5d49226ae -- .</description>
     </item>
     <item>
       <title>Git Stash and Diff Patches</title>
       <link>https://www.bustroker.com/notes/git-stash-and-diff-patches/</link>
       <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/git-stash-and-diff-patches/</guid>
-      <description>Git Stash and Diff Patches Saving Changes to Apply Later in Git Git provides lightweight ways to save uncommitted changes so they can be applied later—useful for repeated deployment tweaks, build configuration changes, or quick context switching without commits.&#xA;Git Stash: Temporary Change Storage Git stash temporarily saves your working directory changes and restores a clean state.&#xA;Basic Stash Operations List all saved stashes:&#xA;git stash list Save current changes with an automatic message:</description>
+      <description>Saving Changes to Apply Later in Git Git provides lightweight ways to save uncommitted changes so they can be applied later—useful for repeated deployment tweaks, build configuration changes, or quick context switching without commits.&#xA;Git Stash: Temporary Change Storage Git stash temporarily saves the working directory changes and restores a clean state.&#xA;Basic Stash Operations List all saved stashes:&#xA;git stash list Save current changes with an automatic message:&#xA;git stash Save current changes with a custom description:</description>
     </item>
     <item>
       <title>Git - Stop Tracking Files While Keeping Them Locally</title>
       <link>https://www.bustroker.com/notes/git-stop-tracking-files-while-keeping-them-locally/</link>
       <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/git-stop-tracking-files-while-keeping-them-locally/</guid>
-      <description>Git - Stop Tracking Files While Keeping Them Locally Goal Stop Git from tracking a file or folder that&amp;rsquo;s already committed, while keeping it in your working directory.&#xA;Context .gitignore only prevents untracked files from being added. Files already tracked by Git will continue to be tracked even after adding them to .gitignore.&#xA;Solution Remove the file from Git&amp;rsquo;s index while keeping it locally:&#xA;git rm --cached &amp;lt;file&amp;gt; For folders:</description>
+      <description>Goal Stop Git from tracking a file or folder that&amp;rsquo;s already committed, while keeping it in the working directory.&#xA;Context .gitignore only prevents untracked files from being added. Files already tracked by Git will continue to be tracked even after adding them to .gitignore.&#xA;Solution Remove the file from Git&amp;rsquo;s index while keeping it locally:&#xA;git rm --cached &amp;lt;file&amp;gt; For folders:&#xA;git rm -r --cached &amp;lt;folder&amp;gt; The file removal is staged immediately but only takes effect in the repository after the next commit:</description>
     </item>
     <item>
       <title>Automating Git Push with SSH Keys in Scripts</title>
       <link>https://www.bustroker.com/notes/automating-git-push-with-ssh-keys-in-scripts/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/automating-git-push-with-ssh-keys-in-scripts/</guid>
-      <description>Automating Git Push with SSH Keys in Scripts Goal Push to GitHub from an automated script using SSH authentication.&#xA;Setup Configure SSH key and push:&#xA;mkdir -p ~/.ssh echo &amp;#34;${{ secrets.GITHUB_SSH_PRIVATE_KEY}}&amp;#34; &amp;gt; ~/.ssh/id_rsa chmod 600 ~/.ssh/id_rsa git push git@github.com:bustroker/bkr.hobies.web.git The chmod 600 is required - SSH will reject keys with overly permissive permissions.</description>
+      <description>Goal Push to GitHub from an automated script using SSH authentication.&#xA;Setup Configure SSH key and push:&#xA;mkdir -p ~/.ssh echo &amp;#34;${{ secrets.GITHUB_SSH_PRIVATE_KEY}}&amp;#34; &amp;gt; ~/.ssh/id_rsa chmod 600 ~/.ssh/id_rsa git push git@github.com:bustroker/bkr.hobies.web.git The chmod 600 is required - SSH will reject keys with overly permissive permissions.</description>
     </item>
     <item>
       <title>Working with Git Sparse-Checkout</title>
       <link>https://www.bustroker.com/notes/working-with-git-sparse-checkout/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/working-with-git-sparse-checkout/</guid>
-      <description>Working with Git Sparse-Checkout Goal: Checkout and work with only a subset of folders from a repository.&#xA;Initial Setup git clone URL --no-checkout # add `--depth 1` to only include latest commit cd REPO_ROOT git sparse-checkout init --cone # `--cone` includes root files git checkout Add Folders to Checkout git sparse-checkout add Apps/OtherApp git sparse-checkout list # view currently checked out paths Create New Folder and Add to Checkout cd ROOT/Apps mkdir OneMoreApp git sparse-checkout add Apps/OneMoreApp git sparse-checkout list Standard Git Operations Work from any included folder:</description>
+      <description>Goal: Checkout and work with only a subset of folders from a repository.&#xA;Initial Setup git clone URL --no-checkout # add `--depth 1` to only include latest commit cd REPO_ROOT git sparse-checkout init --cone # `--cone` includes root files git checkout Add Folders to Checkout git sparse-checkout add Apps/OtherApp git sparse-checkout list # view currently checked out paths Create New Folder and Add to Checkout cd ROOT/Apps mkdir OneMoreApp git sparse-checkout add Apps/OneMoreApp git sparse-checkout list Standard Git Operations Work from any included folder:</description>
     </item>
   </channel>
 </rss>

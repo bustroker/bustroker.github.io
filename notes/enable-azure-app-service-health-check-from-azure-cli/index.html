@@ -131,7 +131,6 @@ audio {
         
 
 <h1>Enable Azure App Service Health Check from Azure CLI</h1>
-<h2 id="enable-azure-app-service-health-check-from-azure-cli">Enable Azure App Service Health Check from Azure CLI</h2>
 <p>Enable the <a href="https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview)">health check feature</a> via Azure CLI instead of manually through Azure Resource Explorer.</p>
 <h3 id="how-health-check-works">How Health Check Works</h3>
 <ul>
@@ -146,7 +145,7 @@ audio {
 </span></span><span style="display:flex;"><span>az resource update <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --ids /subscriptions/&lt;SUBSCRIPTION_ID&gt;/resourceGroups/&lt;RESOURCE_GROUP_NAME&gt;/providers/Microsoft.Web/sites/&lt;APP_SERVICE_NAME&gt;/config/web <span style="color:#ae81ff">\
 </span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --set properties.healthCheckPath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/health&#34;</span>
-</span></span></code></pre></div><p>To find your resource ID: Navigate to <a href="https://azure.microsoft.com/en-us/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/">Azure Resource Explorer</a> → Your App Service → config → web.</p>
+</span></span></code></pre></div><p>To find the resource ID: Navigate to <a href="https://azure.microsoft.com/en-us/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/">Azure Resource Explorer</a> → The App Service → config → web.</p>
 
 
 

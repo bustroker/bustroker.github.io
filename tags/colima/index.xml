@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/running-docker-on-mac-with-colima/</link>
       <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/running-docker-on-mac-with-colima/</guid>
-      <description>Running Docker on Mac with Colima Goal: Replace Docker Desktop with Colima, a lightweight alternative for running Docker containers on Mac and Linux.&#xA;Find Colima at https://github.com/abiosoft/colima&#xA;Installation brew install docker-credential-helper docker brew install colima Start Colima colima start Verify Docker docker ps Fix Docker Socket Issues Some applications fail to connect with:&#xA;Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running? Set the correct socket path:</description>
+      <description>Goal: Replace Docker Desktop with Colima, a lightweight alternative for running Docker containers on Mac and Linux.&#xA;Find Colima at https://github.com/abiosoft/colima&#xA;Installation brew install docker-credential-helper docker brew install colima Start Colima colima start Verify Docker docker ps Fix Docker Socket Issues Some applications fail to connect with:&#xA;Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running? Set the correct socket path:&#xA;export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock </description>
     </item>
   </channel>
 </rss>

@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/remove-curl-alias-from-powershell-permanently/</link>
       <pubDate>Fri, 14 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/remove-curl-alias-from-powershell-permanently/</guid>
-      <description>Remove curl alias from PowerShell permanently PowerShell aliases curl to Invoke-WebRequest by default. To use the actual curl binary, remove this alias permanently.&#xA;Check if profile exists Test-Path $PROFILE If False, create it:&#xA;New-Item -Path $PROFILE -ItemType File -Force Add alias removal to profile notepad $profile Add this line and save:&#xA;Remove-Item Alias:curl -ErrorAction SilentlyContinue Restart PowerShell.&#xA;If alias persists Enable script execution:&#xA;Set-ExecutionPolicy RemoteSigned -Scope CurrentUser </description>
+      <description>PowerShell aliases curl to Invoke-WebRequest by default. To use the actual curl binary, remove this alias permanently.&#xA;Check if profile exists Test-Path $PROFILE If False, create it:&#xA;New-Item -Path $PROFILE -ItemType File -Force Add alias removal to profile notepad $profile Add this line and save:&#xA;Remove-Item Alias:curl -ErrorAction SilentlyContinue Restart PowerShell.&#xA;If alias persists Enable script execution:&#xA;Set-ExecutionPolicy RemoteSigned -Scope CurrentUser </description>
     </item>
   </channel>
 </rss>

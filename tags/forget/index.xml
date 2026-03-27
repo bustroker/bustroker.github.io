@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/git-stop-tracking-files-while-keeping-them-locally/</link>
       <pubDate>Thu, 08 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/git-stop-tracking-files-while-keeping-them-locally/</guid>
-      <description>Git - Stop Tracking Files While Keeping Them Locally Goal Stop Git from tracking a file or folder that&amp;rsquo;s already committed, while keeping it in your working directory.&#xA;Context .gitignore only prevents untracked files from being added. Files already tracked by Git will continue to be tracked even after adding them to .gitignore.&#xA;Solution Remove the file from Git&amp;rsquo;s index while keeping it locally:&#xA;git rm --cached &amp;lt;file&amp;gt; For folders:</description>
+      <description>Goal Stop Git from tracking a file or folder that&amp;rsquo;s already committed, while keeping it in the working directory.&#xA;Context .gitignore only prevents untracked files from being added. Files already tracked by Git will continue to be tracked even after adding them to .gitignore.&#xA;Solution Remove the file from Git&amp;rsquo;s index while keeping it locally:&#xA;git rm --cached &amp;lt;file&amp;gt; For folders:&#xA;git rm -r --cached &amp;lt;folder&amp;gt; The file removal is staged immediately but only takes effect in the repository after the next commit:</description>
     </item>
   </channel>
 </rss>

@@ -13,21 +13,21 @@
       <link>https://www.bustroker.com/notes/query-sql-server-from-powershell/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/query-sql-server-from-powershell/</guid>
-      <description>Query SQL Server from PowerShell Install the sqlserver module Install-Module sqlserver -Force If a minimum NuGet version is required, the command output will tell you how to install it.&#xA;Run a query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34; -ServerInstance &amp;#34;localhost&amp;#34; Run a script file Invoke-Sqlcmd -InputFile &amp;#34;C:\setupscripts\createUser.sql&amp;#34; | Out-File -FilePath &amp;#34;C:\setupscripts\createUser.log&amp;#34; </description>
+      <description>Install the sqlserver module Install-Module sqlserver -Force If a minimum NuGet version is required, the command output shows how to install it.&#xA;Run a query Invoke-Sqlcmd -Query &amp;#34;SELECT GETDATE() AS TimeOfQuery&amp;#34; -ServerInstance &amp;#34;localhost&amp;#34; Run a script file Invoke-Sqlcmd -InputFile &amp;#34;C:\setupscripts\createUser.sql&amp;#34; | Out-File -FilePath &amp;#34;C:\setupscripts\createUser.log&amp;#34; </description>
     </item>
     <item>
       <title>Using sqlcmd CLI for SQL Server</title>
       <link>https://www.bustroker.com/notes/using-sqlcmd-cli-for-sql-server/</link>
       <pubDate>Sat, 03 Apr 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/using-sqlcmd-cli-for-sql-server/</guid>
-      <description>Using sqlcmd CLI for SQL Server Goal Execute SQL Server queries and scripts from the command line using sqlcmd.&#xA;Installation The sqlcmd.exe utility comes with Visual Studio 2019 or SQL Server 2019.&#xA;Location:&#xA;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Add this path to your system PATH environment variable.&#xA;Execute a SQL Script sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Interactive Query Session sqlcmd -S localhost -U sa -P password -d database select * from transactions go Run from Docker Container Connect to SQL Server running on host machine:</description>
+      <description>Goal Execute SQL Server queries and scripts from the command line using sqlcmd.&#xA;Installation The sqlcmd.exe utility comes with Visual Studio 2019 or SQL Server 2019.&#xA;Location:&#xA;C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150 Add this path to the system PATH environment variable.&#xA;Execute a SQL Script sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log Interactive Query Session sqlcmd -S localhost -U sa -P password -d database select * from transactions go Run from Docker Container Connect to SQL Server running on host machine:</description>
     </item>
     <item>
       <title>Run MSSQL Server in Docker inside Vagrant Ubuntu VM</title>
       <link>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</link>
       <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/run-mssql-server-in-docker-inside-vagrant-ubuntu-vm/</guid>
-      <description>Run MSSQL Server in Docker inside Vagrant Ubuntu VM Goal Run Microsoft SQL Server in a Docker container inside a Vagrant Ubuntu VM, accessible from the host machine.&#xA;Configuration Files Vagrantfile&#xA;Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 1433, host: 1433 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;SqlServer&amp;#34; vb.memory = 2048 # Minimum 2GB required end end vagrant_provision.</description>
+      <description>Goal Run Microsoft SQL Server in a Docker container inside a Vagrant Ubuntu VM, accessible from the host machine.&#xA;Configuration Files Vagrantfile&#xA;Vagrant.configure(&amp;#34;2&amp;#34;) do |config| config.vm.box = &amp;#34;ubuntu/focal64&amp;#34; # v 20.04 LTS config.vm.synced_folder &amp;#34;./&amp;#34;, &amp;#34;/vagrant&amp;#34; config.vm.network &amp;#34;forwarded_port&amp;#34;, guest: 1433, host: 1433 config.vm.provision :shell, path: &amp;#34;vagrant_provision.sh&amp;#34; config.vm.provider &amp;#34;virtualbox&amp;#34; do |vb| vb.name = &amp;#34;SqlServer&amp;#34; vb.memory = 2048 # Minimum 2GB required end end vagrant_provision.sh&#xA;echo &amp;#34;provisioning VM...&amp;#34; sudo apt update sudo apt-get update ## install docker and run sudo apt -y install docker.</description>
     </item>
   </channel>
 </rss>

@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/deploy-jar-to-azure-databricks-from-local-machine/</link>
       <pubDate>Tue, 07 Jun 2022 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/deploy-jar-to-azure-databricks-from-local-machine/</guid>
-      <description>Deploy JAR to Azure Databricks from Local Machine Goal Deploy a fat JAR file to Azure Databricks DBFS from your local machine using Databricks CLI.&#xA;Configure Databricks CLI Generate a PAT token in Databricks workspace (User Settings), then configure:&#xA;databricks configure --token When prompted, enter your workspace URL:&#xA;https://adb-3772194496043630.10.azuredatabricks.net/ Build and Deploy Build the JAR:&#xA;cd [ProjectRoot] sbt assembly Push to DBFS (remove existing file first if needed):&#xA;dbfs rm dbfs:/lib/jars/Arch.</description>
+      <description>Goal Deploy a fat JAR file to Azure Databricks DBFS from the local machine using Databricks CLI.&#xA;Configure Databricks CLI Generate a PAT token in Databricks workspace (User Settings), then configure:&#xA;databricks configure --token When prompted, enter the workspace URL:&#xA;https://adb-3772194496043630.10.azuredatabricks.net/ Build and Deploy Build the JAR:&#xA;cd [ProjectRoot] sbt assembly Push to DBFS (remove existing file first if needed):&#xA;dbfs rm dbfs:/lib/jars/Arch.Pocs.Databricks.Application.jar dbfs cp ./target/scala-2.12/Arch.Pocs.Databricks.Application.jar dbfs:/lib/jars/Arch.Pocs.Databricks.Application.jar </description>
     </item>
   </channel>
 </rss>

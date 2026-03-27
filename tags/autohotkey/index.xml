@@ -13,14 +13,14 @@
       <link>https://www.bustroker.com/notes/run-llm-locally-with-ollama/</link>
       <pubDate>Fri, 23 Feb 2024 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/run-llm-locally-with-ollama/</guid>
-      <description>Run LLM Locally with Ollama Goal Run large language models locally on your machine using Ollama.&#xA;Setup Install Ollama from https://ollama.com/download&#xA;Run a Model ollama run llama2 Reference: https://klu.ai/glossary/ollama</description>
+      <description>Goal Run large language models locally on the machine using Ollama.&#xA;Setup Install Ollama from https://ollama.com/download&#xA;Run a Model ollama run llama2 Reference: https://klu.ai/glossary/ollama</description>
     </item>
     <item>
       <title>Custom Keyboard Shortcuts with AutoHotKey</title>
       <link>https://www.bustroker.com/notes/custom-keyboard-shortcuts-with-autohotkey/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/custom-keyboard-shortcuts-with-autohotkey/</guid>
-      <description>Custom Keyboard Shortcuts with AutoHotKey Goal: Remap keyboard combinations to different characters using AutoHotKey.&#xA;Limitation: Maximum two keys combinations.&#xA;Install AutoHotKey Download and install. Documentation.&#xA;Map Alt+Z to &amp;lt; lessThan.ahk&#xA;!z:: Send, &amp;lt; return Map Alt+X to &amp;gt; greaterThan.ahk&#xA;!x:: Send, &amp;gt; return Activate Double click the .ahk files to run them.&#xA;Run on Startup Create shortcuts to the .ahk files and copy them into the Windows startup folder.</description>
+      <description>Goal: Remap keyboard combinations to different characters using AutoHotKey.&#xA;Limitation: Maximum two keys combinations.&#xA;Install AutoHotKey Download and install. Documentation.&#xA;Map Alt+Z to &amp;lt; lessThan.ahk&#xA;!z:: Send, &amp;lt; return Map Alt+X to &amp;gt; greaterThan.ahk&#xA;!x:: Send, &amp;gt; return Activate Double click the .ahk files to run them.&#xA;Run on Startup Create shortcuts to the .ahk files and copy them into the Windows startup folder.</description>
     </item>
   </channel>
 </rss>

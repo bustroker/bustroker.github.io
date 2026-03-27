@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/solution-architecture-assessment-checklist/</link>
       <pubDate>Thu, 23 Jun 2022 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/solution-architecture-assessment-checklist/</guid>
-      <description>Solution Architecture Assessment Checklist Functional Assessment Identify business domains and their revenue impact:&#xA;Business Domains ├── Frontend functional areas ├── Regional/country-specific features └── Backoffice &amp;amp; BI/Reporting Document:&#xA;User requests the system cannot currently fulfill Manual tasks requiring automation Pain points from both end users and employees Non-Functional Assessment Current vs required vs critical thresholds:&#xA;Availability Reliability Performance Security Key metrics:&#xA;Concurrent users Request volume Identified bottlenecks Tech team pain points Modules and Components Modules (code organization):</description>
+      <description>Functional Assessment Identify business domains and their revenue impact:&#xA;Business Domains ├── Frontend functional areas ├── Regional/country-specific features └── Backoffice &amp;amp; BI/Reporting Document:&#xA;User requests the system cannot currently fulfill Manual tasks requiring automation Pain points from both end users and employees Non-Functional Assessment Current vs required vs critical thresholds:&#xA;Availability Reliability Performance Security Key metrics:&#xA;Concurrent users Request volume Identified bottlenecks Tech team pain points Modules and Components Modules (code organization):</description>
     </item>
   </channel>
 </rss>

@@ -131,7 +131,6 @@ audio {
         
 
 <h1>Azure App Configuration with Key Vault and Managed Identity in HA</h1>
-<h2 id="azure-app-configuration-with-key-vault-and-managed-identity-in-ha">Azure App Configuration with Key Vault and Managed Identity in HA</h2>
 <p><strong>Goal:</strong> Production-ready Azure App Configuration setup with Key Vault secrets, Managed Identity authentication, and High Availability.</p>
 <h3 id="how-the-client-works">How the Client Works</h3>
 <p>Azure App Configuration client uses the <strong>sentinel pattern</strong> - a single key that determines if a full configuration refresh is needed.</p>
@@ -143,12 +142,12 @@ audio {
 <li>If sentinel changed → refreshes all configuration</li>
 <li>On failure → attempts failover App Configuration (typically different region)</li>
 </ol>
-<p><strong>Important:</strong> Update the sentinel whenever you change any parameter to trigger a client refresh.</p>
+<p><strong>Important:</strong> Update the sentinel whenever any parameter changes to trigger a client refresh.</p>
 <h4 id="azure-setup">Azure Setup</h4>
 <p>Create API app with <a href="https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet">Managed Identity</a>:</p>
 <p>Create Key Vault and grant API app identity read access to secrets.</p>
 <p>Create App Configuration service and add API app identity with role <code>App Configuration Data Reader</code> in Access Control (IAM).</p>
-<p><strong>Note:</strong> App Configuration only stores Key Vault references, not values. Your app retrieves the actual secret from Key Vault.</p>
+<p><strong>Note:</strong> App Configuration only stores Key Vault references, not values. The app retrieves the actual secret from Key Vault.</p>
 <h4 id="create-parameters">Create Parameters</h4>
 <p>Use JSON-like structure: <code>[ApplicationName]:[ParamName]</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Bustroker.AzureAppConfiguration.WebApi:Sentinel =&gt; 0

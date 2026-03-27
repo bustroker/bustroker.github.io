@@ -131,13 +131,12 @@ audio {
         
 
 <h1>Deploy JAR to Azure Databricks from Local Machine</h1>
-<h2 id="deploy-jar-to-azure-databricks-from-local-machine">Deploy JAR to Azure Databricks from Local Machine</h2>
 <h3 id="goal">Goal</h3>
-<p>Deploy a fat JAR file to Azure Databricks DBFS from your local machine using Databricks CLI.</p>
+<p>Deploy a fat JAR file to Azure Databricks DBFS from the local machine using Databricks CLI.</p>
 <h3 id="configure-databricks-cli">Configure Databricks CLI</h3>
 <p>Generate a PAT token in Databricks workspace (User Settings), then configure:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>databricks configure --token
-</span></span></code></pre></div><p>When prompted, enter your workspace URL:</p>
+</span></span></code></pre></div><p>When prompted, enter the workspace URL:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>https://adb-3772194496043630.10.azuredatabricks.net/
 </span></span></code></pre></div><h3 id="build-and-deploy">Build and Deploy</h3>
 <p>Build the JAR:</p>

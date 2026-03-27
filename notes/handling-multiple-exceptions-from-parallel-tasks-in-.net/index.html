@@ -131,8 +131,7 @@ audio {
         
 
 <h1>Handling Multiple Exceptions from Parallel Tasks in .NET</h1>
-<h2 id="handling-multiple-exceptions-from-parallel-tasks-in-net">Handling Multiple Exceptions from Parallel Tasks in .NET</h2>
-<p>When executing multiple tasks in parallel where more than one can throw exceptions, you need to catch and handle <strong>all</strong> exceptions, not just the first one.</p>
+<p>When executing multiple tasks in parallel where more than one can throw exceptions, <strong>all</strong> exceptions must be caught and handled, not just the first one.</p>
 <h3 id="the-problem">The Problem</h3>
 <p>The exception caught in a <code>catch</code> block when awaiting <code>Task.WhenAll()</code> is only the <strong>first</strong> exception thrown. All exceptions are actually stored in an <code>AggregateException</code> in the task&rsquo;s <code>Exception</code> property.</p>
 <h3 id="the-solution">The Solution</h3>

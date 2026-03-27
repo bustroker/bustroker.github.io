@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/save-and-restore-vs-code-settings-with-powershell/</link>
       <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/save-and-restore-vs-code-settings-with-powershell/</guid>
-      <description>Save and Restore VS Code Settings with PowerShell Save VS Code Settings Back up your VS Code configuration (settings, keybindings, and snippets) to any folder:&#xA;param( [string]$destinationPath = &amp;#34;.&amp;#34; ) ## Resolve full path $destinationPath = Resolve-Path -Path $destinationPath ## Define the source directory $sourcePath = &amp;#34;$env:APPDATA\Code\User&amp;#34; ## Ensure the destination folder exists if (!(Test-Path -Path $destinationPath)) { New-Item -ItemType Directory -Path $destinationPath | Out-Null } ## Copy settings.json, keybindings.json, and snippets if they exist $files = @(&amp;#34;settings.</description>
+      <description>Save VS Code Settings Back up the VS Code configuration (settings, keybindings, and snippets) to any folder:&#xA;param( [string]$destinationPath = &amp;#34;.&amp;#34; ) ## Resolve full path $destinationPath = Resolve-Path -Path $destinationPath ## Define the source directory $sourcePath = &amp;#34;$env:APPDATA\Code\User&amp;#34; ## Ensure the destination folder exists if (!(Test-Path -Path $destinationPath)) { New-Item -ItemType Directory -Path $destinationPath | Out-Null } ## Copy settings.json, keybindings.json, and snippets if they exist $files = @(&amp;#34;settings.json&amp;#34;, &amp;#34;keybindings.</description>
     </item>
   </channel>
 </rss>

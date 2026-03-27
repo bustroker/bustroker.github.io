@@ -131,14 +131,13 @@ audio {
         
 
 <h1>Running Trivy Security Scanner from Docker on macOS</h1>
-<h2 id="running-trivy-security-scanner-from-docker-on-macos">Running Trivy Security Scanner from Docker on macOS</h2>
 <p><strong>Goal:</strong> Run Trivy security scanner using Docker without installing it locally.</p>
 <p>Official documentation: <a href="https://aquasecurity.github.io/trivy/v0.38/">https://aquasecurity.github.io/trivy/v0.38/</a></p>
 <h3 id="basic-usage">Basic Usage</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run aquasec/trivy version
 </span></span></code></pre></div><h3 id="scan-local-filesystem">Scan Local Filesystem</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -v /host/src/to/scan:/target aquasec/trivy --debug fs /target &gt; trivy-output-report.txt
-</span></span></code></pre></div><p>Output file is created in your current directory.</p>
+</span></span></code></pre></div><p>Output file is created in the current directory.</p>
 <p><a href="https://aquasecurity.github.io/trivy/v0.20.2/getting-started/cli/fs/">https://aquasecurity.github.io/trivy/v0.20.2/getting-started/cli/fs/</a></p>
 <h3 id="scan-git-repository">Scan Git Repository</h3>
 <p>Public repositories only: <a href="https://aquasecurity.github.io/trivy/v0.20.2/vulnerability/scanning/git-repository/">https://aquasecurity.github.io/trivy/v0.20.2/vulnerability/scanning/git-repository/</a></p>

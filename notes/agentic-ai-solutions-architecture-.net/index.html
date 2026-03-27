@@ -131,7 +131,6 @@ audio {
         
 
 <h1>Agentic AI Solutions Architecture .NET</h1>
-<h2 id="agentic-ai-solutions-architecture-net">Agentic AI Solutions Architecture .NET</h2>
 <p>This white paper is designed to align an extensive background in distributed systems  with the specific requirements of an <strong>Agentic AI</strong> architecture role. It bridges the experience in <strong>.NET, Azure, and DDD</strong>  with the cutting-edge patterns required for autonomous AI systems.</p>
 <hr>
 <h3 id="white-paper-architecting-agentic-ai-systems-in-net--azure">White Paper: Architecting Agentic AI Systems in .NET &amp; Azure</h3>
@@ -148,9 +147,9 @@ audio {
 <hr>
 <h3 id="2-architectural-patterns-for-agentic-systems">2. Architectural Patterns for Agentic Systems</h3>
 <h3 id="a-the-orchestrator-pattern-semantic-kernel">A. The Orchestrator Pattern (Semantic Kernel)</h3>
-<p>In the .NET ecosystem, <strong>Semantic Kernel (SK)</strong> is the primary framework. It treats the LLM as a &ldquo;kernel&rdquo; that orchestrates &ldquo;plugins&rdquo; (your existing C# code).</p>
+<p>In the .NET ecosystem, <strong>Semantic Kernel (SK)</strong> is the primary framework. It treats the LLM as a &ldquo;kernel&rdquo; that orchestrates &ldquo;plugins&rdquo; (the existing C# code).</p>
 <ul>
-<li><strong>Implementation:</strong> Define your business logic as <code>[KernelFunction]</code> decorated methods.</li>
+<li><strong>Implementation:</strong> Define the business logic as <code>[KernelFunction]</code> decorated methods.</li>
 <li><strong>Relevance:</strong> Ideal for pharma workflows where an agent needs to access specific clinical trial databases or regulatory APIs.</li>
 </ul>
 <h3 id="b-multi-agent-systems-mas--conversational-agents-autogen">B. Multi-Agent Systems (MAS) &amp; Conversational Agents (AutoGen)</h3>
@@ -167,15 +166,14 @@ audio {
 <hr>
 <h3 id="3-the-net--azure-implementation-stack">3. The .NET &amp; Azure Implementation Stack</h3>
 <h3 id="infrastructure-as-code-bicepterraform">Infrastructure as Code (Bicep/Terraform)</h3>
-<p>For a pharmaceutical product, your IaC must provision a &ldquo;Secure AI Landing Zone.&rdquo;</p>
+<p>For a pharmaceutical product, the IaC must provision a &ldquo;Secure AI Landing Zone.&rdquo;</p>
 <ul>
 <li><strong>Resources:</strong> Azure OpenAI Service, Azure AI Search (Vector Store), and Azure Container Apps (to host the agents).</li>
-<li></li>
+<li><strong>Luis&rsquo;s Edge:</strong> The <strong>15+ years of experience</strong> can support discussion of automating <strong>Provisioned Throughput (PTU)</strong> deployment for low-latency, time-critical pharma research.</li>
 </ul>
-<p><strong>Luis&rsquo;s Edge:</strong> Use your <strong>15+ years of experience</strong>  to discuss how you automate the deployment of <strong>Provisioned Throughput (PTU)</strong> to ensure low latency for time-critical pharma research.</p>
 <h3 id="identity--security">Identity &amp; Security</h3>
 <ul>
-<li><strong>Managed Identity:</strong> Use <strong>Azure Entra ID</strong> (Managed Identities) so your .NET services never handle raw API keys for Azure OpenAI.</li>
+<li><strong>Managed Identity:</strong> Use <strong>Azure Entra ID</strong> (Managed Identities) so the .NET services never handle raw API keys for Azure OpenAI.</li>
 <li><strong>Data Residency:</strong> Ensure data processed by agents stays within specific Azure regions to comply with healthcare regulations (GDPR/HIPAA).</li>
 </ul>
 <h3 id="guardrails--safety">Guardrails &amp; Safety</h3>
@@ -185,15 +183,15 @@ audio {
 </ul>
 <h3 id="monitoring--observability">Monitoring &amp; Observability</h3>
 <ul>
-<li><strong>OpenTelemetry:</strong> Standardize your agentic traces.</li>
+<li><strong>OpenTelemetry:</strong> Standardize the agentic traces.</li>
 <li><strong>App Insights (AI Lens):</strong> Track &ldquo;Token Usage&rdquo; and &ldquo;Reasoning Latency.&rdquo;</li>
-<li><strong>Traceability:</strong> In Pharma, you must be able to &ldquo;audit&rdquo; why an agent made a specific decision. Store the full reasoning chain (the &ldquo;Thought&rdquo; process) in <strong>Azure Cosmos DB</strong>.</li>
+<li><strong>Traceability:</strong> In pharma, traceability must support auditing why an agent made a specific decision. Store the full reasoning chain (the &ldquo;Thought&rdquo; process) in <strong>Azure Cosmos DB</strong>.</li>
 </ul>
 <hr>
 <h3 id="4-testing-the-non-deterministic">4. Testing the Non-Deterministic</h3>
 <p>Testing agents is harder than testing standard APIs because the &ldquo;answer&rdquo; can change.</p>
 <ul>
-<li><strong>LLM-as-a-Judge:</strong> Use a stronger model (GPT-4o) to grade the outputs of your agentic model.</li>
+<li><strong>LLM-as-a-Judge:</strong> Use a stronger model (GPT-4o) to grade the outputs of the agentic model.</li>
 <li><strong>Prompt Flow:</strong> Use Azure AI Studio’s Prompt Flow to run bulk tests against &ldquo;Golden Datasets&rdquo; of medical queries to ensure no regression in accuracy.</li>
 </ul>
 <hr>

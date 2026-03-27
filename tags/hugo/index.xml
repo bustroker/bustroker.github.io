@@ -6,14 +6,21 @@
     <description>Recent content in Hugo on Coding notes - and snippets</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://www.bustroker.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create hugo site with docker</title>
+      <link>https://www.bustroker.com/notes/create-hugo-site-with-docker/</link>
+      <pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/create-hugo-site-with-docker/</guid>
+      <description>Create a Hugo site and run it from Docker without installing Hugo on the host.&#xA;Add the Hugo Docker image Save this as Dockerfile in an empty working folder:&#xA;FROM ubuntu RUN apt update &amp;amp;&amp;amp; apt install hugo -y WORKDIR /site ENTRYPOINT [ &amp;#34;hugo&amp;#34;, &amp;#34;-D&amp;#34; ] Build the image:&#xA;docker build -t hugo . Create the site from Docker Create the site:&#xA;docker run --rm \ -v &amp;#34;$(pwd)&amp;#34;:/work \ -w /work \ --entrypoint hugo \ hugo new site my-site The site root is my-site/.</description>
+    </item>
     <item>
       <title>Adding Images to Hugo Sites</title>
       <link>https://www.bustroker.com/notes/adding-images-to-hugo-sites/</link>
       <pubDate>Tue, 11 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/adding-images-to-hugo-sites/</guid>
-      <description>Adding Images to Hugo Sites Goal Add images to your Hugo site pages using the appropriate method for your use case.&#xA;Methods Page Bundles Place images alongside your markdown file:&#xA;content/posts/my-post/ ├── index.md ├── my-image.jpg Reference in index.md:&#xA;![Alt text](my-image.jpg) or with full path:&#xA;![Alt text](/posts/my-post/my-image.jpg) Static Directory For globally shared images:&#xA;static/images/my-image.jpg Reference in markdown:&#xA;![Alt text](/images/my-image.jpg) Hugo Figure Shortcode For captions and additional styling:&#xA;Image Title With static directory:</description>
+      <description>Goal Add images to the Hugo site pages using the appropriate method for the use case.&#xA;Methods Page Bundles Place images alongside the markdown file:&#xA;content/posts/my-post/ ├── index.md ├── my-image.jpg Reference in index.md:&#xA;![Alt text](my-image.jpg) or with full path:&#xA;![Alt text](/posts/my-post/my-image.jpg) Static Directory For globally shared images:&#xA;static/images/my-image.jpg Reference in markdown:&#xA;![Alt text](/images/my-image.jpg) Hugo Figure Shortcode For captions and additional styling:&#xA;Image Title With static directory:&#xA;Image Title External URLs !</description>
     </item>
   </channel>
 </rss>

@@ -13,7 +13,7 @@
       <link>https://www.bustroker.com/notes/restore-previous-commit-without-changing-head/</link>
       <pubDate>Thu, 13 Nov 2025 00:00:00 +0000</pubDate>
       <guid>https://www.bustroker.com/notes/restore-previous-commit-without-changing-head/</guid>
-      <description>Restore Previous Commit Without Changing HEAD Goal Restore files from a previous commit to your working directory while keeping HEAD on the current branch (avoiding detached HEAD state).&#xA;Find the Target Commit git log --oneline -n &amp;lt;N&amp;gt; Restore Files from Previous Commit git checkout &amp;lt;commit-hash&amp;gt; -- . This command:&#xA;Updates all files in current directory and subdirectories to match the specified commit Leaves HEAD on your current branch (no branch switching) Only affects working directory, not branch pointer Without -- .</description>
+      <description>Goal Restore files from a previous commit to the working directory while keeping HEAD on the current branch (avoiding detached HEAD state).&#xA;Find the Target Commit git log --oneline -n &amp;lt;N&amp;gt; Restore Files from Previous Commit git checkout &amp;lt;commit-hash&amp;gt; -- . This command:&#xA;Updates all files in current directory and subdirectories to match the specified commit Leaves HEAD on the current branch (no branch switching) Only affects working directory, not branch pointer Without -- .</description>
     </item>
   </channel>
 </rss>

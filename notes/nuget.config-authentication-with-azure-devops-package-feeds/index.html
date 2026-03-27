@@ -131,11 +131,10 @@ audio {
         
 
 <h1>NuGet.config Authentication with Azure DevOps Package Feeds</h1>
-<h2 id="nugetconfig-authentication-with-azure-devops-package-feeds">NuGet.config Authentication with Azure DevOps Package Feeds</h2>
 <h3 id="goal">Goal</h3>
 <p>Authenticate NuGet to access private Azure DevOps Package Feeds.</p>
 <h3 id="setup-azure-devops">Setup Azure DevOps</h3>
-<p>Add user <code>bustroker.packages.restore@bustroker.onmicrosoft.com</code> as a Reader in your Feed&rsquo;s Security tab, then generate a Read Package PAT.</p>
+<p>Add user <code>bustroker.packages.restore@bustroker.onmicrosoft.com</code> as a Reader in the Feed&rsquo;s Security tab, then generate a Read Package PAT.</p>
 <h3 id="basic-authentication">Basic Authentication</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>//nuget.config
 </span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>

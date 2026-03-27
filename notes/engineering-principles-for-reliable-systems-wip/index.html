@@ -131,15 +131,14 @@ audio {
         
 
 <h1>Engineering Principles for Reliable Systems (WIP)</h1>
-<h2 id="engineering-principles-for-reliable-systems-wip">Engineering Principles for Reliable Systems (WIP)</h2>
 <h3 id="goal">Goal</h3>
 <p>Establish engineering principles that guide teams toward better technical decisions and prevent common architectural mistakes.</p>
 <h3 id="core-principles">Core Principles</h3>
 <h4 id="1-prefer-simplicity-over-complexity">1. Prefer Simplicity Over Complexity</h4>
-<p>Every complexity level requires clear justification. If you can&rsquo;t articulate why the complexity is necessary, it shouldn&rsquo;t exist.</p>
+<p>Every complexity level requires clear justification. If the reason cannot be articulated, the complexity should not exist.</p>
 <h4 id="2-dead-letter-queues-are-not-optional">2. Dead Letter Queues Are Not Optional</h4>
 <p>Every processing queue <strong>must</strong> have a corresponding dead letter queue.</p>
-<p>Without a DLQ, you have no visibility into failures and no way to recover from processing errors. This isn&rsquo;t about best practices—it&rsquo;s about operational necessity.</p>
+<p>Without a DLQ, failures have no visibility and no recovery path. This is not about best practices; it is an operational necessity.</p>
 <h3 id="implementation-notes">Implementation Notes</h3>
 <p>Consider separating high-level principles from specific technical decisions (ADRs - Architecture Decision Records). Principles guide thinking; ADRs document specific choices and their context.</p>
 

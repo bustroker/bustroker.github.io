@@ -131,14 +131,13 @@ audio {
         
 
 <h1>Using sqlcmd CLI for SQL Server</h1>
-<h2 id="using-sqlcmd-cli-for-sql-server">Using sqlcmd CLI for SQL Server</h2>
 <h3 id="goal">Goal</h3>
 <p>Execute SQL Server queries and scripts from the command line using <code>sqlcmd</code>.</p>
 <h3 id="installation">Installation</h3>
 <p>The <code>sqlcmd.exe</code> utility comes with Visual Studio 2019 or SQL Server 2019.</p>
 <p><strong>Location:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150
-</span></span></code></pre></div><p>Add this path to your system PATH environment variable.</p>
+</span></span></code></pre></div><p>Add this path to the system PATH environment variable.</p>
 <h3 id="execute-a-sql-script">Execute a SQL Script</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>sqlcmd -S localhost -i C:\setupscripts\createUser.sql -o C:\setupscripts\createUser.log
 </span></span></code></pre></div><h3 id="interactive-query-session">Interactive Query Session</h3>
