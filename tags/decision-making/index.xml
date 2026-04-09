@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Decision-Making on Coding notes - and snippets</title>
+    <link>https://www.bustroker.com/tags/decision-making/</link>
+    <description>Recent content in Decision-Making on Coding notes - and snippets</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.bustroker.com/tags/decision-making/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Influencing Architectural Decisions in Consulting Contexts</title>
+      <link>https://www.bustroker.com/notes/influencing-architectural-decisions-in-consulting-contexts/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://www.bustroker.com/notes/influencing-architectural-decisions-in-consulting-contexts/</guid>
+      <description>Context Selling to technical teams and senior stakeholders without authority.&#xA;In consulting work, the final decision typically belongs to someone else. The role is to:&#xA;frame the decision clearly guide stakeholders toward a direction enable progress despite disagreement Success is not measured by being right, but by:&#xA;clarity, alignment, and forward movement&#xA;Core Principles 1. Frame decisions, don&amp;rsquo;t debate opinions Anchor discussions on:&#xA;what matters (speed, cost, risk, scalability) explicit trade-offs &amp;ldquo;Compare options based on shared criteria, not personal preference.</description>
+    </item>
+  </channel>
+</rss>
